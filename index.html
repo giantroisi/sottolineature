@@ -6,16 +6,16 @@
 <title>Sottolineature — citazioni da libri</title>
 <style>
   :root {
-    --paper: #ece6da;
-    --paper-raised: #f7f3ea;
+    --paper: #f2f0eb;
+    --paper-raised: #f8f7f3;
     --ink: #211f1b;
     --ink-soft: #5b564d;
     --ink-faint: #8c8577;
     --accent: #33523f;
     --accent-soft: #6b8574;
     --gold: #9c7a3c;
-    --rule: #d9d2c3;
-    --shadow: rgba(33, 31, 27, 0.10);
+    --rule: #ddd9cf;
+    --shadow: rgba(33, 31, 27, 0.08);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -45,16 +45,16 @@
     --shadow: rgba(0, 0, 0, 0.4);
   }
   :root[data-theme="light"] {
-    --paper: #ece6da;
-    --paper-raised: #f7f3ea;
+    --paper: #f2f0eb;
+    --paper-raised: #f8f7f3;
     --ink: #211f1b;
     --ink-soft: #5b564d;
     --ink-faint: #8c8577;
     --accent: #33523f;
     --accent-soft: #6b8574;
     --gold: #9c7a3c;
-    --rule: #d9d2c3;
-    --shadow: rgba(33, 31, 27, 0.10);
+    --rule: #ddd9cf;
+    --shadow: rgba(33, 31, 27, 0.08);
   }
 
   * { box-sizing: border-box; }
@@ -168,6 +168,26 @@
   }
   .shuffle-btn:hover { color: var(--gold); border-color: var(--gold); }
   .shuffle-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+  /* Search */
+  .search-bar {
+    margin-bottom: 1.5rem;
+  }
+
+  #searchInput {
+    width: 100%;
+    max-width: 26rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.65rem 0.9rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--ink);
+  }
+  #searchInput::placeholder { color: var(--ink-faint); }
+  #searchInput:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #searchInput::-webkit-search-cancel-button { cursor: pointer; }
 
   /* Filters */
   nav.filters {
@@ -378,6 +398,10 @@
     </p>
     <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
   </section>
+
+  <div class="search-bar">
+    <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off">
+  </div>
 
   <nav class="filters sans" id="filters">
     <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
@@ -969,18 +993,43 @@
       }, 220);
     });
 
+    applyRandom();
+
+    var searchInput = document.getElementById('searchInput');
+    var activeCategory = 'tutte';
+
+    function normalize(str) {
+      return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+
+    function applyFilters() {
+      var term = normalize(searchInput.value.trim());
+      cards.forEach(function (card) {
+        var categoryOk = activeCategory === 'tutte' || card.getAttribute('data-category') === activeCategory;
+        var searchOk = true;
+        if (term) {
+          var haystack = normalize(
+            card.querySelector('.card-quote').textContent + ' ' +
+            card.querySelector('.card-author').textContent + ' ' +
+            card.querySelector('.card-title').textContent
+          );
+          searchOk = haystack.indexOf(term) !== -1;
+        }
+        card.style.display = (categoryOk && searchOk) ? '' : 'none';
+      });
+    }
+
     var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
     filterBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         filterBtns.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
-        var f = btn.getAttribute('data-filter');
-        cards.forEach(function (card) {
-          var show = f === 'tutte' || card.getAttribute('data-category') === f;
-          card.style.display = show ? '' : 'none';
-        });
+        activeCategory = btn.getAttribute('data-filter');
+        applyFilters();
       });
     });
+
+    searchInput.addEventListener('input', applyFilters);
 
     function copyCard(card) {
       var quote = card.querySelector('.card-quote').textContent;
