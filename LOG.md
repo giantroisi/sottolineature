@@ -1,3 +1,4 @@
 # Log
 
 - 2026-08-02 11:20 UTC — added 4 quotes (total now 75) — aggiunte citazioni di Seneca, Marguerite Yourcenar, Toni Morrison, Italo Calvino; scartati Dostoevskij (Delitto e castigo, testo non verificabile con certezza), Sylvia Plath (passo troppo lungo per una card), Chinua Achebe e Marco Aurelio (nessuna citazione verificabile con esattezza)
+- 2026-08-02 12:21 UTC — added 4 quotes (total now 79) — aggiunte citazioni di Dostoevskij (Delitto e castigo, riverificata con più fonti indipendenti nonostante lo scarto precedente), Viktor Frankl, Hermann Hesse, Grazia Deledda; scartati Anaïs Nin (fonte/volume del diario non identificabile con certezza), Borges e Marco Aurelio (citazioni troppo lunghe/ambigue da verificare con esattezza), Toni Morrison Il canto di Salomone (formulazione probabilmente parafrasata, non citazione esatta)
