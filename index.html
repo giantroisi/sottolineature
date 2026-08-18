@@ -83,7 +83,7 @@
 
   .logo-mark {
     display: block;
-    height: clamp(4.4rem, 9vw, 6.4rem);
+    height: clamp(5.6rem, 11.5vw, 8.2rem);
     width: auto;
     max-width: 100%;
   }
@@ -104,25 +104,28 @@
     background: var(--paper-raised);
     border: 1px solid var(--rule);
     border-radius: 2px;
-    padding: 2rem clamp(1.5rem, 4vw, 2.5rem);
+    padding: 1.6rem clamp(1.4rem, 3.5vw, 2.1rem);
     box-shadow: 0 1px 2px var(--shadow);
     flex: 1 1 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero-label {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-faint);
-    margin: 0 0 1.25rem;
+    margin: 0 0 0.9rem;
   }
 
   #heroQuote {
-    font-size: clamp(1.4rem, 3vw, 2.05rem);
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
     line-height: 1.4;
     font-style: italic;
     font-weight: 400;
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.1rem;
     max-width: 42rem;
     transition: opacity 0.35s ease, transform 0.35s ease;
   }
@@ -2948,10 +2951,24 @@
       var author = card.querySelector('.card-author').textContent;
       var title = card.querySelector('.card-title').textContent;
       var year = card.querySelector('.card-year').textContent;
-      return '<span class="card-author">' + author + '</span> — ' +
+      return '<span class="card-author" tabindex="0">' + author + '</span> — ' +
              '<span class="card-title">' + title + '</span> · ' +
              '<span class="card-year">' + year + '</span>';
     }
+
+    heroCitation.addEventListener('click', function (e) {
+      if (e.target.classList.contains('card-author')) {
+        e.stopPropagation();
+        filterByAuthor(e.target.textContent);
+      }
+    });
+    heroCitation.addEventListener('keydown', function (e) {
+      if (e.target.classList.contains('card-author') && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        e.stopPropagation();
+        filterByAuthor(e.target.textContent);
+      }
+    });
 
     function applyRandom() {
       var i;
