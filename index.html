@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
 <title>Sottolineature — citazioni da libri</title>
 <style>
   :root {
@@ -18,6 +18,20 @@
     --gold: #9c7a3c;
     --rule: #ddd9cf;
     --shadow: rgba(33, 31, 27, 0.08);
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #16191a;
+    --paper-raised: #1f2224;
+    --ink: #ece7dd;
+    --ink-soft: #a9a296;
+    --ink-faint: #746e62;
+    --accent: #8fb59b;
+    --accent-soft: #5c7c68;
+    --gold: #c9a45c;
+    --rule: #33362f;
+    --shadow: rgba(0, 0, 0, 0.4);
   }
 
   * { box-sizing: border-box; }
@@ -64,6 +78,9 @@
     height: clamp(7.5rem, 19vw, 14rem);
     width: auto;
     max-width: 100%;
+  }
+  :root[data-theme="dark"] .logo-mark {
+    filter: invert(1);
   }
 
   .lede {
@@ -247,6 +264,17 @@
   }
   .card-citation .card-title { font-style: italic; }
 
+  .card-author {
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+  }
+  .card-author:hover,
+  .card-author:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    outline: none;
+  }
+
   .card-hint {
     font-size: 0.68rem;
     letter-spacing: 0.1em;
@@ -285,6 +313,29 @@
 
   .filter-btn-underlined { color: var(--gold); }
   .filter-btn-underlined.active { color: var(--accent); border-color: var(--accent); }
+
+  .theme-toggle {
+    all: unset;
+    position: fixed;
+    top: 1.1rem;
+    left: 1.1rem;
+    z-index: 20;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    line-height: 1;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  .theme-toggle:hover { color: var(--gold); border-color: var(--gold); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   footer {
     margin-top: 4rem;
@@ -373,8 +424,16 @@
 
   .page[hidden] { display: none; }
 </style>
+<script>
+  try {
+    var savedTheme = localStorage.getItem('sottolineature-theme');
+    if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+  } catch (e) {}
+</script>
 </head>
 <body>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
 
 <div class="gate sans" id="gate">
   <div class="gate-card">
@@ -2808,6 +2867,32 @@
 
 <script>
   (function () {
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+
+    function currentTheme() {
+      return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    }
+
+    function render() {
+      toggle.textContent = currentTheme() === 'dark' ? '☀' : '☾';
+    }
+
+    render();
+
+    toggle.addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      try { localStorage.setItem('sottolineature-theme', next); } catch (e) {}
+      render();
+    });
+  })();
+
+  (function () {
     var GATE_PASSWORD = 'Calude1!';
     var gate = document.getElementById('gate');
     var page = document.getElementById('page');
@@ -2960,6 +3045,32 @@
     });
 
     searchInput.addEventListener('input', applyFilters);
+
+    function filterByAuthor(name) {
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      var tutteBtn = document.querySelector('.filter-btn[data-filter="tutte"]');
+      if (tutteBtn) { tutteBtn.classList.add('active'); }
+      activeCategory = 'tutte';
+      searchInput.value = name;
+      applyFilters();
+      searchInput.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
+    }
+
+    cards.forEach(function (card) {
+      var authorEl = card.querySelector('.card-author');
+      authorEl.tabIndex = 0;
+      authorEl.addEventListener('click', function (e) {
+        e.stopPropagation();
+        filterByAuthor(authorEl.textContent);
+      });
+      authorEl.addEventListener('keydown', function (e) {
+        e.stopPropagation();
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          filterByAuthor(authorEl.textContent);
+        }
+      });
+    });
 
     function copyCard(card) {
       var quote = card.querySelector('.card-quote').textContent;
