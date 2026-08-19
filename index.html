@@ -150,7 +150,15 @@
     #heroQuote, #heroCitation { transition: none; }
   }
 
-  .shuffle-btn {
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+
+  .shuffle-btn,
+  .hero-copy-btn {
     all: unset;
     cursor: pointer;
     font-size: 0.82rem;
@@ -159,8 +167,10 @@
     border-bottom: 1px solid var(--accent-soft);
     padding-bottom: 2px;
   }
-  .shuffle-btn:hover { color: var(--gold); border-color: var(--gold); }
-  .shuffle-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .shuffle-btn:hover,
+  .hero-copy-btn:hover { color: var(--gold); border-color: var(--gold); }
+  .shuffle-btn:focus-visible,
+  .hero-copy-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
   /* Search */
   .search-bar {
@@ -208,11 +218,16 @@
 
   /* Grid of quote cards */
   .grid {
-    column-count: 2;
-    column-gap: 3rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .grid-col {
+    flex: 1 1 0;
+    min-width: 0;
   }
   @media (max-width: 700px) {
-    .grid { column-count: 1; }
+    .grid { flex-direction: column; gap: 0; }
   }
 
   .card {
@@ -476,7 +491,10 @@
     <p id="heroCitation" class="sans">
       <span class="card-author">Dante Alighieri</span> — <span class="card-title">Inferno, Divina Commedia</span> · <span class="card-year">1321</span>
     </p>
-    <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
+    <div class="hero-actions">
+      <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
+      <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
+    </div>
   </section>
   </div>
 
@@ -3003,10 +3021,37 @@
   (function () {
     var grid = document.getElementById('grid');
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+    var gridColA = document.createElement('div');
+    gridColA.className = 'grid-col';
+    var gridColB = document.createElement('div');
+    gridColB.className = 'grid-col';
+    grid.appendChild(gridColA);
+    grid.appendChild(gridColB);
+
+    var singleColumnQuery = window.matchMedia('(max-width: 700px)');
+
+    function redistribute() {
+      var singleColumn = singleColumnQuery.matches;
+      var i = 0;
+      cards.forEach(function (card) {
+        if (card.style.display !== 'none') {
+          var target = singleColumn ? gridColA : (i % 2 === 0 ? gridColA : gridColB);
+          target.appendChild(card);
+          i++;
+        }
+      });
+    }
+    if (singleColumnQuery.addEventListener) {
+      singleColumnQuery.addEventListener('change', redistribute);
+    } else if (singleColumnQuery.addListener) {
+      singleColumnQuery.addListener(redistribute);
+    }
+
     var hero = document.getElementById('hero');
     var heroQuote = document.getElementById('heroQuote');
     var heroCitation = document.getElementById('heroCitation');
     var shuffleBtn = document.getElementById('shuffleBtn');
+    var heroCopyBtn = document.getElementById('heroCopyBtn');
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var lastIndex = -1;
 
@@ -3052,6 +3097,24 @@
     });
 
     applyRandom();
+
+    function copyHero() {
+      var quote = heroQuote.textContent.replace(/^«|»$/g, '');
+      var author = heroCitation.querySelector('.card-author').textContent;
+      var title = heroCitation.querySelector('.card-title').textContent;
+      var text = '"' + quote + '" — ' + author + ', ' + title;
+      var original = heroCopyBtn.textContent;
+      function feedback() {
+        heroCopyBtn.textContent = 'Copiato';
+        setTimeout(function () { heroCopyBtn.textContent = original; }, 1400);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(feedback, feedback);
+      } else {
+        feedback();
+      }
+    }
+    heroCopyBtn.addEventListener('click', copyHero);
 
     var searchInput = document.getElementById('searchInput');
     var activeCategory = 'tutte';
@@ -3121,6 +3184,7 @@
         }
         card.style.display = (categoryOk && searchOk) ? '' : 'none';
       });
+      redistribute();
     }
 
     var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
@@ -3189,6 +3253,8 @@
         }
       });
     });
+
+    redistribute();
   })();
 </script>
 </body>
