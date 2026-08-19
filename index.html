@@ -216,6 +216,13 @@
   .filter-btn.active { color: var(--accent); border-color: var(--accent); }
   .filter-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
+  .empty-state {
+    font-size: 0.95rem;
+    color: var(--ink-faint);
+    padding: 2.5rem 0;
+    text-align: center;
+  }
+
   /* Grid of quote cards */
   .grid {
     display: flex;
@@ -513,6 +520,8 @@
     <button class="filter-btn" data-filter="verita" type="button">Verità</button>
     <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
   </nav>
+
+  <p class="empty-state sans" id="emptyState" hidden>Nessuna citazione trovata. Prova a cercare un altro autore, titolo o parola.</p>
 
   <div class="grid" id="grid">
 
@@ -3166,8 +3175,11 @@
       hint.parentNode.insertBefore(toggle, hint);
     });
 
+    var emptyState = document.getElementById('emptyState');
+
     function applyFilters() {
       var term = normalize(searchInput.value.trim());
+      var visibleCount = 0;
       cards.forEach(function (card) {
         var categoryOk = activeCategory === 'tutte' || card.getAttribute('data-category') === activeCategory;
         if (activeCategory === 'sottolineate') {
@@ -3182,9 +3194,12 @@
           );
           searchOk = haystack.indexOf(term) !== -1;
         }
-        card.style.display = (categoryOk && searchOk) ? '' : 'none';
+        var visible = categoryOk && searchOk;
+        card.style.display = visible ? '' : 'none';
+        if (visible) { visibleCount++; }
       });
       redistribute();
+      emptyState.hidden = visibleCount > 0;
     }
 
     var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
