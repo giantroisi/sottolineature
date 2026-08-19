@@ -265,6 +265,22 @@
     box-shadow: 0 1px 3px var(--shadow);
   }
 
+  .card-cover-placeholder {
+    width: 44px;
+    height: 66px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
   .card-mark {
     position: absolute;
     left: -0.15rem;
@@ -3057,6 +3073,29 @@
   (function () {
     var grid = document.getElementById('grid');
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+
+    var COVER_PALETTE = ['#8a6f5c', '#6b7c6e', '#7d6a8a', '#8a7355', '#6f7d8a', '#8a5f5f', '#5f7a7d', '#7a6f8a'];
+
+    function initialsFor(name) {
+      var tokens = name.replace(/\./g, '').split(/\s+/).filter(Boolean);
+      if (tokens.length === 1) { return tokens[0].slice(0, 2).toUpperCase(); }
+      return (tokens[0][0] + tokens[tokens.length - 1][0]).toUpperCase();
+    }
+
+    cards.forEach(function (card) {
+      if (card.querySelector('.card-cover')) { return; }
+      var author = card.querySelector('.card-author').textContent;
+      var sum = 0;
+      for (var i = 0; i < author.length; i++) { sum += author.charCodeAt(i); }
+      var color = COVER_PALETTE[sum % COVER_PALETTE.length];
+      var tile = document.createElement('span');
+      tile.className = 'card-cover-placeholder';
+      tile.style.background = color;
+      tile.setAttribute('aria-hidden', 'true');
+      tile.textContent = initialsFor(author);
+      card.appendChild(tile);
+    });
+
     var gridColA = document.createElement('div');
     gridColA.className = 'grid-col';
     var gridColB = document.createElement('div');
