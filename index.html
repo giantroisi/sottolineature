@@ -188,6 +188,13 @@
   #searchInput::-webkit-search-cancel-button { cursor: pointer; }
 
   /* Filters */
+  .filters-note {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--ink-faint);
+    margin: 0 0 0.9rem;
+  }
+
   nav.filters {
     display: flex;
     flex-wrap: wrap;
@@ -528,6 +535,7 @@
     <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off">
   </div>
 
+  <p class="filters-note sans">Non una classificazione, ma un umore: la stessa pagina può riconoscersi in più d'uno.</p>
   <nav class="filters sans" id="filters">
     <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
     <button class="filter-btn" data-filter="vita" type="button">Vita</button>
