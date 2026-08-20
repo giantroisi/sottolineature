@@ -152,6 +152,13 @@
     flex-wrap: wrap;
   }
 
+  .hero-underline-btn {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    margin: 0;
+  }
+
   .shuffle-btn,
   .hero-copy-btn {
     all: unset;
@@ -217,6 +224,21 @@
   .filter-btn:hover { color: var(--ink); }
   .filter-btn.active { color: var(--accent); border-color: var(--accent); }
   .filter-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .print-selection-btn {
+    all: unset;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent-soft);
+    padding-bottom: 2px;
+    margin: 0 0 2.5rem;
+  }
+  .print-selection-btn:hover { color: var(--gold); border-color: var(--gold); }
+  .print-selection-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .print-selection-btn[hidden] { display: none; }
 
   .empty-state {
     font-size: 0.95rem;
@@ -500,6 +522,7 @@
     .search-bar,
     .filters-note,
     nav.filters,
+    .print-selection-btn,
     .hero,
     .underline-toggle,
     .card-hint,
@@ -562,6 +585,7 @@
     <div class="hero-actions">
       <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
       <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
+      <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
     </div>
   </section>
   </div>
@@ -582,6 +606,8 @@
     <button class="filter-btn" data-filter="verita" type="button">Verità</button>
     <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
   </nav>
+
+  <button class="print-selection-btn sans" id="printSelectionBtn" type="button" hidden>Stampa o esporta questa selezione</button>
 
   <p class="empty-state sans" id="emptyState" hidden>Nessuna citazione trovata. Prova a cercare un altro autore, titolo o parola.</p>
 
@@ -3199,13 +3225,61 @@
       singleColumnQuery.addListener(redistribute);
     }
 
+    var UNDERLINE_KEY = 'sottolineature-underlined';
+    var underlinedSet = {};
+    try {
+      var stored = JSON.parse(localStorage.getItem(UNDERLINE_KEY) || '[]');
+      stored.forEach(function (k) { underlinedSet[k] = true; });
+    } catch (e) {}
+
+    function saveUnderlined() {
+      try {
+        localStorage.setItem(UNDERLINE_KEY, JSON.stringify(Object.keys(underlinedSet)));
+      } catch (e) {}
+    }
+
+    function quoteKey(card) {
+      return card.querySelector('.card-author').textContent + '|' + card.querySelector('.card-title').textContent;
+    }
+
+    function setUnderlined(card, value) {
+      var key = quoteKey(card);
+      if (value) { underlinedSet[key] = true; } else { delete underlinedSet[key]; }
+      saveUnderlined();
+      card.classList.toggle('is-underlined', value);
+      if (card._underlineToggle) {
+        card._underlineToggle.textContent = value ? 'Sottolineata' : 'Sottolinea';
+        card._underlineToggle.classList.toggle('is-active', value);
+        card._underlineToggle.setAttribute('aria-pressed', String(value));
+      }
+      if (currentHeroCard && quoteKey(currentHeroCard) === key) {
+        updateHeroUnderlineBtn();
+      }
+      if (activeCategory === 'sottolineate') { applyFilters(); }
+    }
+
     var hero = document.getElementById('hero');
     var heroQuote = document.getElementById('heroQuote');
     var heroCitation = document.getElementById('heroCitation');
     var shuffleBtn = document.getElementById('shuffleBtn');
     var heroCopyBtn = document.getElementById('heroCopyBtn');
+    var heroUnderlineBtn = document.getElementById('heroUnderlineBtn');
     var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var lastIndex = -1;
+    var currentHeroCard = null;
+
+    function updateHeroUnderlineBtn() {
+      if (!currentHeroCard) { return; }
+      var active = !!underlinedSet[quoteKey(currentHeroCard)];
+      heroUnderlineBtn.textContent = active ? 'Sottolineata' : 'Sottolinea';
+      heroUnderlineBtn.classList.toggle('is-active', active);
+      heroUnderlineBtn.setAttribute('aria-pressed', String(active));
+    }
+
+    heroUnderlineBtn.addEventListener('click', function () {
+      if (!currentHeroCard) { return; }
+      setUnderlined(currentHeroCard, !underlinedSet[quoteKey(currentHeroCard)]);
+    });
 
     function citationHTML(card) {
       var author = card.querySelector('.card-author').textContent;
@@ -3235,8 +3309,10 @@
       do { i = Math.floor(Math.random() * cards.length); } while (i === lastIndex && cards.length > 1);
       lastIndex = i;
       var card = cards[i];
+      currentHeroCard = card;
       heroQuote.textContent = '«' + card.querySelector('.card-quote').textContent + '»';
       heroCitation.innerHTML = citationHTML(card);
+      updateHeroUnderlineBtn();
     }
 
     shuffleBtn.addEventListener('click', function () {
@@ -3275,43 +3351,19 @@
       return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
     }
 
-    var UNDERLINE_KEY = 'sottolineature-underlined';
-    var underlinedSet = {};
-    try {
-      var stored = JSON.parse(localStorage.getItem(UNDERLINE_KEY) || '[]');
-      stored.forEach(function (k) { underlinedSet[k] = true; });
-    } catch (e) {}
-
-    function saveUnderlined() {
-      try {
-        localStorage.setItem(UNDERLINE_KEY, JSON.stringify(Object.keys(underlinedSet)));
-      } catch (e) {}
-    }
-
-    function quoteKey(card) {
-      return card.querySelector('.card-author').textContent + '|' + card.querySelector('.card-title').textContent;
-    }
-
     cards.forEach(function (card) {
-      var key = quoteKey(card);
       var toggle = document.createElement('button');
       toggle.type = 'button';
       toggle.className = 'underline-toggle sans';
-      var active = !!underlinedSet[key];
-      function render() {
-        toggle.textContent = active ? 'Sottolineata' : 'Sottolinea';
-        toggle.classList.toggle('is-active', active);
-        toggle.setAttribute('aria-pressed', String(active));
-        card.classList.toggle('is-underlined', active);
-      }
-      render();
+      card._underlineToggle = toggle;
+      var active = !!underlinedSet[quoteKey(card)];
+      toggle.textContent = active ? 'Sottolineata' : 'Sottolinea';
+      toggle.classList.toggle('is-active', active);
+      toggle.setAttribute('aria-pressed', String(active));
+      card.classList.toggle('is-underlined', active);
       toggle.addEventListener('click', function (e) {
         e.stopPropagation();
-        active = !active;
-        if (active) { underlinedSet[key] = true; } else { delete underlinedSet[key]; }
-        saveUnderlined();
-        render();
-        if (activeCategory === 'sottolineate') { applyFilters(); }
+        setUnderlined(card, !underlinedSet[quoteKey(card)]);
       });
       toggle.addEventListener('keydown', function (e) { e.stopPropagation(); });
       var hint = card.querySelector('.card-hint');
@@ -3319,6 +3371,8 @@
     });
 
     var emptyState = document.getElementById('emptyState');
+    var printSelectionBtn = document.getElementById('printSelectionBtn');
+    printSelectionBtn.addEventListener('click', function () { window.print(); });
 
     function applyFilters() {
       var term = normalize(searchInput.value.trim());
@@ -3343,6 +3397,7 @@
       });
       redistribute();
       emptyState.hidden = visibleCount > 0;
+      printSelectionBtn.hidden = !(activeCategory === 'sottolineate' && visibleCount > 0);
     }
 
     var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
