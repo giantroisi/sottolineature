@@ -401,8 +401,14 @@
   .filter-btn-underlined { color: var(--gold); }
   .filter-btn-underlined.active { color: var(--accent); border-color: var(--accent); }
 
+  .card-note-wrap { display: none; }
+  .card.is-underlined .card-note-wrap,
+  .hero.is-underlined .card-note-wrap {
+    display: block;
+  }
+
   .card-note {
-    display: none;
+    display: block;
     width: 100%;
     max-width: 34rem;
     box-sizing: border-box;
@@ -419,9 +425,14 @@
   }
   .card-note::placeholder { color: var(--ink-faint); }
   .card-note:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
-  .card.is-underlined .card-note,
-  .hero.is-underlined .card-note {
-    display: block;
+
+  .card-note-print {
+    display: none;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+    white-space: pre-wrap;
   }
 
   .theme-toggle {
@@ -563,13 +574,9 @@
     header.masthead { max-width: none; }
     .grid { display: block; }
     .grid-col { width: 100%; }
-    .card-note {
-      border: none;
-      background: transparent;
-      padding: 0;
-      resize: none;
-    }
-    .card-note:placeholder-shown { display: none; }
+    .card-note { display: none !important; }
+    .card-note-print { display: block; }
+    .card-note-print[hidden] { display: none; }
     .card {
       break-inside: avoid;
       page-break-inside: avoid;
@@ -3297,19 +3304,42 @@
     }
 
     function makeNoteField(getKey) {
+      var wrap = document.createElement('div');
+      wrap.className = 'card-note-wrap';
+
       var field = document.createElement('textarea');
       field.className = 'card-note sans';
       field.rows = 2;
       field.placeholder = 'Perché ti ha colpita? (facoltativo)';
+
+      var printEl = document.createElement('p');
+      printEl.className = 'card-note-print sans';
+
+      function syncPrint() {
+        var text = field.value.trim();
+        printEl.textContent = text;
+        printEl.hidden = !text;
+      }
+
       field.value = notesMap[getKey()] || '';
+      syncPrint();
+
       var saveTimer;
       field.addEventListener('input', function () {
+        syncPrint();
         clearTimeout(saveTimer);
         saveTimer = setTimeout(function () { saveNote(getKey(), field.value.trim()); }, 400);
       });
       field.addEventListener('click', function (e) { e.stopPropagation(); });
       field.addEventListener('keydown', function (e) { e.stopPropagation(); });
-      return field;
+
+      wrap.appendChild(field);
+      wrap.appendChild(printEl);
+      wrap.updateValue = function (text) {
+        field.value = text;
+        syncPrint();
+      };
+      return wrap;
     }
 
     function setUnderlined(card, value) {
@@ -3348,7 +3378,7 @@
       heroUnderlineBtn.classList.toggle('is-active', active);
       heroUnderlineBtn.setAttribute('aria-pressed', String(active));
       hero.classList.toggle('is-underlined', active);
-      heroNote.value = notesMap[quoteKey(currentHeroCard)] || '';
+      heroNote.updateValue(notesMap[quoteKey(currentHeroCard)] || '');
     }
 
     heroUnderlineBtn.addEventListener('click', function () {
