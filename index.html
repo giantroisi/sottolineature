@@ -401,6 +401,29 @@
   .filter-btn-underlined { color: var(--gold); }
   .filter-btn-underlined.active { color: var(--accent); border-color: var(--accent); }
 
+  .card-note {
+    display: none;
+    width: 100%;
+    max-width: 34rem;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.5rem 0.65rem;
+    margin: 0 0 0.6rem;
+    resize: vertical;
+  }
+  .card-note::placeholder { color: var(--ink-faint); }
+  .card-note:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .card.is-underlined .card-note,
+  .hero.is-underlined .card-note {
+    display: block;
+  }
+
   .theme-toggle {
     all: unset;
     position: fixed;
@@ -540,6 +563,13 @@
     header.masthead { max-width: none; }
     .grid { display: block; }
     .grid-col { width: 100%; }
+    .card-note {
+      border: none;
+      background: transparent;
+      padding: 0;
+      resize: none;
+    }
+    .card-note:placeholder-shown { display: none; }
     .card {
       break-inside: avoid;
       page-break-inside: avoid;
@@ -3249,6 +3279,39 @@
       return card.querySelector('.card-author').textContent + '|' + card.querySelector('.card-title').textContent;
     }
 
+    var NOTES_KEY = 'sottolineature-notes';
+    var notesMap = {};
+    try {
+      notesMap = JSON.parse(localStorage.getItem(NOTES_KEY) || '{}');
+    } catch (e) {}
+
+    function saveNotes() {
+      try {
+        localStorage.setItem(NOTES_KEY, JSON.stringify(notesMap));
+      } catch (e) {}
+    }
+
+    function saveNote(key, text) {
+      if (text) { notesMap[key] = text; } else { delete notesMap[key]; }
+      saveNotes();
+    }
+
+    function makeNoteField(getKey) {
+      var field = document.createElement('textarea');
+      field.className = 'card-note sans';
+      field.rows = 2;
+      field.placeholder = 'Perché ti ha colpita? (facoltativo)';
+      field.value = notesMap[getKey()] || '';
+      var saveTimer;
+      field.addEventListener('input', function () {
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function () { saveNote(getKey(), field.value.trim()); }, 400);
+      });
+      field.addEventListener('click', function (e) { e.stopPropagation(); });
+      field.addEventListener('keydown', function (e) { e.stopPropagation(); });
+      return field;
+    }
+
     function setUnderlined(card, value) {
       var key = quoteKey(card);
       if (value) { underlinedSet[key] = true; } else { delete underlinedSet[key]; }
@@ -3275,6 +3338,9 @@
     var lastIndex = -1;
     var currentHeroCard = null;
 
+    var heroNote = makeNoteField(function () { return currentHeroCard ? quoteKey(currentHeroCard) : ''; });
+    hero.appendChild(heroNote);
+
     function updateHeroUnderlineBtn() {
       if (!currentHeroCard) { return; }
       var active = !!underlinedSet[quoteKey(currentHeroCard)];
@@ -3282,6 +3348,7 @@
       heroUnderlineBtn.classList.toggle('is-active', active);
       heroUnderlineBtn.setAttribute('aria-pressed', String(active));
       hero.classList.toggle('is-underlined', active);
+      heroNote.value = notesMap[quoteKey(currentHeroCard)] || '';
     }
 
     heroUnderlineBtn.addEventListener('click', function () {
@@ -3376,6 +3443,8 @@
       toggle.addEventListener('keydown', function (e) { e.stopPropagation(); });
       var hint = card.querySelector('.card-hint');
       hint.parentNode.insertBefore(toggle, hint);
+      var note = makeNoteField(function () { return quoteKey(card); });
+      hint.parentNode.insertBefore(note, hint);
     });
 
     var emptyState = document.getElementById('emptyState');
