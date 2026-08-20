@@ -481,6 +481,41 @@
   }
 
   .page[hidden] { display: none; }
+
+  @media print {
+    :root {
+      color-scheme: light;
+      --paper: #ffffff;
+      --paper-raised: #ffffff;
+      --ink: #111111;
+      --ink-soft: #333333;
+      --ink-faint: #666666;
+      --accent: #333333;
+      --accent-soft: #999999;
+      --gold: #555555;
+      --rule: #bbbbbb;
+      --shadow: transparent;
+    }
+    .theme-toggle,
+    .search-bar,
+    .filters-note,
+    nav.filters,
+    .hero,
+    .underline-toggle,
+    .card-hint,
+    .card-mark {
+      display: none !important;
+    }
+    .top-row { display: block; }
+    header.masthead { max-width: none; }
+    .grid { display: block; }
+    .grid-col { width: 100%; }
+    .card {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    body { background: #fff; }
+  }
 </style>
 <script>
   try {
