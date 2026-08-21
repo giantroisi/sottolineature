@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<title>Metodo — Sottolineature</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f2f0eb;
+    --paper-raised: #f8f7f3;
+    --ink: #211f1b;
+    --ink-soft: #5b564d;
+    --ink-faint: #8c8577;
+    --accent: #33523f;
+    --accent-soft: #6b8574;
+    --gold: #9c7a3c;
+    --rule: #ddd9cf;
+    --shadow: rgba(33, 31, 27, 0.08);
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #16191a;
+    --paper-raised: #1f2224;
+    --ink: #ece7dd;
+    --ink-soft: #a9a296;
+    --ink-faint: #746e62;
+    --accent: #8fb59b;
+    --accent-soft: #5c7c68;
+    --gold: #c9a45c;
+    --rule: #33362f;
+    --shadow: rgba(0, 0, 0, 0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .sans {
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .page {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.75rem 6rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+    margin-bottom: 2.5rem;
+  }
+  .back-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 0.9rem;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin: 0 0 1.75rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin: 2.75rem 0 0.9rem;
+  }
+
+  p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 1.1rem;
+  }
+
+  ul {
+    margin: 0 0 1.1rem;
+    padding-left: 1.3rem;
+  }
+  li {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+  }
+
+  strong { color: var(--ink); font-weight: 600; }
+
+  .theme-toggle {
+    all: unset;
+    position: fixed;
+    top: 1.1rem;
+    left: 1.1rem;
+    z-index: 20;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    line-height: 1;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  .theme-toggle:hover { color: var(--gold); border-color: var(--gold); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+</style>
+<script>
+  try {
+    var savedTheme = localStorage.getItem('sottolineature-theme');
+    if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+
+<div class="page">
+  <a class="back-link sans" href="index.html">← Torna alle citazioni</a>
+
+  <p class="eyebrow sans">Metodo</p>
+  <h1>Come verifichiamo una citazione</h1>
+
+  <p>Questa pagina esiste perché una citazione riportata male è peggio di nessuna citazione. Ecco, con la massima onestà possibile, come lavoriamo — cosa accettiamo, cosa scartiamo, e dove i limiti del metodo restano visibili invece che nascosti.</p>
+
+  <h2>Le fonti</h2>
+  <p>Prima scelta: Wikisource o l'edizione originale, quando il testo è di pubblico dominio o comunque reperibile in forma integrale. Seconda scelta: Wikiquote, ma solo se la citazione riporta già un riferimento a capitolo o edizione, non come fonte in sé. In tutti gli altri casi cerchiamo <strong>almeno due fonti indipendenti concordanti</strong> sul testo esatto — non due siti che si copiano a vicenda, ma fonti che sembrano aver lavorato separatamente sull'originale.</p>
+
+  <h2>Cosa scartiamo</h2>
+  <ul>
+    <li>Citazioni che esistono solo su siti aggregatori, senza un modo per risalire al testo pubblicato.</li>
+    <li>Frasi attribuite a un libro ma che in realtà appartengono solo al film o alla serie tratta da quel libro.</li>
+    <li>Wording che cambia in modo sostanziale da una fonte all'altra, quando non riusciamo a stabilire quale sia quello corretto.</li>
+    <li>Citazioni il cui contesto — chi parla, in che momento — non riusciamo a verificare con la stessa fonte che ci ha dato il testo.</li>
+  </ul>
+  <p>Scartare una citazione bella ma non verificabile succede spesso, ed è corretto che sia così.</p>
+
+  <h2>Il contesto</h2>
+  <p>Dove vedi qualche riga sotto la citazione, in corsivo leggero, è una nota che spiega chi parla e quando — scritta assumendo che tu non abbia già letto il libro, non per chi lo conosce già. Quando è rilevante, indichiamo anche l'edizione o la traduzione a cui il testo fa riferimento, perché la stessa opera può suonare in modo diverso a seconda di chi l'ha tradotta.</p>
+
+  <h2>Le copertine</h2>
+  <p>Vengono da <a href="https://openlibrary.org" style="color:var(--accent)">Open Library</a>, un catalogo aperto e non commerciale. Prima di accettarne una verifichiamo che l'autore del risultato corrisponda davvero, e la guardiamo — letteralmente, con i nostri occhi — prima di pubblicarla: è già capitato di scartare copertine che a un primo controllo automatico sembravano corrette ma erano in realtà la scansione di una scheda di lettura scolastica o di una pagina bibliografica. Quando non troviamo un'edizione affidabile, la citazione resta senza copertina — o con una piccola tessera con le iniziali dell'autore, piuttosto che con un'immagine sbagliata.</p>
+
+  <h2>Il ruolo degli strumenti</h2>
+  <p>Le citazioni di questo sito non sono generate né scelte da un algoritmo di raccomandazione: nessun sistema decide cosa mostrarti in base a cosa "funziona" o tiene più a lungo sulla pagina. Detto questo, la ricerca delle fonti si avvale di strumenti di intelligenza artificiale per velocizzare la ricerca — è onesto dirlo. Quello che non delega a nessuno strumento è la verifica: ogni citazione viene controllata contro le fonti prima di essere pubblicata, e ogni candidata scartata lo è per una ragione specifica, verificabile, non per un sospetto generico.</p>
+
+  <footer class="sans">
+    Se trovi un errore — una citazione, una copertina, un contesto sbagliato — è un problema del nostro metodo, non tuo. Segnalalo.
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+
+    function currentTheme() {
+      return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    }
+
+    function render() {
+      toggle.textContent = currentTheme() === 'dark' ? '☀' : '☾';
+    }
+
+    render();
+
+    toggle.addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      try { localStorage.setItem('sottolineature-theme', next); } catch (e) {}
+      render();
+    });
+  })();
+</script>
+</body>
+</html>
