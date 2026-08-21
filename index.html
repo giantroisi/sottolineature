@@ -209,10 +209,25 @@
   nav.filters {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 0.4rem 1.5rem;
     margin-bottom: 3rem;
     padding-bottom: 1.25rem;
     border-bottom: 1px solid var(--rule);
+  }
+
+  nav.genre-filters {
+    margin-bottom: 2.5rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  nav.genre-filters .filter-btn { font-size: 0.72rem; }
+  .genre-filters-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 0.2rem;
   }
 
   .filter-btn {
@@ -660,6 +675,13 @@
     <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
   </nav>
 
+  <nav class="filters genre-filters sans" id="genreFilters">
+    <span class="genre-filters-label sans">Genere</span>
+    <button class="filter-btn active" data-genre="tutti" type="button">Tutti</button>
+    <button class="filter-btn" data-genre="fantasy" type="button">Fantasy</button>
+    <button class="filter-btn" data-genre="fantascienza" type="button">Fantascienza</button>
+  </nav>
+
   <button class="print-selection-btn sans" id="printSelectionBtn" type="button" hidden>Stampa o esporta questa selezione</button>
 
   <p class="empty-state sans" id="emptyState" hidden>Nessuna citazione trovata. Prova a cercare un altro autore, titolo o parola.</p>
@@ -747,7 +769,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/12820198-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="liberta" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="liberta" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">La libertà è la libertà di dire che due più due fa quattro.</p>
@@ -995,7 +1017,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/6562535-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="vita" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="vita" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Non tutti quelli che vagano sono perduti.</p>
@@ -1313,7 +1335,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/2237620-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="verita" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="verita" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Non sono le nostre capacità che dimostrano chi siamo davvero, sono le nostre scelte.</p>
@@ -1867,7 +1889,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/5401955-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="verita" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="verita" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Tu cambi tutto ciò che tocchi. Tutto ciò che cambi ti cambia. L'unica verità duratura è il cambiamento. Dio è cambiamento.</p>
@@ -2368,7 +2390,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/5343887-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="verita" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="verita" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">La luce è la mano sinistra delle tenebre, e le tenebre la mano destra della luce.</p>
@@ -2377,7 +2399,7 @@
       </div>
     </article>
 
-    <article class="card" data-category="vita" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="vita" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Il mare è tutto: non per nulla copre i sette decimi del globo. Ha un'aria pura e sana, è il deserto immenso dove l'uomo non è mai solo, perché sente la vita fremergli accanto. Il mare è il veicolo di un'esistenza soprannaturale e prodigiosa, è movimento ed amore, è l'infinito vivente.</p>
@@ -2396,7 +2418,7 @@
       </div>
     </article>
 
-    <article class="card" data-category="tempo" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="tempo" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Ho paura di non riuscire a comunicarvi le peculiari sensazioni di chi viaggia nel tempo, sensazioni spiacevoli al massimo grado. Sembra di essere su una montagna russa: spinti in avanti a una velocità disperata!</p>
@@ -3001,7 +3023,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/37122-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="coraggio" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="coraggio" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Porterò io l'Anello a Mordor. Solo... non conosco la strada.</p>
@@ -3010,7 +3032,7 @@
       </div>
     </article>
 
-    <article class="card" data-category="amore" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="amore" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Sono felice di essere con te, Samvise Gamgee, qui alla fine di ogni cosa.</p>
@@ -3019,7 +3041,7 @@
       </div>
     </article>
 
-    <article class="card" data-category="vita" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="vita" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Non provare pietà per i morti, Harry. Prova pietà per i vivi, e soprattutto per coloro che vivono senza amore.</p>
@@ -3029,7 +3051,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/15158660-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="coraggio" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="coraggio" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Affrontare i nemici richiede notevole ardimento. Ma altrettanto ne occorre per affrontare gli amici.</p>
@@ -3039,7 +3061,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/15155833-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="verita" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="verita" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Non è un leone mansueto. Ma è buono.</p>
@@ -3048,7 +3070,7 @@
       </div>
     </article>
 
-    <article class="card" data-category="coraggio" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="coraggio" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Mai dimenticare chi sei, perché di certo il mondo non lo dimenticherà. Trasforma chi sei nella tua forza, così non potrà mai essere la tua debolezza. Fanne un'armatura, e non potrà mai essere usata contro di te.</p>
@@ -3058,7 +3080,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/9269962-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="coraggio" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="coraggio" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Che i giochi abbiano inizio.</p>
@@ -3068,7 +3090,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/12646537-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="coraggio" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="coraggio" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Non devo avere paura. La paura uccide la mente. La paura è la piccola morte che porta con sé l'annullamento totale. Guarderò in faccia la mia paura. Permetterò che mi calpesti e che mi attraversi. E quando sarà passata, aprirò il mio occhio interiore e ne scruterò il percorso. Là dove andrà la paura non ci sarà più nulla. Soltanto io ci sarò.</p>
@@ -3078,7 +3100,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/11481354-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="verita" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="verita" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">La violenza è l'ultimo rifugio degli incapaci.</p>
@@ -3088,7 +3110,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/6502517-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="coraggio" tabindex="0">
+    <article class="card" data-genre="fantascienza" data-category="coraggio" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Non fatevi prendere dal panico.</p>
@@ -3128,7 +3150,7 @@
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/100108-M.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
 
-    <article class="card" data-category="liberta" tabindex="0">
+    <article class="card" data-genre="fantasy" data-category="liberta" tabindex="0">
       <span class="card-mark" aria-hidden="true">“</span>
       <div class="card-body">
         <p class="card-quote">Solo chi sogna può volare!</p>
@@ -3463,6 +3485,7 @@
 
     var searchInput = document.getElementById('searchInput');
     var activeCategory = 'tutte';
+    var activeGenre = 'tutti';
 
     function normalize(str) {
       return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -3501,6 +3524,7 @@
         if (activeCategory === 'sottolineate') {
           categoryOk = card.classList.contains('is-underlined');
         }
+        var genreOk = activeGenre === 'tutti' || card.getAttribute('data-genre') === activeGenre;
         var searchOk = true;
         if (term) {
           var haystack = normalize(
@@ -3510,7 +3534,7 @@
           );
           searchOk = haystack.indexOf(term) !== -1;
         }
-        var visible = categoryOk && searchOk;
+        var visible = categoryOk && genreOk && searchOk;
         card.style.display = visible ? '' : 'none';
         if (visible) { visibleCount++; }
       });
@@ -3519,12 +3543,22 @@
       printSelectionBtn.hidden = !(activeCategory === 'sottolineate' && visibleCount > 0);
     }
 
-    var filterBtns = Array.prototype.slice.call(document.querySelectorAll('.filter-btn'));
+    var filterBtns = Array.prototype.slice.call(document.querySelectorAll('#filters .filter-btn'));
     filterBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         filterBtns.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
         activeCategory = btn.getAttribute('data-filter');
+        applyFilters();
+      });
+    });
+
+    var genreBtns = Array.prototype.slice.call(document.querySelectorAll('#genreFilters .filter-btn'));
+    genreBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        genreBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeGenre = btn.getAttribute('data-genre');
         applyFilters();
       });
     });
@@ -3536,6 +3570,10 @@
       var tutteBtn = document.querySelector('.filter-btn[data-filter="tutte"]');
       if (tutteBtn) { tutteBtn.classList.add('active'); }
       activeCategory = 'tutte';
+      genreBtns.forEach(function (b) { b.classList.remove('active'); });
+      var tuttiGenreBtn = document.querySelector('.filter-btn[data-genre="tutti"]');
+      if (tuttiGenreBtn) { tuttiGenreBtn.classList.add('active'); }
+      activeGenre = 'tutti';
       searchInput.value = name;
       applyFilters();
       searchInput.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
