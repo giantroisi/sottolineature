@@ -34,7 +34,8 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 ## Convenzioni tecniche
 
 - **Sito statico puro**: `index.html` (tutto: markup + CSS + JS inline), più `metodo.html`, nessun build step. Deploy automatico su push a `main` via integrazione Git di Vercel.
-- **Card**: `<article class="card" data-category="..." data-genre="...(opzionale, multi-valore separato da spazi)">`, contiene `card-quote`, `card-citation` (autore/titolo/anno), `card-context` (opzionale), `card-hint`. Il toggle "Sottolinea", il campo nota e il pulsante "Esporta immagine" vengono iniettati via JS su ogni card, non sono nel markup statico.
+- **Card**: `<article class="card" data-category="..." data-genre="...(opzionale, multi-valore separato da spazi)">`, contiene `card-quote`, `card-citation` (autore/titolo/anno), `card-context` (opzionale), `card-hint`. Il toggle "Sottolinea", il campo nota e il pulsante "Condividi" vengono iniettati via JS su ogni card, non sono nel markup statico.
+- **Condividi**: genera un'immagine 1080×1080 via canvas e usa `navigator.share` con file quando supportato (apre il foglio di condivisione nativo, utile per storie/post Instagram), altrimenti scarica il PNG come fallback.
 - **Categorie** (mood, un solo valore, `data-category`): vita, amore, coraggio, liberta, tempo, solitudine, verita. Presentate esplicitamente come "un'atmosfera, non una classificazione" — non aggiungerne altre senza una ragione forte, il punto è restare poche e larghe.
 - **Generi** (opzionali, multi-valore, `data-genre`, separati da spazio): fantasy, fantascienza, distopia, horror, saggistica. Regola per aggiungerne uno nuovo: **serve un numero sensato di titoli già presenti sul sito** (indicativamente 4+) prima di introdurre un filtro — altrimenti si scarta l'idea (vedi Giallo/Avventura, scartati per un solo titolo a testa).
 - **Copertine mancanti**: gestite da un tile placeholder generato via JS (iniziali autore su colore derivato dal nome), non lasciare mai il buco vuoto.
@@ -51,7 +52,7 @@ Aggiornata: 2026-08-23.
 - 253 citazioni, 34 copertine recuperate + tile placeholder per le mancanti, contesto su 18 citazioni (6 aggiunte con citazioni nuove, 12 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi)
 - 18 citazioni taggate per genere (Fantasy, Fantascienza, Distopia, Horror/Gotico, Saggistica), tag multipli supportati
 - Logo SVG (niente più sfocatura), favicon con la "S" del logo
-- Citazione in evidenza: senza box, Sottolinea sincronizzato con la griglia, Copia citazione, Esporta immagine
+- Citazione in evidenza: senza box, Sottolinea sincronizzato con la griglia, Copia citazione, Condividi (Web Share API con fallback a download)
 - Nota personale su "Sottolinea" (anche in stampa)
 - Vista stampabile + pulsante "Stampa o esporta questa selezione"
 - Fix allineamento griglia con risultati dispari, stato vuoto per ricerche senza risultati
