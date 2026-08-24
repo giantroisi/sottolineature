@@ -49,7 +49,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-08-24.
 
 ### Fatto
-- 253 citazioni, 34 copertine recuperate + tile placeholder per le mancanti, contesto su 18 citazioni (6 aggiunte con citazioni nuove, 12 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi)
+- 253 citazioni, 34 copertine recuperate + tile placeholder per le mancanti, contesto su 26 citazioni (6 aggiunte con citazioni nuove, 20 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi)
 - 18 citazioni taggate per genere (Fantasy, Fantascienza, Distopia, Horror/Gotico, Saggistica), tag multipli supportati
 - Logo SVG (niente più sfocatura), favicon con la "S" del logo
 - Citazione in evidenza: senza box, Sottolinea sincronizzato con la griglia, Copia citazione, Condividi (Web Share API con fallback a download)
@@ -60,7 +60,7 @@ Aggiornata: 2026-08-24.
 - Pulizia repo (rimosso residuo Netlify, `.gitignore` aggiornato)
 
 ### Da fare
-- **Contesto per le restanti ~235 citazioni** — il cantiere grande, da fare a lotti
+- **Contesto per le restanti ~227 citazioni** — il cantiere grande, da fare a lotti
 - **Autrici/autori fantasy contemporanei** (Sarah J. Maas, Leigh Bardugo, Rick Riordan...) — richiesto dalla lettrice più giovane, stessa rigidità di verifica delle altre citazioni
 - **Stato della routine cloud automatica** — da riverificare con l'utente, non è implementabile in autonomia
 
