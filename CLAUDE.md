@@ -46,7 +46,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-08-23.
+Aggiornata: 2026-08-24.
 
 ### Fatto
 - 253 citazioni, 34 copertine recuperate + tile placeholder per le mancanti, contesto su 18 citazioni (6 aggiunte con citazioni nuove, 12 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi)
