@@ -3447,13 +3447,18 @@
         var logoH = 92;
         var logoW = logoH * (shareLogoImg.naturalWidth / shareLogoImg.naturalHeight);
         var logoTop = urlBaseline - 34 - logoH;
-        ctx.drawImage(shareLogoImg, cx - logoW / 2, logoTop, logoW, logoH);
+        // il pennino, pieno e sulla destra, sposta la massa visiva del logo:
+        // lo si arretra perché il baricentro cada davvero al centro
+        var logoOpticalShift = logoW * 0.061;
+        ctx.drawImage(shareLogoImg, cx - logoW / 2 - logoOpticalShift, logoTop, logoW, logoH);
         brandTop = logoTop;
       }
       ctx.fillStyle = '#9c7a3c';
       ctx.font = '19px -apple-system, "Helvetica Neue", Arial, sans-serif';
-      ctx.letterSpacing = '4px';
-      ctx.fillText('SOTTOLINEATURE.IT', cx, urlBaseline);
+      var urlLetterSpacing = 4;
+      ctx.letterSpacing = urlLetterSpacing + 'px';
+      // la spaziatura viene aggiunta anche dopo l'ultima lettera: si recupera meta
+      ctx.fillText('SOTTOLINEATURE.IT', cx + urlLetterSpacing / 2, urlBaseline);
       ctx.letterSpacing = '0px';
 
       // --- citazione (autore, titolo, anno), ancorata sopra la firma ---
