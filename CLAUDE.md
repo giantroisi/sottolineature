@@ -46,13 +46,14 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-08-24.
+Aggiornata: 2026-08-25.
 
 ### Fatto
 - 253 citazioni, 34 copertine recuperate + tile placeholder per le mancanti, contesto su 26 citazioni (6 aggiunte con citazioni nuove, 20 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi)
-- 18 citazioni taggate per genere (Fantasy, Fantascienza, Distopia, Horror/Gotico, Saggistica), tag multipli supportati
+- 32 citazioni taggate per genere (Fantasy 9, Fantascienza 9, Distopia 7, Saggistica 6, Horror/Gotico 4 — alcune ne hanno più d'uno), tag multipli supportati
 - Logo SVG (niente più sfocatura), favicon con la "S" del logo
 - Citazione in evidenza: senza box, Sottolinea sincronizzato con la griglia, Copia citazione, Condividi (Web Share API con fallback a download)
+- Immagine condivisa 1080×1080 ridisegnata: composizione centrata, citazione centrata verticalmente con corpo che si adatta alla lunghezza, filetto dorato di separazione, firma in basso con logo (92px) e URL sotto (22px, spaziatura 5px, più largo del logo così la firma appare centrata a occhio)
 - Nota personale su "Sottolinea" (anche in stampa)
 - Vista stampabile + pulsante "Stampa o esporta questa selezione"
 - Fix allineamento griglia con risultati dispari, stato vuoto per ricerche senza risultati
@@ -68,3 +69,4 @@ Aggiornata: 2026-08-24.
 
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
+- Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.
