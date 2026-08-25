@@ -60,8 +60,10 @@ Aggiornata: 2026-08-24.
 - Pulizia repo (rimosso residuo Netlify, `.gitignore` aggiornato)
 
 ### Da fare
-- **Contesto per le restanti ~227 citazioni** — il cantiere grande, da fare a lotti
+- **Contesto per le restanti 227 citazioni** — il cantiere grande, da fare a lotti
 - **Autrici/autori fantasy contemporanei** (Sarah J. Maas, Leigh Bardugo, Rick Riordan...) — richiesto dalla lettrice più giovane, stessa rigidità di verifica delle altre citazioni
+- **Collegare il dominio personalizzato** — l'utente ne ha comprato uno; servono nome del dominio e registrar per aggiungerlo al progetto Vercel e indicare i record DNS. Il gate password è lato client, quindi resta valido su qualunque dominio
+- **Copertine per le 43 citazioni che ne sono prive** — in gran parte poesie/estratti senza edizione autonoma su Open Library; per queste la tile con le iniziali resta la soluzione, ma vale un ultimo giro mirato su quelle che un'edizione ce l'hanno
 - **Stato della routine cloud automatica** — da riverificare con l'utente, non è implementabile in autonomia
 
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
