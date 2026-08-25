@@ -149,30 +149,6 @@
     #heroQuote, #heroCitation { transition: none; }
   }
 
-  .share-group {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.55rem;
-  }
-  .share-label {
-    font-size: 0.82rem;
-    letter-spacing: 0.04em;
-    color: var(--ink-faint);
-  }
-  .card-share-group {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 0.5rem;
-    margin: 0 0 0.4rem;
-  }
-  .card-share-label {
-    font-size: 0.68rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
-  }
-  .card-share-group .underline-toggle { margin: 0; }
-
   .hero-actions {
     display: flex;
     align-items: center;
@@ -677,7 +653,7 @@
     <div class="hero-actions">
       <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
       <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
-      <span class="share-group sans"><span class="share-label">Condividi</span><button class="hero-copy-btn sans" id="heroExportStoryBtn" type="button">storia</button><button class="hero-copy-btn sans" id="heroExportPostBtn" type="button">post</button></span>
+      <button class="hero-copy-btn sans" id="heroExportBtn" type="button">Condividi</button>
       <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
     </div>
   </section>
@@ -3466,9 +3442,13 @@
       post: { w: 1080, h: 1350, marginTop: 40, marginBottom: 40, label: 'post' },
       storia: { w: 1080, h: 1920, marginTop: 250, marginBottom: 280, label: 'storia' }
     };
+    // Formato usato dal pulsante Condividi. Si usa 4:5 perché è il più
+    // tollerante: pubblicato in una storia resta tutto visibile (con due bande),
+    // mentre un 9:16 messo nel feed verrebbe ritagliato e perderebbe il logo.
+    var DEFAULT_SHARE_FORMAT = 'post';
 
     function downloadQuoteImage(quote, author, title, year, btn, formatName) {
-      var fmt = SHARE_FORMATS[formatName] || SHARE_FORMATS.post;
+      var fmt = SHARE_FORMATS[formatName || DEFAULT_SHARE_FORMAT] || SHARE_FORMATS.post;
       var width = fmt.w;
       var height = fmt.h;
       var padding = 90;
@@ -3759,21 +3739,17 @@
     }
     heroCopyBtn.addEventListener('click', copyHero);
 
-    function bindHeroShare(btn, formatName) {
-      btn.addEventListener('click', function () {
-        if (!currentHeroCard) { return; }
-        downloadQuoteImage(
-          currentHeroCard.querySelector('.card-quote').textContent,
-          currentHeroCard.querySelector('.card-author').textContent,
-          currentHeroCard.querySelector('.card-title').textContent,
-          currentHeroCard.querySelector('.card-year').textContent,
-          btn,
-          formatName
-        );
-      });
-    }
-    bindHeroShare(document.getElementById('heroExportStoryBtn'), 'storia');
-    bindHeroShare(document.getElementById('heroExportPostBtn'), 'post');
+    var heroExportBtn = document.getElementById('heroExportBtn');
+    heroExportBtn.addEventListener('click', function () {
+      if (!currentHeroCard) { return; }
+      downloadQuoteImage(
+        currentHeroCard.querySelector('.card-quote').textContent,
+        currentHeroCard.querySelector('.card-author').textContent,
+        currentHeroCard.querySelector('.card-title').textContent,
+        currentHeroCard.querySelector('.card-year').textContent,
+        heroExportBtn
+      );
+    });
 
     var searchInput = document.getElementById('searchInput');
     var activeCategory = 'tutte';
@@ -3798,36 +3774,25 @@
         setUnderlined(card, !underlinedSet[quoteKey(card)]);
       });
       toggle.addEventListener('keydown', function (e) { e.stopPropagation(); });
-      var shareGroup = document.createElement('span');
-      shareGroup.className = 'card-share-group';
-      var shareLabel = document.createElement('span');
-      shareLabel.className = 'card-share-label';
-      shareLabel.textContent = 'Condividi';
-      shareGroup.appendChild(shareLabel);
-
-      ['storia', 'post'].forEach(function (formatName) {
-        var shareBtn = document.createElement('button');
-        shareBtn.type = 'button';
-        shareBtn.className = 'underline-toggle sans card-export-btn';
-        shareBtn.textContent = formatName;
-        shareBtn.addEventListener('click', function (e) {
-          e.stopPropagation();
-          downloadQuoteImage(
-            card.querySelector('.card-quote').textContent,
-            card.querySelector('.card-author').textContent,
-            card.querySelector('.card-title').textContent,
-            card.querySelector('.card-year').textContent,
-            shareBtn,
-            formatName
-          );
-        });
-        shareBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
-        shareGroup.appendChild(shareBtn);
+      var exportBtn = document.createElement('button');
+      exportBtn.type = 'button';
+      exportBtn.className = 'underline-toggle sans card-export-btn';
+      exportBtn.textContent = 'Condividi';
+      exportBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        downloadQuoteImage(
+          card.querySelector('.card-quote').textContent,
+          card.querySelector('.card-author').textContent,
+          card.querySelector('.card-title').textContent,
+          card.querySelector('.card-year').textContent,
+          exportBtn
+        );
       });
+      exportBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
 
       var hint = card.querySelector('.card-hint');
       hint.parentNode.insertBefore(toggle, hint);
-      hint.parentNode.insertBefore(shareGroup, hint);
+      hint.parentNode.insertBefore(exportBtn, hint);
       var note = makeNoteField(function () { return quoteKey(card); });
       hint.parentNode.insertBefore(note, hint);
     });
