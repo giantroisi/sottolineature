@@ -1,6 +1,6 @@
 # Sottolineature — guida al progetto
 
-Sito statico di citazioni da libri, verificate e curate a mano. Live su https://sottolineature.vercel.app (protetto da password come deterrente, non come sicurezza reale — password: `Calude1!`).
+Sito statico di citazioni da libri, verificate e curate a mano. Live su https://sottolineature.it (dominio registrato su Hostinger, DNS gestito lì con un record A verso Vercel `76.76.21.21`; resta raggiungibile anche su https://sottolineature.vercel.app). Protetto da password come deterrente, non come sicurezza reale — password: `Calude1!`.
 
 ## Principi (non negoziabili)
 
@@ -57,12 +57,12 @@ Aggiornata: 2026-08-24.
 - Vista stampabile + pulsante "Stampa o esporta questa selezione"
 - Fix allineamento griglia con risultati dispari, stato vuoto per ricerche senza risultati
 - Pagina di metodo/trasparenza (`metodo.html`)
+- Dominio personalizzato sottolineature.it collegato (record A su Hostinger, HTTPS automatico), incluso il www
 - Pulizia repo (rimosso residuo Netlify, `.gitignore` aggiornato)
 
 ### Da fare
 - **Contesto per le restanti 227 citazioni** — il cantiere grande, da fare a lotti
 - **Autrici/autori fantasy contemporanei** (Sarah J. Maas, Leigh Bardugo, Rick Riordan...) — richiesto dalla lettrice più giovane, stessa rigidità di verifica delle altre citazioni
-- **Collegare il dominio personalizzato** — l'utente ne ha comprato uno; servono nome del dominio e registrar per aggiungerlo al progetto Vercel e indicare i record DNS. Il gate password è lato client, quindi resta valido su qualunque dominio
 - **Copertine per le 43 citazioni che ne sono prive** — in gran parte poesie/estratti senza edizione autonoma su Open Library; per queste la tile con le iniziali resta la soluzione, ma vale un ultimo giro mirato su quelle che un'edizione ce l'hanno
 - **Stato della routine cloud automatica** — da riverificare con l'utente, non è implementabile in autonomia
 
