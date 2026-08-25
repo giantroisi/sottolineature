@@ -490,85 +490,6 @@
   }
   footer a:hover { color: var(--gold); border-color: var(--gold); }
 
-  /* Access gate */
-  .gate {
-    position: fixed;
-    inset: 0;
-    background: var(--paper);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    z-index: 10;
-  }
-  .gate[hidden] { display: none; }
-
-  .gate-card {
-    width: 100%;
-    max-width: 22rem;
-    text-align: left;
-  }
-
-  .gate-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin: 0 0 0.7rem;
-  }
-
-  .gate-title {
-    font-size: 1.9rem;
-    margin: 0 0 0.6rem;
-    font-weight: 500;
-  }
-
-  .gate-hint {
-    font-size: 0.92rem;
-    color: var(--ink-soft);
-    line-height: 1.5;
-    margin: 0 0 1.5rem;
-  }
-
-  .gate-form {
-    display: flex;
-    gap: 0.6rem;
-  }
-
-  #gatePassword {
-    flex: 1;
-    font-family: inherit;
-    font-size: 1rem;
-    padding: 0.6rem 0.8rem;
-    background: var(--paper-raised);
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    color: var(--ink);
-  }
-  #gatePassword:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-
-  .gate-submit {
-    font-family: inherit;
-    font-size: 0.9rem;
-    padding: 0.6rem 1.1rem;
-    background: var(--accent);
-    color: var(--paper-raised);
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-  }
-  .gate-submit:hover { background: var(--accent-soft); }
-  .gate-submit:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-
-  .gate-error {
-    font-size: 0.82rem;
-    color: #a3453a;
-    margin: 0.75rem 0 0;
-    min-height: 1.2em;
-  }
-
-  .page[hidden] { display: none; }
-
   @media print {
     :root {
       color-scheme: light;
@@ -619,20 +540,7 @@
 
 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
 
-<div class="gate sans" id="gate">
-  <div class="gate-card">
-    <p class="gate-eyebrow">Accesso privato</p>
-    <h1 class="gate-title" style="font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;">Sottolineature</h1>
-    <p class="gate-hint">Questa pagina è ad accesso riservato. Inserisci la password per continuare.</p>
-    <form class="gate-form" id="gateForm">
-      <input type="password" id="gatePassword" placeholder="Password" autocomplete="off" required>
-      <button type="submit" class="gate-submit">Entra</button>
-    </form>
-    <p class="gate-error" id="gateError"></p>
-  </div>
-</div>
-
-<div class="page" id="page" hidden>
+<div class="page" id="page">
 
   <div class="top-row">
   <header class="masthead">
@@ -3239,39 +3147,6 @@
       }
       try { localStorage.setItem('sottolineature-theme', next); } catch (e) {}
       render();
-    });
-  })();
-
-  (function () {
-    var GATE_PASSWORD = 'Calude1!';
-    var gate = document.getElementById('gate');
-    var page = document.getElementById('page');
-    var gateForm = document.getElementById('gateForm');
-    var gatePassword = document.getElementById('gatePassword');
-    var gateError = document.getElementById('gateError');
-
-    function unlock() {
-      gate.hidden = true;
-      page.hidden = false;
-      try { sessionStorage.setItem('sottolineature-unlocked', '1'); } catch (e) {}
-    }
-
-    var alreadyUnlocked = false;
-    try { alreadyUnlocked = sessionStorage.getItem('sottolineature-unlocked') === '1'; } catch (e) {}
-    if (alreadyUnlocked) {
-      unlock();
-    }
-
-    gateForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (gatePassword.value === GATE_PASSWORD) {
-        gateError.textContent = '';
-        unlock();
-      } else {
-        gateError.textContent = 'Password errata.';
-        gatePassword.value = '';
-        gatePassword.focus();
-      }
     });
   })();
 
