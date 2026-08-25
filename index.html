@@ -149,6 +149,30 @@
     #heroQuote, #heroCitation { transition: none; }
   }
 
+  .share-group {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.55rem;
+  }
+  .share-label {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+  }
+  .card-share-group {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    margin: 0 0 0.4rem;
+  }
+  .card-share-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .card-share-group .underline-toggle { margin: 0; }
+
   .hero-actions {
     display: flex;
     align-items: center;
@@ -653,7 +677,7 @@
     <div class="hero-actions">
       <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
       <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
-      <button class="hero-copy-btn sans" id="heroExportBtn" type="button">Condividi</button>
+      <span class="share-group sans"><span class="share-label">Condividi</span><button class="hero-copy-btn sans" id="heroExportStoryBtn" type="button">storia</button><button class="hero-copy-btn sans" id="heroExportPostBtn" type="button">post</button></span>
       <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
     </div>
   </section>
@@ -3435,16 +3459,28 @@
       return off;
     }
 
-    function downloadQuoteImage(quote, author, title, year, btn) {
-      var size = 1080;
+    // Formati di condivisione. Nelle storie Instagram sovrappone la propria
+    // interfaccia sopra e sotto: i margini verticali ampi tengono il contenuto
+    // dentro la zona sicura, così il logo non finisce sotto la barra dei messaggi.
+    var SHARE_FORMATS = {
+      post: { w: 1080, h: 1350, marginTop: 40, marginBottom: 40, label: 'post' },
+      storia: { w: 1080, h: 1920, marginTop: 250, marginBottom: 280, label: 'storia' }
+    };
+
+    function downloadQuoteImage(quote, author, title, year, btn, formatName) {
+      var fmt = SHARE_FORMATS[formatName] || SHARE_FORMATS.post;
+      var width = fmt.w;
+      var height = fmt.h;
       var padding = 90;
-      var maxWidth = size - padding * 2;
+      var maxWidth = width - padding * 2;
       var canvas = document.createElement('canvas');
-      canvas.width = size;
-      canvas.height = size;
+      canvas.width = width;
+      canvas.height = height;
       var ctx = canvas.getContext('2d');
 
-      var cx = size / 2;
+      var cx = width / 2;
+      var frameTop = fmt.marginTop;
+      var frameBottom = height - fmt.marginBottom;
 
       // I colori vengono letti dal tema attivo della pagina, non scritti fissi:
       // così l'immagine resta in linea sia col tema chiaro che con quello scuro.
@@ -3461,16 +3497,16 @@
       var isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
 
       ctx.fillStyle = colPaper;
-      ctx.fillRect(0, 0, size, size);
+      ctx.fillRect(0, 0, width, height);
       ctx.strokeStyle = colRule;
       ctx.lineWidth = 2;
-      ctx.strokeRect(40, 40, size - 80, size - 80);
+      ctx.strokeRect(40, frameTop, width - 80, frameBottom - frameTop);
 
       ctx.textAlign = 'center';
       ctx.textBaseline = 'alphabetic';
 
       // --- blocco firma in basso: logo + url ---
-      var urlBaseline = size - 92;
+      var urlBaseline = frameBottom - 52;
       var brandTop = urlBaseline;
       if (shareLogoImg.complete && shareLogoImg.naturalWidth > 0) {
         var logoH = 92;
@@ -3500,7 +3536,7 @@
       var authorToWorkGap = 46;
       var workLineHeight = 37;
 
-      var areaTop = 140;
+      var areaTop = frameTop + 100;
       var areaBottom = brandTop - 104;
 
       // opera (titolo · anno), in corsivo
@@ -3524,7 +3560,7 @@
       var attributionHeight = quoteToAuthorGap + authorSize + authorToWorkGap + workHeight;
 
       // corpo della citazione: il più grande che entra nello spazio restante
-      var sizes = [60, 54, 48, 42, 36, 32, 28, 24];
+      var sizes = [72, 64, 58, 52, 46, 40, 35, 30, 26, 22];
       var chosenLines = [];
       var chosenSize = sizes[sizes.length - 1];
       var lineHeight = 0;
@@ -3577,7 +3613,7 @@
       });
 
       canvas.toBlob(function (blob) {
-        var filename = 'sottolineature-' + author.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.png';
+        var filename = 'sottolineature-' + author.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + fmt.label + '.png';
         var original = btn ? btn.textContent : '';
 
         function feedback(text) {
@@ -3723,15 +3759,21 @@
     }
     heroCopyBtn.addEventListener('click', copyHero);
 
-    var heroExportBtn = document.getElementById('heroExportBtn');
-    heroExportBtn.addEventListener('click', function () {
-      if (!currentHeroCard) { return; }
-      var quote = currentHeroCard.querySelector('.card-quote').textContent;
-      var author = currentHeroCard.querySelector('.card-author').textContent;
-      var title = currentHeroCard.querySelector('.card-title').textContent;
-      var year = currentHeroCard.querySelector('.card-year').textContent;
-      downloadQuoteImage(quote, author, title, year, heroExportBtn);
-    });
+    function bindHeroShare(btn, formatName) {
+      btn.addEventListener('click', function () {
+        if (!currentHeroCard) { return; }
+        downloadQuoteImage(
+          currentHeroCard.querySelector('.card-quote').textContent,
+          currentHeroCard.querySelector('.card-author').textContent,
+          currentHeroCard.querySelector('.card-title').textContent,
+          currentHeroCard.querySelector('.card-year').textContent,
+          btn,
+          formatName
+        );
+      });
+    }
+    bindHeroShare(document.getElementById('heroExportStoryBtn'), 'storia');
+    bindHeroShare(document.getElementById('heroExportPostBtn'), 'post');
 
     var searchInput = document.getElementById('searchInput');
     var activeCategory = 'tutte';
@@ -3756,22 +3798,36 @@
         setUnderlined(card, !underlinedSet[quoteKey(card)]);
       });
       toggle.addEventListener('keydown', function (e) { e.stopPropagation(); });
-      var exportBtn = document.createElement('button');
-      exportBtn.type = 'button';
-      exportBtn.className = 'underline-toggle sans card-export-btn';
-      exportBtn.textContent = 'Condividi';
-      exportBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        var quote = card.querySelector('.card-quote').textContent;
-        var author = card.querySelector('.card-author').textContent;
-        var title = card.querySelector('.card-title').textContent;
-        var year = card.querySelector('.card-year').textContent;
-        downloadQuoteImage(quote, author, title, year, exportBtn);
+      var shareGroup = document.createElement('span');
+      shareGroup.className = 'card-share-group';
+      var shareLabel = document.createElement('span');
+      shareLabel.className = 'card-share-label';
+      shareLabel.textContent = 'Condividi';
+      shareGroup.appendChild(shareLabel);
+
+      ['storia', 'post'].forEach(function (formatName) {
+        var shareBtn = document.createElement('button');
+        shareBtn.type = 'button';
+        shareBtn.className = 'underline-toggle sans card-export-btn';
+        shareBtn.textContent = formatName;
+        shareBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          downloadQuoteImage(
+            card.querySelector('.card-quote').textContent,
+            card.querySelector('.card-author').textContent,
+            card.querySelector('.card-title').textContent,
+            card.querySelector('.card-year').textContent,
+            shareBtn,
+            formatName
+          );
+        });
+        shareBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+        shareGroup.appendChild(shareBtn);
       });
-      exportBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+
       var hint = card.querySelector('.card-hint');
       hint.parentNode.insertBefore(toggle, hint);
-      hint.parentNode.insertBefore(exportBtn, hint);
+      hint.parentNode.insertBefore(shareGroup, hint);
       var note = makeNoteField(function () { return quoteKey(card); });
       hint.parentNode.insertBefore(note, hint);
     });
