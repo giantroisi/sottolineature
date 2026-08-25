@@ -3417,6 +3417,9 @@
       return lines;
     }
 
+    var shareLogoImg = new Image();
+    shareLogoImg.src = 'logo.svg';
+
     function downloadQuoteImage(quote, author, title, year, btn) {
       var size = 1080;
       var padding = 90;
@@ -3426,29 +3429,69 @@
       canvas.height = size;
       var ctx = canvas.getContext('2d');
 
+      var cx = size / 2;
+
       ctx.fillStyle = '#f2f0eb';
       ctx.fillRect(0, 0, size, size);
       ctx.strokeStyle = '#ddd9cf';
       ctx.lineWidth = 2;
-      ctx.strokeRect(36, 36, size - 72, size - 72);
+      ctx.strokeRect(40, 40, size - 80, size - 80);
 
-      ctx.fillStyle = '#9c7a3c';
-      ctx.font = '130px Georgia, serif';
+      ctx.textAlign = 'center';
       ctx.textBaseline = 'alphabetic';
-      ctx.fillText('“', padding - 8, padding + 120);
 
-      var quoteTop = padding + 175;
-      var reservedBottom = 195;
-      var maxTextHeight = size - quoteTop - reservedBottom;
+      // --- blocco firma in basso: logo + url ---
+      var urlBaseline = size - 92;
+      var brandTop = urlBaseline;
+      if (shareLogoImg.complete && shareLogoImg.naturalWidth > 0) {
+        var logoH = 74;
+        var logoW = logoH * (shareLogoImg.naturalWidth / shareLogoImg.naturalHeight);
+        var logoTop = urlBaseline - 34 - logoH;
+        ctx.drawImage(shareLogoImg, cx - logoW / 2, logoTop, logoW, logoH);
+        brandTop = logoTop;
+      }
+      ctx.fillStyle = '#9c7a3c';
+      ctx.font = '19px -apple-system, "Helvetica Neue", Arial, sans-serif';
+      ctx.letterSpacing = '4px';
+      ctx.fillText('SOTTOLINEATURE.VERCEL.APP', cx, urlBaseline);
+      ctx.letterSpacing = '0px';
 
-      var sizes = [58, 52, 46, 40, 34, 30, 26, 23];
+      // --- citazione (autore, titolo, anno), ancorata sopra la firma ---
+      ctx.font = '29px -apple-system, "Helvetica Neue", Arial, sans-serif';
+      var citation = author + ' — ' + title + (year ? ' · ' + year : '');
+      var citationLines = wrapCanvasText(ctx, citation, maxWidth).slice(0, 2);
+      var citationLineHeight = 40;
+      var citationLastBaseline = brandTop - 78;
+      var citationFirstBaseline = citationLastBaseline - (citationLines.length - 1) * citationLineHeight;
+      ctx.fillStyle = '#5b564d';
+      citationLines.forEach(function (line, idx) {
+        ctx.fillText(line, cx, citationFirstBaseline + idx * citationLineHeight);
+      });
+
+      // --- filetto dorato di separazione ---
+      var ruleY = citationFirstBaseline - 58;
+      ctx.strokeStyle = '#9c7a3c';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.moveTo(cx - 42, ruleY);
+      ctx.lineTo(cx + 42, ruleY);
+      ctx.stroke();
+
+      // --- citazione: virgolette + testo, centrati nello spazio rimasto ---
+      var areaTop = 150;
+      var areaBottom = ruleY - 70;
+      var markSize = 108;
+      var markGap = 26;
+
+      var sizes = [60, 54, 48, 42, 36, 32, 28, 24];
       var chosenLines = [];
       var chosenSize = sizes[sizes.length - 1];
       var lineHeight = 0;
+      var maxTextHeight = (areaBottom - areaTop) - markSize - markGap;
       for (var i = 0; i < sizes.length; i++) {
         ctx.font = 'italic ' + sizes[i] + 'px "Iowan Old Style", Georgia, serif';
         var lines = wrapCanvasText(ctx, quote, maxWidth);
-        lineHeight = Math.round(sizes[i] * 1.42);
+        lineHeight = Math.round(sizes[i] * 1.45);
         if (lines.length * lineHeight <= maxTextHeight || i === sizes.length - 1) {
           chosenLines = lines;
           chosenSize = sizes[i];
@@ -3456,26 +3499,21 @@
         }
       }
 
-      ctx.fillStyle = '#211f1b';
-      ctx.font = 'italic ' + chosenSize + 'px "Iowan Old Style", Georgia, serif';
-      var textY = quoteTop + chosenSize;
-      chosenLines.forEach(function (line) {
-        ctx.fillText(line, padding, textY);
-        textY += lineHeight;
-      });
-
-      var citationY = size - reservedBottom + 40;
-      ctx.fillStyle = '#5b564d';
-      ctx.font = '30px -apple-system, "Helvetica Neue", Arial, sans-serif';
-      var citation = author + ' — ' + title + (year ? ' · ' + year : '');
-      var citationLines = wrapCanvasText(ctx, citation, maxWidth);
-      citationLines.slice(0, 2).forEach(function (line, idx) {
-        ctx.fillText(line, padding, citationY + idx * 38);
-      });
+      var textHeight = chosenLines.length * lineHeight;
+      var groupHeight = markSize + markGap + textHeight;
+      var groupTop = areaTop + ((areaBottom - areaTop) - groupHeight) / 2;
 
       ctx.fillStyle = '#9c7a3c';
-      ctx.font = '22px -apple-system, "Helvetica Neue", Arial, sans-serif';
-      ctx.fillText('sottolineature.vercel.app', padding, size - 62);
+      ctx.font = markSize + 'px Georgia, serif';
+      ctx.fillText('“', cx, groupTop + markSize * 0.82);
+
+      ctx.fillStyle = '#211f1b';
+      ctx.font = 'italic ' + chosenSize + 'px "Iowan Old Style", Georgia, serif';
+      var textY = groupTop + markSize + markGap + chosenSize;
+      chosenLines.forEach(function (line) {
+        ctx.fillText(line, cx, textY);
+        textY += lineHeight;
+      });
 
       canvas.toBlob(function (blob) {
         var filename = 'sottolineature-' + author.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '.png';
