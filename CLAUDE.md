@@ -51,7 +51,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-08-25.
 
 ### Fatto
-- 253 citazioni, 34 copertine recuperate + tile placeholder per le mancanti, contesto su 26 citazioni (6 aggiunte con citazioni nuove, 20 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi)
+- 253 citazioni, 34 copertine recuperate + tile placeholder per le mancanti, contesto su 34 citazioni (6 aggiunte con citazioni nuove, 28 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi)
 - 32 citazioni taggate per genere (Fantasy 9, Fantascienza 9, Distopia 7, Saggistica 6, Horror/Gotico 4 — alcune ne hanno più d'uno), tag multipli supportati
 - Logo SVG (niente più sfocatura), favicon con la "S" del logo
 - Citazione in evidenza: senza box, Sottolinea sincronizzato con la griglia, Copia citazione, Condividi (Web Share API con fallback a download)
@@ -63,9 +63,10 @@ Aggiornata: 2026-08-25.
 - Dominio personalizzato sottolineature.it collegato (record A su Hostinger, HTTPS automatico), incluso il www
 - Pulizia repo (rimosso residuo Netlify, `.gitignore` aggiornato)
 - Rimosso il gate con password: il sito è pubblico
+- Immagine profilo Instagram: monogramma "S + piuma" estratto dal logo vettoriale (S e piuma ricomposte vicine, piuma leggermente più alta), sfondo `--paper`, margine per il ritaglio circolare — salvata in `archivio/instagram-avatar.png` (gitignored, asset locale)
 
 ### Da fare
-- **Contesto per le restanti 227 citazioni** — il cantiere grande, da fare a lotti
+- **Contesto per le restanti ~219 citazioni** — il cantiere grande, da fare a lotti
 - **Autrici/autori fantasy contemporanei** (Sarah J. Maas, Leigh Bardugo, Rick Riordan...) — richiesto dalla lettrice più giovane, stessa rigidità di verifica delle altre citazioni
 - **Copertine per le 43 citazioni che ne sono prive** — in gran parte poesie/estratti senza edizione autonoma su Open Library; per queste la tile con le iniziali resta la soluzione, ma vale un ultimo giro mirato su quelle che un'edizione ce l'hanno
 - **Stato della routine cloud automatica** — da riverificare con l'utente, non è implementabile in autonomia
