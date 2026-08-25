@@ -1,6 +1,6 @@
 # Sottolineature — guida al progetto
 
-Sito statico di citazioni da libri, verificate e curate a mano. Live su https://sottolineature.it (dominio registrato su Hostinger, DNS gestito lì con un record A verso Vercel `76.76.21.21`; resta raggiungibile anche su https://sottolineature.vercel.app). Protetto da password come deterrente, non come sicurezza reale — password: `Calude1!`.
+Sito statico di citazioni da libri, verificate e curate a mano. Live su https://sottolineature.it (dominio registrato su Hostinger, DNS gestito lì con un record A verso Vercel `76.76.21.21`; resta raggiungibile anche su https://sottolineature.vercel.app). **Pubblico**, senza password — il gate d'accesso c'era in origine come deterrente e per un periodo di rifinitura del sito, poi rimosso il 2026-08-25 a lavoro concluso.
 
 ## Principi (non negoziabili)
 
@@ -43,7 +43,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 - **Copertine mancanti**: gestite da un tile placeholder generato via JS (iniziali autore su colore derivato dal nome), non lasciare mai il buco vuoto.
 - **Tema chiaro/scuro**: manuale via bottone in alto a sinistra, salvato in `localStorage['sottolineature-theme']`. Mai legarlo a `prefers-color-scheme` (richiesta esplicita passata, l'utente si era confuso quando cambiava da solo).
 - **`localStorage` usato per**: `sottolineature-underlined` (array chiavi `autore|titolo`), `sottolineature-notes` (oggetto chiave→testo nota), `sottolineature-theme`.
-- **Verifica prima di pubblicare**: server locale (`python3 -m http.server`) + Browser tool, sbloccare il gate con `sessionStorage.setItem('sottolineature-unlocked','1')` invece di digitare la password, controllare chiaro/scuro e mobile, poi commit + push + conferma deploy (`npx vercel ls sottolineature` o controllo diretto dell'URL).
+- **Verifica prima di pubblicare**: server locale (`python3 -m http.server`) + Browser tool, controllare chiaro/scuro e mobile, poi commit + push + conferma deploy (`npx vercel ls sottolineature` o controllo diretto dell'URL). Il sito non ha più un gate d'accesso (rimosso il 2026-08-25), quindi non serve più sbloccarlo prima di testare.
 - **`LOG.md`**: append-only, una riga per lotto (manuale o da routine), formato `- YYYY-MM-DD HH:MM UTC — added N quotes (total now T) — dettagli di cosa aggiunto/scartato e perché`.
 
 ## Roadmap
@@ -62,6 +62,7 @@ Aggiornata: 2026-08-25.
 - Pagina di metodo/trasparenza (`metodo.html`)
 - Dominio personalizzato sottolineature.it collegato (record A su Hostinger, HTTPS automatico), incluso il www
 - Pulizia repo (rimosso residuo Netlify, `.gitignore` aggiornato)
+- Rimosso il gate con password: il sito è pubblico
 
 ### Da fare
 - **Contesto per le restanti 227 citazioni** — il cantiere grande, da fare a lotti
