@@ -3420,6 +3420,21 @@
     var shareLogoImg = new Image();
     shareLogoImg.src = 'logo.svg';
 
+    // Ricolora il logo (inchiostro nero su fondo trasparente) nel colore dato,
+    // conservando la trasparenza. Si usa la composizione invece di ctx.filter,
+    // che Safari non supporta in modo affidabile sul canvas.
+    function tintedLogo(img, color, w, h) {
+      var off = document.createElement('canvas');
+      off.width = Math.max(1, Math.round(w));
+      off.height = Math.max(1, Math.round(h));
+      var octx = off.getContext('2d');
+      octx.drawImage(img, 0, 0, off.width, off.height);
+      octx.globalCompositeOperation = 'source-in';
+      octx.fillStyle = color;
+      octx.fillRect(0, 0, off.width, off.height);
+      return off;
+    }
+
     function downloadQuoteImage(quote, author, title, year, btn) {
       var size = 1080;
       var padding = 90;
@@ -3461,10 +3476,11 @@
         var logoH = 92;
         var logoW = logoH * (shareLogoImg.naturalWidth / shareLogoImg.naturalHeight);
         var logoTop = urlBaseline - 34 - logoH;
-        // il logo è a inchiostro nero: sul fondo scuro va invertito, come nel sito
-        if (isDarkTheme) { ctx.filter = 'invert(1)'; }
-        ctx.drawImage(shareLogoImg, cx - logoW / 2, logoTop, logoW, logoH);
-        ctx.filter = 'none';
+        // il logo è a inchiostro nero: sul fondo scuro va schiarito, come nel sito
+        var logoSource = isDarkTheme
+          ? tintedLogo(shareLogoImg, colInk, logoW, logoH)
+          : shareLogoImg;
+        ctx.drawImage(logoSource, cx - logoW / 2, logoTop, logoW, logoH);
         brandTop = logoTop;
       }
       ctx.fillStyle = colGold;
