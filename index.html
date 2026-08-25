@@ -3447,10 +3447,7 @@
         var logoH = 92;
         var logoW = logoH * (shareLogoImg.naturalWidth / shareLogoImg.naturalHeight);
         var logoTop = urlBaseline - 34 - logoH;
-        // il pennino, pieno e sulla destra, sposta la massa visiva del logo:
-        // lo si arretra perché il baricentro cada davvero al centro
-        var logoOpticalShift = logoW * 0.061;
-        ctx.drawImage(shareLogoImg, cx - logoW / 2 - logoOpticalShift, logoTop, logoW, logoH);
+        ctx.drawImage(shareLogoImg, cx - logoW / 2, logoTop, logoW, logoH);
         brandTop = logoTop;
       }
       ctx.fillStyle = '#9c7a3c';
