@@ -3431,9 +3431,23 @@
 
       var cx = size / 2;
 
-      ctx.fillStyle = '#f2f0eb';
+      // I colori vengono letti dal tema attivo della pagina, non scritti fissi:
+      // così l'immagine resta in linea sia col tema chiaro che con quello scuro.
+      var pageStyle = getComputedStyle(document.documentElement);
+      function themeColor(name, fallback) {
+        var value = pageStyle.getPropertyValue(name).trim();
+        return value || fallback;
+      }
+      var colPaper = themeColor('--paper', '#f2f0eb');
+      var colRule = themeColor('--rule', '#ddd9cf');
+      var colGold = themeColor('--gold', '#9c7a3c');
+      var colInk = themeColor('--ink', '#211f1b');
+      var colInkSoft = themeColor('--ink-soft', '#5b564d');
+      var isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
+
+      ctx.fillStyle = colPaper;
       ctx.fillRect(0, 0, size, size);
-      ctx.strokeStyle = '#ddd9cf';
+      ctx.strokeStyle = colRule;
       ctx.lineWidth = 2;
       ctx.strokeRect(40, 40, size - 80, size - 80);
 
@@ -3447,10 +3461,13 @@
         var logoH = 92;
         var logoW = logoH * (shareLogoImg.naturalWidth / shareLogoImg.naturalHeight);
         var logoTop = urlBaseline - 34 - logoH;
+        // il logo è a inchiostro nero: sul fondo scuro va invertito, come nel sito
+        if (isDarkTheme) { ctx.filter = 'invert(1)'; }
         ctx.drawImage(shareLogoImg, cx - logoW / 2, logoTop, logoW, logoH);
+        ctx.filter = 'none';
         brandTop = logoTop;
       }
-      ctx.fillStyle = '#9c7a3c';
+      ctx.fillStyle = colGold;
       ctx.font = '22px -apple-system, "Helvetica Neue", Arial, sans-serif';
       var urlLetterSpacing = 5;
       ctx.letterSpacing = urlLetterSpacing + 'px';
@@ -3458,38 +3475,44 @@
       ctx.fillText('SOTTOLINEATURE.IT', cx + urlLetterSpacing / 2, urlBaseline);
       ctx.letterSpacing = '0px';
 
-      // --- citazione (autore, titolo, anno), ancorata sopra la firma ---
-      ctx.font = '29px -apple-system, "Helvetica Neue", Arial, sans-serif';
-      var citation = author + ' — ' + title + (year ? ' · ' + year : '');
-      var citationLines = wrapCanvasText(ctx, citation, maxWidth).slice(0, 2);
-      var citationLineHeight = 40;
-      var citationLastBaseline = brandTop - 78;
-      var citationFirstBaseline = citationLastBaseline - (citationLines.length - 1) * citationLineHeight;
-      ctx.fillStyle = '#5b564d';
-      citationLines.forEach(function (line, idx) {
-        ctx.fillText(line, cx, citationFirstBaseline + idx * citationLineHeight);
-      });
-
-      // --- filetto dorato di separazione ---
-      var ruleY = citationFirstBaseline - 58;
-      ctx.strokeStyle = '#9c7a3c';
-      ctx.lineWidth = 1.5;
-      ctx.beginPath();
-      ctx.moveTo(cx - 42, ruleY);
-      ctx.lineTo(cx + 42, ruleY);
-      ctx.stroke();
-
-      // --- citazione: virgolette + testo, centrati nello spazio rimasto ---
-      var areaTop = 150;
-      var areaBottom = ruleY - 70;
+      // Citazione e attribuzione formano un blocco unico, centrato nello spazio
+      // sopra la firma: così l'attribuzione resta legata alla citazione invece
+      // di sembrare appartenere al logo.
       var markSize = 108;
       var markGap = 26;
+      var quoteToAuthorGap = 78;
+      var authorToWorkGap = 46;
+      var workLineHeight = 37;
 
+      var areaTop = 140;
+      var areaBottom = brandTop - 104;
+
+      // opera (titolo · anno), in corsivo
+      var work = title + (year ? ' · ' + year : '');
+      ctx.font = 'italic 27px "Iowan Old Style", Georgia, serif';
+      var workLines = wrapCanvasText(ctx, work, maxWidth).slice(0, 2);
+      var workHeight = (workLines.length - 1) * workLineHeight;
+
+      // autore in maiuscolo spaziato, rimpicciolito se il nome è lungo
+      var authorText = author.toUpperCase();
+      var authorSpacing = 6;
+      var authorSize = 26;
+      ctx.letterSpacing = authorSpacing + 'px';
+      while (authorSize > 16) {
+        ctx.font = authorSize + 'px -apple-system, "Helvetica Neue", Arial, sans-serif';
+        if (ctx.measureText(authorText).width <= maxWidth) { break; }
+        authorSize -= 1;
+      }
+      ctx.letterSpacing = '0px';
+
+      var attributionHeight = quoteToAuthorGap + authorSize + authorToWorkGap + workHeight;
+
+      // corpo della citazione: il più grande che entra nello spazio restante
       var sizes = [60, 54, 48, 42, 36, 32, 28, 24];
       var chosenLines = [];
       var chosenSize = sizes[sizes.length - 1];
       var lineHeight = 0;
-      var maxTextHeight = (areaBottom - areaTop) - markSize - markGap;
+      var maxTextHeight = (areaBottom - areaTop) - markSize - markGap - attributionHeight;
       for (var i = 0; i < sizes.length; i++) {
         ctx.font = 'italic ' + sizes[i] + 'px "Iowan Old Style", Georgia, serif';
         var lines = wrapCanvasText(ctx, quote, maxWidth);
@@ -3502,19 +3525,39 @@
       }
 
       var textHeight = chosenLines.length * lineHeight;
-      var groupHeight = markSize + markGap + textHeight;
+      var groupHeight = markSize + markGap + textHeight + attributionHeight;
       var groupTop = areaTop + ((areaBottom - areaTop) - groupHeight) / 2;
 
-      ctx.fillStyle = '#9c7a3c';
+      // virgolette
+      ctx.fillStyle = colGold;
       ctx.font = markSize + 'px Georgia, serif';
       ctx.fillText('“', cx, groupTop + markSize * 0.82);
 
-      ctx.fillStyle = '#211f1b';
+      // testo della citazione
+      ctx.fillStyle = colInk;
       ctx.font = 'italic ' + chosenSize + 'px "Iowan Old Style", Georgia, serif';
       var textY = groupTop + markSize + markGap + chosenSize;
       chosenLines.forEach(function (line) {
         ctx.fillText(line, cx, textY);
         textY += lineHeight;
+      });
+
+      // autore
+      var quoteBottom = groupTop + markSize + markGap + textHeight;
+      var authorBaseline = quoteBottom + quoteToAuthorGap;
+      ctx.fillStyle = colInk;
+      ctx.font = authorSize + 'px -apple-system, "Helvetica Neue", Arial, sans-serif';
+      ctx.letterSpacing = authorSpacing + 'px';
+      ctx.fillText(authorText, cx + authorSpacing / 2, authorBaseline);
+      ctx.letterSpacing = '0px';
+
+      // opera
+      ctx.fillStyle = colInkSoft;
+      ctx.font = 'italic 27px "Iowan Old Style", Georgia, serif';
+      var workY = authorBaseline + authorToWorkGap;
+      workLines.forEach(function (line) {
+        ctx.fillText(line, cx, workY);
+        workY += workLineHeight;
       });
 
       canvas.toBlob(function (blob) {
