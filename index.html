@@ -180,6 +180,7 @@
 
   /* Search */
   .search-bar {
+    position: relative;
     margin-bottom: 1.5rem;
   }
 
@@ -197,6 +198,48 @@
   #searchInput::placeholder { color: var(--ink-faint); }
   #searchInput:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   #searchInput::-webkit-search-cancel-button { cursor: pointer; }
+
+  .search-suggestions {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    right: 0;
+    max-width: 26rem;
+    margin: 0;
+    padding: 0.3rem 0;
+    list-style: none;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    box-shadow: 0 4px 14px var(--shadow);
+    max-height: 15rem;
+    overflow-y: auto;
+    z-index: 15;
+  }
+  .search-suggestions[hidden] { display: none; }
+
+  .search-suggestion {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .search-suggestion:hover,
+  .search-suggestion.is-active {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .search-suggestion-type {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
 
   /* Filters */
   .filters-note {
@@ -278,6 +321,54 @@
   }
   @media (max-width: 700px) {
     .grid { flex-direction: column; gap: 0; }
+
+    .theme-toggle {
+      width: 2.75rem;
+      height: 2.75rem;
+      top: 0.85rem;
+      left: 0.85rem;
+      font-size: 1.2rem;
+    }
+
+    .search-bar { margin-bottom: 2rem; }
+    #searchInput { padding: 0.8rem 1rem; font-size: 1rem; }
+
+    .filters-note { margin-bottom: 1.1rem; }
+
+    nav.filters {
+      gap: 0.75rem 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+    }
+    .filter-btn { padding: 0.4rem 0.1rem; }
+
+    nav.genre-filters {
+      margin-bottom: 2.5rem;
+      padding: 1rem 0.9rem;
+      background: var(--paper-raised);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      gap: 0.65rem 0.9rem;
+    }
+    .genre-filters-label {
+      display: block;
+      width: 100%;
+      margin: 0 0 0.5rem;
+    }
+    nav.genre-filters .filter-btn {
+      padding: 0.35rem 0.6rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+    }
+    nav.genre-filters .filter-btn.active {
+      border-color: var(--accent);
+      background: var(--paper);
+    }
+
+    .card { margin-bottom: 2.75rem; }
+    .card-quote { margin-bottom: 0.85rem; }
+    .card-citation { margin-bottom: 0.6rem; }
+    .card-context { margin-bottom: 0.85rem; }
   }
 
   .card {
@@ -568,7 +659,8 @@
   </div>
 
   <div class="search-bar">
-    <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off">
+    <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
+    <ul class="search-suggestions sans" id="searchSuggestions" role="listbox" hidden></ul>
   </div>
 
   <p class="filters-note sans">Non una classificazione, ma un umore: la stessa pagina può riconoscersi in più d'uno.</p>
@@ -3718,6 +3810,13 @@
         filterBtns.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
         activeCategory = btn.getAttribute('data-filter');
+        // Umore e genere sono due facet indipendenti: selezionarne uno
+        // azzera l'altro, cosi' non capita di restare bloccati su una
+        // combinazione (es. Coraggio + Fantasy) senza risultati.
+        genreBtns.forEach(function (b) { b.classList.remove('active'); });
+        var tuttiGenreBtn = document.querySelector('.filter-btn[data-genre="tutti"]');
+        if (tuttiGenreBtn) { tuttiGenreBtn.classList.add('active'); }
+        activeGenre = 'tutti';
         applyFilters();
       });
     });
@@ -3728,11 +3827,126 @@
         genreBtns.forEach(function (b) { b.classList.remove('active'); });
         btn.classList.add('active');
         activeGenre = btn.getAttribute('data-genre');
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        var tutteBtn = document.querySelector('.filter-btn[data-filter="tutte"]');
+        if (tutteBtn) { tutteBtn.classList.add('active'); }
+        activeCategory = 'tutte';
         applyFilters();
       });
     });
 
-    searchInput.addEventListener('input', applyFilters);
+    // Suggerimenti anticipatori: elenco unico di autori e opere, costruito
+    // una sola volta dalle card già presenti in pagina.
+    var suggestionIndex = (function () {
+      var seen = {};
+      var list = [];
+      cards.forEach(function (card) {
+        var author = card.querySelector('.card-author').textContent.trim();
+        var title = card.querySelector('.card-title').textContent.trim();
+        var authorKey = 'a:' + author.toLowerCase();
+        if (!seen[authorKey]) {
+          seen[authorKey] = true;
+          list.push({ label: author, type: 'autore', norm: normalize(author) });
+        }
+        var titleKey = 't:' + title.toLowerCase();
+        if (!seen[titleKey]) {
+          seen[titleKey] = true;
+          list.push({ label: title, type: 'opera', norm: normalize(title) });
+        }
+      });
+      return list;
+    })();
+
+    var suggestionsBox = document.getElementById('searchSuggestions');
+    var activeSuggestionIndex = -1;
+    var currentSuggestions = [];
+
+    function closeSuggestions() {
+      suggestionsBox.hidden = true;
+      suggestionsBox.innerHTML = '';
+      currentSuggestions = [];
+      activeSuggestionIndex = -1;
+      searchInput.setAttribute('aria-expanded', 'false');
+    }
+
+    function chooseSuggestion(item) {
+      searchInput.value = item.label;
+      closeSuggestions();
+      applyFilters();
+    }
+
+    function renderSuggestionHighlight(el) {
+      Array.prototype.forEach.call(suggestionsBox.children, function (child, i) {
+        child.classList.toggle('is-active', i === el);
+      });
+    }
+
+    function updateSuggestions() {
+      var raw = searchInput.value.trim();
+      if (!raw) { closeSuggestions(); return; }
+      var term = normalize(raw);
+      var matches = suggestionIndex
+        .filter(function (item) { return item.norm.indexOf(term) !== -1; })
+        .sort(function (a, b) { return a.norm.indexOf(term) - b.norm.indexOf(term) || a.label.length - b.label.length; })
+        .slice(0, 7);
+      if (!matches.length || (matches.length === 1 && matches[0].norm === term)) {
+        closeSuggestions();
+        return;
+      }
+      currentSuggestions = matches;
+      activeSuggestionIndex = -1;
+      suggestionsBox.innerHTML = '';
+      matches.forEach(function (item) {
+        var li = document.createElement('li');
+        li.className = 'search-suggestion';
+        li.setAttribute('role', 'option');
+        var label = document.createElement('span');
+        label.textContent = item.label;
+        var type = document.createElement('span');
+        type.className = 'search-suggestion-type';
+        type.textContent = item.type;
+        li.appendChild(label);
+        li.appendChild(type);
+        li.addEventListener('mousedown', function (e) {
+          e.preventDefault();
+          chooseSuggestion(item);
+        });
+        suggestionsBox.appendChild(li);
+      });
+      suggestionsBox.hidden = false;
+      searchInput.setAttribute('aria-expanded', 'true');
+    }
+
+    searchInput.addEventListener('input', function () {
+      applyFilters();
+      updateSuggestions();
+    });
+
+    searchInput.addEventListener('keydown', function (e) {
+      if (suggestionsBox.hidden) { return; }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeSuggestionIndex = Math.min(activeSuggestionIndex + 1, currentSuggestions.length - 1);
+        renderSuggestionHighlight(activeSuggestionIndex);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeSuggestionIndex = Math.max(activeSuggestionIndex - 1, -1);
+        renderSuggestionHighlight(activeSuggestionIndex);
+      } else if (e.key === 'Enter') {
+        if (activeSuggestionIndex >= 0) {
+          e.preventDefault();
+          chooseSuggestion(currentSuggestions[activeSuggestionIndex]);
+        } else {
+          closeSuggestions();
+        }
+      } else if (e.key === 'Escape') {
+        closeSuggestions();
+      }
+    });
+
+    searchInput.addEventListener('blur', function () {
+      closeSuggestions();
+    });
 
     function filterByAuthor(name) {
       filterBtns.forEach(function (b) { b.classList.remove('active'); });
