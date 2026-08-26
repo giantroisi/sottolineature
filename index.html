@@ -189,7 +189,7 @@
     max-width: 26rem;
     font-family: inherit;
     font-size: 0.95rem;
-    padding: 0.65rem 0.9rem;
+    padding: 0.65rem 2.1rem 0.65rem 0.9rem;
     background: var(--paper-raised);
     border: 1px solid var(--rule);
     border-radius: 2px;
@@ -197,7 +197,27 @@
   }
   #searchInput::placeholder { color: var(--ink-faint); }
   #searchInput:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  #searchInput::-webkit-search-cancel-button { cursor: pointer; }
+  #searchInput::-webkit-search-cancel-button { display: none; }
+
+  .search-clear-btn {
+    all: unset;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.4rem;
+    height: 100%;
+    max-height: 2.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--ink-faint);
+  }
+  .search-clear-btn[hidden] { display: none; }
+  .search-clear-btn:hover { color: var(--ink); }
+  .search-clear-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 
   .search-suggestions {
     position: absolute;
@@ -331,7 +351,8 @@
     }
 
     .search-bar { margin-bottom: 2rem; }
-    #searchInput { padding: 0.8rem 1rem; font-size: 1rem; }
+    #searchInput { padding: 0.8rem 2.3rem 0.8rem 1rem; font-size: 1rem; }
+    .search-clear-btn { width: 2.6rem; max-height: 2.85rem; font-size: 1.4rem; }
 
     .filters-note { margin-bottom: 1.1rem; }
 
@@ -660,6 +681,7 @@
 
   <div class="search-bar">
     <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
+    <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Cancella ricerca" hidden>×</button>
     <ul class="search-suggestions sans" id="searchSuggestions" role="listbox" hidden></ul>
   </div>
 
@@ -3858,8 +3880,22 @@
     })();
 
     var suggestionsBox = document.getElementById('searchSuggestions');
+    var clearBtn = document.getElementById('searchClearBtn');
     var activeSuggestionIndex = -1;
     var currentSuggestions = [];
+
+    function updateClearButton() {
+      clearBtn.hidden = !searchInput.value;
+    }
+
+    clearBtn.addEventListener('mousedown', function (e) { e.preventDefault(); });
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      updateClearButton();
+      closeSuggestions();
+      applyFilters();
+      searchInput.focus();
+    });
 
     function closeSuggestions() {
       suggestionsBox.hidden = true;
@@ -3871,6 +3907,7 @@
 
     function chooseSuggestion(item) {
       searchInput.value = item.label;
+      updateClearButton();
       closeSuggestions();
       applyFilters();
     }
@@ -3920,6 +3957,7 @@
     searchInput.addEventListener('input', function () {
       applyFilters();
       updateSuggestions();
+      updateClearButton();
     });
 
     searchInput.addEventListener('keydown', function (e) {
@@ -3958,6 +3996,7 @@
       if (tuttiGenreBtn) { tuttiGenreBtn.classList.add('active'); }
       activeGenre = 'tutti';
       searchInput.value = name;
+      updateClearButton();
       applyFilters();
       searchInput.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
     }

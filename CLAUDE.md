@@ -68,6 +68,7 @@ Aggiornata: 2026-08-26.
 - Filtri "umore" e "genere" resi facet indipendenti: selezionarne uno azzera l'altro, così non capita più di restare bloccati su una combinazione (es. Coraggio + Fantasy) senza risultati. Su mobile il blocco Genere è ora un riquadro visivamente distinto (sfondo, bordo, pulsanti a pillola) invece di sembrare la prosecuzione dei filtri Umore
 - Più respiro su mobile tra barra di ricerca, filtri e contenuto delle card (citazione/citazione bibliografica/contesto)
 - Barra di ricerca con suggerimenti anticipatori: mentre si scrive, mostra fino a 7 corrispondenze tra autori e opere (etichettate), navigabili con le frecce e selezionabili con Invio/clic — chiude alla selezione o su Esc/blur
+- Pulsante "×" per cancellare la ricerca: sostituisce l'icona nativa del browser (incoerente tra Safari/Chrome/Firefox) con un pulsante custom, sempre presente e ben visibile anche su mobile
 
 ### Da fare
 - **Contesto per le restanti ~219 citazioni** — il cantiere grande, da fare a lotti
