@@ -51,8 +51,9 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-08-26.
 
 ### Fatto
-- 253 citazioni, 34 copertine recuperate + tile placeholder per le mancanti, contesto su 34 citazioni (6 aggiunte con citazioni nuove, 28 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi)
-- 32 citazioni taggate per genere (Fantasy 9, Fantascienza 9, Distopia 7, Saggistica 6, Horror/Gotico 4 — alcune ne hanno più d'uno), tag multipli supportati
+- 256 citazioni, 213 copertine recuperate + tile placeholder per le 43 mancanti, contesto su 37 citazioni (9 aggiunte con citazioni nuove, 28 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi). Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
+- 35 citazioni taggate per genere (Fantasy 12, Fantascienza 9, Distopia 7, Saggistica 6, Horror/Gotico 4 — alcune ne hanno più d'uno), tag multipli supportati
+- Prime 3 autrici/autori fantasy contemporanei: Rick Riordan (Percy Jackson), Neil Gaiman (Coraline), Terry Pratchett (Il tristo mietitore) — verificati su Wikiquote + una seconda fonte concordante ciascuno; Sarah J. Maas e Leigh Bardugo scartati per assenza di una fonte italiana tracciabile al testo pubblicato (solo blog/trame), da ritentare con accesso a un'anteprima editoriale
 - Logo SVG (niente più sfocatura), favicon con la "S" del logo
 - Citazione in evidenza: senza box, Sottolinea sincronizzato con la griglia, Copia citazione, Condividi (Web Share API con fallback a download)
 - Immagine condivisa **1080×1350** (4:5), composizione centrata: virgolette dorate, citazione con corpo che si adatta alla lunghezza (scala 72→22px), attribuzione su due livelli (autore in maiuscolo spaziato e inchiostro pieno, opera e anno in corsivo serif), firma in basso con logo (92px) e URL sotto (22px, spaziatura 5px, più largo del logo così la firma appare centrata a occhio). Citazione e attribuzione sono un blocco unico centrato, così l'attribuzione resta legata al testo e non sembra parte della firma. I colori sono letti dai token CSS del tema attivo, quindi l'immagine segue chiaro/scuro e future modifiche alla palette
@@ -71,8 +72,8 @@ Aggiornata: 2026-08-26.
 - Pulsante "×" per cancellare la ricerca: sostituisce l'icona nativa del browser (incoerente tra Safari/Chrome/Firefox) con un pulsante custom, sempre presente e ben visibile anche su mobile
 
 ### Da fare
-- **Contesto per le restanti ~219 citazioni** — il cantiere grande, da fare a lotti
-- **Autrici/autori fantasy contemporanei** (Sarah J. Maas, Leigh Bardugo, Rick Riordan...) — richiesto dalla lettrice più giovane, stessa rigidità di verifica delle altre citazioni
+- **Contesto per le restanti ~216 citazioni** — il cantiere grande, da fare a lotti
+- **Sarah J. Maas e Leigh Bardugo** — restano da aggiungere (Rick Riordan fatto): nessuna citazione italiana verificabile trovata finora, serve una fonte tracciabile al testo pubblicato (anteprima Google Libri o editore), non solo blog/trame
 - **Copertine per le 43 citazioni che ne sono prive** — in gran parte poesie/estratti senza edizione autonoma su Open Library; per queste la tile con le iniziali resta la soluzione, ma vale un ultimo giro mirato su quelle che un'edizione ce l'hanno
 - **Stato della routine cloud automatica** — da riverificare con l'utente, non è implementabile in autonomia
 
