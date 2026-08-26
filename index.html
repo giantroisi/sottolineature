@@ -59,17 +59,9 @@
     padding: 4.5rem 1.75rem 5rem;
   }
 
-  .top-row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
-    gap: 2.5rem;
-    margin-bottom: 3.5rem;
-  }
-
   header.masthead {
-    flex: 1 1 320px;
     max-width: 40rem;
+    margin-bottom: 2.5rem;
   }
 
   .eyebrow {
@@ -105,10 +97,10 @@
   /* Hero featured quote */
   .hero {
     position: relative;
-    flex: 1 1 380px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 3.5rem;
   }
 
   .hero-label {
@@ -190,7 +182,7 @@
     display: flex;
     align-items: center;
     gap: 0.85rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2.5rem;
     padding: 0.4rem 0;
     background: var(--paper);
     transition: padding 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
@@ -381,7 +373,6 @@
       font-size: 1.2rem;
     }
 
-    .search-bar { margin-bottom: 2rem; }
     #searchInput { padding: 0.8rem 2.3rem 0.8rem 1rem; font-size: 1rem; }
     .search-clear-btn { width: 2.6rem; max-height: 2.85rem; font-size: 1.4rem; }
 
@@ -658,7 +649,6 @@
     .card-mark {
       display: none !important;
     }
-    .top-row { display: block; }
     header.masthead { max-width: none; }
     .grid { display: block; }
     .grid-col { width: 100%; }
@@ -685,7 +675,6 @@
 
 <div class="page" id="page">
 
-  <div class="top-row">
   <header class="masthead">
     <p class="eyebrow sans">Una raccolta di citazioni</p>
     <h1 class="title"><img src="logo.svg" alt="Sottolineature" class="logo-mark"></h1>
@@ -694,6 +683,16 @@
       aprono sempre nello stesso punto. Sfoglia per tema, o lasciati sorprendere.
     </p>
   </header>
+
+  <div class="search-sentinel" id="searchSentinel" aria-hidden="true"></div>
+  <div class="search-bar" id="searchBar">
+    <img class="search-bar-logo" src="mark-quill.png" alt="" aria-hidden="true">
+    <div class="search-input-wrap">
+      <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
+      <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Cancella ricerca" hidden>×</button>
+      <ul class="search-suggestions sans" id="searchSuggestions" role="listbox" hidden></ul>
+    </div>
+  </div>
 
   <section class="hero" id="hero">
     <p class="hero-label sans">In evidenza</p>
@@ -708,17 +707,6 @@
       <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
     </div>
   </section>
-  </div>
-
-  <div class="search-sentinel" id="searchSentinel" aria-hidden="true"></div>
-  <div class="search-bar" id="searchBar">
-    <img class="search-bar-logo" src="mark-quill.png" alt="" aria-hidden="true">
-    <div class="search-input-wrap">
-      <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
-      <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Cancella ricerca" hidden>×</button>
-      <ul class="search-suggestions sans" id="searchSuggestions" role="listbox" hidden></ul>
-    </div>
-  </div>
 
   <p class="filters-note sans">Non una classificazione, ma un umore: la stessa pagina può riconoscersi in più d'uno.</p>
   <nav class="filters sans" id="filters">
