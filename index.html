@@ -433,6 +433,10 @@
     border-left-color: var(--accent);
   }
   .card:focus-visible { outline: none; }
+  .card.is-highlighted {
+    border-left-color: var(--gold);
+    border-left-width: 3px;
+  }
 
   .card-body {
     flex: 1;
@@ -3825,6 +3829,29 @@
       return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
     }
 
+    function slugify(str) {
+      return str
+        .toLowerCase()
+        .normalize('NFKD')
+        .replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
+    var slugToCard = {};
+    var usedSlugs = {};
+    cards.forEach(function (card) {
+      var base = slugify(
+        card.querySelector('.card-author').textContent + '-' + card.querySelector('.card-title').textContent
+      );
+      var slug = base;
+      var i = 2;
+      while (usedSlugs[slug]) { slug = base + '-' + i; i++; }
+      usedSlugs[slug] = true;
+      card._slug = slug;
+      slugToCard[slug] = card;
+    });
+
     cards.forEach(function (card) {
       var toggle = document.createElement('button');
       toggle.type = 'button';
@@ -3856,9 +3883,17 @@
       });
       exportBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
 
+      var linkBtn = document.createElement('a');
+      linkBtn.className = 'underline-toggle sans card-permalink-btn';
+      linkBtn.textContent = 'Link';
+      linkBtn.href = 'citazioni/' + card._slug + '.html';
+      linkBtn.addEventListener('click', function (e) { e.stopPropagation(); });
+      linkBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+
       var hint = card.querySelector('.card-hint');
       hint.parentNode.insertBefore(toggle, hint);
       hint.parentNode.insertBefore(exportBtn, hint);
+      hint.parentNode.insertBefore(linkBtn, hint);
       var note = makeNoteField(function () { return quoteKey(card); });
       hint.parentNode.insertBefore(note, hint);
     });
@@ -4115,7 +4150,34 @@
       });
     });
 
+    function goToSlug(slug) {
+      var card = slugToCard[slug];
+      if (!card) { return false; }
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      var tutteBtn = document.querySelector('.filter-btn[data-filter="tutte"]');
+      if (tutteBtn) { tutteBtn.classList.add('active'); }
+      activeCategory = 'tutte';
+      genreBtns.forEach(function (b) { b.classList.remove('active'); });
+      var tuttiGenreBtn = document.querySelector('.filter-btn[data-genre="tutti"]');
+      if (tuttiGenreBtn) { tuttiGenreBtn.classList.add('active'); }
+      activeGenre = 'tutti';
+      searchInput.value = '';
+      updateClearButton();
+      applyFilters();
+      redistribute();
+      requestAnimationFrame(function () {
+        card.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
+        card.classList.add('is-highlighted');
+        setTimeout(function () { card.classList.remove('is-highlighted'); }, 2200);
+      });
+      return true;
+    }
+
     redistribute();
+
+    if (location.hash) {
+      goToSlug(decodeURIComponent(location.hash.slice(1)));
+    }
   })();
 </script>
 </body>
