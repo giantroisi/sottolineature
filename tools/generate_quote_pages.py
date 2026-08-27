@@ -9,7 +9,11 @@ import html
 import json
 import os
 import re
+import sys
 import unicodedata
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(ROOT, 'index.html')
@@ -71,6 +75,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f0eb">
 <title>{title_tag}</title>
 <meta name="description" content="{description}">
 <link rel="canonical" href="{canonical}">
@@ -88,6 +93,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<script type="application/ld+json">{jsonld}</script>
 <style>
   :root {{
     color-scheme: light;
@@ -197,6 +203,36 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     padding-bottom: 2px;
   }}
   .actions a:hover, .actions button:hover {{ color: var(--gold); border-color: var(--gold); }}
+  .tags {{ margin-top: 1.5rem; display: flex; gap: 0.6rem 1rem; flex-wrap: wrap; }}
+  .tags a {{
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }}
+  .tags a:hover {{ color: var(--accent); border-color: var(--accent); }}
+  .related {{ margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); }}
+  .related h2 {{
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: inherit;
+    color: var(--ink-faint);
+    margin: 0 0 0.9rem;
+  }}
+  .related ul {{ list-style: none; margin: 0; padding: 0; }}
+  .related li {{ margin: 0 0 0.6rem; }}
+  .related a {{
+    font-size: 0.92rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }}
+  .related a:hover {{ color: var(--gold); border-color: var(--gold); }}
   footer.sans {{
     margin-top: 3.5rem;
     padding-top: 1.75rem;
@@ -229,6 +265,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <button type="button" id="copyBtn">Copia citazione</button>
     <a href="../index.html#{slug}">Vedi sul sito →</a>
   </div>
+  {tags_html}
+  {related_html}
   <footer class="sans">
     Da <a href="../index.html" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
@@ -262,14 +300,15 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 """
 
 
-def render_page(q, slug):
+def render_page(q, slug, same_author):
     quote_esc = html.escape(q['quote'])
     author_esc = html.escape(q['author'])
     title_esc = html.escape(q['title'])
     context_html = ('<p class="card-context sans">' + html.escape(q['context']) + '</p>') if q['context'] else ''
     year_html = (' · <span class="card-year">' + html.escape(q['year']) + '</span>') if q['year'] else ''
     cover_src = q['cover'] if q['cover'].startswith('http') else '../' + q['cover']
-    cover_html = ('<img class="card-cover" src="' + cover_src + '" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">') if q['cover'] else ''
+    cover_alt = html.escape('Copertina di "' + q['title'] + '" di ' + q['author'])
+    cover_html = ('<img class="card-cover" src="' + cover_src + '" alt="' + cover_alt + '" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">') if q['cover'] else ''
     genre_attr = (' data-genre="' + html.escape(q['genre']) + '"') if q['genre'] else ''
 
     ref = q['title'] + (', ' + q['year'] if q['year'] else '')
@@ -280,8 +319,48 @@ def render_page(q, slug):
     title_tag = q['author'] + ' — ' + q['title'] + ' | Sottolineature'
     og_title = '«' + (q['quote'] if len(q['quote']) <= 120 else q['quote'][:117].rsplit(' ', 1)[0] + '…') + '»'
     canonical = SITE_URL + '/citazioni/' + slug + '.html'
-    og_image = SITE_URL + '/mark-quill.png'
+    og_image = SITE_URL + '/og-banner.png'
     copy_text = '"' + q['quote'] + '" — ' + q['author'] + ', ' + q['title']
+
+    tag_links = []
+    author_slug = slugify(q['author'])
+    tag_links.append('<a href="../autori/' + author_slug + '.html">' + author_esc + '</a>')
+    if q['category'] and q['category'] in CATEGORY_LABELS:
+        tag_links.append('<a href="../temi/' + q['category'] + '.html">' + CATEGORY_LABELS[q['category']] + '</a>')
+    for g in (q['genre'] or '').split(' '):
+        if g in GENRE_LABELS:
+            tag_links.append('<a href="../generi/' + g + '.html">' + GENRE_LABELS[g] + '</a>')
+    tags_html = '<div class="tags sans">' + ''.join(tag_links) + '</div>' if tag_links else ''
+
+    if same_author:
+        items = ''.join(
+            '<li><a href="' + s + '.html">«' + html.escape(oq['quote'][:70] + ('…' if len(oq['quote']) > 70 else '')) + '»</a> — <span class="sans" style="font-style:normal">' + html.escape(oq['title']) + '</span></li>'
+            for s, oq in same_author[:5]
+        )
+        related_html = (
+            '<div class="related sans"><h2>Altre citazioni di ' + author_esc + '</h2><ul>' + items + '</ul></div>'
+        )
+    else:
+        related_html = ''
+
+    jsonld = json.dumps([
+        {
+            '@context': 'https://schema.org',
+            '@type': 'Quotation',
+            'text': q['quote'],
+            'creator': {'@type': 'Person', 'name': q['author']},
+            'isPartOf': {'@type': 'Book', 'name': q['title']},
+            'url': canonical,
+        },
+        {
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            'itemListElement': [
+                {'@type': 'ListItem', 'position': 1, 'name': 'Sottolineature', 'item': SITE_URL + '/'},
+                {'@type': 'ListItem', 'position': 2, 'name': title_tag, 'item': canonical},
+            ],
+        },
+    ], ensure_ascii=False)
 
     return PAGE_TEMPLATE.format(
         title_tag=html.escape(title_tag),
@@ -298,6 +377,9 @@ def render_page(q, slug):
         category=html.escape(q['category']),
         genre_attr=genre_attr,
         slug=slug,
+        tags_html=tags_html,
+        related_html=related_html,
+        jsonld=jsonld,
         copy_js_string=json.dumps(copy_text, ensure_ascii=False),
     )
 
@@ -318,11 +400,18 @@ def main():
         if not q['author'] or not q['quote']:
             continue
         slug = make_slug(q['author'], q['title'], used_slugs)
-        page = render_page(q, slug)
+        entries.append((slug, q))
+
+    by_author = {}
+    for slug, q in entries:
+        by_author.setdefault(q['author'], []).append((slug, q))
+
+    for slug, q in entries:
+        same_author = [(s, oq) for s, oq in by_author[q['author']] if s != slug]
+        page = render_page(q, slug, same_author)
         path = os.path.join(OUT_DIR, slug + '.html')
         with open(path, 'w', encoding='utf-8') as f:
             f.write(page)
-        entries.append((slug, q))
 
     generated_files = set(slug + '.html' for slug, _ in entries)
     stale = existing - generated_files
@@ -332,19 +421,8 @@ def main():
     if stale:
         print('Rimosse pagine obsolete:', len(stale))
 
-    # sitemap.xml
-    sitemap_path = os.path.join(ROOT, 'sitemap.xml')
-    with open(sitemap_path, 'w', encoding='utf-8') as f:
-        f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-        f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-        f.write('  <url><loc>' + SITE_URL + '/</loc></url>\n')
-        f.write('  <url><loc>' + SITE_URL + '/metodo.html</loc></url>\n')
-        for slug, _ in entries:
-            f.write('  <url><loc>' + SITE_URL + '/citazioni/' + slug + '.html</loc></url>\n')
-        f.write('</urlset>\n')
-
     print('Pagine generate in', OUT_DIR)
-    print('Sitemap aggiornata:', sitemap_path)
+    return entries
 
 
 if __name__ == '__main__':
