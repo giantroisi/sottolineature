@@ -52,7 +52,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-08-28.
 
 ### Fatto
-- 256 citazioni, 213 copertine recuperate + tile placeholder per le 43 mancanti, contesto su 37 citazioni (9 aggiunte con citazioni nuove, 28 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi). Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
+- 256 citazioni, 241 copertine recuperate + tile placeholder per le 15 mancanti, contesto su 37 citazioni (9 aggiunte con citazioni nuove, 28 aggiunte retroattivamente a citazioni già presenti — standard per le nuove da qui in poi). Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
 - 35 citazioni taggate per genere (Fantasy 12, Fantascienza 9, Distopia 7, Saggistica 6, Horror/Gotico 4 — alcune ne hanno più d'uno), tag multipli supportati
 - Prime 3 autrici/autori fantasy contemporanei: Rick Riordan (Percy Jackson), Neil Gaiman (Coraline), Terry Pratchett (Il tristo mietitore) — verificati su Wikiquote + una seconda fonte concordante ciascuno; Sarah J. Maas e Leigh Bardugo scartati per assenza di una fonte italiana tracciabile al testo pubblicato (solo blog/trame), da ritentare con accesso a un'anteprima editoriale
 - Logo SVG (niente più sfocatura), favicon con la "S" del logo
@@ -94,7 +94,7 @@ Aggiornata: 2026-08-28.
 - **Informativa privacy** — richiesta dall'utente, in sospeso: servono nome/ragione ed email da usare come titolare del trattamento (dati che non si possono inventare in un documento legale). Nessun cookie/tracking sul sito, solo `localStorage` funzionale — confermato controllando il codice
 - **Contesto per le restanti ~216 citazioni** — il cantiere grande, da fare a lotti
 - **Sarah J. Maas e Leigh Bardugo** — restano da aggiungere (Rick Riordan fatto): nessuna citazione italiana verificabile trovata finora, serve una fonte tracciabile al testo pubblicato (anteprima Google Libri o editore), non solo blog/trame
-- **Copertine per le 43 citazioni che ne sono prive** — in gran parte poesie/estratti senza edizione autonoma su Open Library; per queste la tile con le iniziali resta la soluzione, ma vale un ultimo giro mirato su quelle che un'edizione ce l'hanno
+- **Copertine per le 15 citazioni che ne sono ancora prive** — recuperate 28/43 il 2026-08-28 (dettagli in LOG.md); delle 15 restanti, 3 sono poesie senza edizione autonoma (irrecuperabili), le altre 12 non hanno restituito su Open Library un'edizione con autore corrispondente — da ritentare con ricerche più mirate (titolo originale, traduttore) o lasciare alla tile placeholder
 - **Stato della routine cloud automatica** — da riverificare con l'utente, non è implementabile in autonomia
 
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
