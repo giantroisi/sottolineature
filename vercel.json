@@ -23,6 +23,11 @@
       ],
       "destination": "https://sottolineature.it/:path*",
       "permanent": true
+    },
+    {
+      "source": "/citazioni/kazuo-ishiguro-quando-eravamo-orfani/",
+      "destination": "/citazioni/kazuo-ishiguro-non-lasciarmi-perche-forse-in/",
+      "permanent": true
     }
   ],
   "headers": [
