@@ -287,7 +287,8 @@ def main():
     author_status = {}
     for author, items in by_author.items():
         aslug = author_slugs[author]
-        page, indexable = render_hub('autore', aslug, author, items, [], '')
+        intro = hub_intros.get('autori', {}).get(author)
+        page, indexable = render_hub('autore', aslug, author, items, [], '', intro)
         with open(os.path.join(autori_dir, aslug + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
         author_status[aslug] = indexable

@@ -131,7 +131,10 @@ il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, sche
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
 **Stato: Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
-(deploy Vercel confermato il 2026-08-28). Fase 3 chiusa: 232/256 citazioni con fonte (90%, locus e/o
+(deploy Vercel confermato il 2026-08-28). Fase 6 avviata: lotto 1 di schede autore fatto (43
+autori), il resto della fase (Search Console, Bing/IndexNow, analytics) è bloccato in attesa di
+azioni dell'utente — non automatizzabile da qui, vedi sezione Fase 6. Fase 3 chiusa: 232/256
+citazioni con fonte (90%, locus e/o
 edizione/traduttore verificati, 34 lotti committati e pushati il 2026-08-28, dettagli per lotto in
 `LOG.md`). Le 24 rimaste sono state cercate almeno una volta (molte due) senza trovare un
 riferimento strutturale verificabile con certezza — non un lavoro interrotto a metà, ma il limite
@@ -148,6 +151,13 @@ generi, 5 raccolte curate pubblicate (`/raccolte/`, non 6-8 come da indicazione 
 candidate scartate per mancanza di ≥8 citazioni genuinamente pertinenti, stesso principio di
 rigore della Fase 3). Dettagli nella sezione Fase 5 qui sotto.
 
+Fase 6 avviata il 2026-08-28, su istruzione "vai": lotto 1 di schede autore (43 autori con ≥2
+citazioni), che ha portato gli autori indicizzabili da 13 a 43 grazie al gate della Fase 2/5. Gli
+altri tre punti della fase (Search Console, Bing/IndexNow, analytics) restano bloccati: servono
+rispettivamente l'account Google dell'utente, l'account Bing dell'utente, e la privacy policy del
+sito (mai pubblicata, servono i dati del titolare) — nessuno dei tre è qualcosa che si possa fare
+in autonomia da qui. Dettagli nella sezione Fase 6 qui sotto.
+
 Tre correzioni di attribuzione fatte durante la verifica (non solo trovate, anche corrette e
 pubblicate): Kazuo Ishiguro ("Quando eravamo orfani" → "Non lasciarmi"), Alice Munro ("La vista da
 Castle Rock" → "Nemico, amico, amante..."), Michela Murgia ("Accabadora" → "Chirù") — ognuna con
@@ -161,10 +171,12 @@ Maalouf ("In fondo all'Atlantico c'è un libro" — potrebbe appartenere a "Il p
 Baldassarre"), Suzanne Collins ("Che i giochi abbiano inizio" — la fonte trovata è del film, non
 confermata nel romanzo).
 
-Prossimo passo = Fase 6 (schede autore, Search Console, misura) — oppure, se richiesto
-esplicitamente, un lotto dedicato a risolvere i quattro dubbi aperti, a ritentare le 24 citazioni
-rimaste con fonti diverse da quelle già cercate, o ad ampliare le raccolte quando l'archivio crescerà
-abbastanza da sostenere le candidate scartate (amicizia, tempo che passa) o nuove.**
+Prossimo passo = Fase 6, lotto 2 di schede autore (i 150 autori con 1 sola citazione, in coda dopo
+i 43 con ≥2 già fatti) — oppure, se richiesto esplicitamente: risolvere i quattro dubbi aperti,
+ritentare le 24 citazioni rimaste con fonti diverse da quelle già cercate, ampliare le raccolte
+quando l'archivio crescerà abbastanza da sostenere le candidate scartate (amicizia, tempo che
+passa) o nuove, oppure — quando l'utente vorrà occuparsene di persona — Search Console, Bing
+Webmaster Tools e privacy policy, i tre punti di Fase 6 che restano bloccati in attesa sua.**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
@@ -485,16 +497,29 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
 
 #### Fase 6 — Schede autore e misura
 
-- [ ] **Schede autore di 80-120 parole verificate**, a lotti, dando la precedenza agli autori più
-      cercati e a quelli con più citazioni. Ogni scheda pubblicata fa rientrare la pagina in
-      sitemap da sola, grazie al gate della Fase 2.
-- [ ] **Google Search Console** (serve l'account dell'utente): verifica proprietà, invio sitemap,
-      controllo mensile del rapporto Indicizzazione pagine. La metrica da guardare non è la
-      posizione media: è **quante delle 256 pagine citazione risultano indicizzate** (obiettivo
-      realistico: oltre l'80% a tre mesi dalla Fase 2).
-- [ ] **Bing Webmaster Tools** + **IndexNow** (Vercel lo supporta con una chiave statica).
-- [ ] Nessun analytics con cookie senza informativa: se serve una misura, soluzione senza cookie e
-      comunque **dopo** aver pubblicato la privacy policy già in sospeso.
+- [x] **Lotto 1: schede autore per i 43 autori con ≥2 citazioni** (2026-08-28), 72-97 parole
+      ciascuna, dati biografici verificabili e incontrovertibili (nascita/morte, nazionalità, opere
+      principali, un fatto distintivo — Nobel, esilio, causa di morte quando nota e pertinente).
+      Testi in `data/hub_intros.json` sotto la chiave `autori` (keyed per nome esatto come compare
+      in `data/citazioni.json`), iniettati da `generate_hub_pages.py` nel ramo autore di `main()`.
+      Effetto immediato sul gate di indicizzazione (Fase 2/5): autori indicizzabili passati da 13
+      (soglia ≥3 citazioni) a 43 — verificato nel rapporto di `build.py` e a campione in browser
+      (pagina con scheda: nessun `noindex`; pagina senza, es. Jane Austen con 1 citazione: `noindex`
+      confermato). **Restano 150 autori con 1 sola citazione senza scheda**, in coda per lotti
+      successivi — non prioritari come i 43 con ≥2, ma la via per farli entrare in sitemap uno per
+      uno resta la stessa.
+- [ ] **Google Search Console** — **bloccato, serve l'account Google dell'utente** (verifica
+      proprietà del sito, non automatizzabile da qui): verifica proprietà, invio sitemap, controllo
+      mensile del rapporto Indicizzazione pagine. La metrica da guardare non è la posizione media:
+      è **quante delle 256 pagine citazione risultano indicizzate** (obiettivo realistico: oltre
+      l'80% a tre mesi dalla Fase 2).
+- [ ] **Bing Webmaster Tools** + **IndexNow** — **bloccato, serve l'account dell'utente** allo stesso
+      modo di Search Console (Vercel supporta IndexNow con una chiave statica, ma la registrazione
+      del sito va fatta dal titolare).
+- [ ] **Analytics — bloccato**, non per motivi tecnici ma perché la privacy policy del sito è
+      **ancora in sospeso** (serve i dati del titolare: nome, indirizzo, base giuridica). Nessun
+      analytics con cookie va aggiunto prima che la policy sia pubblicata, e comunque solo con una
+      soluzione senza cookie quando richiesto.
 
 #### Da non fare, mai (anti-pattern per questo sito)
 
