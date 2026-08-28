@@ -730,24 +730,24 @@
   <p class="filters-note sans">Non una classificazione, ma un umore: la stessa pagina può riconoscersi in più d'uno.</p>
   <nav class="filters sans" id="filters">
     <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
-    <a class="filter-btn" data-filter="vita" href="temi/vita.html">Vita</a>
-    <a class="filter-btn" data-filter="amore" href="temi/amore.html">Amore</a>
-    <a class="filter-btn" data-filter="coraggio" href="temi/coraggio.html">Coraggio</a>
-    <a class="filter-btn" data-filter="liberta" href="temi/liberta.html">Libertà</a>
-    <a class="filter-btn" data-filter="tempo" href="temi/tempo.html">Tempo</a>
-    <a class="filter-btn" data-filter="solitudine" href="temi/solitudine.html">Solitudine</a>
-    <a class="filter-btn" data-filter="verita" href="temi/verita.html">Verità</a>
+    <a class="filter-btn" data-filter="vita" href="/temi/vita/">Vita</a>
+    <a class="filter-btn" data-filter="amore" href="/temi/amore/">Amore</a>
+    <a class="filter-btn" data-filter="coraggio" href="/temi/coraggio/">Coraggio</a>
+    <a class="filter-btn" data-filter="liberta" href="/temi/liberta/">Libertà</a>
+    <a class="filter-btn" data-filter="tempo" href="/temi/tempo/">Tempo</a>
+    <a class="filter-btn" data-filter="solitudine" href="/temi/solitudine/">Solitudine</a>
+    <a class="filter-btn" data-filter="verita" href="/temi/verita/">Verità</a>
     <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
   </nav>
 
   <nav class="filters genre-filters sans" id="genreFilters">
     <span class="genre-filters-label sans">Genere</span>
     <button class="filter-btn active" data-genre="tutti" type="button">Tutti</button>
-    <a class="filter-btn" data-genre="fantasy" href="generi/fantasy.html">Fantasy</a>
-    <a class="filter-btn" data-genre="fantascienza" href="generi/fantascienza.html">Fantascienza</a>
-    <a class="filter-btn" data-genre="distopia" href="generi/distopia.html">Distopia</a>
-    <a class="filter-btn" data-genre="horror" href="generi/horror.html">Horror/Gotico</a>
-    <a class="filter-btn" data-genre="saggistica" href="generi/saggistica.html">Saggistica</a>
+    <a class="filter-btn" data-genre="fantasy" href="/generi/fantasy/">Fantasy</a>
+    <a class="filter-btn" data-genre="fantascienza" href="/generi/fantascienza/">Fantascienza</a>
+    <a class="filter-btn" data-genre="distopia" href="/generi/distopia/">Distopia</a>
+    <a class="filter-btn" data-genre="horror" href="/generi/horror/">Horror/Gotico</a>
+    <a class="filter-btn" data-genre="saggistica" href="/generi/saggistica/">Saggistica</a>
   </nav>
 
   <button class="print-selection-btn sans" id="printSelectionBtn" type="button" hidden>Stampa o esporta questa selezione</button>
@@ -3596,7 +3596,7 @@
   <footer class="sans">
     253 citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
     qui sono solo tenute da parte per essere rilette.
-    <a href="metodo.html">Come verifichiamo le citazioni →</a>
+    <a href="/metodo/">Come verifichiamo le citazioni →</a>
   </footer>
 
 </div>
@@ -4180,7 +4180,7 @@
       var linkBtn = document.createElement('a');
       linkBtn.className = 'underline-toggle sans card-permalink-btn';
       linkBtn.textContent = 'Link';
-      linkBtn.href = 'citazioni/' + card._slug + '.html';
+      linkBtn.href = '/citazioni/' + card._slug + '/';
       linkBtn.addEventListener('click', function (e) { e.stopPropagation(); });
       linkBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
 

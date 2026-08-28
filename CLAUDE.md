@@ -89,8 +89,225 @@ Aggiornata: 2026-08-28.
   - Non fatto/rimandato: sottomissione della sitemap a Google Search Console (serve l'account dell'utente)
 
 ### Da fare — SEO
-- Contenuto "sottile" sulle pagine citazione senza contesto: **risolto**, ormai solo 3/256 ne sono prive
-- Da fare in futuro, non urgente: sottomettere `sitemap.xml` a Google Search Console (richiede accesso all'account dell'utente, non automatizzabile); considerare pagine autore anche per Sarah J. Maas/Leigh Bardugo una volta aggiunte le loro citazioni
+
+**Riferimento:** `SEO.md` contiene l'audit completo del 2026-08-28 (perché si fa ognuna di queste
+cose, i numeri su cui si basa, l'architettura target e i comandi pronti per l'agente). Qui sotto
+c'è il **lavoro operativo**: cosa toccare, in che ordine, e come si verifica che sia fatto.
+Se le due fonti divergono, `CLAUDE.md` ha la precedenza.
+
+**Come si segna il progresso** (obbligatorio, vale la costituzione): si spunta `[x]` la voce
+appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase chiusa si sposta
+il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
+vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
+
+**Stato: nessuna fase avviata. Prossimo passo = Fase 0.**
+
+**Decisioni già prese con l'utente il 2026-08-28, da non rimettere in discussione:**
+teaser in home con il contesto esclusivo della pagina citazione; migrazione a URL puliti con 301;
+investimento editoriale su tutti e quattro i fronti (fonte verificabile, pagine opera, raccolte,
+schede autore). Le tre alternative scartate sono elencate in `SEO.md`.
+
+**Diagnosi in tre righe:** 463 URL per 256 citazioni, con ogni frase e il suo contesto replicati su
+4-5 pagine; la home da 313 KB contiene l'intero archivio ed è quindi un superset di ogni pagina
+figlia; le 256 pagine citazione non hanno `<h1>`. 150 autori su 193 hanno una sola citazione,
+242 opere su 249 idem, solo 13 autori arrivano a 3 citazioni.
+
+---
+
+#### Fase 0 — Fondamenta tecniche (nessun contenuto nuovo, tutto automatizzabile)
+
+- [ ] **`vercel.json`** alla radice con `"cleanUrls": true`, `"trailingSlash": true`, array
+      `redirects` (vuoto all'inizio, lo riempie `build.py`) e header `Cache-Control:
+      public, max-age=31536000, immutable` su `/assets/(.*)`.
+      Nota: `cleanUrls` + `trailingSlash` servono `citazioni/foo.html` su `/citazioni/foo/` e
+      rimandano i vecchi indirizzi con un 308 permanente **senza rinominare nessun file** — la
+      migrazione tocca solo i link interni, non la struttura del repo.
+- [ ] **Host canonico:** 301 da `www` all'apice e da `sottolineature.vercel.app` a
+      `sottolineature.it`. Se il redirect fra domini non è praticabile, minimo accettabile
+      `X-Robots-Tag: noindex` sul dominio `.vercel.app`. Oggi il sito esiste per intero su due host.
+- [ ] **Link interni** — da correggere **nei generatori in `tools/`, mai a mano sui file generati**:
+      `../index.html` → `/` (sono 512 occorrenze), `index.html#slug` → `/#slug`,
+      `metodo.html` → `/metodo/`, `../autori/x.html` → `/autori/x/`, e così per temi e generi.
+- [ ] **`tools/slugs.json`** — generarlo **una volta sola** dallo stato attuale, congelando gli
+      slug esistenti così come sono, **inclusi i 7 con suffisso `-2`**. Chiave:
+      `autore|titolo|prime 6 parole della frase`. Da qui in avanti gli slug si **leggono**, non si
+      ricalcolano: oggi il suffisso numerico dipende dall'ordine delle card in `index.html`, quindi
+      togliendo una citazione la successiva cambierebbe URL in silenzio.
+      Per le citazioni nuove su un'opera già presente lo schema è
+      `<autore>-<titolo>-<3 parole significative dell'incipit>`, mai un numero.
+      **Non rinominare gli slug esistenti**: il beneficio è estetico, il rischio è reale.
+- [ ] **`tools/redirects.json`** — ogni cambio di slug ci scrive dentro un 301 e `build.py` lo
+      riversa in `vercel.json`. Uno slug non si cancella mai.
+- [ ] **`/assets/site.css`** — estrarre il blocco `:root`/card/tema oggi ripetuto inline in 463
+      file (~7 KB ciascuno). `index.html` può tenere il suo inline, è l'unica pagina che ci guadagna.
+- [ ] **Navigazione di sito** in testa a ogni pagina generata: *Citazioni · Temi · Generi ·
+      Autori · Metodo*. Oggi le pagine interne sono cul-de-sac con un solo link di ritorno.
+- [ ] **Copertine:** `<link rel="preconnect" href="https://covers.openlibrary.org">` su tutte le
+      pagine con copertine, e `width`/`height` espliciti su ogni `<img class="card-cover">`
+      (oggi mancano: spostamento del layout garantito).
+
+**Controllo di accettazione:** `/citazioni/george-orwell-1984/` risponde 200 e
+`/citazioni/george-orwell-1984.html` risponde 308 verso di essa; `grep -r "index.html"` sui file
+generati torna a zero; la sitemap contiene solo URL puliti; un crawl locale
+(`python3 -m http.server` + script che segue tutti gli href) non trova nessun link rotto.
+
+#### Fase 1 — Da frammento a documento: le 256 pagine citazione
+
+Tutto dentro `tools/generate_quote_pages.py`.
+
+- [ ] **`<h1>` = il testo della citazione.** È il difetto tecnico più grave del sito, ripetuto 256
+      volte: oggi la frase sta in un `<p class="card-quote">` e la pagina non ha nessun H1.
+      Se la frase supera i 200 caratteri: H1 = incipit troncato a parola intera + `…`, testo
+      integrale sotto.
+- [ ] **Semantica della citazione:**
+      `<figure><blockquote><p>…</p></blockquote><figcaption>— <a>Autore</a>, <cite>Titolo</cite>
+      · anno</figcaption></figure>`.
+- [ ] **`<title>` distintivo:** `«{incipit ~45 caratteri}…» — {Autore}, {Opera}`.
+      Oggi le due citazioni dalla stessa opera hanno title identici
+      (`George Orwell — 1984 | Sottolineature` per entrambe).
+- [ ] **`<meta description>`** senza duplicati: frase completa se breve, altrimenti frase troncata
+      + prima riga di contesto.
+- [ ] **Briciola di pane visibile**, identica a quella in JSON-LD:
+      `Sottolineature › Autori › {Autore} › {Opera, se ha pagina} › questa citazione`.
+      Oggi c'è solo il JSON-LD, con due livelli e con l'intero tag title usato come nome del secondo.
+- [ ] **JSON-LD in `@graph`** con `@id` collegati, al posto dei due oggetti scollegati attuali:
+      `WebPage` → `Quotation` (`isPartOf` verso il `Book`, `creator` verso la `Person`) → `Book`
+      (`name`, `author`, `datePublished`) → `Person` → `BreadcrumbList`.
+      `sameAs` verso Wikipedia/Wikidata **solo dopo aver aperto la pagina e verificato che sia la
+      persona/opera giusta** — stessa regola già in uso per i `cover_i` di Open Library.
+- [ ] **Immagine LCP:** sulla pagina citazione la copertina è l'elemento LCP e oggi ha
+      `loading="lazy"`. Togliere il lazy, aggiungere `fetchpriority="high"` e le dimensioni.
+- [ ] **Immagine social per citazione:** pre-generare 256 PNG 1200×630 in `/assets/og/<slug>.png`
+      riusando la composizione già scritta per il canvas di condivisione (Playwright a build time),
+      e puntarci `og:image`/`twitter:image`. Oggi tutte e 256 le pagine condividono `og-banner.png`.
+      È l'intervento con il miglior ritorno sulle condivisioni.
+- [ ] **Correlate più ricche:** stesso autore (già c'è), stessa opera, stesso tema, con etichette
+      che dicono *perché* sono correlate.
+
+**Controllo di accettazione:** H1 presente su tutte e 256 (grep di conteggio); `build.py` non
+segnala title o description duplicati; 5 pagine campione validate con il test dei risultati
+strutturati di Google; LCP sotto i 2,5 s su una pagina citazione.
+
+#### Fase 2 — De-duplicazione e gate di indicizzazione
+
+- [ ] **Togliere `card-context` dall'HTML pubblicato** di home, hub tema/genere/autore e correlate.
+      Il contesto resta esclusivo di `/citazioni/<slug>/`.
+      **Nodo da decidere prima di partire:** `index.html` è la fonte di verità scritta a mano e il
+      contesto lì dentro va conservato, perché è da lì che i generatori lo prendono — va escluso
+      dall'output pubblicato, non cancellato dal sorgente. L'alternativa pulita è estrarre le
+      citazioni in `data/citazioni.json` e far diventare anche `index.html` un file generato, ma
+      **cambierebbe il flusso di lavoro descritto in questo documento**: non farlo senza l'ok
+      esplicito dell'utente.
+- [ ] **Gate di indicizzazione in `build.py`:** un hub entra in sitemap ed è indicizzabile solo se
+      ha **≥ 3 citazioni** *oppure* **≥ 80 parole di testo editoriale originale**. Altrimenti
+      `<meta name="robots" content="noindex,follow">` e fuori dalla sitemap, **ma resta linkato**
+      (serve come percorso di scansione).
+      *Effetto immediato da mettere in conto:* con la soglia a 3, circa **180 pagine autore su 193**
+      finiscono in `noindex` — è la fotografia onesta della situazione, e il motivo per cui le
+      schede autore della Fase 6 non sono un abbellimento. Se la soglia a 3 sembra troppo severa si
+      può partire da 2, ma la scelta va fatta adesso e scritta in `build.py`.
+- [ ] **`<lastmod>` in sitemap** — serve una data per citazione: aggiungere `data-added="YYYY-MM-DD"`
+      sulle card. Ricostruire le date passate da `LOG.md` **solo dove il lotto è identificabile con
+      certezza**; per le altre nessuna data inventata, si parte da qui in avanti.
+- [ ] **`/feed.xml`** con le ultime 20 citazioni per data di aggiunta.
+- [ ] **JSON-LD `WebSite` + `SearchAction`** sulla home con `/?q={search_term_string}`, e il JS
+      della home che legge `?q=` al caricamento e precompila la ricerca (utile anche agli utenti:
+      rende condivisibile una ricerca).
+- [ ] **`ItemList`/`CollectionPage`** sugli hub, con gli elementi in ordine.
+- [ ] **Pagine indice mancanti**, oggi vicoli ciechi: `/citazioni/` paginato (30 per pagina,
+      self-canonical su ognuna), `/autori/` A-Z, `/temi/`, `/generi/`.
+- [ ] **Rapporto di fine build** in `build.py`: URL totali, URL indicizzabili, hub sotto soglia,
+      title duplicati, description duplicate, pagine senza H1, citazioni senza fonte, slug nuovi,
+      301 aggiunti. **Il build deve fallire** se trova due title identici o una pagina citazione
+      senza H1.
+
+**Controllo di accettazione:** preso a caso un contesto, `grep -rl` sui file HTML pubblicati
+restituisce **un solo** risultato; il rapporto di `build.py` mostra URL indicizzabili < URL totali
+con la differenza spiegata; la sitemap contiene solo URL indicizzabili.
+
+#### Fase 3 — Fonte verificabile su ogni citazione *(il lavoro che vale di più)*
+
+È l'unico contenuto che nessun aggregatore italiano ha, è quello che `metodo.html` già promette,
+ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferire questa pagina.
+
+- [ ] Blocco `<p class="card-source">` su ogni citazione: **edizione di riferimento,
+      capitolo/parte/atto/verso, traduttore quando il testo è tradotto, collegamento a Wikisource
+      o alla fonte primaria dove esiste.** Nel JSON-LD: `citation` / `isPartOf` arricchiti.
+- [ ] Si lavora a **lotti di 15**, con le regole di verifica già scritte più sopra in questo
+      documento. **Se il riferimento non è stabilibile con certezza il campo resta vuoto** e lo
+      scarto si annota con la ragione: su un sito che si presenta come verificato a mano, una
+      fonte sbagliata è molto peggio di una fonte assente.
+- [ ] Ordine dei lotti: prima le opere di pubblico dominio con testo integrale su Wikisource
+      (Dante, Manzoni, Leopardi, Verga, Pirandello, Shakespeare in traduzione), dove la verifica è
+      rapida e il collegamento esterno è di qualità.
+- [ ] Il blocco fonte va in `index.html` (fonte di verità) e propagato dai generatori **solo** alla
+      pagina citazione, mai agli hub. Dopo ogni lotto: `python3 tools/build.py`, controllo che
+      nessuna fonte sia finita per errore su due citazioni diverse (stessa trappola già vista con i
+      contesti duplicati), riga in `LOG.md`, commit.
+
+#### Fase 4 — Livello opera (`/opere/<autore>-<titolo>/`)
+
+È dove sta la domanda italiana reale: si cerca *"frasi 1984"*, *"citazioni promessi sposi"*, non
+"citazioni sulla libertà di Orwell". Oggi quella domanda non ha una pagina su cui atterrare.
+
+- [ ] Costruire pagine opera **solo** per le opere con ≥2 citazioni e per i titoli del canone
+      scolastico già in archivio (~40), e **solo se si può scrivere una scheda verificata di 3-5
+      righe** (cos'è il libro, anno, edizione e traduzione di riferimento).
+      **Mai generare le 249 opere in automatico**: sarebbe la fabbrica di doorway page che affossa
+      i siti di citazioni.
+- [ ] Regola strutturale: **quando un'opera ha una sola citazione, la pagina citazione è già la
+      pagina dell'opera** — non crearle entrambe.
+- [ ] H1: *"Frasi e citazioni da {Opera} di {Autore}"*. `Book` in JSON-LD con `@id` stabile,
+      riusato da tutte le pagine citazione di quell'opera.
+- [ ] Prima di generare qualsiasi cosa: mostrare all'utente l'elenco delle opere candidate con il
+      motivo di inclusione e aspettare l'ok.
+
+#### Fase 5 — Hub editoriali e raccolte
+
+- [ ] **Temi (7):** introduzione di 300-600 parole scritta a mano per ciascuno. Sono 7 pagine, e
+      possono diventare le più visitate del sito.
+- [ ] **Generi (5):** stessa cosa, più corta.
+- [ ] **`/raccolte/<slug>/`** — pagine curate a mano, 6-8 per cominciare. Candidate naturali per
+      questo archivio: *frasi sui libri e sulla lettura*, *citazioni sull'amicizia*, *frasi brevi*,
+      *citazioni sul mare e sul viaggio*, *frasi sul tempo che passa*.
+      **Una raccolta si pubblica solo con ≥8 citazioni pertinenti già sul sito e un'introduzione
+      scritta a mano.**
+      *Perché separate dai temi:* i 7 umori sono una scelta di prodotto — "un'atmosfera, non una
+      classificazione", da tenere pochi e larghi — mentre la domanda di ricerca è fatta di intenti
+      stretti. Le raccolte danno accesso a quel traffico senza snaturare i filtri.
+- [ ] Nei titoli e negli H1 degli hub usare in modo naturale sia "frasi" (dove sta il volume di
+      ricerca in Italia) sia "citazioni" (il registro del sito): *"Frasi e citazioni sulla libertà"*.
+      Una volta nel title, una nell'H1, mai infarcire il corpo.
+
+#### Fase 6 — Schede autore e misura
+
+- [ ] **Schede autore di 80-120 parole verificate**, a lotti, dando la precedenza agli autori più
+      cercati e a quelli con più citazioni. Ogni scheda pubblicata fa rientrare la pagina in
+      sitemap da sola, grazie al gate della Fase 2.
+- [ ] **Google Search Console** (serve l'account dell'utente): verifica proprietà, invio sitemap,
+      controllo mensile del rapporto Indicizzazione pagine. La metrica da guardare non è la
+      posizione media: è **quante delle 256 pagine citazione risultano indicizzate** (obiettivo
+      realistico: oltre l'80% a tre mesi dalla Fase 2).
+- [ ] **Bing Webmaster Tools** + **IndexNow** (Vercel lo supporta con una chiave statica).
+- [ ] Nessun analytics con cookie senza informativa: se serve una misura, soluzione senza cookie e
+      comunque **dopo** aver pubblicato la privacy policy già in sospeso.
+
+#### Da non fare, mai (anti-pattern per questo sito)
+
+- Generare le 249 pagine opera in automatico.
+- Generare pagine da combinazioni di filtri (tema × genere, autore × tema): è il modo più veloce
+  per prendere un declassamento per contenuto di scarsa qualità.
+- Aggiungere temi o generi per intercettare ricerche — la regola dei 4+ titoli resta.
+- Riscrivere gli slug esistenti per farli più belli.
+- Mettere `sameAs`, ISBN, traduttori, date o edizioni non verificati per arricchire i dati strutturati.
+- Modificare il testo di una citazione, un nome, un titolo o un anno per ragioni SEO.
+- Comprare o scambiare link. La strada naturale per i collegamenti in entrata di questo sito sono
+  insegnanti, biblioteche e blog letterari.
+
+#### Vecchie voci SEO ancora valide
+
+- Contenuto "sottile" sulle pagine citazione senza contesto: **risolto**, solo 2/256 ne sono prive
+- Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
 - **Informativa privacy** — richiesta dall'utente, in sospeso: servono nome/ragione ed email da usare come titolare del trattamento (dati che non si possono inventare in un documento legale). Nessun cookie/tracking sul sito, solo `localStorage` funzionale — confermato controllando il codice
