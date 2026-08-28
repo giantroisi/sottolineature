@@ -157,9 +157,11 @@ verificabile. **Lotto 6 fatto il 2026-08-28** (8 citazioni): guerra (Remarque, H
 (Jack London), musica (Nietzsche), natura (Emerson), pace (Kant), lavoro (Primo Levi),
 infanzia (Proust). Restano aperti solo montagna e figli, nessun candidato solido trovato con
 lo stesso rigore — da riprendere in un lotto futuro. **Approfondimento avviato il 2026-08-28**
-(punto 5 di CATALOGO.md, portare autori da 1 a 3 citazioni): primi 6 autori da 1 a 2 citazioni
-(Cervantes, Machiavelli, Austen, Boccaccio, Charlotte Brontë, Balzac); ne restano 145 con una
-sola. Archivio a 335 citazioni, 220 autori. **Deploy sospeso su richiesta dell'utente**:
+(punto 5 di CATALOGO.md, portare autori da 1 a 3 citazioni): 8 autori finora portati da 1 a 2
+citazioni (Cervantes, Machiavelli, Austen, Boccaccio, Charlotte Brontë, Balzac, Voltaire,
+Stevenson); ne restano 143 con una sola — lavoro esplicitamente da proseguire senza chiedere
+conferma, poi passare a nuove citazioni una volta esaurito. Archivio a 337 citazioni, 220
+autori. **Deploy sospeso su richiesta dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
 origin/main..HEAD` prima di assumere che il sito pubblicato rifletta lo stato del repo.
 Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
