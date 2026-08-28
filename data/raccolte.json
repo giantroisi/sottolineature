@@ -189,5 +189,25 @@
       "Giacomo Leopardi|A se stesso|Amaro e noia la vita, altro",
       "Giuseppe Ungaretti|Il dolore|Disperazione che incessante aumenta la vita"
     ]
+  },
+  {
+    "slug": "bellezza",
+    "title": "La bellezza",
+    "h1": "Frasi e citazioni sulla bellezza",
+    "intro": [
+      "«La bellezza salverà il mondo», fa dire Dostoevskij al principe Myškin nell'Idiota — una delle frasi più citate e più fraintese della letteratura russa, spesso ripetuta come una certezza quando nel romanzo è, semmai, una domanda aperta. Thomas Mann, ne La morte a Venezia, la rende invece dichiaratamente pericolosa: è «divina e visibile a un tempo», l'unica idea platonica che i sensi possano cogliere direttamente, ed è proprio questo a perdere il vecchio Aschenbach. Sant'Agostino, nelle Confessioni, la insegue per una vita intera prima di scoprire che era «dentro» di lui fin dall'inizio: «tardi ti amai, bellezza così antica e così nuova».",
+      "C'è poi la bellezza che inganna: Elena Ferrante fa dire a Lila, nella Storia del nuovo cognome, che non è altro che «cipria passata sopra l'orrore» — un sospetto che Oscar Wilde ribalta di segno nel Ritratto di Dorian Gray, dove Lord Henry la eleva a «una manifestazione del genio», anzi qualcosa di più alto, perché non ha bisogno di spiegarsi. Stendhal, nel suo trattato Dell'amore, prova a conciliare le due posizioni in una sola formula: la bellezza «è una promessa di felicità», niente di più e niente di meno.",
+      "E c'è la bellezza che si costruisce nel tempo, pietra su pietra, come la cattedrale di Notre-Dame descritta da Victor Hugo — «ogni faccia, ogni pietra» del monumento, una pagina di storia oltre che d'arte — o quella che si può solo intravedere, mai afferrare, secondo la definizione più diretta di Emily Dickinson: non ha causa, esiste, e sparisce non appena la si insegue."
+    ],
+    "quote_keys": [
+      "Fëdor Dostoevskij|L'idiota|La bellezza salverà il mondo.",
+      "Thomas Mann|La morte a Venezia|Ché la Bellezza, odimi bene, Fedro,",
+      "Sant'Agostino|Confessioni|Tardi ti amai, bellezza così antica",
+      "Elena Ferrante|Storia del nuovo cognome|Penso che la bellezza sia un",
+      "Oscar Wilde|Il ritratto di Dorian Gray|La bellezza è una manifestazione del",
+      "Stendhal|Dell'amore|Bellezza è una promessa di felicità.",
+      "Victor Hugo|Notre-Dame de Paris|Ogni faccia, ogni pietra del venerabile",
+      "Emily Dickinson|Poesie|La bellezza non ha causa: esiste."
+    ]
   }
 ]

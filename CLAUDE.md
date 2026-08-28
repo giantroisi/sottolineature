@@ -149,13 +149,11 @@ scolastico poco coperto, 10 citazioni) fatti il 2026-08-28**, candidati del Lott
 approvati dall'utente, Lotto 4 e successivi in autonomia senza chiedere conferma a ogni
 passaggio. **Lotto 5 (raccolte quasi pronte) parzialmente fatto il 2026-08-28**: pubblicate le
 raccolte "Il cambiamento" (da citazioni già in archivio, nessuna nuova), "I sogni" e "La
-tristezza" (con nuove citazioni verificate). La raccolta "La bellezza" resta sotto la soglia di
-8 citazioni pertinenti (a 6) e **attende un'indicazione dell'utente** prima di essere pubblicata
-o completata con altre due citazioni, come previsto dal punto 10 di CATALOGO.md per le raccolte
-sotto soglia — dettagli in `LOG.md`. **Lotto 7 (contemporanei sotto copyright) fatto il
-2026-08-28**: Bukowski e Camilleri, 4 citazioni ciascuno, candidati mostrati e approvati
+tristezza" e "bellezza" (con nuove citazioni verificate). **Lotto 5 completo**: quattro raccolte
+pubblicate (cambiamento, sogni, tristezza, bellezza). **Lotto 7 (contemporanei sotto copyright)
+fatto il 2026-08-28**: Bukowski e Camilleri, 4 citazioni ciascuno, candidati mostrati e approvati
 dall'utente; Sarah J. Maas e Leigh Bardugo scartati di nuovo, nessuna fonte con capitolo/pagina
-verificabile. Archivio a 319 citazioni, 217 autori. **Deploy sospeso su richiesta dell'utente**:
+verificabile. Archivio a 321 citazioni, 217 autori. **Deploy sospeso su richiesta dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
 origin/main..HEAD` prima di assumere che il sito pubblicato rifletta lo stato del repo.
 Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
