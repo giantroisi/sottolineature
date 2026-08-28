@@ -33,6 +33,11 @@
       "source": "/citazioni/alice-munro-la-vista-da-castle-rock/",
       "destination": "/citazioni/alice-munro-nemico-amico-amante/",
       "permanent": true
+    },
+    {
+      "source": "/citazioni/michela-murgia-accabadora/",
+      "destination": "/citazioni/michela-murgia-chiru/",
+      "permanent": true
     }
   ],
   "headers": [
