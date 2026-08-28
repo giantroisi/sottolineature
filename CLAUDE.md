@@ -104,15 +104,29 @@ il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, sche
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
 **Stato: Fase 0, Fase 1 e Fase 2 completate e live su sottolineature.it (deploy Vercel confermato
-il 2026-08-28). Fase 3 in corso: 165/256 citazioni con fonte (locus verificato, 17 lotti committati
-e pushati il 2026-08-28, dettagli per lotto in `LOG.md`). Tre dubbi di attribuzione emersi durante
-la verifica e non ancora risolti, segnalati in `LOG.md` con la ragione — da controllare prima di
-aggiungere una fonte a quelle tre citazioni, non da ignorare: Simone Weil ("L'ombra e la grazia" —
-potrebbe essere una lettera del 1942, non il libro), J.M. Barrie ("Solo chi sogna può volare" —
-potrebbe essere del film Disney, non del romanzo), Amin Maalouf ("In fondo all'Atlantico c'è un
-libro" — potrebbe appartenere a "Il periplo di Baldassarre", non a "Il manoscritto di Samarcanda").
-Prossimo passo = continuare la Fase 3 con altri lotti di ricerca (91 citazioni restanti), risolvere
-i tre dubbi, poi Fase 4 (pagine opera, richiede di mostrare l'elenco candidati e aspettare l'ok).**
+il 2026-08-28). Fase 3 sostanzialmente conclusa: 230/256 citazioni con fonte (90%, locus e/o
+edizione/traduttore verificati, 34 lotti committati e pushati il 2026-08-28, dettagli per lotto in
+`LOG.md`). Le 26 rimaste sono state cercate almeno una volta (molte due) senza trovare un
+riferimento strutturale verificabile con certezza — non un lavoro interrotto a metà, ma il limite
+onesto di quanto è verificabile via ricerca web per queste citazioni specifiche; si può riprendere
+in un lotto dedicato se emergono fonti migliori (es. accesso diretto ai testi).
+
+Tre correzioni di attribuzione fatte durante la verifica (non solo trovate, anche corrette e
+pubblicate): Kazuo Ishiguro ("Quando eravamo orfani" → "Non lasciarmi"), Alice Munro ("La vista da
+Castle Rock" → "Nemico, amico, amante..."), Michela Murgia ("Accabadora" → "Chirù") — ognuna con
+redirect 301 dal vecchio URL, verificata su due ricerche indipendenti prima di correggere.
+
+Quattro dubbi ancora aperti, segnalati in `LOG.md` con la ragione ma **non corretti** (evidenza
+più debole delle tre correzioni sopra, serve una verifica diretta sul testo prima di agire):
+Simone Weil ("L'ombra e la grazia" — potrebbe essere una lettera del 1942, non il libro), J.M.
+Barrie ("Solo chi sogna può volare" — potrebbe essere del film Disney, non del romanzo), Amin
+Maalouf ("In fondo all'Atlantico c'è un libro" — potrebbe appartenere a "Il periplo di
+Baldassarre"), Suzanne Collins ("Che i giochi abbiano inizio" — la fonte trovata è del film, non
+confermata nel romanzo).
+
+Prossimo passo = Fase 4 (pagine opera, richiede di mostrare l'elenco candidati e aspettare l'ok) —
+oppure, se richiesto esplicitamente, un lotto dedicato a risolvere i quattro dubbi aperti o a
+ritentare le 26 citazioni rimaste con fonti diverse da quelle già cercate.**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
@@ -325,23 +339,29 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
       `LOG.md`), con le regole di verifica già scritte più sopra in questo documento. **Se il
       riferimento non è stabilibile con certezza il campo resta vuoto** e lo scarto si annota con
       la ragione: su un sito che si presenta come verificato a mano, una fonte sbagliata è molto
-      peggio di una fonte assente. **In corso — 92/256 citazioni con fonte al 2026-08-28, lotti 1-6
-      chiusi e pushati** (dettagli per lotto in `LOG.md`). Lotto 1 (19 citazioni): tutti i classici
-      italiani di pubblico dominio con testo su Wikisource, trovate e corrette anche due discrepanze
-      di wording rispetto alla fonte primaria (Boccaccio, Machiavelli) — la correttezza del testo
-      viene prima della fonte che lo accompagna. Lotti 2-3 (51 citazioni): locus dedotto da contesto
-      già verificato in lotti precedenti, nessuna ricerca nuova. Lotti 4-6 (22 citazioni): ricerca
-      nuova via web, locus quando verificabile con certezza, mai un'edizione/traduttore forzati senza
-      conferma (Fratelli Karamazov, Tolstoj, Hugo, Beauvoir Secondo Sesso lasciati senza locus per
-      questo motivo). Restano 164 citazioni da fare, nei prossimi lotti.
+      peggio di una fonte assente. **Sostanzialmente conclusa — 230/256 citazioni con fonte al
+      2026-08-28 (90%), 34 lotti chiusi e pushati** (dettagli per lotto in `LOG.md`). Lotto 1 (19
+      citazioni): tutti i classici italiani di pubblico dominio con testo su Wikisource, trovate e
+      corrette anche due discrepanze di wording rispetto alla fonte primaria (Boccaccio,
+      Machiavelli) — la correttezza del testo viene prima della fonte che lo accompagna. Lotti 2-3:
+      locus dedotto da contesto già verificato in lotti precedenti. Lotti 4-34: ricerca nuova via
+      web, locus e/o edizione/traduttore solo quando verificabili con certezza. Durante la verifica
+      sono emerse **tre attribuzioni sbagliate già pubblicate**, trovate e corrette (non solo
+      segnalate): Ishiguro, Munro, Murgia — ognuna con redirect 301 dal vecchio slug, verificata su
+      due ricerche indipendenti prima di correggere. **Quattro dubbi restano aperti**, segnalati in
+      `LOG.md` ma non corretti perché l'evidenza è più debole (serve verifica diretta sul testo):
+      Weil, Barrie, Maalouf, Collins (Hunger Games). Le **26 citazioni rimaste senza fonte** sono
+      state cercate almeno una volta senza trovare un riferimento verificabile con certezza — limite
+      onesto della ricerca web per questi casi specifici, non lavoro interrotto.
 - [x] Ordine dei lotti: prima le opere di pubblico dominio con testo integrale su Wikisource
       (Dante, Manzoni, Leopardi, Verga, Pirandello, Shakespeare in traduzione), dove la verifica è
       rapida e il collegamento esterno è di qualità — fatto nel lotto 1.
-- [ ] Il blocco fonte va in `data/citazioni.json` (fonte di verità dalla Fase 2) e propagato dai
+- [x] Il blocco fonte va in `data/citazioni.json` (fonte di verità dalla Fase 2) e propagato dai
       generatori **solo** alla pagina citazione, mai agli hub. Dopo ogni lotto: `python3
       tools/build.py`, controllo che nessuna fonte sia finita per errore su due citazioni diverse
-      (stessa trappola già vista con i
-      contesti duplicati), riga in `LOG.md`, commit.
+      (stessa trappola già vista con i contesti duplicati), riga in `LOG.md`, commit. Meccanismo
+      implementato e verificato su 34 lotti, incluso il controllo duplicati (avviso non bloccante,
+      vedi sopra) e la procedura di rinomina slug quando una correzione cambia titolo/testo.
 
 #### Fase 4 — Livello opera (`/opere/<autore>-<titolo>/`)
 
