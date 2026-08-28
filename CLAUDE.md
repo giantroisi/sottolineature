@@ -142,8 +142,14 @@ appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase
 il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
-**Stato: Fase 7 aperta il 2026-08-28 (mappatura keyword fatta, nessuna voce ancora chiusa —
-il prossimo passo è il secondo export con i semi "frasi"/"aforismi", che richiede l'utente).
+**Stato: Fase 7 aperta il 2026-08-28 (mappatura keyword fatta; il secondo export con i semi
+"frasi"/"aforismi" richiede l'utente). `CATALOGO.md` — Lotti 1 e 2 (amicizia, autori ad alta
+domanda) fatti; **Lotto 3 (classici e filosofi per opera, 11 citazioni) e Lotto 4 (canone
+scolastico poco coperto, 10 citazioni) fatti il 2026-08-28**, candidati del Lotto 3 mostrati e
+approvati dall'utente, Lotto 4 e successivi in autonomia senza chiedere conferma a ogni
+passaggio. Archivio a 304 citazioni, 214 autori. **Deploy sospeso su richiesta dell'utente**:
+lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
+origin/main..HEAD` prima di assumere che il sito pubblicato rifletta lo stato del repo.
 Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
 (deploy Vercel confermato il 2026-08-28). Fase 6: schede autore fatte per tutti gli autori in
 archivio, tutti gli URL del sito indicizzabili (0 sotto soglia — il numero esatto cresce con
