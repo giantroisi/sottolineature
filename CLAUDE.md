@@ -90,6 +90,23 @@ Aggiornata: 2026-08-28.
   - `404.html` personalizzato, in stile col resto del sito, con `<meta name="robots" content="noindex">`
   - **`tools/build.py` è ora l'unico entry point da lanciare dopo aver modificato `index.html`**: orchestra `generate_quote_pages.py` + `generate_hub_pages.py` e scrive la sitemap unificata (463 URL). Le etichette di categoria/genere condivise vivono in `tools/labels.py`
   - Non fatto/rimandato: sottomissione della sitemap a Google Search Console (serve l'account dell'utente)
+- **Fase 3 chiusa (2026-08-28): fonte verificabile su 232/256 citazioni (90%)** — edizione, locus
+  (capitolo/parte/atto/verso), traduttore e link a Wikisource dove esiste, in 34 lotti lavorati in
+  autonomia (dettagli per lotto in `LOG.md`). Tre attribuzioni sbagliate già pubblicate trovate e
+  corrette durante la verifica, non solo segnalate (Ishiguro, Munro, Murgia), ognuna con redirect
+  301 dal vecchio slug. Chiusa su istruzione esplicita dell'utente lasciando aperti, senza
+  bloccare: quattro dubbi di attribuzione con evidenza più debole (Weil, Barrie, Maalouf, Collins)
+  e 24 citazioni senza un riferimento strutturale verificabile con certezza — limite onesto della
+  ricerca web per quei casi specifici, non lavoro interrotto a metà.
+- **Fase 4 chiusa (2026-08-28): 40 pagine opera in `/opere/`** — 9 con ≥2 citazioni oggettive in
+  archivio (incluso Il Signore degli Anelli, unificato dai 3 titoli-volume già presenti) + 31 del
+  canone scolastico italiano con 1 sola citazione, elenco approvato dall'utente prima della
+  generazione. Genere fantasy incluso su richiesta esplicita: degli altri titoli fantasy taggati
+  solo Tolkien supera la soglia oggettiva, gli altri (inclusi i 3 libri di Harry Potter, opere
+  realmente distinte) restano senza pagina dedicata per la regola "1 citazione = pagina citazione
+  già pagina opera". Schede editoriali su fatti bibliografici incontrovertibili, senza
+  edizione/traduttore forzati dove non verificabili con certezza. `Book` JSON-LD con `@id`
+  condiviso tra le citazioni della stessa opera.
 
 ### Da fare — SEO
 
@@ -103,13 +120,14 @@ appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase
 il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
-**Stato: Fase 0, Fase 1 e Fase 2 completate e live su sottolineature.it (deploy Vercel confermato
-il 2026-08-28). Fase 3 sostanzialmente conclusa: 232/256 citazioni con fonte (90%, locus e/o
+**Stato: Fase 0, Fase 1, Fase 2, Fase 3 e Fase 4 completate e live su sottolineature.it (deploy
+Vercel confermato il 2026-08-28). Fase 3 chiusa: 232/256 citazioni con fonte (90%, locus e/o
 edizione/traduttore verificati, 34 lotti committati e pushati il 2026-08-28, dettagli per lotto in
 `LOG.md`). Le 24 rimaste sono state cercate almeno una volta (molte due) senza trovare un
 riferimento strutturale verificabile con certezza — non un lavoro interrotto a metà, ma il limite
-onesto di quanto è verificabile via ricerca web per queste citazioni specifiche; si può riprendere
-in un lotto dedicato se emergono fonti migliori (es. accesso diretto ai testi).
+onesto di quanto è verificabile via ricerca web per queste citazioni specifiche; chiusa così su
+istruzione esplicita dell'utente, si può riprendere in un lotto dedicato solo se richiesto
+esplicitamente in futuro.
 
 Fase 4 completata il 2026-08-28: 40 pagine opera in `/opere/`, elenco approvato dall'utente prima
 della generazione (canone scolastico + genere fantasy su richiesta esplicita). Dettagli nella
@@ -339,12 +357,12 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
       (verso il link esterno) e `Book.translator` (solo se noto) arricchiti. Implementato in
       `generate_quote_pages.py`, campi `source_edition`/`source_locus`/`source_translator`/
       `source_url` in `data/citazioni.json` (vuoti di default, mai un placeholder inventato).
-- [ ] Si lavora a **lotti di 15** (variabile secondo coerenza del lotto, come già per i contesti in
+- [x] Si lavora a **lotti di 15** (variabile secondo coerenza del lotto, come già per i contesti in
       `LOG.md`), con le regole di verifica già scritte più sopra in questo documento. **Se il
       riferimento non è stabilibile con certezza il campo resta vuoto** e lo scarto si annota con
       la ragione: su un sito che si presenta come verificato a mano, una fonte sbagliata è molto
-      peggio di una fonte assente. **Sostanzialmente conclusa — 232/256 citazioni con fonte al
-      2026-08-28 (90%), 34 lotti chiusi e pushati** (dettagli per lotto in `LOG.md`). Lotto 1 (19
+      peggio di una fonte assente. **Chiusa il 2026-08-28 — 232/256 citazioni con fonte (90%), 34
+      lotti chiusi e pushati** (dettagli per lotto in `LOG.md`). Lotto 1 (19
       citazioni): tutti i classici italiani di pubblico dominio con testo su Wikisource, trovate e
       corrette anche due discrepanze di wording rispetto alla fonte primaria (Boccaccio,
       Machiavelli) — la correttezza del testo viene prima della fonte che lo accompagna. Lotti 2-3:
@@ -358,7 +376,10 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
       state cercate due o tre volte ciascuna, con angoli diversi, senza trovare un riferimento
       verificabile con certezza — limite onesto della ricerca web per questi casi specifici (spesso
       opere senza capitoli numerati, o citazioni troppo brevi/diffuse per essere ricondotte a un
-      punto preciso del testo), non lavoro interrotto a metà.
+      punto preciso del testo), non lavoro interrotto a metà. **Chiusa così su istruzione esplicita
+      dell'utente** ("Chiudi la fase 3. Se ci sono dubbi procedi oltre", 2026-08-28): i quattro dubbi
+      e le 24 citazioni senza fonte restano permanentemente aperti/segnalati, non bloccano la
+      chiusura della fase, e non vanno ripresi se non su richiesta esplicita futura.
 - [x] Ordine dei lotti: prima le opere di pubblico dominio con testo integrale su Wikisource
       (Dante, Manzoni, Leopardi, Verga, Pirandello, Shakespeare in traduzione), dove la verifica è
       rapida e il collegamento esterno è di qualità — fatto nel lotto 1.
