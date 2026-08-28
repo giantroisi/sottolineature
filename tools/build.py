@@ -152,20 +152,21 @@ def main():
     dated = sum(1 for _, q in qp_entries if q.get('added'))
 
     # Stessa trappola gia' vista con i contesti duplicati (Fase 1 LOG.md):
-    # un lotto di fonti puo' finire applicato per errore a due citazioni
-    # diverse dello stesso autore/opera. Controllo automatico prima del build.
+    # una fonte scritta per una citazione puo' finire applicata per errore
+    # anche a un'altra citazione dello STESSO autore/opera. Il controllo e'
+    # scoperto apposta su (autore, opera, locus): un locus generico come
+    # "incipit" o "ultime righe del romanzo" e' legittimo su decine di libri
+    # diversi, il problema e' solo se si ripete due volte sulla stessa opera.
     source_texts = {}
     dup_sources = {}
     for slug, q in qp_entries:
-        key = (q.get('source_edition', ''), q.get('source_locus', ''))
-        if key == ('', ''):
+        locus = q.get('source_locus', '')
+        if not locus:
             continue
+        key = (q['author'], q['title'], locus)
         source_texts.setdefault(key, []).append(slug)
     for key, slugs in source_texts.items():
         if len(slugs) > 1:
-            # stesso locus (es. stesso canto) su citazioni diverse e' un errore
-            # solo se autore/opera non giustifica la ripetizione: qui il locus
-            # da solo e' gia' abbastanza specifico da dover essere unico.
             dup_sources[key] = slugs
 
     print()
