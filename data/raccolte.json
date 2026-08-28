@@ -129,5 +129,25 @@
       "John Steinbeck|Uomini e topi|Per noi è diverso. Noi abbiamo",
       "Lucy Maud Montgomery|Anna dai capelli rossi|Avere degli amici significa vedere solo"
     ]
+  },
+  {
+    "slug": "cambiamento",
+    "title": "Il cambiamento",
+    "h1": "Frasi e citazioni sul cambiamento",
+    "intro": [
+      "Il cambiamento entra in letteratura quasi sempre come una minaccia prima che come una promessa: Victor Frankenstein, nel romanzo di Mary Shelley, lo definisce esplicitamente ciò che la mente umana fatica di più a sopportare, un attimo prima che la sua creatura gli si palesi. Gregor Samsa si sveglia già trasformato, senza spiegazione né preavviso, nell'incipit della «Metamorfosi» di Franz Kafka — il cambiamento più radicale della narrativa del Novecento avviene nel sonno, fuori dal controllo di chi lo subisce.",
+      "Ma c'è anche chi il cambiamento lo intende come legge cosmica più che come trauma personale: Octavia Butler, nella «Parabola del seminatore», costruisce attorno a questa idea l'intero sistema religioso della sua protagonista — «Dio è cambiamento» — mentre Friedrich Nietzsche, in «Così parlò Zarathustra», descrive le tre metamorfosi dello spirito umano, da cammello a leone a fanciullo, come tappe necessarie di ogni crescita interiore. Anche il gattopardo di Tomasi di Lampedusa arriva, per vie opposte, alla stessa formula paradossale: bisogna cambiare tutto per non cambiare nulla.",
+      "Ci sono infine il cambiamento subito e quello scelto: James Baldwin ricorda che nulla può essere cambiato finché non viene prima affrontato, mentre la scaltra Mirandolina di Carlo Goldoni annuncia il proprio cambiamento di stato — dal ruolo di locandiera contesa a quello di sposa — come una scelta consapevole, rivolta direttamente al pubblico in sala. E per Italo Calvino, in «Palomar», anche il significato di un'intera vita può cambiare per l'aggiunta di un solo avvenimento finale."
+    ],
+    "quote_keys": [
+      "Mary Shelley|Frankenstein|Nulla è così doloroso alla mente",
+      "Franz Kafka|La metamorfosi|Un mattino, Gregor Samsa, destandosi da",
+      "Octavia E. Butler|La parabola del seminatore|Tu cambi tutto ciò che tocchi.",
+      "Friedrich Nietzsche|Così parlò Zarathustra|Tre metamorfosi dello spirito io vi",
+      "Giuseppe Tomasi di Lampedusa|Il Gattopardo|Se vogliamo che tutto rimanga com'è,",
+      "James Baldwin|La prossima volta il fuoco|Non tutto ciò che viene affrontato",
+      "Carlo Goldoni|La locandiera|Cambiando stato, voglio cambiar costume; e",
+      "Italo Calvino|Palomar|La vita d'una persona consiste in"
+    ]
   }
 ]
