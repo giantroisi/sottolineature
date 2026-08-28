@@ -55,7 +55,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-08-28.
 
 ### Fatto
-- 256 citazioni, 245 copertine recuperate + tile placeholder per le 11 mancanti, **contesto su 254/256 citazioni — cantiere sostanzialmente concluso**. Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
+- 262 citazioni (numero in crescita continua, non un traguardo fisso — vedi Roadmap per l'ultimo lotto), 245 copertine recuperate + tile placeholder per le mancanti, **contesto su 254/256 citazioni al momento della chiusura del cantiere contesto** — cifra storica, non aggiornata a ogni lotto successivo. Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
 - **216 contesti aggiunti in una sola giornata (2026-08-28), in autonomia**, su richiesta esplicita dell'utente ("puoi procedere senza i miei ok? l'importante è che segui la costituzione") — dettagli completi in LOG.md, in più lotti, ripresi anche dopo un'interruzione per limite settimanale di ricerca web esaurito e poi ripristinato. Restano solo 2 citazioni senza contesto, entrambe scartate per la stessa ragione — nessuna fonte (incluso Wikiquote) attribuisce un parlante o capitolo preciso: Dostoevskij (Delitto e castigo), Sciascia (Il giorno della civetta). Lezione operativa: quando lo stesso autore/titolo compare più volte sul sito, un contesto scritto per una citazione può finire applicato per errore anche alle altre con lo stesso titolo se lo script di inserimento non controlla i duplicati — sempre bene un controllo automatico post-inserimento (nessun contesto identico su citazioni diverse) prima di pubblicare
 - **Corretta un'attribuzione errata già pubblicata**: la citazione di Naguib Mahfouz sulla "parola d'amore pronunciata freddamente" era attribuita a "Il palazzo del desiderio" (1957), ma appartiene in realtà a "Vicolo del mortaio" (Midaq Alley, 1947) — confermato da una fonte con dettagli narrativi specifici (Hamida, Abbas, l'arruolamento nell'esercito inglese) che nessuna fonte collegava invece a Il palazzo del desiderio. Corretti titolo, anno, copertina e aggiunto il contesto
 - 35 citazioni taggate per genere (Fantasy 12, Fantascienza 9, Distopia 7, Saggistica 6, Horror/Gotico 4 — alcune ne hanno più d'uno), tag multipli supportati
@@ -140,10 +140,13 @@ il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, sche
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
 **Stato: Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
-(deploy Vercel confermato il 2026-08-28). Fase 6: schede autore fatte per tutti i 193 autori
-(lotto 1 + lotto 2), tutti gli URL del sito ora indicizzabili (522/522, 0 sotto soglia); il resto
-della fase (Search Console, Bing/IndexNow, analytics) è bloccato in attesa di azioni dell'utente —
-non automatizzabile da qui, vedi sezione Fase 6. Fase 3 chiusa: 232/256
+(deploy Vercel confermato il 2026-08-28). Fase 6: schede autore fatte per tutti gli autori in
+archivio, tutti gli URL del sito indicizzabili (0 sotto soglia — il numero esatto cresce con
+l'archivio, verificarlo nel rapporto di `build.py`); il resto della fase (Search Console,
+Bing/IndexNow, analytics) è bloccato in attesa di azioni dell'utente — non automatizzabile da qui,
+vedi sezione Fase 6. Terminato il lavoro di piattaforma, **la Fase 1 (aggiungere citazioni) resta
+aperta senza un traguardo fisso**: primo lotto post-roadmap il 2026-08-28, 6 citazioni nuove
+(262 totali), dettagli sotto. Fase 3 chiusa: 232/256
 citazioni con fonte (90%, locus e/o
 edizione/traduttore verificati, 34 lotti committati e pushati il 2026-08-28, dettagli per lotto in
 `LOG.md`). Le 24 rimaste sono state cercate almeno una volta (molte due) senza trovare un
@@ -169,6 +172,19 @@ rispettivamente l'account Google dell'utente, l'account Bing dell'utente, e la p
 sito (mai pubblicata, servono i dati del titolare) — nessuno dei tre è qualcosa che si possa fare
 in autonomia da qui. Dettagli nella sezione Fase 6 qui sotto.
 
+Primo lotto di nuove citazioni post-roadmap (2026-08-28), su richiesta esplicita "aggiungi nuove
+citazioni... dando priorità alla correttezza": **6 citazioni, 262 totali**, sei autori mai presenti
+in archivio scelti per ampliare la copertura di epoche (Omero e Virgilio, mai avuti prima
+nonostante siano tra le opere fondative della letteratura occidentale; Marco Aurelio) e voci
+contemporanee (William Golding, Ralph Waldo Emerson, Olga Tokarczuk). Fonti: Wikisource per Omero
+e Virgilio (traduzioni storiche di pubblico dominio, Vincenzo Monti e Annibal Caro), Wikiquote con
+riferimento esplicito a libro/capitolo o pagina per gli altri quattro. Scartati per lo stesso
+principio di rigore della Fase 3: Astrid Lindgren (citazione non confermata sulla pagina Wikiquote
+consultata), Aleksandr Puškin (nessuna citazione breve con riferimento verificabile trovata),
+Johann Wolfgang von Goethe (wording dell'incipit del Werther discordante tra le traduzioni Spaini
+e Bianconi, senza modo di stabilire quale citare). Scritte anche le 6 schede autore corrispondenti
+per mantenere tutto l'archivio indicizzabile. Dettagli completi in `LOG.md`.
+
 Tre correzioni di attribuzione fatte durante la verifica (non solo trovate, anche corrette e
 pubblicate): Kazuo Ishiguro ("Quando eravamo orfani" → "Non lasciarmi"), Alice Munro ("La vista da
 Castle Rock" → "Nemico, amico, amante..."), Michela Murgia ("Accabadora" → "Chirù") — ognuna con
@@ -182,14 +198,14 @@ Maalouf ("In fondo all'Atlantico c'è un libro" — potrebbe appartenere a "Il p
 Baldassarre"), Suzanne Collins ("Che i giochi abbiano inizio" — la fonte trovata è del film, non
 confermata nel romanzo).
 
-Prossimo passo: le schede autore sono finite (193/193), quindi il lavoro automatizzabile della
-roadmap SEO è sostanzialmente esaurito. Resta, se richiesto esplicitamente: risolvere i quattro
-dubbi aperti di Fase 3, ritentare le 24 citazioni rimaste con fonti diverse da quelle già cercate,
-ampliare le raccolte quando l'archivio crescerà abbastanza da sostenere le candidate scartate
-(amicizia, tempo che passa) o nuove, oppure — quando l'utente vorrà occuparsene di persona —
-Search Console, Bing Webmaster Tools e privacy policy, i tre punti di Fase 6 bloccati in attesa
-sua. Altrimenti il prossimo lavoro utile è aggiungere nuove citazioni all'archivio (Fase 1
-continua, non ha un traguardo fisso) o affinare quanto già pubblicato.**
+Prossimo passo: il lavoro automatizzabile della roadmap SEO è esaurito, quindi la Fase 1
+(aggiungere citazioni, senza un traguardo fisso) resta il lavoro di fondo di default — primo lotto
+post-roadmap fatto il 2026-08-28 (262 citazioni), si può continuare con altri lotti quando
+richiesto. Se richiesto esplicitamente: risolvere i quattro dubbi aperti di Fase 3, ritentare le 24
+citazioni storiche rimaste con fonti diverse da quelle già cercate, ampliare le raccolte quando
+l'archivio crescerà abbastanza da sostenere le candidate scartate (amicizia, tempo che passa) o
+nuove, oppure — quando l'utente vorrà occuparsene di persona — Search Console, Bing Webmaster Tools
+e privacy policy, i tre punti di Fase 6 bloccati in attesa sua.**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
