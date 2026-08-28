@@ -129,17 +129,20 @@ Aggiornata: 2026-08-28.
 
 ### Da fare — SEO
 
-**Riferimento:** `SEO.md` contiene l'audit completo del 2026-08-28 (perché si fa ognuna di queste
-cose, i numeri su cui si basa, l'architettura target e i comandi pronti per l'agente). Qui sotto
-c'è il **lavoro operativo**: cosa toccare, in che ordine, e come si verifica che sia fatto.
-Se le due fonti divergono, `CLAUDE.md` ha la precedenza.
+**Riferimento:** `SEO.md` contiene l'audit completo del 2026-08-28 — perché si fa ognuna di
+queste cose, i numeri su cui si basa, l'architettura target e i comandi pronti per l'agente.
+`SEO-KEYWORDS.md` e `data/keywords.json` contengono la mappatura della domanda di ricerca
+(Fase 7). Qui sotto c'è il **lavoro operativo**: cosa toccare, in che ordine, e come si verifica
+che sia fatto. Se le fonti divergono, `CLAUDE.md` ha la precedenza.
 
 **Come si segna il progresso** (obbligatorio, vale la costituzione): si spunta `[x]` la voce
 appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase chiusa si sposta
 il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
-**Stato: Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
+**Stato: Fase 7 aperta il 2026-08-28 (mappatura keyword fatta, nessuna voce ancora chiusa —
+il prossimo passo è il secondo export con i semi "frasi"/"aforismi", che richiede l'utente).
+Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
 (deploy Vercel confermato il 2026-08-28). Fase 6: schede autore fatte per tutti gli autori in
 archivio, tutti gli URL del sito indicizzabili (0 sotto soglia — il numero esatto cresce con
 l'archivio, verificarlo nel rapporto di `build.py`); il resto della fase (Search Console,
@@ -558,6 +561,63 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
       **ancora in sospeso** (serve i dati del titolare: nome, indirizzo, base giuridica). Nessun
       analytics con cookie va aggiunto prima che la policy sia pubblicata, e comunque solo con una
       soluzione senza cookie quando richiesto.
+
+#### Fase 7 — Domanda di ricerca: mappatura keyword e lotti mirati
+
+Riferimento completo: **`SEO-KEYWORDS.md`** (metodo, tabelle, motivi degli scarti) e
+**`data/keywords.json`** (versione dati). Foglio di lavoro umano, non versionato:
+`archivio/sottolineature-keyword-map.xlsx`.
+
+Base: export di 6.000 keyword fornito dall'utente il 2026-08-28. **Il risultato che orienta tutta
+la fase:** solo l'8,7% del volume mappa su pagine che il sito già ha, il 54,9% sta su query
+tematiche che l'archivio da 262 citazioni non può ancora soddisfare, il 32,6% va scartato.
+Il collo di bottiglia non è più l'architettura: è la dimensione dell'archivio. Questa lista serve
+quindi prima come **elenco di ciò che conviene raccogliere**, poi come piano editoriale.
+
+- [ ] **Secondo export keyword** con i semi `frasi`, `aforismi`, `massime`, `pensieri` e con i semi
+      di entità (`frasi + <titolo>`, `frasi + <autore>`). La lista attuale è generata solo su
+      *citazion-*: in Italia il volume su *frasi* è più alto e oggi è invisibile.
+      **Richiede l'utente e il suo strumento — non automatizzabile.**
+- [ ] **Title e H1 di opere e autori allineati alla domanda**, con "frasi" e "citazioni" usati
+      entrambi in modo naturale (*"Frasi e citazioni da 1984 di George Orwell"*). Solo title,
+      description e H1; dai generatori in `tools/`; nessun title duplicato; nessuna pagina nuova.
+- [ ] **Lotto citazioni "amicizia"** (10-12 verificate). È il buco più grande del sito: 3.940 di
+      volume contro 3 citazioni in archivio.
+- [ ] **Le 6 raccolte con copertura sufficiente**, una alla volta, con selezione fatta *leggendo*
+      le citazioni e introduzione scritta a mano: viaggio e cammino (3.420), donne (2.370),
+      felicità (860), ricordo e memoria (680), occhi e sguardo (350), notte (320).
+      Se leggendole se ne salvano meno di 8, la raccolta non si pubblica e torna in lista d'attesa.
+- [ ] **Lotti citazioni sugli autori a più alta domanda**, fino a 3-4 citazioni a testa: Wilde
+      (1.610 di volume, **1** citazione), Shakespeare (1.580 / 2), Dante (1.220 / 2), D'Annunzio
+      (970 / 1), Pavese (730 / 2), Leopardi (720 / 2), Pirandello (700 / 2), Seneca (670 / 1),
+      Merini (650 / 1). Le pagine con più domanda sono oggi quelle con meno contenuto.
+- [ ] **Pagine opera** per i titoli con domanda che nel frattempo arrivano a 2+ citazioni:
+      Alice nel paese delle meraviglie (770), Il grande Gatsby (290), Cime tempestose (280),
+      L'amore ai tempi del colera (220), Cent'anni di solitudine (170), Oceano mare (170),
+      Piccole donne (160). **Non crearle adesso**: hanno una citazione a testa, e con una sola
+      citazione la pagina citazione è già la pagina dell'opera.
+- [ ] **Raccolte quasi pronte**, quando arrivano a 8: bellezza (630), sogni (570),
+      cambiamento (350), tristezza (210).
+- [ ] **Decisione dell'utente, da prendere prima di raccogliere** (non deciderla da soli perché il
+      volume è alto): se aprire ai filosofi antichi di pubblico dominio — Sant'Agostino (1.460),
+      Nietzsche (830), Platone (550), Socrate (440), Schopenhauer (430), Aristotele (300) — e se
+      inseguire autori contemporanei sotto copyright come Bukowski (1.870), Camilleri (540),
+      Ready Player One (730), Chiamami col tuo nome (550). Allarga il perimetro oltre
+      "citazioni da libri": è una scelta di identità, non di SEO.
+- [ ] **Aggiornare `data/keywords.json` dopo ogni lotto**: le raccolte in lista d'attesa che
+      superano la soglia si spostano da sole in "pronta".
+
+**Cosa è già stato scartato e non va riproposto** (32,6% del volume, dettaglio in
+`SEO-KEYWORDS.md`): film e serie TV (14.540), ricorrenze e auguri (9.700), altre lingue e dialetti
+(8.570, comprese le *citazioni latine* — massime senza opera di riferimento), personaggi non
+letterari (7.140), canzoni (6.140), social e meme (3.890), motivazionale e business (2.740),
+riassunti/trame/pdf (1.470), religiose non letterarie (1.280), sport (1.020), bibliografia e
+ambito giuridico (540). Le keyword di testa (*citazioni*, *citazioni famose*, *citazioni belle*:
+51.950) sono la home e l'indice `/citazioni/`: non farne mai pagine dedicate.
+
+**Controllo di accettazione:** ogni pagina pubblicata in questa fase ha ≥8 citazioni (raccolta) o
+una scheda verificata (opera); nessun title duplicato dopo il build; nessuna pagina creata a
+partire da una keyword senza il contenuto che la giustifica.
 
 #### Da non fare, mai (anti-pattern per questo sito)
 
