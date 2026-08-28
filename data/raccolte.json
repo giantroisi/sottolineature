@@ -149,5 +149,45 @@
       "Carlo Goldoni|La locandiera|Cambiando stato, voglio cambiar costume; e",
       "Italo Calvino|Palomar|La vita d'una persona consiste in"
     ]
+  },
+  {
+    "slug": "sogni",
+    "title": "I sogni",
+    "h1": "Frasi e citazioni sui sogni",
+    "intro": [
+      "Dal Rinascimento italiano al romanzo per ragazzi vittoriano, la letteratura non ha mai smesso di chiedersi se ciò che chiamiamo vita sia poi così diverso da un sogno. Francesco Petrarca, nel «Canzoniere», liquida ogni piacere terreno come «breve sogno»; Shakespeare, ne «La Tempesta», fa dire al mago Prospero che uomini e cose sono fatti della stessa «vana sustanza» di cui sono fatti i sogni, un attimo prima di interrompere lui stesso lo spettacolo di illusioni appena evocato.",
+      "C'è anche chi il sogno lo attraversa nel sonno vero e proprio: Daphne du Maurier apre «Rebecca» con la protagonista che sogna di tornare nella villa dove ha vissuto il proprio dramma, mentre Edgar Allan Poe, nell'anno stesso della propria morte, paragona ogni cosa vista o creduta vista a manciate di sabbia che sfuggono dalle dita — «un sogno nel sogno». Lewis Carroll chiude «Attraverso lo specchio» lasciando la domanda volutamente senza risposta: è stata Alice a sognare il Re Rosso, o il contrario?",
+      "E ci sono i sogni che si fanno a occhi aperti, come premonizione o vocazione: quello ricorrente di un tesoro nascosto che spinge il pastore Santiago a partire ne «L'Alchimista» di Paulo Coelho, o quello, ben più cupo, in cui Alda Merini vede aprirsi le «oscure voragini» della propria mente. Solo chi sogna può volare, ricorda J.M. Barrie — ma il prezzo, in queste pagine, non è mai scontato."
+    ],
+    "quote_keys": [
+      "Francesco Petrarca|Canzoniere|Quanto piace al mondo è breve",
+      "William Shakespeare|La Tempesta|Modellati noi siamo della vana sustanza",
+      "Daphne du Maurier|Rebecca, la prima moglie|Ieri notte ho sognato di tornare",
+      "Edgar Allan Poe|Un sogno nel sogno|Tutto che vediamo o che a",
+      "Lewis Carroll|Attraverso lo specchio|Vedi, o sono stato io, o",
+      "Paulo Coelho|L'Alchimista|Quando desideri una cosa, tutto l'Universo",
+      "Alda Merini|La Terra Santa|Manicomio è parola assai più grande",
+      "J.M. Barrie|Le avventure di Peter Pan|Solo chi sogna può volare!"
+    ]
+  },
+  {
+    "slug": "tristezza",
+    "title": "La tristezza",
+    "h1": "Frasi e citazioni sulla tristezza",
+    "intro": [
+      "C'è una tristezza che si scrive in versi brevissimi, come quella di Pablo Neruda che apre la sua poesia più celebre annunciando di poter scrivere «i versi più tristi questa notte», e una che si scioglie in un'unica immagine folgorante, come la morte che avrà «i tuoi occhi» nell'ultima raccolta di Cesare Pavese, pubblicata poche settimane prima del suicidio del poeta.",
+      "Ci sono le lacrime trattenute che «si depositano sul cuore» fino a incrostarlo, secondo la voce narrante di Susanna Tamaro, e la tristezza improvvisa, diversa dalla paura, che Truman Capote fa raccontare a Holly Golightly in «Colazione da Tiffany». Eugenio Montale la chiama «triste meraviglia» osservando il travaglio di ogni vita umana negli «Ossi di seppia», mentre Roberto Bolaño, in «2666», arriva a includerla fra le ragioni stesse per cui vale la pena leggere.",
+      "Due voci, infine, parlano di un dolore più radicale. Giacomo Leopardi, negli ultimi versi di «A se stesso», invita il proprio cuore a non sperare più nulla dopo la fine di un amore non corrisposto; Giuseppe Ungaretti, nella raccolta «Il dolore», scritta dopo la morte del fratello Costantino, descrive una disperazione che sale «come una roccia di gridi» fino a chiudere la gola."
+    ],
+    "quote_keys": [
+      "Pablo Neruda|Venti poesie d'amore e una canzone disperata|Posso scrivere i versi più tristi",
+      "Cesare Pavese|Verrà la morte e avrà i tuoi occhi|Verrà la morte e avrà i",
+      "Susanna Tamaro|Va' dove ti porta il cuore|Le lacrime che non escono si",
+      "Truman Capote|Colazione da Tiffany|Sai quando ti prende quella tristezza",
+      "Eugenio Montale|Ossi di seppia|E andando nel sole che abbaglia,",
+      "Roberto Bolaño|2666|La lettura è piacere e gioia",
+      "Giacomo Leopardi|A se stesso|Amaro e noia la vita, altro",
+      "Giuseppe Ungaretti|Il dolore|Disperazione che incessante aumenta la vita"
+    ]
   }
 ]
