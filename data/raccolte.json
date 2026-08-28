@@ -109,5 +109,25 @@
       "Mario Vargas Llosa|Conversazione nella «Catedral»|In che momento si era fottuto",
       "Mark Twain|Le avventure di Huckleberry Finn|Voi non sapete niente di me,"
     ]
+  },
+  {
+    "slug": "amicizia",
+    "title": "Amicizia",
+    "h1": "Frasi e citazioni sull'amicizia",
+    "intro": [
+      "È D'Artagnan a darne la formula più famosa di tutta la letteratura — «Tutti per uno, uno per tutti» — nel momento in cui lui e i tre moschettieri decidono di affrontare insieme un nemico troppo grande per uno solo. Cicerone, quasi duemila anni prima, l'aveva già definita in termini non troppo diversi: un accordo su tutto ciò che conta, «con benevolenza ed affetto».",
+      "Non è mai un sentimento decorativo, in queste pagine. È quello che tiene in piedi George e Lennie nella California della Grande Depressione di John Steinbeck, gli unici due braccianti del romanzo ad avere «qualcuno a cui importa qualcosa» di loro. È la responsabilità che Kahlil Gibran distingue dalla convenienza — un'amicizia vera non è mai un'opportunità. È il patto silenzioso tra Amir e Hassan ne Il cacciatore di aquiloni di Khaled Hosseini, «per te, mille volte ancora», e quello tra Lila e Lenù nell'Amica geniale di Elena Ferrante, dove amare un'amica significa anche, contraddittoriamente, volerla possedere.",
+      "Ci sono anche l'amicizia che si costruisce addomesticando qualcuno, secondo la volpe del Piccolo Principe di Antoine de Saint-Exupéry, e quella tra anime affini che Anna Shirley cerca fin dalle prime pagine di Anna dai capelli rossi di Lucy Maud Montgomery: vedere solo il meglio di chi si ha vicino, e offrire in cambio il proprio."
+    ],
+    "quote_keys": [
+      "Antoine de Saint-Exupéry|Il piccolo principe|Tu diventi responsabile per sempre di",
+      "Elena Ferrante|L'amica geniale|Io amavo Lila. Volevo che lei",
+      "Khaled Hosseini|Il cacciatore di aquiloni|Per te, mille volte ancora.",
+      "Alexandre Dumas|I tre moschettieri|Tutti per uno, uno per tutti.",
+      "Khalil Gibran|Il Profeta|L'amicizia è sempre una dolce responsabilità,",
+      "Marco Tullio Cicerone|L'amicizia|L'amicizia non è niente altro che",
+      "John Steinbeck|Uomini e topi|Per noi è diverso. Noi abbiamo",
+      "Lucy Maud Montgomery|Anna dai capelli rossi|Avere degli amici significa vedere solo"
+    ]
   }
 ]
