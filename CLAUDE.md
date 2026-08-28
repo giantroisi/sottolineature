@@ -117,6 +117,15 @@ Aggiornata: 2026-08-28.
   nessuna raccolta che una forzata" della Fase 3. Aggiunti anche gli indici `/opere/` e `/raccolte/`
   mancanti (il primo era stato dimenticato in Fase 4) e completato il gate di indicizzazione della
   Fase 2 (un hub sotto soglia ora entra comunque in sitemap se ha un'introduzione scritta a mano).
+- **Schede autore completate per tutti i 193 autori (2026-08-28), Fase 6 in due lotti.** Lotto 1
+  (43 autori con ≥2 citazioni, 72-97 parole) e lotto 2 (150 autori con 1 sola citazione, 55-104
+  parole — più corte del target 80-120: per gli autori meno documentati non c'erano abbastanza
+  fatti verificabili con certezza da aggiungere senza scivolare nel riempitivo, e la precisione ha
+  avuto la priorità sulla lunghezza esatta). Effetto: **tutti i 522 URL del sito sono ora
+  indicizzabili**, 0 pagine sotto soglia — il gate di indicizzazione della Fase 2/5 ha chiuso il
+  cerchio. Gli altri tre punti di Fase 6 (Search Console, Bing/IndexNow, analytics) restano
+  bloccati in attesa di azioni dirette dell'utente (account Google/Bing, privacy policy mai
+  pubblicata) — non automatizzabili da qui.
 
 ### Da fare — SEO
 
@@ -131,9 +140,10 @@ il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, sche
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
 **Stato: Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
-(deploy Vercel confermato il 2026-08-28). Fase 6 avviata: lotto 1 di schede autore fatto (43
-autori), il resto della fase (Search Console, Bing/IndexNow, analytics) è bloccato in attesa di
-azioni dell'utente — non automatizzabile da qui, vedi sezione Fase 6. Fase 3 chiusa: 232/256
+(deploy Vercel confermato il 2026-08-28). Fase 6: schede autore fatte per tutti i 193 autori
+(lotto 1 + lotto 2), tutti gli URL del sito ora indicizzabili (522/522, 0 sotto soglia); il resto
+della fase (Search Console, Bing/IndexNow, analytics) è bloccato in attesa di azioni dell'utente —
+non automatizzabile da qui, vedi sezione Fase 6. Fase 3 chiusa: 232/256
 citazioni con fonte (90%, locus e/o
 edizione/traduttore verificati, 34 lotti committati e pushati il 2026-08-28, dettagli per lotto in
 `LOG.md`). Le 24 rimaste sono state cercate almeno una volta (molte due) senza trovare un
@@ -151,9 +161,10 @@ generi, 5 raccolte curate pubblicate (`/raccolte/`, non 6-8 come da indicazione 
 candidate scartate per mancanza di ≥8 citazioni genuinamente pertinenti, stesso principio di
 rigore della Fase 3). Dettagli nella sezione Fase 5 qui sotto.
 
-Fase 6 avviata il 2026-08-28, su istruzione "vai": lotto 1 di schede autore (43 autori con ≥2
-citazioni), che ha portato gli autori indicizzabili da 13 a 43 grazie al gate della Fase 2/5. Gli
-altri tre punti della fase (Search Console, Bing/IndexNow, analytics) restano bloccati: servono
+Fase 6, schede autore completate il 2026-08-28 in due lotti su istruzione "vai": lotto 1 (43
+autori con ≥2 citazioni) e lotto 2 (i restanti 150 con 1 sola citazione), che hanno portato gli
+autori indicizzabili da 13 a 193/193 — l'intero sito, 522 URL, è ora indicizzabile senza eccezioni.
+Gli altri tre punti della fase (Search Console, Bing/IndexNow, analytics) restano bloccati: servono
 rispettivamente l'account Google dell'utente, l'account Bing dell'utente, e la privacy policy del
 sito (mai pubblicata, servono i dati del titolare) — nessuno dei tre è qualcosa che si possa fare
 in autonomia da qui. Dettagli nella sezione Fase 6 qui sotto.
@@ -171,12 +182,14 @@ Maalouf ("In fondo all'Atlantico c'è un libro" — potrebbe appartenere a "Il p
 Baldassarre"), Suzanne Collins ("Che i giochi abbiano inizio" — la fonte trovata è del film, non
 confermata nel romanzo).
 
-Prossimo passo = Fase 6, lotto 2 di schede autore (i 150 autori con 1 sola citazione, in coda dopo
-i 43 con ≥2 già fatti) — oppure, se richiesto esplicitamente: risolvere i quattro dubbi aperti,
-ritentare le 24 citazioni rimaste con fonti diverse da quelle già cercate, ampliare le raccolte
-quando l'archivio crescerà abbastanza da sostenere le candidate scartate (amicizia, tempo che
-passa) o nuove, oppure — quando l'utente vorrà occuparsene di persona — Search Console, Bing
-Webmaster Tools e privacy policy, i tre punti di Fase 6 che restano bloccati in attesa sua.**
+Prossimo passo: le schede autore sono finite (193/193), quindi il lavoro automatizzabile della
+roadmap SEO è sostanzialmente esaurito. Resta, se richiesto esplicitamente: risolvere i quattro
+dubbi aperti di Fase 3, ritentare le 24 citazioni rimaste con fonti diverse da quelle già cercate,
+ampliare le raccolte quando l'archivio crescerà abbastanza da sostenere le candidate scartate
+(amicizia, tempo che passa) o nuove, oppure — quando l'utente vorrà occuparsene di persona —
+Search Console, Bing Webmaster Tools e privacy policy, i tre punti di Fase 6 bloccati in attesa
+sua. Altrimenti il prossimo lavoro utile è aggiungere nuove citazioni all'archivio (Fase 1
+continua, non ha un traguardo fisso) o affinare quanto già pubblicato.**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
@@ -497,17 +510,21 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
 
 #### Fase 6 — Schede autore e misura
 
-- [x] **Lotto 1: schede autore per i 43 autori con ≥2 citazioni** (2026-08-28), 72-97 parole
-      ciascuna, dati biografici verificabili e incontrovertibili (nascita/morte, nazionalità, opere
-      principali, un fatto distintivo — Nobel, esilio, causa di morte quando nota e pertinente).
-      Testi in `data/hub_intros.json` sotto la chiave `autori` (keyed per nome esatto come compare
-      in `data/citazioni.json`), iniettati da `generate_hub_pages.py` nel ramo autore di `main()`.
-      Effetto immediato sul gate di indicizzazione (Fase 2/5): autori indicizzabili passati da 13
-      (soglia ≥3 citazioni) a 43 — verificato nel rapporto di `build.py` e a campione in browser
-      (pagina con scheda: nessun `noindex`; pagina senza, es. Jane Austen con 1 citazione: `noindex`
-      confermato). **Restano 150 autori con 1 sola citazione senza scheda**, in coda per lotti
-      successivi — non prioritari come i 43 con ≥2, ma la via per farli entrare in sitemap uno per
-      uno resta la stessa.
+- [x] **Schede autore per tutti i 193 autori dell'archivio** (2026-08-28, due lotti). Lotto 1: i 43
+      autori con ≥2 citazioni, 72-97 parole ciascuna. Lotto 2: i 150 autori con 1 sola citazione —
+      lunghezza media più bassa (55-104 parole, media 70 sui 193 totali) perché per molti autori meno
+      documentati non c'erano altrettanti fatti verificabili con certezza da aggiungere senza
+      scivolare nel riempitivo o nella congettura; **la scelta è stata privilegiare la precisione
+      sulla lunghezza esatta del target 80-120**, coerente con la stessa priorità data alla
+      veridicità in Fase 3. Diciannove schede del lotto 2 risultate troppo corte (<55 parole) sono
+      state riviste e ampliate con un fatto in più a testa prima della pubblicazione. Dati
+      biografici sempre verificabili e incontrovertibili (nascita/morte, nazionalità, opere
+      principali, un fatto distintivo). Testi in `data/hub_intros.json` sotto la chiave `autori`
+      (keyed per nome esatto come compare in `data/citazioni.json`), iniettati da
+      `generate_hub_pages.py` nel ramo autore di `main()`. Effetto sul gate di indicizzazione
+      (Fase 2/5): **tutti i 193 autori sono ora indicizzabili** (prima erano 13, poi 43 dopo il
+      lotto 1) — verificato nel rapporto di `build.py` (0 hub sotto soglia su 522 URL totali) e a
+      campione in browser (Jane Austen, 1 sola citazione: nessun `noindex`, prima lo aveva).
 - [ ] **Google Search Console** — **bloccato, serve l'account Google dell'utente** (verifica
       proprietà del sito, non automatizzabile da qui): verifica proprietà, invio sitemap, controllo
       mensile del rapporto Indicizzazione pagine. La metrica da guardare non è la posizione media:
