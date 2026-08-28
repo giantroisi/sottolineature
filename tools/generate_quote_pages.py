@@ -239,7 +239,14 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         source_parts.append('trad. ' + html.escape(q['source_translator']))
     source_html = ''
     if source_parts:
-        source_link = (' <a href="' + html.escape(q['source_url'], quote=True) + '">Testo su Wikisource →</a>') if q.get('source_url') else ''
+        source_url = q.get('source_url', '')
+        if 'wikisource' in source_url:
+            link_label = 'Testo su Wikisource'
+        elif 'wikiquote' in source_url:
+            link_label = 'Fonte su Wikiquote'
+        else:
+            link_label = 'Approfondisci'
+        source_link = (' <a href="' + html.escape(source_url, quote=True) + '">' + link_label + ' →</a>') if source_url else ''
         source_html = '<p class="card-source sans">' + ', '.join(source_parts) + '.' + source_link + '</p>'
     year_html = (' · <span class="card-year">' + html.escape(q['year']) + '</span>') if q['year'] else ''
     cover_src = q['cover'] if q['cover'].startswith('http') else '/' + q['cover']

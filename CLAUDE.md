@@ -55,7 +55,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-08-28.
 
 ### Fatto
-- 262 citazioni (numero in crescita continua, non un traguardo fisso — vedi Roadmap per l'ultimo lotto), 245 copertine recuperate + tile placeholder per le mancanti, **contesto su 254/256 citazioni al momento della chiusura del cantiere contesto** — cifra storica, non aggiornata a ogni lotto successivo. Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
+- Citazioni in crescita continua, non un traguardo fisso — il conteggio esatto è sempre in `data/citazioni.json`/`LOG.md`, non tenerlo aggiornato qui a ogni lotto. 245 copertine recuperate + tile placeholder per le mancanti, **contesto su 254/256 citazioni al momento della chiusura del cantiere contesto** — cifra storica, non aggiornata a ogni lotto successivo. Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
 - **216 contesti aggiunti in una sola giornata (2026-08-28), in autonomia**, su richiesta esplicita dell'utente ("puoi procedere senza i miei ok? l'importante è che segui la costituzione") — dettagli completi in LOG.md, in più lotti, ripresi anche dopo un'interruzione per limite settimanale di ricerca web esaurito e poi ripristinato. Restano solo 2 citazioni senza contesto, entrambe scartate per la stessa ragione — nessuna fonte (incluso Wikiquote) attribuisce un parlante o capitolo preciso: Dostoevskij (Delitto e castigo), Sciascia (Il giorno della civetta). Lezione operativa: quando lo stesso autore/titolo compare più volte sul sito, un contesto scritto per una citazione può finire applicato per errore anche alle altre con lo stesso titolo se lo script di inserimento non controlla i duplicati — sempre bene un controllo automatico post-inserimento (nessun contesto identico su citazioni diverse) prima di pubblicare
 - **Corretta un'attribuzione errata già pubblicata**: la citazione di Naguib Mahfouz sulla "parola d'amore pronunciata freddamente" era attribuita a "Il palazzo del desiderio" (1957), ma appartiene in realtà a "Vicolo del mortaio" (Midaq Alley, 1947) — confermato da una fonte con dettagli narrativi specifici (Hamida, Abbas, l'arruolamento nell'esercito inglese) che nessuna fonte collegava invece a Il palazzo del desiderio. Corretti titolo, anno, copertina e aggiunto il contesto
 - 35 citazioni taggate per genere (Fantasy 12, Fantascienza 9, Distopia 7, Saggistica 6, Horror/Gotico 4 — alcune ne hanno più d'uno), tag multipli supportati
@@ -145,8 +145,9 @@ archivio, tutti gli URL del sito indicizzabili (0 sotto soglia — il numero esa
 l'archivio, verificarlo nel rapporto di `build.py`); il resto della fase (Search Console,
 Bing/IndexNow, analytics) è bloccato in attesa di azioni dell'utente — non automatizzabile da qui,
 vedi sezione Fase 6. Terminato il lavoro di piattaforma, **la Fase 1 (aggiungere citazioni) resta
-aperta senza un traguardo fisso**: primo lotto post-roadmap il 2026-08-28, 6 citazioni nuove
-(262 totali), dettagli sotto. Fase 3 chiusa: 232/256
+aperta senza un traguardo fisso**: lotti post-roadmap dal 2026-08-28, uno via l'altro senza
+fermarsi a chiedere conferma (istruzione permanente, vedi memoria), dettagli e conteggio aggiornato
+in `LOG.md`. Fase 3 chiusa: 232/256
 citazioni con fonte (90%, locus e/o
 edizione/traduttore verificati, 34 lotti committati e pushati il 2026-08-28, dettagli per lotto in
 `LOG.md`). Le 24 rimaste sono state cercate almeno una volta (molte due) senza trovare un
@@ -172,18 +173,21 @@ rispettivamente l'account Google dell'utente, l'account Bing dell'utente, e la p
 sito (mai pubblicata, servono i dati del titolare) — nessuno dei tre è qualcosa che si possa fare
 in autonomia da qui. Dettagli nella sezione Fase 6 qui sotto.
 
-Primo lotto di nuove citazioni post-roadmap (2026-08-28), su richiesta esplicita "aggiungi nuove
-citazioni... dando priorità alla correttezza": **6 citazioni, 262 totali**, sei autori mai presenti
-in archivio scelti per ampliare la copertura di epoche (Omero e Virgilio, mai avuti prima
-nonostante siano tra le opere fondative della letteratura occidentale; Marco Aurelio) e voci
-contemporanee (William Golding, Ralph Waldo Emerson, Olga Tokarczuk). Fonti: Wikisource per Omero
-e Virgilio (traduzioni storiche di pubblico dominio, Vincenzo Monti e Annibal Caro), Wikiquote con
-riferimento esplicito a libro/capitolo o pagina per gli altri quattro. Scartati per lo stesso
-principio di rigore della Fase 3: Astrid Lindgren (citazione non confermata sulla pagina Wikiquote
-consultata), Aleksandr Puškin (nessuna citazione breve con riferimento verificabile trovata),
-Johann Wolfgang von Goethe (wording dell'incipit del Werther discordante tra le traduzioni Spaini
-e Bianconi, senza modo di stabilire quale citare). Scritte anche le 6 schede autore corrispondenti
-per mantenere tutto l'archivio indicizzabile. Dettagli completi in `LOG.md`.
+Nuovi lotti di citazioni post-roadmap, iniziati il 2026-08-28 su richiesta esplicita "aggiungi
+nuove citazioni... dando priorità alla correttezza" e proseguiti in autonomia, un lotto via
+l'altro, su istruzione "Continua ogni volta che finisci un lotto" (**vedi anche la memoria
+permanente** `feedback_sottolineature_lotti_autonomi.md`: non fermarsi a chiedere il via libera tra
+un lotto e l'altro, restando comunque fermo tutto il resto del rigore di verifica). Ogni lotto:
+autori mai presenti in archivio, fonti verificate nell'ordine Wikisource > Wikiquote con
+riferimento esplicito a capitolo/edizione > due fonti indipendenti concordanti, scheda autore
+scritta per ogni nuovo nome così tutto l'archivio resta indicizzabile, scarti sempre motivati.
+**Dettagli di ogni lotto — chi è stato aggiunto, chi scartato e perché, quali covertine sostituite
+per mismatch di lingua o edizione — sono in `LOG.md`, una voce per lotto**: qui in CLAUDE.md non si
+tiene più il dettaglio lotto per lotto, solo lo stato aggregato. Lotto 1: Omero, Virgilio, Marco
+Aurelio, William Golding, Ralph Waldo Emerson, Olga Tokarczuk. Lotto 2: Nikolaj Gogol', Dacia
+Maraini, Niccolò Ammaniti, George Eliot, Ralph Ellison — in quest'ultimo corretto anche un difetto
+di `generate_quote_pages.py` (il link alla fonte diceva sempre "Testo su Wikisource" anche quando
+la fonte era Wikiquote).
 
 Tre correzioni di attribuzione fatte durante la verifica (non solo trovate, anche corrette e
 pubblicate): Kazuo Ishiguro ("Quando eravamo orfani" → "Non lasciarmi"), Alice Munro ("La vista da
@@ -199,9 +203,10 @@ Baldassarre"), Suzanne Collins ("Che i giochi abbiano inizio" — la fonte trova
 confermata nel romanzo).
 
 Prossimo passo: il lavoro automatizzabile della roadmap SEO è esaurito, quindi la Fase 1
-(aggiungere citazioni, senza un traguardo fisso) resta il lavoro di fondo di default — primo lotto
-post-roadmap fatto il 2026-08-28 (262 citazioni), si può continuare con altri lotti quando
-richiesto. Se richiesto esplicitamente: risolvere i quattro dubbi aperti di Fase 3, ritentare le 24
+(aggiungere citazioni, senza un traguardo fisso) resta il lavoro di fondo di default — si continua
+lotto dopo lotto in autonomia (istruzione permanente dell'utente, 2026-08-28), senza fermarsi a
+chiedere il via libera tra un lotto e l'altro. Se richiesto esplicitamente: risolvere i quattro
+dubbi aperti di Fase 3, ritentare le 24
 citazioni storiche rimaste con fonti diverse da quelle già cercate, ampliare le raccolte quando
 l'archivio crescerà abbastanza da sostenere le candidate scartate (amicizia, tempo che passa) o
 nuove, oppure — quando l'utente vorrà occuparsene di persona — Search Console, Bing Webmaster Tools
