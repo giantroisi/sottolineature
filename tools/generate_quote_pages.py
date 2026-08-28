@@ -180,16 +180,21 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <a href="/metodo/">Metodo</a>
 </nav>
 <div class="page">
-  <a class="back-link sans" href="/">← Tutte le citazioni</a>
-  <article class="card" data-category="{category}"{genre_attr}>
+  <nav class="breadcrumb sans" aria-label="Percorso">
+    <a href="/">Sottolineature</a> › <a href="/autori/{author_slug}/">{author}</a> › <span aria-current="page">{breadcrumb_last}</span>
+  </nav>
+  <figure class="card" data-category="{category}"{genre_attr}>
     <span class="card-mark" aria-hidden="true">“</span>
     <div class="card-body">
-      <p class="card-quote">{quote}</p>
-      <p class="card-citation sans"><span class="card-author">{author}</span> — <span class="card-title">{title}</span>{year_html}</p>
+      <blockquote class="card-quote-block">
+        <h1 class="card-quote">{h1_quote}</h1>
+        {full_quote_html}
+      </blockquote>
+      <figcaption class="card-citation sans">— <a href="/autori/{author_slug}/" class="card-author">{author}</a>, <cite class="card-title">{title}</cite>{year_html}</figcaption>
       {context_html}
     </div>
     {cover_html}
-  </article>
+  </figure>
   <div class="actions sans">
     <button type="button" id="copyBtn">Copia citazione</button>
     <a href="/#{slug}">Vedi sul sito →</a>
@@ -229,7 +234,13 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 """
 
 
-def render_page(q, slug, same_author):
+def truncate_words(text, max_len):
+    if len(text) <= max_len:
+        return text, False
+    return text[:max_len].rsplit(' ', 1)[0] + '…', True
+
+
+def render_page(q, slug, same_author, same_theme):
     quote_esc = html.escape(q['quote'])
     author_esc = html.escape(q['author'])
     title_esc = html.escape(q['title'])
@@ -237,22 +248,34 @@ def render_page(q, slug, same_author):
     year_html = (' · <span class="card-year">' + html.escape(q['year']) + '</span>') if q['year'] else ''
     cover_src = q['cover'] if q['cover'].startswith('http') else '/' + q['cover']
     cover_alt = html.escape('Copertina di "' + q['title'] + '" di ' + q['author'])
-    cover_html = ('<img class="card-cover" src="' + cover_src + '" alt="' + cover_alt + '" width="54" height="81" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">') if q['cover'] else ''
+    # LCP: la copertina e' l'immagine piu' importante della pagina citazione,
+    # niente lazy e priorita' di caricamento alta.
+    cover_html = ('<img class="card-cover" src="' + cover_src + '" alt="' + cover_alt + '" width="54" height="81" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">') if q['cover'] else ''
     genre_attr = (' data-genre="' + html.escape(q['genre']) + '"') if q['genre'] else ''
+    author_slug = slugify(q['author'])
+
+    # H1 = testo della citazione; se troppo lungo, H1 troncato e testo
+    # integrale mostrato comunque sotto (non come intestazione).
+    h1_text, was_truncated = truncate_words(q['quote'], 200)
+    h1_quote = html.escape(h1_text)
+    full_quote_html = ('<p class="card-quote-full">' + quote_esc + '</p>') if was_truncated else ''
 
     ref = q['title'] + (', ' + q['year'] if q['year'] else '')
     description = ('«' + q['quote'] + '» — ' + q['author'] + ', ' + ref)
     if len(description) > 200:
         description = description[:197].rsplit(' ', 1)[0] + '…'
 
-    title_tag = q['author'] + ' — ' + q['title'] + ' | Sottolineature'
+    title_incipit, _ = truncate_words(q['quote'], 45)
+    title_tag = '«' + title_incipit + '» — ' + q['author'] + ', ' + q['title']
     og_title = '«' + (q['quote'] if len(q['quote']) <= 120 else q['quote'][:117].rsplit(' ', 1)[0] + '…') + '»'
     canonical = SITE_URL + '/citazioni/' + slug + '/'
-    og_image = SITE_URL + '/og-banner.png'
+    og_image = SITE_URL + '/assets/og/' + slug + '.png'
     copy_text = '"' + q['quote'] + '" — ' + q['author'] + ', ' + q['title']
 
+    breadcrumb_last, _ = truncate_words(q['quote'], 40)
+    breadcrumb_last_esc = html.escape(breadcrumb_last)
+
     tag_links = []
-    author_slug = slugify(q['author'])
     tag_links.append('<a href="/autori/' + author_slug + '/">' + author_esc + '</a>')
     if q['category'] and q['category'] in CATEGORY_LABELS:
         tag_links.append('<a href="/temi/' + q['category'] + '/">' + CATEGORY_LABELS[q['category']] + '</a>')
@@ -261,35 +284,67 @@ def render_page(q, slug, same_author):
             tag_links.append('<a href="/generi/' + g + '/">' + GENRE_LABELS[g] + '</a>')
     tags_html = '<div class="tags sans">' + ''.join(tag_links) + '</div>' if tag_links else ''
 
+    related_sections = []
     if same_author:
         items = ''.join(
-            '<li><a href="/citazioni/' + s + '/">«' + html.escape(oq['quote'][:70] + ('…' if len(oq['quote']) > 70 else '')) + '»</a> — <span class="sans" style="font-style:normal">' + html.escape(oq['title']) + '</span></li>'
+            '<li><a href="/citazioni/' + s + '/">«' + html.escape(truncate_words(oq['quote'], 70)[0]) + '»</a> — <span class="sans" style="font-style:normal">' + html.escape(oq['title']) + '</span></li>'
             for s, oq in same_author[:5]
         )
-        related_html = (
-            '<div class="related sans"><h2>Altre citazioni di ' + author_esc + '</h2><ul>' + items + '</ul></div>'
+        related_sections.append('<div class="related sans"><h2>Altre citazioni di ' + author_esc + '</h2><ul>' + items + '</ul></div>')
+    if same_theme and q['category'] in CATEGORY_LABELS:
+        items = ''.join(
+            '<li><a href="/citazioni/' + s + '/">«' + html.escape(truncate_words(oq['quote'], 70)[0]) + '»</a> — <span class="sans" style="font-style:normal">' + html.escape(oq['author']) + '</span></li>'
+            for s, oq in same_theme[:4]
         )
-    else:
-        related_html = ''
+        related_sections.append(
+            '<div class="related sans"><h2>Altre citazioni su ' + CATEGORY_LABELS[q['category']] + '</h2><ul>' + items + '</ul></div>'
+        )
+    related_html = ''.join(related_sections)
 
-    jsonld = json.dumps([
-        {
-            '@context': 'https://schema.org',
-            '@type': 'Quotation',
-            'text': q['quote'],
-            'creator': {'@type': 'Person', 'name': q['author']},
-            'isPartOf': {'@type': 'Book', 'name': q['title']},
-            'url': canonical,
-        },
-        {
-            '@context': 'https://schema.org',
-            '@type': 'BreadcrumbList',
-            'itemListElement': [
-                {'@type': 'ListItem', 'position': 1, 'name': 'Sottolineature', 'item': SITE_URL + '/'},
-                {'@type': 'ListItem', 'position': 2, 'name': title_tag, 'item': canonical},
-            ],
-        },
-    ], ensure_ascii=False)
+    book_id = canonical + '#book'
+    author_id = SITE_URL + '/autori/' + author_slug + '/#person'
+    jsonld = json.dumps({
+        '@context': 'https://schema.org',
+        '@graph': [
+            {
+                '@type': 'WebPage',
+                '@id': canonical + '#webpage',
+                'url': canonical,
+                'name': title_tag,
+                'breadcrumb': {'@id': canonical + '#breadcrumb'},
+            },
+            {
+                '@type': 'Quotation',
+                '@id': canonical + '#quotation',
+                'text': q['quote'],
+                'creator': {'@id': author_id},
+                'isPartOf': {'@id': book_id},
+                'url': canonical,
+            },
+            {
+                '@type': 'Book',
+                '@id': book_id,
+                'name': q['title'],
+                'author': {'@id': author_id},
+                **({'datePublished': q['year']} if q['year'] else {}),
+            },
+            {
+                '@type': 'Person',
+                '@id': author_id,
+                'name': q['author'],
+                'url': SITE_URL + '/autori/' + author_slug + '/',
+            },
+            {
+                '@type': 'BreadcrumbList',
+                '@id': canonical + '#breadcrumb',
+                'itemListElement': [
+                    {'@type': 'ListItem', 'position': 1, 'name': 'Sottolineature', 'item': SITE_URL + '/'},
+                    {'@type': 'ListItem', 'position': 2, 'name': q['author'], 'item': SITE_URL + '/autori/' + author_slug + '/'},
+                    {'@type': 'ListItem', 'position': 3, 'name': breadcrumb_last, 'item': canonical},
+                ],
+            },
+        ],
+    }, ensure_ascii=False)
 
     return PAGE_TEMPLATE.format(
         title_tag=html.escape(title_tag),
@@ -297,8 +352,10 @@ def render_page(q, slug, same_author):
         canonical=canonical,
         og_title=html.escape(og_title),
         og_image=og_image,
-        quote=quote_esc,
+        h1_quote=h1_quote,
+        full_quote_html=full_quote_html,
         author=author_esc,
+        author_slug=author_slug,
         title=title_esc,
         year_html=year_html,
         context_html=context_html,
@@ -306,6 +363,7 @@ def render_page(q, slug, same_author):
         category=html.escape(q['category']),
         genre_attr=genre_attr,
         slug=slug,
+        breadcrumb_last=breadcrumb_last_esc,
         tags_html=tags_html,
         related_html=related_html,
         jsonld=jsonld,
@@ -330,12 +388,16 @@ def main():
         print('slugs.json aggiornato con nuove citazioni')
 
     by_author = {}
+    by_category = {}
     for slug, q in entries:
         by_author.setdefault(q['author'], []).append((slug, q))
+        if q['category']:
+            by_category.setdefault(q['category'], []).append((slug, q))
 
     for slug, q in entries:
         same_author = [(s, oq) for s, oq in by_author[q['author']] if s != slug]
-        page = render_page(q, slug, same_author)
+        same_theme = [(s, oq) for s, oq in by_category.get(q['category'], []) if s != slug]
+        page = render_page(q, slug, same_author, same_theme)
         path = os.path.join(OUT_DIR, slug + '.html')
         with open(path, 'w', encoding='utf-8') as f:
             f.write(page)

@@ -12,6 +12,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import generate_quote_pages as qp  # noqa: E402
 import generate_hub_pages as hp  # noqa: E402
+import generate_og_images as og  # noqa: E402
 
 
 HOST_REDIRECTS = [
@@ -91,14 +92,33 @@ def main():
     redirects = qp.load_redirects()
     vercel_path = write_vercel_json(redirects)
 
+    og_generated, og_skipped, og_stray = og.generate(qp_entries)
+
     total = 2 + len(qp_entries) + len(tema_slugs) + len(genere_slugs) + len(set(author_slugs.values()))
 
-    # --- Controlli di qualita (Fase 0): title duplicati fra le pagine citazione ---
+    # --- Controlli di qualita: title/description duplicati, H1 presente ---
     title_tags = {}
+    description_tags = {}
     for slug, q in qp_entries:
-        t = q['author'] + ' — ' + q['title']
+        incipit, _ = qp.truncate_words(q['quote'], 45)
+        t = '«' + incipit + '» — ' + q['author'] + ', ' + q['title']
         title_tags.setdefault(t, []).append(slug)
+
+        ref = q['title'] + (', ' + q['year'] if q['year'] else '')
+        d = '«' + q['quote'] + '» — ' + q['author'] + ', ' + ref
+        if len(d) > 200:
+            d = d[:197].rsplit(' ', 1)[0] + '…'
+        description_tags.setdefault(d, []).append(slug)
+
     dup_titles = {t: s for t, s in title_tags.items() if len(s) > 1}
+    dup_descriptions = {d: s for d, s in description_tags.items() if len(s) > 1}
+
+    missing_h1 = []
+    for slug, _ in qp_entries:
+        path = os.path.join(qp.OUT_DIR, slug + '.html')
+        with open(path, encoding='utf-8') as f:
+            if '<h1 class="card-quote">' not in f.read():
+                missing_h1.append(slug)
 
     print()
     print('--- Rapporto build.py ---')
@@ -106,9 +126,28 @@ def main():
     print('  citazioni:', len(qp_entries))
     print('  temi:', len(tema_slugs), '| generi:', len(genere_slugs), '| autori:', len(set(author_slugs.values())))
     print('Redirect in vercel.json:', len(redirects))
-    print('Title <title> duplicati fra pagine citazione (stesso autore+opera, atteso finche\' non c\'e\' un H1 distintivo):', len(dup_titles))
+    print('Title <title> duplicati fra pagine citazione:', len(dup_titles))
+    print('Meta description duplicate fra pagine citazione:', len(dup_descriptions))
+    print('Pagine citazione senza <h1>:', len(missing_h1))
+    print('Immagini OG generate:', og_generated, '| gia aggiornate:', og_skipped, '| totale attese:', len(qp_entries))
     print('vercel.json scritto in', vercel_path)
     print('sitemap aggiornata in', sitemap_path)
+
+    missing_og = [slug for slug, _ in qp_entries if not os.path.isfile(os.path.join(og.OUT_DIR, slug + '.png'))]
+
+    if dup_titles or missing_h1 or missing_og:
+        print()
+        print('ERRORE: build non valido.')
+        for t, slugs in dup_titles.items():
+            print('  title duplicato su', slugs, ':', t[:80])
+        for slug in missing_h1:
+            print('  H1 mancante:', slug)
+        for slug in missing_og:
+            print('  Immagine OG mancante:', slug)
+        raise SystemExit(1)
+
+    if og_stray:
+        print('ATTENZIONE: file OG orfani in assets/og (citazione rimossa/slug cambiato):', og_stray)
 
 
 if __name__ == '__main__':

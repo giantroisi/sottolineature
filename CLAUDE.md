@@ -100,8 +100,8 @@ appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase
 il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
-**Stato: Fase 0 completata e committata in locale (non pushata, in attesa di conferma).
-Prossimo passo = Fase 1, dopo l'ok dell'utente sul risultato della Fase 0.**
+**Stato: Fase 1 completata, verificata, non ancora committata (Fase 0 è già committata in locale
+ma non pushata). Prossimo passo = commit di Fase 1, poi push di entrambe, poi Fase 2.**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
@@ -113,6 +113,17 @@ pagine indice sono della Fase 2 e linkarle prima avrebbe creato link morti), pre
 width/height sulle copertine delle pagine citazione. Verificato con un crawl locale su 6330 link
 interni (zero rotti) e controllo visivo chiaro/scuro/mobile su 5 pagine campione. Dettagli completi
 del comando eseguito in `SEO.md` §9.1.
+
+Fase 1 chiusa il 2026-08-28 (dettagli e scostamenti dal testo originale nella sezione qui sotto):
+H1 = testo della citazione su tutte le 256 pagine, struttura `<figure><blockquote><figcaption>`,
+`<title>` distintivo con incipit (0 duplicati, verificato da `build.py`), briciola di pane visibile
+a 3 livelli (non 4: le pagine `/autori/` e `/opere/` non esistono ancora), JSON-LD `@graph` con
+`@id` collegati (senza `sameAs`, mai verificato manualmente), `fetchpriority="high"` sulla copertina
+LCP, 256 immagini OG 1200×630 generate con Pillow (non Playwright) via il nuovo
+`tools/generate_og_images.py` integrato in `build.py`, correlate arricchite con sezione "stesso
+tema" oltre a "stesso autore". `build.py` ora fallisce il build se manca un H1, un title è duplicato
+o un'immagine OG non è stata generata. Non ancora fatto: test dei risultati strutturati di Google e
+misura reale di LCP (nessun ambiente di misura disponibile in locale).
 
 **Decisioni già prese con l'utente il 2026-08-28, da non rimettere in discussione:**
 teaser in home con il contesto esclusivo della pagina citazione; migrazione a URL puliti con 301;
@@ -167,38 +178,51 @@ generati torna a zero; la sitemap contiene solo URL puliti; un crawl locale
 
 Tutto dentro `tools/generate_quote_pages.py`.
 
-- [ ] **`<h1>` = il testo della citazione.** È il difetto tecnico più grave del sito, ripetuto 256
+- [x] **`<h1>` = il testo della citazione.** È il difetto tecnico più grave del sito, ripetuto 256
       volte: oggi la frase sta in un `<p class="card-quote">` e la pagina non ha nessun H1.
       Se la frase supera i 200 caratteri: H1 = incipit troncato a parola intera + `…`, testo
       integrale sotto.
-- [ ] **Semantica della citazione:**
+- [x] **Semantica della citazione:**
       `<figure><blockquote><p>…</p></blockquote><figcaption>— <a>Autore</a>, <cite>Titolo</cite>
       · anno</figcaption></figure>`.
-- [ ] **`<title>` distintivo:** `«{incipit ~45 caratteri}…» — {Autore}, {Opera}`.
+- [x] **`<title>` distintivo:** `«{incipit ~45 caratteri}…» — {Autore}, {Opera}`.
       Oggi le due citazioni dalla stessa opera hanno title identici
       (`George Orwell — 1984 | Sottolineature` per entrambe).
-- [ ] **`<meta description>`** senza duplicati: frase completa se breve, altrimenti frase troncata
+- [x] **`<meta description>`** senza duplicati: frase completa se breve, altrimenti frase troncata
       + prima riga di contesto.
-- [ ] **Briciola di pane visibile**, identica a quella in JSON-LD:
-      `Sottolineature › Autori › {Autore} › {Opera, se ha pagina} › questa citazione`.
-      Oggi c'è solo il JSON-LD, con due livelli e con l'intero tag title usato come nome del secondo.
-- [ ] **JSON-LD in `@graph`** con `@id` collegati, al posto dei due oggetti scollegati attuali:
+- [x] **Briciola di pane visibile** — implementata come `Sottolineature › {Autore} ›
+      {incipit troncato}`, **senza** i livelli "Autori" e "Opera" previsti dalla spec originale:
+      `/autori/` (hub) è Fase 2 e `/opere/<slug>/` è Fase 4, nessuna delle due esiste ancora oggi.
+      Linkarle prima avrebbe creato link morti — stessa regola già applicata al site-nav in Fase 0.
+      Da estendere a 4 livelli quando quelle pagine esisteranno.
+- [x] **JSON-LD in `@graph`** con `@id` collegati, al posto dei due oggetti scollegati attuali:
       `WebPage` → `Quotation` (`isPartOf` verso il `Book`, `creator` verso la `Person`) → `Book`
       (`name`, `author`, `datePublished`) → `Person` → `BreadcrumbList`.
-      `sameAs` verso Wikipedia/Wikidata **solo dopo aver aperto la pagina e verificato che sia la
-      persona/opera giusta** — stessa regola già in uso per i `cover_i` di Open Library.
-- [ ] **Immagine LCP:** sulla pagina citazione la copertina è l'elemento LCP e oggi ha
-      `loading="lazy"`. Togliere il lazy, aggiungere `fetchpriority="high"` e le dimensioni.
-- [ ] **Immagine social per citazione:** pre-generare 256 PNG 1200×630 in `/assets/og/<slug>.png`
-      riusando la composizione già scritta per il canvas di condivisione (Playwright a build time),
-      e puntarci `og:image`/`twitter:image`. Oggi tutte e 256 le pagine condividono `og-banner.png`.
-      È l'intervento con il miglior ritorno sulle condivisioni.
-- [ ] **Correlate più ricche:** stesso autore (già c'è), stessa opera, stesso tema, con etichette
-      che dicono *perché* sono correlate.
+      `sameAs` verso Wikipedia/Wikidata **non aggiunto**: nessun link è stato aperto e verificato
+      persona-per-persona per i 193 autori, quindi si è preferito ometterlo piuttosto che rischiare
+      un `sameAs` sbagliato. Da fare come lotto separato, con verifica manuale.
+- [x] **Immagine LCP:** sulla pagina citazione la copertina è l'elemento LCP e oggi ha
+      `loading="lazy"`. Tolto il lazy, aggiunto `fetchpriority="high"` e le dimensioni.
+- [x] **Immagine social per citazione:** 256 PNG 1200×630 generati in `/assets/og/<slug>.png`,
+      puntati da `og:image`/`twitter:image`. Riusa la stessa composizione (virgolette dorate,
+      citazione in corsivo, autore, opera, url) del canvas di condivisione in `index.html`, ma
+      **con Pillow invece di Playwright**: `tools/generate_og_images.py`, integrato in `build.py`
+      (rigenera solo le immagini più vecchie di `index.html`, fallisce il build se ne manca una).
+      Scelta deliberata — stesso strumento già usato per `og-banner.png` in questo repo, zero
+      dipendenze nuove da scaricare, stesso risultato visivo. Verificato a occhio sulla citazione
+      più lunga del sito (485 caratteri) e su un caso breve, nessun overflow del frame.
+- [x] **Correlate più ricche:** stesso autore e stesso tema, con sezioni separate ed etichettate
+      (`Altre citazioni di {Autore}`, `Altre citazioni su {Tema}`). "Stessa opera" come terza
+      categoria distinta non è stata aggiunta: 242 opere su 249 hanno una sola citazione in
+      archivio, quindi in pratica coinciderebbe quasi sempre con "stesso autore" — nessun valore
+      aggiunto per l'utente in questo dataset.
 
-**Controllo di accettazione:** H1 presente su tutte e 256 (grep di conteggio); `build.py` non
-segnala title o description duplicati; 5 pagine campione validate con il test dei risultati
-strutturati di Google; LCP sotto i 2,5 s su una pagina citazione.
+**Controllo di accettazione:** H1 presente su tutte e 256 (verificato via `build.py`, che ora fallisce
+il build se manca); `build.py` non segnala title o description duplicati (0/0) né immagini OG mancanti;
+verificato in browser su una pagina campione (Dante) in chiaro/scuro/mobile, console pulita, JSON-LD
+valido (`JSON.parse` sul blocco `ld+json`). Non ancora fatto: validazione con il test dei risultati
+strutturati di Google su 5 pagine campione e misura di LCP reale sotto i 2,5 s (richiede un ambiente
+di misura che non ho qui in locale).
 
 #### Fase 2 — De-duplicazione e gate di indicizzazione
 
