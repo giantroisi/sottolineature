@@ -104,9 +104,15 @@ il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, sche
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
 **Stato: Fase 0, Fase 1 e Fase 2 completate e live su sottolineature.it (deploy Vercel confermato
-il 2026-08-28). Fase 3 in corso: 92/256 citazioni con fonte (locus verificato, 6 lotti committati e
-pushati il 2026-08-28, dettagli in `LOG.md`). Prossimo passo = continuare la Fase 3 con altri lotti
-di ricerca, poi Fase 4 (pagine opera, richiede di mostrare l'elenco candidati e aspettare l'ok).**
+il 2026-08-28). Fase 3 in corso: 165/256 citazioni con fonte (locus verificato, 17 lotti committati
+e pushati il 2026-08-28, dettagli per lotto in `LOG.md`). Tre dubbi di attribuzione emersi durante
+la verifica e non ancora risolti, segnalati in `LOG.md` con la ragione — da controllare prima di
+aggiungere una fonte a quelle tre citazioni, non da ignorare: Simone Weil ("L'ombra e la grazia" —
+potrebbe essere una lettera del 1942, non il libro), J.M. Barrie ("Solo chi sogna può volare" —
+potrebbe essere del film Disney, non del romanzo), Amin Maalouf ("In fondo all'Atlantico c'è un
+libro" — potrebbe appartenere a "Il periplo di Baldassarre", non a "Il manoscritto di Samarcanda").
+Prossimo passo = continuare la Fase 3 con altri lotti di ricerca (91 citazioni restanti), risolvere
+i tre dubbi, poi Fase 4 (pagine opera, richiede di mostrare l'elenco candidati e aspettare l'ok).**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
