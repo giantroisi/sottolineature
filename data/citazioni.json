@@ -85,7 +85,7 @@
     "genre": "",
     "added": null,
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "battuta di Smerdjakov",
     "source_translator": "",
     "source_url": ""
   },
@@ -3610,7 +3610,7 @@
     "genre": "fantasy",
     "added": null,
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "battuta di Silente al banchetto finale",
     "source_translator": "",
     "source_url": ""
   },
@@ -3834,9 +3834,9 @@
     "category": "verita",
     "genre": "fantasy",
     "added": "2026-08-26",
-    "source_edition": "",
+    "source_edition": "Salani, 2008",
     "source_locus": "",
-    "source_translator": "",
+    "source_translator": "Valentina Daniele",
     "source_url": ""
   }
 ]
