@@ -148,8 +148,25 @@ def main():
             if '<h1 class="card-quote">' not in f.read():
                 missing_h1.append(slug)
 
-    quotes_with_source = 0  # Fase 3 non ancora fatta: nessuna citazione ha ancora un blocco fonte
+    quotes_with_source = sum(1 for _, q in qp_entries if q.get('source_edition') or q.get('source_locus'))
     dated = sum(1 for _, q in qp_entries if q.get('added'))
+
+    # Stessa trappola gia' vista con i contesti duplicati (Fase 1 LOG.md):
+    # un lotto di fonti puo' finire applicato per errore a due citazioni
+    # diverse dello stesso autore/opera. Controllo automatico prima del build.
+    source_texts = {}
+    dup_sources = {}
+    for slug, q in qp_entries:
+        key = (q.get('source_edition', ''), q.get('source_locus', ''))
+        if key == ('', ''):
+            continue
+        source_texts.setdefault(key, []).append(slug)
+    for key, slugs in source_texts.items():
+        if len(slugs) > 1:
+            # stesso locus (es. stesso canto) su citazioni diverse e' un errore
+            # solo se autore/opera non giustifica la ripetizione: qui il locus
+            # da solo e' gia' abbastanza specifico da dover essere unico.
+            dup_sources[key] = slugs
 
     print()
     print('--- Rapporto build.py ---')
@@ -164,7 +181,7 @@ def main():
     print('Meta description duplicate fra pagine citazione:', len(dup_descriptions))
     print('Pagine citazione senza <h1>:', len(missing_h1))
     print('Citazioni con data di aggiunta nota (<lastmod>/feed.xml):', dated, '/', len(qp_entries))
-    print('Citazioni con blocco fonte (Fase 3, non ancora iniziata):', quotes_with_source, '/', len(qp_entries))
+    print('Citazioni con blocco fonte:', quotes_with_source, '/', len(qp_entries), '| fonti duplicate su citazioni diverse:', len(dup_sources))
     print('Immagini OG generate:', og_generated, '| gia aggiornate:', og_skipped, '| totale attese:', len(qp_entries))
     print('vercel.json scritto in', vercel_path)
     print('sitemap aggiornata in', sitemap_path)
@@ -172,13 +189,15 @@ def main():
 
     missing_og = [slug for slug, _ in qp_entries if not os.path.isfile(os.path.join(og.OUT_DIR, slug + '.png'))]
 
-    if dup_titles or missing_h1 or missing_og:
+    if dup_titles or missing_h1 or missing_og or dup_sources:
         print()
         print('ERRORE: build non valido.')
         for t, slugs in dup_titles.items():
             print('  title duplicato su', slugs, ':', t[:80])
         for slug in missing_h1:
             print('  H1 mancante:', slug)
+        for key, slugs in dup_sources.items():
+            print('  fonte duplicata su', slugs, ':', key)
         for slug in missing_og:
             print('  Immagine OG mancante:', slug)
         raise SystemExit(1)

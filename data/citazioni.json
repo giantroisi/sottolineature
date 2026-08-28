@@ -8,7 +8,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11621024-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "Inferno, canto V, v. 103",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Divina_Commedia/Inferno/Canto_V"
   },
   {
     "quote": "E il naufragar m'è dolce in questo mare.",
@@ -19,7 +23,11 @@
     "cover": "",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "Canti, edizione Napoli 1835",
+    "source_locus": "L’Infinito, ultimo verso",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Canti_(1835)/L%27infinito"
   },
   {
     "quote": "Il coraggio, uno, non se lo può dare.",
@@ -30,7 +38,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8236441-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "edizione definitiva, 1840",
+    "source_locus": "capitolo XXV",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/I_promessi_sposi_(1840)/Capitolo_XXV"
   },
   {
     "quote": "L'inferno dei viventi non è qualcosa che sarà; se ce n'è uno, è quello che è già qui.",
@@ -41,7 +53,11 @@
     "cover": "https://covers.openlibrary.org/b/id/963147-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La bellezza salverà il mondo.",
@@ -52,7 +68,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14830202-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Se Dio non esiste, tutto è permesso.",
@@ -63,7 +83,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8272336-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tutte le famiglie felici si assomigliano fra loro, ogni famiglia infelice è infelice a suo modo.",
@@ -74,7 +98,11 @@
     "cover": "https://covers.openlibrary.org/b/id/2560652-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Un mattino, Gregor Samsa, destandosi da sogni inquieti, si trovò trasformato, nel suo letto, in un enorme insetto.",
@@ -85,7 +113,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12820198-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La libertà è la libertà di dire che due più due fa quattro.",
@@ -96,7 +128,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9267242-M.jpg",
     "category": "liberta",
     "genre": "fantascienza distopia",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "È verità universalmente riconosciuta che a uno scapolo in possesso di un vasto patrimonio manchi soltanto una moglie.",
@@ -107,7 +143,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14348537-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Una donna deve avere denaro e una stanza tutta per sé se vuole scrivere romanzi.",
@@ -118,7 +158,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6559057-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non si vede bene che col cuore. L'essenziale è invisibile agli occhi.",
@@ -129,7 +173,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10708272-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Molti anni dopo, di fronte al plotone di esecuzione, il colonnello Aureliano Buendía si sarebbe ricordato di quel remoto pomeriggio in cui suo padre lo aveva condotto a conoscere il ghiaccio.",
@@ -140,7 +188,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12627383-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Le stirpi condannate a cento anni di solitudine non avevano una seconda opportunità sulla terra.",
@@ -151,7 +203,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12627383-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Chiamatemi Ismaele.",
@@ -162,7 +218,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10544254-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Qualunque cosa siano fatte le nostre anime, la sua e la mia sono uguali.",
@@ -173,7 +233,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12818862-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non c'è che un modo per liberarsi di una tentazione: cedervi.",
@@ -184,7 +248,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14314858-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nel bel mezzo dell'inverno, ho scoperto finalmente che dentro di me c'era un'estate invincibile.",
@@ -195,7 +263,11 @@
     "cover": "",
     "category": "coraggio",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'uccello lotta per uscire dall'uovo. L'uovo è il mondo. Chi vuol nascere deve distruggere un mondo.",
@@ -206,7 +278,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12569297-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Era il migliore dei tempi, era il peggiore dei tempi.",
@@ -217,7 +293,11 @@
     "cover": "https://covers.openlibrary.org/b/id/13301713-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ti amo senza sapere come, né quando, né da dove.",
@@ -228,7 +308,11 @@
     "cover": "https://covers.openlibrary.org/b/id/2903108-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Sono niente. Non sarò mai niente. Non posso voler essere niente. A parte questo, ho in me tutti i sogni del mondo.",
@@ -239,7 +323,11 @@
     "cover": "https://covers.openlibrary.org/b/id/900685-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non c'è grandezza dove non c'è semplicità, bontà e verità.",
@@ -250,7 +338,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12621906-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La signora Dalloway disse che i fiori li avrebbe comprati lei.",
@@ -261,7 +353,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6397580-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Qualcuno doveva aver calunniato Josef K., perché una mattina, senza che avesse fatto nulla di male, fu arrestato.",
@@ -272,7 +368,11 @@
     "cover": "https://covers.openlibrary.org/b/id/997423-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La libertà, Sancio, è uno dei doni più preziosi che il cielo abbia fatto agli uomini.",
@@ -283,7 +383,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14428305-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Essere, o non essere: questo è il problema.",
@@ -294,7 +398,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8281954-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "Atto III, scena I",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Che cosa c'è in un nome? Ciò che chiamiamo rosa, con un altro nome avrebbe lo stesso profumo.",
@@ -305,7 +413,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8257991-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "Atto II, scena II",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nulla è così doloroso alla mente umana quanto un grande cambiamento improvviso.",
@@ -316,7 +428,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12356249-M.jpg",
     "category": "vita",
     "genre": "horror",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Amare o essere stati amati, questo basta. Non chiedete altro.",
@@ -327,7 +443,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12721865-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La speranza è quella cosa piumata che si posa sull'anima.",
@@ -338,7 +458,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8236924-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Sono vasto, contengo moltitudini.",
@@ -349,7 +473,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9000447-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La saggezza non è comunicabile. La saggezza che un saggio tenta di comunicare suona sempre come follia.",
@@ -360,7 +488,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6562535-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non tutti quelli che vagano sono perduti.",
@@ -371,7 +503,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14625765-M.jpg",
     "category": "vita",
     "genre": "fantasy",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "In un buco nel terreno viveva uno Hobbit.",
@@ -382,7 +518,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14627509-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Donna non si nasce, lo si diventa.",
@@ -393,7 +533,11 @@
     "cover": "",
     "category": "liberta",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nonostante tutto, credo ancora che le persone siano buone di cuore.",
@@ -404,7 +548,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8584021-M.jpg",
     "category": "verita",
     "genre": "saggistica",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Meditate che questo è stato.",
@@ -415,7 +563,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1049023-M.jpg",
     "category": "tempo",
     "genre": "saggistica",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La vita attuale è inquinata alle radici.",
@@ -426,7 +578,11 @@
     "cover": "https://covers.openlibrary.org/b/id/419797-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non ho paura delle tempeste, perché sto imparando a governare la mia nave.",
@@ -437,7 +593,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8775559-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non sono un uccello, e nessuna rete può intrappolarmi: sono un essere umano libero, con una volontà indipendente.",
@@ -448,7 +608,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8235363-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Mai più.",
@@ -459,7 +623,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8246077-M.jpg",
     "category": "solitudine",
     "genre": "horror",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Bisogna coltivare il nostro giardino.",
@@ -470,7 +638,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12736044-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Le uniche persone per me sono i pazzi, quelli che sono pazzi per vivere, pazzi per parlare, pazzi per essere salvati.",
@@ -481,7 +653,11 @@
     "cover": "https://covers.openlibrary.org/b/id/34655-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'uomo non è fatto per essere sconfitto. Un uomo può essere distrutto ma non sconfitto.",
@@ -492,7 +668,11 @@
     "cover": "https://covers.openlibrary.org/b/id/463307-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tutti gli animali sono uguali, ma alcuni animali sono più uguali degli altri.",
@@ -503,7 +683,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11261770-M.jpg",
     "category": "verita",
     "genre": "distopia",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Quello che mi piacerebbe davvero essere è il guardiano nella segale.",
@@ -514,7 +698,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9273490-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non si conosce mai veramente una persona finché non si indossano le sue scarpe e ci si cammina dentro.",
@@ -525,7 +713,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14351077-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Così remiamo, barche contro corrente, risospinti senza sosta nel passato.",
@@ -536,7 +728,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10590366-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tu diventi responsabile per sempre di quello che hai addomesticato.",
@@ -547,7 +743,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10708272-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Comincia dal principio, disse gravemente il Re, e continua finché non arrivi alla fine: allora fermati.",
@@ -558,10 +758,14 @@
     "cover": "https://covers.openlibrary.org/b/id/10527843-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
-    "quote": "È molto più sicuro essere temuti che amati, se si deve rinunciare a uno dei due.",
+    "quote": "È molto più sicuro l’esser temuto che amato, quando s’abbi a mancare dell’un de’ duoi.",
     "author": "Niccolò Machiavelli",
     "title": "Il Principe",
     "year": "1532",
@@ -569,7 +773,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12726168-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "capitolo XVII",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Il_Principe/Capitolo_XVII"
   },
   {
     "quote": "Stat rosa pristina nomine, nomina nuda tenemus.",
@@ -580,7 +788,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8598263-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ai posteri l'ardua sentenza.",
@@ -591,7 +803,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6507161-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "vv. 31-32",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Il_cinque_maggio"
   },
   {
     "quote": "Stai per cominciare a leggere il nuovo romanzo di Italo Calvino, Se una notte d'inverno un viaggiatore.",
@@ -602,7 +818,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11224049-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Oggi la mamma è morta. O forse ieri, non so.",
@@ -613,7 +833,11 @@
     "cover": "https://covers.openlibrary.org/b/id/13151269-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Mai dimenticherò quella notte, la prima notte nel campo, che ha fatto della mia vita una lunga notte e per sette volte sprangata.",
@@ -624,7 +848,11 @@
     "cover": "https://covers.openlibrary.org/b/id/15120116-M.jpg",
     "category": "tempo",
     "genre": "saggistica",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Quando desideri una cosa, tutto l'Universo cospira affinché tu realizzi il tuo desiderio.",
@@ -635,7 +863,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7414780-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "I vostri figli non sono figli vostri. Sono i figli e le figlie del desiderio che la vita ha di sé stessa.",
@@ -646,7 +878,11 @@
     "cover": "https://covers.openlibrary.org/b/id/418324-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Sii paziente verso tutto ciò che è irrisolto nel tuo cuore e cerca di amare le domande.",
@@ -657,7 +893,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6874224-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Per molto tempo mi sono coricato presto la sera.",
@@ -668,7 +908,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12332709-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'inferno sono gli altri.",
@@ -679,7 +923,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7227937-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ciò che accade una sola volta è come se non fosse mai accaduto.",
@@ -690,7 +938,11 @@
     "cover": "https://covers.openlibrary.org/b/id/967823-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Penso che non siamo diventati ciechi. Penso che siamo ciechi. Ciechi che vedendo non vedono.",
@@ -701,7 +953,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12501286-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La morte non è l'opposto della vita, ma una sua parte integrante.",
@@ -712,7 +968,11 @@
     "cover": "https://covers.openlibrary.org/b/id/2237620-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non sono le nostre capacità che dimostrano chi siamo davvero, sono le nostre scelte.",
@@ -723,7 +983,11 @@
     "cover": "https://covers.openlibrary.org/b/id/15158664-M.jpg",
     "category": "verita",
     "genre": "fantasy",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Sono un uomo malato… Sono un uomo cattivo.",
@@ -734,7 +998,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12659602-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ci sono negli uomini più cose da ammirare che da disprezzare.",
@@ -745,7 +1013,11 @@
     "cover": "https://covers.openlibrary.org/b/id/13151272-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Essere immortale è cosa da poco: tranne l'uomo, tutte le creature lo sono, giacché ignorano la morte; la cosa divina, terribile, incomprensibile, è sapersi immortali.",
@@ -756,7 +1028,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14408958-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nulla era risolto, tutto restava possibile.",
@@ -767,7 +1043,11 @@
     "cover": "",
     "category": "liberta",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'amore attivo è crudele e terrificante se paragonato all'amore dei sogni.",
@@ -778,7 +1058,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8272336-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non abbiamo poco tempo, ma ne perdiamo molto.",
@@ -789,7 +1073,11 @@
     "cover": "https://covers.openlibrary.org/b/id/996581-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Cerchiamo d'entrare nella morte ad occhi aperti.",
@@ -800,7 +1088,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1003164-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tu sei la tua cosa migliore.",
@@ -811,7 +1103,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8261367-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Chi vuole guardare bene la terra deve tenersi alla distanza necessaria.",
@@ -822,7 +1118,11 @@
     "cover": "https://covers.openlibrary.org/b/id/115978-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "A volte l'uomo è straordinariamente, appassionatamente innamorato della sofferenza.",
@@ -833,7 +1133,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10706289-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tutto può essere tolto a un uomo a eccezione di una cosa: l'ultima delle libertà umane, poter scegliere il proprio atteggiamento in ogni determinata situazione.",
@@ -844,7 +1148,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8516506-M.jpg",
     "category": "liberta",
     "genre": "saggistica",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Come corpo ognuno è singolo, come anima mai.",
@@ -855,7 +1163,11 @@
     "cover": "https://covers.openlibrary.org/b/id/3221083-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tutto il giorno Efix, il servo delle dame Pintor, aveva lavorato a rinforzare l'argine primitivo da lui stesso costruito un po' per volta a furia d'anni e di fatica, giù in fondo al poderetto lungo il fiume.",
@@ -866,7 +1178,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12475738-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Se vogliamo che tutto rimanga com'è, bisogna che tutto cambi.",
@@ -877,7 +1193,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5439078-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "È la vita, più che la morte, a non avere limiti.",
@@ -888,7 +1208,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10096404-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Feci un respiro profondo e ascoltai il mio vecchio cuore: sono io, sono io, sono io.",
@@ -899,7 +1223,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8477115-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Fa' ciò che vuoi.",
@@ -910,7 +1238,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7383413-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Io amavo Lila. Volevo che lei durasse. Ma volevo essere io a farla durare.",
@@ -921,7 +1253,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12706346-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Lolita, luce della mia vita, fuoco dei miei lombi. Mio peccato, anima mia.",
@@ -932,7 +1268,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12984540-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La felicità non è mai grandiosa.",
@@ -943,7 +1283,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8231823-M.jpg",
     "category": "verita",
     "genre": "distopia",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.",
@@ -954,7 +1298,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12993656-M.jpg",
     "category": "liberta",
     "genre": "distopia",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Così va la vita.",
@@ -965,7 +1313,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12727001-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Basta una parola, una frase: una di quelle frasi antiche, sentite e ripetute infinite volte, nel tempo della nostra infanzia.",
@@ -976,7 +1328,11 @@
     "cover": "https://covers.openlibrary.org/b/id/3265299-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Barrabás arrivò in famiglia per via mare, annotò la piccola Clara con la sua delicata calligrafia.",
@@ -987,7 +1343,11 @@
     "cover": "https://covers.openlibrary.org/b/id/3205226-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Verrà la morte e avrà i tuoi occhi.",
@@ -998,7 +1358,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10870255-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Muoio ogni attimo, io, e rinasco nuovo e senza ricordi: vivo e intero, non più in me, ma in ogni cosa fuori.",
@@ -1009,7 +1373,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5430366-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "Libro ottavo, cap. 4 «Non conclude» (capitolo finale)",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Uno,_nessuno_e_centomila/Libro_ottavo"
   },
   {
     "quote": "Un tempo i Malavoglia erano stati numerosi come i sassi della strada vecchia di Trezza; ce n'erano persino ad Ognina, e ad Aci Castello, tutti buona e brava gente di mare, proprio all'opposto di quel che sembrava dal nomignolo, come dev'essere.",
@@ -1020,7 +1388,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5410364-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "capitolo I, incipit",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/I_Malavoglia/Capitolo_I"
   },
   {
     "quote": "M'illumino d'immenso.",
@@ -1031,7 +1403,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5343887-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ma a un certo punto, istintivamente, ci si volta indietro e si vede che un cancello è stato sprangato alle spalle nostre, chiudendo la via del ritorno.",
@@ -1042,7 +1418,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1048984-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Uno scandalo che dura da diecimila anni.",
@@ -1053,7 +1433,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1012730-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Se hai avuto la fortuna di vivere a Parigi da giovane, dopo, ovunque tu passi il resto della tua vita, essa ti accompagna perché Parigi è una festa mobile.",
@@ -1064,7 +1448,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7268728-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La lotta dell'uomo contro il potere è la lotta della memoria contro l'oblio.",
@@ -1075,7 +1463,11 @@
     "cover": "",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Perché noi portiamo il fuoco.",
@@ -1086,7 +1478,11 @@
     "cover": "https://covers.openlibrary.org/b/id/198120-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Bisogna immaginare Sisifo felice.",
@@ -1097,7 +1493,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1014395-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Poi, quando la tempesta sarà finita, probabilmente non saprai neanche tu come hai fatto ad attraversarla e a uscirne vivo. Anzi, non sarai neanche sicuro se sia finita per davvero. Ma su un punto non c'è dubbio. Ed è che tu, uscito da quel vento, non sarai lo stesso che vi era entrato.",
@@ -1108,7 +1508,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4982600-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Preferirei di no.",
@@ -1119,7 +1523,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10521439-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Era sera tardi quando K. arrivò. Il villaggio era immerso nella neve. Del colle del castello non si vedeva nulla, nebbia e tenebre lo avvolgevano, non il più debole chiarore rivelava il grande castello.",
@@ -1130,7 +1538,11 @@
     "cover": "",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'universo (che altri chiama la Biblioteca) si compone d'un numero indefinito, e forse infinito, di gallerie esagonali, con vasti pozzi di ventilazione nel mezzo, bordati di basse ringhiere.",
@@ -1141,7 +1553,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10832290-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Questa è l'acqua. Questa è l'acqua.",
@@ -1152,7 +1568,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6420363-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Anche più dell'affinità delle loro anime, li univa l'abisso che li divideva dal resto del mondo.",
@@ -1163,7 +1583,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1045432-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Per te, mille volte ancora.",
@@ -1174,7 +1598,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14846827-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Più del presente contava il passato, più del possesso il ricordarsene.",
@@ -1185,7 +1613,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4477169-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Noi non siamo cristiani, essi dicono, Cristo si è fermato a Eboli.",
@@ -1196,7 +1628,11 @@
     "cover": "https://covers.openlibrary.org/b/id/225264-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-02"
+    "added": "2026-08-02",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nolite te bastardes carborundorum.",
@@ -1207,7 +1643,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8231851-M.jpg",
     "category": "coraggio",
     "genre": "distopia",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La vita d'una persona consiste in un insieme d'avvenimenti di cui l'ultimo potrebbe anche cambiare il senso di tutto l'insieme, non perché conti di più dei precedenti ma perché inclusi in una vita gli avvenimenti si dispongono in un ordine che non è cronologico, ma risponde a un'architettura interna.",
@@ -1218,7 +1658,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4211742-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'amore è una fusione assoluta, al di sopra di ogni differenza: è il miracolo che di due esseri complementari fa un solo essere armonioso.",
@@ -1229,7 +1673,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5450782-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Noi ci raccontiamo delle storie per vivere.",
@@ -1240,7 +1688,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4395836-M.jpg",
     "category": "verita",
     "genre": "saggistica",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La libertà uno se la deve guadagnare e difendere. La felicità no, quella è un regalo, non dipende se uno fa bene il portiere e para i rigori.",
@@ -1251,7 +1703,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10485027-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Continuo a pensare a un fiume da qualche parte là fuori, con l'acqua che scorre velocissima. E quelle due persone nell'acqua, che cercano di tenersi strette, più che possono, ma alla fine devono desistere. La corrente è troppo forte. Devono mollare, separarsi.",
@@ -1262,7 +1718,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1047334-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nessuno può sapere quanto rumore fa una certezza che si rompe.",
@@ -1273,7 +1733,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12487222-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tu sei un colibrì perché come il colibrì metti tutta la tua energia nel restare fermo. Settanta battiti d'ali al secondo per rimanere dove già sei.",
@@ -1284,7 +1748,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10543793-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Okonkwo era ben conosciuto nei nove villaggi e anche oltre.",
@@ -1295,7 +1763,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12816943-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Sostiene Pereira di averlo conosciuto in un giorno d'estate. Una magnifica giornata d'estate, soleggiata e ventilata, e Lisbona sfavillava.",
@@ -1306,7 +1778,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5496834-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Avrei incontrato la Maga?",
@@ -1317,7 +1793,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1047466-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Presto fu tardi nella mia vita. A diciott'anni era già troppo tardi.",
@@ -1328,7 +1808,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5401955-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tu cambi tutto ciò che tocchi. Tutto ciò che cambi ti cambia. L'unica verità duratura è il cambiamento. Dio è cambiamento.",
@@ -1339,7 +1823,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10466266-M.jpg",
     "category": "verita",
     "genre": "fantascienza distopia",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La sopravvivenza non è sufficiente.",
@@ -1350,7 +1838,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7369961-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non tutto ciò che viene affrontato può essere cambiato, ma nulla può essere cambiato finché non viene affrontato.",
@@ -1361,7 +1853,11 @@
     "cover": "https://covers.openlibrary.org/b/id/2980395-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'attenzione è la forma più rara e più pura della generosità.",
@@ -1372,7 +1868,11 @@
     "cover": "",
     "category": "verita",
     "genre": "saggistica",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Bisogna essere sempre ubriachi. Tutto sta in questo: è l'unico problema. Del tempo che rompe le vostre spalle e vi inclina verso la terra, bisogna che vi ubriachiate senza tregua. Di vino, di poesia o di virtù, a piacer vostro.",
@@ -1383,7 +1883,11 @@
     "cover": "https://covers.openlibrary.org/b/id/15120100-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Un paese ci vuole, non fosse che per il gusto di andarsene via.",
@@ -1394,7 +1898,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8019310-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Sono nata il ventuno a primavera, ma non sapevo che nascere folle, aprire le zolle, potesse scatenar tempesta.",
@@ -1405,7 +1913,11 @@
     "cover": "https://covers.openlibrary.org/b/id/3985336-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Le lacrime che non escono si depositano sul cuore, con il tempo lo incrostano e lo paralizzano come il calcare incrosta e paralizza gli ingranaggi della lavatrice.",
@@ -1416,7 +1928,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14967441-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La bocca socchiusa, le braccia abbandonate lungo i fianchi, Milton guardava la villa di Fulvia, solitaria sulla collina che degradava sulla città di Alba.",
@@ -1427,7 +1943,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9379071-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Entrò Carla; aveva indossato un vestitino di lanetta marrone con la gonna così corta, che bastò quel movimento di chiudere l'uscio per fargliela salire di un buon palmo sopra le pieghe lente che le facevano le calze intorno alle gambe; ma ella non se ne accorse e si avanzò con precauzione guardando misteriosamente davanti a sé, dinoccolata e malsicura; una sola lampada era accesa e illuminava le ginocchia di Leo seduto sul divano; un'oscurità grigia avvolgeva il resto del salotto.",
@@ -1438,7 +1958,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12725599-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "A egregie cose il forte animo accendono l'urne de' forti, o Pindemonte.",
@@ -1449,7 +1973,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5812331-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "v. 151",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Dei_sepolcri_(Bettoni_1808)/Dei_Sepolcri"
   },
   {
     "quote": "San Lorenzo, io lo so perché tanto di stelle per l'aria tranquilla arde e cade, perché sì gran pianto nel concavo cielo sfavilla.",
@@ -1460,7 +1988,11 @@
     "cover": "",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "Myricae, sez. Elegie",
+    "source_locus": "incipit",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Myricae/Elegie/X_Agosto"
   },
   {
     "quote": "Io ero, quell'inverno, in preda ad astratti furori.",
@@ -1471,7 +2003,11 @@
     "cover": "https://covers.openlibrary.org/b/id/598330-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Di fronte a te avevo perduto ogni fiducia in me stesso e conseguito in cambio uno sconfinato senso di colpa.",
@@ -1482,7 +2018,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11969511-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La verità è nel fondo di un pozzo: lei guarda in un pozzo e vede il sole o la luna; ma se si butta giù non c'è più né sole né luna, c'è la verità.",
@@ -1493,7 +2033,11 @@
     "cover": "https://covers.openlibrary.org/b/id/457066-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non ti ho amato per noia, o per solitudine, o per capriccio. Ti ho amato perché il desiderio di te era più forte di qualsiasi felicità.",
@@ -1504,7 +2048,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12993292-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Lei sapeva, ovviamente, che lui l'amava, ma si chiedeva se sapesse anche che ne era consumato, che ogni giorno era avvelenato da lei, influenzato da lei, che lei esercitava un potere persino sul suo sonno.",
@@ -1515,7 +2063,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8474037-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non mi curavo di nulla, e d'altronde nulla si curava di me.",
@@ -1526,7 +2078,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8632088-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Mettere al mondo una parola nuova è un po' come sfiorare l'eternità.",
@@ -1537,7 +2093,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8216396-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "I manoscritti non bruciano.",
@@ -1548,7 +2108,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12947486-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "In Africa avevo una fattoria ai piedi degli altipiani del Ngong. A un centocinquanta chilometri più a nord su quegli altipiani passava l'equatore; eravamo a milleottocento metri sul livello del mare.",
@@ -1559,7 +2123,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4212788-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nell'anima degli affamati i semi del furore sono diventati acini, e gli acini grappoli ormai pronti per la vendemmia.",
@@ -1570,7 +2138,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12715902-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "No, non si può comunicare a nessuno questa gioia piena dell'eccitazione vitale di sfidare il tempo in due, d'essere compagni nel dilatarlo.",
@@ -1581,7 +2153,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7269692-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Il passato è a valle, il futuro a monte.",
@@ -1592,7 +2168,11 @@
     "cover": "https://covers.openlibrary.org/b/id/15128804-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ci siamo tanto allontanati l'uno dall'altra, che non riusciamo neppure a vederci: e andiamo avanti, soli.",
@@ -1603,7 +2183,11 @@
     "cover": "https://covers.openlibrary.org/b/id/13188680-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Niente è più brutto di una parola d'amore pronunciata freddamente da una bocca annoiata.",
@@ -1614,7 +2198,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14814058-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'orrore! L'orrore!",
@@ -1625,7 +2213,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12307847-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ieri notte ho sognato di tornare a Manderley.",
@@ -1636,7 +2228,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8238729-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Adesso io sono un morto, un cadavere in fondo a un pozzo. Ho esalato l'ultimo respiro ormai da tempo, il mio cuore si è fermato, ma, a parte quel vigliacco del mio assassino, nessuno sa cosa mi sia successo.",
@@ -1647,7 +2243,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1054459-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nel diciottesimo secolo visse in Francia un uomo, tra le figure più geniali e scellerate di quell'epoca non povera di geniali e scellerate figure.",
@@ -1658,7 +2258,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10910286-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La parola umana è simile a un calderone incrinato da cui è facile trarre una musica adatta per far ballare gli orsi quando vorremmo commuovere le stelle.",
@@ -1669,7 +2273,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12993424-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "\"Giustizia\" era fatta, e il Presidente degli Immortali, per dirla con una frase di Eschilo, aveva finito di divertirsi con Tess.",
@@ -1680,7 +2288,11 @@
     "cover": "",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Le donne, i cavallier, l'arme, gli amori, le cortesie, l'audaci imprese io canto.",
@@ -1691,7 +2303,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6532951-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "Canto I, ottava 1",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Orlando_furioso_(1928)/Canto_1"
   },
   {
     "quote": "Io nacqui veneziano ai 18 ottobre del 1775, giorno dell'evangelista san Luca; e morrò per la grazia di Dio italiano quando lo vorrà quella Provvidenza che governa misteriosamente il mondo.",
@@ -1702,7 +2318,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5793735-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Quando hai eliminato l'impossibile, ciò che rimane, per quanto improbabile, deve essere la verità.",
@@ -1713,7 +2333,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12501284-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tutta l'umana saggezza sarà riposta in queste due parole: Aspettare e sperare.",
@@ -1724,7 +2348,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14566393-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "A noi due, adesso!",
@@ -1735,7 +2363,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8237944-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Per favore, signore, ne vorrei ancora.",
@@ -1746,7 +2378,11 @@
     "cover": "https://covers.openlibrary.org/b/id/13300802-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Posso scrivere i versi più tristi questa stanotte.",
@@ -1757,7 +2393,11 @@
     "cover": "https://covers.openlibrary.org/b/id/747596-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "O Capitano! Mio Capitano!",
@@ -1768,7 +2408,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9000447-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'amore è come un albero: spunta da sé, getta profondamente le radici in tutto il nostro essere, e continua a verdeggiare anche sopra un cuore in rovina.",
@@ -1779,7 +2423,11 @@
     "cover": "https://covers.openlibrary.org/b/id/2626880-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Silenzio, silenzio, ho detto. Silenzio!",
@@ -1790,7 +2438,11 @@
     "cover": "https://covers.openlibrary.org/b/id/905133-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Voi non sapete niente di me, senza che avete letto un libro intitolato Le avventure di Tom Sawyer, ma non importa.",
@@ -1801,7 +2453,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8157718-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Vi sono le bugie che hanno le gambe corte, e le bugie che hanno il naso lungo.",
@@ -1812,7 +2468,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8597022-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "E andando nel sole che abbaglia, sentire con triste meraviglia com'è tutta la vita e il suo travaglio in questo seguitare una muraglia che ha in cima cocci aguzzi di bottiglia.",
@@ -1823,7 +2483,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5283977-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Era una caldissima giornata di luglio. Il Riccetto che doveva farsi la prima comunione e la cresima, s'era alzato già alle cinque; ma mentre scendeva giù per via Donna Olimpia coi calzoni lunghi grigi e la camicetta bianca, piuttosto che un comunicando o un soldato di Gesù pareva un pischello quando se ne va acchittato pei lungoteveri a rimorchiare.",
@@ -1834,7 +2498,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4100150-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita.",
@@ -1845,7 +2513,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11621024-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "Inferno, canto I, v. 1",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Divina_Commedia/Inferno/Canto_I"
   },
   {
     "quote": "Ognuno sta solo sul cuor della terra trafitto da un raggio di sole: ed è subito sera.",
@@ -1856,7 +2528,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4694247-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Che fai tu, luna, in ciel? dimmi, che fai, silenziosa luna?",
@@ -1867,7 +2543,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10730009-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-03"
+    "added": "2026-08-03",
+    "source_edition": "Canti, edizione Napoli 1835",
+    "source_locus": "Canto notturno di un pastore errante dell’Asia, incipit",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Canti_(1835)/Canto_notturno_di_un_pastore_errante_dell%27Asia"
   },
   {
     "quote": "Quel ramo del lago di Como, che volge a mezzogiorno, tra due catene non interrotte di monti, tutto a seni e a golfi, a seconda dello sporgere e del rientrare di quelli, vien, quasi a un tratto, a ristringersi, e a prender corso e figura di fiume, tra un promontorio a destra, e un'ampia costiera dall'altra parte.",
@@ -1878,7 +2558,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8236441-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "edizione definitiva, 1840",
+    "source_locus": "capitolo I, incipit",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/I_promessi_sposi_(1840)/Capitolo_I"
   },
   {
     "quote": "Si sta come d'autunno sugli alberi le foglie.",
@@ -1889,7 +2573,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5343887-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La luce è la mano sinistra delle tenebre, e le tenebre la mano destra della luce.",
@@ -1900,7 +2588,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10618463-M.jpg",
     "category": "verita",
     "genre": "fantascienza",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Il mare è tutto: non per nulla copre i sette decimi del globo. Ha un'aria pura e sana, è il deserto immenso dove l'uomo non è mai solo, perché sente la vita fremergli accanto. Il mare è il veicolo di un'esistenza soprannaturale e prodigiosa, è movimento ed amore, è l'infinito vivente.",
@@ -1911,7 +2603,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11111697-M.jpg",
     "category": "vita",
     "genre": "fantascienza",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La tentazione di fare ciò che è proibito proprio perché è proibito è la più grande delle tentazioni.",
@@ -1922,7 +2618,11 @@
     "cover": "https://covers.openlibrary.org/b/id/295773-M.jpg",
     "category": "verita",
     "genre": "horror",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ho paura di non riuscire a comunicarvi le peculiari sensazioni di chi viaggia nel tempo, sensazioni spiacevoli al massimo grado. Sembra di essere su una montagna russa: spinti in avanti a una velocità disperata!",
@@ -1933,7 +2633,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9009316-M.jpg",
     "category": "tempo",
     "genre": "fantascienza",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Si può conoscere solo ciò che si è in grado di amare. Non esiste sapienza senza amore.",
@@ -1944,7 +2648,11 @@
     "cover": "",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Il passato non è mai morto. Non è neanche passato.",
@@ -1955,7 +2663,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9327745-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Trieste ha una scontrosa grazia. Se piace, è come un ragazzaccio aspro e vorace, con gli occhi azzurri e mani troppo grandi per regalare un fiore; come un amore con gelosia.",
@@ -1966,7 +2678,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8066034-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Un pomeriggio d'aprile, subito dopo pranzo, mio marito mi annunciò che voleva lasciarmi.",
@@ -1977,7 +2693,11 @@
     "cover": "https://covers.openlibrary.org/b/id/961726-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "In che momento si era fottuto il Perù?",
@@ -1988,7 +2708,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12532400-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La nostra solitudine ha le stesse radici del sentimento religioso. È un essere orfani, un'oscura coscienza d'essere stati strappati dal Tutto e un'ardente ricerca: una fuga e un ritorno, tentativo di riannodare i legami che ci univano alla creazione.",
@@ -1999,7 +2723,11 @@
     "cover": "https://covers.openlibrary.org/b/id/569554-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Niente al mondo è in grado di esercitare una tale pressione sull'anima umana come il nulla.",
@@ -2010,7 +2738,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12914654-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Il tempo raffredda, il tempo chiarifica; nessuno stato d'animo si può mantenere del tutto inalterato nello scorrere delle ore.",
@@ -2021,10 +2753,14 @@
     "cover": "https://covers.openlibrary.org/b/id/15010225-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
-    "quote": "Umana cosa è aver compassione degli afflitti.",
+    "quote": "Umana cosa è l'aver compassione degli afflitti.",
     "author": "Giovanni Boccaccio",
     "title": "Decameron",
     "year": "1353",
@@ -2032,7 +2768,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6073528-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "Proemio, incipit",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Decameron/Proemio"
   },
   {
     "quote": "Una delle poche cose, anzi forse la sola ch'io sapessi di certo era questa: che mi chiamavo Mattia Pascal.",
@@ -2043,7 +2783,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5749571-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "capitolo I «Premessa»",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Il_fu_Mattia_Pascal/1"
   },
   {
     "quote": "Canto l'arme pietose, e 'l Capitano che 'l gran sepolcro liberò di Cristo.",
@@ -2054,7 +2798,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5954727-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "Canto I, ottava 1 (proemio)",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Gerusalemme_liberata/Canto_primo"
   },
   {
     "quote": "Quanto piace al mondo è breve sogno.",
@@ -2065,7 +2813,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7130072-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "sonetto I, v. 14 (ultimo verso)",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Canzoniere_(Rerum_vulgarium_fragmenta)/Voi_ch'ascoltate_in_rime_sparse_il_suono"
   },
   {
     "quote": "Era fatto; era finito. Sì, pensò, posando il pennello stremata, ho avuto la mia visione.",
@@ -2076,7 +2828,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8231846-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'esistenza non è qualcosa che si lasci pensare da lontano: bisogna che v'invada bruscamente, che si fermi su di voi, che vi pesi sullo stomaco come una grossa bestia immobile.",
@@ -2087,7 +2843,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9393973-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ché la Bellezza, odimi bene, Fedro, la Bellezza soltanto è divina e visibile a un tempo, ed è per questo che essa è la via al sensibile, è, piccolo Fedro, la via che mena l'artista allo spirito.",
@@ -2098,7 +2858,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7090554-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Penso che la bellezza sia un inganno... è cipria passata sopra l'orrore.",
@@ -2109,7 +2873,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12391275-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Un uomo può considerarsi veramente soddisfatto solo quando sa di aver servito appieno il suo padrone.",
@@ -2120,7 +2888,11 @@
     "cover": "https://covers.openlibrary.org/b/id/95742-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Io sono nato nella città di Bombay… tanto tempo fa. No, non va bene, impossibile sfuggire alla data: sono nato nella casa di cura del dottor Narlikar il 15 agosto 1947.",
@@ -2131,7 +2903,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8346713-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Come il desiderio sessuale, la memoria non si ferma mai.",
@@ -2142,7 +2918,11 @@
     "cover": "https://covers.openlibrary.org/b/id/968944-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "A chi guarda Fontamara da lontano, dal Feudo del Fucino, l'abitato sembra un gregge di pecore scure e il campanile un pastore.",
@@ -2153,7 +2933,11 @@
     "cover": "https://covers.openlibrary.org/b/id/456930-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Si crede di lottare e di soffrire per la propria anima, ma in realtà si lotta e si soffre per la propria pelle.",
@@ -2164,7 +2948,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4129884-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La storia è quella certezza che prende consistenza là dove le imperfezioni della memoria incontrano le inadeguatezze della documentazione.",
@@ -2175,7 +2963,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14630361-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "A Mosca, a Mosca!",
@@ -2186,7 +2978,11 @@
     "cover": "",
     "category": "liberta",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La lettura è piacere e gioia di essere vivo o tristezza di essere vivo e soprattutto è conoscenza e domande.",
@@ -2197,7 +2993,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1047310-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La famiglia è la culla della disinformazione mondiale. Nella vita di famiglia dev'esserci qualcosa che genera gli errori di fatto.",
@@ -2208,7 +3008,11 @@
     "cover": "https://covers.openlibrary.org/b/id/94015-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non lo nego: sono ricoverato in un manicomio; il mio infermiere mi osserva di continuo, quasi non mi toglie gli occhi di dosso.",
@@ -2219,7 +3023,11 @@
     "cover": "https://covers.openlibrary.org/b/id/419922-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non esiste assurdità che non possa essere vissuta con naturalezza e sul mio cammino, lo so fin d'ora, la felicità mi aspetta come una trappola inevitabile.",
@@ -2230,7 +3038,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9295586-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nulla due volte accade né accadrà.",
@@ -2241,7 +3053,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11134187-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Aveva imparato la lezione peggiore che la vita possa insegnare: che non c'è un senso.",
@@ -2252,7 +3068,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9322643-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Se sono matto, per me va benissimo, pensò Moses Herzog.",
@@ -2263,7 +3083,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6822183-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'anno moriva, assai dolcemente. Il sole di San Silvestro spandeva non so che tepor velato, mollissimo, aureo, quasi primaverile, nel ciel di Roma.",
@@ -2274,7 +3098,11 @@
     "cover": "https://covers.openlibrary.org/b/id/854707-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non bisogna mai mangiare prugne verdi, il nocciolo è ancora tenero e s'ingoia la morte.",
@@ -2285,7 +3113,11 @@
     "cover": "https://covers.openlibrary.org/b/id/579611-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Il giorno che l'avrebbero ucciso, Santiago Nasar si alzò alle 5,30 del mattino per andare ad aspettare il battello con cui arrivava il vescovo.",
@@ -2296,7 +3128,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8489859-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La libertà è come il sole: il bene più prezioso del mondo.",
@@ -2307,7 +3143,11 @@
     "cover": "https://covers.openlibrary.org/b/id/4178919-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'amore vero è così: non ha nessuno scopo e nessuna ragione, e non si sottomette a nessun potere fuorché alla grazia umana.",
@@ -2318,7 +3158,11 @@
     "cover": "https://covers.openlibrary.org/b/id/3265200-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-04"
+    "added": "2026-08-04",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "L'amore è come il mare. Mobile, ma al tempo stesso immutabile, e segue i contorni della spiaggia che bacia, e su ogni spiaggia è diverso.",
@@ -2329,7 +3173,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12752055-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non c'è espiazione per Dio, né per il romanziere, nemmeno se fossero atei. È sempre stato un compito impossibile, ed è proprio questo il punto.",
@@ -2340,7 +3188,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8381043-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-11"
+    "added": "2026-08-11",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Impara a conoscere chi ti sta vicino, se no camminerai sempre nel deserto.",
@@ -2351,7 +3203,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12714833-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-11"
+    "added": "2026-08-11",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Qui, il mare non bagnava Napoli. Ero sicura che nessuna lo avesse visto, o lo ricordava.",
@@ -2362,7 +3218,11 @@
     "cover": "https://covers.openlibrary.org/b/id/13171850-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-11"
+    "added": "2026-08-11",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Il giorno seguente non morì nessuno.",
@@ -2373,7 +3233,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8619758-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-11"
+    "added": "2026-08-11",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Resistere. Nessun singolo istante di quel dolore era insopportabile. Eccolo qua un secondo: lo aveva sopportato. Insopportabile era il pensiero di tutti gli istanti in fila, uno dietro l'altro, splendenti.",
@@ -2384,7 +3248,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8237639-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-13"
+    "added": "2026-08-13",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Liberarsi di una fede è come bollire acqua di mare per recuperare sale, si guadagna qualcosa, ma si perde qualcosa.",
@@ -2395,7 +3263,11 @@
     "cover": "https://covers.openlibrary.org/b/id/5276331-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-13"
+    "added": "2026-08-13",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Fu allora che vidi il Pendolo. La sfera, mobile all'estremità di un lungo filo fissato alla volta del coro, descriveva le sue ampie oscillazioni con isocrona maestà.",
@@ -2406,7 +3278,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1002977-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-13"
+    "added": "2026-08-13",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nessuna bestia ha mai uguagliato l'arte immensa, straordinariamente fantasiosa dell'odio umano.",
@@ -2417,7 +3293,11 @@
     "cover": "https://covers.openlibrary.org/b/id/10513792-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-16"
+    "added": "2026-08-16",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Quando parlo della lunga notte che precedette questi miei giorni di felicità, più che la sofferenza e la solitudine ricordo la pace e il conforto: sofferenza, certo, ma mai senza conforto; e solitudine, ma mai senza pace.",
@@ -2428,7 +3308,11 @@
     "cover": "https://covers.openlibrary.org/b/id/1472533-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-16"
+    "added": "2026-08-16",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Niente è peggio di quello che possiamo immaginare.",
@@ -2439,7 +3323,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6984133-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-16"
+    "added": "2026-08-16",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Ormai sapeva che nella vita viene il momento in cui brutto e bello svolgono più o meno la stessa funzione, quando tutto ciò che guardi altro non è che un gancio a cui appendere le sensazioni scomposte del corpo, e i brandelli della mente.",
@@ -2450,7 +3338,11 @@
     "cover": "https://covers.openlibrary.org/b/id/468897-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-16"
+    "added": "2026-08-16",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Un uomo vivo è meglio di qualsiasi uomo morto, ma nessun uomo vivo o morto è molto migliore di qualsiasi altro uomo vivo o morto.",
@@ -2461,7 +3353,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8292212-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-17"
+    "added": "2026-08-17",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La solitudine è terreno di caccia di Satana.",
@@ -2472,7 +3368,11 @@
     "cover": "https://covers.openlibrary.org/b/id/419852-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-17"
+    "added": "2026-08-17",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non voglio fare qualcun altro. Voglio farmi da sola.",
@@ -2483,7 +3383,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8384008-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-17"
+    "added": "2026-08-17",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Avere la pelle nera vuol dire portarsi addosso un marchio. Non te ne puoi mai dimenticare, non te ne potrai mai liberare. E vivere negli Stati Uniti non aiuta.",
@@ -2494,7 +3398,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11328078-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-17"
+    "added": "2026-08-17",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tutte le cose del mondo sbocciano, maturano e muoiono, ma in quelle dell'uomo non c'è tramonto e il mezzodì del suo fiorire è già l'inizio della notte.",
@@ -2505,7 +3413,11 @@
     "cover": "https://covers.openlibrary.org/b/id/419991-M.jpg",
     "category": "tempo",
     "genre": "",
-    "added": "2026-08-17"
+    "added": "2026-08-17",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tutto ciò che desideravo era camminare su una terra che non aveva carte geografiche.",
@@ -2516,7 +3428,11 @@
     "cover": "https://covers.openlibrary.org/b/id/417585-M.jpg",
     "category": "liberta",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tra il mio pollice e l'indice sta comoda la penna. Scaverò con quella.",
@@ -2527,7 +3443,11 @@
     "cover": "https://covers.openlibrary.org/b/id/376529-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Il mondo è quello che è, e non c'è posto per chi si lascia vincere dall'inerzia e non ha ambizioni.",
@@ -2538,7 +3458,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8304124-M.jpg",
     "category": "coraggio",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Pioveva la sua vita, davanti ai suoi occhi, spettacolo quieto.",
@@ -2549,7 +3473,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8345075-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Amare qualcuno dal profondo del cuore è comunque una grande consolazione. Anche se si è soli e non si riesce a stare con quella persona.",
@@ -2560,7 +3488,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11153243-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Perché devo provare sempre questo terribile bisogno di far sí che gli altri vedano le cose come le vedo io? È infantile.",
@@ -2571,7 +3503,11 @@
     "cover": "https://covers.openlibrary.org/b/id/42601-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Il silenzio della neve, pensava l'uomo seduto dietro l'autista del pullman.",
@@ -2582,7 +3518,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6881426-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Chi va dall'interprete di sogni butta via il maggior bene che possiede e merita la schiavitù in cui, in tal modo, immancabilmente cadrà.",
@@ -2593,7 +3533,11 @@
     "cover": "https://covers.openlibrary.org/b/id/224699-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Perché forse, in un certo senso, non ci eravamo lasciati alle spalle quello che ritenevamo di aver abbandonato. Perché, sotto sotto, una parte di noi rimase sempre così: timorosa del mondo intorno e, non importa quanto ci disprezzassimo per questo, incapaci di staccarci l'uno dall'altra.",
@@ -2604,7 +3548,11 @@
     "cover": "https://covers.openlibrary.org/b/id/37122-M.jpg",
     "category": "solitudine",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Porterò io l'Anello a Mordor. Solo... non conosco la strada.",
@@ -2615,7 +3563,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14627060-M.jpg",
     "category": "coraggio",
     "genre": "fantasy",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Sono felice di essere con te, Samvise Gamgee, qui alla fine di ogni cosa.",
@@ -2626,7 +3578,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14627062-M.jpg",
     "category": "amore",
     "genre": "fantasy",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non provare pietà per i morti, Harry. Prova pietà per i vivi, e soprattutto per coloro che vivono senza amore.",
@@ -2637,7 +3593,11 @@
     "cover": "https://covers.openlibrary.org/b/id/15158660-M.jpg",
     "category": "vita",
     "genre": "fantasy",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Affrontare i nemici richiede notevole ardimento. Ma altrettanto ne occorre per affrontare gli amici.",
@@ -2648,7 +3608,11 @@
     "cover": "https://covers.openlibrary.org/b/id/15155833-M.jpg",
     "category": "coraggio",
     "genre": "fantasy",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non è un leone mansueto. Ma è buono.",
@@ -2659,7 +3623,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8441376-M.jpg",
     "category": "verita",
     "genre": "fantasy",
-    "added": null
+    "added": null,
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Mai dimenticare chi sei, perché di certo il mondo non lo dimenticherà. Trasforma chi sei nella tua forza, così non potrà mai essere la tua debolezza. Fanne un'armatura, e non potrà mai essere usata contro di te.",
@@ -2670,7 +3638,11 @@
     "cover": "https://covers.openlibrary.org/b/id/9269962-M.jpg",
     "category": "coraggio",
     "genre": "fantasy",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Che i giochi abbiano inizio.",
@@ -2681,7 +3653,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12646537-M.jpg",
     "category": "coraggio",
     "genre": "fantascienza distopia",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non devo avere paura. La paura uccide la mente. La paura è la piccola morte che porta con sé l'annullamento totale. Guarderò in faccia la mia paura. Permetterò che mi calpesti e che mi attraversi. E quando sarà passata, aprirò il mio occhio interiore e ne scruterò il percorso. Là dove andrà la paura non ci sarà più nulla. Soltanto io ci sarò.",
@@ -2692,7 +3668,11 @@
     "cover": "https://covers.openlibrary.org/b/id/11481354-M.jpg",
     "category": "coraggio",
     "genre": "fantascienza",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La violenza è l'ultimo rifugio degli incapaci.",
@@ -2703,7 +3683,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6502517-M.jpg",
     "category": "verita",
     "genre": "fantascienza",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Non fatevi prendere dal panico.",
@@ -2714,7 +3698,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12986869-M.jpg",
     "category": "coraggio",
     "genre": "fantascienza",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Lo riconoscerei anche solo dal tocco, dal profumo; lo riconoscerei anche se fossi cieco, dal modo in cui respira, da come i suoi piedi sferzano la terra. Lo riconoscerei anche nella morte, anche alla fine del mondo.",
@@ -2725,7 +3713,11 @@
     "cover": "https://covers.openlibrary.org/b/id/7098465-M.jpg",
     "category": "amore",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Nessuno può sapere, se non dopo una notte di patimenti, quanto dolce e prezioso al cuore e agli occhi possa essere il mattino.",
@@ -2736,7 +3728,11 @@
     "cover": "https://covers.openlibrary.org/b/id/12216503-M.jpg",
     "category": "tempo",
     "genre": "horror",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Sai quando ti prende quella tristezza improvvisa? Non è come la paura. La paura è quando hai paura di qualcosa. L'unica cosa che aiuta è prendere un taxi e andare da Tiffany. Lì tutto è così tranquillo e così elegante. Niente di brutto potrebbe accadere in un posto come quello.",
@@ -2747,7 +3743,11 @@
     "cover": "https://covers.openlibrary.org/b/id/100108-M.jpg",
     "category": "vita",
     "genre": "",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Solo chi sogna può volare!",
@@ -2758,7 +3758,11 @@
     "cover": "https://covers.openlibrary.org/b/id/15196902-M.jpg",
     "category": "liberta",
     "genre": "fantasy",
-    "added": "2026-08-18"
+    "added": "2026-08-18",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "In fondo all'Atlantico c'è un libro. Io ne racconterò la storia.",
@@ -2769,7 +3773,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8642131-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-20"
+    "added": "2026-08-20",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Tra la realtà, da un lato, e il punto in cui la mente vi si scontra, esiste uno spazio sottile — uno spicchio d'arcobaleno da cui nasce la bellezza.",
@@ -2780,7 +3788,11 @@
     "cover": "https://covers.openlibrary.org/b/id/8771366-M.jpg",
     "category": "verita",
     "genre": "",
-    "added": "2026-08-20"
+    "added": "2026-08-20",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Io sono il tuo miglior amico. Io sono il tuo peggior nemico. Io sono Giano. Il dio delle soglie. Degli inizi. Delle fini. Delle scelte.",
@@ -2791,7 +3803,11 @@
     "cover": "https://covers.openlibrary.org/b/id/6274739-M.jpg",
     "category": "liberta",
     "genre": "fantasy",
-    "added": "2026-08-26"
+    "added": "2026-08-26",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "Perché, quando hai paura di qualcosa, ma la fai comunque, quello è coraggio.",
@@ -2802,7 +3818,11 @@
     "cover": "https://covers.openlibrary.org/b/id/14171421-M.jpg",
     "category": "coraggio",
     "genre": "fantasy",
-    "added": "2026-08-26"
+    "added": "2026-08-26",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   },
   {
     "quote": "La luce crede di viaggiare più veloce di tutto, ma si sbaglia. Per quanto sia veloce, la luce scopre sempre che il buio è arrivato prima di lei, e l'aspetta.",
@@ -2813,6 +3833,10 @@
     "cover": "https://covers.openlibrary.org/b/id/14648856-M.jpg",
     "category": "verita",
     "genre": "fantasy",
-    "added": "2026-08-26"
+    "added": "2026-08-26",
+    "source_edition": "",
+    "source_locus": "",
+    "source_translator": "",
+    "source_url": ""
   }
 ]

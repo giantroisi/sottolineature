@@ -38,6 +38,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 - **`templates/home_template.html`** è la parte fissa della home (header, filtri, script, footer) — qui si tocca markup/stile/comportamento che non dipende dalla singola citazione. Contiene i placeholder `{{CARDS}}`, `{{COUNT}}` e `{{COUNT_WORDS}}` (il numero in lettere nel paragrafo introduttivo, calcolato da `tools/generate_home.py::italian_number_words`), sostituiti a ogni build.
 - **Il contesto (`card-context`) è pubblicato solo su `/citazioni/<slug>/`**, mai in home: la home mostra citazione, autore, titolo, anno e copertina ma non il contesto, per non competere con la pagina citazione sullo stesso testo (altrimenti Google vede due pagine con lo stesso contenuto e non sa quale preferire). Il contesto resta comunque nella fonte di verità (`data/citazioni.json`), da lì lo leggono sia `generate_quote_pages.py` (lo pubblica) sia `generate_home.py` (non lo pubblica).
 - **Card**: `<article class="card" data-category="..." data-genre="...(opzionale, multi-valore separato da spazi)">`, contiene `card-quote`, `card-citation` (autore/titolo/anno), `card-hint` (il contesto non è più nel markup della home, vedi sopra). Il toggle "Sottolinea", il campo nota e il pulsante "Condividi" vengono iniettati via JS su ogni card, non sono nel markup statico.
+- **Attenzione se si corregge il testo di una citazione già pubblicata** (refuso, wording impreciso rispetto alla fonte, ecc.): la chiave che congela lo slug in `tools/slugs.json` include le prime 6 parole della citazione (`quote_key()` in `generate_quote_pages.py`), quindi cambiare il testo cambia la chiave e genera uno slug **nuovo** al prossimo `build.py`, invece di riusare quello congelato — l'URL non deve cambiare per una correzione di refuso. Prima di correggere il testo: rinominare a mano in `slugs.json` la chiave vecchia con quella nuova (stesse prime 6 parole aggiornate), mantenendo il valore (slug) invariato — poi lanciare `build.py` e controllare che non compaiano pagine o immagini OG orfane nel rapporto finale. Scoperto e risolto durante la Fase 3 (lotto 1) su Boccaccio e Machiavelli.
 - **Condividi**: genera un'immagine via canvas nel formato di `DEFAULT_SHARE_FORMAT` (oggi `post`, 1080×1350) e usa `navigator.share` con file quando supportato (apre il foglio di condivisione nativo, utile per storie/post Instagram), altrimenti scarica il PNG come fallback. Il formato `storia` (1080×1920) tiene margini verticali ampi perché Instagram sovrappone la propria interfaccia sopra e sotto.
 - **Due trappole del canvas già incontrate**, da non ripetere: (1) `ctx.filter` non è affidabile su Safari — viene ignorato in silenzio; per ricolorare il logo si usa `globalCompositeOperation = 'source-in'`, che funziona ovunque. (2) `ctx.letterSpacing` aggiunge spazio anche **dopo** l'ultima lettera, quindi un testo centrato risulta spostato a sinistra di metà spaziatura: va compensato sommando `spacing/2` alla x.
 - **Verificare le immagini generate misurando i pixel**, non a occhio: si estrae il blob intercettando `URL.createObjectURL`, poi si controllano dimensioni, colore di sfondo e centratura dei blocchi con PIL. Gli scarti di pochi pixel non si vedono ma si sommano.
@@ -310,19 +311,27 @@ rapporto di `build.py` mostra URL indicizzabili (295) < URL totali (475) con la 
 È l'unico contenuto che nessun aggregatore italiano ha, è quello che `metodo.html` già promette,
 ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferire questa pagina.
 
-- [ ] Blocco `<p class="card-source">` su ogni citazione: **edizione di riferimento,
+- [x] Blocco `<p class="card-source">` su ogni citazione: **edizione di riferimento,
       capitolo/parte/atto/verso, traduttore quando il testo è tradotto, collegamento a Wikisource
-      o alla fonte primaria dove esiste.** Nel JSON-LD: `citation` / `isPartOf` arricchiti.
-- [ ] Si lavora a **lotti di 15**, con le regole di verifica già scritte più sopra in questo
-      documento. **Se il riferimento non è stabilibile con certezza il campo resta vuoto** e lo
-      scarto si annota con la ragione: su un sito che si presenta come verificato a mano, una
-      fonte sbagliata è molto peggio di una fonte assente.
-- [ ] Ordine dei lotti: prima le opere di pubblico dominio con testo integrale su Wikisource
+      o alla fonte primaria dove esiste.** Nel JSON-LD: `Quotation.citation`/`Quotation.sameAs`
+      (verso il link esterno) e `Book.translator` (solo se noto) arricchiti. Implementato in
+      `generate_quote_pages.py`, campi `source_edition`/`source_locus`/`source_translator`/
+      `source_url` in `data/citazioni.json` (vuoti di default, mai un placeholder inventato).
+- [ ] Si lavora a **lotti di 15** (variabile secondo coerenza del lotto, come già per i contesti in
+      `LOG.md`), con le regole di verifica già scritte più sopra in questo documento. **Se il
+      riferimento non è stabilibile con certezza il campo resta vuoto** e lo scarto si annota con
+      la ragione: su un sito che si presenta come verificato a mano, una fonte sbagliata è molto
+      peggio di una fonte assente. **Lotto 1/~17 chiuso il 2026-08-28** (19 citazioni, dettagli in
+      `LOG.md`): tutti i classici italiani di pubblico dominio con testo su Wikisource. Trovate e
+      corrette anche due discrepanze di wording rispetto alla fonte primaria (Boccaccio, Machiavelli)
+      — la correttezza del testo viene prima della fonte che lo accompagna.
+- [x] Ordine dei lotti: prima le opere di pubblico dominio con testo integrale su Wikisource
       (Dante, Manzoni, Leopardi, Verga, Pirandello, Shakespeare in traduzione), dove la verifica è
-      rapida e il collegamento esterno è di qualità.
-- [ ] Il blocco fonte va in `index.html` (fonte di verità) e propagato dai generatori **solo** alla
-      pagina citazione, mai agli hub. Dopo ogni lotto: `python3 tools/build.py`, controllo che
-      nessuna fonte sia finita per errore su due citazioni diverse (stessa trappola già vista con i
+      rapida e il collegamento esterno è di qualità — fatto nel lotto 1.
+- [ ] Il blocco fonte va in `data/citazioni.json` (fonte di verità dalla Fase 2) e propagato dai
+      generatori **solo** alla pagina citazione, mai agli hub. Dopo ogni lotto: `python3
+      tools/build.py`, controllo che nessuna fonte sia finita per errore su due citazioni diverse
+      (stessa trappola già vista con i
       contesti duplicati), riga in `LOG.md`, commit.
 
 #### Fase 4 — Livello opera (`/opere/<autore>-<titolo>/`)

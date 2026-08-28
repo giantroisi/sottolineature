@@ -170,6 +170,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       </blockquote>
       <figcaption class="card-citation sans">— <a href="/autori/{author_slug}/" class="card-author">{author}</a>, <cite class="card-title">{title}</cite>{year_html}</figcaption>
       {context_html}
+      {source_html}
     </div>
     {cover_html}
   </figure>
@@ -223,6 +224,21 @@ def render_page(q, slug, same_author, same_theme):
     author_esc = html.escape(q['author'])
     title_esc = html.escape(q['title'])
     context_html = ('<p class="card-context sans">' + html.escape(q['context']) + '</p>') if q['context'] else ''
+
+    # Blocco fonte (Fase 3 SEO.md): compare solo se c'e' almeno un campo
+    # verificato. Mai un campo vuoto "riempito" con un placeholder — un
+    # riferimento assente e' onesto, uno inventato non lo è mai.
+    source_parts = []
+    if q.get('source_edition'):
+        source_parts.append(html.escape(q['source_edition']))
+    if q.get('source_locus'):
+        source_parts.append(html.escape(q['source_locus']))
+    if q.get('source_translator'):
+        source_parts.append('trad. ' + html.escape(q['source_translator']))
+    source_html = ''
+    if source_parts:
+        source_link = (' <a href="' + html.escape(q['source_url'], quote=True) + '">Testo su Wikisource →</a>') if q.get('source_url') else ''
+        source_html = '<p class="card-source sans">' + ', '.join(source_parts) + '.' + source_link + '</p>'
     year_html = (' · <span class="card-year">' + html.escape(q['year']) + '</span>') if q['year'] else ''
     cover_src = q['cover'] if q['cover'].startswith('http') else '/' + q['cover']
     cover_alt = html.escape('Copertina di "' + q['title'] + '" di ' + q['author'])
@@ -298,6 +314,8 @@ def render_page(q, slug, same_author, same_theme):
                 'creator': {'@id': author_id},
                 'isPartOf': {'@id': book_id},
                 'url': canonical,
+                **({'citation': q['source_locus']} if q.get('source_locus') else {}),
+                **({'sameAs': q['source_url']} if q.get('source_url') else {}),
             },
             {
                 '@type': 'Book',
@@ -305,6 +323,7 @@ def render_page(q, slug, same_author, same_theme):
                 'name': q['title'],
                 'author': {'@id': author_id},
                 **({'datePublished': q['year']} if q['year'] else {}),
+                **({'translator': {'@type': 'Person', 'name': q['source_translator']}} if q.get('source_translator') else {}),
             },
             {
                 '@type': 'Person',
@@ -337,6 +356,7 @@ def render_page(q, slug, same_author, same_theme):
         title=title_esc,
         year_html=year_html,
         context_html=context_html,
+        source_html=source_html,
         cover_html=cover_html,
         category=html.escape(q['category']),
         genre_attr=genre_attr,
