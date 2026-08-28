@@ -153,9 +153,10 @@ tristezza" e "bellezza" (con nuove citazioni verificate). **Lotto 5 completo**: 
 pubblicate (cambiamento, sogni, tristezza, bellezza). **Lotto 7 (contemporanei sotto copyright)
 fatto il 2026-08-28**: Bukowski e Camilleri, 4 citazioni ciascuno, candidati mostrati e approvati
 dall'utente; Sarah J. Maas e Leigh Bardugo scartati di nuovo, nessuna fonte con capitolo/pagina
-verificabile. **Lotto 6 parziale fatto il 2026-08-28**: guerra (Remarque, Hemingway), animali
-(Jack London), musica (Nietzsche), natura (Emerson) — 5 citazioni. Restano aperti montagna,
-figli, infanzia, lavoro, pace per un lotto successivo. Archivio a 326 citazioni, 219 autori.
+verificabile. **Lotto 6 fatto il 2026-08-28** (8 citazioni): guerra (Remarque, Hemingway), animali
+(Jack London), musica (Nietzsche), natura (Emerson), pace (Kant), lavoro (Primo Levi),
+infanzia (Proust). Restano aperti solo montagna e figli, nessun candidato solido trovato con
+lo stesso rigore — da riprendere in un lotto futuro. Archivio a 329 citazioni, 220 autori.
 **Deploy sospeso su richiesta dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
 origin/main..HEAD` prima di assumere che il sito pubblicato rifletta lo stato del repo.
