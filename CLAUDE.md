@@ -132,7 +132,9 @@ Aggiornata: 2026-08-28.
 **Riferimento:** `SEO.md` contiene l'audit completo del 2026-08-28 — perché si fa ognuna di
 queste cose, i numeri su cui si basa, l'architettura target e i comandi pronti per l'agente.
 `SEO-KEYWORDS.md` e `data/keywords.json` contengono la mappatura della domanda di ricerca
-(Fase 7). Qui sotto c'è il **lavoro operativo**: cosa toccare, in che ordine, e come si verifica
+(Fase 7). `CATALOGO.md` contiene le regole di ampliamento del catalogo — perimetro, requisiti
+d'ingresso di una citazione, attribuzione, diritti, equilibrio, piano dei lotti.
+Qui sotto c'è il **lavoro operativo**: cosa toccare, in che ordine, e come si verifica
 che sia fatto. Se le fonti divergono, `CLAUDE.md` ha la precedenza.
 
 **Come si segna il progresso** (obbligatorio, vale la costituzione): si spunta `[x]` la voce
@@ -598,12 +600,22 @@ quindi prima come **elenco di ciò che conviene raccogliere**, poi come piano ed
       citazione la pagina citazione è già la pagina dell'opera.
 - [ ] **Raccolte quasi pronte**, quando arrivano a 8: bellezza (630), sogni (570),
       cambiamento (350), tristezza (210).
-- [ ] **Decisione dell'utente, da prendere prima di raccogliere** (non deciderla da soli perché il
-      volume è alto): se aprire ai filosofi antichi di pubblico dominio — Sant'Agostino (1.460),
-      Nietzsche (830), Platone (550), Socrate (440), Schopenhauer (430), Aristotele (300) — e se
-      inseguire autori contemporanei sotto copyright come Bukowski (1.870), Camilleri (540),
-      Ready Player One (730), Chiamami col tuo nome (550). Allarga il perimetro oltre
-      "citazioni da libri": è una scelta di identità, non di SEO.
+- [x] **Decisione dell'utente sul perimetro, presa il 2026-08-28:** il catalogo **può crescere,
+      purché restino citazioni da libri**. Tradotto nella regola operativa scritta in `CATALOGO.md`:
+      entra solo ciò che è tracciabile a un'opera scritta e pubblicata, con il punto preciso del
+      testo. Quindi **sì a filosofi, classici greci e latini, saggi e poesia citati per opera**
+      (Agostino *Confessioni*, Marco Aurelio *Colloqui*, Nietzsche *Zarathustra*), **no a massime
+      senza opera di riferimento**, alle "citazioni latine" come genere, e a Socrate come autore
+      (si cita Platone con il dialogo). Tetto: non più del 15% del catalogo da filosofia e classici
+      non narrativi. Autori sotto copyright ammessi con citazione breve (max ~40 parole) e fonte
+      completa
+- [ ] **Acquisizioni ora sbloccate dalla decisione qui sopra**, tutte da citare per opera:
+      Sant'Agostino *Confessioni* (1.460 di volume), Nietzsche *Così parlò Zarathustra* (830), Platone
+      (550, con il dialogo — è anche il modo corretto di rendere le 440 di "Socrate"),
+      Schopenhauer (430), Aristotele (300). Sotto copyright, con citazione breve e fonte completa:
+      Bukowski (1.870), Camilleri (540). Restano esclusi *Ready Player One* e *Chiamami col tuo
+      nome* solo finché non si trova una fonte italiana tracciabile al testo pubblicato.
+      Il piano completo dei lotti è in `CATALOGO.md`, punto 7
 - [ ] **Aggiornare `data/keywords.json` dopo ogni lotto**: le raccolte in lista d'attesa che
       superano la soglia si spostano da sole in "pronta".
 
