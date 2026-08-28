@@ -190,18 +190,24 @@ def main():
 
     missing_og = [slug for slug, _ in qp_entries if not os.path.isfile(os.path.join(og.OUT_DIR, slug + '.png'))]
 
-    if dup_titles or missing_h1 or missing_og or dup_sources:
+    if dup_titles or missing_h1 or missing_og:
         print()
         print('ERRORE: build non valido.')
         for t, slugs in dup_titles.items():
             print('  title duplicato su', slugs, ':', t[:80])
         for slug in missing_h1:
             print('  H1 mancante:', slug)
-        for key, slugs in dup_sources.items():
-            print('  fonte duplicata su', slugs, ':', key)
         for slug in missing_og:
             print('  Immagine OG mancante:', slug)
         raise SystemExit(1)
+
+    if dup_sources:
+        # Avviso, non blocco: due citazioni diverse dello stesso capitolo
+        # (es. due passaggi della stessa scena) sono legittime. Da
+        # controllare a mano che non sia il bug delle fonti copiaincollate.
+        print('ATTENZIONE: stesso locus su piu citazioni della stessa opera, verificare a mano:')
+        for key, slugs in dup_sources.items():
+            print('  ', key, '->', slugs)
 
     if og_stray:
         print('ATTENZIONE: file OG orfani in assets/og (citazione rimossa/slug cambiato):', og_stray)
