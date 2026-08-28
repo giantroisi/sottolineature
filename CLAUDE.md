@@ -152,8 +152,10 @@ raccolte "Il cambiamento" (da citazioni già in archivio, nessuna nuova), "I sog
 tristezza" (con nuove citazioni verificate). La raccolta "La bellezza" resta sotto la soglia di
 8 citazioni pertinenti (a 6) e **attende un'indicazione dell'utente** prima di essere pubblicata
 o completata con altre due citazioni, come previsto dal punto 10 di CATALOGO.md per le raccolte
-sotto soglia — dettagli in `LOG.md`. Archivio a 311 citazioni, 215 autori. **Deploy sospeso su
-richiesta dell'utente**:
+sotto soglia — dettagli in `LOG.md`. **Lotto 7 (contemporanei sotto copyright) fatto il
+2026-08-28**: Bukowski e Camilleri, 4 citazioni ciascuno, candidati mostrati e approvati
+dall'utente; Sarah J. Maas e Leigh Bardugo scartati di nuovo, nessuna fonte con capitolo/pagina
+verificabile. Archivio a 319 citazioni, 217 autori. **Deploy sospeso su richiesta dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
 origin/main..HEAD` prima di assumere che il sito pubblicato rifletta lo stato del repo.
 Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
