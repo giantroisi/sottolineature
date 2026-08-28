@@ -100,7 +100,19 @@ appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase
 il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
-**Stato: nessuna fase avviata. Prossimo passo = Fase 0.**
+**Stato: Fase 0 completata e committata in locale (non pushata, in attesa di conferma).
+Prossimo passo = Fase 1, dopo l'ok dell'utente sul risultato della Fase 0.**
+
+Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
+cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
+(i generatori ora li leggono, non li ricalcolano), `tools/redirects.json` pronto per i 301 futuri,
+`assets/site.css` estrae il CSS comune dai 463 file generati, link interni puliti ovunque
+(generatori + index.html/metodo.html/404.html scritti a mano), navigazione di sito in testa a ogni
+pagina generata (solo Citazioni · Metodo per ora: niente link a /temi/ /generi/ /autori/, quelle
+pagine indice sono della Fase 2 e linkarle prima avrebbe creato link morti), preconnect +
+width/height sulle copertine delle pagine citazione. Verificato con un crawl locale su 6330 link
+interni (zero rotti) e controllo visivo chiaro/scuro/mobile su 5 pagine campione. Dettagli completi
+del comando eseguito in `SEO.md` §9.1.
 
 **Decisioni già prese con l'utente il 2026-08-28, da non rimettere in discussione:**
 teaser in home con il contesto esclusivo della pagina citazione; migrazione a URL puliti con 301;
