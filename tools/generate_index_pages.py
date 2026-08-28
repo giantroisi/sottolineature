@@ -271,7 +271,105 @@ def generate_taxonomy_index(kind, labels, counts):
     print('Pagina /' + dir_name + '/ generata')
 
 
-def main(qp_entries, author_slugs, tema_status, genere_status):
+def generate_opere_index(opere, opera_status):
+    """/opere/: elenco delle opere con pagina propria, raggruppate per
+    autore. Le opere sotto soglia (nessuna citazione trovata) non compaiono:
+    opera_status contiene solo quelle effettivamente generate."""
+    published = [o for o in opere if o['slug'] in opera_status]
+    by_author = {}
+    for o in published:
+        by_author.setdefault(o['author'], []).append(o)
+
+    lis = ''.join(
+        '<li><a href="/opere/' + o['slug'] + '/">' + html.escape(o['title']) + '</a> '
+        '<span class="sans" style="color:var(--ink-faint)">— ' + html.escape(author) + '</span></li>'
+        for author in sorted(by_author)
+        for o in by_author[author]
+    )
+    body_html = '<ul style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
+
+    canonical = SITE_URL + '/opere/'
+    title_tag = 'Tutte le opere | Sottolineature'
+    description = 'Indice delle ' + str(len(published)) + ' opere con una pagina dedicata su Sottolineature: scheda editoriale e tutte le citazioni di ciascun libro.'
+
+    item_list = {
+        '@type': 'ItemList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i + 1, 'url': SITE_URL + '/opere/' + o['slug'] + '/', 'name': o['title']}
+            for i, o in enumerate(published)
+        ],
+    }
+    jsonld = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': canonical + '#collectionpage',
+        'url': canonical,
+        'name': title_tag,
+        'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
+        'mainEntity': item_list,
+    }, ensure_ascii=False)
+
+    write_page(
+        os.path.join(ROOT, 'opere', 'index.html'),
+        title_tag=html.escape(title_tag),
+        description=html.escape(description),
+        canonical=canonical,
+        jsonld=jsonld,
+        eyebrow='Indice',
+        h1='Tutte le opere',
+        count_line=str(len(published)) + ' opere',
+        body_html=body_html,
+    )
+    print('Pagina /opere/ generata (', len(published), 'opere )')
+
+
+def generate_raccolte_index(raccolte, raccolta_status):
+    """/raccolte/: elenco delle raccolte curate a mano effettivamente
+    pubblicate (>=8 citazioni pertinenti, vedi generate_raccolte_pages)."""
+    published = [r for r in raccolte if r['slug'] in raccolta_status]
+    lis = ''.join(
+        '<li><a href="/raccolte/' + r['slug'] + '/">' + html.escape(r['title']) + '</a> '
+        '<span class="sans" style="color:var(--ink-faint)">(' + str(raccolta_status[r['slug']]) + ')</span></li>'
+        for r in published
+    )
+    body_html = '<ul style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
+
+    canonical = SITE_URL + '/raccolte/'
+    title_tag = 'Tutte le raccolte | Sottolineature'
+    description = 'Selezioni curate a mano di citazioni su Sottolineature, con introduzione scritta: ' + str(len(published)) + ' raccolte.'
+
+    item_list = {
+        '@type': 'ItemList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i + 1, 'url': SITE_URL + '/raccolte/' + r['slug'] + '/', 'name': r['title']}
+            for i, r in enumerate(published)
+        ],
+    }
+    jsonld = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': canonical + '#collectionpage',
+        'url': canonical,
+        'name': title_tag,
+        'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
+        'mainEntity': item_list,
+    }, ensure_ascii=False)
+
+    write_page(
+        os.path.join(ROOT, 'raccolte', 'index.html'),
+        title_tag=html.escape(title_tag),
+        description=html.escape(description),
+        canonical=canonical,
+        jsonld=jsonld,
+        eyebrow='Indice',
+        h1='Tutte le raccolte',
+        count_line=str(len(published)) + ' raccolte',
+        body_html=body_html,
+    )
+    print('Pagina /raccolte/ generata (', len(published), 'raccolte )')
+
+
+def main(qp_entries, author_slugs, tema_status, genere_status, opere=None, opera_status=None, raccolte=None, raccolta_status=None):
     citazioni_urls = generate_citazioni_index(qp_entries)
 
     by_author_count = {}
@@ -292,12 +390,21 @@ def main(qp_entries, author_slugs, tema_status, genere_status):
                 genere_counts[g] = genere_counts.get(g, 0) + 1
     generate_taxonomy_index('genere', GENRE_LABELS, genere_counts)
 
+    if opere is not None and opera_status is not None:
+        generate_opere_index(opere, opera_status)
+    if raccolte is not None and raccolta_status is not None:
+        generate_raccolte_index(raccolte, raccolta_status)
+
     return citazioni_urls
 
 
 if __name__ == '__main__':
     import generate_quote_pages as qp
     import generate_hub_pages as hp
+    import generate_opera_pages as op
+    import generate_raccolte_pages as rp
     entries = qp.main()
     hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main()
-    main(entries, author_slugs, tema_status, genere_status)
+    op_status = op.main(entries)
+    rc_status = rp.main(entries)
+    main(entries, author_slugs, tema_status, genere_status, op.load_opere(), op_status, rp.load_raccolte(), rc_status)

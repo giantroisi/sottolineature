@@ -16,6 +16,17 @@ from generate_quote_pages import (  # noqa: E402
 )
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
 
+HUB_INTROS_PATH = os.path.join(ROOT, 'data', 'hub_intros.json')
+
+
+def load_hub_intros():
+    """Introduzioni editoriali di 300-600 parole per temi/generi (Fase 5
+    SEO.md), scritte a mano una volta e riusate a ogni build."""
+    if os.path.exists(HUB_INTROS_PATH):
+        with open(HUB_INTROS_PATH, encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
 HUB_TEMPLATE = """<!DOCTYPE html>
 <html lang="it">
 <head>
@@ -60,6 +71,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
   <p class="eyebrow sans">{eyebrow}</p>
   <h1>{h1}</h1>
   <p class="count sans">{count} citazion{count_suffix}</p>
+  {intro_html}
   {nav_html}
   {cards_html}
   <footer class="sans">
@@ -103,10 +115,15 @@ def card_html(slug, q):
 MIN_INDEXABLE_QUOTES = 3
 
 
-def render_hub(kind, slug, label, items, nav_links, current_href):
+def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragraphs=None):
     count = len(items)
     count_suffix = 'i' if count != 1 else 'e'
     cards_html = '\n  '.join(card_html(s, q) for s, q in items)
+    intro_html = (
+        '<div class="hub-intro">' +
+        ''.join('<p>' + html.escape(p) + '</p>' for p in intro_paragraphs) +
+        '</div>'
+    ) if intro_paragraphs else ''
 
     nav_items = ''.join(
         '<a href="' + href + '"' + (' class="is-current"' if href == current_href else '') + '>' + html.escape(text) + '</a>'
@@ -116,7 +133,15 @@ def render_hub(kind, slug, label, items, nav_links, current_href):
 
     if kind == 'tema':
         eyebrow = 'Un umore'
-        h1 = 'Citazioni sull’amore' if label.lower() == 'amore' else 'Citazioni su ' + label.lower()
+        # Preposizione articolata corretta per ciascun tema (SEO.md: "Frasi
+        # e citazioni sulla libertà", non il generico "su" per tutti).
+        preposizione_tema = {
+            'vita': 'sulla', 'amore': 'sull’', 'coraggio': 'sul', 'liberta': 'sulla',
+            'tempo': 'sul', 'solitudine': 'sulla', 'verita': 'sulla',
+        }
+        prep = preposizione_tema.get(slug, 'su')
+        sep = '' if prep.endswith('’') else ' '
+        h1 = 'Citazioni ' + prep + sep + label.lower()
         description = 'Le citazioni raccolte su Sottolineature che parlano di ' + label.lower() + ': ' + str(count) + ' righe scelte a mano da romanzi, poesie e saggi.'
     elif kind == 'genere':
         eyebrow = 'Un genere'
@@ -136,7 +161,7 @@ def render_hub(kind, slug, label, items, nav_links, current_href):
     # ricerca — resta pubblicato e linkato (percorso di scansione), ma
     # esce dalla sitemap e va in noindex,follow finché non supera la soglia
     # o non riceve un'introduzione scritta a mano (Fase 5/6).
-    indexable = count >= MIN_INDEXABLE_QUOTES
+    indexable = count >= MIN_INDEXABLE_QUOTES or bool(intro_paragraphs)
     robots_meta = '' if indexable else '<meta name="robots" content="noindex,follow">\n'
 
     item_list = {
@@ -173,6 +198,7 @@ def render_hub(kind, slug, label, items, nav_links, current_href):
         h1=html.escape(h1),
         count=count,
         count_suffix=count_suffix,
+        intro_html=intro_html,
         nav_html=nav_html,
         cards_html=cards_html,
     ), indexable
@@ -215,6 +241,8 @@ def main():
         save_slugs(slugs_data)
         print('slugs.json aggiornato (hub)')
 
+    hub_intros = load_hub_intros()
+
     # --- Temi (umore) ---
     temi_dir = os.path.join(ROOT, 'temi')
     os.makedirs(temi_dir, exist_ok=True)
@@ -224,7 +252,8 @@ def main():
         items = [(s, q) for s, q in entries if q['category'] == cat]
         if not items:
             continue
-        page, indexable = render_hub('tema', cat, label, items, tema_nav, '/temi/' + cat + '/')
+        intro = hub_intros.get('temi', {}).get(cat)
+        page, indexable = render_hub('tema', cat, label, items, tema_nav, '/temi/' + cat + '/', intro)
         with open(os.path.join(temi_dir, cat + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
         tema_status[cat] = indexable
@@ -239,7 +268,8 @@ def main():
         items = [(s, q) for s, q in entries if gen in (q['genre'] or '').split(' ')]
         if not items:
             continue
-        page, indexable = render_hub('genere', gen, label, items, genere_nav, '/generi/' + gen + '/')
+        intro = hub_intros.get('generi', {}).get(gen)
+        page, indexable = render_hub('genere', gen, label, items, genere_nav, '/generi/' + gen + '/', intro)
         with open(os.path.join(generi_dir, gen + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
         genere_status[gen] = indexable

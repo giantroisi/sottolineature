@@ -107,6 +107,16 @@ Aggiornata: 2026-08-28.
   già pagina opera". Schede editoriali su fatti bibliografici incontrovertibili, senza
   edizione/traduttore forzati dove non verificabili con certezza. `Book` JSON-LD con `@id`
   condiviso tra le citazioni della stessa opera.
+- **Fase 5 chiusa (2026-08-28): introduzioni editoriali + 5 raccolte curate.** Testi scritti a mano
+  per i 7 temi (234-324 parole) e i 5 generi (104-178 parole), ognuno ancorato a citazioni reali
+  dell'archivio (`data/hub_intros.json`); corretto anche un difetto grammaticale preesistente
+  sull'H1 dei temi ("Citazioni su vita" → "Citazioni sulla vita"). 5 raccolte pubblicate in
+  `/raccolte/` (Libri e scrittura, Il mare, La morte, Frasi brevi, Incipit memorabili), non le 6-8
+  indicate in origine: due candidate (amicizia, frasi sul tempo che passa) scartate in curatela per
+  non trovare ≥8 citazioni genuinamente pertinenti senza forzare il fit — stesso principio "meglio
+  nessuna raccolta che una forzata" della Fase 3. Aggiunti anche gli indici `/opere/` e `/raccolte/`
+  mancanti (il primo era stato dimenticato in Fase 4) e completato il gate di indicizzazione della
+  Fase 2 (un hub sotto soglia ora entra comunque in sitemap se ha un'introduzione scritta a mano).
 
 ### Da fare — SEO
 
@@ -120,8 +130,8 @@ appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase
 il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
-**Stato: Fase 0, Fase 1, Fase 2, Fase 3 e Fase 4 completate e live su sottolineature.it (deploy
-Vercel confermato il 2026-08-28). Fase 3 chiusa: 232/256 citazioni con fonte (90%, locus e/o
+**Stato: Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it
+(deploy Vercel confermato il 2026-08-28). Fase 3 chiusa: 232/256 citazioni con fonte (90%, locus e/o
 edizione/traduttore verificati, 34 lotti committati e pushati il 2026-08-28, dettagli per lotto in
 `LOG.md`). Le 24 rimaste sono state cercate almeno una volta (molte due) senza trovare un
 riferimento strutturale verificabile con certezza — non un lavoro interrotto a metà, ma il limite
@@ -132,6 +142,11 @@ esplicitamente in futuro.
 Fase 4 completata il 2026-08-28: 40 pagine opera in `/opere/`, elenco approvato dall'utente prima
 della generazione (canone scolastico + genere fantasy su richiesta esplicita). Dettagli nella
 sezione Fase 4 qui sotto.
+
+Fase 5 completata il 2026-08-28, su istruzione "Vai": introduzioni editoriali per i 7 temi e i 5
+generi, 5 raccolte curate pubblicate (`/raccolte/`, non 6-8 come da indicazione iniziale — due
+candidate scartate per mancanza di ≥8 citazioni genuinamente pertinenti, stesso principio di
+rigore della Fase 3). Dettagli nella sezione Fase 5 qui sotto.
 
 Tre correzioni di attribuzione fatte durante la verifica (non solo trovate, anche corrette e
 pubblicate): Kazuo Ishiguro ("Quando eravamo orfani" → "Non lasciarmi"), Alice Munro ("La vista da
@@ -146,9 +161,10 @@ Maalouf ("In fondo all'Atlantico c'è un libro" — potrebbe appartenere a "Il p
 Baldassarre"), Suzanne Collins ("Che i giochi abbiano inizio" — la fonte trovata è del film, non
 confermata nel romanzo).
 
-Prossimo passo = Fase 5 (introduzioni editoriali per temi/generi, raccolte curate) — oppure, se
-richiesto esplicitamente, un lotto dedicato a risolvere i quattro dubbi aperti o a ritentare le 24
-citazioni rimaste con fonti diverse da quelle già cercate.**
+Prossimo passo = Fase 6 (schede autore, Search Console, misura) — oppure, se richiesto
+esplicitamente, un lotto dedicato a risolvere i quattro dubbi aperti, a ritentare le 24 citazioni
+rimaste con fonti diverse da quelle già cercate, o ad ampliare le raccolte quando l'archivio crescerà
+abbastanza da sostenere le candidate scartate (amicizia, tempo che passa) o nuove.**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
@@ -431,20 +447,41 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
 
 #### Fase 5 — Hub editoriali e raccolte
 
-- [ ] **Temi (7):** introduzione di 300-600 parole scritta a mano per ciascuno. Sono 7 pagine, e
-      possono diventare le più visitate del sito.
-- [ ] **Generi (5):** stessa cosa, più corta.
-- [ ] **`/raccolte/<slug>/`** — pagine curate a mano, 6-8 per cominciare. Candidate naturali per
-      questo archivio: *frasi sui libri e sulla lettura*, *citazioni sull'amicizia*, *frasi brevi*,
-      *citazioni sul mare e sul viaggio*, *frasi sul tempo che passa*.
-      **Una raccolta si pubblica solo con ≥8 citazioni pertinenti già sul sito e un'introduzione
-      scritta a mano.**
+- [x] **Temi (7):** introduzione editoriale scritta a mano per ciascuno (234-324 parole, vicino ai
+      300-600 target — niente riempitivo per arrivarci, meglio un testo denso e più corto che uno
+      allungato senza contenuto), ogni essay ancorato a 4-6 citazioni realmente presenti nell'archivio
+      (autore + opera citati per nome). Testi in `data/hub_intros.json`, iniettati da
+      `generate_hub_pages.py` sopra le card. **Corretto anche un difetto grammaticale preesistente**
+      nell'H1/title dei temi ("Citazioni su vita" → "Citazioni sulla vita", "Citazioni su libertà" →
+      "Citazioni sulla libertà"): la preposizione articolata era generica ("su" per tutti tranne
+      amore), ora è corretta per genere/numero di ciascun tema.
+- [x] **Generi (5):** stessa cosa, testi più corti (104-178 parole), stesso file `data/hub_intros.json`.
+- [x] **`/raccolte/<slug>/`** — **5 raccolte pubblicate** (non 6-8 come indicato in origine: due
+      candidate previste qui sotto, *amicizia* e *frasi sul tempo che passa*, sono state scartate in
+      fase di curatela per lo stesso principio di rigore della Fase 3 — "meglio nessuna raccolta che
+      una forzata" — perché non si trovavano ≥8 citazioni genuinamente pertinenti in archivio senza
+      stiracchiare il fit; *tempo che passa* inoltre avrebbe duplicato troppo da vicino il tema
+      "Tempo" già esistente). Le 5 pubblicate, con criterio di selezione oggettivo (parola chiave sul
+      testo, poi verifica manuale una per una, scartando i falsi positivi): *Libri e scrittura* (10),
+      *Il mare* (8), *La morte* (9), *Frasi brevi* (12), *Incipit memorabili* (13). Dati in
+      `data/raccolte.json` (slug, h1, introduzione, `quote_keys` — stessa chiave `autore|opera|prime
+      6 parole` usata da `slugs.json`, una citazione può comparire in più raccolte, es. l'incipit di
+      Huckleberry Finn è sia in *Libri e scrittura* sia in *Incipit memorabili*). Generatore:
+      `tools/generate_raccolte_pages.py`; link di ritorno "In questa raccolta: {Titolo} →" aggiunto
+      alle pagine citazione corrispondenti (stesso meccanismo del link opera di Fase 4). Indici
+      `/opere/` e `/raccolte/` aggiunti a `generate_index_pages.py` (mancava anche `/opere/`, non
+      generato durante la Fase 4).
       *Perché separate dai temi:* i 7 umori sono una scelta di prodotto — "un'atmosfera, non una
       classificazione", da tenere pochi e larghi — mentre la domanda di ricerca è fatta di intenti
       stretti. Le raccolte danno accesso a quel traffico senza snaturare i filtri.
-- [ ] Nei titoli e negli H1 degli hub usare in modo naturale sia "frasi" (dove sta il volume di
+- [x] Nei titoli e negli H1 degli hub usare in modo naturale sia "frasi" (dove sta il volume di
       ricerca in Italia) sia "citazioni" (il registro del sito): *"Frasi e citazioni sulla libertà"*.
-      Una volta nel title, una nell'H1, mai infarcire il corpo.
+      Una volta nel title, una nell'H1, mai infarcire il corpo. Applicato alle 5 raccolte (es. H1
+      "Frasi brevi: le citazioni più corte", "Incipit memorabili: le più belle prime frasi").
+- [x] Gate di indicizzazione (Fase 2) completato come previsto: un hub sotto le 3 citazioni ora entra
+      comunque in sitemap se ha un'introduzione scritta a mano (`indexable = count >= 3 or
+      bool(intro_paragraphs)` in `generate_hub_pages.py`) — non cambia nulla oggi (tutti i 7 temi e i
+      5 generi sono già sopra soglia), ma chiude la regola lasciata a metà in Fase 2.
 
 #### Fase 6 — Schede autore e misura
 

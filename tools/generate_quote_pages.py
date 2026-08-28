@@ -179,6 +179,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <a href="/#{slug}">Vedi sul sito →</a>
   </div>
   {opera_link_html}
+  {raccolta_link_html}
   {tags_html}
   {related_html}
   <footer class="sans">
@@ -220,7 +221,7 @@ def truncate_words(text, max_len):
     return text[:max_len].rsplit(' ', 1)[0] + '…', True
 
 
-def render_page(q, slug, same_author, same_theme, opera_map=None):
+def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=None):
     quote_esc = html.escape(q['quote'])
     author_esc = html.escape(q['author'])
     title_esc = html.escape(q['title'])
@@ -307,6 +308,15 @@ def render_page(q, slug, same_author, same_theme, opera_map=None):
         '<p class="opera-link sans"><a href="' + opera_info['opera_url'] + '">Tutte le citazioni da «' +
         html.escape(opera_info['title']) + '» →</a></p>'
     ) if opera_info else ''
+
+    # Fase 5 SEO.md: una citazione puo' comparire in una o piu' raccolte
+    # curate a mano (data/raccolte.json) - link di ritorno verso ciascuna.
+    raccolte_for_quote = (raccolta_map or {}).get(quote_key(q), [])
+    raccolta_link_html = ''.join(
+        '<p class="opera-link sans"><a href="' + r['url'] + '">In questa raccolta: ' +
+        html.escape(r['title']) + ' →</a></p>'
+        for r in raccolte_for_quote
+    )
     author_id = SITE_URL + '/autori/' + author_slug + '/#person'
     jsonld = json.dumps({
         '@context': 'https://schema.org',
@@ -369,6 +379,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None):
         context_html=context_html,
         source_html=source_html,
         opera_link_html=opera_link_html,
+        raccolta_link_html=raccolta_link_html,
         cover_html=cover_html,
         category=html.escape(q['category']),
         genre_attr=genre_attr,
@@ -381,7 +392,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None):
     )
 
 
-def main(opera_map=None):
+def main(opera_map=None, raccolta_map=None):
     quotes = load_quotes()
     print('Citazioni trovate:', len(quotes))
 
@@ -405,7 +416,7 @@ def main(opera_map=None):
     for slug, q in entries:
         same_author = [(s, oq) for s, oq in by_author[q['author']] if s != slug]
         same_theme = [(s, oq) for s, oq in by_category.get(q['category'], []) if s != slug]
-        page = render_page(q, slug, same_author, same_theme, opera_map)
+        page = render_page(q, slug, same_author, same_theme, opera_map, raccolta_map)
         path = os.path.join(OUT_DIR, slug + '.html')
         with open(path, 'w', encoding='utf-8') as f:
             f.write(page)

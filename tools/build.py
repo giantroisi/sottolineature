@@ -14,6 +14,7 @@ import generate_home as gh  # noqa: E402
 import generate_quote_pages as qp  # noqa: E402
 import generate_hub_pages as hp  # noqa: E402
 import generate_opera_pages as op  # noqa: E402
+import generate_raccolte_pages as rp  # noqa: E402
 import generate_og_images as og  # noqa: E402
 import generate_index_pages as ip  # noqa: E402
 import generate_feed as feed  # noqa: E402
@@ -81,12 +82,16 @@ def main():
     # Basta assegnare gli slug in anteprima, senza serializzare nulla: qp.main()
     # rifa' l'assegnazione (idempotente) e scrive slugs.json se necessario.
     preview_entries, _ = qp.assign_slugs(qp.load_quotes(), qp.load_slugs(), qp.load_redirects())
-    opera_map = op.build_opera_map(preview_entries, op.load_opere())
+    opere = op.load_opere()
+    raccolte = rp.load_raccolte()
+    opera_map = op.build_opera_map(preview_entries, opere)
+    raccolta_map = rp.build_raccolta_map(preview_entries, raccolte)
 
-    qp_entries = qp.main(opera_map)
+    qp_entries = qp.main(opera_map, raccolta_map)
     op_status = op.main(qp_entries)
+    rc_status = rp.main(qp_entries)
     hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main()
-    citazioni_index_urls = ip.main(qp_entries, author_slugs, tema_status, genere_status)
+    citazioni_index_urls = ip.main(qp_entries, author_slugs, tema_status, genere_status, opere, op_status, raccolte, rc_status)
     feed_path = feed.main(qp_entries)
 
     indexable_temi = [c for c, ok in tema_status.items() if ok]
@@ -118,8 +123,12 @@ def main():
             f.write('  <url><loc>' + qp.SITE_URL + '/generi/' + gen + '/</loc></url>\n')
         for aslug in indexable_autori:
             f.write('  <url><loc>' + qp.SITE_URL + '/autori/' + aslug + '/</loc></url>\n')
+        f.write('  <url><loc>' + qp.SITE_URL + '/opere/</loc></url>\n')
         for oslug in op_status:
             f.write('  <url><loc>' + qp.SITE_URL + '/opere/' + oslug + '/</loc></url>\n')
+        f.write('  <url><loc>' + qp.SITE_URL + '/raccolte/</loc></url>\n')
+        for rslug in rc_status:
+            f.write('  <url><loc>' + qp.SITE_URL + '/raccolte/' + rslug + '/</loc></url>\n')
         f.write('</urlset>\n')
 
     redirects = qp.load_redirects()
@@ -129,11 +138,13 @@ def main():
 
     total_pages = (
         2 + len(qp_entries) + len(citazioni_index_urls) + 3 +
-        len(tema_status) + len(genere_status) + len(author_status) + len(op_status)
+        len(tema_status) + len(genere_status) + len(author_status) + len(op_status) +
+        1 + len(rc_status) + 1
     )
     total_indexable = (
         2 + len(qp_entries) + len(citazioni_index_urls) + 3 +
-        len(indexable_temi) + len(indexable_generi) + len(indexable_autori) + len(op_status)
+        len(indexable_temi) + len(indexable_generi) + len(indexable_autori) + len(op_status) +
+        1 + len(rc_status) + 1
     )
 
     # --- Controlli di qualita: title/description duplicati, H1 presente ---
@@ -187,7 +198,7 @@ def main():
     print('URL indicizzabili (in sitemap):', total_indexable, '(differenza:', total_pages - total_indexable, 'hub sotto soglia, vedi sotto)')
     print('  citazioni:', len(qp_entries), '| indice /citazioni/:', len(citazioni_index_urls), 'pagine')
     print('  temi:', len(indexable_temi), '/', len(tema_status), '| generi:', len(indexable_generi), '/', len(genere_status),
-          '| autori:', len(indexable_autori), '/', len(author_status), '| opere:', len(op_status))
+          '| autori:', len(indexable_autori), '/', len(author_status), '| opere:', len(op_status), '| raccolte:', len(rc_status), '/', len(raccolte))
     print('Hub sotto soglia (< 3 citazioni, noindex,follow ma linkati):', len(hub_below_threshold))
     print('Redirect in vercel.json:', len(redirects))
     print('Title <title> duplicati fra pagine citazione:', len(dup_titles))
