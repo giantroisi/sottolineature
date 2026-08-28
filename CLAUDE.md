@@ -103,12 +103,10 @@ appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase
 il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
-**Stato: Fase 0, Fase 1 e Fase 2 completate. Fase 0 e Fase 1 verificate live su
-sottolineature.it (deploy Vercel confermato il 2026-08-28). Fase 2 verificata in locale, non ancora
-committata/pushata. Prossimo passo = commit e push di Fase 2, poi Fase 3 (fonte verificabile,
-lavoro a lotti di 15) o Fase 4 (pagine opera, richiede di mostrare l'elenco candidati e aspettare
-l'ok) — nessuna delle due ha un comando bundlato come Fasi 0-2 in `SEO.md` §9.1, vanno chieste
-esplicitamente.**
+**Stato: Fase 0, Fase 1 e Fase 2 completate e live su sottolineature.it (deploy Vercel confermato
+il 2026-08-28). Fase 3 in corso: 92/256 citazioni con fonte (locus verificato, 6 lotti committati e
+pushati il 2026-08-28, dettagli in `LOG.md`). Prossimo passo = continuare la Fase 3 con altri lotti
+di ricerca, poi Fase 4 (pagine opera, richiede di mostrare l'elenco candidati e aspettare l'ok).**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
@@ -321,10 +319,15 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
       `LOG.md`), con le regole di verifica già scritte più sopra in questo documento. **Se il
       riferimento non è stabilibile con certezza il campo resta vuoto** e lo scarto si annota con
       la ragione: su un sito che si presenta come verificato a mano, una fonte sbagliata è molto
-      peggio di una fonte assente. **Lotto 1/~17 chiuso il 2026-08-28** (19 citazioni, dettagli in
-      `LOG.md`): tutti i classici italiani di pubblico dominio con testo su Wikisource. Trovate e
-      corrette anche due discrepanze di wording rispetto alla fonte primaria (Boccaccio, Machiavelli)
-      — la correttezza del testo viene prima della fonte che lo accompagna.
+      peggio di una fonte assente. **In corso — 92/256 citazioni con fonte al 2026-08-28, lotti 1-6
+      chiusi e pushati** (dettagli per lotto in `LOG.md`). Lotto 1 (19 citazioni): tutti i classici
+      italiani di pubblico dominio con testo su Wikisource, trovate e corrette anche due discrepanze
+      di wording rispetto alla fonte primaria (Boccaccio, Machiavelli) — la correttezza del testo
+      viene prima della fonte che lo accompagna. Lotti 2-3 (51 citazioni): locus dedotto da contesto
+      già verificato in lotti precedenti, nessuna ricerca nuova. Lotti 4-6 (22 citazioni): ricerca
+      nuova via web, locus quando verificabile con certezza, mai un'edizione/traduttore forzati senza
+      conferma (Fratelli Karamazov, Tolstoj, Hugo, Beauvoir Secondo Sesso lasciati senza locus per
+      questo motivo). Restano 164 citazioni da fare, nei prossimi lotti.
 - [x] Ordine dei lotti: prima le opere di pubblico dominio con testo integrale su Wikisource
       (Dante, Manzoni, Leopardi, Verga, Pirandello, Shakespeare in traduzione), dove la verifica è
       rapida e il collegamento esterno è di qualità — fatto nel lotto 1.
