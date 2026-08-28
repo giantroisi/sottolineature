@@ -1,0 +1,404 @@
+[
+  {
+    "slug": "dante-alighieri-inferno",
+    "author": "Dante Alighieri",
+    "title": "Inferno",
+    "titles": [
+      "Inferno, Divina Commedia"
+    ],
+    "year": "1314 ca.",
+    "scheda": "Prima delle tre cantiche della Divina Commedia, racconta la discesa di Dante attraverso i nove cerchi dell'Inferno, guidato da Virgilio. È il testo fondativo della lingua e della letteratura italiana: ogni cerchio corrisponde a un peccato e a una pena costruita per contrappasso. Scritta in terzine incatenate, resta il testo poetico più letto e commentato della tradizione italiana."
+  },
+  {
+    "slug": "alessandro-manzoni-i-promessi-sposi",
+    "author": "Alessandro Manzoni",
+    "title": "I promessi sposi",
+    "titles": [
+      "I promessi sposi"
+    ],
+    "year": "1840",
+    "scheda": "Romanzo storico ambientato nella Lombardia del Seicento, sotto la dominazione spagnola: la vicenda di Renzo e Lucia, separati dalla prepotenza di don Rodrigo, si intreccia con la peste, la carestia e le grandi figure di padre Cristoforo e dell'Innominato. Manzoni lo riscrisse a fondo tra la prima edizione (1827) e quella definitiva del 1840, \"risciacquando i panni in Arno\" per fissare l'italiano moderno. È il romanzo che ha unificato la lingua prima ancora della nazione."
+  },
+  {
+    "slug": "fedor-dostoevskij-i-fratelli-karamazov",
+    "author": "Fëdor Dostoevskij",
+    "title": "I fratelli Karamazov",
+    "titles": [
+      "I fratelli Karamazov"
+    ],
+    "year": "1880",
+    "scheda": "Ultimo romanzo di Dostoevskij, ruota attorno all'omicidio del vecchio Fëdor Karamazov e ai suoi tre figli — il sensuale Dmitrij, l'intellettuale Ivan, il mistico Alëša — ciascuno erede di una parte diversa e in conflitto del padre. Dentro la trama poliziesca si muovono le grandi domande dell'opera dostoevskiana: l'esistenza di Dio, la libertà, la colpa collettiva. Il capitolo \"Il Grande Inquisitore\", raccontato da Ivan, è tra i testi filosofici più discussi della narrativa moderna."
+  },
+  {
+    "slug": "antoine-de-saint-exupery-il-piccolo-principe",
+    "author": "Antoine de Saint-Exupéry",
+    "title": "Il piccolo principe",
+    "titles": [
+      "Il piccolo principe"
+    ],
+    "year": "1943",
+    "scheda": "Un aviatore precipitato nel deserto del Sahara incontra un piccolo principe venuto da un asteroide lontano, che gli racconta il suo pianeta, la rosa che ha lasciato e i personaggi bizzarri incrociati nel viaggio verso la Terra. Pubblicato nel 1943, un anno prima della morte dell'autore in missione di guerra, è insieme una favola per bambini e un testo sull'amicizia, la perdita e lo sguardo adulto che si è dimenticato di essere stato bambino."
+  },
+  {
+    "slug": "gabriel-garcia-marquez-cent-anni-di-solitudine",
+    "author": "Gabriel García Márquez",
+    "title": "Cent'anni di solitudine",
+    "titles": [
+      "Cent'anni di solitudine"
+    ],
+    "year": "1967",
+    "scheda": "Racconta sette generazioni della famiglia Buendía nel villaggio immaginario di Macondo, dalla fondazione al disfacimento finale, in un tempo circolare dove i nomi si ripetono e le coincidenze si moltiplicano. È il romanzo che ha portato il realismo magico latinoamericano alla letteratura mondiale e ha valso a García Márquez il Nobel nel 1982. Considerato tra i romanzi più influenti del Novecento."
+  },
+  {
+    "slug": "walt-whitman-foglie-derba",
+    "author": "Walt Whitman",
+    "title": "Foglie d'erba",
+    "titles": [
+      "Foglie d'erba"
+    ],
+    "year": "1855",
+    "scheda": "Raccolta poetica che Whitman ampliò e riscrisse per tutta la vita, dalla prima edizione del 1855 fino a quella \"da letto di morte\" del 1892. In versi liberi, lontani dalla metrica tradizionale, canta il corpo, la democrazia americana, la natura e l'io che si identifica con la moltitudine (\"Canto me stesso\"). È il punto di partenza della poesia americana moderna."
+  },
+  {
+    "slug": "giuseppe-ungaretti-lallegria",
+    "author": "Giuseppe Ungaretti",
+    "title": "L'allegria",
+    "titles": [
+      "L'allegria"
+    ],
+    "year": "1931",
+    "scheda": "Raccolta che riunisce, nella forma definitiva del 1931, le poesie scritte da Ungaretti tra le trincee della Prima guerra mondiale (già pubblicate nel 1916 come \"Il porto sepolto\"). Versi scarnificati, spesso di poche parole, cercano l'essenziale in un momento di distruzione totale: \"Mattina\", con il suo \"m'illumino / d'immenso\", è tra i testi più brevi e più citati della poesia italiana del Novecento."
+  },
+  {
+    "slug": "kazuo-ishiguro-non-lasciarmi",
+    "author": "Kazuo Ishiguro",
+    "title": "Non lasciarmi",
+    "titles": [
+      "Non lasciarmi"
+    ],
+    "year": "2005",
+    "scheda": "Kathy, Ruth e Tommy crescono in un collegio inglese apparentemente idilliaco, Hailsham, scoprendo solo a poco a poco il destino a cui sono realmente predestinati. Ishiguro costruisce una distopia sommessa, raccontata in prima persona con lo stesso understatement dei suoi altri romanzi, che usa la fantascienza per interrogare cosa renda umana una vita, quanto essa sia breve o già segnata. Pubblicato nel 2005, tre anni prima che Ishiguro ricevesse il Nobel per la letteratura nel 2017."
+  },
+  {
+    "slug": "j-r-r-tolkien-il-signore-degli-anelli",
+    "author": "J.R.R. Tolkien",
+    "title": "Il Signore degli Anelli",
+    "titles": [
+      "Il Signore degli Anelli",
+      "Il Signore degli Anelli - La Compagnia dell'Anello",
+      "Il Signore degli Anelli - Il ritorno del re"
+    ],
+    "year": "1954-1955",
+    "scheda": "Romanzo unico concepito da Tolkien come continuazione de \"Lo Hobbit\", pubblicato per motivi editoriali in tre volumi (\"La Compagnia dell'Anello\", \"Le due torri\", \"Il ritorno del re\") tra il 1954 e il 1955. Racconta il viaggio di Frodo Baggins per distruggere l'Unico Anello nei fuochi del Monte Fato, attraversando la Terra di Mezzo insieme alla Compagnia formata da hobbit, elfi, nani, uomini e uno stregone. È il testo fondativo del fantasy moderno come genere letterario."
+  },
+  {
+    "slug": "giacomo-leopardi-linfinito",
+    "author": "Giacomo Leopardi",
+    "title": "L'infinito",
+    "titles": [
+      "L'infinito"
+    ],
+    "year": "1819",
+    "scheda": "Idillio scritto a Recanati quando Leopardi aveva ventun anni: una siepe che chiude la vista basta a far immaginare spazi, silenzi e un tempo senza fine, finché il pensiero si perde e \"il naufragar m'è dolce in questo mare\". In quindici versi condensa il rapporto tra il finito dei sensi e l'infinito dell'immaginazione che attraversa tutta l'opera leopardiana. È probabilmente la poesia più memorizzata nelle scuole italiane."
+  },
+  {
+    "slug": "giacomo-leopardi-canto-notturno-di-un-pastore-errante-dellasia",
+    "author": "Giacomo Leopardi",
+    "title": "Canto notturno di un pastore errante dell'Asia",
+    "titles": [
+      "Canto notturno di un pastore errante dell'Asia"
+    ],
+    "year": "1830",
+    "scheda": "Un pastore delle steppe asiatiche interroga la luna sul senso della vita, del dolore e della morte, senza ricevere risposta. È uno dei componimenti più alti dei \"Canti\" leopardiani, il punto in cui il pessimismo individuale del poeta si allarga a domanda universale sulla condizione di ogni essere vivente, animale compreso."
+  },
+  {
+    "slug": "alessandro-manzoni-il-cinque-maggio",
+    "author": "Alessandro Manzoni",
+    "title": "Il cinque maggio",
+    "titles": [
+      "Il cinque maggio"
+    ],
+    "year": "1821",
+    "scheda": "Ode scritta da Manzoni in pochi giorni alla notizia della morte di Napoleone a Sant'Elena, il 5 maggio 1821. Ripercorre la parabola dell'imperatore, dai trionfi alla caduta e all'esilio, per arrivare a una domanda tutta manzoniana: cosa resta di una vita straordinaria di fronte alla fede e al giudizio di Dio. È uno dei testi più antologizzati della poesia italiana dell'Ottocento."
+  },
+  {
+    "slug": "ugo-foscolo-dei-sepolcri",
+    "author": "Ugo Foscolo",
+    "title": "Dei Sepolcri",
+    "titles": [
+      "Dei Sepolcri"
+    ],
+    "year": "1807",
+    "scheda": "Carme in versi sciolti composto in polemica con l'editto napoleonico di Saint-Cloud, che vietava le sepolture nei cimiteri cittadini per motivi igienici. Foscolo ne fa il punto di partenza per una riflessione sulla memoria dei morti come legame civile tra le generazioni: le tombe dei grandi, come quelle di Santa Croce a Firenze, tengono vivo il ricordo e ispirano le imprese dei vivi."
+  },
+  {
+    "slug": "giovanni-boccaccio-decameron",
+    "author": "Giovanni Boccaccio",
+    "title": "Decameron",
+    "titles": [
+      "Decameron"
+    ],
+    "year": "1349-1353",
+    "scheda": "Cento novelle raccontate in dieci giorni da un gruppo di sette donne e tre uomini rifugiati in campagna per sfuggire alla peste nera che devastava Firenze nel 1348. Scritto in un fiorentino che diventerà modello di prosa italiana, mette in scena l'intera società del tempo — mercanti, nobili, frati, beffatori — con uno sguardo laico sull'intelligenza e la fortuna umane. È il testo fondativo della novella come genere."
+  },
+  {
+    "slug": "niccolo-machiavelli-il-principe",
+    "author": "Niccolò Machiavelli",
+    "title": "Il Principe",
+    "titles": [
+      "Il Principe"
+    ],
+    "year": "1513",
+    "scheda": "Trattato scritto da Machiavelli nel 1513, durante l'esilio dalla vita politica fiorentina, e dedicato a Lorenzo de' Medici. Analizza a freddo come un principe possa conquistare e mantenere il potere, separando per la prima volta l'etica politica dalla morale religiosa: da qui nasce l'aggettivo \"machiavellico\". Pubblicato postumo nel 1532, resta un testo fondativo del pensiero politico moderno."
+  },
+  {
+    "slug": "ludovico-ariosto-orlando-furioso",
+    "author": "Ludovico Ariosto",
+    "title": "Orlando furioso",
+    "titles": [
+      "Orlando furioso"
+    ],
+    "year": "1516",
+    "scheda": "Poema cavalleresco in ottave, continuazione dell'incompiuto \"Orlando innamorato\" di Boiardo: al centro la follia d'amore del paladino Orlando per la bella Angelica, dentro un intreccio fittissimo di guerre, incantesimi e viaggi che arriva fino alla Luna. Ariosto lo rivide per tutta la vita, dalla prima edizione del 1516 a quella definitiva del 1532. È il vertice italiano del poema epico-cavalleresco rinascimentale."
+  },
+  {
+    "slug": "torquato-tasso-gerusalemme-liberata",
+    "author": "Torquato Tasso",
+    "title": "Gerusalemme liberata",
+    "titles": [
+      "Gerusalemme liberata"
+    ],
+    "year": "1581",
+    "scheda": "Poema epico sulla prima crociata e la conquista di Gerusalemme, con Goffredo di Buglione alla guida dei cristiani contro i musulmani, intrecciata alle vicende sentimentali di Tancredi, Clorinda e Rinaldo. Tasso vi fonde il modello classico dell'epica con toni malinconici e sensuali tipici del tardo Rinascimento. È l'ultimo grande poema epico della tradizione italiana prima del Barocco."
+  },
+  {
+    "slug": "francesco-petrarca-canzoniere",
+    "author": "Francesco Petrarca",
+    "title": "Canzoniere",
+    "titles": [
+      "Canzoniere"
+    ],
+    "year": "1374",
+    "scheda": "Raccolta di 366 componimenti, soprattutto sonetti, che Petrarca compose e riordinò per gran parte della vita attorno alla figura di Laura, amata e mai davvero posseduta, morta di peste nel 1348. Il titolo originale, \"Rerum vulgarium fragmenta\", ne segnala la natura di frammenti in lingua volgare: è il modello che ha fondato la lirica amorosa europea per i cinque secoli successivi, dal Petrarchismo in poi."
+  },
+  {
+    "slug": "giovanni-verga-i-malavoglia",
+    "author": "Giovanni Verga",
+    "title": "I Malavoglia",
+    "titles": [
+      "I Malavoglia"
+    ],
+    "year": "1881",
+    "scheda": "Prima parte del \"ciclo dei Vinti\" mai completato da Verga, racconta il tentativo della famiglia Toscano, detta \"Malavoglia\", di migliorare la propria condizione ad Aci Trezza, e il naufragio di quel tentativo contro la fatalità e le leggi economiche del mondo moderno. È il testo fondativo del Verismo italiano: la lingua imita il parlato siciliano, la voce narrante si confonde con quella corale del villaggio."
+  },
+  {
+    "slug": "luigi-pirandello-il-fu-mattia-pascal",
+    "author": "Luigi Pirandello",
+    "title": "Il fu Mattia Pascal",
+    "titles": [
+      "Il fu Mattia Pascal"
+    ],
+    "year": "1904",
+    "scheda": "Mattia Pascal, creduto morto per un equivoco, decide di approfittarne per costruirsi una nuova identità come Adriano Meis — scoprendo che una vita senza stato civile, senza passato verificabile, è tanto libera quanto impossibile da vivere fino in fondo. È il romanzo che introduce i grandi temi pirandelliani della maschera, dell'identità multipla e della trappola della forma sociale."
+  },
+  {
+    "slug": "luigi-pirandello-uno-nessuno-e-centomila",
+    "author": "Luigi Pirandello",
+    "title": "Uno, nessuno e centomila",
+    "titles": [
+      "Uno, nessuno e centomila"
+    ],
+    "year": "1926",
+    "scheda": "Vitangelo Moscarda scopre da un'osservazione della moglie sul proprio naso che l'immagine che gli altri hanno di lui non coincide affatto con quella che ha di sé, e che esistono tante versioni di lui quante sono le persone che lo conoscono. Ultimo romanzo pirandelliano, porta alle estreme conseguenze il tema dell'identità come costruzione sociale instabile, fino allo scioglimento finale in una vita senza nome."
+  },
+  {
+    "slug": "italo-svevo-la-coscienza-di-zeno",
+    "author": "Italo Svevo",
+    "title": "La coscienza di Zeno",
+    "titles": [
+      "La coscienza di Zeno"
+    ],
+    "year": "1923",
+    "scheda": "Zeno Cosini scrive, su richiesta del suo psicoanalista, il memoriale della propria vita: i tentativi falliti di smettere di fumare, il matrimonio, gli affari di famiglia, ricostruiti con un'ironia che mina dall'interno l'attendibilità del narratore stesso. Pubblicato nel 1923 e ignorato in Italia fino a quando Joyce lo segnalò in Francia, è il romanzo che ha introdotto la psicoanalisi e l'inattendibilità narrativa nella letteratura italiana."
+  },
+  {
+    "slug": "giuseppe-tomasi-di-lampedusa-il-gattopardo",
+    "author": "Giuseppe Tomasi di Lampedusa",
+    "title": "Il Gattopardo",
+    "titles": [
+      "Il Gattopardo"
+    ],
+    "year": "1958",
+    "scheda": "Il principe Fabrizio Salina osserva il tramonto della vecchia aristocrazia siciliana durante lo sbarco dei Mille e l'Unità d'Italia, mentre il nipote Tancredi passa con i vincitori per non perdere nulla (\"se vogliamo che tutto rimanga come è, bisogna che tutto cambi\"). Rifiutato in vita dagli editori e pubblicato postumo nel 1958, un anno dopo la morte dell'autore, vinse lo Strega e resta il romanzo italiano più tradotto al mondo."
+  },
+  {
+    "slug": "primo-levi-se-questo-e-un-uomo",
+    "author": "Primo Levi",
+    "title": "Se questo è un uomo",
+    "titles": [
+      "Se questo è un uomo"
+    ],
+    "year": "1947",
+    "scheda": "Testimonianza diretta di Primo Levi sulla deportazione ad Auschwitz, scritta a caldo nel dopoguerra e rifiutata dai grandi editori prima di essere pubblicata nel 1947 da una piccola casa editrice torinese. Racconta il lager non con retorica ma con la precisione dello scienziato che Levi era, osservando come il sistema concentrazionario riducesse sistematicamente l'uomo a numero. È tra i testi fondamentali della letteratura della Shoah."
+  },
+  {
+    "slug": "italo-calvino-il-barone-rampante",
+    "author": "Italo Calvino",
+    "title": "Il barone rampante",
+    "titles": [
+      "Il barone rampante"
+    ],
+    "year": "1957",
+    "scheda": "Cosimo Piovasco di Rondò, dodicenne, sale su un albero dopo un litigio a tavola con il padre e decide di non scendere mai più, vivendo tutta la vita tra i rami senza però isolarsi dal mondo. Secondo capitolo della trilogia \"I nostri antenati\", è una favola settecentesca sull'indipendenza che non è fuga ma un modo diverso, più lucido, di restare dentro le cose."
+  },
+  {
+    "slug": "italo-calvino-le-citta-invisibili",
+    "author": "Italo Calvino",
+    "title": "Le città invisibili",
+    "titles": [
+      "Le città invisibili"
+    ],
+    "year": "1972",
+    "scheda": "Marco Polo descrive a Kublai Khan cinquantacinque città immaginarie, ciascuna costruita attorno a un'unica idea — la memoria, il desiderio, i segni, gli scambi — che restituisce più un pensiero sulla città in generale che un luogo reale. Costruito come un mosaico di brevissimi capitoli incorniciati dai dialoghi tra i due personaggi, è tra i libri più formalmente compiuti di Calvino."
+  },
+  {
+    "slug": "umberto-eco-il-nome-della-rosa",
+    "author": "Umberto Eco",
+    "title": "Il nome della rosa",
+    "titles": [
+      "Il nome della rosa"
+    ],
+    "year": "1980",
+    "scheda": "Nel 1327, il frate francescano Guglielmo da Baskerville indaga una serie di morti misteriose in un'abbazia benedettina, mentre si consuma la disputa tra ordini religiosi sulla povertà di Cristo. Eco, semiologo di formazione, costruisce un giallo filosofico ambientato nel Medioevo che discute di libri proibiti, eresie e del potere del riso. Esordio narrativo di Eco, tradotto in decine di lingue e diventato un caso editoriale mondiale."
+  },
+  {
+    "slug": "miguel-de-cervantes-don-chisciotte-della-mancia",
+    "author": "Miguel de Cervantes",
+    "title": "Don Chisciotte della Mancia",
+    "titles": [
+      "Don Chisciotte della Mancia"
+    ],
+    "year": "1605",
+    "scheda": "Alonso Chisciano, piccolo hidalgo spagnolo che ha letto troppi romanzi cavallereschi, si ribattezza Don Chisciotte e parte per il mondo a cavallo del ronzino Ronzinante, scambiando mulini a vento per giganti, insieme allo scudiero Sancho Panza. Pubblicato in due parti (1605 e 1615), è considerato il primo romanzo moderno: mette in scena, ridendone, il confine tra realtà e finzione letteraria."
+  },
+  {
+    "slug": "william-shakespeare-amleto",
+    "author": "William Shakespeare",
+    "title": "Amleto",
+    "titles": [
+      "Amleto"
+    ],
+    "year": "1600-1601",
+    "scheda": "Il principe di Danimarca scopre dal fantasma del padre che lo zio Claudio lo ha ucciso per prenderne il trono e la moglie, e passa il resto della tragedia a esitare tra la vendetta e il dubbio su cosa sia vero, giusto, reale. \"Essere o non essere\" è forse il verso più citato del teatro occidentale. Scritta tra il 1600 e il 1601, resta il testo shakespeariano più rappresentato e discusso."
+  },
+  {
+    "slug": "william-shakespeare-romeo-e-giulietta",
+    "author": "William Shakespeare",
+    "title": "Romeo e Giulietta",
+    "titles": [
+      "Romeo e Giulietta"
+    ],
+    "year": "1597",
+    "scheda": "Due giovani di Verona, appartenenti alle famiglie rivali dei Montecchi e dei Capuleti, si innamorano e muoiono per un fraintendimento nato dal tentativo disperato di stare insieme nonostante l'odio delle loro case. Pubblicata nel 1597, è la tragedia d'amore per eccellenza del teatro occidentale, riscritta e citata in innumerevoli forme fino a oggi."
+  },
+  {
+    "slug": "fedor-dostoevskij-delitto-e-castigo",
+    "author": "Fëdor Dostoevskij",
+    "title": "Delitto e castigo",
+    "titles": [
+      "Delitto e castigo"
+    ],
+    "year": "1866",
+    "scheda": "Raskol'nikov, studente pietroburghese ridotto in povertà, uccide un'anziana usuraia convinto di essere un uomo \"straordinario\" a cui è concesso infrangere la legge morale comune — e passa il resto del romanzo a scoprire di non reggere il peso di quella convinzione. Pubblicato a puntate nel 1866, è il romanzo in cui Dostoevskij porta sulla pagina, prima che sul lettino, la psicologia della colpa."
+  },
+  {
+    "slug": "lev-tolstoj-guerra-e-pace",
+    "author": "Lev Tolstoj",
+    "title": "Guerra e pace",
+    "titles": [
+      "Guerra e pace"
+    ],
+    "year": "1869",
+    "scheda": "Affresco della società russa durante le guerre napoleoniche, seguito attraverso le vite intrecciate di cinque famiglie aristocratiche — su tutti il principe Andrej, Pierre Bezuchov e Nataša Rostova — mentre la Russia viene invasa e poi salva la propria capitale. Pubblicato a puntate tra il 1865 e il 1869, alterna la trama romanzesca a lunghe digressioni storico-filosofiche sul senso della storia e del libero arbitrio."
+  },
+  {
+    "slug": "gustave-flaubert-madame-bovary",
+    "author": "Gustave Flaubert",
+    "title": "Madame Bovary",
+    "titles": [
+      "Madame Bovary"
+    ],
+    "year": "1857",
+    "scheda": "Emma Bovary, sposata a un modesto medico di provincia, insegue negli amanti e nei debiti l'idea di una vita romantica appresa dai romanzi, fino al tracollo finale. Flaubert lavorò anni sulla precisione di ogni frase (\"le mot juste\") e fu processato per oltraggio alla morale pubblica alla pubblicazione, nel 1857. È il romanzo che ha fondato il realismo moderno in narrativa."
+  },
+  {
+    "slug": "victor-hugo-i-miserabili",
+    "author": "Victor Hugo",
+    "title": "I miserabili",
+    "titles": [
+      "I miserabili"
+    ],
+    "year": "1862",
+    "scheda": "Jean Valjean, condannato al bagno penale per il furto di un pezzo di pane, esce trasformato dall'incontro con un vescovo misericordioso e ricostruisce la propria vita restando per sempre inseguito dall'ispettore Javert e dalla propria condanna passata. Pubblicato nel 1862, è un affresco della Francia post-napoleonica e insieme un lungo argomento narrativo contro la miseria e l'ingiustizia sociale."
+  },
+  {
+    "slug": "franz-kafka-la-metamorfosi",
+    "author": "Franz Kafka",
+    "title": "La metamorfosi",
+    "titles": [
+      "La metamorfosi"
+    ],
+    "year": "1915",
+    "scheda": "Gregor Samsa si sveglia una mattina trasformato in un enorme insetto, e il racconto segue con lucidità impassibile come la sua famiglia — e lui stesso — si adattino alla nuova condizione, fino all'esclusione definitiva. Pubblicato nel 1915, è il testo più letto di Kafka e il punto di riferimento dell'aggettivo \"kafkiano\": l'assurdo trattato con la logica di un fatto qualunque."
+  },
+  {
+    "slug": "herman-melville-moby-dick",
+    "author": "Herman Melville",
+    "title": "Moby Dick",
+    "titles": [
+      "Moby Dick"
+    ],
+    "year": "1851",
+    "scheda": "Il marinaio Ismaele si imbarca sul baleniere Pequod, comandato dal capitano Achab, ossessionato dalla vendetta contro Moby Dick, la balena bianca che gli ha strappato una gamba in un precedente incontro. Pubblicato nel 1851 e ignorato dal pubblico dell'epoca, mescola avventura di mare, enciclopedia della caccia alla balena e riflessione simbolica sul male e l'ossessione. Oggi è considerato tra i grandi romanzi della letteratura americana."
+  },
+  {
+    "slug": "jane-austen-orgoglio-e-pregiudizio",
+    "author": "Jane Austen",
+    "title": "Orgoglio e pregiudizio",
+    "titles": [
+      "Orgoglio e pregiudizio"
+    ],
+    "year": "1813",
+    "scheda": "Elizabeth Bennet, seconda di cinque sorelle in una famiglia della piccola nobiltà di campagna, si scontra e infine si innamora del ricco e altezzoso Mr. Darcy, superando i pregiudizi reciproci nati da un primo, pessimo incontro. Pubblicato nel 1813, resta il romanzo più amato di Austen per l'ironia con cui osserva i matrimoni, il denaro e le convenienze sociali dell'Inghilterra georgiana."
+  },
+  {
+    "slug": "mary-shelley-frankenstein",
+    "author": "Mary Shelley",
+    "title": "Frankenstein",
+    "titles": [
+      "Frankenstein"
+    ],
+    "year": "1818",
+    "scheda": "Il giovane scienziato Victor Frankenstein dà vita a una creatura assemblata da resti umani, per poi abbandonarla inorridito dal proprio stesso esperimento — spingendola, nel rifiuto, verso la violenza che teme di temere. Scritto da Mary Shelley a diciotto anni e pubblicato anonimo nel 1818, è considerato il primo romanzo di fantascienza e resta un testo fondativo sulla responsabilità della scienza verso ciò che crea."
+  },
+  {
+    "slug": "george-orwell-1984",
+    "author": "George Orwell",
+    "title": "1984",
+    "titles": [
+      "1984"
+    ],
+    "year": "1949",
+    "scheda": "Nell'Oceania totalitaria del Grande Fratello, Winston Smith lavora al Ministero della Verità riscrivendo la storia passata secondo le necessità del presente, mentre tenta in segreto di pensare — e amare — al di fuori del controllo del Partito. Pubblicato nel 1949, ha dato al linguaggio comune parole come \"neolingua\", \"bispensiero\" e \"Grande Fratello\", ed è il riferimento costante di ogni discussione sulla sorveglianza di massa."
+  },
+  {
+    "slug": "oscar-wilde-il-ritratto-di-dorian-gray",
+    "author": "Oscar Wilde",
+    "title": "Il ritratto di Dorian Gray",
+    "titles": [
+      "Il ritratto di Dorian Gray"
+    ],
+    "year": "1890",
+    "scheda": "Il giovane e bellissimo Dorian Gray ottiene, quasi per un desiderio pronunciato a voce alta, che sia il suo ritratto a invecchiare e a segnarsi dei vizi al suo posto, mentre lui resta esteriormente immutato negli anni. Unico romanzo di Wilde, pubblicato nel 1890, è insieme un manifesto dell'estetismo di fine Ottocento e una parabola morale sulle conseguenze nascoste di una vita senza limiti."
+  }
+]

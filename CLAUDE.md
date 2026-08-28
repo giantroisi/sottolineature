@@ -106,10 +106,14 @@ vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi 
 **Stato: Fase 0, Fase 1 e Fase 2 completate e live su sottolineature.it (deploy Vercel confermato
 il 2026-08-28). Fase 3 sostanzialmente conclusa: 232/256 citazioni con fonte (90%, locus e/o
 edizione/traduttore verificati, 34 lotti committati e pushati il 2026-08-28, dettagli per lotto in
-`LOG.md`). Le 26 rimaste sono state cercate almeno una volta (molte due) senza trovare un
+`LOG.md`). Le 24 rimaste sono state cercate almeno una volta (molte due) senza trovare un
 riferimento strutturale verificabile con certezza — non un lavoro interrotto a metà, ma il limite
 onesto di quanto è verificabile via ricerca web per queste citazioni specifiche; si può riprendere
 in un lotto dedicato se emergono fonti migliori (es. accesso diretto ai testi).
+
+Fase 4 completata il 2026-08-28: 40 pagine opera in `/opere/`, elenco approvato dall'utente prima
+della generazione (canone scolastico + genere fantasy su richiesta esplicita). Dettagli nella
+sezione Fase 4 qui sotto.
 
 Tre correzioni di attribuzione fatte durante la verifica (non solo trovate, anche corrette e
 pubblicate): Kazuo Ishiguro ("Quando eravamo orfani" → "Non lasciarmi"), Alice Munro ("La vista da
@@ -124,9 +128,9 @@ Maalouf ("In fondo all'Atlantico c'è un libro" — potrebbe appartenere a "Il p
 Baldassarre"), Suzanne Collins ("Che i giochi abbiano inizio" — la fonte trovata è del film, non
 confermata nel romanzo).
 
-Prossimo passo = Fase 4 (pagine opera, richiede di mostrare l'elenco candidati e aspettare l'ok) —
-oppure, se richiesto esplicitamente, un lotto dedicato a risolvere i quattro dubbi aperti o a
-ritentare le 24 citazioni rimaste con fonti diverse da quelle già cercate.**
+Prossimo passo = Fase 5 (introduzioni editoriali per temi/generi, raccolte curate) — oppure, se
+richiesto esplicitamente, un lotto dedicato a risolvere i quattro dubbi aperti o a ritentare le 24
+citazioni rimaste con fonti diverse da quelle già cercate.**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
@@ -370,17 +374,39 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
 È dove sta la domanda italiana reale: si cerca *"frasi 1984"*, *"citazioni promessi sposi"*, non
 "citazioni sulla libertà di Orwell". Oggi quella domanda non ha una pagina su cui atterrare.
 
-- [ ] Costruire pagine opera **solo** per le opere con ≥2 citazioni e per i titoli del canone
-      scolastico già in archivio (~40), e **solo se si può scrivere una scheda verificata di 3-5
-      righe** (cos'è il libro, anno, edizione e traduzione di riferimento).
-      **Mai generare le 249 opere in automatico**: sarebbe la fabbrica di doorway page che affossa
-      i siti di citazioni.
-- [ ] Regola strutturale: **quando un'opera ha una sola citazione, la pagina citazione è già la
-      pagina dell'opera** — non crearle entrambe.
-- [ ] H1: *"Frasi e citazioni da {Opera} di {Autore}"*. `Book` in JSON-LD con `@id` stabile,
-      riusato da tutte le pagine citazione di quell'opera.
-- [ ] Prima di generare qualsiasi cosa: mostrare all'utente l'elenco delle opere candidate con il
-      motivo di inclusione e aspettare l'ok.
+- [x] Costruite **40 pagine opera** (2026-08-28): 9 con ≥2 citazioni oggettive in archivio (incluso
+      *Il Signore degli Anelli*, unificato in una sola opera dai 3 titoli-volume 33/237/238 già
+      presenti — soddisfa da solo la soglia ≥2) + 31 titoli del canone scolastico italiano con
+      1 sola citazione ciascuno (da Dante e Manzoni ai classici stranieri di liceo: Kafka, Orwell,
+      Dostoevskij, Austen...). La clausola "canone scolastico" della regola è esplicitamente
+      un'eccezione alla soglia ≥2, non ridondante con essa — coerente con l'esempio "frasi 1984"
+      nel testo stesso di questa fase (*1984* ha 1 sola citazione).
+      **Genere fantasy incluso su richiesta esplicita** ("aggiungi anche fantasy"): degli 12 titoli
+      fantasy taggati in archivio, solo Il Signore degli Anelli supera la soglia ≥2 (unificato);
+      gli altri (Narnia, Trono di Spade, i 3 libri di Harry Potter, Peter Pan, Coraline, Percy
+      Jackson, Discworld) hanno 1 sola citazione ciascuno e **non** sono nel canone scolastico in
+      senso stretto, quindi restano citazione=pagina opera senza pagina dedicata (vedi sotto) — non
+      unificati forzatamente solo per raggiungere la soglia (es. i 3 libri di Harry Potter sono
+      davvero 3 opere diverse, non varianti editoriali dello stesso libro come i volumi del
+      Signore degli Anelli).
+      Mai generate le altre ~210 opere rimanenti: solo l'elenco approvato, mai tutto l'archivio.
+      Schema: `data/opere.json` (slug, autore, titolo, anno, `titles` per l'unione multi-volume,
+      scheda editoriale di 3-5 righe). Scheda basata su fatti bibliografici pubblici e
+      incontrovertibili (anno, genere, trama); **edizione/traduttore italiano lasciati vuoti per
+      tutti i 40** — per classici tradotti più volte in italiano non esiste un'unica edizione
+      "di riferimento" verificabile con certezza, e forzarne una sarebbe lo stesso errore che la
+      Fase 3 ha imparato a evitare sulle fonti delle citazioni.
+      Generatore: `tools/generate_opera_pages.py`, richiamato da `tools/build.py` **prima** di
+      `generate_hub_pages.py`; `build_opera_map()` calcola la mappa (autore,titolo)→opera usata da
+      `generate_quote_pages.py` per riusare lo stesso `Book` `@id` e aggiungere il link "Tutte le
+      citazioni da «Opera» →" sulle pagine citazione corrispondenti.
+- [x] Regola strutturale: **quando un'opera ha una sola citazione e non è nel canone scolastico
+      approvato, la pagina citazione è già la pagina dell'opera** — non se ne crea una seconda.
+- [x] H1: *"Frasi e citazioni da {Opera} di {Autore}"*. `Book` in JSON-LD con `@id` stabile
+      (`/opere/<slug>/#book`), riusato da tutte le pagine citazione di quell'opera — verificato sui
+      3 volumi del Signore degli Anelli, tutti puntano allo stesso `@id`.
+- [x] Elenco delle 40 opere candidate mostrato e approvato dall'utente prima della generazione
+      ("Procediamo" sul canone scolastico, poi "Aggiungi anche fantasy e procedi").
 
 #### Fase 5 — Hub editoriali e raccolte
 

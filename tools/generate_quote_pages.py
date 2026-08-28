@@ -178,6 +178,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <button type="button" id="copyBtn">Copia citazione</button>
     <a href="/#{slug}">Vedi sul sito →</a>
   </div>
+  {opera_link_html}
   {tags_html}
   {related_html}
   <footer class="sans">
@@ -219,7 +220,7 @@ def truncate_words(text, max_len):
     return text[:max_len].rsplit(' ', 1)[0] + '…', True
 
 
-def render_page(q, slug, same_author, same_theme):
+def render_page(q, slug, same_author, same_theme, opera_map=None):
     quote_esc = html.escape(q['quote'])
     author_esc = html.escape(q['author'])
     title_esc = html.escape(q['title'])
@@ -295,7 +296,17 @@ def render_page(q, slug, same_author, same_theme):
         )
     related_html = ''.join(related_sections)
 
-    book_id = canonical + '#book'
+    # Fase 4 SEO.md §9.3: quando l'opera ha una pagina propria in /opere/, il
+    # Book @id e il nome vanno presi da li' e riusati su tutte le citazioni
+    # della stessa opera (anche quando il campo `title` varia per volume,
+    # es. i tre libri del Signore degli Anelli).
+    opera_info = (opera_map or {}).get((q['author'], q['title']))
+    book_id = opera_info['book_id'] if opera_info else (canonical + '#book')
+    book_name = opera_info['title'] if opera_info else q['title']
+    opera_link_html = (
+        '<p class="opera-link sans"><a href="' + opera_info['opera_url'] + '">Tutte le citazioni da «' +
+        html.escape(opera_info['title']) + '» →</a></p>'
+    ) if opera_info else ''
     author_id = SITE_URL + '/autori/' + author_slug + '/#person'
     jsonld = json.dumps({
         '@context': 'https://schema.org',
@@ -320,7 +331,7 @@ def render_page(q, slug, same_author, same_theme):
             {
                 '@type': 'Book',
                 '@id': book_id,
-                'name': q['title'],
+                'name': book_name,
                 'author': {'@id': author_id},
                 **({'datePublished': q['year']} if q['year'] else {}),
                 **({'translator': {'@type': 'Person', 'name': q['source_translator']}} if q.get('source_translator') else {}),
@@ -357,6 +368,7 @@ def render_page(q, slug, same_author, same_theme):
         year_html=year_html,
         context_html=context_html,
         source_html=source_html,
+        opera_link_html=opera_link_html,
         cover_html=cover_html,
         category=html.escape(q['category']),
         genre_attr=genre_attr,
@@ -369,7 +381,7 @@ def render_page(q, slug, same_author, same_theme):
     )
 
 
-def main():
+def main(opera_map=None):
     quotes = load_quotes()
     print('Citazioni trovate:', len(quotes))
 
@@ -393,7 +405,7 @@ def main():
     for slug, q in entries:
         same_author = [(s, oq) for s, oq in by_author[q['author']] if s != slug]
         same_theme = [(s, oq) for s, oq in by_category.get(q['category'], []) if s != slug]
-        page = render_page(q, slug, same_author, same_theme)
+        page = render_page(q, slug, same_author, same_theme, opera_map)
         path = os.path.join(OUT_DIR, slug + '.html')
         with open(path, 'w', encoding='utf-8') as f:
             f.write(page)
