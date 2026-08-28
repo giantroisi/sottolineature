@@ -715,7 +715,7 @@
     "genre": "",
     "added": null,
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "parole di Atticus a Scout",
     "source_translator": "",
     "source_url": ""
   },
@@ -760,9 +760,9 @@
     "genre": "",
     "added": null,
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "capitolo XII",
     "source_translator": "",
-    "source_url": ""
+    "source_url": "https://it.wikisource.org/wiki/Alice_nel_Paese_delle_meraviglie/XII"
   },
   {
     "quote": "È molto più sicuro l’esser temuto che amato, quando s’abbi a mancare dell’un de’ duoi.",
@@ -850,7 +850,7 @@
     "genre": "saggistica",
     "added": null,
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "incipit",
     "source_translator": "",
     "source_url": ""
   },
@@ -985,7 +985,7 @@
     "genre": "fantasy",
     "added": null,
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "battuta di Silente",
     "source_translator": "",
     "source_url": ""
   },
@@ -1450,7 +1450,7 @@
     "genre": "",
     "added": "2026-08-02",
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "epigrafe del libro",
     "source_translator": "",
     "source_url": ""
   },
@@ -1840,7 +1840,7 @@
     "genre": "",
     "added": "2026-08-03",
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "motto scritto sui carri della «Sinfonia Itinerante», citazione da Star Trek: Voyager",
     "source_translator": "",
     "source_url": ""
   },
