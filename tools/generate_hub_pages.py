@@ -149,7 +149,11 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
         description = 'Le citazioni di ' + label.lower() + ' raccolte su Sottolineature: ' + str(count) + ' righe scelte a mano da romanzi e racconti del genere.'
     else:
         eyebrow = 'Un autore'
-        h1 = label
+        # Fase 7 SEO-KEYWORDS.md: le pagine autore avevano H1/title col solo
+        # nome, senza "frasi"/"citazioni" — la domanda reale cerca "frasi di
+        # Oscar Wilde", non "Oscar Wilde" nudo. Coerente col pattern già in
+        # uso per opere ("Frasi e citazioni da {Opera} di {Autore}").
+        h1 = 'Frasi e citazioni di ' + label
         description = 'Le citazioni di ' + label + ' raccolte su Sottolineature: ' + str(count) + ' rig' + ('a' if count == 1 else 'he') + ' scelt' + ('a' if count == 1 else 'e') + ' a mano, verificat' + ('a' if count == 1 else 'e') + ' sulle fonti.'
 
     dir_by_kind = {'tema': 'temi', 'genere': 'generi', 'autore': 'autori'}
