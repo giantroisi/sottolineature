@@ -33,9 +33,11 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Convenzioni tecniche
 
-- **Sito statico puro**: `index.html` (tutto: markup + CSS + JS inline), più `metodo.html`, nessun build step per il deploy (Vercel serve i file così come sono). Deploy automatico su push a `main` via integrazione Git di Vercel — **se non parte da sola** (è già successo), fare `npx vercel --prod` a mano.
-- **`index.html` resta la fonte di verità per le citazioni**, modificato sempre a mano (Edit diretto, mai script). Dopo ogni modifica alle card (aggiunta/rimozione citazione, contesto, copertina, categoria, genere) **lanciare `python3 tools/build.py`** per rigenerare `citazioni/`, `temi/`, `generi/`, `autori/` e `sitemap.xml` di conseguenza — altrimenti quelle pagine restano disallineate rispetto a `index.html`.
-- **Card**: `<article class="card" data-category="..." data-genre="...(opzionale, multi-valore separato da spazi)">`, contiene `card-quote`, `card-citation` (autore/titolo/anno), `card-context` (opzionale), `card-hint`. Il toggle "Sottolinea", il campo nota e il pulsante "Condividi" vengono iniettati via JS su ogni card, non sono nel markup statico.
+- **Sito statico puro**: file già pronti serviti da Vercel così come sono, nessun build step lato server. Deploy automatico su push a `main` via integrazione Git di Vercel — **se non parte da sola** (è già successo), fare `npx vercel --prod` a mano.
+- **`data/citazioni.json` è la fonte di verità per le citazioni** (dal 2026-08-28, Fase 2 SEO): un array che preserva l'ordine di visualizzazione in home, un oggetto per citazione con `quote`, `author`, `title`, `year`, `context`, `cover`, `category`, `genre` (stringa vuota se assente), `added` (data `YYYY-MM-DD` o `null` se non ricostruibile con certezza). **Si edita quel file, mai `index.html` a mano.** Dopo ogni modifica (aggiunta/rimozione citazione, contesto, copertina, categoria, genere) **lanciare `python3 tools/build.py`**, che rigenera in ordine `index.html`, `citazioni/`, `temi/`, `generi/`, `autori/`, `assets/og/` e `sitemap.xml`. `index.html` è un file generato come gli altri: modificarlo a mano viene perso al giro successivo.
+- **`templates/home_template.html`** è la parte fissa della home (header, filtri, script, footer) — qui si tocca markup/stile/comportamento che non dipende dalla singola citazione. Contiene i placeholder `{{CARDS}}`, `{{COUNT}}` e `{{COUNT_WORDS}}` (il numero in lettere nel paragrafo introduttivo, calcolato da `tools/generate_home.py::italian_number_words`), sostituiti a ogni build.
+- **Il contesto (`card-context`) è pubblicato solo su `/citazioni/<slug>/`**, mai in home: la home mostra citazione, autore, titolo, anno e copertina ma non il contesto, per non competere con la pagina citazione sullo stesso testo (altrimenti Google vede due pagine con lo stesso contenuto e non sa quale preferire). Il contesto resta comunque nella fonte di verità (`data/citazioni.json`), da lì lo leggono sia `generate_quote_pages.py` (lo pubblica) sia `generate_home.py` (non lo pubblica).
+- **Card**: `<article class="card" data-category="..." data-genre="...(opzionale, multi-valore separato da spazi)">`, contiene `card-quote`, `card-citation` (autore/titolo/anno), `card-hint` (il contesto non è più nel markup della home, vedi sopra). Il toggle "Sottolinea", il campo nota e il pulsante "Condividi" vengono iniettati via JS su ogni card, non sono nel markup statico.
 - **Condividi**: genera un'immagine via canvas nel formato di `DEFAULT_SHARE_FORMAT` (oggi `post`, 1080×1350) e usa `navigator.share` con file quando supportato (apre il foglio di condivisione nativo, utile per storie/post Instagram), altrimenti scarica il PNG come fallback. Il formato `storia` (1080×1920) tiene margini verticali ampi perché Instagram sovrappone la propria interfaccia sopra e sotto.
 - **Due trappole del canvas già incontrate**, da non ripetere: (1) `ctx.filter` non è affidabile su Safari — viene ignorato in silenzio; per ricolorare il logo si usa `globalCompositeOperation = 'source-in'`, che funziona ovunque. (2) `ctx.letterSpacing` aggiunge spazio anche **dopo** l'ultima lettera, quindi un testo centrato risulta spostato a sinistra di metà spaziatura: va compensato sommando `spacing/2` alla x.
 - **Verificare le immagini generate misurando i pixel**, non a occhio: si estrae il blob intercettando `URL.createObjectURL`, poi si controllano dimensioni, colore di sfondo e centratura dei blocchi con PIL. Gli scarti di pochi pixel non si vedono ma si sommano.
@@ -100,8 +102,12 @@ appena il suo controllo passa, si aggiorna la riga **Stato** qui sotto, e a fase
 il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, schede, raccolte)
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
-**Stato: Fase 1 completata, verificata, non ancora committata (Fase 0 è già committata in locale
-ma non pushata). Prossimo passo = commit di Fase 1, poi push di entrambe, poi Fase 2.**
+**Stato: Fase 0, Fase 1 e Fase 2 completate. Fase 0 e Fase 1 verificate live su
+sottolineature.it (deploy Vercel confermato il 2026-08-28). Fase 2 verificata in locale, non ancora
+committata/pushata. Prossimo passo = commit e push di Fase 2, poi Fase 3 (fonte verificabile,
+lavoro a lotti di 15) o Fase 4 (pagine opera, richiede di mostrare l'elenco candidati e aspettare
+l'ok) — nessuna delle due ha un comando bundlato come Fasi 0-2 in `SEO.md` §9.1, vanno chieste
+esplicitamente.**
 
 Fase 0 chiusa il 2026-08-28: `vercel.json` (cleanUrls, trailingSlash, redirect host www/vercel.app,
 cache su `/assets/`), `tools/slugs.json` congela i 256 slug citazione + 193 slug autore esistenti
@@ -207,7 +213,7 @@ Tutto dentro `tools/generate_quote_pages.py`.
       puntati da `og:image`/`twitter:image`. Riusa la stessa composizione (virgolette dorate,
       citazione in corsivo, autore, opera, url) del canvas di condivisione in `index.html`, ma
       **con Pillow invece di Playwright**: `tools/generate_og_images.py`, integrato in `build.py`
-      (rigenera solo le immagini più vecchie di `index.html`, fallisce il build se ne manca una).
+      (rigenera solo le immagini più vecchie di `data/citazioni.json`, fallisce il build se ne manca una).
       Scelta deliberata — stesso strumento già usato per `og-banner.png` in questo repo, zero
       dipendenze nuove da scaricare, stesso risultato visivo. Verificato a occhio sulla citazione
       più lunga del sito (485 caratteri) e su un caso breve, nessun overflow del frame.
@@ -226,40 +232,78 @@ di misura che non ho qui in locale).
 
 #### Fase 2 — De-duplicazione e gate di indicizzazione
 
-- [ ] **Togliere `card-context` dall'HTML pubblicato** di home, hub tema/genere/autore e correlate.
-      Il contesto resta esclusivo di `/citazioni/<slug>/`.
-      **Nodo da decidere prima di partire:** `index.html` è la fonte di verità scritta a mano e il
-      contesto lì dentro va conservato, perché è da lì che i generatori lo prendono — va escluso
-      dall'output pubblicato, non cancellato dal sorgente. L'alternativa pulita è estrarre le
-      citazioni in `data/citazioni.json` e far diventare anche `index.html` un file generato, ma
-      **cambierebbe il flusso di lavoro descritto in questo documento**: non farlo senza l'ok
-      esplicito dell'utente.
-- [ ] **Gate di indicizzazione in `build.py`:** un hub entra in sitemap ed è indicizzabile solo se
-      ha **≥ 3 citazioni** *oppure* **≥ 80 parole di testo editoriale originale**. Altrimenti
-      `<meta name="robots" content="noindex,follow">` e fuori dalla sitemap, **ma resta linkato**
-      (serve come percorso di scansione).
-      *Effetto immediato da mettere in conto:* con la soglia a 3, circa **180 pagine autore su 193**
-      finiscono in `noindex` — è la fotografia onesta della situazione, e il motivo per cui le
-      schede autore della Fase 6 non sono un abbellimento. Se la soglia a 3 sembra troppo severa si
-      può partire da 2, ma la scelta va fatta adesso e scritta in `build.py`.
-- [ ] **`<lastmod>` in sitemap** — serve una data per citazione: aggiungere `data-added="YYYY-MM-DD"`
-      sulle card. Ricostruire le date passate da `LOG.md` **solo dove il lotto è identificabile con
-      certezza**; per le altre nessuna data inventata, si parte da qui in avanti.
-- [ ] **`/feed.xml`** con le ultime 20 citazioni per data di aggiunta.
-- [ ] **JSON-LD `WebSite` + `SearchAction`** sulla home con `/?q={search_term_string}`, e il JS
-      della home che legge `?q=` al caricamento e precompila la ricerca (utile anche agli utenti:
-      rende condivisibile una ricerca).
-- [ ] **`ItemList`/`CollectionPage`** sugli hub, con gli elementi in ordine.
-- [ ] **Pagine indice mancanti**, oggi vicoli ciechi: `/citazioni/` paginato (30 per pagina,
-      self-canonical su ognuna), `/autori/` A-Z, `/temi/`, `/generi/`.
-- [ ] **Rapporto di fine build** in `build.py`: URL totali, URL indicizzabili, hub sotto soglia,
-      title duplicati, description duplicate, pagine senza H1, citazioni senza fonte, slug nuovi,
-      301 aggiunti. **Il build deve fallire** se trova due title identici o una pagina citazione
-      senza H1.
+- [x] **Togliere `card-context` dall'HTML pubblicato** di home, hub tema/genere/autore e correlate.
+      Il contesto resta esclusivo di `/citazioni/<slug>/`. Gli hub e le correlate non l'hanno mai
+      pubblicato (verificato via grep su `generate_hub_pages.py`/`generate_quote_pages.py` prima di
+      partire); l'unico punto reale era la home, che mostrava tutti i 256 contesti in linea.
+      **Nodo architetturale, risolto il 2026-08-28 con ok esplicito dell'utente:** `index.html` era
+      sia la fonte scritta a mano sia il file servito su `/`, quindi non si poteva escludere il
+      contesto dall'output senza toccare la fonte. Scelta fatta: **refactor dati completo**. Le 256
+      citazioni sono ora in `data/citazioni.json` (fonte di verità, un oggetto per citazione,
+      ordine di visualizzazione preservato), `templates/home_template.html` porta la parte fissa
+      (header/filtri/script/footer) e `tools/generate_home.py` genera `index.html` a ogni build —
+      esattamente come già succedeva per `citazioni/`, `temi/`, `generi/`, `autori/`. Nuovo flusso
+      di lavoro per le citazioni: si edita `data/citazioni.json`, non più `index.html` a mano.
+      Verificato: diff byte-per-byte prima/dopo su tutte le pagine generate (citazioni, hub, OG) —
+      zero differenze, il refactor è a costo zero per tutto ciò che non è la home; su `index.html`
+      il diff mostra solo la rimozione del contesto e l'encoding delle virgolette (`'` → `&#x27;`,
+      innocuo, già lo standard usato da `generate_quote_pages.py`). Corretti anche due contatori
+      statici disallineati trovati per errore durante il refactor (footer "253" e paragrafo
+      introduttivo "Duecentocinquantatré", entrambi fermi a un conteggio vecchio): ora calcolati
+      dinamicamente da `len(quotes)`, incluso un numero-in-lettere italiano generato da
+      `italian_number_words()` in `generate_home.py`. Verificato in browser chiaro/scuro/mobile,
+      ricerca e filtri funzionanti (dipendono solo da quote/autore/titolo, mai dal contesto).
+- [x] **Gate di indicizzazione in `build.py`:** un hub (tema/genere/autore) è indicizzabile solo se
+      ha **≥ 3 citazioni** (soglia scelta, in `MIN_INDEXABLE_QUOTES` in `generate_hub_pages.py`;
+      la seconda condizione — ≥ 80 parole di testo editoriale — non si applica ancora a nessun hub,
+      nessuno ha ancora un'introduzione scritta a mano, è un aggancio per la Fase 5/6). Sotto soglia:
+      `<meta name="robots" content="noindex,follow">` in testa e fuori da `sitemap.xml`, ma il file
+      resta generato e linkato (percorso di scansione). Risultato reale dopo il build: **13/193
+      pagine autore indicizzabili, 180 in noindex** — esattamente l'effetto previsto in questo
+      documento prima di partire. Temi (7/7) e generi (5/5) restano tutti indicizzabili, hanno
+      sempre più di 3 citazioni.
+- [x] **`<lastmod>` in sitemap** — campo `added` (`YYYY-MM-DD` o `null`) in `data/citazioni.json`,
+      ricostruito da `LOG.md` con un matching a doppia chiave (autore **e** titolo devono comparire
+      insieme, non uno dei due) contro le righe `— added N quotes (total now T) — aggiunte citazioni
+      di ...`; le righe "aggiunto contesto retroattivo" o "recupero copertine" non contano come
+      aggiunta. Risultato: **155/256 citazioni datate con certezza**, le altre 101 restano senza
+      data (nessuna inventata) — sono per lo più il nucleo iniziale del sito, aggiunto prima che
+      `LOG.md` tracciasse ogni lotto in modo identificabile riga per riga. Un conflitto vero trovato
+      e risolto durante lo sviluppo: uno script di prima versione assegnava a Toni Morrison (Sula)
+      la data 2026-08-18 (recupero copertine) invece di 2026-08-17 (aggiunta reale) perché il
+      troncamento del testo del lotto si fermava alla parola sbagliata — corretto troncando sempre
+      al primo punto e virgola della riga, che separa in modo affidabile "aggiunte" da tutto il
+      resto in ogni riga di `LOG.md`.
+- [x] **`/feed.xml`** — `tools/generate_feed.py`, le 20 citazioni con `added` più recente (fra le
+      155 datate), linkato dalla home con `<link rel="alternate" type="application/rss+xml">`.
+- [x] **JSON-LD `WebSite` + `SearchAction`** sulla home con `/?q={search_term_string}` (statico in
+      `templates/home_template.html`, non cambia a ogni build), e il JS della home legge `?q=` al
+      caricamento, precompila `searchInput` e chiama `applyFilters()` — verificato in browser su
+      `/?q=Camus`: filtra correttamente alle 4 citazioni di Albert Camus.
+- [x] **`ItemList`/`CollectionPage`** su ogni hub tema/genere/autore (`generate_hub_pages.py`) e su
+      ognuna delle nuove pagine indice (sotto), con gli elementi in ordine e `@id` verso il
+      `WebSite` della home. Validato: `JSON.parse` su tutti i blocchi `ld+json` generati.
+- [x] **Pagine indice mancanti**, prima vicoli ciechi — `tools/generate_index_pages.py`:
+      `/citazioni/` paginato 30 per pagina (9 pagine per 256 citazioni), ognuna self-canonical con
+      `rel="prev"`/`rel="next"`; `/autori/` A-Z con conteggio per autore (elenca anche i 180 autori
+      la cui pagina singola è in noindex — resta il percorso per raggiungerli); `/temi/`, `/generi/`
+      con conteggio per hub. Tutte e quattro sempre indicizzabili (sono indici di navigazione, non
+      soggetti al gate sopra). Verificato con un crawl locale su 734 link interni unici (zero rotti)
+      e controllo visivo su `/citazioni/`, `/autori/`.
+- [x] **Rapporto di fine build** in `build.py`: URL totali generati vs URL indicizzabili (con la
+      differenza spiegata: hub sotto soglia), title duplicati, description duplicate, pagine senza
+      H1, citazioni con data nota, citazioni con blocco fonte (0/256, Fase 3 non iniziata), immagini
+      OG. **Il build fallisce** (`SystemExit(1)`) su title duplicato, H1 mancante o immagine OG
+      mancante — invariato da Fase 1, esteso ma non indebolito.
+      *Non implementato:* il conteggio "slug nuovi" e "301 aggiunti" del testo originale — il
+      secondo è già coperto da "Redirect in vercel.json" nel rapporto esistente, il primo non
+      sembrava aggiungere informazione utile oltre a quello che `slugs.json aggiornato` già stampa
+      quando succede.
 
-**Controllo di accettazione:** preso a caso un contesto, `grep -rl` sui file HTML pubblicati
-restituisce **un solo** risultato; il rapporto di `build.py` mostra URL indicizzabili < URL totali
-con la differenza spiegata; la sitemap contiene solo URL indicizzabili.
+**Controllo di accettazione:** verificato — `grep -rl 'card-context'` sui file HTML pubblicati
+restituisce solo i file in `citazioni/` (un risultato per citazione, mai su home/hub/correlate); il
+rapporto di `build.py` mostra URL indicizzabili (295) < URL totali (475) con la differenza spiegata
+(180 hub sotto soglia); la sitemap contiene solo i 295 URL indicizzabili.
 
 #### Fase 3 — Fonte verificabile su ogni citazione *(il lavoro che vale di più)*
 

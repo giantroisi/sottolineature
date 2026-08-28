@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sottolineature",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4576"],
+      "port": 4576
+    }
+  ]
+}

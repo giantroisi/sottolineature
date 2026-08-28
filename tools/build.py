@@ -10,9 +10,12 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import generate_home as gh  # noqa: E402
 import generate_quote_pages as qp  # noqa: E402
 import generate_hub_pages as hp  # noqa: E402
 import generate_og_images as og  # noqa: E402
+import generate_index_pages as ip  # noqa: E402
+import generate_feed as feed  # noqa: E402
 
 
 HOST_REDIRECTS = [
@@ -70,8 +73,20 @@ def write_vercel_json(redirects):
 
 
 def main():
+    gh.main()
     qp_entries = qp.main()
-    hp_entries, author_slugs, tema_slugs, genere_slugs = hp.main()
+    hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main()
+    citazioni_index_urls = ip.main(qp_entries, author_slugs, tema_status, genere_status)
+    feed_path = feed.main(qp_entries)
+
+    indexable_temi = [c for c, ok in tema_status.items() if ok]
+    indexable_generi = [g for g, ok in genere_status.items() if ok]
+    indexable_autori = sorted(a for a, ok in author_status.items() if ok)
+    hub_below_threshold = (
+        [c for c, ok in tema_status.items() if not ok] +
+        [g for g, ok in genere_status.items() if not ok] +
+        [a for a, ok in author_status.items() if not ok]
+    )
 
     sitemap_path = os.path.join(qp.ROOT, 'sitemap.xml')
     with open(sitemap_path, 'w', encoding='utf-8') as f:
@@ -79,13 +94,19 @@ def main():
         f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         f.write('  <url><loc>' + qp.SITE_URL + '/</loc></url>\n')
         f.write('  <url><loc>' + qp.SITE_URL + '/metodo/</loc></url>\n')
-        for slug, _ in qp_entries:
-            f.write('  <url><loc>' + qp.SITE_URL + '/citazioni/' + slug + '/</loc></url>\n')
-        for cat in tema_slugs:
+        for slug, q in qp_entries:
+            lastmod = ('<lastmod>' + q['added'] + '</lastmod>') if q.get('added') else ''
+            f.write('  <url><loc>' + qp.SITE_URL + '/citazioni/' + slug + '/</loc>' + lastmod + '</url>\n')
+        for href in citazioni_index_urls:
+            f.write('  <url><loc>' + qp.SITE_URL + href + '</loc></url>\n')
+        f.write('  <url><loc>' + qp.SITE_URL + '/autori/</loc></url>\n')
+        f.write('  <url><loc>' + qp.SITE_URL + '/temi/</loc></url>\n')
+        f.write('  <url><loc>' + qp.SITE_URL + '/generi/</loc></url>\n')
+        for cat in indexable_temi:
             f.write('  <url><loc>' + qp.SITE_URL + '/temi/' + cat + '/</loc></url>\n')
-        for gen in genere_slugs:
+        for gen in indexable_generi:
             f.write('  <url><loc>' + qp.SITE_URL + '/generi/' + gen + '/</loc></url>\n')
-        for aslug in sorted(set(author_slugs.values())):
+        for aslug in indexable_autori:
             f.write('  <url><loc>' + qp.SITE_URL + '/autori/' + aslug + '/</loc></url>\n')
         f.write('</urlset>\n')
 
@@ -94,7 +115,14 @@ def main():
 
     og_generated, og_skipped, og_stray = og.generate(qp_entries)
 
-    total = 2 + len(qp_entries) + len(tema_slugs) + len(genere_slugs) + len(set(author_slugs.values()))
+    total_pages = (
+        2 + len(qp_entries) + len(citazioni_index_urls) + 3 +
+        len(tema_status) + len(genere_status) + len(author_status)
+    )
+    total_indexable = (
+        2 + len(qp_entries) + len(citazioni_index_urls) + 3 +
+        len(indexable_temi) + len(indexable_generi) + len(indexable_autori)
+    )
 
     # --- Controlli di qualita: title/description duplicati, H1 presente ---
     title_tags = {}
@@ -120,18 +148,27 @@ def main():
             if '<h1 class="card-quote">' not in f.read():
                 missing_h1.append(slug)
 
+    quotes_with_source = 0  # Fase 3 non ancora fatta: nessuna citazione ha ancora un blocco fonte
+    dated = sum(1 for _, q in qp_entries if q.get('added'))
+
     print()
     print('--- Rapporto build.py ---')
-    print('URL totali in sitemap:', total)
-    print('  citazioni:', len(qp_entries))
-    print('  temi:', len(tema_slugs), '| generi:', len(genere_slugs), '| autori:', len(set(author_slugs.values())))
+    print('URL totali generati (indicizzabili + noindex):', total_pages)
+    print('URL indicizzabili (in sitemap):', total_indexable, '(differenza:', total_pages - total_indexable, 'hub sotto soglia, vedi sotto)')
+    print('  citazioni:', len(qp_entries), '| indice /citazioni/:', len(citazioni_index_urls), 'pagine')
+    print('  temi:', len(indexable_temi), '/', len(tema_status), '| generi:', len(indexable_generi), '/', len(genere_status),
+          '| autori:', len(indexable_autori), '/', len(author_status))
+    print('Hub sotto soglia (< 3 citazioni, noindex,follow ma linkati):', len(hub_below_threshold))
     print('Redirect in vercel.json:', len(redirects))
     print('Title <title> duplicati fra pagine citazione:', len(dup_titles))
     print('Meta description duplicate fra pagine citazione:', len(dup_descriptions))
     print('Pagine citazione senza <h1>:', len(missing_h1))
+    print('Citazioni con data di aggiunta nota (<lastmod>/feed.xml):', dated, '/', len(qp_entries))
+    print('Citazioni con blocco fonte (Fase 3, non ancora iniziata):', quotes_with_source, '/', len(qp_entries))
     print('Immagini OG generate:', og_generated, '| gia aggiornate:', og_skipped, '| totale attese:', len(qp_entries))
     print('vercel.json scritto in', vercel_path)
     print('sitemap aggiornata in', sitemap_path)
+    print('feed.xml scritto in', feed_path)
 
     missing_og = [slug for slug, _ in qp_entries if not os.path.isfile(os.path.join(og.OUT_DIR, slug + '.png'))]
 

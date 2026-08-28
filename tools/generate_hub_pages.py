@@ -6,12 +6,13 @@ Dipende dallo stesso parsing di generate_quote_pages.py; rilegge index.html
 ogni volta, ricostruisce temi/*.html, generi/*.html, autori/*.html da zero.
 """
 import html
+import json
 import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from generate_quote_pages import (  # noqa: E402
-    ROOT, INDEX, SITE_URL, parse_cards, slugify, assign_slugs, load_slugs, save_slugs, load_redirects,
+    ROOT, SITE_URL, load_quotes, slugify, assign_slugs, load_slugs, save_slugs, load_redirects,
 )
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
 
@@ -24,7 +25,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
 <meta name="theme-color" content="#f2f0eb">
 <title>{title_tag}</title>
 <meta name="description" content="{description}">
-<link rel="canonical" href="{canonical}">
+{robots_meta}<link rel="canonical" href="{canonical}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title_tag}">
 <meta property="og:description" content="{description}">
@@ -40,6 +41,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
+<script type="application/ld+json">{jsonld}</script>
 <script>
   try {{
     var savedTheme = localStorage.getItem('sottolineature-theme');
@@ -98,6 +100,9 @@ def card_html(slug, q):
     )
 
 
+MIN_INDEXABLE_QUOTES = 3
+
+
 def render_hub(kind, slug, label, items, nav_links, current_href):
     count = len(items)
     count_suffix = 'i' if count != 1 else 'e'
@@ -126,18 +131,51 @@ def render_hub(kind, slug, label, items, nav_links, current_href):
     canonical = SITE_URL + '/' + dir_by_kind[kind] + '/' + slug + '/'
     title_tag = h1 + ' | Sottolineature'
 
+    # Gate di indicizzazione (Fase 2 SEO.md): un hub con poche citazioni e
+    # nessun testo editoriale proprio non porta valore a un motore di
+    # ricerca — resta pubblicato e linkato (percorso di scansione), ma
+    # esce dalla sitemap e va in noindex,follow finché non supera la soglia
+    # o non riceve un'introduzione scritta a mano (Fase 5/6).
+    indexable = count >= MIN_INDEXABLE_QUOTES
+    robots_meta = '' if indexable else '<meta name="robots" content="noindex,follow">\n'
+
+    item_list = {
+        '@type': 'ItemList',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': i + 1,
+                'url': SITE_URL + '/citazioni/' + s + '/',
+            }
+            for i, (s, _) in enumerate(items)
+        ],
+    }
+    collection_page = {
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': canonical + '#collectionpage',
+        'url': canonical,
+        'name': title_tag,
+        'description': description,
+        'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
+        'mainEntity': item_list,
+    }
+    jsonld = json.dumps(collection_page, ensure_ascii=False)
+
     return HUB_TEMPLATE.format(
         title_tag=html.escape(title_tag),
         description=html.escape(description),
+        robots_meta=robots_meta,
         canonical=canonical,
         og_image=SITE_URL + '/og-banner.png',
+        jsonld=jsonld,
         eyebrow=html.escape(eyebrow),
         h1=html.escape(h1),
         count=count,
         count_suffix=count_suffix,
         nav_html=nav_html,
         cards_html=cards_html,
-    )
+    ), indexable
 
 
 def assign_author_slugs(authors, slugs_data):
@@ -162,9 +200,7 @@ def assign_author_slugs(authors, slugs_data):
 
 
 def main():
-    with open(INDEX, encoding='utf-8') as f:
-        content = f.read()
-    quotes = parse_cards(content)
+    quotes = load_quotes()
 
     slugs_data = load_slugs()
     entries, quotes_changed = assign_slugs(quotes, slugs_data, load_redirects())
@@ -183,31 +219,31 @@ def main():
     temi_dir = os.path.join(ROOT, 'temi')
     os.makedirs(temi_dir, exist_ok=True)
     tema_nav = [(CATEGORY_LABELS[c], '/temi/' + c + '/') for c in CATEGORY_LABELS]
-    tema_slugs = []
+    tema_status = {}
     for cat, label in CATEGORY_LABELS.items():
         items = [(s, q) for s, q in entries if q['category'] == cat]
         if not items:
             continue
-        page = render_hub('tema', cat, label, items, tema_nav, '/temi/' + cat + '/')
+        page, indexable = render_hub('tema', cat, label, items, tema_nav, '/temi/' + cat + '/')
         with open(os.path.join(temi_dir, cat + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
-        tema_slugs.append(cat)
-    print('Pagine tema generate:', len(tema_slugs))
+        tema_status[cat] = indexable
+    print('Pagine tema generate:', len(tema_status))
 
     # --- Generi ---
     generi_dir = os.path.join(ROOT, 'generi')
     os.makedirs(generi_dir, exist_ok=True)
     genere_nav = [(GENRE_LABELS[g], '/generi/' + g + '/') for g in GENRE_LABELS]
-    genere_slugs = []
+    genere_status = {}
     for gen, label in GENRE_LABELS.items():
         items = [(s, q) for s, q in entries if gen in (q['genre'] or '').split(' ')]
         if not items:
             continue
-        page = render_hub('genere', gen, label, items, genere_nav, '/generi/' + gen + '/')
+        page, indexable = render_hub('genere', gen, label, items, genere_nav, '/generi/' + gen + '/')
         with open(os.path.join(generi_dir, gen + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
-        genere_slugs.append(gen)
-    print('Pagine genere generate:', len(genere_slugs))
+        genere_status[gen] = indexable
+    print('Pagine genere generate:', len(genere_status))
 
     # --- Autori ---
     autori_dir = os.path.join(ROOT, 'autori')
@@ -218,19 +254,23 @@ def main():
 
     existing_author_files = set(os.listdir(autori_dir)) if os.path.isdir(autori_dir) else set()
 
+    author_status = {}
     for author, items in by_author.items():
         aslug = author_slugs[author]
-        page = render_hub('autore', aslug, author, items, [], '')
+        page, indexable = render_hub('autore', aslug, author, items, [], '')
         with open(os.path.join(autori_dir, aslug + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
+        author_status[aslug] = indexable
     generated_author_files = set(author_slugs[a] + '.html' for a in by_author)
-    stale = existing_author_files - generated_author_files
+    # index.html non e' un file di questo generatore: lo scrive
+    # generate_index_pages.py (l'indice A-Z), va escluso dalla pulizia stale.
+    stale = existing_author_files - generated_author_files - {'index.html'}
     for fname in stale:
         if fname.endswith('.html'):
             os.remove(os.path.join(autori_dir, fname))
     print('Pagine autore generate:', len(by_author), '(rimosse obsolete:', len(stale), ')')
 
-    return entries, author_slugs, tema_slugs, genere_slugs
+    return entries, author_slugs, tema_status, genere_status, author_status
 
 
 if __name__ == '__main__':

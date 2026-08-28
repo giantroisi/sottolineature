@@ -163,12 +163,12 @@ def generate(entries):
     Ritorna (generated, skipped, stray) per il rapporto di build.py."""
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    index_mtime = os.path.getmtime(qp.INDEX)
+    data_mtime = os.path.getmtime(qp.DATA_PATH)
     generated = 0
     skipped = 0
     for slug, q in entries:
         out_path = os.path.join(OUT_DIR, slug + '.png')
-        if os.path.exists(out_path) and os.path.getmtime(out_path) >= index_mtime:
+        if os.path.exists(out_path) and os.path.getmtime(out_path) >= data_mtime:
             skipped += 1
             continue
         render_og_image(q['quote'], q['author'], q['title'], q['year'], out_path)
@@ -182,9 +182,7 @@ def generate(entries):
 
 
 def main():
-    with open(qp.INDEX, encoding='utf-8') as f:
-        content = f.read()
-    quotes = qp.parse_cards(content)
+    quotes = qp.load_quotes()
 
     slugs_data = qp.load_slugs()
     redirects = qp.load_redirects()

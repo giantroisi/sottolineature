@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f0eb">
+<title>Sottolineature — citazioni da libri</title>
+<meta name="description" content="{{COUNT}} citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
+<link rel="canonical" href="https://sottolineature.it/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sottolineature — citazioni da libri">
+<meta property="og:description" content="{{COUNT}} citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
+<meta property="og:image" content="https://sottolineature.it/og-banner.png">
+<meta property="og:url" content="https://sottolineature.it/">
+<meta property="og:site_name" content="Sottolineature">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sottolineature — citazioni da libri">
+<meta name="twitter:description" content="{{COUNT}} citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
+<meta name="twitter:image" content="https://sottolineature.it/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="alternate" type="application/rss+xml" title="Sottolineature — ultime citazioni" href="/feed.xml">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f2f0eb;
+    --paper-raised: #f8f7f3;
+    --ink: #211f1b;
+    --ink-soft: #5b564d;
+    --ink-faint: #8c8577;
+    --accent: #33523f;
+    --accent-soft: #6b8574;
+    --gold: #9c7a3c;
+    --rule: #ddd9cf;
+    --shadow: rgba(33, 31, 27, 0.08);
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #16191a;
+    --paper-raised: #1f2224;
+    --ink: #ece7dd;
+    --ink-soft: #a9a296;
+    --ink-faint: #746e62;
+    --accent: #8fb59b;
+    --accent-soft: #5c7c68;
+    --gold: #c9a45c;
+    --rule: #33362f;
+    --shadow: rgba(0, 0, 0, 0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .sans {
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .page {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.75rem 5rem;
+  }
+
+  header.masthead {
+    max-width: 40rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 0.9rem;
+  }
+
+  h1.title {
+    margin: 0 0 1rem;
+    line-height: 0;
+  }
+
+  .logo-mark {
+    display: block;
+    height: clamp(9rem, 20vw, 15rem);
+    width: auto;
+    max-width: 100%;
+  }
+  :root[data-theme="dark"] .logo-mark {
+    filter: invert(1);
+  }
+
+  .lede {
+    font-size: 1.02rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  /* Hero featured quote */
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .hero-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 0.9rem;
+  }
+
+  #heroQuote {
+    font-size: clamp(1.15rem, 2.1vw, 1.5rem);
+    line-height: 1.4;
+    font-style: italic;
+    font-weight: 400;
+    margin: 0 0 1.1rem;
+    max-width: 42rem;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  #heroCitation {
+    font-family: inherit;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    margin: 0 0 1.75rem;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  #heroCitation .card-title { font-style: italic; }
+
+  .hero.fading #heroQuote,
+  .hero.fading #heroCitation {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #heroQuote, #heroCitation { transition: none; }
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.4rem;
+    flex-wrap: wrap;
+  }
+
+  .underline-toggle.hero-underline-btn {
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    margin: 0;
+  }
+
+  .shuffle-btn,
+  .hero-copy-btn {
+    all: unset;
+    cursor: pointer;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent-soft);
+    padding-bottom: 2px;
+  }
+  .shuffle-btn:hover,
+  .hero-copy-btn:hover { color: var(--gold); border-color: var(--gold); }
+  .shuffle-btn:focus-visible,
+  .hero-copy-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+  /* Search */
+  .search-sentinel {
+    height: 0;
+  }
+
+  .search-bar {
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 1.75rem;
+    padding: 0.4rem 0;
+    background: var(--paper);
+    transition: padding 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+  }
+  .search-bar.is-stuck {
+    padding: 0.6rem 0 0.6rem 4rem;
+    border-bottom: 1px solid var(--rule);
+    box-shadow: 0 2px 10px var(--shadow);
+  }
+
+  .search-bar-logo {
+    display: none;
+    height: 2rem;
+    width: 2rem;
+    flex-shrink: 0;
+    border-radius: 4px;
+  }
+  .search-bar.is-stuck .search-bar-logo { display: block; }
+
+  .search-input-wrap {
+    position: relative;
+    flex: 1 1 auto;
+    max-width: 26rem;
+  }
+
+  #searchInput {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.95rem;
+    padding: 0.65rem 2.1rem 0.65rem 0.9rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--ink);
+  }
+  #searchInput::placeholder { color: var(--ink-faint); }
+  #searchInput:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  #searchInput::-webkit-search-cancel-button { display: none; }
+
+  .search-clear-btn {
+    all: unset;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.4rem;
+    height: 100%;
+    max-height: 2.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--ink-faint);
+  }
+  .search-clear-btn[hidden] { display: none; }
+  .search-clear-btn:hover { color: var(--ink); }
+  .search-clear-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+  .search-suggestions {
+    position: absolute;
+    top: calc(100% + 0.35rem);
+    left: 0;
+    right: 0;
+    max-width: 26rem;
+    margin: 0;
+    padding: 0.3rem 0;
+    list-style: none;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    box-shadow: 0 4px 14px var(--shadow);
+    max-height: 15rem;
+    overflow-y: auto;
+    z-index: 15;
+  }
+  .search-suggestions[hidden] { display: none; }
+
+  .search-suggestion {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+  .search-suggestion:hover,
+  .search-suggestion.is-active {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .search-suggestion-type {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  /* Filters */
+  .filters-note {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--ink-faint);
+    margin: 0 0 0.9rem;
+  }
+
+  nav.filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 1.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  nav.genre-filters {
+    margin-bottom: 2.5rem;
+    padding-bottom: 0;
+    border-bottom: none;
+  }
+  nav.genre-filters .filter-btn { font-size: 0.72rem; }
+  .genre-filters-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-right: 0.2rem;
+  }
+
+  .filter-btn {
+    all: unset;
+    cursor: pointer;
+    font-size: 0.78rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    padding: 0.3rem 0;
+    border-bottom: 1px solid transparent;
+  }
+  .filter-btn:hover { color: var(--ink); }
+  .filter-btn.active { color: var(--accent); border-color: var(--accent); }
+  .filter-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .print-selection-btn {
+    all: unset;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.82rem;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent-soft);
+    padding-bottom: 2px;
+    margin: 0 0 2.5rem;
+  }
+  .print-selection-btn:hover { color: var(--gold); border-color: var(--gold); }
+  .print-selection-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .print-selection-btn[hidden] { display: none; }
+
+  .empty-state {
+    font-size: 0.95rem;
+    color: var(--ink-faint);
+    padding: 2.5rem 0;
+    text-align: center;
+  }
+
+  /* Grid of quote cards */
+  .grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .grid-col {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  @media (max-width: 700px) {
+    .grid { flex-direction: column; gap: 0; }
+
+    .theme-toggle {
+      width: 2.75rem;
+      height: 2.75rem;
+      top: 0.85rem;
+      left: 0.85rem;
+      font-size: 1.2rem;
+    }
+
+    #searchInput { padding: 0.8rem 2.3rem 0.8rem 1rem; font-size: 1rem; }
+    .search-clear-btn { width: 2.6rem; max-height: 2.85rem; font-size: 1.4rem; }
+    header.masthead { margin-bottom: 1.1rem; }
+    .search-bar { margin-bottom: 1.1rem; }
+
+    .filters-note { margin-bottom: 1.1rem; }
+
+    nav.filters {
+      gap: 0.75rem 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+    }
+    .filter-btn { padding: 0.4rem 0.1rem; }
+
+    nav.genre-filters {
+      margin-bottom: 2.5rem;
+      padding: 1rem 0.9rem;
+      background: var(--paper-raised);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      gap: 0.65rem 0.9rem;
+    }
+    .genre-filters-label {
+      display: block;
+      width: 100%;
+      margin: 0 0 0.5rem;
+    }
+    nav.genre-filters .filter-btn {
+      padding: 0.35rem 0.6rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+    }
+    nav.genre-filters .filter-btn.active {
+      border-color: var(--accent);
+      background: var(--paper);
+    }
+
+    .card { margin-bottom: 2.75rem; }
+    .card-quote { margin-bottom: 0.85rem; }
+    .card-citation { margin-bottom: 0.6rem; }
+    .card-context { margin-bottom: 0.85rem; }
+  }
+
+  .card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    break-inside: avoid;
+    position: relative;
+    margin: 0 0 2.5rem;
+    padding: 0.1rem 0 0.1rem 1.35rem;
+    border-left: 2px solid var(--rule);
+    cursor: pointer;
+    transition: border-color 0.2s ease;
+  }
+  .card:hover,
+  .card:focus-visible {
+    border-left-color: var(--accent);
+  }
+  .card:focus-visible { outline: none; }
+  .card.is-highlighted {
+    border-left-color: var(--gold);
+    border-left-width: 3px;
+  }
+
+  .card-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .card-cover {
+    width: 44px;
+    height: 66px;
+    object-fit: cover;
+    border-radius: 2px;
+    flex-shrink: 0;
+    background: var(--paper-raised);
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+
+  .card-cover-placeholder {
+    width: 44px;
+    height: 66px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    box-shadow: 0 1px 3px var(--shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .card-mark {
+    position: absolute;
+    left: -0.15rem;
+    top: -1.1rem;
+    font-size: 3rem;
+    font-family: Georgia, serif;
+    color: var(--gold);
+    opacity: 0.35;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .card-quote {
+    font-size: clamp(1.03rem, 1.6vw, 1.2rem);
+    line-height: 1.55;
+    font-style: italic;
+    margin: 0 0 0.7rem;
+  }
+
+  .card-citation {
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    margin: 0 0 0.5rem;
+  }
+  .card-citation .card-title { font-style: italic; }
+
+  .card-context {
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--ink-faint);
+    margin: 0 0 0.6rem;
+    max-width: 34rem;
+  }
+
+  .card-author {
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+  }
+  .card-author:hover,
+  .card-author:focus-visible {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    outline: none;
+  }
+
+  .card-hint {
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+  .card:hover .card-hint,
+  .card:focus-visible .card-hint {
+    opacity: 0.85;
+  }
+
+  .card.is-underlined { border-left-color: var(--gold); }
+
+  .card.is-underlined .card-quote {
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+  }
+
+  .hero.is-underlined #heroQuote {
+    text-decoration: underline;
+    text-decoration-color: var(--gold);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+  }
+
+  .underline-toggle {
+    all: unset;
+    cursor: pointer;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: inline-block;
+    margin: 0 1.1rem 0.4rem 0;
+  }
+  .underline-toggle:hover { color: var(--gold); }
+  .underline-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .underline-toggle.is-active { color: var(--gold); }
+
+  .filter-btn-underlined { color: var(--gold); }
+  .filter-btn-underlined.active { color: var(--accent); border-color: var(--accent); }
+
+  .card-note-wrap { display: none; }
+  .card.is-underlined .card-note-wrap,
+  .hero.is-underlined .card-note-wrap {
+    display: block;
+  }
+
+  .card-note {
+    display: block;
+    width: 100%;
+    max-width: 34rem;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 0.5rem 0.65rem;
+    margin: 0 0 0.6rem;
+    resize: vertical;
+  }
+  .card-note::placeholder { color: var(--ink-faint); }
+  .card-note:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+
+  .card-note-print {
+    display: none;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+    white-space: pre-wrap;
+  }
+
+  .theme-toggle {
+    all: unset;
+    position: fixed;
+    top: 1.1rem;
+    left: 1.1rem;
+    z-index: 20;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    line-height: 1;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  .theme-toggle:hover { color: var(--gold); border-color: var(--gold); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    margin-top: 4rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+  }
+  footer a {
+    color: var(--ink-faint);
+    border-bottom: 1px solid var(--rule);
+  }
+  footer a:hover { color: var(--gold); border-color: var(--gold); }
+
+  @media print {
+    :root {
+      color-scheme: light;
+      --paper: #ffffff;
+      --paper-raised: #ffffff;
+      --ink: #111111;
+      --ink-soft: #333333;
+      --ink-faint: #666666;
+      --accent: #333333;
+      --accent-soft: #999999;
+      --gold: #555555;
+      --rule: #bbbbbb;
+      --shadow: transparent;
+    }
+    .theme-toggle,
+    .search-bar,
+    .filters-note,
+    nav.filters,
+    .print-selection-btn,
+    .hero,
+    .underline-toggle,
+    .card-hint,
+    .card-mark {
+      display: none !important;
+    }
+    header.masthead { max-width: none; }
+    .grid { display: block; }
+    .grid-col { width: 100%; }
+    .card-note { display: none !important; }
+    .card-note-print { display: block; }
+    .card-note-print[hidden] { display: none; }
+    .card {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+    body { background: #fff; }
+  }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://sottolineature.it/#website","url":"https://sottolineature.it/","name":"Sottolineature","description":"Citazioni da libri raccolte e verificate a mano, senza algoritmo.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sottolineature.it/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
+<script>
+  try {
+    var savedTheme = localStorage.getItem('sottolineature-theme');
+    if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+
+<div class="page" id="page">
+
+  <header class="masthead">
+    <p class="eyebrow sans">Una raccolta di citazioni</p>
+    <h1 class="title"><img src="logo.svg" alt="Sottolineature" class="logo-mark"></h1>
+    <p class="lede">
+      {{COUNT_WORDS}} righe segnate a matita in libri diversi — romanzi, poesie, pagine che si
+      aprono sempre nello stesso punto. Sfoglia per tema, o lasciati sorprendere.
+    </p>
+  </header>
+
+  <div class="search-sentinel" id="searchSentinel" aria-hidden="true"></div>
+  <div class="search-bar" id="searchBar">
+    <img class="search-bar-logo" src="mark-quill.png" alt="" aria-hidden="true">
+    <div class="search-input-wrap">
+      <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
+      <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Cancella ricerca" hidden>×</button>
+      <ul class="search-suggestions sans" id="searchSuggestions" role="listbox" hidden></ul>
+    </div>
+  </div>
+
+  <section class="hero" id="hero">
+    <p class="hero-label sans">In evidenza</p>
+    <p id="heroQuote">«Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita.»</p>
+    <p id="heroCitation" class="sans">
+      <span class="card-author">Dante Alighieri</span> — <span class="card-title">Inferno, Divina Commedia</span> · <span class="card-year">1321</span>
+    </p>
+    <div class="hero-actions">
+      <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
+      <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
+      <button class="hero-copy-btn sans" id="heroExportBtn" type="button">Condividi</button>
+      <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
+    </div>
+  </section>
+
+  <p class="filters-note sans">Non una classificazione, ma un umore: la stessa pagina può riconoscersi in più d'uno.</p>
+  <nav class="filters sans" id="filters">
+    <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
+    <a class="filter-btn" data-filter="vita" href="/temi/vita/">Vita</a>
+    <a class="filter-btn" data-filter="amore" href="/temi/amore/">Amore</a>
+    <a class="filter-btn" data-filter="coraggio" href="/temi/coraggio/">Coraggio</a>
+    <a class="filter-btn" data-filter="liberta" href="/temi/liberta/">Libertà</a>
+    <a class="filter-btn" data-filter="tempo" href="/temi/tempo/">Tempo</a>
+    <a class="filter-btn" data-filter="solitudine" href="/temi/solitudine/">Solitudine</a>
+    <a class="filter-btn" data-filter="verita" href="/temi/verita/">Verità</a>
+    <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
+  </nav>
+
+  <nav class="filters genre-filters sans" id="genreFilters">
+    <span class="genre-filters-label sans">Genere</span>
+    <button class="filter-btn active" data-genre="tutti" type="button">Tutti</button>
+    <a class="filter-btn" data-genre="fantasy" href="/generi/fantasy/">Fantasy</a>
+    <a class="filter-btn" data-genre="fantascienza" href="/generi/fantascienza/">Fantascienza</a>
+    <a class="filter-btn" data-genre="distopia" href="/generi/distopia/">Distopia</a>
+    <a class="filter-btn" data-genre="horror" href="/generi/horror/">Horror/Gotico</a>
+    <a class="filter-btn" data-genre="saggistica" href="/generi/saggistica/">Saggistica</a>
+  </nav>
+
+  <button class="print-selection-btn sans" id="printSelectionBtn" type="button" hidden>Stampa o esporta questa selezione</button>
+
+  <p class="empty-state sans" id="emptyState" hidden>Nessuna citazione trovata. Prova a cercare un altro autore, titolo o parola.</p>
+
+  <div class="grid" id="grid">
+
+{{CARDS}}
+  </div>
+
+  <footer class="sans">
+    {{COUNT}} citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
+    qui sono solo tenute da parte per essere rilette.
+    <a href="/metodo/">Come verifichiamo le citazioni →</a>
+  </footer>
+
+</div>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+
+    function currentTheme() {
+      return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    }
+
+    function render() {
+      toggle.textContent = currentTheme() === 'dark' ? '☀' : '☾';
+    }
+
+    render();
+
+    toggle.addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      try { localStorage.setItem('sottolineature-theme', next); } catch (e) {}
+      render();
+    });
+  })();
+
+  (function () {
+    var grid = document.getElementById('grid');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
+
+    var COVER_PALETTE = ['#8a6f5c', '#6b7c6e', '#7d6a8a', '#8a7355', '#6f7d8a', '#8a5f5f', '#5f7a7d', '#7a6f8a'];
+
+    function initialsFor(name) {
+      var tokens = name.replace(/\./g, '').split(/\s+/).filter(Boolean);
+      if (tokens.length === 1) { return tokens[0].slice(0, 2).toUpperCase(); }
+      return (tokens[0][0] + tokens[tokens.length - 1][0]).toUpperCase();
+    }
+
+    cards.forEach(function (card) {
+      if (card.querySelector('.card-cover')) { return; }
+      var author = card.querySelector('.card-author').textContent;
+      var sum = 0;
+      for (var i = 0; i < author.length; i++) { sum += author.charCodeAt(i); }
+      var color = COVER_PALETTE[sum % COVER_PALETTE.length];
+      var tile = document.createElement('span');
+      tile.className = 'card-cover-placeholder';
+      tile.style.background = color;
+      tile.setAttribute('aria-hidden', 'true');
+      tile.textContent = initialsFor(author);
+      card.appendChild(tile);
+    });
+
+    var gridColA = document.createElement('div');
+    gridColA.className = 'grid-col';
+    var gridColB = document.createElement('div');
+    gridColB.className = 'grid-col';
+    grid.appendChild(gridColA);
+    grid.appendChild(gridColB);
+
+    var singleColumnQuery = window.matchMedia('(max-width: 700px)');
+
+    function redistribute() {
+      var singleColumn = singleColumnQuery.matches;
+      var i = 0;
+      cards.forEach(function (card) {
+        if (card.style.display !== 'none') {
+          var target = singleColumn ? gridColA : (i % 2 === 0 ? gridColA : gridColB);
+          target.appendChild(card);
+          i++;
+        }
+      });
+    }
+    if (singleColumnQuery.addEventListener) {
+      singleColumnQuery.addEventListener('change', redistribute);
+    } else if (singleColumnQuery.addListener) {
+      singleColumnQuery.addListener(redistribute);
+    }
+
+    var UNDERLINE_KEY = 'sottolineature-underlined';
+    var underlinedSet = {};
+    try {
+      var stored = JSON.parse(localStorage.getItem(UNDERLINE_KEY) || '[]');
+      stored.forEach(function (k) { underlinedSet[k] = true; });
+    } catch (e) {}
+
+    function saveUnderlined() {
+      try {
+        localStorage.setItem(UNDERLINE_KEY, JSON.stringify(Object.keys(underlinedSet)));
+      } catch (e) {}
+    }
+
+    function quoteKey(card) {
+      return card.querySelector('.card-author').textContent + '|' + card.querySelector('.card-title').textContent;
+    }
+
+    var NOTES_KEY = 'sottolineature-notes';
+    var notesMap = {};
+    try {
+      notesMap = JSON.parse(localStorage.getItem(NOTES_KEY) || '{}');
+    } catch (e) {}
+
+    function saveNotes() {
+      try {
+        localStorage.setItem(NOTES_KEY, JSON.stringify(notesMap));
+      } catch (e) {}
+    }
+
+    function saveNote(key, text) {
+      if (text) { notesMap[key] = text; } else { delete notesMap[key]; }
+      saveNotes();
+    }
+
+    function makeNoteField(getKey) {
+      var wrap = document.createElement('div');
+      wrap.className = 'card-note-wrap';
+
+      var field = document.createElement('textarea');
+      field.className = 'card-note sans';
+      field.rows = 2;
+      field.placeholder = 'Perché ti ha colpita? (facoltativo)';
+
+      var printEl = document.createElement('p');
+      printEl.className = 'card-note-print sans';
+
+      function syncPrint() {
+        var text = field.value.trim();
+        printEl.textContent = text;
+        printEl.hidden = !text;
+      }
+
+      field.value = notesMap[getKey()] || '';
+      syncPrint();
+
+      var saveTimer;
+      field.addEventListener('input', function () {
+        syncPrint();
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(function () { saveNote(getKey(), field.value.trim()); }, 400);
+      });
+      field.addEventListener('click', function (e) { e.stopPropagation(); });
+      field.addEventListener('keydown', function (e) { e.stopPropagation(); });
+
+      wrap.appendChild(field);
+      wrap.appendChild(printEl);
+      wrap.updateValue = function (text) {
+        field.value = text;
+        syncPrint();
+      };
+      return wrap;
+    }
+
+    function wrapCanvasText(ctx, text, maxWidth) {
+      var words = text.split(' ');
+      var lines = [];
+      var current = '';
+      words.forEach(function (word) {
+        var test = current ? current + ' ' + word : word;
+        if (ctx.measureText(test).width > maxWidth && current) {
+          lines.push(current);
+          current = word;
+        } else {
+          current = test;
+        }
+      });
+      if (current) { lines.push(current); }
+      return lines;
+    }
+
+    var shareLogoImg = new Image();
+    shareLogoImg.src = 'logo.svg';
+
+    // Ricolora il logo (inchiostro nero su fondo trasparente) nel colore dato,
+    // conservando la trasparenza. Si usa la composizione invece di ctx.filter,
+    // che Safari non supporta in modo affidabile sul canvas.
+    function tintedLogo(img, color, w, h) {
+      var off = document.createElement('canvas');
+      off.width = Math.max(1, Math.round(w));
+      off.height = Math.max(1, Math.round(h));
+      var octx = off.getContext('2d');
+      octx.drawImage(img, 0, 0, off.width, off.height);
+      octx.globalCompositeOperation = 'source-in';
+      octx.fillStyle = color;
+      octx.fillRect(0, 0, off.width, off.height);
+      return off;
+    }
+
+    // Formati di condivisione. Nelle storie Instagram sovrappone la propria
+    // interfaccia sopra e sotto: i margini verticali ampi tengono il contenuto
+    // dentro la zona sicura, così il logo non finisce sotto la barra dei messaggi.
+    var SHARE_FORMATS = {
+      post: { w: 1080, h: 1350, marginTop: 40, marginBottom: 40, label: 'post' },
+      storia: { w: 1080, h: 1920, marginTop: 250, marginBottom: 280, label: 'storia' }
+    };
+    // Formato usato dal pulsante Condividi. Si usa 4:5 perché è il più
+    // tollerante: pubblicato in una storia resta tutto visibile (con due bande),
+    // mentre un 9:16 messo nel feed verrebbe ritagliato e perderebbe il logo.
+    var DEFAULT_SHARE_FORMAT = 'post';
+
+    function downloadQuoteImage(quote, author, title, year, btn, formatName) {
+      var fmt = SHARE_FORMATS[formatName || DEFAULT_SHARE_FORMAT] || SHARE_FORMATS.post;
+      var width = fmt.w;
+      var height = fmt.h;
+      var padding = 90;
+      var maxWidth = width - padding * 2;
+      var canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+      var ctx = canvas.getContext('2d');
+
+      var cx = width / 2;
+      var frameTop = fmt.marginTop;
+      var frameBottom = height - fmt.marginBottom;
+
+      // I colori vengono letti dal tema attivo della pagina, non scritti fissi:
+      // così l'immagine resta in linea sia col tema chiaro che con quello scuro.
+      var pageStyle = getComputedStyle(document.documentElement);
+      function themeColor(name, fallback) {
+        var value = pageStyle.getPropertyValue(name).trim();
+        return value || fallback;
+      }
+      var colPaper = themeColor('--paper', '#f2f0eb');
+      var colRule = themeColor('--rule', '#ddd9cf');
+      var colGold = themeColor('--gold', '#9c7a3c');
+      var colInk = themeColor('--ink', '#211f1b');
+      var colInkSoft = themeColor('--ink-soft', '#5b564d');
+      var isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
+
+      ctx.fillStyle = colPaper;
+      ctx.fillRect(0, 0, width, height);
+      ctx.strokeStyle = colRule;
+      ctx.lineWidth = 2;
+      ctx.strokeRect(40, frameTop, width - 80, frameBottom - frameTop);
+
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+
+      // --- blocco firma in basso: logo + url ---
+      var urlBaseline = frameBottom - 52;
+      var brandTop = urlBaseline;
+      if (shareLogoImg.complete && shareLogoImg.naturalWidth > 0) {
+        var logoH = 92;
+        var logoW = logoH * (shareLogoImg.naturalWidth / shareLogoImg.naturalHeight);
+        var logoTop = urlBaseline - 34 - logoH;
+        // il logo è a inchiostro nero: sul fondo scuro va schiarito, come nel sito
+        var logoSource = isDarkTheme
+          ? tintedLogo(shareLogoImg, colInk, logoW, logoH)
+          : shareLogoImg;
+        ctx.drawImage(logoSource, cx - logoW / 2, logoTop, logoW, logoH);
+        brandTop = logoTop;
+      }
+      ctx.fillStyle = colGold;
+      ctx.font = '22px -apple-system, "Helvetica Neue", Arial, sans-serif';
+      var urlLetterSpacing = 5;
+      ctx.letterSpacing = urlLetterSpacing + 'px';
+      // la spaziatura viene aggiunta anche dopo l'ultima lettera: si recupera meta
+      ctx.fillText('SOTTOLINEATURE.IT', cx + urlLetterSpacing / 2, urlBaseline);
+      ctx.letterSpacing = '0px';
+
+      // Citazione e attribuzione formano un blocco unico, centrato nello spazio
+      // sopra la firma: così l'attribuzione resta legata alla citazione invece
+      // di sembrare appartenere al logo.
+      var markSize = 108;
+      var markGap = 26;
+      var quoteToAuthorGap = 78;
+      var authorToWorkGap = 46;
+      var workLineHeight = 37;
+
+      var areaTop = frameTop + 100;
+      var areaBottom = brandTop - 104;
+
+      // opera (titolo · anno), in corsivo
+      var work = title + (year ? ' · ' + year : '');
+      ctx.font = 'italic 27px "Iowan Old Style", Georgia, serif';
+      var workLines = wrapCanvasText(ctx, work, maxWidth).slice(0, 2);
+      var workHeight = (workLines.length - 1) * workLineHeight;
+
+      // autore in maiuscolo spaziato, rimpicciolito se il nome è lungo
+      var authorText = author.toUpperCase();
+      var authorSpacing = 6;
+      var authorSize = 26;
+      ctx.letterSpacing = authorSpacing + 'px';
+      while (authorSize > 16) {
+        ctx.font = authorSize + 'px -apple-system, "Helvetica Neue", Arial, sans-serif';
+        if (ctx.measureText(authorText).width <= maxWidth) { break; }
+        authorSize -= 1;
+      }
+      ctx.letterSpacing = '0px';
+
+      var attributionHeight = quoteToAuthorGap + authorSize + authorToWorkGap + workHeight;
+
+      // corpo della citazione: il più grande che entra nello spazio restante
+      var sizes = [72, 64, 58, 52, 46, 40, 35, 30, 26, 22];
+      var chosenLines = [];
+      var chosenSize = sizes[sizes.length - 1];
+      var lineHeight = 0;
+      var maxTextHeight = (areaBottom - areaTop) - markSize - markGap - attributionHeight;
+      for (var i = 0; i < sizes.length; i++) {
+        ctx.font = 'italic ' + sizes[i] + 'px "Iowan Old Style", Georgia, serif';
+        var lines = wrapCanvasText(ctx, quote, maxWidth);
+        lineHeight = Math.round(sizes[i] * 1.45);
+        if (lines.length * lineHeight <= maxTextHeight || i === sizes.length - 1) {
+          chosenLines = lines;
+          chosenSize = sizes[i];
+          break;
+        }
+      }
+
+      var textHeight = chosenLines.length * lineHeight;
+      var groupHeight = markSize + markGap + textHeight + attributionHeight;
+      var groupTop = areaTop + ((areaBottom - areaTop) - groupHeight) / 2;
+
+      // virgolette
+      ctx.fillStyle = colGold;
+      ctx.font = markSize + 'px Georgia, serif';
+      ctx.fillText('“', cx, groupTop + markSize * 0.82);
+
+      // testo della citazione
+      ctx.fillStyle = colInk;
+      ctx.font = 'italic ' + chosenSize + 'px "Iowan Old Style", Georgia, serif';
+      var textY = groupTop + markSize + markGap + chosenSize;
+      chosenLines.forEach(function (line) {
+        ctx.fillText(line, cx, textY);
+        textY += lineHeight;
+      });
+
+      // autore
+      var quoteBottom = groupTop + markSize + markGap + textHeight;
+      var authorBaseline = quoteBottom + quoteToAuthorGap;
+      ctx.fillStyle = colInk;
+      ctx.font = authorSize + 'px -apple-system, "Helvetica Neue", Arial, sans-serif';
+      ctx.letterSpacing = authorSpacing + 'px';
+      ctx.fillText(authorText, cx + authorSpacing / 2, authorBaseline);
+      ctx.letterSpacing = '0px';
+
+      // opera
+      ctx.fillStyle = colInkSoft;
+      ctx.font = 'italic 27px "Iowan Old Style", Georgia, serif';
+      var workY = authorBaseline + authorToWorkGap;
+      workLines.forEach(function (line) {
+        ctx.fillText(line, cx, workY);
+        workY += workLineHeight;
+      });
+
+      canvas.toBlob(function (blob) {
+        var filename = 'sottolineature-' + author.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + fmt.label + '.png';
+        var original = btn ? btn.textContent : '';
+
+        function feedback(text) {
+          if (!btn) { return; }
+          btn.textContent = text;
+          setTimeout(function () { btn.textContent = original; }, 1400);
+        }
+
+        function downloadFallback() {
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = filename;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+          feedback('Scaricata');
+        }
+
+        var file = new File([blob], filename, { type: 'image/png' });
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          navigator.share({
+            files: [file],
+            title: 'Sottolineature',
+            text: '"' + quote + '" — ' + author
+          }).then(function () {
+            feedback('Condiviso');
+          }).catch(function (err) {
+            if (err && err.name === 'AbortError') { return; }
+            downloadFallback();
+          });
+        } else {
+          downloadFallback();
+        }
+      }, 'image/png');
+    }
+
+    function setUnderlined(card, value) {
+      var key = quoteKey(card);
+      if (value) { underlinedSet[key] = true; } else { delete underlinedSet[key]; }
+      saveUnderlined();
+      card.classList.toggle('is-underlined', value);
+      if (card._underlineToggle) {
+        card._underlineToggle.textContent = value ? 'Sottolineata' : 'Sottolinea';
+        card._underlineToggle.classList.toggle('is-active', value);
+        card._underlineToggle.setAttribute('aria-pressed', String(value));
+      }
+      if (currentHeroCard && quoteKey(currentHeroCard) === key) {
+        updateHeroUnderlineBtn();
+      }
+      if (activeCategory === 'sottolineate') { applyFilters(); }
+    }
+
+    var hero = document.getElementById('hero');
+    var heroQuote = document.getElementById('heroQuote');
+    var heroCitation = document.getElementById('heroCitation');
+    var shuffleBtn = document.getElementById('shuffleBtn');
+    var heroCopyBtn = document.getElementById('heroCopyBtn');
+    var heroUnderlineBtn = document.getElementById('heroUnderlineBtn');
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var lastIndex = -1;
+    var currentHeroCard = null;
+
+    var heroNote = makeNoteField(function () { return currentHeroCard ? quoteKey(currentHeroCard) : ''; });
+    hero.appendChild(heroNote);
+
+    function updateHeroUnderlineBtn() {
+      if (!currentHeroCard) { return; }
+      var active = !!underlinedSet[quoteKey(currentHeroCard)];
+      heroUnderlineBtn.textContent = active ? 'Sottolineata' : 'Sottolinea';
+      heroUnderlineBtn.classList.toggle('is-active', active);
+      heroUnderlineBtn.setAttribute('aria-pressed', String(active));
+      hero.classList.toggle('is-underlined', active);
+      heroNote.updateValue(notesMap[quoteKey(currentHeroCard)] || '');
+    }
+
+    heroUnderlineBtn.addEventListener('click', function () {
+      if (!currentHeroCard) { return; }
+      setUnderlined(currentHeroCard, !underlinedSet[quoteKey(currentHeroCard)]);
+    });
+
+    function citationHTML(card) {
+      var author = card.querySelector('.card-author').textContent;
+      var title = card.querySelector('.card-title').textContent;
+      var year = card.querySelector('.card-year').textContent;
+      return '<span class="card-author" tabindex="0">' + author + '</span> — ' +
+             '<span class="card-title">' + title + '</span> · ' +
+             '<span class="card-year">' + year + '</span>';
+    }
+
+    heroCitation.addEventListener('click', function (e) {
+      if (e.target.classList.contains('card-author')) {
+        e.stopPropagation();
+        filterByAuthor(e.target.textContent);
+      }
+    });
+    heroCitation.addEventListener('keydown', function (e) {
+      if (e.target.classList.contains('card-author') && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault();
+        e.stopPropagation();
+        filterByAuthor(e.target.textContent);
+      }
+    });
+
+    function applyRandom() {
+      var i;
+      do { i = Math.floor(Math.random() * cards.length); } while (i === lastIndex && cards.length > 1);
+      lastIndex = i;
+      var card = cards[i];
+      currentHeroCard = card;
+      heroQuote.textContent = '«' + card.querySelector('.card-quote').textContent + '»';
+      heroCitation.innerHTML = citationHTML(card);
+      updateHeroUnderlineBtn();
+    }
+
+    shuffleBtn.addEventListener('click', function () {
+      if (prefersReduced) { applyRandom(); return; }
+      hero.classList.add('fading');
+      setTimeout(function () {
+        applyRandom();
+        hero.classList.remove('fading');
+      }, 220);
+    });
+
+    applyRandom();
+
+    function copyHero() {
+      var quote = heroQuote.textContent.replace(/^«|»$/g, '');
+      var author = heroCitation.querySelector('.card-author').textContent;
+      var title = heroCitation.querySelector('.card-title').textContent;
+      var text = '"' + quote + '" — ' + author + ', ' + title;
+      var original = heroCopyBtn.textContent;
+      function feedback() {
+        heroCopyBtn.textContent = 'Copiato';
+        setTimeout(function () { heroCopyBtn.textContent = original; }, 1400);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(feedback, feedback);
+      } else {
+        feedback();
+      }
+    }
+    heroCopyBtn.addEventListener('click', copyHero);
+
+    var heroExportBtn = document.getElementById('heroExportBtn');
+    heroExportBtn.addEventListener('click', function () {
+      if (!currentHeroCard) { return; }
+      downloadQuoteImage(
+        currentHeroCard.querySelector('.card-quote').textContent,
+        currentHeroCard.querySelector('.card-author').textContent,
+        currentHeroCard.querySelector('.card-title').textContent,
+        currentHeroCard.querySelector('.card-year').textContent,
+        heroExportBtn
+      );
+    });
+
+    var searchInput = document.getElementById('searchInput');
+    var activeCategory = 'tutte';
+    var activeGenre = 'tutti';
+
+    (function () {
+      var searchBar = document.getElementById('searchBar');
+      var sentinel = document.getElementById('searchSentinel');
+      if (searchBar && sentinel && 'IntersectionObserver' in window) {
+        var stickyObserver = new IntersectionObserver(function (entries) {
+          searchBar.classList.toggle('is-stuck', !entries[0].isIntersecting);
+        }, { threshold: 0 });
+        stickyObserver.observe(sentinel);
+      }
+    })();
+
+    function normalize(str) {
+      return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+
+    function slugify(str) {
+      return str
+        .toLowerCase()
+        .normalize('NFKD')
+        .replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-+|-+$/g, '');
+    }
+
+    var slugToCard = {};
+    var usedSlugs = {};
+    cards.forEach(function (card) {
+      var base = slugify(
+        card.querySelector('.card-author').textContent + '-' + card.querySelector('.card-title').textContent
+      );
+      var slug = base;
+      var i = 2;
+      while (usedSlugs[slug]) { slug = base + '-' + i; i++; }
+      usedSlugs[slug] = true;
+      card._slug = slug;
+      slugToCard[slug] = card;
+    });
+
+    cards.forEach(function (card) {
+      var toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'underline-toggle sans';
+      card._underlineToggle = toggle;
+      var active = !!underlinedSet[quoteKey(card)];
+      toggle.textContent = active ? 'Sottolineata' : 'Sottolinea';
+      toggle.classList.toggle('is-active', active);
+      toggle.setAttribute('aria-pressed', String(active));
+      card.classList.toggle('is-underlined', active);
+      toggle.addEventListener('click', function (e) {
+        e.stopPropagation();
+        setUnderlined(card, !underlinedSet[quoteKey(card)]);
+      });
+      toggle.addEventListener('keydown', function (e) { e.stopPropagation(); });
+      var exportBtn = document.createElement('button');
+      exportBtn.type = 'button';
+      exportBtn.className = 'underline-toggle sans card-export-btn';
+      exportBtn.textContent = 'Condividi';
+      exportBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        downloadQuoteImage(
+          card.querySelector('.card-quote').textContent,
+          card.querySelector('.card-author').textContent,
+          card.querySelector('.card-title').textContent,
+          card.querySelector('.card-year').textContent,
+          exportBtn
+        );
+      });
+      exportBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+
+      var linkBtn = document.createElement('a');
+      linkBtn.className = 'underline-toggle sans card-permalink-btn';
+      linkBtn.textContent = 'Link';
+      linkBtn.href = '/citazioni/' + card._slug + '/';
+      linkBtn.addEventListener('click', function (e) { e.stopPropagation(); });
+      linkBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+
+      var hint = card.querySelector('.card-hint');
+      hint.parentNode.insertBefore(toggle, hint);
+      hint.parentNode.insertBefore(exportBtn, hint);
+      hint.parentNode.insertBefore(linkBtn, hint);
+      var note = makeNoteField(function () { return quoteKey(card); });
+      hint.parentNode.insertBefore(note, hint);
+    });
+
+    var emptyState = document.getElementById('emptyState');
+    var printSelectionBtn = document.getElementById('printSelectionBtn');
+    printSelectionBtn.addEventListener('click', function () { window.print(); });
+
+    function applyFilters() {
+      var term = normalize(searchInput.value.trim());
+      var visibleCount = 0;
+      cards.forEach(function (card) {
+        var categoryOk = activeCategory === 'tutte' || card.getAttribute('data-category') === activeCategory;
+        if (activeCategory === 'sottolineate') {
+          categoryOk = card.classList.contains('is-underlined');
+        }
+        var cardGenres = (card.getAttribute('data-genre') || '').split(' ');
+        var genreOk = activeGenre === 'tutti' || cardGenres.indexOf(activeGenre) !== -1;
+        var searchOk = true;
+        if (term) {
+          var haystack = normalize(
+            card.querySelector('.card-quote').textContent + ' ' +
+            card.querySelector('.card-author').textContent + ' ' +
+            card.querySelector('.card-title').textContent
+          );
+          searchOk = haystack.indexOf(term) !== -1;
+        }
+        var visible = categoryOk && genreOk && searchOk;
+        card.style.display = visible ? '' : 'none';
+        if (visible) { visibleCount++; }
+      });
+      redistribute();
+      emptyState.hidden = visibleCount > 0;
+      printSelectionBtn.hidden = !(activeCategory === 'sottolineate' && visibleCount > 0);
+    }
+
+    var filterBtns = Array.prototype.slice.call(document.querySelectorAll('#filters .filter-btn'));
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeCategory = btn.getAttribute('data-filter');
+        // Umore e genere sono due facet indipendenti: selezionarne uno
+        // azzera l'altro, cosi' non capita di restare bloccati su una
+        // combinazione (es. Coraggio + Fantasy) senza risultati.
+        genreBtns.forEach(function (b) { b.classList.remove('active'); });
+        var tuttiGenreBtn = document.querySelector('.filter-btn[data-genre="tutti"]');
+        if (tuttiGenreBtn) { tuttiGenreBtn.classList.add('active'); }
+        activeGenre = 'tutti';
+        applyFilters();
+      });
+    });
+
+    var genreBtns = Array.prototype.slice.call(document.querySelectorAll('#genreFilters .filter-btn'));
+    genreBtns.forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        genreBtns.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        activeGenre = btn.getAttribute('data-genre');
+        filterBtns.forEach(function (b) { b.classList.remove('active'); });
+        var tutteBtn = document.querySelector('.filter-btn[data-filter="tutte"]');
+        if (tutteBtn) { tutteBtn.classList.add('active'); }
+        activeCategory = 'tutte';
+        applyFilters();
+      });
+    });
+
+    // Suggerimenti anticipatori: elenco unico di autori e opere, costruito
+    // una sola volta dalle card già presenti in pagina.
+    var suggestionIndex = (function () {
+      var seen = {};
+      var list = [];
+      cards.forEach(function (card) {
+        var author = card.querySelector('.card-author').textContent.trim();
+        var title = card.querySelector('.card-title').textContent.trim();
+        var authorKey = 'a:' + author.toLowerCase();
+        if (!seen[authorKey]) {
+          seen[authorKey] = true;
+          list.push({ label: author, type: 'autore', norm: normalize(author) });
+        }
+        var titleKey = 't:' + title.toLowerCase();
+        if (!seen[titleKey]) {
+          seen[titleKey] = true;
+          list.push({ label: title, type: 'opera', norm: normalize(title) });
+        }
+      });
+      return list;
+    })();
+
+    var suggestionsBox = document.getElementById('searchSuggestions');
+    var clearBtn = document.getElementById('searchClearBtn');
+    var activeSuggestionIndex = -1;
+    var currentSuggestions = [];
+
+    function updateClearButton() {
+      clearBtn.hidden = !searchInput.value;
+    }
+
+    clearBtn.addEventListener('mousedown', function (e) { e.preventDefault(); });
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      updateClearButton();
+      closeSuggestions();
+      applyFilters();
+      searchInput.focus();
+    });
+
+    function closeSuggestions() {
+      suggestionsBox.hidden = true;
+      suggestionsBox.innerHTML = '';
+      currentSuggestions = [];
+      activeSuggestionIndex = -1;
+      searchInput.setAttribute('aria-expanded', 'false');
+    }
+
+    function chooseSuggestion(item) {
+      searchInput.value = item.label;
+      updateClearButton();
+      closeSuggestions();
+      applyFilters();
+    }
+
+    function renderSuggestionHighlight(el) {
+      Array.prototype.forEach.call(suggestionsBox.children, function (child, i) {
+        child.classList.toggle('is-active', i === el);
+      });
+    }
+
+    function updateSuggestions() {
+      var raw = searchInput.value.trim();
+      if (!raw) { closeSuggestions(); return; }
+      var term = normalize(raw);
+      var matches = suggestionIndex
+        .filter(function (item) { return item.norm.indexOf(term) !== -1; })
+        .sort(function (a, b) { return a.norm.indexOf(term) - b.norm.indexOf(term) || a.label.length - b.label.length; })
+        .slice(0, 7);
+      if (!matches.length || (matches.length === 1 && matches[0].norm === term)) {
+        closeSuggestions();
+        return;
+      }
+      currentSuggestions = matches;
+      activeSuggestionIndex = -1;
+      suggestionsBox.innerHTML = '';
+      matches.forEach(function (item) {
+        var li = document.createElement('li');
+        li.className = 'search-suggestion';
+        li.setAttribute('role', 'option');
+        var label = document.createElement('span');
+        label.textContent = item.label;
+        var type = document.createElement('span');
+        type.className = 'search-suggestion-type';
+        type.textContent = item.type;
+        li.appendChild(label);
+        li.appendChild(type);
+        li.addEventListener('mousedown', function (e) {
+          e.preventDefault();
+          chooseSuggestion(item);
+        });
+        suggestionsBox.appendChild(li);
+      });
+      suggestionsBox.hidden = false;
+      searchInput.setAttribute('aria-expanded', 'true');
+    }
+
+    searchInput.addEventListener('input', function () {
+      applyFilters();
+      updateSuggestions();
+      updateClearButton();
+    });
+
+    searchInput.addEventListener('keydown', function (e) {
+      if (suggestionsBox.hidden) { return; }
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        activeSuggestionIndex = Math.min(activeSuggestionIndex + 1, currentSuggestions.length - 1);
+        renderSuggestionHighlight(activeSuggestionIndex);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        activeSuggestionIndex = Math.max(activeSuggestionIndex - 1, -1);
+        renderSuggestionHighlight(activeSuggestionIndex);
+      } else if (e.key === 'Enter') {
+        if (activeSuggestionIndex >= 0) {
+          e.preventDefault();
+          chooseSuggestion(currentSuggestions[activeSuggestionIndex]);
+        } else {
+          closeSuggestions();
+        }
+      } else if (e.key === 'Escape') {
+        closeSuggestions();
+      }
+    });
+
+    searchInput.addEventListener('blur', function () {
+      closeSuggestions();
+    });
+
+    // Precompila la ricerca da ?q=, cosi' una ricerca e' condivisibile con un
+    // link diretto (JSON-LD WebSite/SearchAction dichiara questo stesso schema).
+    (function () {
+      var q = new URLSearchParams(window.location.search).get('q');
+      if (q) {
+        searchInput.value = q;
+        applyFilters();
+        updateClearButton();
+      }
+    })();
+
+    function filterByAuthor(name) {
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      var tutteBtn = document.querySelector('.filter-btn[data-filter="tutte"]');
+      if (tutteBtn) { tutteBtn.classList.add('active'); }
+      activeCategory = 'tutte';
+      genreBtns.forEach(function (b) { b.classList.remove('active'); });
+      var tuttiGenreBtn = document.querySelector('.filter-btn[data-genre="tutti"]');
+      if (tuttiGenreBtn) { tuttiGenreBtn.classList.add('active'); }
+      activeGenre = 'tutti';
+      searchInput.value = name;
+      updateClearButton();
+      applyFilters();
+      searchInput.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
+    }
+
+    cards.forEach(function (card) {
+      var authorEl = card.querySelector('.card-author');
+      authorEl.tabIndex = 0;
+      authorEl.addEventListener('click', function (e) {
+        e.stopPropagation();
+        filterByAuthor(authorEl.textContent);
+      });
+      authorEl.addEventListener('keydown', function (e) {
+        e.stopPropagation();
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          filterByAuthor(authorEl.textContent);
+        }
+      });
+    });
+
+    function copyCard(card) {
+      var quote = card.querySelector('.card-quote').textContent;
+      var author = card.querySelector('.card-author').textContent;
+      var title = card.querySelector('.card-title').textContent;
+      var text = '"' + quote + '" — ' + author + ', ' + title;
+      var hint = card.querySelector('.card-hint');
+      var original = hint.textContent;
+      function feedback() {
+        hint.textContent = 'Copiato';
+        hint.style.opacity = '0.85';
+        setTimeout(function () { hint.textContent = original; }, 1400);
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(feedback, feedback);
+      } else {
+        feedback();
+      }
+    }
+
+    cards.forEach(function (card) {
+      card.addEventListener('click', function () { copyCard(card); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          copyCard(card);
+        }
+      });
+    });
+
+    function goToSlug(slug) {
+      var card = slugToCard[slug];
+      if (!card) { return false; }
+      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      var tutteBtn = document.querySelector('.filter-btn[data-filter="tutte"]');
+      if (tutteBtn) { tutteBtn.classList.add('active'); }
+      activeCategory = 'tutte';
+      genreBtns.forEach(function (b) { b.classList.remove('active'); });
+      var tuttiGenreBtn = document.querySelector('.filter-btn[data-genre="tutti"]');
+      if (tuttiGenreBtn) { tuttiGenreBtn.classList.add('active'); }
+      activeGenre = 'tutti';
+      searchInput.value = '';
+      updateClearButton();
+      applyFilters();
+      redistribute();
+      function reveal() {
+        card.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
+        card.classList.add('is-highlighted');
+        setTimeout(function () { card.classList.remove('is-highlighted'); }, 2200);
+      }
+      if (document.hidden) {
+        document.addEventListener('visibilitychange', function onVisible() {
+          if (!document.hidden) {
+            document.removeEventListener('visibilitychange', onVisible);
+            reveal();
+          }
+        });
+      } else {
+        reveal();
+      }
+      return true;
+    }
+
+    redistribute();
+
+    if (location.hash) {
+      goToSlug(decodeURIComponent(location.hash.slice(1)));
+    }
+  })();
+</script>
+</body>
+</html>

@@ -21,6 +21,14 @@ OUT_DIR = os.path.join(ROOT, 'citazioni')
 SITE_URL = 'https://sottolineature.it'
 SLUGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'slugs.json')
 REDIRECTS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'redirects.json')
+DATA_PATH = os.path.join(ROOT, 'data', 'citazioni.json')
+
+
+def load_quotes():
+    """Fonte di verità per le citazioni: data/citazioni.json. index.html è
+    generato da qui (tools/generate_home.py), non va più letto per i dati."""
+    with open(DATA_PATH, encoding='utf-8') as f:
+        return json.load(f)
 
 
 def load_slugs():
@@ -56,36 +64,6 @@ def slugify(text):
     text = text.lower()
     text = re.sub(r"[^a-z0-9]+", "-", text).strip("-")
     return text
-
-
-def strip_tags(s):
-    return re.sub(r'<[^<]+?>', '', s).strip()
-
-
-def parse_cards(content):
-    raw_cards = re.findall(r'<article class="card"(.*?)</article>', content, re.S)
-    quotes = []
-    for raw in raw_cards:
-        cat_m = re.search(r'data-category="([^"]*)"', raw)
-        genre_m = re.search(r'data-genre="([^"]*)"', raw)
-        quote_m = re.search(r'<p class="card-quote">(.*?)</p>', raw, re.S)
-        author_m = re.search(r'<span class="card-author">(.*?)</span>', raw, re.S)
-        title_m = re.search(r'<span class="card-title">(.*?)</span>', raw, re.S)
-        year_m = re.search(r'<span class="card-year">(.*?)</span>', raw, re.S)
-        context_m = re.search(r'<p class="card-context sans">(.*?)</p>', raw, re.S)
-        cover_m = re.search(r'<img class="card-cover" src="([^"]+)"', raw)
-
-        quotes.append({
-            'quote': html.unescape(strip_tags(quote_m.group(1))) if quote_m else '',
-            'author': html.unescape(strip_tags(author_m.group(1))) if author_m else '',
-            'title': html.unescape(strip_tags(title_m.group(1))) if title_m else '',
-            'year': html.unescape(strip_tags(year_m.group(1))) if year_m else '',
-            'context': html.unescape(strip_tags(context_m.group(1))) if context_m else '',
-            'cover': cover_m.group(1) if cover_m else '',
-            'category': cat_m.group(1) if cat_m else '',
-            'genre': genre_m.group(1) if genre_m else '',
-        })
-    return quotes
 
 
 def make_slug(author, title, used):
@@ -372,9 +350,7 @@ def render_page(q, slug, same_author, same_theme):
 
 
 def main():
-    with open(INDEX, encoding='utf-8') as f:
-        content = f.read()
-    quotes = parse_cards(content)
+    quotes = load_quotes()
     print('Citazioni trovate:', len(quotes))
 
     os.makedirs(OUT_DIR, exist_ok=True)

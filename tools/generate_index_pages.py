@@ -1,0 +1,303 @@
+#!/usr/bin/env python3
+"""Genera le pagine indice che oggi mancano (Fase 2 SEO.md): /citazioni/
+(paginata), /autori/ (A-Z), /temi/, /generi/. Prima erano vicoli ciechi:
+nessuna pagina elencava tutte le citazioni, tutti gli autori o tutti gli hub.
+
+Uso: python3 tools/generate_index_pages.py (chiamato da build.py)
+"""
+import html
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from generate_quote_pages import ROOT, SITE_URL  # noqa: E402
+from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
+
+PAGE_SIZE = 30
+
+PAGE_SHELL = """<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f0eb">
+<title>{title_tag}</title>
+<meta name="description" content="{description}">
+<link rel="canonical" href="{canonical}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{title_tag}">
+<meta property="og:description" content="{description}">
+<meta property="og:image" content="{og_image}">
+<meta property="og:url" content="{canonical}">
+<meta property="og:site_name" content="Sottolineature">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title_tag}">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="{og_image}">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css">
+{link_rel_extra}<script type="application/ld+json">{jsonld}</script>
+<script>
+  try {{
+    var savedTheme = localStorage.getItem('sottolineature-theme');
+    if (savedTheme === 'dark') {{ document.documentElement.setAttribute('data-theme', 'dark'); }}
+  }} catch (e) {{}}
+</script>
+</head>
+<body>
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+<nav class="site-nav sans">
+  <a href="/">Citazioni</a>
+  <a href="/metodo/">Metodo</a>
+</nav>
+<div class="page">
+  <a class="back-link sans" href="/">← Torna alla home</a>
+  <p class="eyebrow sans">{eyebrow}</p>
+  <h1>{h1}</h1>
+  <p class="count sans">{count_line}</p>
+  {body_html}
+  <footer class="sans">
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
+  </footer>
+</div>
+<script>
+  (function () {{
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+    function currentTheme() {{ return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }}
+    function render() {{ toggle.textContent = currentTheme() === 'dark' ? '☀' : '☾'; }}
+    render();
+    toggle.addEventListener('click', function () {{
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') {{ root.setAttribute('data-theme', 'dark'); }} else {{ root.removeAttribute('data-theme'); }}
+      try {{ localStorage.setItem('sottolineature-theme', next); }} catch (e) {{}}
+      render();
+    }});
+  }})();
+</script>
+</body>
+</html>
+"""
+
+
+def write_page(path, **kwargs):
+    kwargs.setdefault('link_rel_extra', '')
+    kwargs.setdefault('og_image', SITE_URL + '/og-banner.png')
+    page = PAGE_SHELL.format(**kwargs)
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(page)
+
+
+def generate_citazioni_index(entries):
+    """/citazioni/ paginata, 30 per pagina, ognuna self-canonical."""
+    out_dir = os.path.join(ROOT, 'citazioni')
+    total = len(entries)
+    pages = [entries[i:i + PAGE_SIZE] for i in range(0, total, PAGE_SIZE)]
+    num_pages = len(pages)
+    urls = []
+
+    for i, page_entries in enumerate(pages):
+        page_num = i + 1
+        href = '/citazioni/' if page_num == 1 else '/citazioni/' + str(page_num) + '/'
+        canonical = SITE_URL + href
+        path = os.path.join(out_dir, 'index.html') if page_num == 1 else os.path.join(out_dir, str(page_num), 'index.html')
+
+        items_html = '\n  '.join(
+            '<article class="card"><span class="card-mark" aria-hidden="true">“</span>'
+            '<div class="card-body"><p class="card-quote"><a href="/citazioni/' + s + '/">' + html.escape(q['quote']) + '</a></p>'
+            '<p class="card-citation sans"><a href="/citazioni/' + s + '/">'
+            '<span class="card-author">' + html.escape(q['author']) + '</span> — '
+            '<span class="card-title">' + html.escape(q['title']) + '</span></a></p></div></article>'
+            for s, q in page_entries
+        )
+
+        pag_links = []
+        if page_num > 1:
+            prev_href = '/citazioni/' if page_num == 2 else '/citazioni/' + str(page_num - 1) + '/'
+            pag_links.append('<a href="' + prev_href + '">← Pagina precedente</a>')
+        if page_num < num_pages:
+            pag_links.append('<a href="/citazioni/' + str(page_num + 1) + '/">Pagina successiva →</a>')
+        pagination_html = '<nav class="hub-nav sans">' + ''.join(pag_links) + '</nav>' if pag_links else ''
+
+        link_rel_extra = ''
+        if page_num > 1:
+            prev_href = '/citazioni/' if page_num == 2 else '/citazioni/' + str(page_num - 1) + '/'
+            link_rel_extra += '<link rel="prev" href="' + SITE_URL + prev_href + '">\n'
+        if page_num < num_pages:
+            link_rel_extra += '<link rel="next" href="' + SITE_URL + '/citazioni/' + str(page_num + 1) + '/">\n'
+
+        title_tag = 'Tutte le citazioni' + ('' if page_num == 1 else ' — pagina ' + str(page_num)) + ' | Sottolineature'
+        description = ('Tutte le ' + str(total) + ' citazioni raccolte su Sottolineature' +
+                        ('.' if page_num == 1 else ', pagina ' + str(page_num) + ' di ' + str(num_pages) + '.'))
+
+        item_list = {
+            '@type': 'ItemList',
+            'itemListElement': [
+                {'@type': 'ListItem', 'position': i * PAGE_SIZE + j + 1, 'url': SITE_URL + '/citazioni/' + s + '/'}
+                for j, (s, _) in enumerate(page_entries)
+            ],
+        }
+        jsonld = json.dumps({
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            '@id': canonical + '#collectionpage',
+            'url': canonical,
+            'name': title_tag,
+            'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
+            'mainEntity': item_list,
+        }, ensure_ascii=False)
+
+        write_page(
+            path,
+            title_tag=html.escape(title_tag),
+            description=html.escape(description),
+            canonical=canonical,
+            link_rel_extra=link_rel_extra,
+            jsonld=jsonld,
+            eyebrow='Archivio',
+            h1='Tutte le citazioni' if page_num == 1 else 'Tutte le citazioni — pagina ' + str(page_num),
+            count_line=str(total) + ' citazioni, pagina ' + str(page_num) + ' di ' + str(num_pages),
+            body_html=items_html + pagination_html,
+        )
+        urls.append(href)
+
+    print('Pagine /citazioni/ generate:', num_pages, '(', total, 'citazioni,', PAGE_SIZE, 'per pagina )')
+    return urls
+
+
+def generate_autori_index(author_slugs, by_author_count):
+    """/autori/ A-Z: elenca tutti gli autori, anche quelli la cui pagina
+    singola è in noindex sotto soglia — resta comunque un percorso di
+    scansione verso di loro."""
+    groups = {}
+    for author, slug in author_slugs.items():
+        letter = author[0].upper()
+        groups.setdefault(letter, []).append((author, slug))
+
+    body_parts = []
+    for letter in sorted(groups):
+        items = sorted(groups[letter], key=lambda x: x[0])
+        lis = ''.join(
+            '<li><a href="/autori/' + slug + '/">' + html.escape(author) + '</a> '
+            '<span class="sans" style="color:var(--ink-faint)">(' + str(by_author_count.get(author, 0)) + ')</span></li>'
+            for author, slug in items
+        )
+        body_parts.append('<h2 class="sans" style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:2rem 0 0.6rem">' + letter + '</h2><ul class="related-list" style="list-style:none;margin:0;padding:0">' + lis + '</ul>')
+
+    canonical = SITE_URL + '/autori/'
+    title_tag = 'Tutti gli autori | Sottolineature'
+    description = 'Indice alfabetico dei ' + str(len(author_slugs)) + ' autori con almeno una citazione su Sottolineature.'
+
+    item_list = {
+        '@type': 'ItemList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i + 1, 'url': SITE_URL + '/autori/' + slug + '/', 'name': author}
+            for i, (author, slug) in enumerate(sorted(author_slugs.items(), key=lambda x: x[0]))
+        ],
+    }
+    jsonld = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': canonical + '#collectionpage',
+        'url': canonical,
+        'name': title_tag,
+        'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
+        'mainEntity': item_list,
+    }, ensure_ascii=False)
+
+    write_page(
+        os.path.join(ROOT, 'autori', 'index.html'),
+        title_tag=html.escape(title_tag),
+        description=html.escape(description),
+        canonical=canonical,
+        jsonld=jsonld,
+        eyebrow='Indice',
+        h1='Tutti gli autori',
+        count_line=str(len(author_slugs)) + ' autori',
+        body_html=''.join(body_parts),
+    )
+    print('Pagina /autori/ generata (', len(author_slugs), 'autori )')
+
+
+def generate_taxonomy_index(kind, labels, counts):
+    """/temi/ o /generi/: elenco degli hub con conteggio."""
+    dir_name = 'temi' if kind == 'tema' else 'generi'
+    lis = ''.join(
+        '<li><a href="/' + dir_name + '/' + slug + '/">' + html.escape(label) + '</a> '
+        '<span class="sans" style="color:var(--ink-faint)">(' + str(counts.get(slug, 0)) + ')</span></li>'
+        for slug, label in labels.items() if counts.get(slug, 0) > 0
+    )
+    body_html = '<ul style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
+
+    canonical = SITE_URL + '/' + dir_name + '/'
+    label_word = 'umori' if kind == 'tema' else 'generi'
+    title_tag = ('Tutti gli umori' if kind == 'tema' else 'Tutti i generi') + ' | Sottolineature'
+    description = 'Indice dei ' + label_word + ' in cui sono raggruppate le citazioni su Sottolineature.'
+
+    item_list = {
+        '@type': 'ItemList',
+        'itemListElement': [
+            {'@type': 'ListItem', 'position': i + 1, 'url': SITE_URL + '/' + dir_name + '/' + slug + '/', 'name': label}
+            for i, (slug, label) in enumerate(labels.items()) if counts.get(slug, 0) > 0
+        ],
+    }
+    jsonld = json.dumps({
+        '@context': 'https://schema.org',
+        '@type': 'CollectionPage',
+        '@id': canonical + '#collectionpage',
+        'url': canonical,
+        'name': title_tag,
+        'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
+        'mainEntity': item_list,
+    }, ensure_ascii=False)
+
+    write_page(
+        os.path.join(ROOT, dir_name, 'index.html'),
+        title_tag=html.escape(title_tag),
+        description=html.escape(description),
+        canonical=canonical,
+        jsonld=jsonld,
+        eyebrow='Indice',
+        h1='Tutti gli umori' if kind == 'tema' else 'Tutti i generi',
+        count_line=str(sum(1 for s in labels if counts.get(s, 0) > 0)) + (' umori' if kind == 'tema' else ' generi'),
+        body_html=body_html,
+    )
+    print('Pagina /' + dir_name + '/ generata')
+
+
+def main(qp_entries, author_slugs, tema_status, genere_status):
+    citazioni_urls = generate_citazioni_index(qp_entries)
+
+    by_author_count = {}
+    for _, q in qp_entries:
+        by_author_count[q['author']] = by_author_count.get(q['author'], 0) + 1
+    generate_autori_index(author_slugs, by_author_count)
+
+    tema_counts = {}
+    for _, q in qp_entries:
+        if q['category']:
+            tema_counts[q['category']] = tema_counts.get(q['category'], 0) + 1
+    generate_taxonomy_index('tema', CATEGORY_LABELS, tema_counts)
+
+    genere_counts = {}
+    for _, q in qp_entries:
+        for g in (q['genre'] or '').split(' '):
+            if g:
+                genere_counts[g] = genere_counts.get(g, 0) + 1
+    generate_taxonomy_index('genere', GENRE_LABELS, genere_counts)
+
+    return citazioni_urls
+
+
+if __name__ == '__main__':
+    import generate_quote_pages as qp
+    import generate_hub_pages as hp
+    entries = qp.main()
+    hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main()
+    main(entries, author_slugs, tema_status, genere_status)
