@@ -4452,11 +4452,21 @@
       updateClearButton();
       applyFilters();
       redistribute();
-      requestAnimationFrame(function () {
+      function reveal() {
         card.scrollIntoView({ behavior: prefersReduced ? 'auto' : 'smooth', block: 'center' });
         card.classList.add('is-highlighted');
         setTimeout(function () { card.classList.remove('is-highlighted'); }, 2200);
-      });
+      }
+      if (document.hidden) {
+        document.addEventListener('visibilitychange', function onVisible() {
+          if (!document.hidden) {
+            document.removeEventListener('visibilitychange', onVisible);
+            reveal();
+          }
+        });
+      } else {
+        reveal();
+      }
       return true;
     }
 
