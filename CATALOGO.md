@@ -224,3 +224,72 @@ luogo nel testo e fonte, e aspetta il mio ok. Poi inserisci in index.html, lanci
 python3 tools/build.py, esegui i controlli del punto 8, scrivi la riga in LOG.md e aggiorna
 CLAUDE.md.
 ```
+
+---
+
+## 10. Lavoro in autonomia — parametri
+
+Quando l'utente autorizza un agente a procedere da solo, valgono questi parametri. Sono scritti
+per essere applicati senza interpretazione: se una decisione non rientra qui, ci si ferma e si chiede.
+
+### Cosa si può fare senza chiedere
+
+Cercare e verificare candidati; scartare; scrivere contesto, umore, generi; recuperare la
+copertina; inserire le card in `index.html`; lanciare `tools/build.py`; eseguire i controlli;
+scrivere in `LOG.md`; aggiornare la roadmap di `CLAUDE.md`; fare commit e push.
+
+### Cosa richiede sempre l'ok dell'utente
+
+- Modificare il **perimetro** del punto 1, o superare il tetto del 15% per filosofia e classici
+  non narrativi.
+- Introdurre un **nuovo umore o un nuovo genere** (per i generi resta la regola dei 4+ titoli).
+- Pubblicare una **raccolta con meno di 8 citazioni**, o una **pagina opera senza scheda scritta**.
+- Citare un autore sotto copyright **oltre le ~40 parole**.
+- Qualsiasi modifica a `index.html` che non sia l'aggiunta o la correzione di una card.
+- Rimuovere una citazione già pubblicata. *(Correggere un errore accertato si fa invece subito,
+  annotandolo: la correttezza viene prima.)*
+
+### Parametri numerici di un lotto
+
+| Parametro | Valore |
+|---|---|
+| Citazioni per lotto | 10-15, mai di più |
+| Fonti richieste per citazione | 1 primaria, oppure 2 indipendenti concordanti |
+| Citazioni per autore | max 4 (6 solo per i maggiori già presenti con 3+) |
+| Citazioni dalla stessa opera | max 3 |
+| Umore dominante in un lotto | max 30% delle citazioni del lotto |
+| Umori da alimentare per primi | solitudine, libertà, coraggio (i più magri) |
+| Umore "verità" | assegnarlo solo quando è davvero il tema, non come raccoglitore |
+| Quota di opere anteriori al 1900 | almeno metà del lotto, finché il Novecento resta sopra il 55% |
+| Citazioni con link a fonte primaria | almeno metà del lotto |
+| Lunghezza | max ~40 parole; oltre, solo se pubblico dominio e con una ragione |
+
+### Condizioni di arresto (fermarsi e riferire, non insistere)
+
+- Si scarta **più della metà** dei candidati di un lotto: il filone è esaurito o le fonti sono
+  deboli. Meglio cambiare lotto che abbassare l'asticella.
+- Non si trova una fonte primaria o due fonti concordanti **per più di metà** dei candidati.
+- Un controllo automatico fallisce e la causa non è chiara.
+- Si scopre un errore in una citazione già pubblicata: si corregge, si annota, **si riferisce**.
+- Si sta per prendere una decisione che rientra nell'elenco "richiede sempre l'ok".
+
+### Controlli obbligatori prima di ogni commit
+
+1. Nessun testo di citazione duplicato nell'archivio.
+2. Nessun contesto identico su due citazioni diverse *(è già successo)*.
+3. Nessuna fonte identica su due citazioni diverse.
+4. Nessun title o meta description duplicati dopo il build.
+5. Nessuna citazione priva del luogo nel testo.
+6. Ogni copertina nuova **guardata**, non solo accettata dal match sul titolo *(è già capitato che
+   un `cover_i` corretto fosse la scansione di una scheda scolastica)*.
+
+### Ritmo e tracciamento
+
+Un lotto alla volta, chiuso completamente prima di aprire il successivo: verifica → inserimento →
+build → controlli → riga in `LOG.md` → commit. La roadmap di `CLAUDE.md` si aggiorna a fine
+sessione o ogni tre lotti, quello che viene prima. **Mai spuntare una voce "quasi fatta".**
+
+### La regola che sta sopra tutte
+
+Nel dubbio si scarta. Una citazione in meno non si vede; una citazione sbagliata su un sito che
+si presenta come verificato a mano toglie credibilità a tutte le altre.
