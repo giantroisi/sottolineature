@@ -49,7 +49,17 @@ def write_vercel_json(redirects):
                 "headers": [
                     {"key": "Cache-Control", "value": "public, max-age=31536000, immutable"}
                 ],
-            }
+            },
+            {
+                "source": "/:path*",
+                "has": [{"type": "host", "value": "sottolineature.vercel.app"}],
+                "headers": [{"key": "X-Robots-Tag", "value": "noindex"}],
+            },
+            {
+                "source": "/:path*",
+                "has": [{"type": "host", "value": "www.sottolineature.it"}],
+                "headers": [{"key": "X-Robots-Tag", "value": "noindex"}],
+            },
         ],
     }
     with open(path, 'w', encoding='utf-8') as f:
