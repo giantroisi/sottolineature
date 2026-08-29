@@ -162,8 +162,8 @@ citazioni (Cervantes, Machiavelli, Austen, Boccaccio, Charlotte Brontë, Balzac,
 Stevenson, Collodi, Omero, Pascoli, Sant'Agostino, Cicerone, Conrad, Stoker, George Eliot,
 Allende, Buzzati, Fenoglio, Vittorini, Carlo Levi, Ammaniti, Blixen, Veronesi, Hurston, Canetti,
 Szymborska, Heaney, Ondaatje, Zadie Smith, Coates, Atwood, Marilynne Robinson, Günter Grass,
-Frank Herbert, Ray Bradbury); ne restano 114 con una sola — lavoro esplicitamente da proseguire
-senza chiedere conferma, poi passare a nuove
+Frank Herbert, Ray Bradbury, Tabucchi, Erri De Luca, Moravia); ne restano 111 con una sola —
+lavoro esplicitamente da proseguire senza chiedere conferma, poi passare a nuove
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
@@ -172,7 +172,7 @@ per l'apertura di un libro: non scartare candidati-incipit solo per mancanza di 
 corretto il 2026-08-29 in `tools/build.py`** (non introdotto da questa sessione, probabile
 sessione concorrente): `gh.main()` girava prima che gli slug delle citazioni nuove fossero
 salvati su `slugs.json`, quindi la build falliva sempre dopo ogni lotto — vedi LOG.md. Archivio
-a 365 citazioni, 220
+a 368 citazioni, 220
 autori. **Deploy sospeso su richiesta
 dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
