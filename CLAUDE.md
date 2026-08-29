@@ -161,13 +161,14 @@ lo stesso rigore — da riprendere in un lotto futuro. **Approfondimento avviato
 citazioni (Cervantes, Machiavelli, Austen, Boccaccio, Charlotte Brontë, Balzac, Voltaire,
 Stevenson, Collodi, Omero, Pascoli, Sant'Agostino, Cicerone, Conrad, Stoker, George Eliot,
 Allende, Buzzati, Fenoglio, Vittorini, Carlo Levi, Ammaniti, Blixen, Veronesi, Hurston, Canetti,
-Szymborska, Heaney, Ondaatje); ne restano 121 con una sola — lavoro esplicitamente da proseguire
-senza chiedere conferma, poi passare a nuove citazioni una volta esaurito, **anche per ore senza
-il controllo dell'utente** (istruzione del 2026-08-28). Script di inserimento aggiornato: rifiuta
-citazioni con `source_locus` vuoto o "non indicato". **Bug corretto il 2026-08-29 in
-`tools/build.py`** (non introdotto da questa sessione, probabile sessione concorrente):
-`gh.main()` girava prima che gli slug delle citazioni nuove fossero salvati su `slugs.json`,
-quindi la build falliva sempre dopo ogni lotto — vedi LOG.md. Archivio a 358 citazioni, 220
+Szymborska, Heaney, Ondaatje, Zadie Smith, Coates); ne restano 119 con una sola — lavoro
+esplicitamente da proseguire senza chiedere conferma, poi passare a nuove citazioni una volta
+esaurito, **anche per ore senza il controllo dell'utente** (istruzione del 2026-08-28). Script
+di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o "non indicato". **Bug
+corretto il 2026-08-29 in `tools/build.py`** (non introdotto da questa sessione, probabile
+sessione concorrente): `gh.main()` girava prima che gli slug delle citazioni nuove fossero
+salvati su `slugs.json`, quindi la build falliva sempre dopo ogni lotto — vedi LOG.md. Archivio
+a 360 citazioni, 220
 autori. **Deploy sospeso su richiesta
 dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
