@@ -187,13 +187,19 @@ accettazione. Una raccolta con otto citazioni mediocri vale meno di una raccolta
 
 ## 8. Procedura per ogni lotto
 
+> **Attenzione:** dal 2026-08-28 (Fase 2 SEO) la fonte di verità delle citazioni è
+> `data/citazioni.json`, non `index.html`. La home è generata da `tools/generate_home.py` e non
+> pubblica il contesto, che resta esclusivo di `/citazioni/<slug>/`.
+
 1. Scegliere il lotto dal punto 7 e cercare i candidati sulle fonti del punto 6.
 2. Verificare ogni citazione: testo esatto, autore, opera, anno, luogo nel testo, traduttore.
 3. Scartare senza rimpianti ciò che non si riesce a collocare, annotando il motivo.
 4. Scrivere il contesto (prima la storia, poi il nome), assegnare umore e generi.
 5. Cercare la copertina su Open Library **e guardarla** prima di accettarla; verificare che
    l'autore corrisponda, non fidarsi del match sul titolo.
-6. Inserire in `index.html` a mano, poi `python3 tools/build.py`.
+6. Inserire la citazione in **`data/citazioni.json`**, che dalla Fase 2 SEO è la fonte di verità
+   (`index.html` è un file generato: modificarlo a mano si perde al build successivo). Poi
+   `python3 tools/build.py`, che rigenera home, pagina citazione, hub, immagini OG e sitemap.
 7. **Controlli automatici prima del commit:** nessun contesto identico su due citazioni diverse,
    nessuna fonte identica su due citazioni diverse, nessun title duplicato, nessuna citazione
    senza luogo nel testo.
@@ -220,7 +226,7 @@ Vincoli, in ordine di importanza:
 - Non modificare nessuna citazione già presente.
 
 Prima di inserire qualsiasi cosa, mostrami l'elenco dei candidati con testo, autore, opera, anno,
-luogo nel testo e fonte, e aspetta il mio ok. Poi inserisci in index.html, lancia
+luogo nel testo e fonte, e aspetta il mio ok. Poi inserisci in data/citazioni.json, lancia
 python3 tools/build.py, esegui i controlli del punto 8, scrivi la riga in LOG.md e aggiorna
 CLAUDE.md.
 ```
@@ -235,7 +241,7 @@ per essere applicati senza interpretazione: se una decisione non rientra qui, ci
 ### Cosa si può fare senza chiedere
 
 Cercare e verificare candidati; scartare; scrivere contesto, umore, generi; recuperare la
-copertina; inserire le card in `index.html`; lanciare `tools/build.py`; eseguire i controlli;
+copertina; inserire le citazioni in `data/citazioni.json`; lanciare `tools/build.py`; eseguire i controlli;
 scrivere in `LOG.md`; aggiornare la roadmap di `CLAUDE.md`; fare commit e push.
 
 ### Cosa richiede sempre l'ok dell'utente
@@ -245,7 +251,8 @@ scrivere in `LOG.md`; aggiornare la roadmap di `CLAUDE.md`; fare commit e push.
 - Introdurre un **nuovo umore o un nuovo genere** (per i generi resta la regola dei 4+ titoli).
 - Pubblicare una **raccolta con meno di 8 citazioni**, o una **pagina opera senza scheda scritta**.
 - Citare un autore sotto copyright **oltre le ~40 parole**.
-- Qualsiasi modifica a `index.html` che non sia l'aggiunta o la correzione di una card.
+- Qualsiasi modifica a `data/citazioni.json` che non sia l'aggiunta o la correzione di una
+  citazione, e qualsiasi modifica ai generatori in `tools/`.
 - Rimuovere una citazione già pubblicata. *(Correggere un errore accertato si fa invece subito,
   annotandolo: la correttezza viene prima.)*
 
