@@ -157,11 +157,13 @@ verificabile. **Lotto 6 fatto il 2026-08-28** (8 citazioni): guerra (Remarque, H
 (Jack London), musica (Nietzsche), natura (Emerson), pace (Kant), lavoro (Primo Levi),
 infanzia (Proust). Restano aperti solo montagna e figli, nessun candidato solido trovato con
 lo stesso rigore — da riprendere in un lotto futuro. **Approfondimento avviato il 2026-08-28**
-(punto 5 di CATALOGO.md, portare autori da 1 a 3 citazioni): 15 autori finora portati da 1 a 2
+(punto 5 di CATALOGO.md, portare autori da 1 a 3 citazioni): 16 autori finora portati da 1 a 2
 citazioni (Cervantes, Machiavelli, Austen, Boccaccio, Charlotte Brontë, Balzac, Voltaire,
-Stevenson, Collodi, Omero, Pascoli, Sant'Agostino, Cicerone, Conrad, Stoker); ne restano 136
-con una sola — lavoro esplicitamente da proseguire senza chiedere conferma, poi passare a nuove
-citazioni una volta esaurito. Archivio a 344 citazioni, 220 autori. **Deploy sospeso su
+Stevenson, Collodi, Omero, Pascoli, Sant'Agostino, Cicerone, Conrad, Stoker, George Eliot); ne
+restano 134 con una sola — lavoro esplicitamente da proseguire senza chiedere conferma, poi
+passare a nuove citazioni una volta esaurito. **Promemoria emerso il 2026-08-28**: se il luogo
+nel testo non è verificabile, scartare subito la citazione, mai inventare un segnaposto (vedi
+LOG.md, caso Gogol' corretto). Archivio a 345 citazioni, 220 autori. **Deploy sospeso su
 richiesta dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
 origin/main..HEAD` prima di assumere che il sito pubblicato rifletta lo stato del repo.
