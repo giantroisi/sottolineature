@@ -160,11 +160,15 @@ lo stesso rigore — da riprendere in un lotto futuro. **Approfondimento avviato
 (punto 5 di CATALOGO.md, portare autori da 1 a 3 citazioni): 24 autori finora portati da 1 a 2
 citazioni (Cervantes, Machiavelli, Austen, Boccaccio, Charlotte Brontë, Balzac, Voltaire,
 Stevenson, Collodi, Omero, Pascoli, Sant'Agostino, Cicerone, Conrad, Stoker, George Eliot,
-Allende, Buzzati, Fenoglio, Vittorini, Carlo Levi, Ammaniti, Blixen, Veronesi); ne restano 126
-con una sola — lavoro esplicitamente da proseguire senza chiedere conferma, poi passare a nuove
-citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
-2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
-"non indicato". Archivio a 353 citazioni, 220 autori. **Deploy sospeso su richiesta dell'utente**:
+Allende, Buzzati, Fenoglio, Vittorini, Carlo Levi, Ammaniti, Blixen, Veronesi, Hurston, Canetti);
+ne restano 124 con una sola — lavoro esplicitamente da proseguire senza chiedere conferma, poi
+passare a nuove citazioni una volta esaurito, **anche per ore senza il controllo dell'utente**
+(istruzione del 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con
+`source_locus` vuoto o "non indicato". **Bug corretto il 2026-08-29 in `tools/build.py`** (non
+introdotto da questa sessione, probabile sessione concorrente): `gh.main()` girava prima che gli
+slug delle citazioni nuove fossero salvati su `slugs.json`, quindi la build falliva sempre dopo
+ogni lotto — vedi LOG.md. Archivio a 355 citazioni, 220 autori. **Deploy sospeso su richiesta
+dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
 origin/main..HEAD` prima di assumere che il sito pubblicato rifletta lo stato del repo.
 Fase 0, Fase 1, Fase 2, Fase 3, Fase 4 e Fase 5 completate e live su sottolineature.it

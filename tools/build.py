@@ -75,8 +75,6 @@ def write_vercel_json(redirects):
 
 
 def main():
-    gh.main()
-
     # L'elenco opere->citazioni serve prima di renderizzare le pagine
     # citazione (Book @id condiviso, link "tutte le citazioni da quest'opera").
     # Basta assegnare gli slug in anteprima, senza serializzare nulla: qp.main()
@@ -88,6 +86,10 @@ def main():
     raccolta_map = rp.build_raccolta_map(preview_entries, raccolte)
 
     qp_entries = qp.main(opera_map, raccolta_map)
+    # gh.main() legge slugs.json da disco: va lanciato solo dopo che qp.main()
+    # l'ha persistito, altrimenti fallisce su ogni citazione appena aggiunta
+    # (slug ancora assente su disco).
+    gh.main()
     op_status = op.main(qp_entries)
     rc_status = rp.main(qp_entries)
     hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main()
