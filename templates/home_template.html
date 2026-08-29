@@ -442,8 +442,23 @@
     cursor: pointer;
     transition: border-color 0.2s ease;
   }
+  /* Il testo della citazione e' un link vero verso /citazioni/<slug>/:
+     serve ai motori di ricerca e a chi apre in una scheda nuova. */
+  .card-open {
+    color: inherit;
+    text-decoration: none;
+    background: none;
+  }
+  .card-open:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  .card:hover .card-open { color: inherit; }
+
   .card:hover,
-  .card:focus-visible {
+  .card:focus-visible,
+  .card:focus-within {
     border-left-color: var(--accent);
   }
   .card:focus-visible { outline: none; }
@@ -537,7 +552,8 @@
     transition: opacity 0.2s ease;
   }
   .card:hover .card-hint,
-  .card:focus-visible .card-hint {
+  .card:focus-visible .card-hint,
+  .card:focus-within .card-hint {
     opacity: 0.85;
   }
 
@@ -1300,18 +1316,14 @@
         .replace(/^-+|-+$/g, '');
     }
 
+    // Lo slug NON si ricalcola qui: arriva da data-slug, scritto dal build a
+    // partire da tools/slugs.json. Ricalcolarlo produceva link a 404 ogni volta
+    // che uno slug veniva congelato o cambiato lato build.
     var slugToCard = {};
-    var usedSlugs = {};
     cards.forEach(function (card) {
-      var base = slugify(
-        card.querySelector('.card-author').textContent + '-' + card.querySelector('.card-title').textContent
-      );
-      var slug = base;
-      var i = 2;
-      while (usedSlugs[slug]) { slug = base + '-' + i; i++; }
-      usedSlugs[slug] = true;
+      var slug = card.getAttribute('data-slug') || '';
       card._slug = slug;
-      slugToCard[slug] = card;
+      if (slug) { slugToCard[slug] = card; }
     });
 
     cards.forEach(function (card) {
@@ -1345,17 +1357,21 @@
       });
       exportBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
 
-      var linkBtn = document.createElement('a');
-      linkBtn.className = 'underline-toggle sans card-permalink-btn';
-      linkBtn.textContent = 'Link';
-      linkBtn.href = '/citazioni/' + card._slug + '/';
-      linkBtn.addEventListener('click', function (e) { e.stopPropagation(); });
-      linkBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+      var copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'underline-toggle sans card-copy-btn';
+      copyBtn.textContent = 'Copia';
+      copyBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        copyCard(card, copyBtn);
+      });
+      copyBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
 
       var hint = card.querySelector('.card-hint');
       hint.parentNode.insertBefore(toggle, hint);
       hint.parentNode.insertBefore(exportBtn, hint);
-      hint.parentNode.insertBefore(linkBtn, hint);
+      hint.parentNode.insertBefore(copyBtn, hint);
       var note = makeNoteField(function () { return quoteKey(card); });
       hint.parentNode.insertBefore(note, hint);
     });
@@ -1596,17 +1612,16 @@
       });
     });
 
-    function copyCard(card) {
+    function copyCard(card, btn) {
       var quote = card.querySelector('.card-quote').textContent;
       var author = card.querySelector('.card-author').textContent;
       var title = card.querySelector('.card-title').textContent;
       var text = '"' + quote + '" — ' + author + ', ' + title;
-      var hint = card.querySelector('.card-hint');
-      var original = hint.textContent;
+      var target = btn || card.querySelector('.card-hint');
+      var original = target.textContent;
       function feedback() {
-        hint.textContent = 'Copiato';
-        hint.style.opacity = '0.85';
-        setTimeout(function () { hint.textContent = original; }, 1400);
+        target.textContent = 'Copiato';
+        setTimeout(function () { target.textContent = original; }, 1400);
       }
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
@@ -1616,11 +1631,18 @@
     }
 
     cards.forEach(function (card) {
-      card.addEventListener('click', function () { copyCard(card); });
-      card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          copyCard(card);
+      var openLink = card.querySelector('.card-open');
+      card.addEventListener('click', function (e) {
+        // I controlli della card (Sottolinea, Condividi, Copia, nota) fermano
+        // gia' la propagazione; qui si ignora solo il clic su un link vero,
+        // che il browser gestisce da solo, e la selezione di testo.
+        if (e.target.closest('a')) { return; }
+        if (window.getSelection && String(window.getSelection()).length > 0) { return; }
+        if (!openLink) { return; }
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) {
+          window.open(openLink.getAttribute('href'), '_blank');
+        } else {
+          window.location.href = openLink.getAttribute('href');
         }
       });
     });

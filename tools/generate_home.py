@@ -50,7 +50,7 @@ def italian_number_words(n):
     return word
 
 
-def render_card(q):
+def render_card(q, slug):
     attrs = ''
     if q['genre']:
         attrs += ' data-genre="' + html.escape(q['genre'], quote=True) + '"'
@@ -69,14 +69,16 @@ def render_card(q):
     if q['year']:
         year_html = ' · <span class="card-year">' + html.escape(q['year']) + '</span>'
 
+    href = '/citazioni/' + slug + '/'
     return (
-        '    <article class="card"' + attrs + ' tabindex="0">\n'
+        '    <article class="card" data-slug="' + html.escape(slug, quote=True) + '"' + attrs + '>\n'
         '      <span class="card-mark" aria-hidden="true">“</span>\n'
         '      <div class="card-body">\n'
-        '        <p class="card-quote">' + html.escape(q['quote']) + '</p>\n'
+        '        <p class="card-quote"><a class="card-open" href="' + href + '">' +
+        html.escape(q['quote']) + '</a></p>\n'
         '        <p class="card-citation sans"><span class="card-author">' + html.escape(q['author']) +
         '</span> — <span class="card-title">' + html.escape(q['title']) + '</span>' + year_html + '</p>\n'
-        '        <p class="card-hint sans">Clic per copiare</p>\n'
+        '        <p class="card-hint sans">Apri la pagina</p>\n'
         '      </div>' + cover_html + '\n'
         '    </article>\n'
     )
@@ -88,7 +90,15 @@ def main():
     with open(TEMPLATE_PATH, encoding='utf-8') as f:
         template = f.read()
 
-    cards_html = '\n'.join(render_card(q) for q in quotes)
+    slugs_data = qp.load_slugs()
+    slug_map = slugs_data.get('quotes', {})
+    missing = [q for q in quotes if qp.quote_key(q) not in slug_map]
+    if missing:
+        raise SystemExit(
+            'generate_home: slug mancante per %d citazioni (esegui prima '
+            'generate_quote_pages). Prima: %s' % (len(missing), qp.quote_key(missing[0]))
+        )
+    cards_html = '\n'.join(render_card(q, slug_map[qp.quote_key(q)]) for q in quotes)
     count_words = italian_number_words(len(quotes))
     page = template.replace('{{CARDS}}', cards_html.rstrip('\n'))
     page = page.replace('{{COUNT}}', str(len(quotes)))
