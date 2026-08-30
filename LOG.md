@@ -301,6 +301,19 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Famiglia"** (11/16),
+  in autonomia. Filtrata l'archivio per radice lessicale (famiglia/e, famigliar, fratelli, sorelle,
+  stirpe, lignaggio, parenti): 32 candidati, letti uno per uno. 10 citazioni pubblicate: Lev
+  Tolstoj (Anna Karenina), Gabriel García Márquez (Cent'anni di solitudine), Don DeLillo (Rumore
+  bianco), Natalia Ginzburg (Lessico famigliare, riusata da "Infanzia"), Grazia Deledda (Elias
+  Portolu), Jane Austen (Ragione e sentimento), George Orwell (Fiorirà l'aspidistra), Pearl S. Buck
+  (La buona terra), Isabel Allende (La casa degli spiriti), Zadie Smith (Denti bianchi).
+  Introduzione scritta a mano (264 parole, 3 paragrafi). Build lanciata due volte (bug del
+  contatore raccolte in home, vedi lotti precedenti): al secondo giro 0 problemi, 21/21 raccolte.
+  **Nota**: il lotto precedente ("Ricordo e memoria") è finito per errore in un commit della
+  sessione concorrente ("Roadmap: Condividi in due passi...", hash 15a3066) invece che in un
+  commit dedicato — contenuto verificato integro, solo il messaggio di commit non lo descrive.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Ricordo e memoria"**
   (10/16), in autonomia. Filtrata l'archivio per radice lessicale (ricord, memoria/e, oblio,
   dimentic, rimembr, passato): 60 candidati, letti uno per uno. 10 citazioni pubblicate: Primo Levi

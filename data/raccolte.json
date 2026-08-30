@@ -432,5 +432,27 @@
       "Marcel Proust|Alla ricerca del tempo perduto|Era l'immagine della stanzetta dello zio",
       "Alfred Tennyson|In Memoriam A.H.H.|Ne sono certo, qualunque cosa accada;"
     ]
+  },
+  {
+    "slug": "famiglia",
+    "title": "Famiglia",
+    "h1": "Frasi e citazioni sulla famiglia",
+    "intro": [
+      "«Tutte le famiglie felici si assomigliano fra loro, ogni famiglia infelice è infelice a suo modo»: la prima frase di «Anna Karenina» di Lev Tolstoj è diventata quasi un proverbio, eppure il romanzo che segue non racconta quasi mai famiglie felici. Don DeLillo, un secolo dopo, la ribalta con l'ironia postmoderna di «Rumore bianco»: «La famiglia è la culla della disinformazione mondiale». E Natalia Ginzburg intitola la propria autobiografia proprio «Lessico famigliare», scoprendo che basta una frase antica, ripetuta in casa da generazioni, per riconoscersi ovunque nel mondo.",
+      "Più spesso la famiglia è la prima cosa che un romanzo presenta, prima ancora dei suoi personaggi: Jane Austen apre «Ragione e sentimento» descrivendo i Dashwood e le loro «vaste proprietà terriere» a Norland Park; Grazia Deledda annuncia «giorni lieti» per la famiglia Portolu proprio nell'istante prima che il dramma esploda; George Orwell presenta Gordon Comstock come «ultimo membro della famiglia Comstock», già consumato dalla propria stessa insignificanza. Zadie Smith, in «Denti bianchi», intreccia per tre generazioni le famiglie di due amici nella Londra multietnica del suo romanzo d'esordio.",
+      "E c'è la famiglia legata alla terra, quasi indistinguibile da essa: Pearl S. Buck fa dire al vecchio Wang Lung, in punto di morte, che vendere la terra significa la fine di una famiglia; Isabel Allende, ne «La casa degli spiriti», affida al patriarca Esteban Trueba la stessa convinzione, mentre segue quattro generazioni di una famiglia cilena fino al golpe del 1973. Gabriel García Márquez chiude il cerchio con la stirpe dei Buendía, condannata a cent'anni di solitudine e a non avere «una seconda opportunità sulla terra»."
+    ],
+    "quote_keys": [
+      "Lev Tolstoj|Anna Karenina|Tutte le famiglie felici si assomigliano",
+      "Gabriel García Márquez|Cent'anni di solitudine|Le stirpi condannate a cento anni",
+      "Don DeLillo|Rumore bianco|La famiglia è la culla della",
+      "Natalia Ginzburg|Lessico famigliare|Basta una parola, una frase: una",
+      "Grazia Deledda|Elias Portolu|Giorni lieti s'avvicinavano per la famiglia",
+      "Jane Austen|Ragione e sentimento|La famiglia Dashwood si era stabilita",
+      "George Orwell|Fiorirà l'aspidistra|L'orologio batté le due e mezzo.",
+      "Pearl S. Buck|La buona terra|Quando si comincia a vendere la",
+      "Isabel Allende|La casa degli spiriti|La terra è l'unica cosa che",
+      "Zadie Smith|Denti bianchi|Presto nel mattino, tardi nel secolo,"
+    ]
   }
 ]
