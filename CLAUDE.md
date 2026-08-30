@@ -190,9 +190,10 @@ Tennyson (ciascuno con una citazione, quindi sotto soglia di indicizzazione). Ar
 de Maupassant, Nathaniel Hawthorne portati da 1 a 2 citazioni; poi due nuovi autori,
 Pearl S. Buck e Sinclair Lewis. Poi approfondimento: Agatha Christie (Dieci piccoli
 indiani → +La sagra del delitto) e Bertolt Brecht (Madre Courage e i suoi figli →
-+L'opera da tre soldi) portati da 1 a 2 citazioni. Archivio a 238 autori, 469
-citazioni, 47 con una sola citazione. Lavoro da proseguire senza chiedere conferma,
-alternando le due modalità lotto per lotto
++L'opera da tre soldi) portati da 1 a 2 citazioni. Poi due nuovi autori: Émile
+Zola e Hans Christian Andersen. Archivio a 240 autori, 471 citazioni, 49 con una
+sola citazione. Lavoro da proseguire senza chiedere conferma, alternando le due
+modalità lotto per lotto
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso

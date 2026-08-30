@@ -96,6 +96,7 @@
     "Guy de Maupassant": "guy-de-maupassant",
     "Günter Grass": "gunter-grass",
     "H.G. Wells": "h-g-wells",
+    "Hans Christian Andersen": "hans-christian-andersen",
     "Harper Lee": "harper-lee",
     "Haruki Murakami": "haruki-murakami",
     "Henrik Ibsen": "henrik-ibsen",
@@ -237,7 +238,8 @@
     "Wisława Szymborska": "wisawa-szymborska",
     "Yukio Mishima": "yukio-mishima",
     "Zadie Smith": "zadie-smith",
-    "Zora Neale Hurston": "zora-neale-hurston"
+    "Zora Neale Hurston": "zora-neale-hurston",
+    "Émile Zola": "emile-zola"
   },
   "quotes": {
     "Agatha Christie|Dieci piccoli indiani|C'era qualcosa di magico in un'isola:": "agatha-christie-dieci-piccoli-indiani",
@@ -437,6 +439,7 @@
     "Günter Grass|Il tamburo di latta|Vidi la luce di questo mondo": "gunter-grass-il-tamburo-di-latta-vidi-la-luce",
     "H.G. Wells|L'uomo invisibile|Veniva a piedi dalla stazione di": "h-g-wells-l-uomo-invisibile",
     "H.G. Wells|La macchina del tempo|Ho paura di non riuscire a": "h-g-wells-la-macchina-del-tempo",
+    "Hans Christian Andersen|L'improvvisatore|Ci stabilimmo a Santa Lucia, il": "hans-christian-andersen-l-improvvisatore",
     "Harper Lee|Il buio oltre la siepe|Ma prima di vivere con gli": "harper-lee-il-buio-oltre-la-siepe-ma-prima-di",
     "Harper Lee|Il buio oltre la siepe|Non si conosce mai veramente una": "harper-lee-il-buio-oltre-la-siepe",
     "Haruki Murakami|1Q84|Amare qualcuno dal profondo del cuore": "haruki-murakami-1q84",
@@ -709,6 +712,7 @@
     "Zadie Smith|Denti bianchi|Liberarsi di una fede è come": "zadie-smith-denti-bianchi",
     "Zadie Smith|Denti bianchi|Presto nel mattino, tardi nel secolo,": "zadie-smith-denti-bianchi-presto-nel-mattino",
     "Zora Neale Hurston|I loro occhi guardavano Dio|Due sono le cose che ognuno": "zora-neale-hurston-i-loro-occhi-guardavano-dio-due-sono-le",
-    "Zora Neale Hurston|I loro occhi guardavano Dio|L'amore è come il mare. Mobile,": "zora-neale-hurston-i-loro-occhi-guardavano-dio"
+    "Zora Neale Hurston|I loro occhi guardavano Dio|L'amore è come il mare. Mobile,": "zora-neale-hurston-i-loro-occhi-guardavano-dio",
+    "Émile Zola|L'Assommoir|Fino a tanto che avrete qualche": "emile-zola-l-assommoir"
   }
 }
