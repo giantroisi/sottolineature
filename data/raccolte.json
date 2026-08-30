@@ -496,5 +496,26 @@
       "Giovanni Verga|Storia di una capinera|Avevo visto una povera capinera chiusa",
       "Alessandro Baricco|Seta|Pioveva la sua vita, davanti ai"
     ]
+  },
+  {
+    "slug": "notte",
+    "title": "Notte",
+    "h1": "Frasi e citazioni sulla notte",
+    "intro": [
+      "La notte, in letteratura, non è mai solo l'assenza di luce. Elie Wiesel la trasforma nel titolo stesso della propria testimonianza di sopravvissuto, quella prima notte ad Auschwitz che «ha fatto della mia vita una lunga notte e per sette volte sprangata». Franz Kafka apre «Il Castello» facendo arrivare K. a sera tarda in un villaggio sepolto dalla neve, con «nebbia e tenebre» che avvolgono ogni cosa, il castello stesso invisibile. Ursula K. Le Guin, ne «La mano sinistra delle tenebre», cita invece un proverbio del pianeta immaginario di Gethen: «La luce è la mano sinistra delle tenebre, e le tenebre la mano destra della luce» — non opposti, ma le due metà di una stessa cosa.",
+      "Terry Pratchett riprende la stessa idea con l'ironia che gli è propria: la luce crede di viaggiare più veloce di tutto, ma scopre sempre che il buio è arrivato prima di lei, e l'aspetta. T.S. Eliot apre «Il canto d'amore di J. Alfred Prufrock» con l'invito ad attraversare insieme «certe semideserte strade» tra «inquiete notti in alberghi da una notte», l'immagine più celebre della sua intera opera. Rainer Maria Rilke chiede invece al giovane poeta a cui scrive di interrogarsi «nell'ora più silenziosa della vostra notte»: prima di ogni domanda sulla poesia, viene quella sulla necessità di scrivere.",
+      "E c'è la notte come sfondo puro, dove tutto tace: Lev Tolstoj apre «I cosacchi» con Mosca addormentata, «solo di rado» il fruscio di una carrozza sulla neve; Pablo Neruda scrive «Posso scrivere i versi più tristi questa stanotte» nell'apertura della sua raccolta più celebre; e la narratrice di «Rebecca» di Daphne du Maurier confessa, nella prima riga del romanzo, di aver sognato — «ieri notte» — di tornare a Manderley."
+    ],
+    "quote_keys": [
+      "Elie Wiesel|La notte|Mai dimenticherò quella notte, la prima",
+      "Franz Kafka|Il Castello|Era sera tardi quando K. arrivò.",
+      "Ursula K. Le Guin|La mano sinistra delle tenebre|La luce è la mano sinistra",
+      "Terry Pratchett|Il tristo mietitore|La luce crede di viaggiare più",
+      "T.S. Eliot|Il canto d'amore di J. Alfred Prufrock|E allora andiamo, tu e io,",
+      "Rainer Maria Rilke|Lettere a un giovane poeta|Anzitutto questo: domandatevi nell'ora più silenziosa",
+      "Lev Tolstoj|I cosacchi|A Mosca tutto tace. Solo di",
+      "Pablo Neruda|Venti poesie d'amore e una canzone disperata|Posso scrivere i versi più tristi",
+      "Daphne du Maurier|Rebecca, la prima moglie|Ieri notte ho sognato di tornare"
+    ]
   }
 ]
