@@ -200,8 +200,9 @@ Olga Tokarczuk portati da 1 a 2 citazioni. Poi due nuovi autori: Susan Sontag e
 Wole Soyinka. Poi approfondimento: Amos Oz e Herta Müller portati da 1 a 2
 citazioni. Poi due nuovi autori: Michel Houellebecq e Zbigniew Herbert. Poi
 approfondimento: Chinua Achebe e Marguerite Duras portati da 1 a 2 citazioni.
-Poi due nuovi autori: Maya Angelou e Audre Lorde. Archivio a 251 autori, 493
-citazioni, 49 con una sola citazione. Lavoro da proseguire senza chiedere
+Poi due nuovi autori: Maya Angelou e Audre Lorde. Poi approfondimento: Iris
+Murdoch e Knut Hamsun portati da 1 a 2 citazioni. Archivio a 251 autori, 495
+citazioni, 47 con una sola citazione. Lavoro da proseguire senza chiedere
 conferma, alternando le due modalità lotto per lotto
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
