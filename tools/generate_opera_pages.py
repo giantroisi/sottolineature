@@ -84,7 +84,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <p class="opera-scheda">{scheda}</p>
   {cards_html}
   <footer class="sans">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo. <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>.
   </footer>
 </div>
 <script>

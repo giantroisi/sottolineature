@@ -8,10 +8,10 @@
   --paper-raised: #f8f7f3;
   --ink: #211f1b;
   --ink-soft: #5b564d;
-  --ink-faint: #8c8577;
+  --ink-faint: #736d60;
   --accent: #33523f;
   --accent-soft: #6b8574;
-  --gold: #9c7a3c;
+  --gold: #84662d;
   --rule: #ddd9cf;
   --shadow: rgba(33, 31, 27, 0.08);
 }
@@ -479,4 +479,37 @@ footer.sans a { color: var(--ink-faint); }
   display: inline-block; margin-left: 0.3rem; padding: 0.05rem 0.36rem;
   font-size: 0.62rem; line-height: 1.5; border-radius: 999px;
   background: var(--gold); color: var(--paper); vertical-align: 0.1em;
+}
+
+/* =========================================================================
+   Stampa. Il pubblico dichiarato del sito sono studenti e insegnanti, e gli
+   insegnanti stampano: finora usciva anche l'intestazione, la navigazione,
+   i pulsanti e le citazioni correlate. Qui resta la citazione con la sua
+   fonte, in nero su bianco, con l'indirizzo della pagina come riferimento.
+   ========================================================================= */
+@media print {
+  :root {
+    --paper: #fff; --paper-raised: #fff; --ink: #000; --ink-soft: #333;
+    --ink-faint: #555; --rule: #bbb; --gold: #555; --accent: #000; --shadow: transparent;
+  }
+  body { background: #fff !important; color: #000 !important; }
+  .site-header, .header-search, .site-nav, .theme-toggle,
+  .actions, .share-choice, .tags, .breadcrumb,
+  .related-grid, .related, .explore, .filters, .search-bar,
+  .underline-toggle, .card-hint, .note-field, .print-selection-btn { display: none !important; }
+  .page, .page-quote .page { max-width: none; margin: 0; padding: 0; }
+  .page-quote .card { display: block; }
+  .page-quote .card-quote { font-size: 20pt; line-height: 1.35; margin-bottom: 1em; }
+  .page-quote .card-citation { border-top: 1px solid #bbb; padding-top: 0.6em; font-size: 11pt; }
+  .page-quote .card-context { font-size: 10.5pt; line-height: 1.5; }
+  .page-quote .card-source {
+    background: none; border-left: 2px solid #999; font-size: 10pt; margin-top: 1em;
+  }
+  .card-cover, .cover-wrap { display: none !important; }
+  /* l'indirizzo della pagina stampato in fondo: una citazione su carta senza
+     la sua provenienza e' esattamente cio' che questo sito combatte */
+  footer.sans { border-top: 1px solid #bbb; padding-top: 0.5em; font-size: 9pt; color: #555; }
+  footer.sans::after { content: " — " attr(data-url); }
+  a { color: #000 !important; text-decoration: none; }
+  @page { margin: 2cm; }
 }
