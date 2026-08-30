@@ -142,6 +142,19 @@ Aggiornata: 2026-08-28.
   (la barra scorreva con `justify-content: flex-end`, che in LTR nasconde l'inizio) — ora il menu
   prende una riga sua sotto il marchio, che torna visibile. Verificato in browser 1280 e 390,
   chiaro e scuro, zero errori JS.
+- **Condividi e "Le mie" (2026-08-30).** Il pannello *Sfondo dell'immagine* sulla pagina citazione
+  era sempre visibile: `.share-choice` ha `display: flex`, che batte l'attributo `hidden`, quindi
+  premere "Condividi" apriva un pannello già aperto e sembrava non fare nulla. Aggiunta la regola
+  `.share-choice[hidden] { display: none }` e portato lo stesso comportamento in due passi anche
+  sulla citazione in evidenza della home (prima scaricava subito, senza far scegliere lo sfondo);
+  la scelta si richiude quando si cambia citazione. **`/le-mie-sottolineature/` era di sola
+  lettura:** ora ogni voce ha *Condividi* (stessa scelta chiaro/scuro) e *Togli la sottolineatura*,
+  con *Annulla* perché è l'unica azione distruttiva della pagina. All'apertura le chiavi vecchie
+  `autore|titolo` vengono convertite in slug e riscritte nel `localStorage`: senza quella
+  conversione togliere una sottolineatura ne avrebbe tolta anche un'altra della stessa opera.
+- **Testata della home più alta (2026-08-30).** `padding-top` della pagina da 4.5rem a 2rem (1.25
+  su telefono) — la barra fissa in alto è già un margine —, logo da 15rem a 12rem al massimo, fascia
+  *Esplora* su di 1.6rem. Segnalato dall'utente: "la parte del logo lascia troppo spazio".
 - **Bug dei generatori (2026-08-30):** `generate_quote_pages`, `generate_opera_pages` e
   `generate_raccolte_pages` cancellavano a ogni build l'`index.html` della propria cartella
   (`/citazioni/`, `/opere/`, `/raccolte/`) considerandolo una pagina orfana — lo riscriveva subito

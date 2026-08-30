@@ -410,5 +410,27 @@
       "Goliarda Sapienza|L'arte della gioia|Il mestiere del medico è valido",
       "Louisa May Alcott|Piccole donne|Dunque lasciatemi dare il mio consiglio:"
     ]
+  },
+  {
+    "slug": "ricordo-e-memoria",
+    "title": "Ricordo e memoria",
+    "h1": "Frasi e citazioni sul ricordo e sulla memoria",
+    "intro": [
+      "«Meditate che questo è stato»: la poesia che apre «Se questo è un uomo» di Primo Levi non è solo un ricordo, è un'esortazione a non permettere che diventi oblio. Elie Wiesel, testimone diretto di Auschwitz, scrive che non dimenticherà mai la prima notte nel campo, quella che ha reso tutta la sua vita «una lunga notte e per sette volte sprangata». Milan Kundera trasforma la stessa urgenza in una legge politica: «La lotta dell'uomo contro il potere è la lotta della memoria contro l'oblio» — i regimi che vogliono cancellare il passato sanno che la memoria è la loro prima nemica.",
+      "William Faulkner arriva alla formula più citata di tutte — «Il passato non è mai morto. Non è neanche passato» — mentre Julian Barnes, ne «Il senso di una fine», rovescia la prospettiva: quello che chiamiamo storia, scrive, non è altro che il punto in cui le imperfezioni della memoria incontrano le inadeguatezze della documentazione. Annie Ernaux paragona la memoria al desiderio sessuale: non si ferma mai, non si esaurisce davvero.",
+      "E c'è la memoria come rifugio, più che come dovere: Marcel Proust ne fa il motore dell'intero ciclo della «Ricerca del tempo perduto», Ernest Hemingway ricorda gli anni squattrinati a Parigi da giovane scrittore con la frase che dà il titolo a «Festa mobile» — quella città resta con te per sempre, ovunque tu vada — e il narratore adulto del «Giardino dei Finzi-Contini» di Giorgio Bassani capisce che, guardando indietro, contava più il ricordarsene che l'aver posseduto davvero qualcosa. Alfred Tennyson chiude il cerchio nell'elegia scritta per l'amico morto giovane: è meglio avere amato e perduto, scrive, che mai e mai avere amato."
+    ],
+    "quote_keys": [
+      "Primo Levi|Se questo è un uomo|Meditate che questo è stato.",
+      "Elie Wiesel|La notte|Mai dimenticherò quella notte, la prima",
+      "Milan Kundera|Il libro del riso e dell'oblio|La lotta dell'uomo contro il potere",
+      "William Faulkner|Requiem per una monaca|Il passato non è mai morto.",
+      "Julian Barnes|Il senso di una fine|La storia è quella certezza che",
+      "Annie Ernaux|Gli anni|Come il desiderio sessuale, la memoria",
+      "Ernest Hemingway|Festa mobile|Se hai avuto la fortuna di",
+      "Giorgio Bassani|Il giardino dei Finzi-Contini|Più del presente contava il passato,",
+      "Marcel Proust|Alla ricerca del tempo perduto|Era l'immagine della stanzetta dello zio",
+      "Alfred Tennyson|In Memoriam A.H.H.|Ne sono certo, qualunque cosa accada;"
+    ]
   }
 ]

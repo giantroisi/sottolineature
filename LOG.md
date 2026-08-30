@@ -301,6 +301,16 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Ricordo e memoria"**
+  (10/16), in autonomia. Filtrata l'archivio per radice lessicale (ricord, memoria/e, oblio,
+  dimentic, rimembr, passato): 60 candidati, letti uno per uno. 10 citazioni pubblicate: Primo Levi
+  (Se questo è un uomo), Elie Wiesel (La notte), Milan Kundera (Il libro del riso e dell'oblio),
+  William Faulkner (Requiem per una monaca), Julian Barnes (Il senso di una fine), Annie Ernaux
+  (Gli anni), Ernest Hemingway (Festa mobile), Giorgio Bassani (Il giardino dei Finzi-Contini),
+  Marcel Proust (Alla ricerca del tempo perduto, riusata da "Infanzia"), Alfred Tennyson (In
+  Memoriam A.H.H.). Introduzione scritta a mano (277 parole, 3 paragrafi). Build lanciata due volte
+  (bug del contatore, vedi lotti precedenti): al secondo giro 0 problemi, 20/20 raccolte.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Lavoro"** (9/16), in
   autonomia. Filtrata l'archivio per radice lessicale (lavoro, lavorare, lavorat, mestiere, operai,
   operaio, fatica, impiego, professione): solo 20 candidati, il bacino più piccolo finora — letti
