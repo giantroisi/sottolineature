@@ -302,5 +302,28 @@
       "Ernest Hemingway|Per chi suona la campana|Il mento poggiato sulle braccia incrociate,",
       "Federico García Lorca|Romance sonámbulo|Verde che ti voglio verde. Verde"
     ]
+  },
+  {
+    "slug": "animali",
+    "title": "Animali",
+    "h1": "Frasi e citazioni sugli animali",
+    "intro": [
+      "Gli animali, in letteratura, non sono quasi mai soltanto animali: sono specchi, soglie, promemoria di ciò che l'uomo condivide con le altre creature o smette di riconoscere in sé. George Orwell lo dice nel modo più diretto, chiudendo «La fattoria degli animali» con la regola che ne smentisce la premessa: «Tutti gli animali sono uguali, ma alcuni animali sono più uguali degli altri». Immanuel Kant, due secoli prima, ne aveva già fatto una questione morale: la crudeltà verso gli animali, sosteneva, corrompe la sensibilità verso gli altri uomini — un'idea che J.M. Coetzee riprende due secoli dopo, affidando a una scrittrice conferenze pubbliche sui diritti degli animali ne «La vita degli animali».",
+      "Più spesso sono metafore della condizione umana. Un uccello che lotta per uscire dall'uovo è, per Hermann Hesse, l'immagine della nascita a una nuova coscienza in «Demian»; un altro uccello, mai in gabbia, è la libertà che Jane Eyre rivendica di fronte a Rochester in Charlotte Brontë; e la capinera imprigionata del romanzo omonimo di Giovanni Verga diventa il ritratto di una ragazza costretta al convento contro la propria volontà. Jack London affida invece a un cane, Buck, il risveglio della «bestia primordiale» sopita sotto ogni addomesticamento.",
+      "E poi ci sono gli animali presi sul serio proprio in quanto animali, con tutta la loro estraneità: il leone Aslan di C.S. Lewis, «non mansueto, ma buono»; il delfino di Primo Levi, spiegato con la logica assurda di un bestiario immaginario come figlio di un tonno e di una vacca; il gatto di Pablo Neruda, l'unico essere al mondo che non desidera essere altro da sé, mentre tutti gli altri animali sognano di essere qualcos'altro; e la pecora nera di Truman Capote, orgogliosa dei propri zoccoli d'oro."
+    ],
+    "quote_keys": [
+      "George Orwell|La fattoria degli animali|Tutti gli animali sono uguali, ma",
+      "Hermann Hesse|Demian|L'uccello lotta per uscire dall'uovo. L'uovo",
+      "Charlotte Brontë|Jane Eyre|Non sono un uccello, e nessuna",
+      "C.S. Lewis|Le cronache di Narnia - Il leone, la strega e l'armadio|Non è un leone mansueto. Ma",
+      "Immanuel Kant|Lezioni di etica|Per non distruggerla, l'uomo deve mostrare",
+      "Truman Capote|Preghiere esaudite|Sarò magari una pecora nera, ma",
+      "J.M. Coetzee|La vita degli animali|Chissà perché, pensa, sua madre ha",
+      "Primo Levi|Ranocchi sulla luna e altri animali|Perché il delfino è simile ad",
+      "Pablo Neruda|Odi elementari|L'uomo vuol essere pesce e uccello,",
+      "Giovanni Verga|Storia di una capinera|Avevo visto una povera capinera chiusa",
+      "Jack London|Il richiamo della foresta|I desiderî nòmadi ed atàvici squassano"
+    ]
   }
 ]

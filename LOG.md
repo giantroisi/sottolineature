@@ -301,6 +301,18 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Animali"** (5/16), in
+  autonomia. Filtrata l'archivio per radice lessicale (animal, cane, gatto, cavall, uccell, lupo/i,
+  leone, pecora/e, falco, serpent, orso, elefant, pesce/i, bestia/e, volpe): 62 candidati, letti
+  uno per uno. 11 citazioni pubblicate, un autore ciascuno: George Orwell (La fattoria degli
+  animali), Hermann Hesse (Demian), Charlotte Brontë (Jane Eyre), C.S. Lewis (Narnia, il leone
+  Aslan), Immanuel Kant (Lezioni di etica, sui doveri verso gli animali), Truman Capote (Preghiere
+  esaudite), J.M. Coetzee (La vita degli animali), Primo Levi (Ranocchi sulla luna e altri
+  animali), Pablo Neruda (Odi elementari, l'ode al gatto), Giovanni Verga (Storia di una capinera),
+  Jack London (Il richiamo della foresta — l'epigrafe sulla "bestia primordiale", diversa dal passo
+  sull'estasi della caccia già usato in "Natura", stesso autore e titolo ma citazione distinta).
+  Introduzione scritta a mano (287 parole, 3 paragrafi). Build pulita (0 problemi, 15/15 raccolte).
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Natura"** (4/16), in
   autonomia. Filtrata l'archivio per radice lessicale (natura, albero/i, foresta, bosco, montagn,
   vento, pianta, fiore/i, campagna, paesaggio, giardino, prato, collina, valle, erba, radici,
