@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/sylvia-plath/">Sylvia Plath</a> › <span aria-current="page">Vidi la mia vita diramarsi davanti a me…</span>
   </nav>
   <figure class="card" data-category="vita">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Vidi la mia vita diramarsi davanti a me come il verde albero di fico del racconto. E vidi me stessa seduta alla biforcazione dell&#x27;albero, che morivo di fame per non saper decidere quale fico cogliere.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Vidi la mia vita diramarsi davanti a me come il verde albero di fico del racconto. E vidi me stessa seduta alla biforcazione dell&#x27;albero, che morivo di fame per non saper decidere quale fico cogliere.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È Esther Greenwood a immaginare così la propria vita: ogni ramo dell&#x27;albero rappresenta un futuro possibile — moglie, poetessa, accademica, viaggiatrice — e l&#x27;incapacità di scegliere uno solo la paralizza, mentre gli altri, uno dopo l&#x27;altro, avvizziscono.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>Mondadori, 2017, p. 111, trad. Adriana Bottini e Anna Ravano. <a href="https://it.wikiquote.org/wiki/Sylvia_Plath">Fonte su Wikiquote →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/8477115-M.jpg" alt="Copertina di &quot;La campana di vetro&quot; di Sylvia Plath" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/8477115-M.jpg" alt="Copertina di &quot;La campana di vetro&quot; di Sylvia Plath" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">La campana di vetro<span class="cover-caption-year"> · 1963</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#sylvia-plath-la-campana-di-vetro-vidi-la-mia">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/sylvia-plath/">Sylvia Plath</a><a href="/temi/vita/">Vita</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Sylvia Plath</h2><ul><li><a href="/citazioni/sylvia-plath-la-campana-di-vetro/">«Feci un respiro profondo e ascoltai il mio vecchio cuore: sono io,…»</a> — <span class="sans" style="font-style:normal">La campana di vetro</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Vita</h2><ul><li><a href="/citazioni/giacomo-leopardi-l-infinito/">«E il naufragar m&#x27;è dolce in questo mare.»</a> — <span class="sans" style="font-style:normal">Giacomo Leopardi</span></li><li><a href="/citazioni/lev-tolstoj-anna-karenina/">«Tutte le famiglie felici si assomigliano fra loro, ogni famiglia…»</a> — <span class="sans" style="font-style:normal">Lev Tolstoj</span></li><li><a href="/citazioni/franz-kafka-la-metamorfosi/">«Un mattino, Gregor Samsa, destandosi da sogni inquieti, si trovò…»</a> — <span class="sans" style="font-style:normal">Franz Kafka</span></li><li><a href="/citazioni/herman-melville-moby-dick/">«Chiamatemi Ismaele.»</a> — <span class="sans" style="font-style:normal">Herman Melville</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Vidi la mia vita diramarsi davanti a me come il verde albero di fico del racconto. E vidi me stessa seduta alla biforcazione dell'albero, che morivo di fame per non saper decidere quale fico cogliere.\" — Sylvia Plath, La campana di vetro";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Vidi la mia vita diramarsi davanti a me come il verde albero di fico del racconto. E vidi me stessa seduta alla biforcazione dell'albero, che morivo di fame per non saper decidere quale fico cogliere.", "Sylvia Plath", "La campana di vetro", "1963",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/gabriel-garcia-marquez/">Gabriel García Márquez</a> › <span aria-current="page">Le stirpi condannate a cento anni di…</span>
   </nav>
   <figure class="card" data-category="solitudine">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Le stirpi condannate a cento anni di solitudine non avevano una seconda opportunità sulla terra.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Le stirpi condannate a cento anni di solitudine non avevano una seconda opportunità sulla terra.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">Sono quasi le ultime righe del libro: l&#x27;ultimo discendente della famiglia le legge in un manoscritto profetico scritto cent&#x27;anni prima, mentre un vento cancella per sempre il paese in cui vive — il romanzo finisce nell&#x27;istante stesso in cui viene letto fino in fondo.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>ultime righe del libro.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/12627383-M.jpg" alt="Copertina di &quot;Cent&#x27;anni di solitudine&quot; di Gabriel García Márquez" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/12627383-M.jpg" alt="Copertina di &quot;Cent&#x27;anni di solitudine&quot; di Gabriel García Márquez" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Cent&#x27;anni di solitudine<span class="cover-caption-year"> · 1967</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     <p class="opera-link sans"><a class="is-primary" href="https://sottolineature.it/opere/gabriel-garcia-marquez-cent-anni-di-solitudine/">Tutte le citazioni da «Cent&#x27;anni di solitudine»</a></p>
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#gabriel-garcia-marquez-cent-anni-di-solitudine-2">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/gabriel-garcia-marquez/">Gabriel García Márquez</a><a href="/temi/solitudine/">Solitudine</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Gabriel García Márquez</h2><ul><li><a href="/citazioni/gabriel-garcia-marquez-cent-anni-di-solitudine/">«Molti anni dopo, di fronte al plotone di esecuzione, il colonnello…»</a> — <span class="sans" style="font-style:normal">Cent&#x27;anni di solitudine</span></li><li><a href="/citazioni/gabriel-garcia-marquez-l-amore-ai-tempi-del-colera/">«È la vita, più che la morte, a non avere limiti.»</a> — <span class="sans" style="font-style:normal">L&#x27;amore ai tempi del colera</span></li><li><a href="/citazioni/gabriel-garcia-marquez-cronaca-di-una-morte-annunciata/">«Il giorno che l&#x27;avrebbero ucciso, Santiago Nasar si alzò alle 5,30…»</a> — <span class="sans" style="font-style:normal">Cronaca di una morte annunciata</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Solitudine</h2><ul><li><a href="/citazioni/fernando-pessoa-il-libro-dell-inquietudine/">«Sono niente. Non sarò mai niente. Non posso voler essere niente. A…»</a> — <span class="sans" style="font-style:normal">Fernando Pessoa</span></li><li><a href="/citazioni/edgar-allan-poe-il-corvo/">«Mai più.»</a> — <span class="sans" style="font-style:normal">Edgar Allan Poe</span></li><li><a href="/citazioni/jean-paul-sartre-a-porte-chiuse/">«L&#x27;inferno sono gli altri.»</a> — <span class="sans" style="font-style:normal">Jean-Paul Sartre</span></li><li><a href="/citazioni/hermann-hesse-il-lupo-della-steppa/">«Come corpo ognuno è singolo, come anima mai.»</a> — <span class="sans" style="font-style:normal">Hermann Hesse</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Le stirpi condannate a cento anni di solitudine non avevano una seconda opportunità sulla terra.\" — Gabriel García Márquez, Cent'anni di solitudine";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Le stirpi condannate a cento anni di solitudine non avevano una seconda opportunità sulla terra.", "Gabriel García Márquez", "Cent'anni di solitudine", "1967",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

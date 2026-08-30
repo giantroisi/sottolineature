@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/dacia-maraini/">Dacia Maraini</a> › <span aria-current="page">Un padre e una figlia eccoli lì: lui…</span>
   </nav>
   <figure class="card" data-category="solitudine">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Un padre e una figlia eccoli lì: lui biondo, bello, sorridente, lei goffa, lentigginosa, spaventata. Lui elegante e trasandato, con le calze ciondolanti, la parrucca infilata di traverso, lei chiusa…</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Un padre e una figlia eccoli lì: lui biondo, bello, sorridente, lei goffa, lentigginosa, spaventata. Lui elegante e trasandato, con le calze ciondolanti, la parrucca infilata di traverso, lei chiusa…</span><span class="quote-close" aria-hidden="true">»</span></h1>
       <p class="card-quote-full">Un padre e una figlia eccoli lì: lui biondo, bello, sorridente, lei goffa, lentigginosa, spaventata. Lui elegante e trasandato, con le calze ciondolanti, la parrucca infilata di traverso, lei chiusa dentro un corsetto amarantato che mette in risalto la carnagione cerea.</p>
     </blockquote>
     <div class="card-body">
@@ -69,7 +68,13 @@
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#dacia-maraini-la-lunga-vita-di-marianna-ucria">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/dacia-maraini/">Dacia Maraini</a><a href="/temi/solitudine/">Solitudine</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Dacia Maraini</h2><ul><li><a href="/citazioni/dacia-maraini-il-treno-dell-ultima-notte/">«Gli ebrei romani nell&#x27;ottobre del &#x27;43 avevano pensato di essere salvi…»</a> — <span class="sans" style="font-style:normal">Il treno dell&#x27;ultima notte</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Solitudine</h2><ul><li><a href="/citazioni/gabriel-garcia-marquez-cent-anni-di-solitudine-2/">«Le stirpi condannate a cento anni di solitudine non avevano una…»</a> — <span class="sans" style="font-style:normal">Gabriel García Márquez</span></li><li><a href="/citazioni/fernando-pessoa-il-libro-dell-inquietudine/">«Sono niente. Non sarò mai niente. Non posso voler essere niente. A…»</a> — <span class="sans" style="font-style:normal">Fernando Pessoa</span></li><li><a href="/citazioni/edgar-allan-poe-il-corvo/">«Mai più.»</a> — <span class="sans" style="font-style:normal">Edgar Allan Poe</span></li><li><a href="/citazioni/jean-paul-sartre-a-porte-chiuse/">«L&#x27;inferno sono gli altri.»</a> — <span class="sans" style="font-style:normal">Jean-Paul Sartre</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Un padre e una figlia eccoli lì: lui biondo, bello, sorridente, lei goffa, lentigginosa, spaventata. Lui elegante e trasandato, con le calze ciondolanti, la parrucca infilata di traverso, lei chiusa dentro un corsetto amarantato che mette in risalto la carnagione cerea.\" — Dacia Maraini, La lunga vita di Marianna Ucrìa";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Un padre e una figlia eccoli lì: lui biondo, bello, sorridente, lei goffa, lentigginosa, spaventata. Lui elegante e trasandato, con le calze ciondolanti, la parrucca infilata di traverso, lei chiusa dentro un corsetto amarantato che mette in risalto la carnagione cerea.", "Dacia Maraini", "La lunga vita di Marianna Ucrìa", "1990",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/italo-calvino/">Italo Calvino</a> › <span aria-current="page">Stai per cominciare a leggere il nuovo…</span>
   </nav>
   <figure class="card" data-category="verita">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Stai per cominciare a leggere il nuovo romanzo di Italo Calvino, Se una notte d&#x27;inverno un viaggiatore.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Stai per cominciare a leggere il nuovo romanzo di Italo Calvino, Se una notte d&#x27;inverno un viaggiatore.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È la primissima frase del romanzo, che si rivolge direttamente a &quot;tu&quot; che stai per iniziare a leggerlo: da qui in poi il libro racconterà proprio la tua esperienza di lettore.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>incipit.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/11224049-M.jpg" alt="Copertina di &quot;Se una notte d&#x27;inverno un viaggiatore&quot; di Italo Calvino" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/11224049-M.jpg" alt="Copertina di &quot;Se una notte d&#x27;inverno un viaggiatore&quot; di Italo Calvino" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Se una notte d&#x27;inverno un viaggiatore<span class="cover-caption-year"> · 1979</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     <p class="opera-link sans"><a href="https://sottolineature.it/raccolte/libri-e-scrittura/">Raccolta: Libri e scrittura</a></p>
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#italo-calvino-se-una-notte-d-inverno-un-viaggiatore">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/italo-calvino/">Italo Calvino</a><a href="/temi/verita/">Verità</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Italo Calvino</h2><ul><li><a href="/citazioni/italo-calvino-le-citta-invisibili/">«L&#x27;inferno dei viventi non è qualcosa che sarà; se ce n&#x27;è uno, è…»</a> — <span class="sans" style="font-style:normal">Le città invisibili</span></li><li><a href="/citazioni/italo-calvino-il-barone-rampante/">«Chi vuole guardare bene la terra deve tenersi alla distanza…»</a> — <span class="sans" style="font-style:normal">Il barone rampante</span></li><li><a href="/citazioni/italo-calvino-palomar/">«La vita d&#x27;una persona consiste in un insieme d&#x27;avvenimenti di cui…»</a> — <span class="sans" style="font-style:normal">Palomar</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Verità</h2><ul><li><a href="/citazioni/italo-calvino-le-citta-invisibili/">«L&#x27;inferno dei viventi non è qualcosa che sarà; se ce n&#x27;è uno, è…»</a> — <span class="sans" style="font-style:normal">Italo Calvino</span></li><li><a href="/citazioni/fedor-dostoevskij-l-idiota/">«La bellezza salverà il mondo.»</a> — <span class="sans" style="font-style:normal">Fëdor Dostoevskij</span></li><li><a href="/citazioni/antoine-de-saint-exupery-il-piccolo-principe/">«Non si vede bene che col cuore. L&#x27;essenziale è invisibile agli occhi.»</a> — <span class="sans" style="font-style:normal">Antoine de Saint-Exupéry</span></li><li><a href="/citazioni/oscar-wilde-il-ritratto-di-dorian-gray/">«Non c&#x27;è che un modo per liberarsi di una tentazione: cedervi.»</a> — <span class="sans" style="font-style:normal">Oscar Wilde</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Stai per cominciare a leggere il nuovo romanzo di Italo Calvino, Se una notte d'inverno un viaggiatore.\" — Italo Calvino, Se una notte d'inverno un viaggiatore";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Stai per cominciare a leggere il nuovo romanzo di Italo Calvino, Se una notte d'inverno un viaggiatore.", "Italo Calvino", "Se una notte d'inverno un viaggiatore", "1979",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

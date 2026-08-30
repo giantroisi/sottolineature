@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/friedrich-nietzsche/">Friedrich Nietzsche</a> › <span aria-current="page">Senza musica la vita sarebbe un errore.</span>
   </nav>
   <figure class="card" data-category="vita">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Senza musica la vita sarebbe un errore.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Senza musica la vita sarebbe un errore.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È uno dei brevissimi aforismi di «Massime e arguzie», la sezione che apre Il crepuscolo degli idoli: per Nietzsche la musica non è un ornamento della vita ma una sua condizione necessaria, al pari della felicità che nasce, scrive subito prima, dal solo suono di una cornamusa.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>Casa editrice Sociale, Milano, 1924, Massime e arguzie, 33. <a href="https://it.wikisource.org/wiki/Il_crepuscolo_degli_idoli/Massime_e_arguzie">Testo su Wikisource →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/104061-M.jpg" alt="Copertina di &quot;Il crepuscolo degli idoli&quot; di Friedrich Nietzsche" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/104061-M.jpg" alt="Copertina di &quot;Il crepuscolo degli idoli&quot; di Friedrich Nietzsche" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Il crepuscolo degli idoli<span class="cover-caption-year"> · 1888</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#friedrich-nietzsche-il-crepuscolo-degli-idoli">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/friedrich-nietzsche/">Friedrich Nietzsche</a><a href="/temi/vita/">Vita</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Friedrich Nietzsche</h2><ul><li><a href="/citazioni/friedrich-nietzsche-cosi-parlo-zarathustra/">«Tre metamorfosi dello spirito io vi narro: com&#x27;esso divenne un…»</a> — <span class="sans" style="font-style:normal">Così parlò Zarathustra</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Vita</h2><ul><li><a href="/citazioni/giacomo-leopardi-l-infinito/">«E il naufragar m&#x27;è dolce in questo mare.»</a> — <span class="sans" style="font-style:normal">Giacomo Leopardi</span></li><li><a href="/citazioni/lev-tolstoj-anna-karenina/">«Tutte le famiglie felici si assomigliano fra loro, ogni famiglia…»</a> — <span class="sans" style="font-style:normal">Lev Tolstoj</span></li><li><a href="/citazioni/franz-kafka-la-metamorfosi/">«Un mattino, Gregor Samsa, destandosi da sogni inquieti, si trovò…»</a> — <span class="sans" style="font-style:normal">Franz Kafka</span></li><li><a href="/citazioni/herman-melville-moby-dick/">«Chiamatemi Ismaele.»</a> — <span class="sans" style="font-style:normal">Herman Melville</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Senza musica la vita sarebbe un errore.\" — Friedrich Nietzsche, Il crepuscolo degli idoli";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Senza musica la vita sarebbe un errore.", "Friedrich Nietzsche", "Il crepuscolo degli idoli", "1888",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

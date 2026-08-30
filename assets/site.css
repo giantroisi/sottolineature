@@ -365,3 +365,24 @@ footer.sans a { color: var(--ink-faint); }
 @media (max-width: 640px) {
   .has-header .page { padding: 1.75rem 1.25rem 4rem; }
 }
+
+/* --- citazione: caporali, clic per copiare, scelta sfondo condivisione --- */
+.page-quote .quote-open, .page-quote .quote-close { color: var(--gold); }
+.page-quote .quote-text { cursor: pointer; border-radius: 3px; transition: background 0.18s; }
+.page-quote .quote-text:hover { background: var(--paper-raised); }
+.page-quote .quote-text:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.cover-wrap { grid-area: cover; margin: 0; align-self: start; }
+.cover-caption {
+  margin-top: 0.6rem; font-size: 0.72rem; line-height: 1.4;
+  color: var(--ink-faint); text-align: center; max-width: 150px;
+}
+.share-choice {
+  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: -0.8rem 0 1.6rem;
+}
+.share-choice-label { font-size: 0.78rem; color: var(--ink-faint); }
+.share-choice button {
+  border: 1px solid var(--rule); border-radius: 999px; padding: 0.35rem 0.9rem;
+  font-size: 0.78rem; color: var(--ink-soft); background: none; cursor: pointer;
+}
+.share-choice button:hover { border-color: var(--gold); color: var(--gold); }
+@media (max-width: 640px) { .cover-caption { max-width: 92px; } }

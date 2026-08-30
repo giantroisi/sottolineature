@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/ray-bradbury/">Ray Bradbury</a> › <span aria-current="page">Ci deve essere qualcosa di speciale nei…</span>
   </nav>
   <figure class="card" data-category="liberta" data-genre="distopia">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">Faber, l&#x27;ex professore, lo dice a Montag per spiegargli perché i libri contano — non per la carta in sé, ma per quello che custodiscono e che nessun altro mezzo riesce a custodire allo stesso modo.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>scena della donna che brucia con i suoi libri.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/12993656-M.jpg" alt="Copertina di &quot;Fahrenheit 451&quot; di Ray Bradbury" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/12993656-M.jpg" alt="Copertina di &quot;Fahrenheit 451&quot; di Ray Bradbury" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Fahrenheit 451<span class="cover-caption-year"> · 1953</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     <p class="opera-link sans"><a href="https://sottolineature.it/raccolte/libri-e-scrittura/">Raccolta: Libri e scrittura</a></p>
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#ray-bradbury-fahrenheit-451">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/ray-bradbury/">Ray Bradbury</a><a href="/temi/liberta/">Libertà</a><a href="/generi/distopia/">Distopia</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Ray Bradbury</h2><ul><li><a href="/citazioni/ray-bradbury-fahrenheit-451-e-un-bel/">«È un bel lavoro, sapete. Il lunedì bruciare i luminari della poesia,…»</a> — <span class="sans" style="font-style:normal">Fahrenheit 451</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Libertà</h2><ul><li><a href="/citazioni/fedor-dostoevskij-i-fratelli-karamazov/">«Se Dio non esiste, tutto è permesso.»</a> — <span class="sans" style="font-style:normal">Fëdor Dostoevskij</span></li><li><a href="/citazioni/george-orwell-1984/">«La libertà è la libertà di dire che due più due fa quattro.»</a> — <span class="sans" style="font-style:normal">George Orwell</span></li><li><a href="/citazioni/virginia-woolf-una-stanza-tutta-per-se/">«Una donna deve avere denaro e una stanza tutta per sé se vuole…»</a> — <span class="sans" style="font-style:normal">Virginia Woolf</span></li><li><a href="/citazioni/miguel-de-cervantes-don-chisciotte-della-mancia/">«La libertà, Sancio, è uno dei doni più preziosi che il cielo abbia…»</a> — <span class="sans" style="font-style:normal">Miguel de Cervantes</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.\" — Ray Bradbury, Fahrenheit 451";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.", "Ray Bradbury", "Fahrenheit 451", "1953",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

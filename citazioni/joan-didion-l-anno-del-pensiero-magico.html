@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/joan-didion/">Joan Didion</a> › <span aria-current="page">La vita cambia in fretta. La vita…</span>
   </nav>
   <figure class="card" data-category="morte" data-genre="saggistica">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">La vita cambia in fretta. La vita cambia in un istante. Una sera ti metti a tavola e la vita che conoscevi è finita.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">La vita cambia in fretta. La vita cambia in un istante. Una sera ti metti a tavola e la vita che conoscevi è finita.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -69,7 +68,13 @@
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#joan-didion-l-anno-del-pensiero-magico">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/joan-didion/">Joan Didion</a><a href="/generi/saggistica/">Saggistica</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Joan Didion</h2><ul><li><a href="/citazioni/joan-didion-the-white-album/">«Noi ci raccontiamo delle storie per vivere.»</a> — <span class="sans" style="font-style:normal">The White Album</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"La vita cambia in fretta. La vita cambia in un istante. Una sera ti metti a tavola e la vita che conoscevi è finita.\" — Joan Didion, L'anno del pensiero magico";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "La vita cambia in fretta. La vita cambia in un istante. Una sera ti metti a tavola e la vita che conoscevi è finita.", "Joan Didion", "L'anno del pensiero magico", "2005",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

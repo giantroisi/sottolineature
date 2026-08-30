@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/boris-pasternak/">Boris Pasternak</a> › <span aria-current="page">La coscienza è luce, proiettata al di…</span>
   </nav>
   <figure class="card" data-category="verita">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">La coscienza è luce, proiettata al di fuori, che illumina la strada davanti a noi, perché non si inciampi. La coscienza sono i fari accesi davanti a una locomotiva che corre.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">La coscienza è luce, proiettata al di fuori, che illumina la strada davanti a noi, perché non si inciampi. La coscienza sono i fari accesi davanti a una locomotiva che corre.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È Jurij Živago a dirlo alla suocera malata, improvvisando una riflessione sulla coscienza e sulla morte: rivolta verso l&#x27;esterno, la coscienza illumina la strada; rivolta verso l&#x27;interno, può accecare.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>Feltrinelli, Milano, 2018, parte I, «L&#x27;albero di Natale dagli Sventickij», §3, trad. Pietro Zveteremich e Mario Socrate. <a href="https://it.wikiquote.org/wiki/Boris_Pasternak">Fonte su Wikiquote →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/1045432-M.jpg" alt="Copertina di &quot;Il dottor Živago&quot; di Boris Pasternak" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/1045432-M.jpg" alt="Copertina di &quot;Il dottor Živago&quot; di Boris Pasternak" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Il dottor Živago<span class="cover-caption-year"> · 1957</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#boris-pasternak-il-dottor-zivago-la-coscienza-e">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/boris-pasternak/">Boris Pasternak</a><a href="/temi/verita/">Verità</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Boris Pasternak</h2><ul><li><a href="/citazioni/boris-pasternak-il-dottor-zivago/">«Anche più dell&#x27;affinità delle loro anime, li univa l&#x27;abisso che li…»</a> — <span class="sans" style="font-style:normal">Il dottor Živago</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Verità</h2><ul><li><a href="/citazioni/italo-calvino-le-citta-invisibili/">«L&#x27;inferno dei viventi non è qualcosa che sarà; se ce n&#x27;è uno, è…»</a> — <span class="sans" style="font-style:normal">Italo Calvino</span></li><li><a href="/citazioni/fedor-dostoevskij-l-idiota/">«La bellezza salverà il mondo.»</a> — <span class="sans" style="font-style:normal">Fëdor Dostoevskij</span></li><li><a href="/citazioni/antoine-de-saint-exupery-il-piccolo-principe/">«Non si vede bene che col cuore. L&#x27;essenziale è invisibile agli occhi.»</a> — <span class="sans" style="font-style:normal">Antoine de Saint-Exupéry</span></li><li><a href="/citazioni/oscar-wilde-il-ritratto-di-dorian-gray/">«Non c&#x27;è che un modo per liberarsi di una tentazione: cedervi.»</a> — <span class="sans" style="font-style:normal">Oscar Wilde</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"La coscienza è luce, proiettata al di fuori, che illumina la strada davanti a noi, perché non si inciampi. La coscienza sono i fari accesi davanti a una locomotiva che corre.\" — Boris Pasternak, Il dottor Živago";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "La coscienza è luce, proiettata al di fuori, che illumina la strada davanti a noi, perché non si inciampi. La coscienza sono i fari accesi davanti a una locomotiva che corre.", "Boris Pasternak", "Il dottor Živago", "1957",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

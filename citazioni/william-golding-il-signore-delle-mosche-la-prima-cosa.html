@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/william-golding/">William Golding</a> › <span aria-current="page">La prima cosa a cui si abituarono fu il…</span>
   </nav>
   <figure class="card" data-category="tempo">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">La prima cosa a cui si abituarono fu il ritmo del lento passaggio dall&#x27;alba al rapido crepuscolo. Accettavano i piaceri del mattino, il bel sole, il palpito del mare, l&#x27;aria dolce, come il tempo…</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">La prima cosa a cui si abituarono fu il ritmo del lento passaggio dall&#x27;alba al rapido crepuscolo. Accettavano i piaceri del mattino, il bel sole, il palpito del mare, l&#x27;aria dolce, come il tempo…</span><span class="quote-close" aria-hidden="true">»</span></h1>
       <p class="card-quote-full">La prima cosa a cui si abituarono fu il ritmo del lento passaggio dall&#x27;alba al rapido crepuscolo. Accettavano i piaceri del mattino, il bel sole, il palpito del mare, l&#x27;aria dolce, come il tempo adatto per giocare.</p>
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È il narratore a descrivere come i ragazzi naufragati sull&#x27;isola si adattano presto ai suoi ritmi naturali, prima ancora che la paura della «bestia» cominci a corrodere quell&#x27;equilibrio.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>p. 64. <a href="https://it.wikiquote.org/wiki/William_Golding">Fonte su Wikiquote →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/8684447-M.jpg" alt="Copertina di &quot;Il signore delle mosche&quot; di William Golding" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/8684447-M.jpg" alt="Copertina di &quot;Il signore delle mosche&quot; di William Golding" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Il signore delle mosche<span class="cover-caption-year"> · 1954</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#william-golding-il-signore-delle-mosche-la-prima-cosa">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/william-golding/">William Golding</a><a href="/temi/tempo/">Tempo</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di William Golding</h2><ul><li><a href="/citazioni/william-golding-il-signore-delle-mosche/">««Tu sei uno sciocco» diceva il Signore delle Mosche «nient&#x27;altro che…»</a> — <span class="sans" style="font-style:normal">Il signore delle mosche</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Tempo</h2><ul><li><a href="/citazioni/gabriel-garcia-marquez-cent-anni-di-solitudine/">«Molti anni dopo, di fronte al plotone di esecuzione, il colonnello…»</a> — <span class="sans" style="font-style:normal">Gabriel García Márquez</span></li><li><a href="/citazioni/charles-dickens-racconto-di-due-citta/">«Era il migliore dei tempi, era il peggiore dei tempi.»</a> — <span class="sans" style="font-style:normal">Charles Dickens</span></li><li><a href="/citazioni/primo-levi-se-questo-e-un-uomo/">«Meditate che questo è stato.»</a> — <span class="sans" style="font-style:normal">Primo Levi</span></li><li><a href="/citazioni/f-scott-fitzgerald-il-grande-gatsby/">«Così remiamo, barche contro corrente, risospinti senza sosta nel…»</a> — <span class="sans" style="font-style:normal">F. Scott Fitzgerald</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"La prima cosa a cui si abituarono fu il ritmo del lento passaggio dall'alba al rapido crepuscolo. Accettavano i piaceri del mattino, il bel sole, il palpito del mare, l'aria dolce, come il tempo adatto per giocare.\" — William Golding, Il signore delle mosche";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "La prima cosa a cui si abituarono fu il ritmo del lento passaggio dall'alba al rapido crepuscolo. Accettavano i piaceri del mattino, il bel sole, il palpito del mare, l'aria dolce, come il tempo adatto per giocare.", "William Golding", "Il signore delle mosche", "1954",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

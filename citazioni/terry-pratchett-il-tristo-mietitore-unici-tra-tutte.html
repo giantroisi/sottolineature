@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/terry-pratchett/">Terry Pratchett</a> › <span aria-current="page">Unici tra tutte le creature del mondo,…</span>
   </nav>
   <figure class="card" data-category="tempo" data-genre="fantasy">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Unici tra tutte le creature del mondo, i troll credono che tutti gli esseri viventi vadano indietro nel tempo. Se in passato è visibile e il futuro è nascosto, dicono, significa che stai guardando…</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Unici tra tutte le creature del mondo, i troll credono che tutti gli esseri viventi vadano indietro nel tempo. Se in passato è visibile e il futuro è nascosto, dicono, significa che stai guardando…</span><span class="quote-close" aria-hidden="true">»</span></h1>
       <p class="card-quote-full">Unici tra tutte le creature del mondo, i troll credono che tutti gli esseri viventi vadano indietro nel tempo. Se in passato è visibile e il futuro è nascosto, dicono, significa che stai guardando nella direzione sbagliata.</p>
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È il narratore a spiegare la particolare filosofia dei troll del Mondo Disco sul tempo: se possiamo vedere solo ciò che è già accaduto, forse significa che stiamo guardando dalla parte sbagliata.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>Salani Editore, Milano, 2008, p. 25, trad. Valentina Daniele. <a href="https://it.wikiquote.org/wiki/Terry_Pratchett">Fonte su Wikiquote →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/14648856-M.jpg" alt="Copertina di &quot;Il tristo mietitore&quot; di Terry Pratchett" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/14648856-M.jpg" alt="Copertina di &quot;Il tristo mietitore&quot; di Terry Pratchett" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Il tristo mietitore<span class="cover-caption-year"> · 1991</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#terry-pratchett-il-tristo-mietitore-unici-tra-tutte">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/terry-pratchett/">Terry Pratchett</a><a href="/temi/tempo/">Tempo</a><a href="/generi/fantasy/">Fantasy</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Terry Pratchett</h2><ul><li><a href="/citazioni/terry-pratchett-il-tristo-mietitore/">«La luce crede di viaggiare più veloce di tutto, ma si sbaglia. Per…»</a> — <span class="sans" style="font-style:normal">Il tristo mietitore</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Tempo</h2><ul><li><a href="/citazioni/gabriel-garcia-marquez-cent-anni-di-solitudine/">«Molti anni dopo, di fronte al plotone di esecuzione, il colonnello…»</a> — <span class="sans" style="font-style:normal">Gabriel García Márquez</span></li><li><a href="/citazioni/charles-dickens-racconto-di-due-citta/">«Era il migliore dei tempi, era il peggiore dei tempi.»</a> — <span class="sans" style="font-style:normal">Charles Dickens</span></li><li><a href="/citazioni/primo-levi-se-questo-e-un-uomo/">«Meditate che questo è stato.»</a> — <span class="sans" style="font-style:normal">Primo Levi</span></li><li><a href="/citazioni/f-scott-fitzgerald-il-grande-gatsby/">«Così remiamo, barche contro corrente, risospinti senza sosta nel…»</a> — <span class="sans" style="font-style:normal">F. Scott Fitzgerald</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Unici tra tutte le creature del mondo, i troll credono che tutti gli esseri viventi vadano indietro nel tempo. Se in passato è visibile e il futuro è nascosto, dicono, significa che stai guardando nella direzione sbagliata.\" — Terry Pratchett, Il tristo mietitore";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Unici tra tutte le creature del mondo, i troll credono che tutti gli esseri viventi vadano indietro nel tempo. Se in passato è visibile e il futuro è nascosto, dicono, significa che stai guardando nella direzione sbagliata.", "Terry Pratchett", "Il tristo mietitore", "1991",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/carlo-collodi/">Carlo Collodi</a> › <span aria-current="page">Tutti quelli che fanno codesto…</span>
   </nav>
   <figure class="card" data-category="verita">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Tutti quelli che fanno codesto mestiere, finiscono sempre allo spedale o in prigione.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Tutti quelli che fanno codesto mestiere, finiscono sempre allo spedale o in prigione.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È l&#x27;ammonimento che il Grillo-parlante rivolge a Pinocchio nel quarto capitolo del romanzo, dopo che il burattino gli ha confessato di voler passare la vita a mangiare, bere, dormire e vagabondare senza fare nulla: il grillo, che abita la casa di Geppetto da più di cent&#x27;anni, viene subito dopo schiacciato da un martello scagliato da Pinocchio infastidito.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>R. Bemporad &amp; figlio, Firenze, 1902, cap. IV, p. 26. <a href="https://it.wikisource.org/wiki/Le_avventure_di_Pinocchio/Capitolo_4">Testo su Wikisource →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/8597022-M.jpg" alt="Copertina di &quot;Le avventure di Pinocchio&quot; di Carlo Collodi" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/8597022-M.jpg" alt="Copertina di &quot;Le avventure di Pinocchio&quot; di Carlo Collodi" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Le avventure di Pinocchio<span class="cover-caption-year"> · 1883</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#carlo-collodi-le-avventure-di-pinocchio-tutti-quelli-che">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/carlo-collodi/">Carlo Collodi</a><a href="/temi/verita/">Verità</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Carlo Collodi</h2><ul><li><a href="/citazioni/carlo-collodi-le-avventure-di-pinocchio/">«Vi sono le bugie che hanno le gambe corte, e le bugie che hanno il…»</a> — <span class="sans" style="font-style:normal">Le avventure di Pinocchio</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Verità</h2><ul><li><a href="/citazioni/italo-calvino-le-citta-invisibili/">«L&#x27;inferno dei viventi non è qualcosa che sarà; se ce n&#x27;è uno, è…»</a> — <span class="sans" style="font-style:normal">Italo Calvino</span></li><li><a href="/citazioni/fedor-dostoevskij-l-idiota/">«La bellezza salverà il mondo.»</a> — <span class="sans" style="font-style:normal">Fëdor Dostoevskij</span></li><li><a href="/citazioni/antoine-de-saint-exupery-il-piccolo-principe/">«Non si vede bene che col cuore. L&#x27;essenziale è invisibile agli occhi.»</a> — <span class="sans" style="font-style:normal">Antoine de Saint-Exupéry</span></li><li><a href="/citazioni/oscar-wilde-il-ritratto-di-dorian-gray/">«Non c&#x27;è che un modo per liberarsi di una tentazione: cedervi.»</a> — <span class="sans" style="font-style:normal">Oscar Wilde</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Tutti quelli che fanno codesto mestiere, finiscono sempre allo spedale o in prigione.\" — Carlo Collodi, Le avventure di Pinocchio";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Tutti quelli che fanno codesto mestiere, finiscono sempre allo spedale o in prigione.", "Carlo Collodi", "Le avventure di Pinocchio", "1883",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

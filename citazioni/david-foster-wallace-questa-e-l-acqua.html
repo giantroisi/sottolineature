@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/david-foster-wallace/">David Foster Wallace</a> › <span aria-current="page">Questa è l&#x27;acqua. Questa è l&#x27;acqua.</span>
   </nav>
   <figure class="card" data-category="verita">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Questa è l&#x27;acqua. Questa è l&#x27;acqua.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Questa è l&#x27;acqua. Questa è l&#x27;acqua.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">Non è narrativa ma il discorso che Wallace tenne ai laureandi del Kenyon College nel 2005: la frase riprende la storiella iniziale di due pesci giovani a cui un pesce anziano chiede &quot;Com&#x27;è l&#x27;acqua?&quot;, e loro non sanno nemmeno cosa sia l&#x27;acqua.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>discorso di laurea a Kenyon College, 21 maggio 2005.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/6420363-M.jpg" alt="Copertina di &quot;Questa è l&#x27;acqua&quot; di David Foster Wallace" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/6420363-M.jpg" alt="Copertina di &quot;Questa è l&#x27;acqua&quot; di David Foster Wallace" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Questa è l&#x27;acqua<span class="cover-caption-year"> · 2009</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#david-foster-wallace-questa-e-l-acqua">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/david-foster-wallace/">David Foster Wallace</a><a href="/temi/verita/">Verità</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di David Foster Wallace</h2><ul><li><a href="/citazioni/david-foster-wallace-infinite-jest/">«Resistere. Nessun singolo istante di quel dolore era insopportabile.…»</a> — <span class="sans" style="font-style:normal">Infinite Jest</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Verità</h2><ul><li><a href="/citazioni/italo-calvino-le-citta-invisibili/">«L&#x27;inferno dei viventi non è qualcosa che sarà; se ce n&#x27;è uno, è…»</a> — <span class="sans" style="font-style:normal">Italo Calvino</span></li><li><a href="/citazioni/fedor-dostoevskij-l-idiota/">«La bellezza salverà il mondo.»</a> — <span class="sans" style="font-style:normal">Fëdor Dostoevskij</span></li><li><a href="/citazioni/antoine-de-saint-exupery-il-piccolo-principe/">«Non si vede bene che col cuore. L&#x27;essenziale è invisibile agli occhi.»</a> — <span class="sans" style="font-style:normal">Antoine de Saint-Exupéry</span></li><li><a href="/citazioni/oscar-wilde-il-ritratto-di-dorian-gray/">«Non c&#x27;è che un modo per liberarsi di una tentazione: cedervi.»</a> — <span class="sans" style="font-style:normal">Oscar Wilde</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Questa è l'acqua. Questa è l'acqua.\" — David Foster Wallace, Questa è l'acqua";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Questa è l'acqua. Questa è l'acqua.", "David Foster Wallace", "Questa è l'acqua", "2009",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

@@ -172,9 +172,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <a href="/">Sottolineature</a> › <a href="/autori/{author_slug}/">{author}</a> › <span aria-current="page">{breadcrumb_last}</span>
   </nav>
   <figure class="card" data-category="{category}"{genre_attr}>
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">{h1_quote}</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">{h1_quote}</span><span class="quote-close" aria-hidden="true">»</span></h1>
       {full_quote_html}
     </blockquote>
     <div class="card-body">
@@ -188,7 +187,13 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     {opera_link_html}
     {raccolta_link_html}
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#{slug}">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   {tags_html}
   {related_html}
@@ -196,6 +201,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {{
     var toggle = document.getElementById('themeToggle');
@@ -217,6 +223,40 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       if (navigator.clipboard && navigator.clipboard.writeText) {{
         navigator.clipboard.writeText(text).then(feedback, feedback);
       }} else {{ feedback(); }}
+    }});
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {{
+      var text = {copy_js_string};
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() {{ el.textContent = 'Copiato'; setTimeout(function () {{ el.textContent = original; }}, 1400); }}
+      if (navigator.clipboard && navigator.clipboard.writeText) {{
+        navigator.clipboard.writeText(text).then(done, done);
+      }} else {{ done(); }}
+    }}
+    quoteText.addEventListener('click', function () {{ copyQuote(); }});
+    quoteText.addEventListener('keydown', function (e) {{
+      if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); copyQuote(); }}
+    }});
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {{
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    }});
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {{
+      b.addEventListener('click', function () {{
+        window.Sottolineature.share(
+          {share_quote_js}, {share_author_js}, {share_title_js}, {share_year_js},
+          b, 'post', b.getAttribute('data-variant')
+        );
+      }});
     }});
   }})();
 </script>
@@ -263,7 +303,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     cover_alt = html.escape('Copertina di "' + q['title'] + '" di ' + q['author'])
     # LCP: la copertina e' l'immagine piu' importante della pagina citazione,
     # niente lazy e priorita' di caricamento alta.
-    cover_html = ('<img class="card-cover" src="' + cover_src + '" alt="' + cover_alt + '" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">') if q['cover'] else ''
+    cover_html = ('<figure class="cover-wrap"><img class="card-cover" src="' + cover_src + '" alt="' + cover_alt + '" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest(\'.cover-wrap\').remove()"><figcaption class="cover-caption sans">' + html.escape(q['title']) + (('<span class="cover-caption-year"> \u00b7 ' + html.escape(q['year']) + '</span>') if q['year'] else '') + '</figcaption></figure>') if q['cover'] else ''
     genre_attr = (' data-genre="' + html.escape(q['genre']) + '"') if q['genre'] else ''
     author_slug = slugify(q['author'])
 
@@ -406,6 +446,10 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         related_html=related_html,
         jsonld=jsonld,
         copy_js_string=json.dumps(copy_text, ensure_ascii=False),
+        share_quote_js=json.dumps(q['quote'], ensure_ascii=False),
+        share_author_js=json.dumps(q['author'], ensure_ascii=False),
+        share_title_js=json.dumps(q['title'], ensure_ascii=False),
+        share_year_js=json.dumps(q.get('year') or '', ensure_ascii=False),
     )
 
 

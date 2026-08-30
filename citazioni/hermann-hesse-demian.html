@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/hermann-hesse/">Hermann Hesse</a> › <span aria-current="page">L&#x27;uccello lotta per uscire dall&#x27;uovo.…</span>
   </nav>
   <figure class="card" data-category="coraggio">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">L&#x27;uccello lotta per uscire dall&#x27;uovo. L&#x27;uovo è il mondo. Chi vuol nascere deve distruggere un mondo.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">L&#x27;uccello lotta per uscire dall&#x27;uovo. L&#x27;uovo è il mondo. Chi vuol nascere deve distruggere un mondo.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È il testo di un biglietto non firmato che il giovane Emil Sinclair trova a scuola: lui è certo che l&#x27;abbia scritto il misterioso Max Demian, in risposta a un disegno che gli aveva mandato — un uccello che esce da una sfera. Il biglietto nomina anche Abraxas, il dio che nel romanzo unisce bene e male. Capitolo 5.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>capitolo 5.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/12569297-M.jpg" alt="Copertina di &quot;Demian&quot; di Hermann Hesse" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/12569297-M.jpg" alt="Copertina di &quot;Demian&quot; di Hermann Hesse" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Demian<span class="cover-caption-year"> · 1919</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#hermann-hesse-demian">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/hermann-hesse/">Hermann Hesse</a><a href="/temi/coraggio/">Coraggio</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Hermann Hesse</h2><ul><li><a href="/citazioni/hermann-hesse-siddhartha/">«La saggezza non è comunicabile. La saggezza che un saggio tenta di…»</a> — <span class="sans" style="font-style:normal">Siddhartha</span></li><li><a href="/citazioni/hermann-hesse-il-lupo-della-steppa/">«Come corpo ognuno è singolo, come anima mai.»</a> — <span class="sans" style="font-style:normal">Il lupo della steppa</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Coraggio</h2><ul><li><a href="/citazioni/alessandro-manzoni-i-promessi-sposi/">«Il coraggio, uno, non se lo può dare.»</a> — <span class="sans" style="font-style:normal">Alessandro Manzoni</span></li><li><a href="/citazioni/albert-camus-l-estate/">«Nel bel mezzo dell&#x27;inverno, ho scoperto finalmente che dentro di me…»</a> — <span class="sans" style="font-style:normal">Albert Camus</span></li><li><a href="/citazioni/louisa-may-alcott-piccole-donne/">«Non ho paura delle tempeste, perché sto imparando a governare la mia…»</a> — <span class="sans" style="font-style:normal">Louisa May Alcott</span></li><li><a href="/citazioni/jack-kerouac-sulla-strada/">«Le uniche persone per me sono i pazzi, quelli che sono pazzi per…»</a> — <span class="sans" style="font-style:normal">Jack Kerouac</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"L'uccello lotta per uscire dall'uovo. L'uovo è il mondo. Chi vuol nascere deve distruggere un mondo.\" — Hermann Hesse, Demian";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "L'uccello lotta per uscire dall'uovo. L'uovo è il mondo. Chi vuol nascere deve distruggere un mondo.", "Hermann Hesse", "Demian", "1919",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

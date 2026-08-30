@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/annie-ernaux/">Annie Ernaux</a> › <span aria-current="page">Come il desiderio sessuale, la memoria…</span>
   </nav>
   <figure class="card" data-category="tempo">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Come il desiderio sessuale, la memoria non si ferma mai.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Come il desiderio sessuale, la memoria non si ferma mai.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È una riflessione della narratrice, che scrive di sé parlando sempre a distanza, in terza persona o con un &quot;noi&quot; collettivo: la memoria, per lei, funziona come il desiderio — non si esaurisce mai davvero.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>incipit.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/968944-M.jpg" alt="Copertina di &quot;Gli anni&quot; di Annie Ernaux" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/968944-M.jpg" alt="Copertina di &quot;Gli anni&quot; di Annie Ernaux" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Gli anni<span class="cover-caption-year"> · 2008</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#annie-ernaux-gli-anni">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/annie-ernaux/">Annie Ernaux</a><a href="/temi/tempo/">Tempo</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni su Tempo</h2><ul><li><a href="/citazioni/gabriel-garcia-marquez-cent-anni-di-solitudine/">«Molti anni dopo, di fronte al plotone di esecuzione, il colonnello…»</a> — <span class="sans" style="font-style:normal">Gabriel García Márquez</span></li><li><a href="/citazioni/charles-dickens-racconto-di-due-citta/">«Era il migliore dei tempi, era il peggiore dei tempi.»</a> — <span class="sans" style="font-style:normal">Charles Dickens</span></li><li><a href="/citazioni/primo-levi-se-questo-e-un-uomo/">«Meditate che questo è stato.»</a> — <span class="sans" style="font-style:normal">Primo Levi</span></li><li><a href="/citazioni/f-scott-fitzgerald-il-grande-gatsby/">«Così remiamo, barche contro corrente, risospinti senza sosta nel…»</a> — <span class="sans" style="font-style:normal">F. Scott Fitzgerald</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Come il desiderio sessuale, la memoria non si ferma mai.\" — Annie Ernaux, Gli anni";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Come il desiderio sessuale, la memoria non si ferma mai.", "Annie Ernaux", "Gli anni", "2008",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

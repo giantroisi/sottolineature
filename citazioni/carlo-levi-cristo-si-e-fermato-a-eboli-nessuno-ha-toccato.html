@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/carlo-levi/">Carlo Levi</a> › <span aria-current="page">Nessuno ha toccato questa terra se non…</span>
   </nav>
   <figure class="card" data-category="verita">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Nessuno ha toccato questa terra se non come un conquistatore o un nemico o un visitatore incomprensivo.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Nessuno ha toccato questa terra se non come un conquistatore o un nemico o un visitatore incomprensivo.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È una delle riflessioni con cui Levi apre il memoir sul confino cui fu costretto tra il 1935 e il 1936 in un paese della Lucania per la sua attività antifascista: descrive una terra rimasta ai margini della storia, mai davvero raggiunta né dai romani né dai greci né da alcuna civiltà venuta da fuori.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>Einaudi, 1990, cap. I. <a href="https://it.wikiquote.org/wiki/Carlo_Levi">Fonte su Wikiquote →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/225264-M.jpg" alt="Copertina di &quot;Cristo si è fermato a Eboli&quot; di Carlo Levi" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/225264-M.jpg" alt="Copertina di &quot;Cristo si è fermato a Eboli&quot; di Carlo Levi" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Cristo si è fermato a Eboli<span class="cover-caption-year"> · 1945</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#carlo-levi-cristo-si-e-fermato-a-eboli-nessuno-ha-toccato">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/carlo-levi/">Carlo Levi</a><a href="/temi/verita/">Verità</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Carlo Levi</h2><ul><li><a href="/citazioni/carlo-levi-cristo-si-e-fermato-a-eboli/">«Noi non siamo cristiani, essi dicono, Cristo si è fermato a Eboli.»</a> — <span class="sans" style="font-style:normal">Cristo si è fermato a Eboli</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Verità</h2><ul><li><a href="/citazioni/italo-calvino-le-citta-invisibili/">«L&#x27;inferno dei viventi non è qualcosa che sarà; se ce n&#x27;è uno, è…»</a> — <span class="sans" style="font-style:normal">Italo Calvino</span></li><li><a href="/citazioni/fedor-dostoevskij-l-idiota/">«La bellezza salverà il mondo.»</a> — <span class="sans" style="font-style:normal">Fëdor Dostoevskij</span></li><li><a href="/citazioni/antoine-de-saint-exupery-il-piccolo-principe/">«Non si vede bene che col cuore. L&#x27;essenziale è invisibile agli occhi.»</a> — <span class="sans" style="font-style:normal">Antoine de Saint-Exupéry</span></li><li><a href="/citazioni/oscar-wilde-il-ritratto-di-dorian-gray/">«Non c&#x27;è che un modo per liberarsi di una tentazione: cedervi.»</a> — <span class="sans" style="font-style:normal">Oscar Wilde</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Nessuno ha toccato questa terra se non come un conquistatore o un nemico o un visitatore incomprensivo.\" — Carlo Levi, Cristo si è fermato a Eboli";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Nessuno ha toccato questa terra se non come un conquistatore o un nemico o un visitatore incomprensivo.", "Carlo Levi", "Cristo si è fermato a Eboli", "1945",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

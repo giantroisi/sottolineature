@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/gustave-flaubert/">Gustave Flaubert</a> › <span aria-current="page">La parola umana è simile a un calderone…</span>
   </nav>
   <figure class="card" data-category="amore">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">La parola umana è simile a un calderone incrinato da cui è facile trarre una musica adatta per far ballare gli orsi quando vorremmo commuovere le stelle.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">La parola umana è simile a un calderone incrinato da cui è facile trarre una musica adatta per far ballare gli orsi quando vorremmo commuovere le stelle.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È una riflessione del narratore su Emma Bovary, incapace di trovare le parole giuste per esprimere quello che sente: il linguaggio umano, scrive, è come un calderone incrinato su cui si prova a suonare musiche da fare ballare gli orsi, mentre si vorrebbe commuovere le stelle.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>parte seconda, capitolo XII, riflessione di Rodolphe.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/12993424-M.jpg" alt="Copertina di &quot;Madame Bovary&quot; di Gustave Flaubert" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/12993424-M.jpg" alt="Copertina di &quot;Madame Bovary&quot; di Gustave Flaubert" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Madame Bovary<span class="cover-caption-year"> · 1857</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     <p class="opera-link sans"><a class="is-primary" href="https://sottolineature.it/opere/gustave-flaubert-madame-bovary/">Tutte le citazioni da «Madame Bovary»</a></p>
     <p class="opera-link sans"><a href="https://sottolineature.it/raccolte/libri-e-scrittura/">Raccolta: Libri e scrittura</a></p>
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#gustave-flaubert-madame-bovary">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/gustave-flaubert/">Gustave Flaubert</a><a href="/temi/amore/">Amore</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Gustave Flaubert</h2><ul><li><a href="/citazioni/gustave-flaubert-madame-bovary-ma-la-denigrazione/">«Ma la denigrazione degli esseri che amiamo, sempre ci distacca un…»</a> — <span class="sans" style="font-style:normal">Madame Bovary</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Amore</h2><ul><li><a href="/citazioni/dante-alighieri-inferno-divina-commedia/">«Amor, ch&#x27;a nullo amato amar perdona.»</a> — <span class="sans" style="font-style:normal">Dante Alighieri</span></li><li><a href="/citazioni/jane-austen-orgoglio-e-pregiudizio/">«È verità universalmente riconosciuta che a uno scapolo in possesso di…»</a> — <span class="sans" style="font-style:normal">Jane Austen</span></li><li><a href="/citazioni/emily-bronte-cime-tempestose/">«Qualunque cosa siano fatte le nostre anime, la sua e la mia sono…»</a> — <span class="sans" style="font-style:normal">Emily Brontë</span></li><li><a href="/citazioni/pablo-neruda-cento-sonetti-d-amore/">«Ti amo senza sapere come, né quando, né da dove.»</a> — <span class="sans" style="font-style:normal">Pablo Neruda</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"La parola umana è simile a un calderone incrinato da cui è facile trarre una musica adatta per far ballare gli orsi quando vorremmo commuovere le stelle.\" — Gustave Flaubert, Madame Bovary";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "La parola umana è simile a un calderone incrinato da cui è facile trarre una musica adatta per far ballare gli orsi quando vorremmo commuovere le stelle.", "Gustave Flaubert", "Madame Bovary", "1857",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

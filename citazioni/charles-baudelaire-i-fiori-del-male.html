@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/charles-baudelaire/">Charles Baudelaire</a> › <span aria-current="page">Il Poeta, che è avvezzo alle tempeste e…</span>
   </nav>
   <figure class="card" data-category="arte" data-genre="poesia">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Il Poeta, che è avvezzo alle tempeste e ride dell&#x27;arciere, assomiglia in tutto al principe delle nubi: esiliato in terra, fra gli scherni, non può per le sue ali di gigante avanzare di un passo.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Il Poeta, che è avvezzo alle tempeste e ride dell&#x27;arciere, assomiglia in tutto al principe delle nubi: esiliato in terra, fra gli scherni, non può per le sue ali di gigante avanzare di un passo.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">È l&#x27;ultima strofa della poesia «L&#x27;albatro»: come l&#x27;uccello marino, maestoso in volo ma goffo e deriso quando i marinai lo catturano sul ponte della nave, anche il poeta è grande nel suo elemento e ridicolo quando è costretto a camminare fra gli altri uomini.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>Garzanti, 2006, dalla poesia «L&#x27;albatro», trad. Attilio Bertolucci. <a href="https://it.wikiquote.org/wiki/Charles_Baudelaire">Fonte su Wikiquote →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/8236412-M.jpg" alt="Copertina di &quot;I fiori del male&quot; di Charles Baudelaire" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/8236412-M.jpg" alt="Copertina di &quot;I fiori del male&quot; di Charles Baudelaire" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">I fiori del male<span class="cover-caption-year"> · 1857</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#charles-baudelaire-i-fiori-del-male">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/charles-baudelaire/">Charles Baudelaire</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Charles Baudelaire</h2><ul><li><a href="/citazioni/charles-baudelaire-lo-spleen-di-parigi/">«Bisogna essere sempre ubriachi. Tutto sta in questo: è l&#x27;unico…»</a> — <span class="sans" style="font-style:normal">Lo spleen di Parigi</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Il Poeta, che è avvezzo alle tempeste e ride dell'arciere, assomiglia in tutto al principe delle nubi: esiliato in terra, fra gli scherni, non può per le sue ali di gigante avanzare di un passo.\" — Charles Baudelaire, I fiori del male";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Il Poeta, che è avvezzo alle tempeste e ride dell'arciere, assomiglia in tutto al principe delle nubi: esiliato in terra, fra gli scherni, non può per le sue ali di gigante avanzare di un passo.", "Charles Baudelaire", "I fiori del male", "1857",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>

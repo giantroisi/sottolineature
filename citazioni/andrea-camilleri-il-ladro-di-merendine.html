@@ -53,9 +53,8 @@
     <a href="/">Sottolineature</a> › <a href="/autori/andrea-camilleri/">Andrea Camilleri</a> › <span aria-current="page">Quella era l&#x27;amicizia siciliana, la…</span>
   </nav>
   <figure class="card" data-category="verita">
-    <span class="card-mark" aria-hidden="true">“</span>
     <blockquote class="card-quote-block">
-      <h1 class="card-quote">Quella era l&#x27;amicizia siciliana, la vera, che si basa sul non detto, sull&#x27;intuìto.</h1>
+      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">Quella era l&#x27;amicizia siciliana, la vera, che si basa sul non detto, sull&#x27;intuìto.</span><span class="quote-close" aria-hidden="true">»</span></h1>
       
     </blockquote>
     <div class="card-body">
@@ -63,13 +62,19 @@
       <p class="card-context sans">Il commissario Montalbano riflette su un gesto di lealtà silenziosa ricevuto da un amico, nel terzo romanzo della serie: un&#x27;amicizia che, a differenza di quella dichiarata a parole, si misura da quanto l&#x27;altro riesce a capire senza bisogno di spiegazioni.</p>
       <p class="card-source sans"><span class="source-label">Dove si trova</span>Sellerio, 2007, p. 170. <a href="https://it.wikiquote.org/wiki/Andrea_Camilleri">Fonte su Wikiquote →</a></p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/12788096-M.jpg" alt="Copertina di &quot;Il ladro di merendine&quot; di Andrea Camilleri" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <figure class="cover-wrap"><img class="card-cover" src="https://covers.openlibrary.org/b/id/12788096-M.jpg" alt="Copertina di &quot;Il ladro di merendine&quot; di Andrea Camilleri" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Il ladro di merendine<span class="cover-caption-year"> · 1996</span></figcaption></figure>
   </figure>
   <div class="actions sans">
     
     
     <button type="button" id="copyBtn">Copia citazione</button>
+    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <a href="/#andrea-camilleri-il-ladro-di-merendine">Vedi sul sito</a>
+  </div>
+  <div class="share-choice sans" id="shareChoice" hidden>
+    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <button type="button" data-variant="chiaro">Chiaro</button>
+    <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/andrea-camilleri/">Andrea Camilleri</a><a href="/temi/verita/">Verità</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Andrea Camilleri</h2><ul><li><a href="/citazioni/andrea-camilleri-la-stagione-della-caccia/">«A me, che non sono nobile, fa piacere appartenere proprio al Circolo…»</a> — <span class="sans" style="font-style:normal">La stagione della caccia</span></li><li><a href="/citazioni/andrea-camilleri-il-campo-del-vasaio/">«Meglio piccamora non pinsaricci, meglio starsene a taliare il mari…»</a> — <span class="sans" style="font-style:normal">Il campo del vasaio</span></li><li><a href="/citazioni/andrea-camilleri-la-pensione-eva/">«Talè che cosa stramma. L&#x27;angili erano tali e quali all&#x27;òmini!»</a> — <span class="sans" style="font-style:normal">La pensione Eva</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Verità</h2><ul><li><a href="/citazioni/italo-calvino-le-citta-invisibili/">«L&#x27;inferno dei viventi non è qualcosa che sarà; se ce n&#x27;è uno, è…»</a> — <span class="sans" style="font-style:normal">Italo Calvino</span></li><li><a href="/citazioni/fedor-dostoevskij-l-idiota/">«La bellezza salverà il mondo.»</a> — <span class="sans" style="font-style:normal">Fëdor Dostoevskij</span></li><li><a href="/citazioni/antoine-de-saint-exupery-il-piccolo-principe/">«Non si vede bene che col cuore. L&#x27;essenziale è invisibile agli occhi.»</a> — <span class="sans" style="font-style:normal">Antoine de Saint-Exupéry</span></li><li><a href="/citazioni/oscar-wilde-il-ritratto-di-dorian-gray/">«Non c&#x27;è che un modo per liberarsi di una tentazione: cedervi.»</a> — <span class="sans" style="font-style:normal">Oscar Wilde</span></li></ul></div></div>
@@ -77,6 +82,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>
 </div>
+<script src="/assets/share.js"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -98,6 +104,40 @@
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(feedback, feedback);
       } else { feedback(); }
+    });
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    function copyQuote(feedbackEl) {
+      var text = "\"Quella era l'amicizia siciliana, la vera, che si basa sul non detto, sull'intuìto.\" — Andrea Camilleri, Il ladro di merendine";
+      var el = feedbackEl || copyBtn;
+      var original = el.textContent;
+      function done() { el.textContent = 'Copiato'; setTimeout(function () { el.textContent = original; }, 1400); }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, done);
+      } else { done(); }
+    }
+    quoteText.addEventListener('click', function () { copyQuote(); });
+    quoteText.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); copyQuote(); }
+    });
+
+    // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
+    // non il tema con cui si sta leggendo la pagina.
+    var shareBtn = document.getElementById('shareBtn');
+    var shareChoice = document.getElementById('shareChoice');
+    shareBtn.addEventListener('click', function () {
+      var open = shareChoice.hidden;
+      shareChoice.hidden = !open;
+      shareBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        window.Sottolineature.share(
+          "Quella era l'amicizia siciliana, la vera, che si basa sul non detto, sull'intuìto.", "Andrea Camilleri", "Il ladro di merendine", "1996",
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
   })();
 </script>
