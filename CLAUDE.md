@@ -225,10 +225,11 @@ ciascuno**. Ottavo lotto: Zadie Smith, Walt Whitman, Giovanni Verga, Isabel
 Allende, Gustave Flaubert portati anch'essi a **4 citazioni ciascuno**.
 Nono lotto: Alessandro Manzoni, Antoine de Saint-Exupéry, Giovanni Pascoli,
 Virgilio, Rainer Maria Rilke, Leonardo Sciascia portati anch'essi a **4
-citazioni ciascuno**. Archivio a 251 autori, 590 citazioni, 47 con una sola
-citazione, 68 con tre o più. Lavoro da proseguire senza chiedere conferma,
-seguendo la nuova regola: nessun autore nuovo, si chiude a 4 chi ha
-più domanda di ricerca
+citazioni ciascuno**. Decimo lotto: Jack Kerouac (da 1 a 4), Isaac Asimov,
+Elsa Morante, Grazia Deledda, Philip Roth portati a **4 citazioni ciascuno**.
+Archivio a 251 autori, 601 citazioni, 46 con una sola citazione, 73 con tre o
+più. Lavoro da proseguire senza chiedere conferma, seguendo la nuova regola:
+nessun autore nuovo, si chiude a 4 chi ha più domanda di ricerca
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
