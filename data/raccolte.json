@@ -538,5 +538,26 @@
       "Francesco Petrarca|Canzoniere|Pace non trovo, et non ò",
       "Gabriele D'Annunzio|Il piacere|L'anno moriva, assai dolcemente. Il sole"
     ]
+  },
+  {
+    "slug": "silenzio",
+    "title": "Silenzio",
+    "h1": "Frasi e citazioni sul silenzio",
+    "intro": [
+      "Il silenzio, in letteratura, è quasi sempre un atto — imposto, subìto o scelto — più che una semplice assenza di suono. Federico García Lorca lo affida al grido finale di Bernarda Alba, che impone il silenzio sulla propria casa e sulle proprie figlie anche di fronte al lutto: «Silenzio, silenzio, ho detto. Silenzio!». Wole Soyinka lo rovescia in una responsabilità morale: «L'uomo muore in tutti coloro che conservano il silenzio di fronte alla tirannia» — il silenzio come complicità, non come neutralità.",
+      "Pier Paolo Pasolini gli oppone la parola come unica via al sapere: nel silenzio, scrive, non si sente altro che «un'ingenua e vergognosa avidità». Rainer Maria Rilke, al contrario, chiede al giovane poeta a cui scrive di ascoltare proprio «l'ora più silenziosa della vostra notte», prima di ogni altra domanda sulla poesia. E Gabriele D'Annunzio apre «La pioggia nel pineto» con un solo imperativo — «Taci» — perché la donna amata smetta di parlare e ascolti invece il linguaggio della natura.",
+      "C'è infine il silenzio come paesaggio, o come personaggio a sé: quello della neve che avvolge Ka, il poeta protagonista del romanzo «Neve» di Orhan Pamuk, non appena arriva nella città turca di Kars; quello dell'autunno di Giovanni Pascoli, in «Myricae», rotto solo dal cadere fragile delle foglie; e quello a cui allude Clarice Lispector, in un racconto intitolato proprio «Silenzio»: inutile sottrarvisi, scrive, perché anche la peggior sofferenza, quella della perdita, è soltanto fuga."
+    ],
+    "quote_keys": [
+      "Federico García Lorca|La casa di Bernarda Alba|Silenzio, silenzio, ho detto. Silenzio!",
+      "Wole Soyinka|L'uomo è morto|L'uomo muore in tutti coloro che",
+      "Pier Paolo Pasolini|La Divina Mimesis|Solo parlando, manifestiamo il sapere: nel",
+      "Rainer Maria Rilke|Lettere a un giovane poeta|Anzitutto questo: domandatevi nell'ora più silenziosa",
+      "Gabriele D'Annunzio|Alcyone|Taci. Su le soglie del bosco",
+      "Orhan Pamuk|Neve|Il silenzio della neve, pensava l'uomo",
+      "Giovanni Pascoli|Myricae|Silenzio, intorno: solo, alle ventate, odi",
+      "Clarice Lispector|Dove siete stati di notte|Si può pensare in fretta al",
+      "Giacomo Leopardi|Canto notturno di un pastore errante dell'Asia|Che fai tu, luna, in ciel?"
+    ]
   }
 ]

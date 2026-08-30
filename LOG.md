@@ -301,6 +301,22 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Silenzio"** (16/16,
+  ULTIMA del piano), in autonomia. Filtrata l'archivio per radice lessicale (silenzio, silenzios,
+  tacere, taci, muto/a, quiete, ammutol): 22 candidati, letti uno per uno. 9 citazioni pubblicate:
+  Federico García Lorca (La casa di Bernarda Alba), Wole Soyinka (L'uomo è morto), Pier Paolo
+  Pasolini (La Divina Mimesis), Rainer Maria Rilke (Lettere a un giovane poeta, riusata da
+  "Notte"), Gabriele D'Annunzio (Alcyone, riusata da "Natura"), Orhan Pamuk (Neve), Giovanni
+  Pascoli (Myricae), Clarice Lispector (Dove siete stati di notte), Giacomo Leopardi (Canto
+  notturno di un pastore errante dell'Asia, riusata da "Viaggio e cammino"/"Stelle e cielo").
+  Introduzione scritta a mano (239 parole, 3 paragrafi). Build lanciata due volte (bug del
+  contatore, vedi lotti precedenti): al secondo giro 0 problemi, 26/26 raccolte. **Con questa si
+  chiudono le 16 raccolte indicate in SEO-KEYWORDS.md §7**: da 10 a 26 raccolte pubblicate in
+  autonomia in una sola giornata (2026-08-30), 178 citazioni totali nelle nuove 16 (14 candidate
+  singole, media ~11 a raccolta), nessuna sotto la soglia minima di 8, ordine di domanda di ricerca
+  rispettato come richiesto. Nessuna raccolta scartata per mancanza di citazioni pertinenti: tutte
+  e 16 hanno superato agevolmente la soglia leggendo i candidati, non solo contandoli.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Stelle e cielo"**
   (15/16), in autonomia. Filtrata l'archivio per radice lessicale (stelle, stella, cielo, celeste,
   astri, astro, costellazion, galassia, pianeti, luna, sole, universo, cosmo): 32 candidati, letti
