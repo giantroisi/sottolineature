@@ -367,5 +367,26 @@
       "Erri De Luca|Il giorno prima della felicità|La libertà uno se la deve",
       "Anne Frank|Diario|Chi è felice farà felici anche"
     ]
+  },
+  {
+    "slug": "infanzia",
+    "title": "Infanzia",
+    "h1": "Frasi e citazioni sull'infanzia",
+    "intro": [
+      "L'infanzia, in letteratura, è quasi sempre raccontata da lontano, con lo sguardo di chi la osserva già da adulto. Marcel Proust ne fa il motore stesso della memoria: un odore di muffa, in un chiosco parigino, gli restituisce di colpo la stanzetta dello zio Adolphe nella Combray della propria infanzia, con lo stesso meccanismo — più minimo, ma non meno felice — della celebre madeleine. Natalia Ginzburg trova lo stesso effetto in una semplice frase di famiglia, ripetuta infinite volte fin da bambini: basta quella per riconoscersi ovunque nel mondo.",
+      "Jean-Paul Sartre, nell'autobiografia «Le parole», racconta un'infanzia vissuta quasi interamente tra i libri — «i miei uccelli e i miei nidi, la mia stalla e la mia campagna» — mentre Vittorio Alfieri, guardando gli adulti da bambino, impara già allora che a tenere insieme gli uomini non è la fiducia ma la paura reciproca. Yukio Mishima descrive la propria infanzia isolata con una frase secca — «non mi curavo di nulla, e d'altronde nulla si curava di me» — nel romanzo autobiografico sulla scoperta della propria identità.",
+      "E ci sono le infanzie inventate, non meno vere di quelle vissute: Marcello, il protagonista de «Il conformista» di Alberto Moravia, affascinato dagli oggetti come una gazza fin da fanciullo; Elsa Morante che apre «Menzogna e sortilegio» con una bambina appena orfana e già adottata; Oskar Matzerath, il narratore grottesco del «Tamburo di latta» di Günter Grass, che racconta la propria nascita sotto due lampadine da sessanta watt con lo stesso sarcasmo con cui, a tre anni, deciderà di smettere di crescere; e Pino, il padre di «Io non ho paura» di Niccolò Ammaniti, che da piccolo sognava sempre i mostri — e ancora oggi, da adulto, ogni tanto gli capita."
+    ],
+    "quote_keys": [
+      "Marcel Proust|Alla ricerca del tempo perduto|Era l'immagine della stanzetta dello zio",
+      "Natalia Ginzburg|Lessico famigliare|Basta una parola, una frase: una",
+      "Jean-Paul Sartre|Le parole|Ma i libri sono stati i",
+      "Vittorio Alfieri|Vita|Onde io imparai sin da allora,",
+      "Yukio Mishima|Confessioni di una maschera|Non mi curavo di nulla, e",
+      "Alberto Moravia|Il conformista|Nel tempo della sua fanciullezza, Marcello",
+      "Elsa Morante|Menzogna e sortilegio|Sono già due mesi che la",
+      "Günter Grass|Il tamburo di latta|Vidi la luce di questo mondo",
+      "Niccolò Ammaniti|Io non ho paura|Da piccolo sognavo sempre i mostri."
+    ]
   }
 ]

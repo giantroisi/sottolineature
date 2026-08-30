@@ -301,6 +301,22 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Infanzia"** (8/16), in
+  autonomia. Filtrata l'archivio per radice lessicale (infanzia, bambino/a/i/e, fanciullo/a/ezza,
+  crescere/cresciut), tenuta volutamente distinta da "Figli" già pubblicata (qui il punto di vista
+  è l'esperienza/il ricordo dell'essere bambini, non il legame genitore-figlio): 29 candidati,
+  letti uno per uno. 9 citazioni pubblicate: Marcel Proust (Alla ricerca del tempo perduto),
+  Natalia Ginzburg (Lessico famigliare), Jean-Paul Sartre (Le parole), Vittorio Alfieri (Vita),
+  Yukio Mishima (Confessioni di una maschera), Alberto Moravia (Il conformista), Elsa Morante
+  (Menzogna e sortilegio), Günter Grass (Il tamburo di latta), Niccolò Ammaniti (Io non ho paura).
+  Introduzione scritta a mano (288 parole, 3 paragrafi). Build pulita (0 problemi, 18/18 raccolte).
+  **Nota tecnica**: il refactor della sessione concorrente su `tools/generate_home.py` (blocco
+  "Ultime aggiunte"/"Dalle raccolte" e contatore `{{N_RACCOLTE}}`) conta le pagine in `raccolte/`
+  prima che `generate_raccolte_pages.py` scriva quella nuova nello stesso giro di build: il
+  contatore in home risulta indietro di una unità al primo `build.py` dopo ogni nuova
+  pubblicazione, corretto lanciando `build.py` una seconda volta. Non ho toccato il generatore
+  (serve l'ok esplicito per farlo, CATALOGO.md §10): annotato qui, non ancora segnalato/corretto.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Felicità"** (7/16), in
   autonomia. Filtrata l'archivio per radice lessicale (felicit, felice/i, gioia/e, allegr,
   contento/a, beatitudine): 35 candidati, letti uno per uno. 9 citazioni pubblicate: Albert Camus
