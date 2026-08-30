@@ -348,6 +348,17 @@ footer.sans a { color: var(--ink-faint); }
   .brand-name { display: none; }
   .site-header .site-nav { gap: 0.85rem; }
   .site-header .site-nav a { font-size: 0.7rem; letter-spacing: 0.08em; }
+  /* cinque voci non stanno in 360px: la barra scorre lateralmente invece di
+     mandare a capo le etichette e far scrollare tutta la pagina */
+  .site-header-inner { gap: 0.6rem; }
+  .site-nav {
+    flex: 1 1 auto; min-width: 0; justify-content: flex-end;
+    overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+  }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav a { white-space: nowrap; }
+  .site-header .theme-toggle { flex: 0 0 auto; }
+
   .page-quote .page { padding: 1.75rem 1.25rem 4rem; }
   .page-quote .card { grid-template-areas: "quote quote" "body cover"; gap: 1.1rem; }
   .page-quote .card-cover { width: 92px; height: 138px; }
