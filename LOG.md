@@ -301,6 +301,20 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Figli"** (6/16), in
+  autonomia. Filtrata l'archivio per radice lessicale (figlio/i/a/e, genitori, padre, madre,
+  bambino/i/a/e, neonat, prole): 71 candidati, letti uno per uno — attenzione particolare a non
+  sovrapporsi troppo con le raccolte future "famiglia" e "infanzia" (stesso campo semantico), qui
+  centrata sul legame genitore-figlio in sé. 9 citazioni pubblicate: Khalil Gibran (Il Profeta),
+  Toni Morrison (Amatissima), Natalia Ginzburg (Le piccole virtù), Franz Kafka (Lettera al padre),
+  Pier Paolo Pasolini (Lettere luterane), Henrik Ibsen (Casa di bambola), Charles Dickens (Grandi
+  speranze), D.H. Lawrence (Figli e amanti), Michela Murgia (Accabadora, riusata da "Donne" — stessa
+  citazione, pertinente a entrambi i temi). Introduzione scritta a mano (291 parole, 3 paragrafi).
+  Build pulita (0 problemi, 16/16 raccolte). Sessione concorrente di nuovo attiva su file condivisi
+  (assets/site.css, templates/home_template.html, tools/generate_mine_page.py): isolate con `git
+  stash` mirato prima del build e ripristinate subito dopo il commit, come da lezione operativa del
+  lotto precedente.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Animali"** (5/16), in
   autonomia. Filtrata l'archivio per radice lessicale (animal, cane, gatto, cavall, uccell, lupo/i,
   leone, pecora/e, falco, serpent, orso, elefant, pesce/i, bestia/e, volpe): 62 candidati, letti

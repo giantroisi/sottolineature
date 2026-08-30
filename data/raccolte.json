@@ -325,5 +325,26 @@
       "Giovanni Verga|Storia di una capinera|Avevo visto una povera capinera chiusa",
       "Jack London|Il richiamo della foresta|I desiderî nòmadi ed atàvici squassano"
     ]
+  },
+  {
+    "slug": "figli",
+    "title": "Figli",
+    "h1": "Frasi e citazioni sui figli",
+    "intro": [
+      "Pochi discorsi sui figli sono più citati di quello che il profeta Almustafa rivolge agli abitanti di Orfalese nel «Profeta» di Khalil Gibran: «I vostri figli non sono figli vostri. Sono i figli e le figlie del desiderio che la vita ha di sé stessa». Toni Morrison, in «Amatissima», fa dire a Baby Suggs che un uomo può non essere niente di speciale, ma un figlio — quello sì, è sempre qualcuno; Natalia Ginzburg dedica un intero saggio a distinguere le piccole virtù che si insegnano ai figli, come il risparmio, dalle grandi, come il coraggio e l'amore per la verità.",
+      "Più spesso il rapporto genitore-figlio è un conto in sospeso. Franz Kafka scrive al padre una lettera lunghissima, mai davvero recapitata, per fare il bilancio di una vita passata a perdere fiducia in se stesso davanti a lui; Pier Paolo Pasolini riprende il tema classico della tragedia greca, la colpa dei padri pagata dai figli innocenti; e Nora Helmer, nella «Casa di bambola» di Henrik Ibsen, scopre di essere stata solo una bambola-figlia per il proprio padre e una bambola-moglie per il marito, prima di lasciare anche i propri figli per diventare finalmente una persona.",
+      "E c'è chi nasce già dentro questo legame, come i protagonisti che aprono il proprio racconto a partire dal padre o dalla madre: Pip, in «Grandi speranze» di Charles Dickens, non riesce a pronunciare il proprio nome intero da bambino e resta Pip per sempre; Paul Morel, in «Figli e amanti» di D.H. Lawrence, trova nel conforto fisico della madre un rifugio che segnerà tutta la sua vita adulta; e Maria Listru, in «Accabadora» di Michela Murgia, è «fillus de anima», nata due volte — dalla povertà di una donna e dalla sterilità di un'altra."
+    ],
+    "quote_keys": [
+      "Khalil Gibran|Il Profeta|I vostri figli non sono figli",
+      "Toni Morrison|Amatissima|Un uomo non è altro che",
+      "Natalia Ginzburg|Le piccole virtù|Per quanto riguarda l'educazione dei figli,",
+      "Franz Kafka|Lettera al padre|Di fronte a te avevo perduto",
+      "Pier Paolo Pasolini|Lettere luterane|Uno dei temi più misteriosi del",
+      "Henrik Ibsen|Casa di bambola|Eri molto carino con me: ma",
+      "Charles Dickens|Grandi speranze|Il cognome di mio padre essendo",
+      "D.H. Lawrence|Figli e amanti|A dispetto degli igienisti, il sonno",
+      "Michela Murgia|Accabadora|Fillus de anima. È così che"
+    ]
   }
 ]
