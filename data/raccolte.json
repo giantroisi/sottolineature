@@ -346,5 +346,26 @@
       "D.H. Lawrence|Figli e amanti|A dispetto degli igienisti, il sonno",
       "Michela Murgia|Accabadora|Fillus de anima. È così che"
     ]
+  },
+  {
+    "slug": "felicita",
+    "title": "Felicità",
+    "h1": "Frasi e citazioni sulla felicità",
+    "intro": [
+      "La felicità, in letteratura, raramente è quella che ci si aspetta. Albert Camus chiude «Il mito di Sisifo» con la frase più spiazzante di tutta la sua opera: bisogna immaginare felice l'uomo condannato per l'eternità a spingere lo stesso masso su per la montagna, perché anche in una fatica senza scopo si può scegliere di esserlo. Fernando Pessoa, con la stessa ironia rovesciata, confessa di avere «tutte le condizioni per essere felice, tranne la felicità»; e Imre Kertész, nel giovane protagonista di «Essere senza destino», la sente arrivare come «una trappola inevitabile» proprio nel mezzo dell'orrore più assurdo.",
+      "Aldous Huxley, all'opposto, la mostra come pericolo di stato: nel «Mondo nuovo» la felicità è deliberatamente «mai grandiosa», piatta e senza scosse, tenuta sotto controllo perché non diventi mai un sentimento troppo intenso da gestire — l'esatto contrario di quella che vive Anna Shirley, l'orfana immaginifica di Lucy Maud Montgomery, felice di essere viva solo per quanto il mondo abbia ancora da mostrarle.",
+      "E c'è chi ne indica la fonte più concreta: Arthur Schopenhauer sostiene che nove decimi della nostra felicità dipendano dalla salute, senza la quale nessun altro bene si può davvero godere; George Bernard Shaw, al contrario, la lega al carattere più che alla ricchezza — «prendete cura» delle doti morali, scrive, «e la felicità prenderà cura di se stessa». Erri De Luca chiude il cerchio con la voce di don Gaetano, il portiere-maestro del suo romanzo: la libertà si guadagna e si difende, la felicità no, quella è solo un regalo. Anne Frank, nascosta ad Amsterdam, lo scrive forse nel modo più commovente: chi è felice rende felici anche gli altri."
+    ],
+    "quote_keys": [
+      "Albert Camus|Il mito di Sisifo|Bisogna immaginare Sisifo felice.",
+      "Fernando Pessoa|L'educazione dello stoico|Ho tutte le condizioni per essere",
+      "Imre Kertész|Essere senza destino|Non esiste assurdità che non possa",
+      "Aldous Huxley|Il mondo nuovo|La felicità non è mai grandiosa.",
+      "Lucy Maud Montgomery|Anna dai capelli rossi|Non è meraviglioso pensare a tutte",
+      "Arthur Schopenhauer|Aforismi sulla saggezza del vivere|In tesi generale i nove decimi",
+      "George Bernard Shaw|Guida della donna intelligente|Sono soltanto le doti intellettuali e",
+      "Erri De Luca|Il giorno prima della felicità|La libertà uno se la deve",
+      "Anne Frank|Diario|Chi è felice farà felici anche"
+    ]
   }
 ]
