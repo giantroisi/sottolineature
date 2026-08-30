@@ -178,7 +178,10 @@ il riassunto della fase nella sezione "Fatto". I lotti di contenuto (fonti, sche
 vanno anche in `LOG.md` con il formato in uso. Non spuntare mai una voce "quasi fatta".
 
 **Stato: Fase 7 aperta il 2026-08-28 (mappatura keyword fatta; il secondo export con i semi
-"frasi"/"aforismi" richiede l'utente). `CATALOGO.md` — Lotti 1 e 2 (amicizia, autori ad alta
+"frasi"/"aforismi" richiede l'utente). **Aggiornamento del 2026-08-30 (§7 di SEO-KEYWORDS.md):
+pubblicate tutte e sedici le raccolte diventate pubblicabili con la crescita dell'archivio a 621
+citazioni — non solo le 6 originariamente elencate in questo file. Dettagli nel punto dedicato più
+sotto in questa stessa Fase 7 e in `LOG.md`.** `CATALOGO.md` — Lotti 1 e 2 (amicizia, autori ad alta
 domanda) fatti; **Lotto 3 (classici e filosofi per opera, 11 citazioni) e Lotto 4 (canone
 scolastico poco coperto, 10 citazioni) fatti il 2026-08-28**, candidati del Lotto 3 mostrati e
 approvati dall'utente, Lotto 4 e successivi in autonomia senza chiedere conferma a ogni
@@ -727,11 +730,20 @@ quindi prima come **elenco di ciò che conviene raccogliere**, poi come piano ed
       entrambi in modo naturale (*"Frasi e citazioni da 1984 di George Orwell"*). Solo title,
       description e H1; dai generatori in `tools/`; nessun title duplicato; nessuna pagina nuova.
 - [ ] **Lotto citazioni "amicizia"** (10-12 verificate). È il buco più grande del sito: 3.940 di
-      volume contro 3 citazioni in archivio.
-- [ ] **Le 6 raccolte con copertura sufficiente**, una alla volta, con selezione fatta *leggendo*
-      le citazioni e introduzione scritta a mano: viaggio e cammino (3.420), donne (2.370),
-      felicità (860), ricordo e memoria (680), occhi e sguardo (350), notte (320).
-      Se leggendole se ne salvano meno di 8, la raccolta non si pubblica e torna in lista d'attesa.
+      volume contro 3 citazioni in archivio (la raccolta "Amicizia" esiste già ma con sole 8
+      citazioni: il buco è nella copertura autore/opera del tema, non nella raccolta).
+- [x] **Le 16 raccolte con copertura sufficiente, pubblicate tutte il 2026-08-30** — non 6 come
+      indicato inizialmente in questo punto: la sezione 7 di `SEO-KEYWORDS.md`, ricalcolata lo
+      stesso giorno sui 621 citazioni allora in archivio, ne aveva trovate sedici sopra soglia, non
+      sei. Pubblicate una alla volta nell'ordine di domanda di ricerca, con selezione fatta
+      *leggendo* i candidati (non contandoli) e introduzione scritta a mano per ciascuna: viaggio e
+      cammino (14 citazioni), donne (11), guerra (10), natura (10), animali (11), figli (9),
+      felicità (9), infanzia (9), lavoro (10), ricordo e memoria (10), famiglia (10), arte (9),
+      occhi e sguardo (9), notte (9), stelle e cielo (9), silenzio (9) — 158 citazioni totali,
+      nessuna sotto la soglia minima di 8. Prima raccolta (viaggio e cammino) mostrata e approvata
+      dall'utente, le successive 15 pubblicate in autonomia. Archivio raccolte: da 10 a 26. Dettagli
+      per lotto, candidati letti e scartati in `LOG.md`; tabella riassuntiva in `SEO-KEYWORDS.md`
+      §7; `data/keywords.json` aggiornato con verdetto "pubblicata" su tutti e sedici i cluster.
 - [ ] **Lotti citazioni sugli autori a più alta domanda**, fino a 3-4 citazioni a testa: Wilde
       (1.610 di volume, **1** citazione), Shakespeare (1.580 / 2), Dante (1.220 / 2), D'Annunzio
       (970 / 1), Pavese (730 / 2), Leopardi (720 / 2), Pirandello (700 / 2), Seneca (670 / 1),
@@ -741,8 +753,8 @@ quindi prima come **elenco di ciò che conviene raccogliere**, poi come piano ed
       L'amore ai tempi del colera (220), Cent'anni di solitudine (170), Oceano mare (170),
       Piccole donne (160). **Non crearle adesso**: hanno una citazione a testa, e con una sola
       citazione la pagina citazione è già la pagina dell'opera.
-- [ ] **Raccolte quasi pronte**, quando arrivano a 8: bellezza (630), sogni (570),
-      cambiamento (350), tristezza (210).
+- [x] **Raccolte quasi pronte, tutte e quattro già pubblicate in Fase 5** (bellezza, sogni,
+      cambiamento, tristezza) — voce rimasta erroneamente non spuntata, corretto qui.
 - [x] **Decisione dell'utente sul perimetro, presa il 2026-08-28:** il catalogo **può crescere,
       purché restino citazioni da libri**. Tradotto nella regola operativa scritta in `CATALOGO.md`:
       entra solo ciò che è tracciabile a un'opera scritta e pubblicata, con il punto preciso del

@@ -19,7 +19,7 @@
    "top_keyword": "citazioni viaggiare",
    "copertura_ctx": 39,
    "copertura_frase": 18,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "donne",
@@ -28,7 +28,7 @@
    "top_keyword": "citazioni sulle donne",
    "copertura_ctx": 30,
    "copertura_frase": 13,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "guerra",
@@ -37,7 +37,7 @@
    "top_keyword": "citazioni sulla guerra",
    "copertura_ctx": 42,
    "copertura_frase": 11,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "natura",
@@ -46,7 +46,7 @@
    "top_keyword": "citazioni sulla natura",
    "copertura_ctx": 44,
    "copertura_frase": 27,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "animali",
@@ -55,7 +55,7 @@
    "top_keyword": "citazioni cani",
    "copertura_ctx": 23,
    "copertura_frase": 11,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "filosofia",
@@ -91,7 +91,7 @@
    "top_keyword": "citazioni s u i figli",
    "copertura_ctx": 35,
    "copertura_frase": 12,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "felicita",
@@ -100,7 +100,7 @@
    "top_keyword": "citazioni sulla felicità",
    "copertura_ctx": 28,
    "copertura_frase": 22,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "infanzia",
@@ -109,7 +109,7 @@
    "top_keyword": "citazioni sui bambini",
    "copertura_ctx": 23,
    "copertura_frase": 8,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "lavoro",
@@ -118,7 +118,7 @@
    "top_keyword": "citazioni sul lavoro",
    "copertura_ctx": 24,
    "copertura_frase": 10,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "ricordo",
@@ -127,7 +127,7 @@
    "top_keyword": "citazioni giornata della memoria",
    "copertura_ctx": 40,
    "copertura_frase": 16,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "bellezza",
@@ -172,7 +172,7 @@
    "top_keyword": "citazioni sulla famiglia",
    "copertura_ctx": 64,
    "copertura_frase": 24,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "arte",
@@ -181,7 +181,7 @@
    "top_keyword": "citazioni sull'arte",
    "copertura_ctx": 8,
    "copertura_frase": 8,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "sorriso",
@@ -235,7 +235,7 @@
    "top_keyword": "citazioni sugli occhi",
    "copertura_ctx": 21,
    "copertura_frase": 17,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "cinema",
@@ -280,7 +280,7 @@
    "top_keyword": "citazioni sulla notte",
    "copertura_ctx": 23,
    "copertura_frase": 16,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "l",
@@ -352,7 +352,7 @@
    "top_keyword": "citazioni sulle stelle",
    "copertura_ctx": 16,
    "copertura_frase": 14,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "intell",
@@ -451,7 +451,7 @@
    "top_keyword": "citazioni sul silenzio",
    "copertura_ctx": 14,
    "copertura_frase": 9,
-   "verdetto": "pronta"
+   "verdetto": "pubblicata"
   },
   {
    "cluster": "michae",
@@ -2502,5 +2502,5 @@
   }
  ],
  "aggiornato": "2026-08-30",
- "nota_aggiornamento": "Copertura ricalcolata il 2026-08-30 su 621 citazioni (la prima analisi era su 262). La colonna copertura resta un indicatore grezzo: la selezione delle citazioni di una raccolta si fa leggendole."
+ "nota_aggiornamento": "Copertura ricalcolata il 2026-08-30 su 621 citazioni (la prima analisi era su 262). La colonna copertura resta un indicatore grezzo: la selezione delle citazioni di una raccolta si fa leggendole. Aggiornamento successivo lo stesso giorno: le 16 raccolte con verdetto 'pronta' sono state tutte pubblicate, verdetto ora 'pubblicata' su ciascuna — dettagli in LOG.md e SEO-KEYWORDS.md §7."
 }
