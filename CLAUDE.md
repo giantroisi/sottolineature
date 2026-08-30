@@ -197,7 +197,8 @@ portati da 1 a 2 citazioni. Poi due nuovi autori: Roald Dahl e Clarice Lispector
 Rushdie e Chimamanda Ngozi Adichie portati da 1 a 2 citazioni. Poi due nuovi
 autori: Hannah Arendt e Anna Achmatova. Poi approfondimento: Roberto Bolaño e
 Olga Tokarczuk portati da 1 a 2 citazioni. Poi due nuovi autori: Susan Sontag e
-Wole Soyinka. Archivio a 247 autori, 485 citazioni, 49 con una sola citazione.
+Wole Soyinka. Poi approfondimento: Amos Oz e Herta Müller portati da 1 a 2
+citazioni. Archivio a 247 autori, 487 citazioni, 47 con una sola citazione.
 Lavoro da proseguire senza chiedere conferma, alternando le due modalità lotto
 per lotto
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
