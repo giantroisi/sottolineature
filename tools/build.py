@@ -11,6 +11,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import generate_home as gh  # noqa: E402
+import check_links
 import generate_mine_page as mine
 import generate_quote_pages as qp  # noqa: E402
 import generate_hub_pages as hp  # noqa: E402
@@ -239,6 +240,13 @@ def main():
 
     print()
     fingerprints, stamped = stamp_assets()
+
+    # Controllo di integrita' del sito appena generato. Non blocca il build:
+    # stampa cosa ha trovato, cosi' chi lancia il comando lo vede subito
+    # invece di scoprirlo mesi dopo da un utente.
+    print()
+    link_problems = check_links.main()
+    print()
 
     print('--- Rapporto build.py ---')
     print('Impronta sugli asset:', ', '.join(n + '=' + h for n, h in sorted(fingerprints.items())),

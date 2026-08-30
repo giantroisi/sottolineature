@@ -321,7 +321,14 @@ def main():
             os.remove(os.path.join(autori_dir, fname))
     print('Pagine autore generate:', len(by_author), '(rimosse obsolete:', len(stale), ')')
 
-    return entries, author_slugs, tema_status, genere_status, author_status
+    # Agli altri generatori si passa solo la mappa degli autori ANCORA presenti
+    # in archivio. slugs.json e' cumulativo per scelta - uno slug assegnato non
+    # si cancella mai, cosi' un vecchio indirizzo non diventa una 404 - ma se
+    # gli si passa cosi' com'e', l'indice A-Z elenca anche autori le cui pagine
+    # non esistono piu'. E' successo con Amelie Nothomb e Thomas Bernhard.
+    current_author_slugs = {a: author_slugs[a] for a in by_author if a in author_slugs}
+
+    return entries, current_author_slugs, tema_status, genere_status, author_status
 
 
 if __name__ == '__main__':
