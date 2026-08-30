@@ -8,17 +8,17 @@
    "volume": 3940,
    "keyword": 87,
    "top_keyword": "citazioni amicizia",
-   "copertura_ctx": 20,
-   "copertura_frase": 3,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 52,
+   "copertura_frase": 16,
+   "verdetto": "gia pubblicata"
   },
   {
    "cluster": "viaggio",
    "volume": 3420,
    "keyword": 33,
    "top_keyword": "citazioni viaggiare",
-   "copertura_ctx": 13,
-   "copertura_frase": 8,
+   "copertura_ctx": 39,
+   "copertura_frase": 18,
    "verdetto": "pronta"
   },
   {
@@ -26,8 +26,8 @@
    "volume": 2370,
    "keyword": 45,
    "top_keyword": "citazioni sulle donne",
-   "copertura_ctx": 15,
-   "copertura_frase": 5,
+   "copertura_ctx": 30,
+   "copertura_frase": 13,
    "verdetto": "pronta"
   },
   {
@@ -35,27 +35,27 @@
    "volume": 1730,
    "keyword": 21,
    "top_keyword": "citazioni sulla guerra",
-   "copertura_ctx": 14,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 42,
+   "copertura_frase": 11,
+   "verdetto": "pronta"
   },
   {
    "cluster": "natura",
    "volume": 1350,
    "keyword": 21,
    "top_keyword": "citazioni sulla natura",
-   "copertura_ctx": 6,
-   "copertura_frase": 3,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 44,
+   "copertura_frase": 27,
+   "verdetto": "pronta"
   },
   {
    "cluster": "animali",
    "volume": 1180,
    "keyword": 20,
    "top_keyword": "citazioni cani",
-   "copertura_ctx": 5,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 23,
+   "copertura_frase": 11,
+   "verdetto": "pronta"
   },
   {
    "cluster": "filosofia",
@@ -71,35 +71,35 @@
    "volume": 1040,
    "keyword": 15,
    "top_keyword": "citazioni sulla musica",
-   "copertura_ctx": 1,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 9,
+   "copertura_frase": 7,
+   "verdetto": "quasi"
   },
   {
    "cluster": "montagna",
    "volume": 1000,
    "keyword": 12,
    "top_keyword": "citazioni montagne",
-   "copertura_ctx": 6,
-   "copertura_frase": 2,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 11,
+   "copertura_frase": 5,
+   "verdetto": "quasi"
   },
   {
    "cluster": "figli",
    "volume": 900,
    "keyword": 11,
    "top_keyword": "citazioni s u i figli",
-   "copertura_ctx": 12,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 35,
+   "copertura_frase": 12,
+   "verdetto": "pronta"
   },
   {
    "cluster": "felicita",
    "volume": 860,
    "keyword": 19,
    "top_keyword": "citazioni sulla felicità",
-   "copertura_ctx": 11,
-   "copertura_frase": 10,
+   "copertura_ctx": 28,
+   "copertura_frase": 22,
    "verdetto": "pronta"
   },
   {
@@ -107,26 +107,26 @@
    "volume": 770,
    "keyword": 17,
    "top_keyword": "citazioni sui bambini",
-   "copertura_ctx": 8,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 23,
+   "copertura_frase": 8,
+   "verdetto": "pronta"
   },
   {
    "cluster": "lavoro",
    "volume": 760,
    "keyword": 11,
    "top_keyword": "citazioni sul lavoro",
-   "copertura_ctx": 6,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 24,
+   "copertura_frase": 10,
+   "verdetto": "pronta"
   },
   {
    "cluster": "ricordo",
    "volume": 680,
    "keyword": 17,
    "top_keyword": "citazioni giornata della memoria",
-   "copertura_ctx": 19,
-   "copertura_frase": 8,
+   "copertura_ctx": 40,
+   "copertura_frase": 16,
    "verdetto": "pronta"
   },
   {
@@ -134,27 +134,27 @@
    "volume": 630,
    "keyword": 15,
    "top_keyword": "citazioni sulla bellezza",
-   "copertura_ctx": 5,
-   "copertura_frase": 4,
-   "verdetto": "quasi (mancano poche citazioni)"
+   "copertura_ctx": 9,
+   "copertura_frase": 8,
+   "verdetto": "gia pubblicata"
   },
   {
    "cluster": "pace",
    "volume": 590,
    "keyword": 3,
    "top_keyword": "citazioni sulla pace",
-   "copertura_ctx": 1,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 9,
+   "copertura_frase": 7,
+   "verdetto": "quasi"
   },
   {
    "cluster": "sogni",
    "volume": 570,
    "keyword": 14,
    "top_keyword": "citazioni sui sogni",
-   "copertura_ctx": 9,
-   "copertura_frase": 7,
-   "verdetto": "quasi (mancano poche citazioni)"
+   "copertura_ctx": 21,
+   "copertura_frase": 19,
+   "verdetto": "gia pubblicata"
   },
   {
    "cluster": "alba-tramonto",
@@ -170,26 +170,26 @@
    "volume": 530,
    "keyword": 8,
    "top_keyword": "citazioni sulla famiglia",
-   "copertura_ctx": 15,
-   "copertura_frase": 3,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 64,
+   "copertura_frase": 24,
+   "verdetto": "pronta"
   },
   {
    "cluster": "arte",
    "volume": 530,
    "keyword": 14,
    "top_keyword": "citazioni sull'arte",
-   "copertura_ctx": 1,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 8,
+   "copertura_frase": 8,
+   "verdetto": "pronta"
   },
   {
    "cluster": "sorriso",
    "volume": 490,
    "keyword": 13,
    "top_keyword": "citazioni sul sorriso",
-   "copertura_ctx": 0,
-   "copertura_frase": 0,
+   "copertura_ctx": 4,
+   "copertura_frase": 2,
    "verdetto": "lista attesa"
   },
   {
@@ -197,9 +197,9 @@
    "volume": 470,
    "keyword": 12,
    "top_keyword": "citazioni sul cibo",
-   "copertura_ctx": 1,
-   "copertura_frase": 1,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 10,
+   "copertura_frase": 7,
+   "verdetto": "quasi"
   },
   {
    "cluster": "madre",
@@ -224,17 +224,17 @@
    "volume": 350,
    "keyword": 7,
    "top_keyword": "citazioni sul cambiamento",
-   "copertura_ctx": 10,
-   "copertura_frase": 4,
-   "verdetto": "quasi (mancano poche citazioni)"
+   "copertura_ctx": 23,
+   "copertura_frase": 13,
+   "verdetto": "gia pubblicata"
   },
   {
    "cluster": "occhi",
    "volume": 350,
    "keyword": 14,
    "top_keyword": "citazioni sugli occhi",
-   "copertura_ctx": 10,
-   "copertura_frase": 8,
+   "copertura_ctx": 21,
+   "copertura_frase": 17,
    "verdetto": "pronta"
   },
   {
@@ -278,8 +278,8 @@
    "volume": 320,
    "keyword": 16,
    "top_keyword": "citazioni sulla notte",
-   "copertura_ctx": 11,
-   "copertura_frase": 8,
+   "copertura_ctx": 23,
+   "copertura_frase": 16,
    "verdetto": "pronta"
   },
   {
@@ -350,9 +350,9 @@
    "volume": 300,
    "keyword": 14,
    "top_keyword": "citazioni sulle stelle",
-   "copertura_ctx": 2,
-   "copertura_frase": 2,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 16,
+   "copertura_frase": 14,
+   "verdetto": "pronta"
   },
   {
    "cluster": "intell",
@@ -449,9 +449,9 @@
    "volume": 220,
    "keyword": 6,
    "top_keyword": "citazioni sul silenzio",
-   "copertura_ctx": 4,
-   "copertura_frase": 3,
-   "verdetto": "lista attesa"
+   "copertura_ctx": 14,
+   "copertura_frase": 9,
+   "verdetto": "pronta"
   },
   {
    "cluster": "michae",
@@ -548,9 +548,9 @@
    "volume": 210,
    "keyword": 4,
    "top_keyword": "citazioni tristezza",
-   "copertura_ctx": 4,
-   "copertura_frase": 4,
-   "verdetto": "quasi (mancano poche citazioni)"
+   "copertura_ctx": 10,
+   "copertura_frase": 10,
+   "verdetto": "gia pubblicata"
   },
   {
    "cluster": "rock",
@@ -2500,5 +2500,7 @@
    "keyword": 2,
    "volume": 40
   }
- ]
+ ],
+ "aggiornato": "2026-08-30",
+ "nota_aggiornamento": "Copertura ricalcolata il 2026-08-30 su 621 citazioni (la prima analisi era su 262). La colonna copertura resta un indicatore grezzo: la selezione delle citazioni di una raccolta si fa leggendole."
 }

@@ -321,7 +321,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         source_link = (' <a href="' + html.escape(source_url, quote=True) + '">' + link_label + ' →</a>') if source_url else ''
         source_html = '<p class="card-source sans"><span class="source-label">Dove si trova</span>' + ', '.join(source_parts) + '.' + source_link + '</p>'
     year_html = (' · <span class="card-year">' + html.escape(q['year']) + '</span>') if q['year'] else ''
-    cover_src = q['cover'] if q['cover'].startswith('http') else '/' + q['cover']
+    cover_src = q['cover'] if q['cover'].startswith(('http', '/')) else '/' + q['cover']
     cover_alt = html.escape('Copertina di "' + q['title'] + '" di ' + q['author'])
     # LCP: la copertina e' l'immagine piu' importante della pagina citazione,
     # niente lazy e priorita' di caricamento alta.

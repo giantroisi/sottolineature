@@ -273,3 +273,41 @@ Poi rilancia python3 tools/build.py, verifica il rapporto finale, e riportami qu
 cambiato title, quante description, e se qualche controllo è fallito. Aggiorna la Fase 7 in
 CLAUDE.md spuntando ciò che hai chiuso.
 ```
+
+---
+
+## 7. Aggiornamento del 2026-08-30: 16 raccolte sono diventate pubblicabili
+
+La copertura era stata calcolata quando l'archivio aveva 262 citazioni. Oggi ne ha 621, e il
+quadro e' cambiato senza che nessuno se ne accorgesse: **sedici raccolte hanno superato la soglia
+delle otto citazioni pertinenti** e possono essere pubblicate senza cercare nulla di nuovo.
+In ordine di domanda di ricerca, con le citazioni gia' disponibili:
+
+| Volume | Raccolta | Citazioni |
+|---:|---|---:|
+| 3.420 | viaggio e cammino | 18 |
+| 2.370 | donne | 13 |
+| 1.730 | guerra | 11 |
+| 1.350 | natura | 27 |
+| 1.180 | animali | 11 |
+| 900 | figli | 12 |
+| 860 | felicita | 22 |
+| 770 | infanzia | 8 |
+| 760 | lavoro | 10 |
+| 680 | ricordo e memoria | 16 |
+| 530 | famiglia | 24 |
+| 530 | arte | 8 |
+| 350 | occhi e sguardo | 17 |
+| 320 | notte | 16 |
+| 300 | stelle e cielo | 14 |
+| 220 | silenzio | 9 |
+
+Restano vicine alla soglia (5-7 citazioni): musica, montagna, pace, cibo, speranza, inverno,
+denaro, liberta come prigionia.
+
+**Vale sempre la regola:** il numero dice dove guardare, non quali citazioni scegliere. Una
+raccolta si pubblica solo dopo aver letto le citazioni candidate e aver scritto l'introduzione a
+mano; se leggendole se ne salvano meno di otto, la raccolta non si pubblica.
+
+`data/keywords.json` e' stato aggiornato con la copertura ricalcolata e con il verdetto di
+ciascun tema, comprese le dieci raccolte gia' pubblicate.
