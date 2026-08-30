@@ -12,6 +12,8 @@ Il contesto (card-context) NON viene pubblicato qui: resta esclusivo di
 sullo stesso testo (Fase 2 di SEO.md).
 """
 import html
+import re
+import json
 import os
 import sys
 
@@ -103,6 +105,46 @@ def main():
     page = template.replace('{{CARDS}}', cards_html.rstrip('\n'))
     page = page.replace('{{COUNT}}', str(len(quotes)))
     page = page.replace('{{COUNT_WORDS}}', count_words[0].upper() + count_words[1:])
+
+    # --- Ultime aggiunte: le otto citazioni piu' recenti per data ---
+    slug_of = {qp.quote_key(q): sl for sl, q in
+               qp.assign_slugs(quotes, qp.load_slugs(), qp.load_redirects())[0]}
+    datate = [q for q in quotes if q.get('added')]
+    datate.sort(key=lambda q: q['added'], reverse=True)
+    ultime = []
+    for q in datate[:8]:
+        sl = slug_of.get(qp.quote_key(q))
+        if not sl:
+            continue
+        testo = q['quote'] if len(q['quote']) <= 90 else q['quote'][:88].rsplit(' ', 1)[0] + '…'
+        ultime.append(
+            '      <li><a href="/citazioni/' + sl + '/">'
+            '<span class="strip-quote">«' + html.escape(testo) + '»</span>'
+            '<span class="strip-meta sans">' + html.escape(q['author']) + ' · ' +
+            html.escape(q['title']) + '</span></a></li>'
+        )
+    page = page.replace('{{ULTIME}}', '\n'.join(ultime))
+
+    # --- Tre raccolte, le piu' ricche di citazioni ---
+    raccolte_path = os.path.join(qp.ROOT, 'data', 'raccolte.json')
+    voci = []
+    if os.path.exists(raccolte_path):
+        with open(raccolte_path, encoding='utf-8') as f:
+            raccolte = json.load(f)
+        raccolte.sort(key=lambda r: len(r.get('quote_keys', [])), reverse=True)
+        for r in raccolte[:3]:
+            intro = (r.get('intro') or [''])[0]
+            intro = re.sub(r'<[^>]+>', '', intro)
+            if len(intro) > 130:
+                intro = intro[:128].rsplit(' ', 1)[0] + '…'
+            voci.append(
+                '      <li><a href="/raccolte/' + r['slug'] + '/">'
+                '<span class="strip-quote">' + html.escape(r['title']) + '</span>'
+                '<span class="strip-meta sans">' + html.escape(intro) + '</span>'
+                '<span class="strip-count sans">' + str(len(r.get('quote_keys', []))) +
+                ' citazioni</span></a></li>'
+            )
+    page = page.replace('{{RACCOLTE}}', '\n'.join(voci))
 
     # Conteggi della fascia "Esplora l'archivio": si leggono dalle cartelle
     # gia' generate, cosi' restano veri senza doverli aggiornare a mano.

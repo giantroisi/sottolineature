@@ -345,14 +345,16 @@ footer.sans a { color: var(--ink-faint); }
 
 @media (max-width: 640px) {
   .site-header-inner { padding: 0.6rem 1.1rem; }
-  .brand-name { display: none; }
+  .brand-name { font-size: 0.95rem; }
   .site-header .site-nav { gap: 0.85rem; }
   .site-header .site-nav a { font-size: 0.7rem; letter-spacing: 0.08em; }
-  /* cinque voci non stanno in 360px: la barra scorre lateralmente invece di
-     mandare a capo le etichette e far scrollare tutta la pagina */
-  .site-header-inner { gap: 0.6rem; }
+  /* cinque voci piu' il marchio non stanno in 360px su una riga sola: il menu
+     prende una riga tutta sua sotto il marchio, cosi' "Citazioni" non finisce
+     tagliata fuori dallo schermo */
+  .site-header-inner { gap: 0.6rem; row-gap: 0.45rem; }
   .site-nav {
-    flex: 1 1 auto; min-width: 0; justify-content: flex-end;
+    flex: 1 0 100%; order: 2; min-width: 0;
+    justify-content: space-between; gap: 0.5rem;
     overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
   }
   .site-nav::-webkit-scrollbar { display: none; }

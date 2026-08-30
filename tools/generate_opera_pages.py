@@ -261,12 +261,20 @@ def main(entries):
         opera_status[op['slug']] = len(items)
 
     generated_files = set(slug + '.html' for slug in opera_status)
-    stale = existing - generated_files
+    # index.html della cartella e' l'indice, lo scrive generate_index_pages:
+    # non e' una pagina orfana
+    stale = existing - generated_files - {'index.html'}
+    removed = []
     for fname in stale:
-        if fname.endswith('.html'):
+        if not fname.endswith('.html'):
+            continue
+        try:
             os.remove(os.path.join(OUT_DIR, fname))
-    if stale:
-        print('Rimosse pagine opera obsolete:', len(stale))
+            removed.append(fname)
+        except OSError as err:
+            print('Attenzione: non ho potuto rimuovere', fname, '-', err)
+    if removed:
+        print('Rimosse pagine opera obsolete:', len(removed))
 
     print('Pagine opera generate:', len(opera_status), '/', len(opere))
     return opera_status

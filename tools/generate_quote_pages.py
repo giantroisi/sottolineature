@@ -499,12 +499,20 @@ def main(opera_map=None, raccolta_map=None):
             f.write(page)
 
     generated_files = set(slug + '.html' for slug, _ in entries)
-    stale = existing - generated_files
+    # index.html della cartella /citazioni/ e' l'indice paginato, lo scrive
+    # generate_index_pages: non e' una pagina citazione orfana
+    stale = existing - generated_files - {'index.html'}
+    removed = []
     for fname in stale:
-        if fname.endswith('.html'):
+        if not fname.endswith('.html'):
+            continue
+        try:
             os.remove(os.path.join(OUT_DIR, fname))
-    if stale:
-        print('Rimosse pagine obsolete:', len(stale))
+            removed.append(fname)
+        except OSError as err:
+            print('Attenzione: non ho potuto rimuovere', fname, '-', err)
+    if removed:
+        print('Rimosse pagine obsolete:', len(removed))
 
     print('Pagine generate in', OUT_DIR)
     return entries

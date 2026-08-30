@@ -215,12 +215,20 @@ def main(entries):
         raccolta_status[r['slug']] = len(items)
 
     generated_files = set(slug + '.html' for slug in raccolta_status)
-    stale = existing - generated_files
+    # index.html della cartella e' l'indice, lo scrive generate_index_pages:
+    # non e' una pagina orfana
+    stale = existing - generated_files - {'index.html'}
+    removed = []
     for fname in stale:
-        if fname.endswith('.html'):
+        if not fname.endswith('.html'):
+            continue
+        try:
             os.remove(os.path.join(OUT_DIR, fname))
-    if stale:
-        print('Rimosse pagine raccolta obsolete:', len(stale))
+            removed.append(fname)
+        except OSError as err:
+            print('Attenzione: non ho potuto rimuovere', fname, '-', err)
+    if removed:
+        print('Rimosse pagine raccolta obsolete:', len(removed))
 
     print('Pagine raccolta generate:', len(raccolta_status), '/', len(raccolte))
     return raccolta_status

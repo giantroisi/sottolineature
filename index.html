@@ -392,6 +392,8 @@
     #searchInput { padding: 0.8rem 2.3rem 0.8rem 1rem; font-size: 1rem; }
     .search-clear-btn { width: 2.6rem; max-height: 2.85rem; font-size: 1.4rem; }
     header.masthead { margin-bottom: 1.1rem; }
+    .logo-mark { height: clamp(6rem, 24vw, 8.5rem); }
+    .masthead-row { gap: 1.3rem; margin-bottom: 1.6rem; }
     .search-bar { margin-bottom: 1.1rem; }
 
     .filters-note { margin-bottom: 1.1rem; }
@@ -751,10 +753,13 @@
   .explore-desc { grid-column: 1 / -1; font-size: 0.8rem; line-height: 1.45; color: var(--ink-faint); }
 
   @media (max-width: 640px) {
-    .site-header-inner { padding: 0.6rem 1.1rem; gap: 0.6rem; }
-    .brand-name { display: none; }
+    /* cinque voci piu' il marchio non stanno in 360px su una riga sola: il
+       menu prende una riga tutta sua sotto il marchio, cosi' "Citazioni" non
+       finisce tagliata fuori dallo schermo */
+    .site-header-inner { padding: 0.6rem 1.1rem; gap: 0.6rem; row-gap: 0.45rem; flex-wrap: wrap; }
+    .brand-name { font-size: 0.95rem; }
     .site-nav {
-      gap: 0.85rem; flex: 1 1 auto; min-width: 0; justify-content: flex-end;
+      gap: 0.5rem; flex: 1 0 100%; order: 2; min-width: 0; justify-content: space-between;
       overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
     }
     .site-nav::-webkit-scrollbar { display: none; }
@@ -773,6 +778,43 @@
      ricerca: le card restano tutte nel DOM. */
   .grid .card { content-visibility: auto; contain-intrinsic-size: auto 220px; }
   @media print { .grid .card { content-visibility: visible; } }
+  /* --- prima schermata: marchio a sinistra, citazione del giorno a destra --- */
+  .masthead-row { display: flex; flex-direction: column; gap: 1.6rem; margin-bottom: 2.5rem; }
+  .masthead-row .masthead { order: 1; margin-bottom: 0; }
+  .masthead-row .hero { order: 2; margin: 0; }
+  .masthead-row .lede { order: 3; }
+  @media (min-width: 900px) {
+    .masthead-row {
+      display: grid; gap: 1.2rem 3.5rem;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      grid-template-areas: "brand quote" "lede quote";
+      align-items: start;
+    }
+    .masthead-row .masthead { grid-area: brand; align-self: end; }
+    .masthead-row .lede { grid-area: lede; align-self: start; }
+    .masthead-row .hero { grid-area: quote; align-self: center; }
+  }
+
+  /* --- fasce "Ultime aggiunte" e "Dalle raccolte" --- */
+  .strip { margin: 3rem 0; }
+  .strip-title {
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 1.2rem; font-weight: 400;
+  }
+  .strip-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.15rem; }
+  @media (min-width: 700px) { .strip-list { grid-template-columns: 1fr 1fr; gap: 0.15rem 2rem; } }
+  .strip-list a {
+    display: block; padding: 0.75rem 0.6rem; margin: 0 -0.6rem; border-radius: 4px;
+    text-decoration: none; color: var(--ink); transition: background 0.18s;
+  }
+  .strip-list a:hover { background: var(--paper-raised); }
+  .strip-quote { display: block; font-style: italic; line-height: 1.45; }
+  .strip-collections .strip-quote { font-style: normal; font-size: 1.05rem; }
+  .strip-meta { display: block; margin-top: 0.25rem; font-size: 0.78rem; color: var(--ink-faint); }
+  .strip-count { display: block; margin-top: 0.2rem; font-size: 0.72rem; color: var(--gold); }
+  .strip-more { margin: 1rem 0 0; font-size: 0.82rem; }
+  .strip-more a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .strip-more a:hover { color: var(--gold); border-color: var(--gold); }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://sottolineature.it/#website","url":"https://sottolineature.it/","name":"Sottolineature","description":"Citazioni da libri raccolte e verificate a mano, senza algoritmo.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sottolineature.it/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <script>
@@ -804,14 +846,31 @@
 
 <div class="page" id="page">
 
+  <div class="masthead-row">
   <header class="masthead">
     <p class="eyebrow sans">Una raccolta di citazioni</p>
     <h1 class="title"><img src="/logo.svg" alt="Sottolineature" class="logo-mark"></h1>
-    <p class="lede">
-      Seicentoventuno righe segnate a matita in libri diversi — romanzi, poesie, pagine che si
-      aprono sempre nello stesso punto. Sfoglia per tema, o lasciati sorprendere.
-    </p>
   </header>
+
+  <section class="hero" id="hero">
+    <p class="hero-label sans" id="heroLabel">Citazione del giorno</p>
+    <p id="heroQuote">«Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita.»</p>
+    <p id="heroCitation" class="sans">
+      <span class="card-author">Dante Alighieri</span> — <span class="card-title">Inferno, Divina Commedia</span> · <span class="card-year">1321</span>
+    </p>
+    <div class="hero-actions">
+      <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
+      <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
+      <button class="hero-copy-btn sans" id="heroExportBtn" type="button">Condividi</button>
+      <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
+    </div>
+  </section>
+
+  <p class="lede">
+    Seicentoventuno righe segnate a matita in libri diversi — romanzi, poesie, pagine che si
+    aprono sempre nello stesso punto. Sfoglia per tema, o lasciati sorprendere.
+  </p>
+  </div>
 
   <div class="search-sentinel" id="searchSentinel" aria-hidden="true"></div>
   <div class="search-bar" id="searchBar">
@@ -823,18 +882,42 @@
     </div>
   </div>
 
-  <section class="hero" id="hero">
-    <p class="hero-label sans">In evidenza</p>
-    <p id="heroQuote">«Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita.»</p>
-    <p id="heroCitation" class="sans">
-      <span class="card-author">Dante Alighieri</span> — <span class="card-title">Inferno, Divina Commedia</span> · <span class="card-year">1321</span>
-    </p>
-    <div class="hero-actions">
-      <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
-      <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
-      <button class="hero-copy-btn sans" id="heroExportBtn" type="button">Condividi</button>
-      <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
-    </div>
+
+  <nav class="explore sans" aria-label="Esplora l'archivio">
+    <h2 class="explore-title">Esplora l'archivio</h2>
+    <ul class="explore-list">
+      <li><a href="/autori/"><span class="explore-name">Autori</span><span class="explore-count">251</span><span class="explore-desc">Da Dante a Zadie Smith, ogni autore con le sue righe</span></a></li>
+      <li><a href="/opere/"><span class="explore-name">Opere</span><span class="explore-count">40</span><span class="explore-desc">I libri con una scheda e più di una citazione</span></a></li>
+      <li><a href="/raccolte/"><span class="explore-name">Raccolte</span><span class="explore-count">10</span><span class="explore-desc">Selezioni curate a mano attorno a un tema</span></a></li>
+      <li><a href="/temi/"><span class="explore-name">Umori</span><span class="explore-count">7</span><span class="explore-desc">Non una classificazione: un'atmosfera</span></a></li>
+      <li><a href="/generi/"><span class="explore-name">Generi</span><span class="explore-count">5</span><span class="explore-desc">Fantasy, fantascienza, distopia, horror, saggistica</span></a></li>
+      <li><a href="/citazioni/"><span class="explore-name">Tutte le citazioni</span><span class="explore-count">621</span><span class="explore-desc">L'archivio completo, pagina per pagina</span></a></li>
+    </ul>
+  </nav>
+
+  <section class="strip" aria-labelledby="ultimeTitolo">
+    <h2 class="strip-title sans" id="ultimeTitolo">Ultime aggiunte</h2>
+    <ul class="strip-list">
+      <li><a href="/citazioni/agatha-christie-la-sagra-del-delitto/"><span class="strip-quote">«Nessuno avrebbe saputo raccontare deliberatamente una bugia meglio di Hercule Poirot.»</span><span class="strip-meta sans">Agatha Christie · La sagra del delitto</span></a></li>
+      <li><a href="/citazioni/bertolt-brecht-l-opera-da-tre-soldi/"><span class="strip-quote">«La legge è fatta esclusivamente per lo sfruttamento di coloro che non la capiscono, o…»</span><span class="strip-meta sans">Bertolt Brecht · L&#x27;opera da tre soldi</span></a></li>
+      <li><a href="/citazioni/emile-zola-l-assommoir/"><span class="strip-quote">«Fino a tanto che avrete qualche cosa di vostro, e che il vostro livore contro il…»</span><span class="strip-meta sans">Émile Zola · L&#x27;Assommoir</span></a></li>
+      <li><a href="/citazioni/hans-christian-andersen-l-improvvisatore/"><span class="strip-quote">«Ci stabilimmo a Santa Lucia, il mare era di fronte, il Vesuvio lampeggiava; erano…»</span><span class="strip-meta sans">Hans Christian Andersen · L&#x27;improvvisatore</span></a></li>
+      <li><a href="/citazioni/isaac-asimov-isaac-asimov-s-book-of-science-and-nature-quotations/"><span class="strip-quote">«L&#x27;aspetto più triste della vita in questo momento è che la scienza raccoglie conoscenza…»</span><span class="strip-meta sans">Isaac Asimov · Isaac Asimov&#x27;s Book of Science and Nature Quotations</span></a></li>
+      <li><a href="/citazioni/james-baldwin-a-talk-to-teachers/"><span class="strip-quote">«Il paradosso dell&#x27;istruzione è proprio questo: quando si diventa consapevoli si esamina…»</span><span class="strip-meta sans">James Baldwin · A Talk to Teachers</span></a></li>
+      <li><a href="/citazioni/roald-dahl-la-fabbrica-di-cioccolato/"><span class="strip-quote">«Cara la mia vecchia triglia, perché non va a farsi friggere?»</span><span class="strip-meta sans">Roald Dahl · La fabbrica di cioccolato</span></a></li>
+      <li><a href="/citazioni/clarice-lispector-dove-siete-stati-di-notte/"><span class="strip-quote">«Si può pensare in fretta al giorno che è trascorso. O agli amici che sono passati e che…»</span><span class="strip-meta sans">Clarice Lispector · Dove siete stati di notte</span></a></li>
+    </ul>
+    <p class="strip-more sans"><a href="/citazioni/">Tutto l'archivio, dalla più recente →</a></p>
+  </section>
+
+  <section class="strip" aria-labelledby="raccolteTitolo">
+    <h2 class="strip-title sans" id="raccolteTitolo">Dalle raccolte</h2>
+    <ul class="strip-list strip-collections">
+      <li><a href="/raccolte/viaggio-e-cammino/"><span class="strip-quote">Viaggio e cammino</span><span class="strip-meta sans">Il viaggio è forse il tema più antico della narrativa occidentale — prima ancora del romanzo esisteva il poema epico, ed era…</span><span class="strip-count sans">14 citazioni</span></a></li>
+      <li><a href="/raccolte/incipit/"><span class="strip-quote">Incipit memorabili</span><span class="strip-meta sans">La prima frase di un romanzo lavora più di ogni altra riga: deve stabilire una voce, un ritmo, a volte un&#x27;intera visione del…</span><span class="strip-count sans">13 citazioni</span></a></li>
+      <li><a href="/raccolte/frasi-brevi/"><span class="strip-quote">Frasi brevi</span><span class="strip-meta sans">Ci sono romanzi di seicento pagine ricordati per una sola riga. Questa raccolta parte da lì: dalla capacità della grande…</span><span class="strip-count sans">12 citazioni</span></a></li>
+    </ul>
+    <p class="strip-more sans"><a href="/raccolte/">Tutte le raccolte →</a></p>
   </section>
 
   <p class="filters-note sans">Non una classificazione, ma un umore: la stessa pagina può riconoscersi in più d'uno.</p>
@@ -6878,17 +6961,6 @@
     </article>
   </div>
 
-  <nav class="explore sans" aria-label="Esplora l'archivio">
-    <h2 class="explore-title">Esplora l'archivio</h2>
-    <ul class="explore-list">
-      <li><a href="/autori/"><span class="explore-name">Autori</span><span class="explore-count">251</span><span class="explore-desc">Da Dante a Zadie Smith, ogni autore con le sue righe</span></a></li>
-      <li><a href="/opere/"><span class="explore-name">Opere</span><span class="explore-count">40</span><span class="explore-desc">I libri con una scheda e più di una citazione</span></a></li>
-      <li><a href="/raccolte/"><span class="explore-name">Raccolte</span><span class="explore-count">10</span><span class="explore-desc">Selezioni curate a mano attorno a un tema</span></a></li>
-      <li><a href="/temi/"><span class="explore-name">Umori</span><span class="explore-count">7</span><span class="explore-desc">Non una classificazione: un'atmosfera</span></a></li>
-      <li><a href="/generi/"><span class="explore-name">Generi</span><span class="explore-count">5</span><span class="explore-desc">Fantasy, fantascienza, distopia, horror, saggistica</span></a></li>
-      <li><a href="/citazioni/"><span class="explore-name">Tutte le citazioni</span><span class="explore-count">621</span><span class="explore-desc">L'archivio completo, pagina per pagina</span></a></li>
-    </ul>
-  </nav>
 
   <footer class="sans">
     621 citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
@@ -7159,7 +7231,28 @@
       }
     });
 
+    // La citazione di apertura non e' piu' casuale: dipende dalla data, quindi
+    // e' la stessa per tutti quel giorno. Cosi' tornare domani ha un senso, e
+    // condividerla porta a qualcosa che l'altro vede davvero.
+    function applyOfTheDay() {
+      var d = new Date();
+      var key = d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate();
+      var h = 0;
+      var str = String(key);
+      for (var i = 0; i < str.length; i++) { h = (h * 31 + str.charCodeAt(i)) % 2147483647; }
+      var idx = cards.length ? h % cards.length : 0;
+      lastIndex = idx;
+      var card = cards[idx];
+      if (!card) { return; }
+      currentHeroCard = card;
+      heroQuote.textContent = '«' + card.querySelector('.card-quote').textContent + '»';
+      heroCitation.innerHTML = citationHTML(card);
+      updateHeroUnderlineBtn();
+    }
+
     function applyRandom() {
+      var label = document.getElementById('heroLabel');
+      if (label) { label.textContent = 'In evidenza'; }
       var i;
       do { i = Math.floor(Math.random() * cards.length); } while (i === lastIndex && cards.length > 1);
       lastIndex = i;
@@ -7179,7 +7272,7 @@
       }, 220);
     });
 
-    applyRandom();
+    applyOfTheDay();
 
     function copyHero() {
       var quote = heroQuote.textContent.replace(/^«|»$/g, '');

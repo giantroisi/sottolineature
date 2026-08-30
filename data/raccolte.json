@@ -209,5 +209,31 @@
       "Victor Hugo|Notre-Dame de Paris|Ogni faccia, ogni pietra del venerabile",
       "Emily Dickinson|Poesie|La bellezza non ha causa: esiste."
     ]
+  },
+  {
+    "slug": "viaggio-e-cammino",
+    "title": "Viaggio e cammino",
+    "h1": "Frasi e citazioni sul viaggio e sul cammino",
+    "intro": [
+      "Il viaggio è forse il tema più antico della narrativa occidentale — prima ancora del romanzo esisteva il poema epico, ed era già un racconto di rotte, ritorni e strade sconosciute. Da lì non ha mai smesso di essere anche una metafora: della vita che si vive, del tempo che passa, di una meta — o una persona — mai davvero raggiunta.",
+      "Omero apre l'Odissea presentando Ulisse come l'uomo che «molto errò» prima di fare ritorno a Itaca, e Virgilio fa lo stesso con Enea nell'Eneide, «errando» dalle rovine di Troia fino alle coste del Lazio: due proemi antichi che fondano il genere. Dante userà la stessa parola, cammino, per aprire la Commedia mille anni dopo, smarrito «nel mezzo del cammin di nostra vita»; Giacomo Leopardi la affida a un pastore errante dell'Asia, invenzione poetica fatta di solo moto senza meta. Cicerone deride invece chi accumula provviste per un viaggio ormai vicino alla fine, e Imre Kertész fa dire al suo giovane protagonista, «sul mio cammino», che la felicità lo aspetta come una trappola.",
+      "Ci sono poi i viaggi sospesi: quello mai compiuto delle tre sorelle di Čechov, che ripetono per un'intera opera «A Mosca, a Mosca!» senza mai partire, e quello impossibile del conte Almásy ne Il paziente inglese, che sognava di camminare «su una terra che non aveva carte geografiche». Ci sono i viaggi che si mettono in moto dentro il racconto stesso, come l'imbarco sul battello a vapore che apre L'educazione sentimentale di Flaubert. Khaled Hosseini paragona la storia a «un treno in corsa», che porta a destinazione chiunque vi salga; Silone chiude il cerchio con l'ironia contadina di Fontamara: «Il mondo è rotondo. Chi parte, perde tempo»."
+    ],
+    "quote_keys": [
+      "Omero|Odissea|Musa, quell'uom di moltiforme ingegno dimmi,",
+      "Virgilio|Eneide|L'armi canto e 'l valor del",
+      "Dante Alighieri|Inferno, Divina Commedia|Nel mezzo del cammin di nostra",
+      "Giacomo Leopardi|Canto notturno di un pastore errante dell'Asia|Che fai tu, luna, in ciel?",
+      "Marco Tullio Cicerone|Il Catone Maggiore|L'avarizia in età avanzata è insensata:",
+      "Imre Kertész|Essere senza destino|Non esiste assurdità che non possa",
+      "Anton Čechov|Tre sorelle|A Mosca, a Mosca!",
+      "Michael Ondaatje|Il paziente inglese|Tutto ciò che desideravo era camminare",
+      "Gustave Flaubert|L'educazione sentimentale|La mattina del 15 settembre 1840,",
+      "J.R.R. Tolkien|Il Signore degli Anelli - La Compagnia dell'Anello|Porterò io l'Anello a Mordor. Solo...",
+      "H.G. Wells|La macchina del tempo|Ho paura di non riuscire a",
+      "Khaled Hosseini|E l'eco rispose|La storia è come un treno",
+      "Ignazio Silone|Fontamara|Il mondo è rotondo. Chi parte,",
+      "Dino Buzzati|Il deserto dei Tartari|Ma a un certo punto, istintivamente,"
+    ]
   }
 ]
