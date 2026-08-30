@@ -280,5 +280,27 @@
       "Beppe Fenoglio|Una questione privata|Non poteva più vivere senza sapere",
       "Boris Pasternak|Il dottor Živago|Anche più dell'affinità delle loro anime,"
     ]
+  },
+  {
+    "slug": "natura",
+    "title": "Natura",
+    "h1": "Frasi e citazioni sulla natura",
+    "intro": [
+      "La natura entra in letteratura quasi sempre come un linguaggio a sé, che l'uomo può solo provare ad ascoltare. Gabriele D'Annunzio apre «La pioggia nel pineto» chiedendo alla donna amata di tacere per sentire «le parole più nuove» di gocce e foglie sotto la pioggia estiva; Ralph Waldo Emerson, addentrandosi nel bosco vicino a casa, scrive che la natura selvaggia possiede una santità capace di far arrossire perfino le religioni codificate dall'uomo.",
+      "È spesso un rifugio, o un termine di paragone per l'interiorità umana. Anne Frank, chiusa per due anni nell'alloggio segreto di Amsterdam, annota che la natura è l'unica cosa di cui non si può fare a meno con nessun surrogato. Giovanni Pascoli affida a un lampo improvviso — cielo e terra rivelati per un istante nella loro vera, sconvolta natura — l'immagine più cupa della propria biografia. Giuseppe Ungaretti condensa in un solo verso, «si sta come d'autunno sugli alberi le foglie», tutta la precarietà della vita umana al fronte.",
+      "E c'è la natura come scenario fisico, attraversato pagina dopo pagina: la foresta innevata del Klondike in cui Buck, il cane di Jack London, riscopre l'estasi degli istinti primordiali; le montagne di Paolo Cognetti, dove il passato scorre a valle e il futuro a monte; il Picco della Desolazione su cui Jack Kerouac fece la vedetta antincendio, circondato da centinaia di miglia di rocce innevate; il bosco di aghi di pino in cui Robert Jordan è disteso, nel romanzo di Hemingway sulla guerra civile spagnola; e il verde ipnotico — vento, rami, montagna — che apre il «Romance sonámbulo» di Federico García Lorca."
+    ],
+    "quote_keys": [
+      "Gabriele D'Annunzio|Alcyone|Taci. Su le soglie del bosco",
+      "Ralph Waldo Emerson|La natura|Qui vi è una santità che",
+      "Anne Frank|Diario|La natura è davvero l'unica cosa",
+      "Giovanni Pascoli|Il lampo|E cielo e terra si mostrò",
+      "Giuseppe Ungaretti|L'allegria|Si sta come d'autunno sugli alberi",
+      "Jack London|Il richiamo della foresta|C'è un'estasi che caratterizza il culmine",
+      "Paolo Cognetti|Le otto montagne|Il passato è a valle, il",
+      "Jack Kerouac|Angeli di desolazione|Quei pomeriggi, quei pigri pomeriggi, in",
+      "Ernest Hemingway|Per chi suona la campana|Il mento poggiato sulle braccia incrociate,",
+      "Federico García Lorca|Romance sonámbulo|Verde che ti voglio verde. Verde"
+    ]
   }
 ]

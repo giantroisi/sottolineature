@@ -301,6 +301,19 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Natura"** (4/16), in
+  autonomia. Filtrata l'archivio per radice lessicale (natura, albero/i, foresta, bosco, montagn,
+  vento, pianta, fiore/i, campagna, paesaggio, giardino, prato, collina, valle, erba, radici,
+  stagion), esclusi apposta mare/cielo/stelle/luna/sole per non sovrapporsi alle raccolte future
+  "stelle e cielo" e "notte": 74 candidati, letti uno per uno. 10 citazioni pubblicate, un autore
+  ciascuno: Gabriele D'Annunzio (La pioggia nel pineto, da Alcyone), Ralph Waldo Emerson (il saggio
+  «La natura»), Anne Frank (Diario), Giovanni Pascoli (Il lampo), Giuseppe Ungaretti (Soldati, da
+  L'allegria), Jack London (Il richiamo della foresta), Paolo Cognetti (Le otto montagne), Jack
+  Kerouac (Angeli di desolazione), Ernest Hemingway (Per chi suona la campana — l'incipit, scena di
+  paesaggio, diverso dal passo di "Addio alle armi" già usato in "Guerra"), Federico García Lorca
+  (Romance sonámbulo). Introduzione scritta a mano (265 parole, 3 paragrafi). Build pulita (0
+  problemi, 14/14 raccolte).
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Guerra"** (3/16), in
   autonomia. Filtrata l'archivio per radice lessicale (guerra, bellic, soldat, battaglia, trincea,
   esercito, nemic, combatt, arma/armi): 59 candidati, molti falsi positivi lessicali (es. "arma" in
