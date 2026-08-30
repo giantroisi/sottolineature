@@ -301,6 +301,17 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Stelle e cielo"**
+  (15/16), in autonomia. Filtrata l'archivio per radice lessicale (stelle, stella, cielo, celeste,
+  astri, astro, costellazion, galassia, pianeti, luna, sole, universo, cosmo): 32 candidati, letti
+  uno per uno. 9 citazioni pubblicate: Dante Alighieri (Paradiso), Douglas Adams (Guida galattica
+  per gli autostoppisti), Giovanni Pascoli (X Agosto), Salvatore Quasimodo (Ed è subito sera),
+  Giacomo Leopardi (Canto notturno di un pastore errante dell'Asia, riusata da "Viaggio e
+  cammino"), Anne Frank (Diario), Anna Achmatova (Lo stormo bianco), Francesco Petrarca
+  (Canzoniere), Gabriele D'Annunzio (Il piacere). Introduzione scritta a mano (259 parole, 3
+  paragrafi). Build lanciata due volte (bug del contatore, vedi lotti precedenti): al secondo giro
+  0 problemi, 25/25 raccolte. Manca solo "silenzio" per chiudere le 16 raccolte del piano.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Notte"** (14/16), in
   autonomia. Filtrata l'archivio per radice lessicale (notte/i, buio, oscurità, tenebr,
   crepuscolo): 26 candidati, letti uno per uno. 9 citazioni pubblicate: Elie Wiesel (La notte,

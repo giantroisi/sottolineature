@@ -517,5 +517,26 @@
       "Pablo Neruda|Venti poesie d'amore e una canzone disperata|Posso scrivere i versi più tristi",
       "Daphne du Maurier|Rebecca, la prima moglie|Ieri notte ho sognato di tornare"
     ]
+  },
+  {
+    "slug": "stelle-e-cielo",
+    "title": "Stelle e cielo",
+    "h1": "Frasi e citazioni su stelle e cielo",
+    "intro": [
+      "Il cielo, nella letteratura, è il luogo dove si misura la piccolezza umana — e a volte, per contrasto, la sua grandezza. Dante Alighieri chiude l'intera Commedia su tre parole soltanto: «l'amor che move il sole e l'altre stelle», l'armonia finale tra il proprio desiderio e il cosmo intero. Douglas Adams, nell'incipit della «Guida galattica per gli autostoppisti», ribalta la stessa scala con l'ironia della fantascienza: la Terra è solo un «trascurabilissimo pianeta» che orbita attorno a un «piccolo e insignificante sole giallo», in un angolo dimenticato della Galassia.",
+      "Più spesso le stelle custodiscono un dolore privato. Giovanni Pascoli guarda le stelle cadenti di San Lorenzo — di solito legate ai desideri — e ci legge invece l'assassinio mai risolto del proprio padre. Salvatore Quasimodo condensa in un solo verso, «trafitto da un raggio di sole: ed è subito sera», tutta la solitudine e la brevità di una vita. Giacomo Leopardi si rivolge alla luna, «silenziosa», con la voce di un pastore errante che le chiede il senso della fatica umana senza aspettarsi risposta.",
+      "E c'è il cielo come rifugio, o come sfondo a un sentimento: Anne Frank, chiusa nell'alloggio segreto di Amsterdam, consiglia a chi ha paura di uscire all'aperto, «solo col cielo, la natura e Dio»; Anna Achmatova lo vede «svettato in alto» nella stagione fuori dal tempo dell'amore; Francesco Petrarca vola «sopra 'l cielo» e insieme giace in terra, contraddizione perfetta dello stato d'animo di chi ama; e Gabriele D'Annunzio apre «Il piacere» con un tramonto di San Silvestro che scalda dolcemente il cielo di Roma."
+    ],
+    "quote_keys": [
+      "Dante Alighieri|Paradiso, Divina Commedia|ma già volgeva il mio disio",
+      "Douglas Adams|Guida galattica per gli autostoppisti|Lontano, nei dimenticati spazi non segnati",
+      "Giovanni Pascoli|X Agosto|San Lorenzo, io lo so perché",
+      "Salvatore Quasimodo|Ed è subito sera|Ognuno sta solo sul cuor della",
+      "Giacomo Leopardi|Canto notturno di un pastore errante dell'Asia|Che fai tu, luna, in ciel?",
+      "Anne Frank|Diario|Per chi ha paura, o si",
+      "Anna Achmatova|Lo stormo bianco|Loda soltanto la quinta stagione dell'anno:",
+      "Francesco Petrarca|Canzoniere|Pace non trovo, et non ò",
+      "Gabriele D'Annunzio|Il piacere|L'anno moriva, assai dolcemente. Il sole"
+    ]
   }
 ]
