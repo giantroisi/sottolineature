@@ -210,10 +210,12 @@ Voltaire, Niccolò Machiavelli, Mark Twain, Jane Austen portati a **4 citazioni
 ciascuno**. Corretto anche l'errore aperto sul Piccolo Principe (due citazioni
 con lo stesso locus "capitolo XXI", ora distinte con la pagina). Secondo lotto:
 Gabriele D'Annunzio, Cesare Pavese, Luigi Pirandello, Alda Merini, Primo Levi,
-Pier Paolo Pasolini portati anch'essi a **4 citazioni ciascuno**. Archivio a
-251 autori, 515 citazioni, 47 con una sola citazione, 34 con tre o più. Lavoro
-da proseguire senza chiedere conferma, seguendo la nuova regola: nessun autore
-nuovo, si chiude a 4 chi ha più domanda di ricerca
+Pier Paolo Pasolini portati anch'essi a **4 citazioni ciascuno**. Terzo lotto:
+Marco Aurelio, Virginia Woolf, Hermann Hesse, Pablo Neruda, Toni Morrison,
+Michela Murgia, Paulo Coelho portati anch'essi a **4 citazioni ciascuno**.
+Archivio a 251 autori, 526 citazioni, 47 con una sola citazione, 38 con tre o
+più. Lavoro da proseguire senza chiedere conferma, seguendo la nuova regola:
+nessun autore nuovo, si chiude a 4 chi ha più domanda di ricerca
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
