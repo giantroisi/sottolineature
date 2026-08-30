@@ -792,12 +792,35 @@ partire da una keyword senza il contenuto che la giustifica.
 - Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
-- **Possibilità di togliere "Sottolineata" dalla pagina della citazione o da "Le mie"** — oggi il
-  toggle "Sottolinea" si può solo attivare/disattivare dalla card, ma non risulta un modo comodo
-  per rimuovere una citazione già sottolineata direttamente dalla sua pagina dedicata
-  (`/citazioni/<slug>/`) o dalla vista "Le mie" (le sottolineature salvate) senza tornare
-  all'index. Da valutare: pulsante toggle equivalente in entrambi i punti. Segnalato dall'utente,
-  non ancora progettato né implementato.
+
+**Prossimo lavoro, in quest'ordine (concordato con l'utente il 2026-08-30).**
+
+1. **"Sottolinea" e nota sulla pagina citazione — il buco più serio rimasto.** `/citazioni/<slug>/`
+   non ha né il toggle né il campo nota: si può sottolineare solo dalla card in home. È la pagina
+   su cui atterra chi arriva da una ricerca, cioè l'unico punto dove il visitatore nuovo incontra
+   il sito, ed è l'unica dove non può salvare la frase. Serve il toggle equivalente a quello della
+   card (stessa chiave slug, stesso `localStorage`: `sottolineature-underlined` e
+   `sottolineature-notes`) più il campo nota. **Fatto il 2026-08-30 su `/le-mie-sottolineature/`**,
+   dove ogni voce ha ora *Togli la sottolineatura* con *Annulla*: resta da fare sulla pagina
+   citazione. Da lì la vecchia voce "togliere Sottolineata dalla pagina citazione" è chiusa a metà.
+2. **Divisione dell'archivio in home (prestazioni).** Le 621 card restano tutte nel documento,
+   circa 600 KB di HTML. Servire le prime 30 lato server e caricare il resto da
+   `data/citazioni.json` quando serve. **È l'unico intervento con controindicazioni vere** — tocca
+   ricerca, filtri, sottolineature e ancore `#slug`: va fatto con verifica puntuale di tutti e
+   quattro, non di fretta.
+3. **23 citazioni senza blocco fonte** su 621 (il build lo stampa a ogni esecuzione). Verifica una
+   per una sulla fonte primaria, lento ma senza rischi.
+
+**Bloccato sull'utente** (nessuno dei tre è aggirabile da qui):
+
+- **Email di contatto** — senza non si possono pubblicare né il contatto nel footer né *Segnala un
+  errore* sulle pagine citazione. Dettagli più sotto. **Non pubblicare l'email personale
+  dell'utente senza che sia lui a indicarla.**
+- **Dati per l'informativa privacy** — nome o ragione sociale ed email del titolare del
+  trattamento: sono dati di un documento legale, non si inventano.
+- **Link in entrata** — per questo sito la strada naturale sono insegnanti, biblioteche e blog
+  letterari. Nessuna scorciatoia: comprare o scambiare link è nell'elenco delle cose da non fare.
+
 - **Correzione di rotta sui lotti (2026-08-30), dettagli in `CATALOGO.md` §7:** stop agli autori
   nuovi, si porta a **4 citazioni** ciascuno gli autori gia' in archivio con piu' domanda di
   ricerca, con precedenza alle opere anteriori al Novecento. Motivo: 176 autori su 251 sono fermi
