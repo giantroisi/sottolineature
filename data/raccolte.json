@@ -454,5 +454,26 @@
       "Isabel Allende|La casa degli spiriti|La terra è l'unica cosa che",
       "Zadie Smith|Denti bianchi|Presto nel mattino, tardi nel secolo,"
     ]
+  },
+  {
+    "slug": "arte",
+    "title": "Arte",
+    "h1": "Frasi e citazioni sull'arte",
+    "intro": [
+      "Sull'arte, la letteratura si è sempre concessa il lusso della contraddizione. Oscar Wilde capovolge il rapporto più ovvio tra arte e realtà: non è l'arte a imitare la vita, scrive, ma è la vita a lasciarsi plasmare da come pittori e scrittori l'hanno raccontata prima — «La vita imita l'arte molto più di quanto l'arte imiti la vita». Iris Murdoch, all'opposto, lega l'arte alla verità più assoluta: «La vera arte parla il vero, è in effetti il vero, forse, la sola verità». Zadie Smith taglia corto con un aforisma di poche parole: «L'arte sta nel tentativo».",
+      "Friedrich Nietzsche eleva la musica a condizione necessaria dell'esistenza — «Senza musica la vita sarebbe un errore» — mentre Thomas Mann, ne «La morte a Venezia», la definisce l'unica idea divina resa visibile ai sensi, la via che conduce l'artista al sublime. Victor Hugo trova la stessa fusione tra arte e storia nella pietra: ogni faccia di Notre-Dame, scrive, è una pagina tanto della storia del paese quanto di quella dell'arte.",
+      "E c'è l'arte come atto, più che come idea: Lily Briscoe, la pittrice del romanzo di Virginia Woolf «Gita al faro», posa finalmente il pennello dopo anni di lavoro sullo stesso quadro — «era fatto; era finito» — e Theo, il protagonista del «Cardellino» di Donna Tartt, non riesce più a separarsi dal dipinto che si è portato via da bambino, nello spazio sottile «da cui nasce la bellezza». Saul Bellow, più scettico, osserva che in un sistema fondato sul lavoro anche l'arte finisce per appiattirsi in banalità."
+    ],
+    "quote_keys": [
+      "Oscar Wilde|Il declino della menzogna|La vita imita l'arte molto più",
+      "Iris Murdoch|Una testa tagliata|L'arte ha sempre a che fare",
+      "Zadie Smith|Il fallimento riuscito|L'arte sta nel tentativo.",
+      "Friedrich Nietzsche|Il crepuscolo degli idoli|Senza musica la vita sarebbe un",
+      "Thomas Mann|La morte a Venezia|Ché la Bellezza, odimi bene, Fedro,",
+      "Victor Hugo|Notre-Dame de Paris|Ogni faccia, ogni pietra del venerabile",
+      "Virginia Woolf|Gita al faro|Era fatto; era finito. Sì, pensò,",
+      "Donna Tartt|Il cardellino|Tra la realtà, da un lato,",
+      "Saul Bellow|Il pianeta di Mr. Sammler|Il sistema esige la mediocrità, non"
+    ]
   }
 ]

@@ -301,6 +301,18 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Arte"** (12/16), in
+  autonomia. Filtrata l'archivio per radice lessicale (arte, artista, dipint, quadro, pittur,
+  scultur, musica, affresco, tela, pennell, museo, melodia, sinfonia, canzone, canto), tenuta
+  distinta da "Libri e scrittura" già pubblicata (qui il fuoco è l'arte visiva e la musica, non la
+  scrittura): 62 candidati, letti uno per uno. 9 citazioni pubblicate: Oscar Wilde (Il declino
+  della menzogna), Iris Murdoch (Una testa tagliata), Zadie Smith (Il fallimento riuscito),
+  Friedrich Nietzsche (Il crepuscolo degli idoli), Thomas Mann (La morte a Venezia, riusata da
+  "Bellezza"), Victor Hugo (Notre-Dame de Paris, riusata da "Bellezza"), Virginia Woolf (Gita al
+  faro), Donna Tartt (Il cardellino), Saul Bellow (Il pianeta di Mr. Sammler, riusata da "Lavoro").
+  Introduzione scritta a mano (255 parole, 3 paragrafi). Build lanciata due volte (bug del
+  contatore, vedi lotti precedenti): al secondo giro 0 problemi, 22/22 raccolte.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Famiglia"** (11/16),
   in autonomia. Filtrata l'archivio per radice lessicale (famiglia/e, famigliar, fratelli, sorelle,
   stirpe, lignaggio, parenti): 32 candidati, letti uno per uno. 10 citazioni pubblicate: Lev
