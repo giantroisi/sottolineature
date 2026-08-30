@@ -761,6 +761,18 @@
     .site-nav a { font-size: 0.7rem; letter-spacing: 0.08em; white-space: nowrap; }
     .site-header .theme-toggle { flex: 0 0 auto; }
   }
+  .nav-count {
+    display: inline-block; margin-left: 0.3rem; padding: 0.05rem 0.36rem;
+    font-size: 0.62rem; line-height: 1.5; border-radius: 999px;
+    background: var(--gold); color: var(--paper); vertical-align: 0.1em;
+  }
+  /* Con quasi 500 card in pagina il costo non e' il download ma il rendering:
+     content-visibility lascia al browser il diritto di non disegnare cio' che
+     e' fuori schermo. contain-intrinsic-size gli dice quanto spazio riservare,
+     altrimenti la barra di scorrimento salterebbe. Nessun effetto sulla
+     ricerca: le card restano tutte nel DOM. */
+  .grid .card { content-visibility: auto; contain-intrinsic-size: auto 220px; }
+  @media print { .grid .card { content-visibility: visible; } }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://sottolineature.it/#website","url":"https://sottolineature.it/","name":"Sottolineature","description":"Citazioni da libri raccolte e verificate a mano, senza algoritmo.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sottolineature.it/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <script>
@@ -788,6 +800,7 @@
     </nav>
   </div>
 </header>
+<script src="/assets/nav.js" defer></script>
 
 <div class="page" id="page">
 

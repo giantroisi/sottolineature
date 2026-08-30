@@ -61,6 +61,10 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
+    <form class="header-search sans" action="/" method="get" role="search">
+      <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
+      <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
+    </form>
     <nav class="site-nav sans" aria-label="Principale">
       <a href="/citazioni/">Citazioni</a>
       <a href="/autori/">Autori</a>
@@ -71,6 +75,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     </nav>
   </div>
 </header>
+<script src="/assets/nav.js" defer></script>
 <div class="page">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/raccolte/">Raccolte</a> › <span aria-current="page">{title}</span>

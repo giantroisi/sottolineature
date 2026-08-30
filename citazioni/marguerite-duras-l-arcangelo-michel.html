@@ -39,6 +39,10 @@
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
+    <form class="header-search sans" action="/" method="get" role="search">
+      <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
+      <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
+    </form>
     <nav class="site-nav sans" aria-label="Principale">
       <a href="/citazioni/">Citazioni</a>
       <a href="/autori/">Autori</a>
@@ -49,6 +53,7 @@
     </nav>
   </div>
 </header>
+<script src="/assets/nav.js" defer></script>
 <div class="page">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/marguerite-duras/">Marguerite Duras</a> › <span aria-current="page">Il calciatore sta sul campo di gioco…</span>
@@ -78,7 +83,7 @@
     <button type="button" data-variant="scuro">Scuro</button>
   </div>
   <div class="tags sans"><a href="/autori/marguerite-duras/">Marguerite Duras</a></div>
-  <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Marguerite Duras</h2><ul><li><a href="/citazioni/marguerite-duras-l-amante/">«Presto fu tardi nella mia vita. A diciott&#x27;anni era già troppo tardi.»</a> — <span class="sans" style="font-style:normal">L&#x27;amante</span></li></ul></div></div>
+  <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Marguerite Duras</h2><ul><li class="related-card"><a href="/citazioni/marguerite-duras-l-amante/"><img class="related-cover" src="https://covers.openlibrary.org/b/id/5401955-M.jpg" alt="" width="40" height="60" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><span class="related-text"><span class="related-quote">«Presto fu tardi nella mia vita. A diciott&#x27;anni era già troppo tardi.»</span><span class="related-meta sans">L&#x27;amante</span></span></a></li></ul></div></div>
   <footer class="sans">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>

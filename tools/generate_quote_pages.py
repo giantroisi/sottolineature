@@ -158,6 +158,10 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
+    <form class="header-search sans" action="/" method="get" role="search">
+      <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
+      <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
+    </form>
     <nav class="site-nav sans" aria-label="Principale">
       <a href="/citazioni/">Citazioni</a>
       <a href="/autori/">Autori</a>
@@ -168,6 +172,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     </nav>
   </div>
 </header>
+<script src="/assets/nav.js" defer></script>
 <div class="page">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/{author_slug}/">{author}</a> › <span aria-current="page">{breadcrumb_last}</span>
@@ -272,6 +277,22 @@ def truncate_words(text, max_len):
     return text[:max_len].rsplit(' ', 1)[0] + '…', True
 
 
+def related_card(slug, q, meta_html):
+    """Voce delle citazioni correlate: scheda con copertina invece della riga
+    di testo che rendeva spoglia la parte bassa della pagina."""
+    cover = ''
+    if q.get('cover'):
+        cover = ('<img class="related-cover" src="' + html.escape(q['cover'], quote=True) +
+                 '" alt="" width="40" height="60" loading="lazy" referrerpolicy="no-referrer" '
+                 'onerror="this.remove()">')
+    return (
+        '<li class="related-card"><a href="/citazioni/' + slug + '/">' + cover +
+        '<span class="related-text"><span class="related-quote">«' +
+        html.escape(truncate_words(q['quote'], 70)[0]) + '»</span>' +
+        '<span class="related-meta sans">' + meta_html + '</span></span></a></li>'
+    )
+
+
 def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=None):
     quote_esc = html.escape(q['quote'])
     author_esc = html.escape(q['author'])
@@ -340,16 +361,10 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
 
     related_sections = []
     if same_author:
-        items = ''.join(
-            '<li><a href="/citazioni/' + s + '/">«' + html.escape(truncate_words(oq['quote'], 70)[0]) + '»</a> — <span class="sans" style="font-style:normal">' + html.escape(oq['title']) + '</span></li>'
-            for s, oq in same_author[:5]
-        )
+        items = ''.join(related_card(s, oq, html.escape(oq['title'])) for s, oq in same_author[:5])
         related_sections.append('<div class="related sans"><h2>Altre citazioni di ' + author_esc + '</h2><ul>' + items + '</ul></div>')
     if same_theme and q['category'] in CATEGORY_LABELS:
-        items = ''.join(
-            '<li><a href="/citazioni/' + s + '/">«' + html.escape(truncate_words(oq['quote'], 70)[0]) + '»</a> — <span class="sans" style="font-style:normal">' + html.escape(oq['author']) + '</span></li>'
-            for s, oq in same_theme[:4]
-        )
+        items = ''.join(related_card(s, oq, html.escape(oq['author'])) for s, oq in same_theme[:4])
         related_sections.append(
             '<div class="related sans"><h2>Altre citazioni su ' + CATEGORY_LABELS[q['category']] + '</h2><ul>' + items + '</ul></div>'
         )
