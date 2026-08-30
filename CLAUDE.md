@@ -621,14 +621,19 @@ ed è la ragione per cui un motore di ricerca e un insegnante dovrebbero preferi
       (Fase 2/5): **tutti i 193 autori sono ora indicizzabili** (prima erano 13, poi 43 dopo il
       lotto 1) — verificato nel rapporto di `build.py` (0 hub sotto soglia su 522 URL totali) e a
       campione in browser (Jane Austen, 1 sola citazione: nessun `noindex`, prima lo aveva).
-- [ ] **Google Search Console** — **bloccato, serve l'account Google dell'utente** (verifica
-      proprietà del sito, non automatizzabile da qui): verifica proprietà, invio sitemap, controllo
-      mensile del rapporto Indicizzazione pagine. La metrica da guardare non è la posizione media:
-      è **quante delle 256 pagine citazione risultano indicizzate** (obiettivo realistico: oltre
-      l'80% a tre mesi dalla Fase 2).
-- [ ] **Bing Webmaster Tools** + **IndexNow** — **bloccato, serve l'account dell'utente** allo stesso
-      modo di Search Console (Vercel supporta IndexNow con una chiave statica, ma la registrazione
-      del sito va fatta dal titolare).
+- [x] **Google Search Console — fatto il 2026-08-30 dall'utente.** Proprietà di tipo *Dominio*
+      su `sottolineature.it`, verificata con record TXT nel DNS (i nameserver sono di Hostinger,
+      `*.dns-parking.com`). Sitemap inviata come URL completo: nelle proprietà Dominio il percorso
+      relativo `sitemap.xml` viene rifiutato con "Indirizzo Sitemap non valido", serve
+      `https://sottolineature.it/sitemap.xml`. **Da controllare ogni mese:** Indicizzazione →
+      Pagine. La metrica non è la posizione media, è **quante pagine citazione risultano
+      indicizzate sul totale inviato**
+- [x] **Bing Webmaster Tools — fatto il 2026-08-30 dall'utente**, importando la proprietà da
+      Search Console. Sitemap accettata lo stesso giorno: 780 URL individuati, 0 errori, 0 avvisi
+- [x] **IndexNow — attivo dal 2026-08-30** (chiave `471381759dae4f3fbe0a6d769882507a` alla radice
+      del sito, workflow `.github/workflows/indexnow.yml`). **Non rigenerare la chiave dalla pagina
+      di Bing:** quella proposta lì servirebbe solo a chi parte da zero, e adottarla richiederebbe
+      di cambiare sia il file alla radice sia il workflow
 - [ ] **Analytics — bloccato**, non per motivi tecnici ma perché la privacy policy del sito è
       **ancora in sospeso** (serve i dati del titolare: nome, indirizzo, base giuridica). Nessun
       analytics con cookie va aggiunto prima che la policy sia pubblicata, e comunque solo con una
