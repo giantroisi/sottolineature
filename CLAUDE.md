@@ -186,9 +186,10 @@ Bertolt Brecht, Iris Murdoch, Knut Hamsun, Anaïs Nin, Edith Wharton, Guy de Mau
 Nathaniel Hawthorne, Henry James, D.H. Lawrence, George Bernard Shaw, Henrik Ibsen, Alfred
 Tennyson (ciascuno con una citazione, quindi sotto soglia di indicizzazione). Archivio a
 236 autori, 463 citazioni. **Alternanza nuovi autori/approfondimento avviata**
-(CATALOGO.md: "approfondire vale più che allargare"): E.M. Forster e Viktor E. Frankl
-portati da 1 a 2 citazioni. Restano 49 autori con una sola citazione. Lavoro da proseguire
-senza chiedere conferma, alternando le due modalità lotto per lotto
+(CATALOGO.md: "approfondire vale più che allargare"): E.M. Forster, Viktor E. Frankl, Guy
+de Maupassant, Nathaniel Hawthorne portati da 1 a 2 citazioni. Restano 47 autori con una
+sola citazione. Lavoro da proseguire senza chiedere conferma, alternando le due modalità
+lotto per lotto
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
@@ -197,7 +198,7 @@ per l'apertura di un libro: non scartare candidati-incipit solo per mancanza di 
 corretto il 2026-08-29 in `tools/build.py`** (non introdotto da questa sessione, probabile
 sessione concorrente): `gh.main()` girava prima che gli slug delle citazioni nuove fossero
 salvati su `slugs.json`, quindi la build falliva sempre dopo ogni lotto — vedi LOG.md. Archivio
-a 463 citazioni, 236
+a 465 citazioni, 236
 autori. **Deploy sospeso su richiesta
 dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
