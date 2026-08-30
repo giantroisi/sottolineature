@@ -388,5 +388,27 @@
       "Günter Grass|Il tamburo di latta|Vidi la luce di questo mondo",
       "Niccolò Ammaniti|Io non ho paura|Da piccolo sognavo sempre i mostri."
     ]
+  },
+  {
+    "slug": "lavoro",
+    "title": "Lavoro",
+    "h1": "Frasi e citazioni sul lavoro",
+    "intro": [
+      "Il lavoro entra in letteratura quasi sempre in bilico tra due poli: la fatica che consuma e la dignità che costruisce. Khalil Gibran lo definisce nel modo più limpido possibile — «Il lavoro è l'amore reso visibile» — mentre Primo Levi, ne «La chiave a stella», affida a Libertino Faussone, montatore piemontese di tralicci e gru, l'idea che amare il proprio mestiere sia la cosa più vicina alla felicità che la vita conceda. Le prime righe di «Canne al vento» di Grazia Deledda mostrano lo stesso principio in azione, senza bisogno di dichiararlo: Efix, il servo delle dame Pintor, lavora tutto il giorno a rinforzare un argine costruito «a furia d'anni e di fatica».",
+      "C'è anche il lavoro come sistema che appiattisce: Saul Bellow, nel «Pianeta di Mr. Sammler», fa dire al suo anziano protagonista che un mondo fondato sul lavoro riduce l'arte stessa a banalità. Charles Bukowski, che per anni fu impiegato delle Poste di Los Angeles prima di lasciare il posto fisso per scrivere, osserva i colleghi consumarsi dietro lo sportello, cercando conforto solo nel cibo. Fernando Pessoa affida invece a Bernardo Soares, un modesto contabile di Lisbona, la descrizione di una stanchezza che non ha nulla a che fare col corpo — quella dell'intelligenza costretta a riflettere senza sosta.",
+      "E c'è chi il lavoro lo racconta come inizio o come vocazione: Erri De Luca apre «Montedidio» con il primo giorno di lavoro del suo giovane protagonista, tra i vicoli di Napoli; Umberto Saba riflette sul proprio mestiere di poeta, fatto di giornate «contate come tutti gli uomini» ma «quanto, quanto variate»; Goliarda Sapienza lega il mestiere del medico a un dovere di giustizia sociale; e Louisa May Alcott chiude il cerchio con un consiglio diretto al lettore: qualunque fardello si porti, imparare a sostenerlo è ciò che, pian piano, lo rende più leggero."
+    ],
+    "quote_keys": [
+      "Khalil Gibran|Il Profeta|Il lavoro è l'amore reso visibile.",
+      "Primo Levi|La chiave a stella|Si può e si deve combattere",
+      "Grazia Deledda|Canne al vento|Tutto il giorno Efix, il servo",
+      "Saul Bellow|Il pianeta di Mr. Sammler|Il sistema esige la mediocrità, non",
+      "Charles Bukowski|Post Office|Il cibo fa bene ai nervi",
+      "Fernando Pessoa|Il libro dell'inquietudine|Esiste una stanchezza dell'intelligenza astratta ed",
+      "Erri De Luca|Montedidio|'A iurnata è 'nu muorzo, la",
+      "Umberto Saba|Il poeta|Il poeta ha le sue giornate",
+      "Goliarda Sapienza|L'arte della gioia|Il mestiere del medico è valido",
+      "Louisa May Alcott|Piccole donne|Dunque lasciatemi dare il mio consiglio:"
+    ]
   }
 ]

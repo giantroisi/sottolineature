@@ -301,6 +301,17 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Lavoro"** (9/16), in
+  autonomia. Filtrata l'archivio per radice lessicale (lavoro, lavorare, lavorat, mestiere, operai,
+  operaio, fatica, impiego, professione): solo 20 candidati, il bacino più piccolo finora — letti
+  tutti uno per uno. 10 citazioni pubblicate: Khalil Gibran (Il Profeta), Primo Levi (La chiave a
+  stella), Grazia Deledda (Canne al vento), Saul Bellow (Il pianeta di Mr. Sammler), Charles
+  Bukowski (Post Office), Fernando Pessoa (Il libro dell'inquietudine), Erri De Luca (Montedidio),
+  Umberto Saba (Il poeta), Goliarda Sapienza (L'arte della gioia), Louisa May Alcott (Piccole
+  donne). Introduzione scritta a mano (306 parole, 3 paragrafi). Build lanciata due volte come da
+  nota tecnica del lotto precedente (contatore raccolte in home indietro di una unità al primo
+  giro): al secondo giro 0 problemi, 19/19 raccolte, contatore corretto prima del commit.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Infanzia"** (8/16), in
   autonomia. Filtrata l'archivio per radice lessicale (infanzia, bambino/a/i/e, fanciullo/a/ezza,
   crescere/cresciut), tenuta volutamente distinta da "Figli" già pubblicata (qui il punto di vista
