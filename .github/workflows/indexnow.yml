@@ -1,0 +1,75 @@
+# Notifica a IndexNow (Bing, Yandex, Seznam...) gli URL cambiati a ogni deploy.
+#
+# Perche' un workflow e non tools/build.py: il build gira in ambienti senza
+# accesso a internet, quindi un ping da li' fallirebbe in silenzio. Qui gira
+# sull'infrastruttura di GitHub, che la rete ce l'ha.
+#
+# Google non usa IndexNow: per Google contano sitemap.xml e Search Console.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Attende il deploy su Vercel
+        run: sleep 120
+
+      - name: Raccoglie gli URL delle pagine cambiate e le notifica
+        env:
+          INDEXNOW_KEY: 471381759dae4f3fbe0a6d769882507a
+          SITE: https://sottolineature.it
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          # Solo le pagine html aggiunte o modificate da questo push.
+          # Confronta l'intero push, non solo l'ultimo commit: un push di 14
+          # commit deve notificare tutte le pagine toccate, non le ultime.
+          RANGE="HEAD~1 HEAD"
+          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then RANGE="$BEFORE $AFTER"; fi
+          git diff --name-only --diff-filter=AM $RANGE \
+            | grep -E '\.html$' \
+            | grep -vE '^(404|templates/)' > changed.txt || true
+
+          if [ ! -s changed.txt ]; then
+            echo "Nessuna pagina cambiata: niente da notificare."
+            exit 0
+          fi
+
+          # path del file -> URL pubblico (cleanUrls + trailingSlash)
+          python3 - <<'PY' > payload.json
+          import json, os
+          site = os.environ['SITE']
+          urls = []
+          for line in open('changed.txt'):
+              p = line.strip()
+              if not p:
+                  continue
+              if p == 'index.html':
+                  urls.append(site + '/')
+              elif p.endswith('/index.html'):
+                  urls.append(site + '/' + p[:-len('index.html')])
+              else:
+                  urls.append(site + '/' + p[:-len('.html')] + '/')
+          urls = sorted(set(urls))[:10000]
+          print(json.dumps({
+              'host': 'sottolineature.it',
+              'key': os.environ['INDEXNOW_KEY'],
+              'keyLocation': site + '/' + os.environ['INDEXNOW_KEY'] + '.txt',
+              'urlList': urls,
+          }))
+          print(f'{len(urls)} URL notificati', file=__import__('sys').stderr)
+          PY
+
+          curl -sS -X POST https://api.indexnow.org/indexnow \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data @payload.json -w '\nHTTP %{http_code}\n'
