@@ -201,9 +201,17 @@ Wole Soyinka. Poi approfondimento: Amos Oz e Herta Müller portati da 1 a 2
 citazioni. Poi due nuovi autori: Michel Houellebecq e Zbigniew Herbert. Poi
 approfondimento: Chinua Achebe e Marguerite Duras portati da 1 a 2 citazioni.
 Poi due nuovi autori: Maya Angelou e Audre Lorde. Poi approfondimento: Iris
-Murdoch e Knut Hamsun portati da 1 a 2 citazioni. Archivio a 251 autori, 495
-citazioni, 47 con una sola citazione. Lavoro da proseguire senza chiedere
-conferma, alternando le due modalità lotto per lotto
+Murdoch e Knut Hamsun portati da 1 a 2 citazioni. **Correzione di rotta del
+2026-08-30 (CATALOGO.md §7, decisa da una sessione concorrente): stop agli
+autori nuovi, si portano a 4 citazioni gli autori già in archivio con più
+domanda di ricerca (`data/keywords.json`), precedenza alle opere anteriori al
+Novecento.** Primo lotto sotto la nuova regola: Dante Alighieri, Victor Hugo,
+Voltaire, Niccolò Machiavelli, Mark Twain, Jane Austen portati a **4 citazioni
+ciascuno**. Corretto anche l'errore aperto sul Piccolo Principe (due citazioni
+con lo stesso locus "capitolo XXI", ora distinte con la pagina). Archivio a 251
+autori, 505 citazioni, 47 con una sola citazione, 30 con tre o più. Lavoro da
+proseguire senza chiedere conferma, seguendo la nuova regola: nessun autore
+nuovo, si chiude a 4 chi ha più domanda di ricerca
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
