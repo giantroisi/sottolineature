@@ -258,5 +258,27 @@
       "Margaret Atwood|Il racconto dell'ancella|Nolite te bastardes carborundorum.",
       "Audre Lorde|Sorella Outsider|Per le donne, quindi, la poesia"
     ]
+  },
+  {
+    "slug": "guerra",
+    "title": "Guerra",
+    "h1": "Frasi e citazioni sulla guerra",
+    "intro": [
+      "La guerra apre la letteratura occidentale fin dal suo primo verso: l'Iliade di Omero comincia cantando l'ira di Achille e i lutti della guerra di Troia, e la Gerusalemme liberata di Torquato Tasso, quasi 2300 anni dopo, annuncia allo stesso modo «l'arme pietose» della prima crociata. Sono guerre eroiche, cantate; ma anche lì, tra un'ottava e l'altra, si affaccia già la pietà per chi muore — Clorinda, la guerriera saracena uccisa in duello da Tancredi, chiede il battesimo al nemico che l'ha ferita a morte senza riconoscerla.",
+      "Nell'Ottocento la guerra comincia a essere raccontata anche da chi la subisce più che da chi la vince: il principe Andrej Bolkonskij di Tolstoj, ferito sul campo di Austerlitz in Guerra e pace, capisce guardando il cielo che la vera grandezza non ha niente a che vedere con la gloria di Napoleone. Immanuel Kant, filosoficamente, rovescia l'idea stessa di pace: non è lo stato naturale da cui la guerra ci allontana, ma un traguardo da costruire attivamente, perché tra popoli vicini lo stato naturale è semmai il conflitto.",
+      "Il Novecento porta la trincea in prima persona: Erich Maria Remarque descrive il rapporto viscerale del fante con la terra, unico rifugio nell'angoscia del fuoco, ed Ernest Hemingway confessa l'imbarazzo per parole come «sacro» e «glorioso», svuotate da Caporetto. Beppe Fenoglio segue un giovane partigiano nelle Langhe, in un'epoca in cui «i ragazzi come lui erano chiamati più a morire che a vivere»; Boris Pasternak racconta l'abisso della guerra civile russa che separa Jurij e Lara dal resto del mondo; Curzio Malaparte discute con un generale tedesco durante l'occupazione della Polonia; e Bertolt Brecht, con il cinismo del suo reclutatore in Madre Courage, ribalta ogni retorica: «non c'è che la guerra per metter ordine»."
+    ],
+    "quote_keys": [
+      "Omero|Iliade|Cantami, o Diva, del Pelíde Achille",
+      "Torquato Tasso|Gerusalemme liberata|Canto l'arme pietose, e 'l Capitano",
+      "Lev Tolstoj|Guerra e pace|Non c'è grandezza dove non c'è",
+      "Erich Maria Remarque|Niente di nuovo sul fronte occidentale|A nessuno la terra è amica",
+      "Ernest Hemingway|Addio alle armi|Ero sempre imbarazzato dalle parole sacro,",
+      "Curzio Malaparte|Kaputt|Se volete vincer la guerra, dissi,",
+      "Bertolt Brecht|Madre Courage e i suoi figli|La pace è solo disordine; non",
+      "Immanuel Kant|Per la pace perpetua|Lo stato di pace fra esseri",
+      "Beppe Fenoglio|Una questione privata|Non poteva più vivere senza sapere",
+      "Boris Pasternak|Il dottor Živago|Anche più dell'affinità delle loro anime,"
+    ]
   }
 ]

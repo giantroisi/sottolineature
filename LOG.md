@@ -301,4 +301,18 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Guerra"** (3/16), in
+  autonomia. Filtrata l'archivio per radice lessicale (guerra, bellic, soldat, battaglia, trincea,
+  esercito, nemic, combatt, arma/armi): 59 candidati, molti falsi positivi lessicali (es. "arma" in
+  "armatura", "chiamare"), letti uno per uno. 10 citazioni pubblicate, un autore ciascuno,
+  dall'VIII secolo a.C. (Omero) al 1963 (Fenoglio): Omero (Iliade), Torquato Tasso (Gerusalemme
+  liberata), Lev Tolstoj (Guerra e pace), Erich Maria Remarque (Niente di nuovo sul fronte
+  occidentale), Ernest Hemingway (Addio alle armi), Curzio Malaparte (Kaputt), Bertolt Brecht
+  (Madre Courage e i suoi figli), Immanuel Kant (Per la pace perpetua), Beppe Fenoglio (Una
+  questione privata), Boris Pasternak (Il dottor Živago). Scartato un secondo passo su Hemingway
+  (Per chi suona la campana, incipit puramente descrittivo, nessun autore ripetuto nella raccolta)
+  e su Ariosto/Virgilio (già usati in "Donne" e "Viaggio e cammino": evitata la sovrapposizione per
+  varietà, pur essendo il riuso tra raccolte una pratica già consolidata sul sito). Introduzione
+  scritta a mano (289 parole, 3 paragrafi). Build pulita (0 problemi, 13/13 raccolte).
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Viaggio e cammino"** (3.420 di volume di ricerca, la prima delle 16 raccolte segnalate come pronte), 1/16. Partiti da 53 candidati filtrati per radice lessicale (viagg, cammin, strada, sentier, partenz, partir, erran, pellegrin, vagabond, ritorn, orizzont) sull'intero archivio di 621 citazioni, letti uno per uno — scartati i falsi positivi con match solo lessicale ma senza pertinenza tematica reale (es. "Se una notte d'inverno un viaggiatore" di Calvino, il cui testo riguarda la lettura non il viaggio; "Il buio oltre la siepe" di Harper Lee, dove "camminarci dentro" è una metafora sull'empatia). 14 citazioni pubblicate, nessun autore ripetuto, dall'antichità (Omero, Virgilio) al 2013 (Hosseini): Omero (Odissea), Virgilio (Eneide), Dante Alighieri (Inferno), Giacomo Leopardi (Canto notturno di un pastore errante dell'Asia), Marco Tullio Cicerone (Il Catone Maggiore), Imre Kertész (Essere senza destino), Anton Čechov (Tre sorelle), Michael Ondaatje (Il paziente inglese), Gustave Flaubert (L'educazione sentimentale), J.R.R. Tolkien (La Compagnia dell'Anello), H.G. Wells (La macchina del tempo), Khaled Hosseini (E l'eco rispose), Ignazio Silone (Fontamara), Dino Buzzati (Il deserto dei Tartari). Introduzione scritta a mano (281 parole, 3 paragrafi), mostrata e approvata dall'utente prima della pubblicazione. Build pulita (0 problemi, controllo di integrità compreso). **Nota tecnica**: durante il lavoro, sessione concorrente attiva sullo stesso repository (homepage, generatori, copertura raccolte) — commit isolato con `git stash` mirato ai soli file di questa raccolta per non includere modifiche altrui non ancora committate; una modifica della sessione concorrente (`templates/home_template.html`, `tools/generate_home.py`, `assets/site.css`) è rimasta temporaneamente in stash per un conflitto di merge, non persa (recuperabile con `git stash list`).
