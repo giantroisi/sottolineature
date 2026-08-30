@@ -223,9 +223,11 @@ David Foster Wallace, Ugo Foscolo, Francesco Petrarca portati anch'essi a
 Saramago, Italo Svevo, Simone de Beauvoir portati anch'essi a **4 citazioni
 ciascuno**. Ottavo lotto: Zadie Smith, Walt Whitman, Giovanni Verga, Isabel
 Allende, Gustave Flaubert portati anch'essi a **4 citazioni ciascuno**.
-Archivio a 251 autori, 579 citazioni, 47 con una sola citazione, 63 con tre o
-più. Lavoro da proseguire senza chiedere conferma, seguendo la
-nuova regola: nessun autore nuovo, si chiude a 4 chi ha
+Nono lotto: Alessandro Manzoni, Antoine de Saint-Exupéry, Giovanni Pascoli,
+Virgilio, Rainer Maria Rilke, Leonardo Sciascia portati anch'essi a **4
+citazioni ciascuno**. Archivio a 251 autori, 590 citazioni, 47 con una sola
+citazione, 68 con tre o più. Lavoro da proseguire senza chiedere conferma,
+seguendo la nuova regola: nessun autore nuovo, si chiude a 4 chi ha
 più domanda di ricerca
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
