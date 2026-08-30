@@ -32,37 +32,47 @@
   } catch (e) {}
 </script>
 </head>
-<body>
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
-<nav class="site-nav sans">
-  <a href="/">Citazioni</a>
-  <a href="/metodo/">Metodo</a>
-</nav>
+<body class="page-quote">
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/">
+      <img src="/mark-quill.png" alt="" width="30" height="30">
+      <span class="brand-name">Sottolineature</span>
+    </a>
+    <nav class="site-nav sans" aria-label="Principale">
+      <a href="/citazioni/">Citazioni</a>
+      <a href="/autori/">Autori</a>
+      <a href="/temi/">Temi</a>
+      <a href="/metodo/">Metodo</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+    </nav>
+  </div>
+</header>
 <div class="page">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/voltaire/">Voltaire</a> › <span aria-current="page">Bisogna coltivare il nostro giardino.</span>
   </nav>
   <figure class="card" data-category="vita">
     <span class="card-mark" aria-hidden="true">“</span>
+    <blockquote class="card-quote-block">
+      <h1 class="card-quote">Bisogna coltivare il nostro giardino.</h1>
+      
+    </blockquote>
     <div class="card-body">
-      <blockquote class="card-quote-block">
-        <h1 class="card-quote">Bisogna coltivare il nostro giardino.</h1>
-        
-      </blockquote>
       <figcaption class="card-citation sans">— <a href="/autori/voltaire/" class="card-author">Voltaire</a>, <cite class="card-title">Candido</cite> · <span class="card-year">1759</span></figcaption>
       <p class="card-context sans">Non è un consiglio di giardinaggio: è l&#x27;ultima battuta del protagonista, dopo un intero romanzo di disgrazie assurde, per zittire chi continua a ripetergli che viviamo nel migliore dei mondi possibili.</p>
-      <p class="card-source sans">ultima riga del romanzo.</p>
+      <p class="card-source sans"><span class="source-label">Dove si trova</span>ultima riga del romanzo.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/12736044-M.jpg" alt="Copertina di &quot;Candido&quot; di Voltaire" width="54" height="81" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <img class="card-cover" src="https://covers.openlibrary.org/b/id/12736044-M.jpg" alt="Copertina di &quot;Candido&quot; di Voltaire" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
   </figure>
   <div class="actions sans">
+    
+    <p class="opera-link sans"><a href="https://sottolineature.it/raccolte/frasi-brevi/">Raccolta: Frasi brevi</a></p>
     <button type="button" id="copyBtn">Copia citazione</button>
-    <a href="/#voltaire-candido">Vedi sul sito →</a>
+    <a href="/#voltaire-candido">Vedi sul sito</a>
   </div>
-  
-  <p class="opera-link sans"><a href="https://sottolineature.it/raccolte/frasi-brevi/">In questa raccolta: Frasi brevi →</a></p>
   <div class="tags sans"><a href="/autori/voltaire/">Voltaire</a><a href="/temi/vita/">Vita</a></div>
-  <div class="related sans"><h2>Altre citazioni di Voltaire</h2><ul><li><a href="/citazioni/voltaire-candido-e-dimostrato-diceva/">«È dimostrato, diceva egli, che le cose non posson essere altrimenti;…»</a> — <span class="sans" style="font-style:normal">Candido</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Vita</h2><ul><li><a href="/citazioni/giacomo-leopardi-l-infinito/">«E il naufragar m&#x27;è dolce in questo mare.»</a> — <span class="sans" style="font-style:normal">Giacomo Leopardi</span></li><li><a href="/citazioni/lev-tolstoj-anna-karenina/">«Tutte le famiglie felici si assomigliano fra loro, ogni famiglia…»</a> — <span class="sans" style="font-style:normal">Lev Tolstoj</span></li><li><a href="/citazioni/franz-kafka-la-metamorfosi/">«Un mattino, Gregor Samsa, destandosi da sogni inquieti, si trovò…»</a> — <span class="sans" style="font-style:normal">Franz Kafka</span></li><li><a href="/citazioni/herman-melville-moby-dick/">«Chiamatemi Ismaele.»</a> — <span class="sans" style="font-style:normal">Herman Melville</span></li></ul></div>
+  <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Voltaire</h2><ul><li><a href="/citazioni/voltaire-candido-e-dimostrato-diceva/">«È dimostrato, diceva egli, che le cose non posson essere altrimenti;…»</a> — <span class="sans" style="font-style:normal">Candido</span></li></ul></div><div class="related sans"><h2>Altre citazioni su Vita</h2><ul><li><a href="/citazioni/giacomo-leopardi-l-infinito/">«E il naufragar m&#x27;è dolce in questo mare.»</a> — <span class="sans" style="font-style:normal">Giacomo Leopardi</span></li><li><a href="/citazioni/lev-tolstoj-anna-karenina/">«Tutte le famiglie felici si assomigliano fra loro, ogni famiglia…»</a> — <span class="sans" style="font-style:normal">Lev Tolstoj</span></li><li><a href="/citazioni/franz-kafka-la-metamorfosi/">«Un mattino, Gregor Samsa, destandosi da sogni inquieti, si trovò…»</a> — <span class="sans" style="font-style:normal">Franz Kafka</span></li><li><a href="/citazioni/herman-melville-moby-dick/">«Chiamatemi Ismaele.»</a> — <span class="sans" style="font-style:normal">Herman Melville</span></li></ul></div></div>
   <footer class="sans">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>

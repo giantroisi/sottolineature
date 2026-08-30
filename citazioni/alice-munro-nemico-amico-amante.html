@@ -32,37 +32,47 @@
   } catch (e) {}
 </script>
 </head>
-<body>
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
-<nav class="site-nav sans">
-  <a href="/">Citazioni</a>
-  <a href="/metodo/">Metodo</a>
-</nav>
+<body class="page-quote">
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/">
+      <img src="/mark-quill.png" alt="" width="30" height="30">
+      <span class="brand-name">Sottolineature</span>
+    </a>
+    <nav class="site-nav sans" aria-label="Principale">
+      <a href="/citazioni/">Citazioni</a>
+      <a href="/autori/">Autori</a>
+      <a href="/temi/">Temi</a>
+      <a href="/metodo/">Metodo</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+    </nav>
+  </div>
+</header>
 <div class="page">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/alice-munro/">Alice Munro</a> › <span aria-current="page">Ormai sapeva che nella vita viene il…</span>
   </nav>
   <figure class="card" data-category="vita">
     <span class="card-mark" aria-hidden="true">“</span>
+    <blockquote class="card-quote-block">
+      <h1 class="card-quote">Ormai sapeva che nella vita viene il momento in cui brutto e bello svolgono più o meno la stessa funzione, quando tutto ciò che guardi altro non è che un gancio a cui appendere le sensazioni…</h1>
+      <p class="card-quote-full">Ormai sapeva che nella vita viene il momento in cui brutto e bello svolgono più o meno la stessa funzione, quando tutto ciò che guardi altro non è che un gancio a cui appendere le sensazioni scomposte del corpo, e i brandelli della mente.</p>
+    </blockquote>
     <div class="card-body">
-      <blockquote class="card-quote-block">
-        <h1 class="card-quote">Ormai sapeva che nella vita viene il momento in cui brutto e bello svolgono più o meno la stessa funzione, quando tutto ciò che guardi altro non è che un gancio a cui appendere le sensazioni…</h1>
-        <p class="card-quote-full">Ormai sapeva che nella vita viene il momento in cui brutto e bello svolgono più o meno la stessa funzione, quando tutto ciò che guardi altro non è che un gancio a cui appendere le sensazioni scomposte del corpo, e i brandelli della mente.</p>
-      </blockquote>
       <figcaption class="card-citation sans">— <a href="/autori/alice-munro/" class="card-author">Alice Munro</a>, <cite class="card-title">Nemico, amico, amante...</cite> · <span class="card-year">2001</span></figcaption>
       <p class="card-context sans">È una riflessione di uno dei personaggi delle storie di Munro, arrivato a un punto della vita in cui bello e brutto smettono di sembrare così diversi tra loro.</p>
-      <p class="card-source sans">racconto omonimo della raccolta.</p>
+      <p class="card-source sans"><span class="source-label">Dove si trova</span>racconto omonimo della raccolta.</p>
     </div>
-    <img class="card-cover" src="https://covers.openlibrary.org/b/id/468897-M.jpg" alt="Copertina di &quot;Nemico, amico, amante...&quot; di Alice Munro" width="54" height="81" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
+    <img class="card-cover" src="https://covers.openlibrary.org/b/id/468897-M.jpg" alt="Copertina di &quot;Nemico, amico, amante...&quot; di Alice Munro" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">
   </figure>
   <div class="actions sans">
+    
+    
     <button type="button" id="copyBtn">Copia citazione</button>
-    <a href="/#alice-munro-nemico-amico-amante">Vedi sul sito →</a>
+    <a href="/#alice-munro-nemico-amico-amante">Vedi sul sito</a>
   </div>
-  
-  
   <div class="tags sans"><a href="/autori/alice-munro/">Alice Munro</a><a href="/temi/vita/">Vita</a></div>
-  <div class="related sans"><h2>Altre citazioni su Vita</h2><ul><li><a href="/citazioni/giacomo-leopardi-l-infinito/">«E il naufragar m&#x27;è dolce in questo mare.»</a> — <span class="sans" style="font-style:normal">Giacomo Leopardi</span></li><li><a href="/citazioni/lev-tolstoj-anna-karenina/">«Tutte le famiglie felici si assomigliano fra loro, ogni famiglia…»</a> — <span class="sans" style="font-style:normal">Lev Tolstoj</span></li><li><a href="/citazioni/franz-kafka-la-metamorfosi/">«Un mattino, Gregor Samsa, destandosi da sogni inquieti, si trovò…»</a> — <span class="sans" style="font-style:normal">Franz Kafka</span></li><li><a href="/citazioni/herman-melville-moby-dick/">«Chiamatemi Ismaele.»</a> — <span class="sans" style="font-style:normal">Herman Melville</span></li></ul></div>
+  <div class="related-grid"><div class="related sans"><h2>Altre citazioni su Vita</h2><ul><li><a href="/citazioni/giacomo-leopardi-l-infinito/">«E il naufragar m&#x27;è dolce in questo mare.»</a> — <span class="sans" style="font-style:normal">Giacomo Leopardi</span></li><li><a href="/citazioni/lev-tolstoj-anna-karenina/">«Tutte le famiglie felici si assomigliano fra loro, ogni famiglia…»</a> — <span class="sans" style="font-style:normal">Lev Tolstoj</span></li><li><a href="/citazioni/franz-kafka-la-metamorfosi/">«Un mattino, Gregor Samsa, destandosi da sogni inquieti, si trovò…»</a> — <span class="sans" style="font-style:normal">Franz Kafka</span></li><li><a href="/citazioni/herman-melville-moby-dick/">«Chiamatemi Ismaele.»</a> — <span class="sans" style="font-style:normal">Herman Melville</span></li></ul></div></div>
   <footer class="sans">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.
   </footer>

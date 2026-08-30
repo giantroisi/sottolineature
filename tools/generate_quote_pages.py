@@ -151,23 +151,33 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   }} catch (e) {{}}
 </script>
 </head>
-<body>
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
-<nav class="site-nav sans">
-  <a href="/">Citazioni</a>
-  <a href="/metodo/">Metodo</a>
-</nav>
+<body class="page-quote">
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/">
+      <img src="/mark-quill.png" alt="" width="30" height="30">
+      <span class="brand-name">Sottolineature</span>
+    </a>
+    <nav class="site-nav sans" aria-label="Principale">
+      <a href="/citazioni/">Citazioni</a>
+      <a href="/autori/">Autori</a>
+      <a href="/temi/">Temi</a>
+      <a href="/metodo/">Metodo</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+    </nav>
+  </div>
+</header>
 <div class="page">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/{author_slug}/">{author}</a> › <span aria-current="page">{breadcrumb_last}</span>
   </nav>
   <figure class="card" data-category="{category}"{genre_attr}>
     <span class="card-mark" aria-hidden="true">“</span>
+    <blockquote class="card-quote-block">
+      <h1 class="card-quote">{h1_quote}</h1>
+      {full_quote_html}
+    </blockquote>
     <div class="card-body">
-      <blockquote class="card-quote-block">
-        <h1 class="card-quote">{h1_quote}</h1>
-        {full_quote_html}
-      </blockquote>
       <figcaption class="card-citation sans">— <a href="/autori/{author_slug}/" class="card-author">{author}</a>, <cite class="card-title">{title}</cite>{year_html}</figcaption>
       {context_html}
       {source_html}
@@ -175,11 +185,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     {cover_html}
   </figure>
   <div class="actions sans">
+    {opera_link_html}
+    {raccolta_link_html}
     <button type="button" id="copyBtn">Copia citazione</button>
-    <a href="/#{slug}">Vedi sul sito →</a>
+    <a href="/#{slug}">Vedi sul sito</a>
   </div>
-  {opera_link_html}
-  {raccolta_link_html}
   {tags_html}
   {related_html}
   <footer class="sans">
@@ -247,13 +257,13 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         else:
             link_label = 'Approfondisci'
         source_link = (' <a href="' + html.escape(source_url, quote=True) + '">' + link_label + ' →</a>') if source_url else ''
-        source_html = '<p class="card-source sans">' + ', '.join(source_parts) + '.' + source_link + '</p>'
+        source_html = '<p class="card-source sans"><span class="source-label">Dove si trova</span>' + ', '.join(source_parts) + '.' + source_link + '</p>'
     year_html = (' · <span class="card-year">' + html.escape(q['year']) + '</span>') if q['year'] else ''
     cover_src = q['cover'] if q['cover'].startswith('http') else '/' + q['cover']
     cover_alt = html.escape('Copertina di "' + q['title'] + '" di ' + q['author'])
     # LCP: la copertina e' l'immagine piu' importante della pagina citazione,
     # niente lazy e priorita' di caricamento alta.
-    cover_html = ('<img class="card-cover" src="' + cover_src + '" alt="' + cover_alt + '" width="54" height="81" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">') if q['cover'] else ''
+    cover_html = ('<img class="card-cover" src="' + cover_src + '" alt="' + cover_alt + '" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.remove()">') if q['cover'] else ''
     genre_attr = (' data-genre="' + html.escape(q['genre']) + '"') if q['genre'] else ''
     author_slug = slugify(q['author'])
 
@@ -302,7 +312,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         related_sections.append(
             '<div class="related sans"><h2>Altre citazioni su ' + CATEGORY_LABELS[q['category']] + '</h2><ul>' + items + '</ul></div>'
         )
-    related_html = ''.join(related_sections)
+    related_html = ('<div class="related-grid">' + ''.join(related_sections) + '</div>') if related_sections else ''
 
     # Fase 4 SEO.md §9.3: quando l'opera ha una pagina propria in /opere/, il
     # Book @id e il nome vanno presi da li' e riusati su tutte le citazioni
@@ -312,16 +322,16 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     book_id = opera_info['book_id'] if opera_info else (canonical + '#book')
     book_name = opera_info['title'] if opera_info else q['title']
     opera_link_html = (
-        '<p class="opera-link sans"><a href="' + opera_info['opera_url'] + '">Tutte le citazioni da «' +
-        html.escape(opera_info['title']) + '» →</a></p>'
+        '<p class="opera-link sans"><a class="is-primary" href="' + opera_info['opera_url'] +
+        '">Tutte le citazioni da «' + html.escape(opera_info['title']) + '»</a></p>'
     ) if opera_info else ''
 
     # Fase 5 SEO.md: una citazione puo' comparire in una o piu' raccolte
     # curate a mano (data/raccolte.json) - link di ritorno verso ciascuna.
     raccolte_for_quote = (raccolta_map or {}).get(quote_key(q), [])
     raccolta_link_html = ''.join(
-        '<p class="opera-link sans"><a href="' + r['url'] + '">In questa raccolta: ' +
-        html.escape(r['title']) + ' →</a></p>'
+        '<p class="opera-link sans"><a href="' + r['url'] + '">Raccolta: ' +
+        html.escape(r['title']) + '</a></p>'
         for r in raccolte_for_quote
     )
     author_id = SITE_URL + '/autori/' + author_slug + '/#person'
