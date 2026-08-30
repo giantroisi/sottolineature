@@ -123,7 +123,8 @@ PAGE = '''<!DOCTYPE html>
   // Stesse chiavi usate dalla home: autore|titolo. Non e' univoca quando di
   // una stessa opera ci sono piu' citazioni - limite noto, da sanare passando
   // allo slug con una migrazione dei dati gia' salvati.
-  var SLUGS = __SLUG_MAP__;
+  var SLUG_INDEX = __SLUG_INDEX__;
+  var LEGACY = __LEGACY_MAP__;
   var underlined = readStore('sottolineature-underlined', '[]');
   var notes = readStore('sottolineature-notes', '{}');
   var list = document.getElementById('mineList');
@@ -139,18 +140,31 @@ PAGE = '''<!DOCTYPE html>
     return;
   }
 
+  // Le chiavi salvate sono slug. Quelle vecchie (autore|titolo) si convertono
+  // al volo, cosi' la pagina funziona anche per chi non e' ancora passato
+  // dalla home dopo l'aggiornamento.
+  var slugs = [];
+  var noteBySlug = {};
+  function addKey(k, note) {
+    var list = k.indexOf('|') === -1 ? [k] : (LEGACY[k] || []);
+    list.forEach(function (slug) {
+      if (slugs.indexOf(slug) === -1) { slugs.push(slug); }
+      if (note && !noteBySlug[slug]) { noteBySlug[slug] = note; }
+    });
+  }
+  underlined.forEach(function (k) { addKey(k, (notes[k] || '').trim()); });
+  slugs = slugs.filter(function (s) { return SLUG_INDEX[s] !== undefined; });
+  if (!slugs.length) { emptyEl.hidden = false; return; }
+
   fetch('/data/citazioni.json').then(function (r) { return r.json(); }).then(function (quotes) {
-    var wanted = {};
-    underlined.forEach(function (k) { wanted[k] = true; });
-    var found = quotes.filter(function (q) { return wanted[q.author + '|' + q.title]; });
+    var found = slugs.map(function (slug) { return { slug: slug, q: quotes[SLUG_INDEX[slug]] }; })
+                     .filter(function (x) { return x.q; });
     if (!found.length) { emptyEl.hidden = false; return; }
     countEl.textContent = found.length === 1 ? '1 citazione sottolineata' : found.length + ' citazioni sottolineate';
-    list.innerHTML = found.map(function (q) {
-      var key = q.author + '|' + q.title;
-      var note = (notes[key] || '').trim();
-      var slug = SLUGS[key];
-      var quoteHtml = '&laquo;' + esc(q.quote) + '&raquo;';
-      if (slug) { quoteHtml = '<a href="/citazioni/' + slug + '/">' + quoteHtml + '</a>'; }
+    list.innerHTML = found.map(function (x) {
+      var q = x.q;
+      var note = (noteBySlug[x.slug] || '').trim();
+      var quoteHtml = '<a href="/citazioni/' + x.slug + '/">&laquo;' + esc(q.quote) + '&raquo;</a>';
       return '<article class="mine-item">' +
         '<p class="mine-quote">' + quoteHtml + '</p>' +
         '<p class="mine-meta sans">' + esc(q.author) + ' &mdash; <em>' + esc(q.title) + '</em>' +
@@ -173,10 +187,14 @@ PAGE = '''<!DOCTYPE html>
 def main():
     quotes = qp.load_quotes()
     entries, _ = qp.assign_slugs(quotes, qp.load_slugs(), qp.load_redirects())
-    slug_map = {}
+    index_by_slug = {}
+    legacy = {}
+    order = {id(q): i for i, q in enumerate(quotes)}
     for slug, q in entries:
-        slug_map.setdefault(q['author'] + '|' + q['title'], slug)
-    page = PAGE.replace('__SLUG_MAP__', json.dumps(slug_map, ensure_ascii=False))
+        index_by_slug[slug] = order[id(q)]
+        legacy.setdefault(q['author'] + '|' + q['title'], []).append(slug)
+    page = PAGE.replace('__SLUG_INDEX__', json.dumps(index_by_slug, ensure_ascii=False))
+    page = page.replace('__LEGACY_MAP__', json.dumps(legacy, ensure_ascii=False))
     with open(OUT, 'w', encoding='utf-8') as f:
         f.write(page)
     print('Pagina /le-mie-sottolineature/ generata')

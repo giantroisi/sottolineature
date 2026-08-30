@@ -5644,8 +5644,11 @@
       } catch (e) {}
     }
 
+    // La chiave di sottolineature e note e' lo slug della citazione, non
+    // autore|titolo: quella vecchia non distingueva due citazioni dalla stessa
+    // opera, e sottolinearne una segnava anche l'altra.
     function quoteKey(card) {
-      return card.querySelector('.card-author').textContent + '|' + card.querySelector('.card-title').textContent;
+      return card.getAttribute('data-slug') || '';
     }
 
     var NOTES_KEY = 'sottolineature-notes';
@@ -5664,6 +5667,36 @@
       if (text) { notesMap[key] = text; } else { delete notesMap[key]; }
       saveNotes();
     }
+
+    // Migrazione delle chiavi vecchie (autore|titolo -> slug). Gli slug non
+    // contengono '|', quindi la presenza del separatore basta a riconoscerle.
+    // Dove l'opera ha piu' citazioni non si puo' sapere quale fosse quella
+    // segnata: si segnano tutte, che e' esattamente cio' che il sito faceva
+    // prima. La conversione avviene una volta sola, al primo caricamento.
+    (function migrateLegacyKeys() {
+      var slugsByOldKey = {};
+      cards.forEach(function (c) {
+        var old = c.querySelector('.card-author').textContent + '|' + c.querySelector('.card-title').textContent;
+        (slugsByOldKey[old] = slugsByOldKey[old] || []).push(c.getAttribute('data-slug'));
+      });
+      var changed = false;
+      Object.keys(underlinedSet).forEach(function (k) {
+        if (k.indexOf('|') === -1) { return; }
+        delete underlinedSet[k];
+        changed = true;
+        (slugsByOldKey[k] || []).forEach(function (slug) { underlinedSet[slug] = true; });
+      });
+      Object.keys(notesMap).forEach(function (k) {
+        if (k.indexOf('|') === -1) { return; }
+        var text = notesMap[k];
+        delete notesMap[k];
+        changed = true;
+        (slugsByOldKey[k] || []).forEach(function (slug) {
+          if (!notesMap[slug]) { notesMap[slug] = text; }
+        });
+      });
+      if (changed) { saveUnderlined(); saveNotes(); }
+    })();
 
     function makeNoteField(getKey) {
       var wrap = document.createElement('div');
