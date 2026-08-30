@@ -126,6 +126,28 @@ Aggiornata: 2026-08-28.
   cerchio. Gli altri tre punti di Fase 6 (Search Console, Bing/IndexNow, analytics) restano
   bloccati in attesa di azioni dirette dell'utente (account Google/Bing, privacy policy mai
   pubblicata) — non automatizzabili da qui.
+- **Home rifatta nella prima schermata (2026-08-30).** Prima si vedevano solo il logo e una riga
+  di presentazione: la citazione in evidenza stava sotto la ricerca, fuori schermo su quasi tutti
+  i monitor, e la home non offriva nessuna via d'ingresso al catalogo se non scorrere 621 card.
+  Ora: **marchio e citazione affiancati** (`.masthead-row`, due colonne da 900px in su; su telefono
+  l'ordine è logo → citazione → presentazione, così la citazione arriva subito); la citazione è
+  **deterministica sulla data** (`applyOfTheDay()`, hash di `YYYYMMDD` sull'indice delle card) —
+  la stessa per tutti nello stesso giorno, quindi condivisibile, mentre "un'altra citazione"
+  continua a pescare a caso e cambia l'etichetta in "In evidenza"; **"Esplora l'archivio" risalita**
+  da fondo pagina a subito sotto la ricerca; due fasce nuove, **"Ultime aggiunte"** (le 8 più
+  recenti per `added`) e **"Dalle raccolte"** (le 3 raccolte con più citazioni, da
+  `data/raccolte.json`), generate da `generate_home.py` nei placeholder `{{ULTIME}}` e
+  `{{RACCOLTE}}`. Corretta anche l'**intestazione su telefono**: cinque voci più il marchio non
+  stanno su una riga e "Citazioni" finiva tagliata fuori dallo schermo senza modo di raggiungerla
+  (la barra scorreva con `justify-content: flex-end`, che in LTR nasconde l'inizio) — ora il menu
+  prende una riga sua sotto il marchio, che torna visibile. Verificato in browser 1280 e 390,
+  chiaro e scuro, zero errori JS.
+- **Bug dei generatori (2026-08-30):** `generate_quote_pages`, `generate_opera_pages` e
+  `generate_raccolte_pages` cancellavano a ogni build l'`index.html` della propria cartella
+  (`/citazioni/`, `/opere/`, `/raccolte/`) considerandolo una pagina orfana — lo riscriveva subito
+  dopo `generate_index_pages`, quindi il difetto era invisibile in locale ma faceva fallire il
+  build in qualunque ambiente senza permesso di cancellazione. Ora l'indice è escluso dalla lista
+  degli orfani e un errore di rimozione avvisa invece di interrompere il build.
 
 ### Da fare — SEO
 
