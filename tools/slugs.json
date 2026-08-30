@@ -1,5 +1,6 @@
 {
   "authors": {
+    "Agatha Christie": "agatha-christie",
     "Alba de Céspedes": "alba-de-cespedes",
     "Albert Camus": "albert-camus",
     "Alberto Moravia": "alberto-moravia",
@@ -47,6 +48,7 @@
     "Donna Tartt": "donna-tartt",
     "Doris Lessing": "doris-lessing",
     "Douglas Adams": "douglas-adams",
+    "E.M. Forster": "e-m-forster",
     "Edgar Allan Poe": "edgar-allan-poe",
     "Elena Ferrante": "elena-ferrante",
     "Elias Canetti": "elias-canetti",
@@ -192,6 +194,7 @@
     "Susanna Tamaro": "susanna-tamaro",
     "Suzanne Collins": "suzanne-collins",
     "Sylvia Plath": "sylvia-plath",
+    "T.S. Eliot": "t-s-eliot",
     "Ta-Nehisi Coates": "ta-nehisi-coates",
     "Terry Pratchett": "terry-pratchett",
     "Thomas Hardy": "thomas-hardy",
@@ -222,6 +225,7 @@
     "Zora Neale Hurston": "zora-neale-hurston"
   },
   "quotes": {
+    "Agatha Christie|Dieci piccoli indiani|C'era qualcosa di magico in un'isola:": "agatha-christie-dieci-piccoli-indiani",
     "Alba de Céspedes|La bambolona|Il segreto del mio ottimismo consiste": "alba-de-cespedes-la-bambolona",
     "Alba de Céspedes|Quaderno proibito|Ci siamo tanto allontanati l'uno dall'altra,": "alba-de-cespedes-quaderno-proibito",
     "Albert Camus|Il mito di Sisifo|Bisogna immaginare Sisifo felice.": "albert-camus-il-mito-di-sisifo",
@@ -317,6 +321,7 @@
     "Doris Lessing|Il taccuino d'oro|Perché devo provare sempre questo terribile": "doris-lessing-il-taccuino-d-oro",
     "Doris Lessing|Memorie di una sopravvissuta|Gli anziani tendono a non vedere": "doris-lessing-memorie-di-una-sopravvissuta",
     "Douglas Adams|Guida galattica per gli autostoppisti|Non fatevi prendere dal panico.": "douglas-adams-guida-galattica-per-gli-autostoppisti",
+    "E.M. Forster|Camera con vista|A volte il nostro bisogno di": "e-m-forster-camera-con-vista",
     "Edgar Allan Poe|Il corvo|Mai più.": "edgar-allan-poe-il-corvo",
     "Edgar Allan Poe|Un sogno nel sogno|Tutto che vediamo o che a": "edgar-allan-poe-un-sogno-nel-sogno",
     "Elena Ferrante|I giorni dell'abbandono|Un pomeriggio d'aprile, subito dopo pranzo,": "elena-ferrante-i-giorni-dell-abbandono",
@@ -612,6 +617,7 @@
     "Suzanne Collins|La ragazza di fuoco|O che non gli importasse più.": "suzanne-collins-la-ragazza-di-fuoco",
     "Sylvia Plath|La campana di vetro|Feci un respiro profondo e ascoltai": "sylvia-plath-la-campana-di-vetro",
     "Sylvia Plath|La campana di vetro|Vidi la mia vita diramarsi davanti": "sylvia-plath-la-campana-di-vetro-vidi-la-mia",
+    "T.S. Eliot|Il canto d'amore di J. Alfred Prufrock|E allora andiamo, tu e io,": "t-s-eliot-il-canto-d-amore-di-j-alfred-prufrock",
     "Ta-Nehisi Coates|Tra me e il mondo|Avere la pelle nera vuol dire": "ta-nehisi-coates-tra-me-e-il-mondo",
     "Ta-Nehisi Coates|Tra me e il mondo|La razza è la figlia del": "ta-nehisi-coates-tra-me-e-il-mondo-la-razza-e",
     "Terry Pratchett|Il tristo mietitore|La luce crede di viaggiare più": "terry-pratchett-il-tristo-mietitore",

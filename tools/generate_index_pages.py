@@ -49,12 +49,22 @@ PAGE_SHELL = """<!DOCTYPE html>
   }} catch (e) {{}}
 </script>
 </head>
-<body>
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
-<nav class="site-nav sans">
-  <a href="/">Citazioni</a>
-  <a href="/metodo/">Metodo</a>
-</nav>
+<body class="has-header">
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/">
+      <img src="/mark-quill.png" alt="" width="30" height="30">
+      <span class="brand-name">Sottolineature</span>
+    </a>
+    <nav class="site-nav sans" aria-label="Principale">
+      <a href="/citazioni/">Citazioni</a>
+      <a href="/autori/">Autori</a>
+      <a href="/temi/">Temi</a>
+      <a href="/metodo/">Metodo</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+    </nav>
+  </div>
+</header>
 <div class="page">
   <a class="back-link sans" href="/">← Torna alla home</a>
   <p class="eyebrow sans">{eyebrow}</p>
