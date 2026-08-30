@@ -235,5 +235,28 @@
       "Ignazio Silone|Fontamara|Il mondo è rotondo. Chi parte,",
       "Dino Buzzati|Il deserto dei Tartari|Ma a un certo punto, istintivamente,"
     ]
+  },
+  {
+    "slug": "donne",
+    "title": "Donne",
+    "h1": "Frasi e citazioni sulle donne",
+    "intro": [
+      "Il tema delle donne attraversa la letteratura fin dalle origini, ma cambia radicalmente registro nel tempo: da oggetto cantato o osservato a soggetto che scrive di sé. Ludovico Ariosto apre l'intero poema rinascimentale nominandole per prime — «Le donne, i cavallier, l'arme, gli amori» — e Giovanni Boccaccio dedica esplicitamente il Decameron, due secoli prima, «alle donne innamorate», a chi soffre d'amore in silenzio perché la società non le lascia altro sfogo.",
+      "È nel Novecento che la voce cambia di segno. Sibilla Aleramo, nel romanzo autobiografico intitolato semplicemente «Una donna», si chiede perché si continui ad ammirare il sacrificio materno come un destino, «una mostruosa catena» tramandata di madre in figlia. Virginia Woolf, nelle due conferenze che diventeranno «Una stanza tutta per sé», parte da un dato concreto — denaro, una stanza propria — per spiegare perché le donne abbiano scritto così poco nei secoli. Simone de Beauvoir apre il secondo volume del «Secondo sesso» con la frase che ne riassume l'intera tesi: l'identità femminile non è natura, è costruzione. Audre Lorde va oltre, e chiama la poesia una necessità vitale, non un lusso, per affermare «le nostre speranze e i nostri sogni».",
+      "Restano le donne osservate da fuori, con sguardi diversissimi: quella «bella piccola stupida» che Daisy Buchanan si augura di essere, nel Grande Gatsby di Fitzgerald, amarezza travestita da leggerezza; le donne di Naguib Mahfouz strette intorno al braciere nel Cairo in rivolta; Marianna Ucrìa di Dacia Maraini, sordomuta, osservata e mai davvero ascoltata; le «ancelle» di Margaret Atwood, ridotte a corpi fertili, che incidono un grido di resistenza nel legno di un armadio; e Maria Listru di Michela Murgia, «fillus de anima», nata due volte dalla povertà di una donna e dalla sterilità di un'altra."
+    ],
+    "quote_keys": [
+      "Ludovico Ariosto|Orlando furioso|Le donne, i cavallier, l'arme, gli",
+      "Giovanni Boccaccio|Decameron|Umana cosa è l'aver compassione degli",
+      "Virginia Woolf|Una stanza tutta per sé|Una donna deve avere denaro e",
+      "Simone de Beauvoir|Il secondo sesso|Donna non si nasce, lo si",
+      "Sibilla Aleramo|Una donna|Perché nella maternità adoriamo il sacrifizio?",
+      "F. Scott Fitzgerald|Il grande Gatsby|Spero che sia stupida: è la",
+      "Naguib Mahfouz|La via dello zucchero|Le donne se ne stavano intorno",
+      "Dacia Maraini|La lunga vita di Marianna Ucrìa|Un padre e una figlia eccoli",
+      "Michela Murgia|Accabadora|Fillus de anima. È così che",
+      "Margaret Atwood|Il racconto dell'ancella|Nolite te bastardes carborundorum.",
+      "Audre Lorde|Sorella Outsider|Per le donne, quindi, la poesia"
+    ]
   }
 ]

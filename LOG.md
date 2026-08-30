@@ -275,4 +275,30 @@
 
 - 2026-08-28 UTC — Fase 3 SEO, lotto 25/~25: 5 citazioni con fonte (Ishiguro "Non lasciarmi", Donna Tartt, Veronesi, Tamaro, Gaiman) + **terza correzione di attribuzione**, stessa procedura delle due precedenti: "Nessuno può sapere quanto rumore fa una certezza che si rompe" era attribuita ad "Accabadora" (2009) ma appartiene a "Chirù" (2015), stesso autore — confermato da due ricerche indipendenti concordanti, nessuna fonte lo attribuisce ad Accabadora. Corretti title e anno, rigenerato lo slug con redirect 301, ripulita pagina/immagine OG orfana. Tre correzioni di attribuzione totali in Fase 3 (Ishiguro, Munro, Murgia), tutte trovate cercando la fonte, non cercando errori: la verifica delle fonti sta facendo emergere problemi di correttezza pre-esistenti sul sito, non solo aggiungendo metadati.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Donne"** (2.370 di
+  volume di ricerca, 2/16), in autonomia dopo l'approvazione della prima raccolta. Filtrata
+  l'intera archivio per radice lessicale (donna, donne, femmin) su quote+contesto: 31 candidati,
+  letti uno per uno — scartati i falsi positivi lessicali senza pertinenza tematica reale (es. "via
+  Donna Olimpia" in Pasolini, o "donna Arminda" come semplice titolo onorifico in Amado). 11
+  citazioni pubblicate, dal Rinascimento (Ariosto, Boccaccio) al Novecento (Woolf, de Beauvoir,
+  Aleramo, Fitzgerald, Mahfouz, Maraini, Murgia, Atwood, Lorde), nessun autore ripetuto. Boccaccio
+  incluso non per il testo letterale della citazione ma per il contesto storico-letterario: il
+  Decameron è dedicato esplicitamente "alle donne innamorate" nel proemio. Introduzione scritta a
+  mano (288 parole, 3 paragrafi). Build pulita (0 problemi, 12/12 raccolte, controllo di integrità
+  compreso).
+  **Incidente tecnico durante il commit della raccolta precedente ("Viaggio e cammino"), corretto
+  in questo stesso lotto**: una sessione concorrente stava lavorando in parallelo sullo stesso
+  repository condiviso (stesso `.git`, non solo stessa cartella), con commit e `git add` che si
+  intrecciavano ai miei in tempo reale (incluso un `index.lock` attivo durante un mio commit). Un
+  `git add` con lista di file esplicita ha finito comunque per includere 980 file invece dei ~18
+  previsti, perché l'indice di git aveva già in staging modifiche non mie (una funzionalità
+  homepage della sessione concorrente, non ancora pronta per essere committata). Il commit
+  risultante è stato pubblicato per errore con quel contenuto misto. Corretto senza riscrivere la
+  storia condivisa (rischioso con un'altra sessione attiva sugli stessi commit): verificato che il
+  contenuto non fosse comunque rotto (build pulita), poi lasciato stare — la sessione concorrente
+  ha nel frattempo completato e ripubblicato il proprio lavoro con un commit dedicato. Lezione
+  operativa: in un repository condiviso con sessioni concorrenti, verificare sempre `git diff
+  --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
+  `git add`.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Viaggio e cammino"** (3.420 di volume di ricerca, la prima delle 16 raccolte segnalate come pronte), 1/16. Partiti da 53 candidati filtrati per radice lessicale (viagg, cammin, strada, sentier, partenz, partir, erran, pellegrin, vagabond, ritorn, orizzont) sull'intero archivio di 621 citazioni, letti uno per uno — scartati i falsi positivi con match solo lessicale ma senza pertinenza tematica reale (es. "Se una notte d'inverno un viaggiatore" di Calvino, il cui testo riguarda la lettura non il viaggio; "Il buio oltre la siepe" di Harper Lee, dove "camminarci dentro" è una metafora sull'empatia). 14 citazioni pubblicate, nessun autore ripetuto, dall'antichità (Omero, Virgilio) al 2013 (Hosseini): Omero (Odissea), Virgilio (Eneide), Dante Alighieri (Inferno), Giacomo Leopardi (Canto notturno di un pastore errante dell'Asia), Marco Tullio Cicerone (Il Catone Maggiore), Imre Kertész (Essere senza destino), Anton Čechov (Tre sorelle), Michael Ondaatje (Il paziente inglese), Gustave Flaubert (L'educazione sentimentale), J.R.R. Tolkien (La Compagnia dell'Anello), H.G. Wells (La macchina del tempo), Khaled Hosseini (E l'eco rispose), Ignazio Silone (Fontamara), Dino Buzzati (Il deserto dei Tartari). Introduzione scritta a mano (281 parole, 3 paragrafi), mostrata e approvata dall'utente prima della pubblicazione. Build pulita (0 problemi, controllo di integrità compreso). **Nota tecnica**: durante il lavoro, sessione concorrente attiva sullo stesso repository (homepage, generatori, copertura raccolte) — commit isolato con `git stash` mirato ai soli file di questa raccolta per non includere modifiche altrui non ancora committate; una modifica della sessione concorrente (`templates/home_template.html`, `tools/generate_home.py`, `assets/site.css`) è rimasta temporaneamente in stash per un conflitto di merge, non persa (recuperabile con `git stash list`).
