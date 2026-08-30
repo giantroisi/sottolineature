@@ -220,6 +220,9 @@ def main():
     quotes_with_source = sum(1 for _, q in qp_entries if q.get('source_edition') or q.get('source_locus'))
     dated = sum(1 for _, q in qp_entries if q.get('added'))
 
+    covers_local = sum(1 for _, q in qp_entries if q.get('cover', '').startswith('/assets/covers/'))
+    covers_remote = sum(1 for _, q in qp_entries if q.get('cover', '').startswith('http'))
+
     # Stessa trappola gia' vista con i contesti duplicati (Fase 1 LOG.md):
     # una fonte scritta per una citazione puo' finire applicata per errore
     # anche a un'altra citazione dello STESSO autore/opera. Il controllo e'
@@ -264,6 +267,7 @@ def main():
     print('Citazioni con data di aggiunta nota (<lastmod>/feed.xml):', dated, '/', len(qp_entries))
     print('Citazioni con blocco fonte:', quotes_with_source, '/', len(qp_entries), '| fonti duplicate su citazioni diverse:', len(dup_sources))
     print('Immagini OG generate:', og_generated, '| gia aggiornate:', og_skipped, '| totale attese:', len(qp_entries))
+    print('Copertine locali (assets/covers/):', covers_local, '| ancora remote (Open Library):', covers_remote)
     print('vercel.json scritto in', vercel_path)
     print('sitemap aggiornata in', sitemap_path)
     print('feed.xml scritto in', feed_path)

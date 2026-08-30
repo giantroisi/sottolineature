@@ -1240,54 +1240,93 @@
       if (slug) { slugToCard[slug] = card; }
     });
 
+    // I controlli di ogni card (Sottolinea, Condividi, Copia, nota) venivano
+    // creati per tutte e 620 le citazioni al caricamento: circa 2.500 elementi
+    // costruiti in JavaScript, 826 ms di blocco e 10.700 nodi in pagina su un
+    // telefono di fascia media. Ora si creano quando la card entra nello
+    // schermo, piu' subito per quelle che hanno gia' una sottolineatura o una
+    // nota, che devono mostrarne lo stato anche senza essere state guardate.
+    function ensureCardControls(card) {
+      if (card._controlsReady) { return; }
+      card._controlsReady = true;
+        var toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'underline-toggle sans';
+        card._underlineToggle = toggle;
+        var active = !!underlinedSet[quoteKey(card)];
+        toggle.textContent = active ? 'Sottolineata' : 'Sottolinea';
+        toggle.classList.toggle('is-active', active);
+        toggle.setAttribute('aria-pressed', String(active));
+        card.classList.toggle('is-underlined', active);
+        toggle.addEventListener('click', function (e) {
+          e.stopPropagation();
+          setUnderlined(card, !underlinedSet[quoteKey(card)]);
+        });
+        toggle.addEventListener('keydown', function (e) { e.stopPropagation(); });
+        var exportBtn = document.createElement('button');
+        exportBtn.type = 'button';
+        exportBtn.className = 'underline-toggle sans card-export-btn';
+        exportBtn.textContent = 'Condividi';
+        exportBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          downloadQuoteImage(
+            card.querySelector('.card-quote').textContent,
+            card.querySelector('.card-author').textContent,
+            card.querySelector('.card-title').textContent,
+            card.querySelector('.card-year').textContent,
+            exportBtn
+          );
+        });
+        exportBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+
+        var copyBtn = document.createElement('button');
+        copyBtn.type = 'button';
+        copyBtn.className = 'underline-toggle sans card-copy-btn';
+        copyBtn.textContent = 'Copia';
+        copyBtn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          e.preventDefault();
+          copyCard(card, copyBtn);
+        });
+        copyBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+
+        var hint = card.querySelector('.card-hint');
+        hint.parentNode.insertBefore(toggle, hint);
+        hint.parentNode.insertBefore(exportBtn, hint);
+        hint.parentNode.insertBefore(copyBtn, hint);
+        var note = makeNoteField(function () { return quoteKey(card); });
+        hint.parentNode.insertBefore(note, hint);
+
+    }
+
+    // Lo stato "sottolineata" e' solo una classe: si applica subito a tutte,
+    // perche' il filtro "sottolineate" la interroga.
     cards.forEach(function (card) {
-      var toggle = document.createElement('button');
-      toggle.type = 'button';
-      toggle.className = 'underline-toggle sans';
-      card._underlineToggle = toggle;
-      var active = !!underlinedSet[quoteKey(card)];
-      toggle.textContent = active ? 'Sottolineata' : 'Sottolinea';
-      toggle.classList.toggle('is-active', active);
-      toggle.setAttribute('aria-pressed', String(active));
-      card.classList.toggle('is-underlined', active);
-      toggle.addEventListener('click', function (e) {
-        e.stopPropagation();
-        setUnderlined(card, !underlinedSet[quoteKey(card)]);
-      });
-      toggle.addEventListener('keydown', function (e) { e.stopPropagation(); });
-      var exportBtn = document.createElement('button');
-      exportBtn.type = 'button';
-      exportBtn.className = 'underline-toggle sans card-export-btn';
-      exportBtn.textContent = 'Condividi';
-      exportBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        downloadQuoteImage(
-          card.querySelector('.card-quote').textContent,
-          card.querySelector('.card-author').textContent,
-          card.querySelector('.card-title').textContent,
-          card.querySelector('.card-year').textContent,
-          exportBtn
-        );
-      });
-      exportBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
+      card.classList.toggle('is-underlined', !!underlinedSet[quoteKey(card)]);
+      if (underlinedSet[quoteKey(card)] || notesMap[quoteKey(card)]) {
+        ensureCardControls(card);
+      }
+    });
 
-      var copyBtn = document.createElement('button');
-      copyBtn.type = 'button';
-      copyBtn.className = 'underline-toggle sans card-copy-btn';
-      copyBtn.textContent = 'Copia';
-      copyBtn.addEventListener('click', function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-        copyCard(card, copyBtn);
+    if ('IntersectionObserver' in window) {
+      var controlsObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            ensureCardControls(entry.target);
+            controlsObserver.unobserve(entry.target);
+          }
+        });
+      }, { rootMargin: '300px 0px' });
+      cards.forEach(function (card) { controlsObserver.observe(card); });
+    } else {
+      cards.forEach(ensureCardControls);
+    }
+    // rete di sicurezza: qualunque contatto con una card ne crea i controlli
+    ['mouseover', 'focusin'].forEach(function (evt) {
+      grid.addEventListener(evt, function (e) {
+        var card = e.target && e.target.closest ? e.target.closest('.card') : null;
+        if (card) { ensureCardControls(card); }
       });
-      copyBtn.addEventListener('keydown', function (e) { e.stopPropagation(); });
-
-      var hint = card.querySelector('.card-hint');
-      hint.parentNode.insertBefore(toggle, hint);
-      hint.parentNode.insertBefore(exportBtn, hint);
-      hint.parentNode.insertBefore(copyBtn, hint);
-      var note = makeNoteField(function () { return quoteKey(card); });
-      hint.parentNode.insertBefore(note, hint);
     });
 
     var emptyState = document.getElementById('emptyState');
