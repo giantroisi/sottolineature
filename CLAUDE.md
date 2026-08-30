@@ -198,9 +198,9 @@ Rushdie e Chimamanda Ngozi Adichie portati da 1 a 2 citazioni. Poi due nuovi
 autori: Hannah Arendt e Anna Achmatova. Poi approfondimento: Roberto Bolaño e
 Olga Tokarczuk portati da 1 a 2 citazioni. Poi due nuovi autori: Susan Sontag e
 Wole Soyinka. Poi approfondimento: Amos Oz e Herta Müller portati da 1 a 2
-citazioni. Archivio a 247 autori, 487 citazioni, 47 con una sola citazione.
-Lavoro da proseguire senza chiedere conferma, alternando le due modalità lotto
-per lotto
+citazioni. Poi due nuovi autori: Michel Houellebecq e Zbigniew Herbert. Archivio
+a 249 autori, 489 citazioni, 49 con una sola citazione. Lavoro da proseguire
+senza chiedere conferma, alternando le due modalità lotto per lotto
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
