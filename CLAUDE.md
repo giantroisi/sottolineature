@@ -171,8 +171,9 @@ Vittorio Alfieri, Marguerite Yourcenar, Giuseppe Tomasi di Lampedusa, Nikolaj Go
 Salinger, Carlo Goldoni, Anton Čechov, Ippolito Nievo, Umberto Saba, Daphne du Maurier,
 Giorgio Bassani, Anna Maria Ortese, Salvatore Quasimodo, Erich Maria Remarque, Louisa May
 Alcott, Lucy Maud Montgomery, Harper Lee, Sibilla Aleramo, Simone Weil, Goliarda Sapienza,
-Michael Ende, Neil Gaiman, Paulo Coelho, Dacia Maraini);
-ne restano 59 con una sola (ricontato da `data/citazioni.json` a ogni lotto) — lavoro
+Michael Ende, Neil Gaiman, Paulo Coelho, Dacia Maraini, Mary Shelley, C.S. Lewis, Federico
+García Lorca, Terry Pratchett);
+ne restano 55 con una sola (ricontato da `data/citazioni.json` a ogni lotto) — lavoro
 esplicitamente da proseguire senza chiedere conferma, poi passare a nuove
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
@@ -182,7 +183,7 @@ per l'apertura di un libro: non scartare candidati-incipit solo per mancanza di 
 corretto il 2026-08-29 in `tools/build.py`** (non introdotto da questa sessione, probabile
 sessione concorrente): `gh.main()` girava prima che gli slug delle citazioni nuove fossero
 salvati su `slugs.json`, quindi la build falliva sempre dopo ogni lotto — vedi LOG.md. Archivio
-a 421 citazioni, 220
+a 425 citazioni, 220
 autori. **Deploy sospeso su richiesta
 dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
