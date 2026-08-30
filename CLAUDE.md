@@ -713,6 +713,13 @@ partire da una keyword senza il contenuto che la giustifica.
 - Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
+- **Contatto e "Segnala un errore" — in sospeso su richiesta dell'utente (2026-08-30):** manca solo
+  un indirizzo email da pubblicare. Quando arriva (l'utente valuta se crearne uno dedicato tipo
+  `ciao@sottolineature.it` su Hostinger, dove sta il dominio): email nel footer di ogni pagina, e
+  sulla pagina citazione un link *Segnala un errore* che apre una mail precompilata con l'URL della
+  citazione nell'oggetto. Su un sito costruito sulla verifica delle fonti e' anche il canale
+  naturale per ricevere segnalazioni dagli insegnanti e guadagnare link in entrata. **Non pubblicare
+  l'email personale dell'utente senza che sia lui a indicarla**
 - **Informativa privacy** — richiesta dall'utente, in sospeso: servono nome/ragione ed email da usare come titolare del trattamento (dati che non si possono inventare in un documento legale). Nessun cookie/tracking sul sito, solo `localStorage` funzionale — confermato controllando il codice
 - **Contesto per le ultime 2 citazioni** — Dostoevskij (Delitto e castigo), Sciascia (Il giorno della civetta): da ritentare solo se emerge una fonte primaria (es. testo del romanzo su Wikisource/Google Libri), non ha senso riprovare con le stesse ricerche generiche già fatte più volte
 - **Sarah J. Maas e Leigh Bardugo** — restano da aggiungere (Rick Riordan fatto): nessuna citazione italiana verificabile trovata finora, serve una fonte tracciabile al testo pubblicato (anteprima Google Libri o editore), non solo blog/trame
