@@ -175,12 +175,13 @@ Michael Ende, Neil Gaiman, Paulo Coelho, Dacia Maraini, Mary Shelley, C.S. Lewis
 García Lorca, Terry Pratchett, Philip Roth, Don DeLillo, Joan Didion, Alba de Céspedes,
 Arundhati Roy, Suzanne Collins, Ursula K. Le Guin, Anne Frank, Doris Lessing, Curzio Malaparte,
 Paolo Cognetti, Immanuel Kant, Michela Murgia, Leonardo Sciascia, Mario Vargas Llosa, H.G.
-Wells, Truman Capote, Saul Bellow, William Golding);
-ne restano 36 con una sola (ricontato da `data/citazioni.json` a ogni lotto) — lavoro
-esplicitamente da proseguire senza chiedere conferma, poi passare a nuove. **Il lotto del
-2026-08-29 delle 12:xx UTC è stato più piccolo (2 citazioni)**: il bacino di candidati con
-fonte solida e facilmente reperibile si sta esaurendo, i lotti successivi richiederanno
-probabilmente più tempo di ricerca per candidato e saranno via via più piccoli
+Wells, Truman Capote, Saul Bellow, William Golding, J.M. Coetzee);
+ne restano 35 con una sola (ricontato da `data/citazioni.json` a ogni lotto) — lavoro
+esplicitamente da proseguire senza chiedere conferma, poi passare a nuove. **Il bacino di
+candidati facilmente reperibili è ormai quasi esaurito**: la maggior parte degli autori
+rimasti non ha alcuna sezione Citazioni utilizzabile su Wikiquote (solo incipit, o nessun
+numero di pagina/locus verificabile) — i lotti dal 2026-08-29 pomeriggio in poi sono
+scesi a 1-2 citazioni ciascuno nonostante una ricerca più ampia per lotto
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
@@ -189,7 +190,7 @@ per l'apertura di un libro: non scartare candidati-incipit solo per mancanza di 
 corretto il 2026-08-29 in `tools/build.py`** (non introdotto da questa sessione, probabile
 sessione concorrente): `gh.main()` girava prima che gli slug delle citazioni nuove fossero
 salvati su `slugs.json`, quindi la build falliva sempre dopo ogni lotto — vedi LOG.md. Archivio
-a 444 citazioni, 220
+a 445 citazioni, 220
 autori. **Deploy sospeso su richiesta
 dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
