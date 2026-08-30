@@ -386,3 +386,29 @@ footer.sans a { color: var(--ink-faint); }
 }
 .share-choice button:hover { border-color: var(--gold); color: var(--gold); }
 @media (max-width: 640px) { .cover-caption { max-width: 92px; } }
+
+/* --- fascia "Esplora l'archivio" in home: apre le sezioni che dalla home
+       non erano raggiungibili da nessun link --- */
+.explore { margin: 4rem 0 3rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+.explore-title {
+  font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gold); margin: 0 0 1.5rem; font-weight: 400;
+}
+.explore-list {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0.5rem 1.5rem;
+}
+.explore-list a {
+  display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 0.2rem 0.75rem;
+  padding: 0.85rem 0; border-bottom: 1px solid var(--rule);
+  text-decoration: none; color: var(--ink); transition: border-color 0.18s;
+}
+.explore-list a:hover { border-color: var(--accent); }
+.explore-name { font-size: 1rem; }
+.explore-list a:hover .explore-name { color: var(--accent); }
+.explore-count {
+  font-size: 0.8rem; color: var(--gold); font-variant-numeric: tabular-nums;
+}
+.explore-desc {
+  grid-column: 1 / -1; font-size: 0.8rem; line-height: 1.45; color: var(--ink-faint);
+}

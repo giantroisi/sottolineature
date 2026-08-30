@@ -11,6 +11,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import generate_home as gh  # noqa: E402
+import generate_mine_page as mine
 import generate_quote_pages as qp  # noqa: E402
 import generate_hub_pages as hp  # noqa: E402
 import generate_opera_pages as op  # noqa: E402
@@ -95,6 +96,7 @@ def main():
     hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main()
     citazioni_index_urls = ip.main(qp_entries, author_slugs, tema_status, genere_status, opere, op_status, raccolte, rc_status)
     feed_path = feed.main(qp_entries)
+    mine.main()
 
     indexable_temi = [c for c, ok in tema_status.items() if ok]
     indexable_generi = [g for g, ok in genere_status.items() if ok]

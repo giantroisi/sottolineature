@@ -191,7 +191,9 @@
 
   .search-bar {
     position: sticky;
-    top: 0;
+    /* si ferma sotto l'intestazione, non sopra: altrimenti i due elementi
+       agganciati in alto si sovrappongono */
+    top: 3.2rem;
     z-index: 15;
     display: flex;
     align-items: center;
@@ -697,6 +699,63 @@
     }
     body { background: #fff; }
   }
+  /* --- intestazione con marchio (uguale alle pagine interne, ma qui gli
+         stili sono in linea perche' la home non carica assets/site.css) --- */
+  .site-header {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    -webkit-backdrop-filter: saturate(1.4) blur(8px);
+    backdrop-filter: saturate(1.4) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.7rem clamp(1.25rem, 4vw, 3rem);
+    max-width: 62rem; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--ink); }
+  .brand img { display: block; border-radius: 4px; }
+  .brand-name { font-size: 1.02rem; }
+  .site-nav { display: flex; align-items: center; gap: 1.15rem; }
+  .site-nav a {
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint); text-decoration: none;
+  }
+  .site-nav a:hover { color: var(--accent); }
+  /* il selettore del tema entra nella barra: niente piu' pulsante che galleggia
+     sopra al contenuto e, su mobile, copriva la prima voce del menu */
+  .site-header .theme-toggle {
+    position: static; width: 2rem; height: 2rem; font-size: 0.95rem; margin-left: 0.35rem;
+  }
+
+  /* --- Esplora l'archivio: da qui si raggiungono autori, opere e raccolte,
+         che prima dalla home non avevano nemmeno un link --- */
+  .explore { margin: 4rem 0 3rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+  .explore-title {
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 1.5rem; font-weight: 400;
+  }
+  .explore-list {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0 2rem;
+  }
+  .explore-list a {
+    display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 0.15rem 0.75rem;
+    padding: 0.85rem 0; border-bottom: 1px solid var(--rule);
+    text-decoration: none; color: var(--ink); transition: border-color 0.18s;
+  }
+  .explore-list a:hover { border-color: var(--accent); }
+  .explore-name { font-size: 1rem; }
+  .explore-list a:hover .explore-name { color: var(--accent); }
+  .explore-count { font-size: 0.8rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .explore-desc { grid-column: 1 / -1; font-size: 0.8rem; line-height: 1.45; color: var(--ink-faint); }
+
+  @media (max-width: 640px) {
+    .site-header-inner { padding: 0.6rem 1.1rem; }
+    .brand-name { display: none; }
+    .site-nav { gap: 0.85rem; }
+    .site-nav a { font-size: 0.7rem; letter-spacing: 0.08em; }
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://sottolineature.it/#website","url":"https://sottolineature.it/","name":"Sottolineature","description":"Citazioni da libri raccolte e verificate a mano, senza algoritmo.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sottolineature.it/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <script>
@@ -708,7 +767,22 @@
 </head>
 <body>
 
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/">
+      <img src="/mark-quill.png" alt="" width="30" height="30">
+      <span class="brand-name">Sottolineature</span>
+    </a>
+    <nav class="site-nav sans" aria-label="Principale">
+      <a href="/citazioni/">Citazioni</a>
+      <a href="/autori/">Autori</a>
+      <a href="/temi/">Temi</a>
+      <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
+      <a href="/metodo/">Metodo</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+    </nav>
+  </div>
+</header>
 
 <div class="page" id="page">
 
@@ -723,9 +797,9 @@
 
   <div class="search-sentinel" id="searchSentinel" aria-hidden="true"></div>
   <div class="search-bar" id="searchBar">
-    <img class="search-bar-logo" src="mark-quill.png" alt="" aria-hidden="true">
+    
     <div class="search-input-wrap">
-      <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
+      <input type="search" id="searchInput" class="sans" aria-label="Cerca fra le citazioni" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
       <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Cancella ricerca" hidden>×</button>
       <ul class="search-suggestions sans" id="searchSuggestions" role="listbox" hidden></ul>
     </div>
@@ -776,6 +850,18 @@
 
 {{CARDS}}
   </div>
+
+  <nav class="explore sans" aria-label="Esplora l'archivio">
+    <h2 class="explore-title">Esplora l'archivio</h2>
+    <ul class="explore-list">
+      <li><a href="/autori/"><span class="explore-name">Autori</span><span class="explore-count">{{N_AUTORI}}</span><span class="explore-desc">Da Dante a Zadie Smith, ogni autore con le sue righe</span></a></li>
+      <li><a href="/opere/"><span class="explore-name">Opere</span><span class="explore-count">{{N_OPERE}}</span><span class="explore-desc">I libri con una scheda e più di una citazione</span></a></li>
+      <li><a href="/raccolte/"><span class="explore-name">Raccolte</span><span class="explore-count">{{N_RACCOLTE}}</span><span class="explore-desc">Selezioni curate a mano attorno a un tema</span></a></li>
+      <li><a href="/temi/"><span class="explore-name">Umori</span><span class="explore-count">{{N_TEMI}}</span><span class="explore-desc">Non una classificazione: un'atmosfera</span></a></li>
+      <li><a href="/generi/"><span class="explore-name">Generi</span><span class="explore-count">{{N_GENERI}}</span><span class="explore-desc">Fantasy, fantascienza, distopia, horror, saggistica</span></a></li>
+      <li><a href="/citazioni/"><span class="explore-name">Tutte le citazioni</span><span class="explore-count">{{COUNT}}</span><span class="explore-desc">L'archivio completo, pagina per pagina</span></a></li>
+    </ul>
+  </nav>
 
   <footer class="sans">
     {{COUNT}} citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —

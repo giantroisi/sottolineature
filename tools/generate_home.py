@@ -104,6 +104,24 @@ def main():
     page = page.replace('{{COUNT}}', str(len(quotes)))
     page = page.replace('{{COUNT_WORDS}}', count_words[0].upper() + count_words[1:])
 
+    # Conteggi della fascia "Esplora l'archivio": si leggono dalle cartelle
+    # gia' generate, cosi' restano veri senza doverli aggiornare a mano.
+    def count_pages(folder):
+        d = os.path.join(qp.ROOT, folder)
+        if not os.path.isdir(d):
+            return 0
+        return len([f for f in os.listdir(d) if f.endswith('.html') and f != 'index.html'])
+
+    authors = len({q['author'] for q in quotes})
+    for token, value in (
+        ('{{N_AUTORI}}', authors),
+        ('{{N_OPERE}}', count_pages('opere')),
+        ('{{N_RACCOLTE}}', count_pages('raccolte')),
+        ('{{N_TEMI}}', count_pages('temi')),
+        ('{{N_GENERI}}', count_pages('generi')),
+    ):
+        page = page.replace(token, str(value))
+
     with open(OUT_PATH, 'w', encoding='utf-8') as f:
         f.write(page)
 

@@ -60,6 +60,7 @@ PAGE_SHELL = """<!DOCTYPE html>
       <a href="/citazioni/">Citazioni</a>
       <a href="/autori/">Autori</a>
       <a href="/temi/">Temi</a>
+      <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
     </nav>

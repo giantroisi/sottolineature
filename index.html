@@ -6,17 +6,17 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f2f0eb">
 <title>Sottolineature — citazioni da libri</title>
-<meta name="description" content="461 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
+<meta name="description" content="463 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
 <link rel="canonical" href="https://sottolineature.it/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sottolineature — citazioni da libri">
-<meta property="og:description" content="461 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
+<meta property="og:description" content="463 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
 <meta property="og:image" content="https://sottolineature.it/og-banner.png">
 <meta property="og:url" content="https://sottolineature.it/">
 <meta property="og:site_name" content="Sottolineature">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sottolineature — citazioni da libri">
-<meta name="twitter:description" content="461 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
+<meta name="twitter:description" content="463 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o umore, o lasciati sorprendere.">
 <meta name="twitter:image" content="https://sottolineature.it/og-banner.png">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -191,7 +191,9 @@
 
   .search-bar {
     position: sticky;
-    top: 0;
+    /* si ferma sotto l'intestazione, non sopra: altrimenti i due elementi
+       agganciati in alto si sovrappongono */
+    top: 3.2rem;
     z-index: 15;
     display: flex;
     align-items: center;
@@ -697,6 +699,63 @@
     }
     body { background: #fff; }
   }
+  /* --- intestazione con marchio (uguale alle pagine interne, ma qui gli
+         stili sono in linea perche' la home non carica assets/site.css) --- */
+  .site-header {
+    position: sticky; top: 0; z-index: 30;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    -webkit-backdrop-filter: saturate(1.4) blur(8px);
+    backdrop-filter: saturate(1.4) blur(8px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .site-header-inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 0.7rem clamp(1.25rem, 4vw, 3rem);
+    max-width: 62rem; margin: 0 auto;
+  }
+  .brand { display: flex; align-items: center; gap: 0.55rem; text-decoration: none; color: var(--ink); }
+  .brand img { display: block; border-radius: 4px; }
+  .brand-name { font-size: 1.02rem; }
+  .site-nav { display: flex; align-items: center; gap: 1.15rem; }
+  .site-nav a {
+    font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink-faint); text-decoration: none;
+  }
+  .site-nav a:hover { color: var(--accent); }
+  /* il selettore del tema entra nella barra: niente piu' pulsante che galleggia
+     sopra al contenuto e, su mobile, copriva la prima voce del menu */
+  .site-header .theme-toggle {
+    position: static; width: 2rem; height: 2rem; font-size: 0.95rem; margin-left: 0.35rem;
+  }
+
+  /* --- Esplora l'archivio: da qui si raggiungono autori, opere e raccolte,
+         che prima dalla home non avevano nemmeno un link --- */
+  .explore { margin: 4rem 0 3rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+  .explore-title {
+    font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 1.5rem; font-weight: 400;
+  }
+  .explore-list {
+    list-style: none; margin: 0; padding: 0;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 0 2rem;
+  }
+  .explore-list a {
+    display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 0.15rem 0.75rem;
+    padding: 0.85rem 0; border-bottom: 1px solid var(--rule);
+    text-decoration: none; color: var(--ink); transition: border-color 0.18s;
+  }
+  .explore-list a:hover { border-color: var(--accent); }
+  .explore-name { font-size: 1rem; }
+  .explore-list a:hover .explore-name { color: var(--accent); }
+  .explore-count { font-size: 0.8rem; color: var(--gold); font-variant-numeric: tabular-nums; }
+  .explore-desc { grid-column: 1 / -1; font-size: 0.8rem; line-height: 1.45; color: var(--ink-faint); }
+
+  @media (max-width: 640px) {
+    .site-header-inner { padding: 0.6rem 1.1rem; }
+    .brand-name { display: none; }
+    .site-nav { gap: 0.85rem; }
+    .site-nav a { font-size: 0.7rem; letter-spacing: 0.08em; }
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://sottolineature.it/#website","url":"https://sottolineature.it/","name":"Sottolineature","description":"Citazioni da libri raccolte e verificate a mano, senza algoritmo.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sottolineature.it/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <script>
@@ -708,7 +767,22 @@
 </head>
 <body>
 
-<button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/">
+      <img src="/mark-quill.png" alt="" width="30" height="30">
+      <span class="brand-name">Sottolineature</span>
+    </a>
+    <nav class="site-nav sans" aria-label="Principale">
+      <a href="/citazioni/">Citazioni</a>
+      <a href="/autori/">Autori</a>
+      <a href="/temi/">Temi</a>
+      <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
+      <a href="/metodo/">Metodo</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+    </nav>
+  </div>
+</header>
 
 <div class="page" id="page">
 
@@ -716,16 +790,16 @@
     <p class="eyebrow sans">Una raccolta di citazioni</p>
     <h1 class="title"><img src="logo.svg" alt="Sottolineature" class="logo-mark"></h1>
     <p class="lede">
-      Quattrocentosessantuno righe segnate a matita in libri diversi — romanzi, poesie, pagine che si
+      Quattrocentosessantatré righe segnate a matita in libri diversi — romanzi, poesie, pagine che si
       aprono sempre nello stesso punto. Sfoglia per tema, o lasciati sorprendere.
     </p>
   </header>
 
   <div class="search-sentinel" id="searchSentinel" aria-hidden="true"></div>
   <div class="search-bar" id="searchBar">
-    <img class="search-bar-logo" src="mark-quill.png" alt="" aria-hidden="true">
+    
     <div class="search-input-wrap">
-      <input type="search" id="searchInput" class="sans" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
+      <input type="search" id="searchInput" class="sans" aria-label="Cerca fra le citazioni" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
       <button type="button" class="search-clear-btn" id="searchClearBtn" aria-label="Cancella ricerca" hidden>×</button>
       <ul class="search-suggestions sans" id="searchSuggestions" role="listbox" hidden></ul>
     </div>
@@ -5337,10 +5411,42 @@
       </div>
       <img class="card-cover" src="https://covers.openlibrary.org/b/id/8242359-M.jpg" alt="Copertina di &quot;In Memoriam A.H.H.&quot; di Alfred Tennyson" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
     </article>
+
+    <article class="card" data-slug="e-m-forster-casa-howard" data-category="vita">
+      <span class="card-mark" aria-hidden="true">“</span>
+      <div class="card-body">
+        <p class="card-quote"><a class="card-open" href="/citazioni/e-m-forster-casa-howard/">La carriera meglio riuscita deve mostrare uno spreco di forza che avrebbe potuto smuovere le montagne e la meno riuscita non è la carriera dell&#x27;uomo che è stato colto impreparato.</a></p>
+        <p class="card-citation sans"><span class="card-author">E.M. Forster</span> — <span class="card-title">Casa Howard</span> · <span class="card-year">1910</span></p>
+        <p class="card-hint sans">Apri la pagina</p>
+      </div>
+      <img class="card-cover" src="https://covers.openlibrary.org/b/id/8235207-M.jpg" alt="Copertina di &quot;Casa Howard&quot; di E.M. Forster" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+    </article>
+
+    <article class="card" data-slug="viktor-e-frankl-uno-psicologo-nei-lager-guai-a-chi" data-genre="saggistica" data-category="amore">
+      <span class="card-mark" aria-hidden="true">“</span>
+      <div class="card-body">
+        <p class="card-quote"><a class="card-open" href="/citazioni/viktor-e-frankl-uno-psicologo-nei-lager-guai-a-chi/">Guai a chi non si ritrova l&#x27;unico suo sostegno del tempo trascorso nel lager - la creatura amata. Guai a chi vive nella realtà l&#x27;attimo del quale ha sognato nei mille sogni della nostalgia, ma diverso.</a></p>
+        <p class="card-citation sans"><span class="card-author">Viktor E. Frankl</span> — <span class="card-title">Uno psicologo nei lager</span> · <span class="card-year">1946</span></p>
+        <p class="card-hint sans">Apri la pagina</p>
+      </div>
+      <img class="card-cover" src="https://covers.openlibrary.org/b/id/8516506-M.jpg" alt="Copertina di &quot;Uno psicologo nei lager&quot; di Viktor E. Frankl" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">
+    </article>
   </div>
 
+  <nav class="explore sans" aria-label="Esplora l'archivio">
+    <h2 class="explore-title">Esplora l'archivio</h2>
+    <ul class="explore-list">
+      <li><a href="/autori/"><span class="explore-name">Autori</span><span class="explore-count">236</span><span class="explore-desc">Da Dante a Zadie Smith, ogni autore con le sue righe</span></a></li>
+      <li><a href="/opere/"><span class="explore-name">Opere</span><span class="explore-count">40</span><span class="explore-desc">I libri con una scheda e più di una citazione</span></a></li>
+      <li><a href="/raccolte/"><span class="explore-name">Raccolte</span><span class="explore-count">10</span><span class="explore-desc">Selezioni curate a mano attorno a un tema</span></a></li>
+      <li><a href="/temi/"><span class="explore-name">Umori</span><span class="explore-count">7</span><span class="explore-desc">Non una classificazione: un'atmosfera</span></a></li>
+      <li><a href="/generi/"><span class="explore-name">Generi</span><span class="explore-count">5</span><span class="explore-desc">Fantasy, fantascienza, distopia, horror, saggistica</span></a></li>
+      <li><a href="/citazioni/"><span class="explore-name">Tutte le citazioni</span><span class="explore-count">463</span><span class="explore-desc">L'archivio completo, pagina per pagina</span></a></li>
+    </ul>
+  </nav>
+
   <footer class="sans">
-    461 citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
+    463 citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
     qui sono solo tenute da parte per essere rilette.
     <a href="/metodo/">Come verifichiamo le citazioni →</a>
   </footer>
