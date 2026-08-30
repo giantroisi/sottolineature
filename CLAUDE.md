@@ -196,9 +196,10 @@ portati da 1 a 2 citazioni. Poi due nuovi autori: Roald Dahl e Clarice Lispector
 1 a 2 citazioni) e Astrid Lindgren (nuovo autore). Poi approfondimento: Salman
 Rushdie e Chimamanda Ngozi Adichie portati da 1 a 2 citazioni. Poi due nuovi
 autori: Hannah Arendt e Anna Achmatova. Poi approfondimento: Roberto Bolaño e
-Olga Tokarczuk portati da 1 a 2 citazioni. Archivio a 245 autori, 483 citazioni,
-47 con una sola citazione. Lavoro da proseguire senza chiedere conferma,
-alternando le due modalità lotto per lotto
+Olga Tokarczuk portati da 1 a 2 citazioni. Poi due nuovi autori: Susan Sontag e
+Wole Soyinka. Archivio a 247 autori, 485 citazioni, 49 con una sola citazione.
+Lavoro da proseguire senza chiedere conferma, alternando le due modalità lotto
+per lotto
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
