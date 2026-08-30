@@ -757,6 +757,12 @@ partire da una keyword senza il contenuto che la giustifica.
 - Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
+- **Possibilità di togliere "Sottolineata" dalla pagina della citazione o da "Le mie"** — oggi il
+  toggle "Sottolinea" si può solo attivare/disattivare dalla card, ma non risulta un modo comodo
+  per rimuovere una citazione già sottolineata direttamente dalla sua pagina dedicata
+  (`/citazioni/<slug>/`) o dalla vista "Le mie" (le sottolineature salvate) senza tornare
+  all'index. Da valutare: pulsante toggle equivalente in entrambi i punti. Segnalato dall'utente,
+  non ancora progettato né implementato.
 - **Correzione di rotta sui lotti (2026-08-30), dettagli in `CATALOGO.md` §7:** stop agli autori
   nuovi, si porta a **4 citazioni** ciascuno gli autori gia' in archivio con piu' domanda di
   ricerca, con precedenza alle opere anteriori al Novecento. Motivo: 176 autori su 251 sono fermi
