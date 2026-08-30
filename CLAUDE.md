@@ -183,11 +183,11 @@ verificabile). **Pivot a nuovi autori il 2026-08-29** (istruzione permanente gi�
 "una volta completata anche quella, aggiungine di nuove"): archivio passato da 220 a 232
 autori con l'aggiunta di E.M. Forster, T.S. Eliot, Agatha Christie, Rabindranath Tagore,
 Bertolt Brecht, Iris Murdoch, Knut Hamsun, Anaïs Nin, Edith Wharton, Guy de Maupassant,
-Nathaniel Hawthorne, Henry James, D.H. Lawrence, George Bernard Shaw (ciascuno con una
-citazione, quindi sotto soglia di indicizzazione — verranno approfonditi in lotti futuri
-insieme ai 35 rimasti dal lavoro precedente). Archivio ora a 234 autori. Lavoro da
-proseguire senza chiedere conferma: sia nuovi autori sia, quando si trova una fonte
-solida, approfondimento dei 35+14 = 49 autori con una sola citazione
+Nathaniel Hawthorne, Henry James, D.H. Lawrence, George Bernard Shaw, Henrik Ibsen, Alfred
+Tennyson (ciascuno con una citazione, quindi sotto soglia di indicizzazione). Archivio ora
+a 236 autori, 35+16 = 51 con una sola citazione. **Dal prossimo lotto: alternare nuovi
+autori e approfondimento** (CATALOGO.md: "approfondire vale più che allargare") invece di
+continuare solo ad allargare — lavoro comunque da proseguire senza chiedere conferma
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
@@ -196,7 +196,7 @@ per l'apertura di un libro: non scartare candidati-incipit solo per mancanza di 
 corretto il 2026-08-29 in `tools/build.py`** (non introdotto da questa sessione, probabile
 sessione concorrente): `gh.main()` girava prima che gli slug delle citazioni nuove fossero
 salvati su `slugs.json`, quindi la build falliva sempre dopo ogni lotto — vedi LOG.md. Archivio
-a 459 citazioni, 234
+a 461 citazioni, 236
 autori. **Deploy sospeso su richiesta
 dell'utente**:
 lavoro salvato in commit locali, nessun push fino a nuova indicazione — verificare `git log
