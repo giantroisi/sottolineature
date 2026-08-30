@@ -301,6 +301,16 @@
   --cached --stat` subito prima di ogni `git commit`, non fidarsi della lista di file passata a
   `git add`.
 
+- 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Occhi e sguardo"**
+  (13/16), in autonomia. Filtrata l'archivio per radice lessicale (occhi, occhio, sguard, pupill):
+  27 candidati, letti uno per uno. 9 citazioni pubblicate: Antoine de Saint-Exupéry (Il piccolo
+  principe), Sylvia Plath (Attraversando l'acqua, la poesia "Specchio"), Cesare Pavese (Verrà la
+  morte e avrà i tuoi occhi, riusata da "Morte"/"Tristezza"), Marguerite Yourcenar (Memorie di
+  Adriano, riusata da "Morte"), Giacomo Leopardi (A Silvia), Philip Roth (Addio, Columbus), Knut
+  Hamsun (Fame), Giovanni Verga (Storia di una capinera, riusata da "Animali"), Alessandro Baricco
+  (Seta). Introduzione scritta a mano (277 parole, 3 paragrafi). Build lanciata due volte (bug del
+  contatore, vedi lotti precedenti): al secondo giro 0 problemi, 23/23 raccolte.
+
 - 2026-08-30 UTC — Fase 7 SEO (SEO-KEYWORDS.md §7): pubblicata la raccolta **"Arte"** (12/16), in
   autonomia. Filtrata l'archivio per radice lessicale (arte, artista, dipint, quadro, pittur,
   scultur, musica, affresco, tela, pennell, museo, melodia, sinfonia, canzone, canto), tenuta
