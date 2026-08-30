@@ -75,6 +75,47 @@ def write_vercel_json(redirects):
     return path
 
 
+def stamp_assets():
+    """Aggiunge ?v=<hash> ai riferimenti di site.css, share.js e nav.js.
+
+    vercel.json serve /assets/* con Cache-Control immutable per un anno: senza
+    un'impronta nell'URL il browser di chi ha gia' visitato il sito continua a
+    usare la versione vecchia del foglio di stile *per un anno*, e la pagina si
+    rompe (e' successo il 2026-08-30: intestazione scomposta, pillole tornate
+    link, etichette nascoste diventate visibili). Con l'impronta, ogni modifica
+    genera un URL nuovo e la cache si aggiorna da sola.
+    """
+    import hashlib
+    import re
+    fingerprints = {}
+    for name in ('site.css', 'share.js', 'nav.js'):
+        path = os.path.join(qp.ROOT, 'assets', name)
+        if os.path.exists(path):
+            with open(path, 'rb') as f:
+                fingerprints[name] = hashlib.md5(f.read()).hexdigest()[:8]
+    pattern = re.compile(r'(/assets/(site\.css|share\.js|nav\.js))(\?v=[0-9a-f]+)?')
+
+    def replace(match):
+        return match.group(1) + '?v=' + fingerprints.get(match.group(2), '0')
+
+    skip = ('.git', 'node_modules', 'archivio', 'templates', 'tools', 'assets')
+    touched = 0
+    for dirpath, dirnames, filenames in os.walk(qp.ROOT):
+        dirnames[:] = [d for d in dirnames if d not in skip]
+        for filename in filenames:
+            if not filename.endswith('.html'):
+                continue
+            full = os.path.join(dirpath, filename)
+            with open(full, encoding='utf-8') as f:
+                before = f.read()
+            after = pattern.sub(replace, before)
+            if after != before:
+                with open(full, 'w', encoding='utf-8') as f:
+                    f.write(after)
+                touched += 1
+    return fingerprints, touched
+
+
 def main():
     # L'elenco opere->citazioni serve prima di renderizzare le pagine
     # citazione (Book @id condiviso, link "tutte le citazioni da quest'opera").
@@ -197,7 +238,11 @@ def main():
             dup_sources[key] = slugs
 
     print()
+    fingerprints, stamped = stamp_assets()
+
     print('--- Rapporto build.py ---')
+    print('Impronta sugli asset:', ', '.join(n + '=' + h for n, h in sorted(fingerprints.items())),
+          '(' + str(stamped) + ' pagine aggiornate)')
     print('URL totali generati (indicizzabili + noindex):', total_pages)
     print('URL indicizzabili (in sitemap):', total_indexable, '(differenza:', total_pages - total_indexable, 'hub sotto soglia, vedi sotto)')
     print('  citazioni:', len(qp_entries), '| indice /citazioni/:', len(citazioni_index_urls), 'pagine')

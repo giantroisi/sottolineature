@@ -158,9 +158,23 @@ def render_og_image(quote, author, title, year, out_path):
     img.save(out_path, 'PNG')
 
 
+def fonts_available():
+    """I font sono quelli di sistema di macOS. Su un'altra macchina non ci sono,
+    e prima il build moriva con un OSError incomprensibile a meta' esecuzione.
+    Meglio saltare le immagini con un avviso: verranno prodotte al primo build
+    fatto dove i font ci sono, e soprattutto restano tutte con lo stesso
+    carattere invece di mescolarne due a seconda di chi ha lanciato il build."""
+    return os.path.exists(FONT_SERIF) and os.path.exists(FONT_SANS)
+
+
 def generate(entries):
     """entries: lista di (slug, q) come restituita da generate_quote_pages.main().
     Ritorna (generated, skipped, stray) per il rapporto di build.py."""
+    if not fonts_available():
+        print('ATTENZIONE: font di sistema non disponibili qui, immagini OG saltate.')
+        print('   Servono', FONT_SERIF, 'e', FONT_SANS, '(macOS).')
+        return 0, 0, []
+
     os.makedirs(OUT_DIR, exist_ok=True)
 
     data_mtime = os.path.getmtime(qp.DATA_PATH)
