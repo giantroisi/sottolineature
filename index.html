@@ -70,7 +70,9 @@
   .page {
     max-width: 68rem;
     margin: 0 auto;
-    padding: 4.5rem 1.75rem 5rem;
+    /* la barra in alto e' gia' un margine: 4.5rem sotto di essa lasciavano un
+       vuoto in cima alla home prima ancora di leggere una parola */
+    padding: 2rem 1.75rem 5rem;
   }
 
   header.masthead {
@@ -83,7 +85,7 @@
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--gold);
-    margin: 0 0 0.9rem;
+    margin: 0 0 0.7rem;
   }
 
   h1.title {
@@ -93,7 +95,7 @@
 
   .logo-mark {
     display: block;
-    height: clamp(9rem, 20vw, 15rem);
+    height: clamp(7rem, 15vw, 12rem);
     width: auto;
     max-width: 100%;
   }
@@ -394,6 +396,7 @@
     header.masthead { margin-bottom: 1.1rem; }
     .logo-mark { height: clamp(6rem, 24vw, 8.5rem); }
     .masthead-row { gap: 1.3rem; margin-bottom: 1.6rem; }
+    .page { padding-top: 1.25rem; }
     .search-bar { margin-bottom: 1.1rem; }
 
     .filters-note { margin-bottom: 1.1rem; }
@@ -732,7 +735,7 @@
 
   /* --- Esplora l'archivio: da qui si raggiungono autori, opere e raccolte,
          che prima dalla home non avevano nemmeno un link --- */
-  .explore { margin: 4rem 0 3rem; padding-top: 2.5rem; border-top: 1px solid var(--rule); }
+  .explore { margin: 2.4rem 0 3rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
   .explore-title {
     font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--gold); margin: 0 0 1.5rem; font-weight: 400;
@@ -794,6 +797,21 @@
     .masthead-row .lede { grid-area: lede; align-self: start; }
     .masthead-row .hero { grid-area: quote; align-self: center; }
   }
+
+  /* --- scelta dello sfondo dell'immagine da condividere: compare solo dopo
+         aver premuto "Condividi" (l'attributo hidden va rinforzato, altrimenti
+         il display:flex lo batte e il pannello resta sempre in pagina) --- */
+  .share-choice {
+    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0 0;
+  }
+  .share-choice[hidden] { display: none; }
+  .share-choice-label { font-size: 0.78rem; color: var(--ink-faint); }
+  .share-choice button {
+    border: 1px solid var(--rule); border-radius: 999px; padding: 0.35rem 0.9rem;
+    font-size: 0.78rem; color: var(--ink-soft); background: none; cursor: pointer;
+    font-family: inherit;
+  }
+  .share-choice button:hover { border-color: var(--gold); color: var(--gold); }
 
   /* --- fasce "Ultime aggiunte" e "Dalle raccolte" --- */
   .strip { margin: 3rem 0; }
@@ -863,6 +881,11 @@
       <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
       <button class="hero-copy-btn sans" id="heroExportBtn" type="button">Condividi</button>
       <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
+    </div>
+    <div class="share-choice sans" id="heroShareChoice" hidden>
+      <span class="share-choice-label">Sfondo dell'immagine:</span>
+      <button type="button" data-variant="chiaro">Chiaro</button>
+      <button type="button" data-variant="scuro">Scuro</button>
     </div>
   </section>
 
@@ -7253,6 +7276,12 @@
     function applyRandom() {
       var label = document.getElementById('heroLabel');
       if (label) { label.textContent = 'In evidenza'; }
+      // cambiata la citazione, la scelta dello sfondo aperta non ha piu' senso
+      var choice = document.getElementById('heroShareChoice');
+      if (choice && !choice.hidden) {
+        choice.hidden = true;
+        document.getElementById('heroExportBtn').setAttribute('aria-expanded', 'false');
+      }
       var i;
       do { i = Math.floor(Math.random() * cards.length); } while (i === lastIndex && cards.length > 1);
       lastIndex = i;
@@ -7292,16 +7321,30 @@
     }
     heroCopyBtn.addEventListener('click', copyHero);
 
+    // "Condividi" apre la scelta dello sfondo; l'immagine si scarica premendo
+    // Chiaro o Scuro. Lo sfondo dell'immagine e' indipendente dal tema con cui
+    // si sta leggendo la pagina.
     var heroExportBtn = document.getElementById('heroExportBtn');
+    var heroShareChoice = document.getElementById('heroShareChoice');
+    heroExportBtn.setAttribute('aria-expanded', 'false');
+    heroExportBtn.setAttribute('aria-controls', 'heroShareChoice');
     heroExportBtn.addEventListener('click', function () {
       if (!currentHeroCard) { return; }
-      downloadQuoteImage(
-        currentHeroCard.querySelector('.card-quote').textContent,
-        currentHeroCard.querySelector('.card-author').textContent,
-        currentHeroCard.querySelector('.card-title').textContent,
-        currentHeroCard.querySelector('.card-year').textContent,
-        heroExportBtn
-      );
+      var open = heroShareChoice.hidden;
+      heroShareChoice.hidden = !open;
+      heroExportBtn.setAttribute('aria-expanded', String(open));
+    });
+    Array.prototype.forEach.call(heroShareChoice.querySelectorAll('button'), function (b) {
+      b.addEventListener('click', function () {
+        if (!currentHeroCard) { return; }
+        downloadQuoteImage(
+          currentHeroCard.querySelector('.card-quote').textContent,
+          currentHeroCard.querySelector('.card-author').textContent,
+          currentHeroCard.querySelector('.card-title').textContent,
+          currentHeroCard.querySelector('.card-year').textContent,
+          b, 'post', b.getAttribute('data-variant')
+        );
+      });
     });
 
     var searchInput = document.getElementById('searchInput');

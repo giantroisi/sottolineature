@@ -56,6 +56,20 @@ PAGE = '''<!DOCTYPE html>
     text-decoration: none; line-height: 1;
   }
   .mine-tools button:hover, .mine-tools a:hover { border-color: var(--accent); color: var(--accent); }
+  .mine-actions { display: flex; gap: 1.1rem; flex-wrap: wrap; margin: 0.8rem 0 0; }
+  .mine-actions button {
+    border: 0; background: none; padding: 0; cursor: pointer; font-family: inherit;
+    font-size: 0.78rem; color: var(--ink-faint);
+    border-bottom: 1px solid var(--rule); line-height: 1.6;
+  }
+  .mine-actions button:hover { color: var(--accent); border-color: var(--accent); }
+  .mine-item .share-choice { margin: 0.8rem 0 0; }
+  .mine-removed { padding: 1.1rem 0; border-bottom: 1px solid var(--rule); font-size: 0.88rem; color: var(--ink-faint); }
+  .mine-removed button {
+    border: 0; background: none; padding: 0; margin-left: 0.6rem; cursor: pointer;
+    font-family: inherit; font-size: 0.88rem; color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+  }
 </style>
 <script>
   try {
@@ -86,6 +100,7 @@ PAGE = '''<!DOCTYPE html>
   </div>
 </header>
 <script src="/assets/nav.js" defer></script>
+<script src="/assets/share.js" defer></script>
 <div class="page">
   <p class="eyebrow sans">La tua raccolta</p>
   <h1>Le mie sottolineature</h1>
@@ -146,38 +161,137 @@ PAGE = '''<!DOCTYPE html>
   }
 
   // Le chiavi salvate sono slug. Quelle vecchie (autore|titolo) si convertono
-  // al volo, cosi' la pagina funziona anche per chi non e' ancora passato
-  // dalla home dopo l'aggiornamento.
+  // qui una volta per tutte: da lì in avanti togliere una sottolineatura è
+  // togliere una riga sola, senza ambiguità fra due citazioni della stessa opera.
   var slugs = [];
   var noteBySlug = {};
+  var hadLegacy = false;
   function addKey(k, note) {
-    var list = k.indexOf('|') === -1 ? [k] : (LEGACY[k] || []);
-    list.forEach(function (slug) {
+    if (k.indexOf('|') !== -1) { hadLegacy = true; }
+    var keys = k.indexOf('|') === -1 ? [k] : (LEGACY[k] || []);
+    keys.forEach(function (slug) {
       if (slugs.indexOf(slug) === -1) { slugs.push(slug); }
       if (note && !noteBySlug[slug]) { noteBySlug[slug] = note; }
     });
   }
   underlined.forEach(function (k) { addKey(k, (notes[k] || '').trim()); });
   slugs = slugs.filter(function (s) { return SLUG_INDEX[s] !== undefined; });
+
+  function save() {
+    try {
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(slugs));
+      localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    } catch (e) {}
+  }
+
+  if (hadLegacy) {
+    Object.keys(notes).forEach(function (k) {
+      if (k.indexOf('|') === -1) { return; }
+      (LEGACY[k] || []).forEach(function (slug) {
+        if (!notes[slug]) { notes[slug] = notes[k]; }
+      });
+      delete notes[k];
+    });
+    save();
+  }
+
   if (!slugs.length) { emptyEl.hidden = false; return; }
+
+  var quoteBySlug = {};
+  var removedHTML = {};
+
+  function refreshCount() {
+    var n = list.querySelectorAll('.mine-item').length;
+    if (n === 0) {
+      countEl.textContent = 'Nessuna citazione sottolineata';
+      toolsEl.hidden = true;
+    } else {
+      countEl.textContent = n === 1 ? '1 citazione sottolineata' : n + ' citazioni sottolineate';
+      toolsEl.hidden = false;
+    }
+  }
+
+  function itemHTML(slug, q, note) {
+    return '<article class="mine-item" data-slug="' + esc(slug) + '">' +
+      '<p class="mine-quote"><a href="/citazioni/' + slug + '/">&laquo;' + esc(q.quote) + '&raquo;</a></p>' +
+      '<p class="mine-meta sans">' + esc(q.author) + ' &mdash; <em>' + esc(q.title) + '</em>' +
+      (q.year ? ' &middot; ' + esc(String(q.year)) : '') + '</p>' +
+      (note ? '<p class="mine-note sans"><span class="mine-note-label">La tua nota</span>' + esc(note) + '</p>' : '') +
+      '<div class="mine-actions sans">' +
+        '<button type="button" data-act="share" aria-expanded="false">Condividi</button>' +
+        '<button type="button" data-act="remove">Togli la sottolineatura</button>' +
+      '</div>' +
+      '<div class="share-choice sans" hidden>' +
+        '<span class="share-choice-label">Sfondo dell&#39;immagine:</span>' +
+        '<button type="button" data-variant="chiaro">Chiaro</button>' +
+        '<button type="button" data-variant="scuro">Scuro</button>' +
+      '</div>' +
+      '</article>';
+  }
+
+  function onListClick(e) {
+    var t = e.target;
+    if (!t || t.tagName !== 'BUTTON') { return; }
+
+    var variant = t.getAttribute('data-variant');
+    if (variant) {
+      var art = t.closest('.mine-item');
+      var q = quoteBySlug[art.getAttribute('data-slug')];
+      if (q && window.Sottolineature && window.Sottolineature.share) {
+        window.Sottolineature.share(q.quote, q.author, q.title, q.year ? String(q.year) : '', t, 'post', variant);
+      }
+      return;
+    }
+
+    var act = t.getAttribute('data-act');
+    if (act === 'share') {
+      var panel = t.closest('.mine-item').querySelector('.share-choice');
+      var open = panel.hidden;
+      panel.hidden = !open;
+      t.setAttribute('aria-expanded', String(open));
+      return;
+    }
+
+    // Togliere una sottolineatura e' l'unica azione distruttiva della pagina:
+    // resta un "Annulla" finche' non si ricarica.
+    if (act === 'remove') {
+      var article = t.closest('.mine-item');
+      var slug = article.getAttribute('data-slug');
+      removedHTML[slug] = article.outerHTML;
+      var i = slugs.indexOf(slug);
+      if (i !== -1) { slugs.splice(i, 1); }
+      save();
+      var row = document.createElement('div');
+      row.className = 'mine-removed sans';
+      row.setAttribute('data-slug', slug);
+      row.innerHTML = 'Sottolineatura tolta.<button type="button" data-act="undo">Annulla</button>';
+      article.parentNode.replaceChild(row, article);
+      refreshCount();
+      return;
+    }
+
+    if (act === 'undo') {
+      var oldRow = t.closest('.mine-removed');
+      var back = oldRow.getAttribute('data-slug');
+      if (slugs.indexOf(back) === -1) { slugs.push(back); }
+      save();
+      var tmp = document.createElement('div');
+      tmp.innerHTML = removedHTML[back];
+      oldRow.parentNode.replaceChild(tmp.firstChild, oldRow);
+      refreshCount();
+    }
+  }
 
   fetch('/data/citazioni.json').then(function (r) { return r.json(); }).then(function (quotes) {
     var found = slugs.map(function (slug) { return { slug: slug, q: quotes[SLUG_INDEX[slug]] }; })
                      .filter(function (x) { return x.q; });
     if (!found.length) { emptyEl.hidden = false; return; }
-    countEl.textContent = found.length === 1 ? '1 citazione sottolineata' : found.length + ' citazioni sottolineate';
+    found.forEach(function (x) { quoteBySlug[x.slug] = x.q; });
     list.innerHTML = found.map(function (x) {
-      var q = x.q;
-      var note = (noteBySlug[x.slug] || '').trim();
-      var quoteHtml = '<a href="/citazioni/' + x.slug + '/">&laquo;' + esc(q.quote) + '&raquo;</a>';
-      return '<article class="mine-item">' +
-        '<p class="mine-quote">' + quoteHtml + '</p>' +
-        '<p class="mine-meta sans">' + esc(q.author) + ' &mdash; <em>' + esc(q.title) + '</em>' +
-        (q.year ? ' &middot; ' + esc(q.year) : '') + '</p>' +
-        (note ? '<p class="mine-note sans"><span class="mine-note-label">La tua nota</span>' + esc(note) + '</p>' : '') +
-        '</article>';
+      return itemHTML(x.slug, x.q, (noteBySlug[x.slug] || '').trim());
     }).join('');
-    toolsEl.hidden = false;
+    refreshCount();
+    list.addEventListener('click', onListClick);
     document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
   }).catch(function () {
     emptyEl.hidden = false;

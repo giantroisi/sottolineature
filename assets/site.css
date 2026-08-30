@@ -392,6 +392,10 @@ footer.sans a { color: var(--ink-faint); }
 .share-choice {
   display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: -0.8rem 0 1.6rem;
 }
+/* senza questa riga il display:flex qui sopra batte l'attributo hidden e la
+   scelta dello sfondo resta sempre in pagina: premere "Condividi" sembrava
+   non fare nulla, perche' apriva un pannello gia' aperto */
+.share-choice[hidden] { display: none; }
 .share-choice-label { font-size: 0.78rem; color: var(--ink-faint); }
 .share-choice button {
   border: 1px solid var(--rule); border-radius: 999px; padding: 0.35rem 0.9rem;
@@ -496,7 +500,7 @@ footer.sans a { color: var(--ink-faint); }
   }
   body { background: #fff !important; color: #000 !important; }
   .site-header, .header-search, .site-nav, .theme-toggle,
-  .actions, .share-choice, .tags, .breadcrumb,
+  .actions, .share-choice, .mine-actions, .mine-removed, .tags, .breadcrumb,
   .related-grid, .related, .explore, .filters, .search-bar,
   .underline-toggle, .card-hint, .note-field, .print-selection-btn { display: none !important; }
   .page, .page-quote .page { max-width: none; margin: 0; padding: 0; }
