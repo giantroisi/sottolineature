@@ -146,6 +146,21 @@ in italiano è sbagliato o mal attribuito.
 
 ## 7. Piano dei lotti, in ordine di ritorno
 
+> **Correzione di rotta del 2026-08-30.** Fotografia dell'archivio a 493 citazioni e 251 autori:
+> **49 autori con una sola citazione, 176 con esattamente due, appena 26 con tre o piu'**, media
+> 1,96. Il Novecento e' ancora il 58% e le opere anteriori al 1800 sono 36 su 493.
+> I lotti hanno funzionato ma si sono fermati a meta': l'approfondimento si arresta a 2 citazioni
+> per autore invece delle 3-4 previste, e nel frattempo entrano autori nuovi che ripartono da 1.
+> Il risultato e' un archivio larghissimo e sottile, con quasi tutte le pagine autore sulla soglia
+> minima.
+>
+> **Da qui in avanti, fino a nuovo ordine: nessun autore nuovo.** Si portano a 4 citazioni gli
+> autori gia' presenti con piu' domanda di ricerca (elenco in `data/keywords.json`, foglio
+> *Autori*), dando la precedenza a opere anteriori al Novecento. Un autore si considera chiuso a 4,
+> non a 2.
+
+
+
 Lotti da **10-15 citazioni**, mai di più: oltre quella soglia la verifica si degrada e gli errori
 passano. Ogni lotto si chiude con `python3 tools/build.py`, una riga in `LOG.md` e un commit.
 
