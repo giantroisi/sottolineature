@@ -217,9 +217,12 @@ Quarto lotto: Ernest Hemingway, Charles Baudelaire, Fernando Pessoa, Anne
 Frank, Umberto Eco, Lev Tolstoj portati anch'essi a **4 citazioni ciascuno**.
 Quinto lotto: Haruki Murakami, George Orwell, Emily Dickinson, Khalil Gibran,
 Jean-Paul Sartre, Jorge Luis Borges portati anch'essi a **4 citazioni
-ciascuno**. Archivio a 251 autori, 548 citazioni, 47 con una sola citazione,
-48 con tre o più. Lavoro da proseguire senza chiedere conferma, seguendo la
-nuova regola: nessun autore nuovo, si chiude a 4 chi ha più domanda di ricerca
+ciascuno**. Sesto lotto: Giuseppe Ungaretti, Edgar Allan Poe, Marcel Proust,
+David Foster Wallace, Ugo Foscolo, Francesco Petrarca portati anch'essi a
+**4 citazioni ciascuno**. Archivio a 251 autori, 559 citazioni, 47 con una
+sola citazione, 53 con tre o più. Lavoro da proseguire senza chiedere
+conferma, seguendo la nuova regola: nessun autore nuovo, si chiude a 4 chi ha
+più domanda di ricerca
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
