@@ -194,9 +194,10 @@ indiani → +La sagra del delitto) e Bertolt Brecht (Madre Courage e i suoi figl
 Zola e Hans Christian Andersen. Poi approfondimento: Isaac Asimov e James Baldwin
 portati da 1 a 2 citazioni. Poi due nuovi autori: Roald Dahl e Clarice Lispector. Poi un lotto misto: Douglas Adams (approfondimento,
 1 a 2 citazioni) e Astrid Lindgren (nuovo autore). Poi approfondimento: Salman
-Rushdie e Chimamanda Ngozi Adichie portati da 1 a 2 citazioni. Archivio a 243
-autori, 479 citazioni, 47 con una sola citazione. Lavoro da proseguire senza
-chiedere conferma, alternando le due modalità lotto per lotto
+Rushdie e Chimamanda Ngozi Adichie portati da 1 a 2 citazioni. Poi due nuovi
+autori: Hannah Arendt e Anna Achmatova. Archivio a 245 autori, 481 citazioni, 49
+con una sola citazione. Lavoro da proseguire senza chiedere conferma, alternando
+le due modalità lotto per lotto
 citazioni una volta esaurito, **anche per ore senza il controllo dell'utente** (istruzione del
 2026-08-28). Script di inserimento aggiornato: rifiuta citazioni con `source_locus` vuoto o
 "non indicato" — **ma "incipit" (o una descrizione equivalente della posizione, es. "inciso
