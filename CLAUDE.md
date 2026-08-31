@@ -837,9 +837,6 @@ partire da una keyword senza il contenuto che la giustifica.
   nuovi, si porta a **4 citazioni** ciascuno gli autori gia' in archivio con piu' domanda di
   ricerca, con precedenza alle opere anteriori al Novecento. Motivo: 176 autori su 251 sono fermi
   a due citazioni e il Novecento resta il 58% dell'archivio
-- **Errore di contenuto aperto:** due citazioni di *Il piccolo principe* hanno lo stesso
-  riferimento, «capitolo XXI». Il build lo segnala a ogni esecuzione. Una delle due e' collocata
-  male e va verificata sul testo
 - **Contatto e "Segnala un errore" — in sospeso su richiesta dell'utente (2026-08-30):** manca solo
   un indirizzo email da pubblicare. Quando arriva (l'utente valuta se crearne uno dedicato tipo
   `ciao@sottolineature.it` su Hostinger, dove sta il dominio): email nel footer di ogni pagina, e
