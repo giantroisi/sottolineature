@@ -38,6 +38,11 @@
       "source": "/citazioni/michela-murgia-accabadora/",
       "destination": "/citazioni/michela-murgia-chiru/",
       "permanent": true
+    },
+    {
+      "source": "/citazioni/fernando-pessoa-il-libro-dell-inquietudine/",
+      "destination": "/citazioni/fernando-pessoa-tabacaria/",
+      "permanent": true
     }
   ],
   "headers": [

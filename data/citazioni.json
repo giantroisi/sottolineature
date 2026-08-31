@@ -317,17 +317,17 @@
   {
     "quote": "Sono niente. Non sarò mai niente. Non posso voler essere niente. A parte questo, ho in me tutti i sogni del mondo.",
     "author": "Fernando Pessoa",
-    "title": "Il libro dell'inquietudine",
-    "year": "1982",
-    "context": "È la voce di Bernardo Soares, uno degli \"eteronimi\" con cui Pessoa firmava le sue opere — un modesto contabile di Lisbona a cui l'autore presta un intero diario di riflessioni sulla propria insignificanza.",
-    "cover": "/assets/covers/900685.jpg",
+    "title": "Tabacaria",
+    "year": "1928",
+    "context": "È l'incipit di «Tabacaria», una delle poesie più celebri di Pessoa, firmata non con il proprio nome ma con quello di Álvaro de Campos, uno dei suoi eteronimi: un impiegato che guarda dalla finestra la tabaccheria di fronte e riflette sulla propria insignificanza.",
+    "cover": "",
     "category": "solitudine",
     "genre": "",
     "added": "2026-07-31",
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "incipit",
     "source_translator": "",
-    "source_url": ""
+    "source_url": "https://arquivopessoa.net/textos/163"
   },
   {
     "quote": "Non c'è grandezza dove non c'è semplicità, bontà e verità.",
@@ -589,15 +589,15 @@
     "author": "Louisa May Alcott",
     "title": "Piccole donne",
     "year": "1868",
-    "context": "Lo dice Jo March, la sorella scrittrice e più ribelle delle quattro protagoniste.",
+    "context": "È Amy March a dirlo scherzosamente al marito Laurie, sulle prospettive del loro matrimonio appena iniziato.",
     "cover": "/assets/covers/8775559.jpg",
     "category": "coraggio",
     "genre": "",
     "added": "2026-07-31",
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "parte seconda, capitolo 44 (\"Mio signore e mia signora\")",
     "source_translator": "",
-    "source_url": ""
+    "source_url": "https://www.gutenberg.org/ebooks/514"
   },
   {
     "quote": "Non sono un uccello, e nessuna rete può intrappolarmi: sono un essere umano libero, con una volontà indipendente.",
@@ -895,9 +895,9 @@
     "genre": "",
     "added": "2026-07-31",
     "source_edition": "",
-    "source_locus": "",
+    "source_locus": "lettera quarta, 16 luglio 1903 (Worpswede)",
     "source_translator": "",
-    "source_url": ""
+    "source_url": "https://www.rilke.de/briefe/160703.htm"
   },
   {
     "quote": "Per molto tempo mi sono coricato presto la sera.",
@@ -969,10 +969,10 @@
     "category": "vita",
     "genre": "",
     "added": "2026-07-31",
-    "source_edition": "",
-    "source_locus": "",
-    "source_translator": "",
-    "source_url": ""
+    "source_edition": "Einaudi (Super ET)",
+    "source_locus": "capitolo 2",
+    "source_translator": "Giorgio Amitrano",
+    "source_url": "https://it.wikiquote.org/wiki/Haruki_Murakami"
   },
   {
     "quote": "Non sono le nostre capacità che dimostrano chi siamo davvero, sono le nostre scelte.",
@@ -1509,10 +1509,10 @@
     "category": "tempo",
     "genre": "",
     "added": "2026-08-02",
-    "source_edition": "",
-    "source_locus": "",
-    "source_translator": "",
-    "source_url": ""
+    "source_edition": "Einaudi, 2008",
+    "source_locus": "capitolo 1 (\"Il ragazzo chiamato Corvo\")",
+    "source_translator": "Giorgio Amitrano",
+    "source_url": "https://it.wikiquote.org/wiki/Haruki_Murakami"
   },
   {
     "quote": "Preferirei di no.",
