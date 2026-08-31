@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Genera pagine hub per tema (umore), genere e autore.
+"""Genera pagine hub per tema, genere e autore.
 
 Uso: python3 tools/generate_hub_pages.py
 Dipende dallo stesso parsing di generate_quote_pages.py; rilegge index.html
@@ -148,7 +148,7 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
     nav_html = '<nav class="hub-nav sans">' + nav_items + '</nav>'
 
     if kind == 'tema':
-        eyebrow = 'Un umore'
+        eyebrow = 'Un tema'
         # Preposizione articolata corretta per ciascun tema (SEO.md: "Frasi
         # e citazioni sulla libertà", non il generico "su" per tutti).
         preposizione_tema = {
@@ -263,7 +263,7 @@ def main():
 
     hub_intros = load_hub_intros()
 
-    # --- Temi (umore) ---
+    # --- Temi ---
     temi_dir = os.path.join(ROOT, 'temi')
     os.makedirs(temi_dir, exist_ok=True)
     tema_nav = [(CATEGORY_LABELS[c], '/temi/' + c + '/') for c in CATEGORY_LABELS]

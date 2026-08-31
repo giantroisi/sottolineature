@@ -255,8 +255,8 @@ def generate_taxonomy_index(kind, labels, counts):
     # guardando ne' perche' le etichette sono queste e non altre.
     if kind == 'tema':
         intro = (
-            '<p class="index-intro">Non sono categorie, sono umori. Una pagina puo\u2019 riconoscersi '
-            'in pi\u00f9 d\u2019uno, e nessuna citazione entra in un umore per riempirlo: '
+            '<p class="index-intro">Non sono categorie rigide: la stessa pagina pu\u00f2 riconoscersi '
+            'in pi\u00f9 di un tema, e nessuna citazione entra in un tema per riempirlo \u2014 '
             'l\u2019etichetta arriva dopo la lettura, non prima. Sette in tutto, perch\u00e9 un '
             'ottavo avrebbe voluto dire spezzare il capello.</p>')
     else:
@@ -268,11 +268,11 @@ def generate_taxonomy_index(kind, labels, counts):
     body_html = intro + '<ul class="index-list" style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
 
     canonical = SITE_URL + '/' + dir_name + '/'
-    label_word = 'umori' if kind == 'tema' else 'generi'
-    title_tag = ('Tutti gli umori' if kind == 'tema' else 'Tutti i generi') + ' | Sottolineature'
+    label_word = 'temi' if kind == 'tema' else 'generi'
+    title_tag = ('Tutti i temi' if kind == 'tema' else 'Tutti i generi') + ' | Sottolineature'
     if kind == 'tema':
-        description = ('I sette umori in cui si raggruppano le citazioni di Sottolineature: non una '
-                       'classificazione, ma un\u2019atmosfera. Una pagina pu\u00f2 stare in pi\u00f9 d\u2019uno.')
+        description = ('I sette temi in cui si raggruppano le citazioni di Sottolineature. Non una '
+                       'classificazione rigida: la stessa pagina pu\u00f2 stare in pi\u00f9 di un tema.')
     else:
         description = ('I generi dell\u2019archivio di Sottolineature: fantasy, fantascienza, distopia, '
                        'horror, saggistica. Ne entra uno solo se ha almeno quattro titoli dietro.')
@@ -301,8 +301,8 @@ def generate_taxonomy_index(kind, labels, counts):
         canonical=canonical,
         jsonld=jsonld,
         eyebrow='Indice',
-        h1='Tutti gli umori' if kind == 'tema' else 'Tutti i generi',
-        count_line=str(sum(1 for s in labels if counts.get(s, 0) > 0)) + (' umori' if kind == 'tema' else ' generi'),
+        h1='Tutti i temi' if kind == 'tema' else 'Tutti i generi',
+        count_line=str(sum(1 for s in labels if counts.get(s, 0) > 0)) + (' temi' if kind == 'tema' else ' generi'),
         body_html=body_html,
     )
     print('Pagina /' + dir_name + '/ generata')

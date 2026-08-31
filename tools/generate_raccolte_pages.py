@@ -3,7 +3,7 @@
 
 Selezioni curate a mano di citazioni gia' pubblicate, con introduzione
 editoriale scritta a mano: intercettano intenti di ricerca stretti ("frasi
-sul mare", "incipit memorabili") che i 7 temi/umori, tenuti volutamente
+sul mare", "incipit memorabili") che i 7 temi, tenuti volutamente
 larghi, non coprono. Una raccolta si pubblica solo con >=8 citazioni
 pertinenti e un'introduzione scritta - mai generate combinando filtri.
 
