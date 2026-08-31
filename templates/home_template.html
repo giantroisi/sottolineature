@@ -395,7 +395,6 @@
     .search-clear-btn { width: 2.6rem; max-height: 2.85rem; font-size: 1.4rem; }
     header.masthead { margin-bottom: 1.1rem; }
     .logo-mark { height: clamp(6rem, 24vw, 8.5rem); }
-    .masthead-row { gap: 1.3rem; margin-bottom: 1.6rem; }
     .page { padding-top: 1.25rem; }
     .search-bar { margin-bottom: 1.1rem; }
 
@@ -796,6 +795,26 @@
     .masthead-row .masthead { grid-area: brand; align-self: end; }
     .masthead-row .lede { grid-area: lede; align-self: start; }
     .masthead-row .hero { grid-area: quote; align-self: center; }
+  }
+
+  /* Su telefono la ricerca finiva a 640px dall'alto in una finestra di 727:
+     fuori schermo appena la barra degli indirizzi si prende il suo spazio. Qui
+     la colonna della pagina si riordina — marchio, ricerca, citazione del
+     giorno, e solo dopo la presentazione — così la ricerca entra nella prima
+     schermata.
+     `display: contents` scioglie la riga della testata nei suoi tre pezzi, che
+     diventano ordinabili uno per uno; tutto il resto della pagina resta dopo
+     (order 6). Deve stare dopo le regole qui sopra: stessa specificità, vince
+     chi viene per ultimo. */
+  @media (max-width: 700px) {
+    .page { display: flex; flex-direction: column; }
+    .page > * { order: 6; }
+    .masthead-row { display: contents; }
+    .masthead-row .masthead { order: 1; margin-bottom: 1.2rem; }
+    .search-sentinel { order: 2; }
+    .search-bar { order: 3; margin-bottom: 1.6rem; }
+    .masthead-row .hero { order: 4; margin: 0 0 1.5rem; }
+    .masthead-row .lede { order: 5; margin: 0 0 1.6rem; }
   }
 
   /* --- scelta dello sfondo dell'immagine da condividere: compare solo dopo
