@@ -161,7 +161,14 @@ def render_opera(op, items):
         (' (' + op['year'] + ')' if op.get('year') else '') + '.'
     )
     canonical = SITE_URL + '/opere/' + op['slug'] + '/'
-    title_tag = h1 + ' | Sottolineature'
+    # Nei risultati di ricerca si leggono si' e no 64 caratteri: con un titolo
+    # lungo il marchio in coda spariva comunque, e con «Canto notturno di un
+    # pastore errante dell'Asia» spariva anche il nome dell'autore. Si scala:
+    # forma piena, poi senza marchio, poi senza autore.
+    for candidate in (h1 + ' | Sottolineature', h1, 'Frasi e citazioni da ' + op['title']):
+        title_tag = candidate
+        if len(title_tag) <= 64:
+            break
     og_image = SITE_URL + '/og-banner.png'
 
     author_id = SITE_URL + '/autori/' + author_slug + '/#person'

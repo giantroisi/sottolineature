@@ -43,6 +43,14 @@ def save_slugs(data):
         json.dump(data, f, ensure_ascii=False, indent=2, sort_keys=True)
 
 
+# Limiti di lunghezza per <title> e meta description: non sono estetici, sono
+# quanto ne mostra Google prima di tagliare.
+TITLE_MAX = 64
+TITLE_MIN_INCIPIT = 30
+TITLE_MAX_INCIPIT = 48
+DESC_MAX = 155
+
+
 def quote_key(q):
     return q['author'] + '|' + q['title'] + '|' + ' '.join(q['quote'].split()[:6])
 
@@ -428,12 +436,25 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     full_quote_html = ('<p class="card-quote-full">' + quote_esc + '</p>') if was_truncated else ''
 
     ref = q['title'] + (', ' + q['year'] if q['year'] else '')
+    # Google taglia la descrizione intorno ai 155-160 caratteri: quello che sta
+    # oltre non lo legge nessuno, e la coda troncata a meta' frase fa un effetto
+    # peggiore di una frase corta.
     description = ('«' + q['quote'] + '» — ' + q['author'] + ', ' + ref)
-    if len(description) > 200:
-        description = description[:197].rsplit(' ', 1)[0] + '…'
+    if len(description) > DESC_MAX:
+        description = description[:DESC_MAX - 1].rsplit(' ', 1)[0] + '…'
 
-    title_incipit, _ = truncate_words(q['quote'], 45)
-    title_tag = '«' + title_incipit + '» — ' + q['author'] + ', ' + q['title']
+    # Il <title> lo si scriveva come incipit di 45 caratteri piu' autore e opera
+    # per intero: veniva fuori una media di 80 caratteri e punte di 127, quando
+    # nei risultati di ricerca se ne vedono si' e no 64. Il pezzo che spariva
+    # era la coda, cioe' proprio autore e opera. Qui il conto si fa al
+    # contrario: prima si decide se autore e opera ci stanno insieme, poi quel
+    # che avanza va all'incipit.
+    tail_full = ' — ' + q['author'] + ', ' + q['title']
+    tail_short = ' — ' + q['author']
+    tail = tail_full if 2 + TITLE_MIN_INCIPIT + len(tail_full) <= TITLE_MAX else tail_short
+    room = max(min(TITLE_MAX_INCIPIT, TITLE_MAX - 2 - len(tail)), 26)
+    title_incipit, _ = truncate_words(q['quote'], room)
+    title_tag = '«' + title_incipit + '»' + tail
     og_title = '«' + (q['quote'] if len(q['quote']) <= 120 else q['quote'][:117].rsplit(' ', 1)[0] + '…') + '»'
     canonical = SITE_URL + '/citazioni/' + slug + '/'
     og_image = SITE_URL + '/assets/og/' + slug + '.png'

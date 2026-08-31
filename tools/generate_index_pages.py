@@ -204,7 +204,7 @@ def generate_autori_index(author_slugs, by_author_count):
             '<span class="sans" style="color:var(--ink-faint)">(' + str(by_author_count.get(author, 0)) + ')</span></li>'
             for author, slug in items
         )
-        body_parts.append('<h2 class="sans" style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:2rem 0 0.6rem">' + letter + '</h2><ul class="related-list" style="list-style:none;margin:0;padding:0">' + lis + '</ul>')
+        body_parts.append('<h2 class="sans" style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--gold);margin:2rem 0 0.6rem">' + letter + '</h2><ul class="related-list index-list" style="list-style:none;margin:0;padding:0">' + lis + '</ul>')
 
     canonical = SITE_URL + '/autori/'
     title_tag = 'Tutti gli autori | Sottolineature'
@@ -249,7 +249,7 @@ def generate_taxonomy_index(kind, labels, counts):
         '<span class="sans" style="color:var(--ink-faint)">(' + str(counts.get(slug, 0)) + ')</span></li>'
         for slug, label in labels.items() if counts.get(slug, 0) > 0
     )
-    body_html = '<ul style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
+    body_html = '<ul class="index-list" style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
 
     canonical = SITE_URL + '/' + dir_name + '/'
     label_word = 'umori' if kind == 'tema' else 'generi'
@@ -302,7 +302,7 @@ def generate_opere_index(opere, opera_status):
         for author in sorted(by_author)
         for o in by_author[author]
     )
-    body_html = '<ul style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
+    body_html = '<ul class="index-list" style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
 
     canonical = SITE_URL + '/opere/'
     title_tag = 'Tutte le opere | Sottolineature'
@@ -348,7 +348,7 @@ def generate_raccolte_index(raccolte, raccolta_status):
         '<span class="sans" style="color:var(--ink-faint)">(' + str(raccolta_status[r['slug']]) + ')</span></li>'
         for r in published
     )
-    body_html = '<ul style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
+    body_html = '<ul class="index-list" style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
 
     canonical = SITE_URL + '/raccolte/'
     title_tag = 'Tutte le raccolte | Sottolineature'

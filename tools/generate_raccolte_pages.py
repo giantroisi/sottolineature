@@ -151,10 +151,13 @@ def render_raccolta(r, items):
     title_esc = html.escape(r['title'])
     h1 = r['h1']
     intro_html = ''.join('<p>' + html.escape(p) + '</p>' for p in r['intro'])
+    # 155 caratteri: oltre, Google taglia e la coda non la legge nessuno
     description = (
         str(count) + ' citazion' + count_suffix + ' scelt' + ('a' if count == 1 else 'e') +
-        ' a mano — ' + r['intro'][0][:150].rsplit(' ', 1)[0] + '…'
+        ' a mano — ' + r['intro'][0]
     )
+    if len(description) > 155:
+        description = description[:154].rsplit(' ', 1)[0] + '…'
     canonical = SITE_URL + '/raccolte/' + r['slug'] + '/'
     title_tag = h1 + ' | Sottolineature'
     og_image = SITE_URL + '/og-banner.png'
