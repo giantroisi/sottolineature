@@ -764,13 +764,13 @@ quindi prima come **elenco di ciò che conviene raccogliere**, poi come piano ed
       (si cita Platone con il dialogo). Tetto: non più del 15% del catalogo da filosofia e classici
       non narrativi. Autori sotto copyright ammessi con citazione breve (max ~40 parole) e fonte
       completa
-- [ ] **Acquisizioni ora sbloccate dalla decisione qui sopra**, tutte da citare per opera:
-      Sant'Agostino *Confessioni* (1.460 di volume), Nietzsche *Così parlò Zarathustra* (830), Platone
-      (550, con il dialogo — è anche il modo corretto di rendere le 440 di "Socrate"),
-      Schopenhauer (430), Aristotele (300). Sotto copyright, con citazione breve e fonte completa:
-      Bukowski (1.870), Camilleri (540). Restano esclusi *Ready Player One* e *Chiamami col tuo
-      nome* solo finché non si trova una fonte italiana tracciabile al testo pubblicato.
-      Il piano completo dei lotti è in `CATALOGO.md`, punto 7
+- [x] **Acquisizioni sbloccate dalla decisione qui sopra, fatte il 2026-08-31**: Sant'Agostino,
+      Nietzsche e Platone portati da 2 a 4 citazioni; Schopenhauer da 2 a 4; **Aristotele aggiunto
+      ex novo** (prima assente), 3 citazioni su tre opere (Politica, Etica Nicomachea, Metafisica)
+      con scheda autore. Dettagli e fonti in `LOG.md`. Bukowski (1.870 di volume) e Camilleri (540)
+      già a 4 citazioni ciascuno dal Lotto 7 (2026-08-28). Restano esclusi *Ready Player One* e
+      *Chiamami col tuo nome* finché non si trova una fonte italiana tracciabile al testo
+      pubblicato. Il piano completo dei lotti è in `CATALOGO.md`, punto 7
 - [ ] **Aggiornare `data/keywords.json` dopo ogni lotto**: le raccolte in lista d'attesa che
       superano la soglia si spostano da sole in "pronta".
 
