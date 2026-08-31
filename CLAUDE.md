@@ -807,7 +807,14 @@ partire da una keyword senza il contenuto che la giustifica.
 
 **Prossimo lavoro, in quest'ordine (concordato con l'utente il 2026-08-30).**
 
-1. **"Sottolinea" e nota sulla pagina citazione — il buco più serio rimasto.** `/citazioni/<slug>/`
+1. ~~**"Sottolinea" e nota sulla pagina citazione."**~~ **Fatto il 2026-08-31.** Il toggle è nelle
+   azioni della pagina, e quando è attivo compare il campo nota; stesso archivio della home
+   (`localStorage`, chiave = slug), quindi una citazione segnata sulla sua pagina risulta segnata
+   anche sulla card e compare fra Le mie. Le chiavi vecchie `autore|titolo` vengono sostituite con
+   gli slug di **tutte** le citazioni di quell'opera, altrimenti togliere questa toglieva anche
+   l'altra dello stesso libro. `nav.js` espone ora `Sottolineature.refreshNavCount()`, così il
+   contatore sulla voce "Le mie" si aggiorna subito invece di restare fermo al caricamento. Testo
+   originale della voce, per memoria: **il buco più serio rimasto.** `/citazioni/<slug>/`
    non ha né il toggle né il campo nota: si può sottolineare solo dalla card in home. È la pagina
    su cui atterra chi arriva da una ricerca, cioè l'unico punto dove il visitatore nuovo incontra
    il sito, ed è l'unica dove non può salvare la frase. Serve il toggle equivalente a quello della
@@ -815,13 +822,29 @@ partire da una keyword senza il contenuto che la giustifica.
    `sottolineature-notes`) più il campo nota. **Fatto il 2026-08-30 su `/le-mie-sottolineature/`**,
    dove ogni voce ha ora *Togli la sottolineatura* con *Annulla*: resta da fare sulla pagina
    citazione. Da lì la vecchia voce "togliere Sottolineata dalla pagina citazione" è chiusa a metà.
-2. **Divisione dell'archivio in home (prestazioni).** Le 621 card restano tutte nel documento,
-   circa 600 KB di HTML. Servire le prime 30 lato server e caricare il resto da
-   `data/citazioni.json` quando serve. **È l'unico intervento con controindicazioni vere** — tocca
-   ricerca, filtri, sottolineature e ancore `#slug`: va fatto con verifica puntuale di tutti e
-   quattro, non di fretta.
-3. **23 citazioni senza blocco fonte** su 621 (il build lo stampa a ogni esecuzione). Verifica una
-   per una sulla fonte primaria, lento ma senza rischi.
+2. **Divisione dell'archivio in home (prestazioni) — misurata il 2026-08-31, rimandata.** Le 621
+   card restano tutte nel documento: 598 KB di HTML, 97 KB compressi, 7.023 nodi. Misura su
+   telefono di fascia media (4G a 1,6 Mbps, CPU rallentata 4×): **LCP 396 ms, CLS 0,032, 392 ms di
+   long task su 4** — i Core Web Vitals sono già tutti dentro le soglie di Google con margine
+   ampio. Quello che resta alto è il `DOMContentLoaded`, 3,5 s, quasi tutto trasferimento dell'HTML.
+   Il guadagno vero della divisione (servire 30 card e caricare il resto da `data/citazioni.json`)
+   sarebbe sui dati consumati e sul tempo di interattività, non sulle metriche che Google guarda;
+   in cambio tocca ricerca, filtri, sottolineature e ancore `#slug`, cioè quattro cose che oggi
+   funzionano. **Decisione: non farla adesso.** Va rimessa in cima se l'archivio supera le ~900
+   citazioni o se le misure peggiorano — rifare la misura, non fidarsi di questa.
+3. **Citazioni senza blocco fonte: da 23 a 8 — verifica fatta il 2026-08-31, referto completo in
+   `VERIFICHE-FONTI.md`.** Tredici compilate con il punto del testo accertato. Le **otto rimaste
+   richiedono una decisione sul contenuto**, e sono la parte importante: due hanno l'opera sbagliata
+   (Weil non è in *L'ombra e la grazia* ma in una lettera a Joë Bousquet del 13 aprile 1942; Canetti
+   non è in *Auto da fé* ma in *La provincia dell'uomo*, 1944), due sono frasi che nel libro non
+   esistono così (Barrie, «Solo chi sogna può volare», assente dal testo integrale di *Peter and
+   Wendy* — ed è il titolo del cartone Disney, non del romanzo; Collins, troncamento di una battuta
+   di Templesmith a fine cap. 10), quattro non hanno nessuna fonte ammissibile (Aleramo — e il testo
+   è integrale su Gutenberg, la frase non c'è; Oz; de Céspedes, che risulta essere un richiamo di
+   copertina dell'Oscar 1978; Mahfouz, dove l'arabo dice un'altra cosa). **Non toccare senza l'ok
+   dell'utente: si tratta di cambiare o togliere contenuto del catalogo.** Nel referto c'è anche un
+   elenco di riserve sulla formulazione italiana di dieci citazioni già compilate — il punto del
+   testo è certo, la frase pubblicata no.
 
 **Bloccato sull'utente** (nessuno dei tre è aggirabile da qui):
 
