@@ -149,7 +149,10 @@
   var hadLegacy = false;
   function addKey(k, note) {
     if (k.indexOf('|') !== -1) { hadLegacy = true; }
-    var keys = k.indexOf('|') === -1 ? [k] : (LEGACY[k] || []);
+    // di una chiave vecchia "autore|titolo" si prende la PRIMA citazione
+    // dell'opera e basta: prendendole tutte, una sottolineatura ne faceva
+    // comparire due, e la seconda non l'aveva mai segnata nessuno
+    var keys = k.indexOf('|') === -1 ? [k] : (LEGACY[k] || []).slice(0, 1);
     keys.forEach(function (slug) {
       if (slugs.indexOf(slug) === -1) { slugs.push(slug); }
       if (note && !noteBySlug[slug]) { noteBySlug[slug] = note; }
@@ -172,7 +175,7 @@
   if (hadLegacy) {
     Object.keys(notes).forEach(function (k) {
       if (k.indexOf('|') === -1) { return; }
-      (LEGACY[k] || []).forEach(function (slug) {
+      (LEGACY[k] || []).slice(0, 1).forEach(function (slug) {
         if (!notes[slug]) { notes[slug] = notes[k]; }
       });
       delete notes[k];

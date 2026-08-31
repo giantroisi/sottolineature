@@ -307,16 +307,17 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     }}
 
     // Le sottolineature salvate prima del passaggio agli slug hanno chiave
-    // "autore|titolo". Qui si sostituisce con gli slug di tutte le citazioni di
-    // quell'opera: senza, togliere questa toglierebbe anche l'altra.
+    // "autore|titolo", che di un'opera con due citazioni non dice quale fosse.
+    // Si converte sulla PRIMA citazione dell'opera e basta - la stessa scelta
+    // che fa la home, cosi' le due pagine non si contraddicono. Prendendole
+    // tutte, una sottolineatura sola ne faceva comparire due.
     var legacyAt = underlined.indexOf(LEGACY_KEY);
     if (legacyAt !== -1) {{
       underlined.splice(legacyAt, 1);
-      SIBLING_SLUGS.forEach(function (s) {{
-        if (underlined.indexOf(s) === -1) {{ underlined.push(s); }}
-      }});
+      var first = SIBLING_SLUGS[0];
+      if (first && underlined.indexOf(first) === -1) {{ underlined.push(first); }}
       if (notes[LEGACY_KEY]) {{
-        SIBLING_SLUGS.forEach(function (s) {{ if (!notes[s]) {{ notes[s] = notes[LEGACY_KEY]; }} }});
+        if (first && !notes[first]) {{ notes[first] = notes[LEGACY_KEY]; }}
         delete notes[LEGACY_KEY];
       }}
       saveStore();
