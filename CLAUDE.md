@@ -851,6 +851,36 @@ partire da una keyword senza il contenuto che la giustifica.
    puntini cuciono insieme due frasi lontane e ne fabbricano una che nel libro non esiste. Si chiude
    solo con i volumi in mano.
 
+**Audit del 2026-08-31 — cosa era rotto e cosa resta.** Controllate tutte le 986 pagine (title,
+description, h1, alt, link interni, pagine orfane, contenuto sottile) più una passata in browser su
+telefono per ogni tipo di pagina. Struttura sana: zero title o description duplicati, un solo `<h1>`
+ovunque, nessuna immagine senza `alt`, nessuno scorrimento orizzontale, nessun errore JS, una sola
+pagina orfana (la 404, giusto così). **Corretto:**
+
+- **I link degli indici erano `<a>` nudi**, quindi blu sottolineato di sistema in serif su
+  `/autori/`, `/temi/`, `/generi/`, `/opere/`, `/raccolte/` — le pagine da cui si entra in tutto il
+  resto. 40 link così su `/opere/`, 26 su `/raccolte/`, 251 su `/autori/`. Ora hanno classe
+  `.index-list` e lo stile del sito.
+- **`<title>` fuori misura: 609 su 986.** Media 80 caratteri, punte di 127, contro i ~64 che si
+  leggono nei risultati; a sparire era la coda, cioè autore e opera. Il conto ora parte da lì
+  (`TITLE_MAX`/`TITLE_MIN_INCIPIT` in `generate_quote_pages.py`): restano 2 fuori misura, due nomi
+  lunghissimi.
+- **Meta description tagliate a 200 quando Google si ferma a ~155**: 353 pagine con una coda che non
+  leggeva nessuno. Ora zero fuori misura, zero duplicate.
+- **`/temi/` e `/generi/` erano due elenchi muti** (55 e 51 parole): ora hanno un'introduzione che
+  dice la regola dietro le etichette.
+
+**Resta aperto, in ordine di valore:**
+
+- **Le riserve sulle formulazioni italiane** (`VERIFICHE-FONTI.md`): dieci citazioni con il punto del
+  testo certo e la frase pubblicata no. La più seria è Ferrante, dove i puntini cuciono due frasi
+  lontane e ne fabbricano una che nel libro non esiste. Si chiude solo con i volumi in mano.
+- **Otto pagine autore sotto le 90 parole** (Anaïs Nin 67, Roald Dahl 69, Wole Soyinka 70, Susan
+  Sontag 72, Hannah Arendt 74, Maya Angelou 82, Alfred Tennyson 83): il target di Fase 6 era 80-120.
+- **56 description sotto i 70 caratteri**: sono le citazioni brevissime, dove la descrizione è la
+  frase stessa. Non è un difetto da correggere allungando per finta.
+- **Divisione dell'archivio in home**: misurata e rimandata, vedi sopra.
+
 **Bloccato sull'utente** (nessuno dei tre è aggirabile da qui):
 
 - **Email di contatto** — senza non si possono pubblicare né il contatto nel footer né *Segnala un
