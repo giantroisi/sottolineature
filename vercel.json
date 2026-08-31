@@ -43,11 +43,6 @@
       "source": "/citazioni/fernando-pessoa-il-libro-dell-inquietudine/",
       "destination": "/citazioni/fernando-pessoa-tabacaria/",
       "permanent": true
-    },
-    {
-      "source": "/citazioni/elias-canetti-auto-da-fe/",
-      "destination": "/citazioni/elias-canetti-la-provincia-dell-uomo/",
-      "permanent": true
     }
   ],
   "headers": [
