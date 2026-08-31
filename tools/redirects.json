@@ -14,5 +14,61 @@
   {
     "from": "/citazioni/fernando-pessoa-il-libro-dell-inquietudine/",
     "to": "/citazioni/fernando-pessoa-tabacaria/"
+  },
+  {
+    "from": "/citazioni/sibilla-aleramo-una-donna/",
+    "to": "/autori/sibilla-aleramo/"
+  },
+  {
+    "from": "/citazioni/amos-oz-una-storia-di-amore-e-di-tenebra/",
+    "to": "/autori/amos-oz/"
+  },
+  {
+    "from": "/citazioni/alba-de-cespedes-quaderno-proibito/",
+    "to": "/autori/alba-de-cespedes/"
+  },
+  {
+    "from": "/citazioni/naguib-mahfouz-vicolo-del-mortaio/",
+    "to": "/autori/naguib-mahfouz/"
+  },
+  {
+    "from": "/citazioni/j-m-barrie-le-avventure-di-peter-pan/",
+    "to": "/citazioni/"
+  },
+  {
+    "from": "/autori/j-m-barrie/",
+    "to": "/autori/"
+  },
+  {
+    "from": "/citazioni/simone-weil-l-ombra-e-la-grazia/",
+    "to": "/citazioni/simone-weil-lettera-a-joe-bousquet/"
+  },
+  {
+    "from": "/citazioni/elias-canetti-auto-da-fe/",
+    "to": "/citazioni/elias-canetti-la-provincia-dell-uomo/"
+  },
+  {
+    "from": "/citazioni/suzanne-collins-hunger-games/",
+    "to": "/citazioni/suzanne-collins-hunger-games-signore-e-signori/"
+  },
+  {
+    "from": "/citazioni/amelie-nothomb-barbablu/",
+    "to": "/citazioni/"
+  },
+  {
+    "from": "/autori/amelie-nothomb/",
+    "to": "/autori/"
+  },
+  {
+    "from": "/citazioni/thomas-bernhard-gelo/",
+    "to": "/citazioni/"
+  },
+  {
+    "from": "/autori/thomas-bernhard/",
+    "to": "/autori/"
+  },
+  {
+    "from": "/citazioni/nikolaj-gogol-le-anime-morte-hanno-un-bell-essere/",
+    "to": "/autori/nikolaj-gogol/"
   }
 ]

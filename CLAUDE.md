@@ -832,19 +832,24 @@ partire da una keyword senza il contenuto che la giustifica.
    in cambio tocca ricerca, filtri, sottolineature e ancore `#slug`, cioè quattro cose che oggi
    funzionano. **Decisione: non farla adesso.** Va rimessa in cima se l'archivio supera le ~900
    citazioni o se le misure peggiorano — rifare la misura, non fidarsi di questa.
-3. **Citazioni senza blocco fonte: da 23 a 8 — verifica fatta il 2026-08-31, referto completo in
-   `VERIFICHE-FONTI.md`.** Tredici compilate con il punto del testo accertato. Le **otto rimaste
-   richiedono una decisione sul contenuto**, e sono la parte importante: due hanno l'opera sbagliata
-   (Weil non è in *L'ombra e la grazia* ma in una lettera a Joë Bousquet del 13 aprile 1942; Canetti
-   non è in *Auto da fé* ma in *La provincia dell'uomo*, 1944), due sono frasi che nel libro non
-   esistono così (Barrie, «Solo chi sogna può volare», assente dal testo integrale di *Peter and
-   Wendy* — ed è il titolo del cartone Disney, non del romanzo; Collins, troncamento di una battuta
-   di Templesmith a fine cap. 10), quattro non hanno nessuna fonte ammissibile (Aleramo — e il testo
-   è integrale su Gutenberg, la frase non c'è; Oz; de Céspedes, che risulta essere un richiamo di
-   copertina dell'Oscar 1978; Mahfouz, dove l'arabo dice un'altra cosa). **Non toccare senza l'ok
-   dell'utente: si tratta di cambiare o togliere contenuto del catalogo.** Nel referto c'è anche un
-   elenco di riserve sulla formulazione italiana di dieci citazioni già compilate — il punto del
-   testo è certo, la frase pubblicata no.
+3. ~~**Citazioni senza blocco fonte.**~~ **Chiuso il 2026-08-31, referto in `VERIFICHE-FONTI.md`.**
+   Le 23 segnalate dal build sono state controllate una per una sul testo pubblicato o sull'originale
+   in lingua: **13 compilate, 3 corrette, 5 tolte**. L'archivio passa da 621 a 616 citazioni e
+   **tutte e 616 hanno ora il punto del testo** (il build lo stampa: `616 / 616`). Le tre correzioni:
+   Weil non è in *L'ombra e la grazia* ma in una lettera a Joë Bousquet del 13 aprile 1942; Canetti
+   non è in *Auto da fé* ma nella *Provincia dell'uomo* del 1944 (la traduzione di Furio Jesi
+   coincide parola per parola con quella che il sito pubblicava: veniva da lì); Collins aveva un
+   modo di dire al posto della battuta, che è di Templesmith a fine capitolo 10. Le cinque uscite:
+   Barrie (la frase non è nel romanzo, e il titolo era quello del cartone Disney), Aleramo (testo
+   integrale su Gutenberg, la frase non c'è), Oz, de Céspedes (è un richiamo di copertina
+   dell'Oscar 1978), Mahfouz. **Ogni URL sparito ha il suo 301** in `tools/redirects.json`, comprese
+   la pagina autore di Barrie e tre 404 vecchi rimasti da rimozioni precedenti (Nothomb, Bernhard,
+   Gogol'). Togliendo Barrie la raccolta «I sogni» scendeva a 7 sotto la soglia di 8: rimpiazzato
+   con Erri De Luca, *Montedidio*, e riscritta la chiusa dell'introduzione che citava proprio lui.
+   Nel referto resta aperto un elenco di **riserve sulla formulazione italiana** di dieci citazioni
+   compilate — il punto del testo è certo, la frase pubblicata no, e la più seria è Ferrante, dove i
+   puntini cuciono insieme due frasi lontane e ne fabbricano una che nel libro non esiste. Si chiude
+   solo con i volumi in mano.
 
 **Bloccato sull'utente** (nessuno dei tre è aggirabile da qui):
 

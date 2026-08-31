@@ -6,8 +6,9 @@ tracciabile a un'opera scritta e pubblicata, con il punto preciso del testo.** A
 Goodreads, Pinterest e blog di citazioni non contano come fonte, mai — sono il posto da cui questi
 errori sono partiti.
 
-Esito: **13 compilate** (10 in questo giro, 3 già chiuse in parallelo), **8 da decidere**, elencate
-in fondo. Nessuna citazione è stata riscritta o tolta senza che l'utente lo sappia.
+Esito finale: **13 compilate**, **3 corrette**, **5 tolte dal catalogo**. Le otto decisioni di
+contenuto sono state prese dall'utente il 2026-08-31 e sono eseguite; l'archivio è passato da 621 a
+616 citazioni e **tutte e 616 hanno ora il punto del testo**.
 
 ---
 
@@ -63,64 +64,67 @@ quattro casi la frase pubblicata dal sito dice qualcosa che l'originale non dice
 
 ---
 
-## Da decidere — richiedono una scelta dell'utente
+## Decise ed eseguite il 2026-08-31
 
-Otto citazioni non possono restare come sono. Toccarle vuol dire cambiare o togliere contenuto del
-catalogo, e quella è una decisione sua.
+Otto citazioni non potevano restare come stavano. L'utente ha deciso; qui c'è cosa è stato fatto e
+perché, così fra un anno si sa. Ogni URL sparito ha il suo redirect 301 in `tools/redirects.json`:
+nessuna pagina rimasta a 404.
 
-### Attribuzione sbagliata (la frase è autentica, l'opera no)
+### Opera corretta — la frase è autentica, sbagliato era il libro
 
-1. **Simone Weil, «L'attenzione è la forma più rara e più pura della generosità»** — non è in
-   *L'ombra e la grazia*. È una **lettera a Joë Bousquet del 13 aprile 1942** (*Correspondance 1942*,
-   Claire Paulhan 2019, p. 90; in italiano SE, 1994, a cura di Adriano Marchetti). Controllato il
-   testo francese integrale della *Pesanteur et la grâce*: «générosité» non compare nel capitolo
-   sull'attenzione. → *cambiare opera e anno.*
-2. **Elias Canetti, «Chi va dall'interprete di sogni...»** — non è in *Auto da fé*. È un appunto del
-   **1944** in *La provincia dell'uomo. Quaderni di appunti 1942-1972* (Adelphi 1978, trad. Furio
-   Jesi): la formulazione italiana coincide parola per parola con quella del sito, che quindi viene
-   da lì. → *cambiare opera, anno e traduttore.*
+1. **Simone Weil** — «L'attenzione è la forma più rara e più pura della generosità» non è in
+   *L'ombra e la grazia*. È una **lettera a Joë Bousquet del 13 aprile 1942**, il poeta rimasto
+   paralizzato da una ferita della Grande Guerra. Controllato il testo francese integrale della
+   *Pesanteur et la grâce*: «générosité» non compare nel capitolo sull'attenzione né altrove.
+   → opera e anno corretti, contesto riscritto, 301 dal vecchio indirizzo.
+2. **Elias Canetti** — non è in *Auto da fé* ma è un appunto del **1944** nella *Provincia dell'uomo*
+   (Adelphi 1978, trad. Furio Jesi). Prova decisiva: la traduzione di Jesi coincide **parola per
+   parola** con la frase che il sito pubblicava, quindi veniva da lì.
+   → opera, anno e traduttore corretti, contesto riscritto, 301.
 
-### La frase non esiste, o non esiste così
+### Testo ripristinato
 
-3. **J.M. Barrie, «Solo chi sogna può volare!»** — **non è nel romanzo.** Controllato il testo
-   integrale di *Peter and Wendy* (Gutenberg): «dream/dreams» ricorre tre volte e mai a proposito del
-   volo. È una frase da manifesto, catalogata dagli aggregatori come *frase di film*; e «Le avventure
-   di Peter Pan» è il titolo italiano del **cartone Disney del 1953**, non del libro del 1911. La
-   battuta autentica, cap. III: «Basta pensare pensieri meravigliosi, e ti sollevano in aria». →
-   *togliere, o sostituire con la battuta vera.*
-4. **Suzanne Collins, «Che i giochi abbiano inizio»** — la battuta esiste ma per intero e con chi la
-   pronuncia: è **Claudius Templesmith** a chiudere il **cap. 10**, «Signore e signori, che i
-   settantaquattresimi Hunger Games abbiano inizio!». Così troncata non è una citazione, è una
-   formula generica. → *sostituire con la battuta intera, o togliere.*
+3. **Suzanne Collins** — «Che i giochi abbiano inizio» non è una citazione, è un modo di dire. La
+   battuta esiste, per intero e con chi la pronuncia: **Claudius Templesmith**, in chiusura del
+   **capitolo 10**, «Signore e signori, che i settantaquattresimi Hunger Games abbiano inizio!».
+   → testo sostituito con quello completo, contesto riscritto, 301 (cambiando il testo cambia lo slug).
 
-### Non verificabili (nessuna fonte ammissibile)
+### Tolte dal catalogo
 
-Per queste quattro l'unica cosa che si trova in rete sono aggregatori. Sono opere ancora sotto
-diritti (tranne Aleramo): senza aprire il volume non si chiude. Se qualcuno ha il libro in casa, il
-punto da cercare è indicato.
+Nessuna di queste cinque era tracciabile a un punto del testo. La regola del sito è quella, e
+tenerle valeva meno che perderle.
 
-5. **Sibilla Aleramo, *Una donna*** — la più grave, perché il testo è **fuori diritti e integrale su
-   Gutenberg e Internet Archive**: cercate «fusione», «complementari», «armonioso», nessuna
-   occorrenza. Una rivista la riporta senza indicare l'opera. → *frase fluttuante: togliere, salvo
-   che salti fuori pagina e capitolo.*
-6. **Amos Oz, *Una storia di amore e di tenebra*** — l'unica occorrenza è un blog, in forma più
-   ampia: «Creare una parola nuova e innestarla nella normalità della lingua mi pareva non troppo
-   distante da colui che aveva creato luce e tenebra… Mettere al mondo una parola nuova è un po' come
-   sfiorare l'eternità». Da cercare nei capitoli sul prozio Yosef Klausner (trad. Elena Loewenthal,
-   Feltrinelli 2003).
-7. **Alba de Céspedes, *Quaderno proibito*** — la frase è stampata **sulla copertina dell'edizione
-   Oscar Mondadori 1978** come richiamo editoriale; nessuna voce di diario le è mai associata. Il
-   diario di Valeria va dal 26 novembre 1950 al 27 maggio 1951: è lì che va cercata.
-8. **Naguib Mahfouz, *Vicolo del mortaio*** — in arabo circola una frase affine ma diversa:
-   «com'è brutta una parola d'amore quando sfugge da una bocca annoiata, **come uno sputo**!». La
-   versione italiana perde la similitudine e aggiunge «pronunciata freddamente». Da cercare nei
-   capitoli su Hamida e Abbas (35 capitoli numerati; trad. Paolo Branca, Feltrinelli 1996).
+4. **J.M. Barrie, «Solo chi sogna può volare!»** — non è nel romanzo. Nel testo integrale di *Peter
+   and Wendy* «dream/dreams» ricorre tre volte e mai a proposito del volo; nel libro si vola con i
+   «lovely wonderful thoughts» e la polvere di fata. In più «Le avventure di Peter Pan» è il titolo
+   del **cartone Disney del 1953**, non del romanzo del 1911: la citazione sbagliava frase e opera.
+   Era l'unica citazione di Barrie, quindi è sparita anche la sua pagina autore → 301 su `/autori/`.
+   Era anche in due raccolte, «Frasi brevi» e «I sogni»: tolta da entrambe. «I sogni» scendeva così
+   a 7 citazioni, sotto la soglia di 8, e sarebbe uscita di pubblicazione: rimpiazzata con Erri De
+   Luca, *Montedidio* — «in italiano esistono due parole, sonno e sogno, dove il napoletano ne porta
+   una sola, suonno» — e riscritta la chiusa dell'introduzione, che citava proprio Barrie.
+5. **Sibilla Aleramo, *Una donna*** — la più netta, perché il testo è **fuori diritti e integrale**
+   su Gutenberg e Internet Archive: cercate «fusione», «complementari», «armonioso», nessuna
+   occorrenza. Frase fluttuante.
+6. **Amos Oz, *Una storia di amore e di tenebra*** — nessuna fonte oltre a un blog, che peraltro la
+   riporta più lunga e diversa. Da cercare, se mai si riaprisse, nei capitoli sul prozio Yosef
+   Klausner (trad. Elena Loewenthal, Feltrinelli 2003).
+7. **Alba de Céspedes, *Quaderno proibito*** — risulta stampata **sulla copertina dell'Oscar
+   Mondadori 1978** come richiamo editoriale, e non è mai stata associata a una voce del diario. Il
+   diario di Valeria va dal 26 novembre 1950 al 27 maggio 1951: è lì che andrebbe cercata.
+8. **Naguib Mahfouz, *Vicolo del mortaio*** — in arabo la frase affine dice un'altra cosa: «com'è
+   brutta una parola d'amore quando sfugge da una bocca annoiata, **come uno sputo**!». La versione
+   italiana perde la similitudine e aggiunge «pronunciata freddamente».
+
+Nell'occasione sono stati chiusi anche tre 404 vecchi, rimasti da rimozioni precedenti senza
+redirect: *Barbablù* di Amélie Nothomb, *Gelo* di Thomas Bernhard e una delle *Anime morte* di
+Gogol', più le pagine autore di Nothomb e Bernhard.
 
 ---
 
 ## Perché conta
 
 Un sito che dichiara «citazioni verificate a mano, senza algoritmo» vive di questo. Cinque di queste
-otto sono esattamente il tipo di frase che gira in rete staccata dal libro: attribuita all'opera
+otto erano esattamente il tipo di frase che gira in rete staccata dal libro: attribuita all'opera
 sbagliata, tagliata fino a dire un'altra cosa, o inventata di sana pianta e appiccicata a un titolo
-famoso. Tenerle vale meno che perderle.
+famoso. Sono uscite. Le 616 rimaste hanno tutte un punto del testo.

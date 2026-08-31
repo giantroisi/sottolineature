@@ -43,6 +43,76 @@
       "source": "/citazioni/fernando-pessoa-il-libro-dell-inquietudine/",
       "destination": "/citazioni/fernando-pessoa-tabacaria/",
       "permanent": true
+    },
+    {
+      "source": "/citazioni/sibilla-aleramo-una-donna/",
+      "destination": "/autori/sibilla-aleramo/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/amos-oz-una-storia-di-amore-e-di-tenebra/",
+      "destination": "/autori/amos-oz/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/alba-de-cespedes-quaderno-proibito/",
+      "destination": "/autori/alba-de-cespedes/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/naguib-mahfouz-vicolo-del-mortaio/",
+      "destination": "/autori/naguib-mahfouz/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/j-m-barrie-le-avventure-di-peter-pan/",
+      "destination": "/citazioni/",
+      "permanent": true
+    },
+    {
+      "source": "/autori/j-m-barrie/",
+      "destination": "/autori/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/simone-weil-l-ombra-e-la-grazia/",
+      "destination": "/citazioni/simone-weil-lettera-a-joe-bousquet/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/elias-canetti-auto-da-fe/",
+      "destination": "/citazioni/elias-canetti-la-provincia-dell-uomo/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/suzanne-collins-hunger-games/",
+      "destination": "/citazioni/suzanne-collins-hunger-games-signore-e-signori/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/amelie-nothomb-barbablu/",
+      "destination": "/citazioni/",
+      "permanent": true
+    },
+    {
+      "source": "/autori/amelie-nothomb/",
+      "destination": "/autori/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/thomas-bernhard-gelo/",
+      "destination": "/citazioni/",
+      "permanent": true
+    },
+    {
+      "source": "/autori/thomas-bernhard/",
+      "destination": "/autori/",
+      "permanent": true
+    },
+    {
+      "source": "/citazioni/nikolaj-gogol-le-anime-morte-hanno-un-bell-essere/",
+      "destination": "/autori/nikolaj-gogol/",
+      "permanent": true
     }
   ],
   "headers": [
