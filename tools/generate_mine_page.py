@@ -182,6 +182,10 @@ PAGE = '''<!DOCTYPE html>
       localStorage.setItem('sottolineature-underlined', JSON.stringify(slugs));
       localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
     } catch (e) {}
+    // il contatore sulla voce "Le mie" resterebbe fermo al numero di partenza
+    if (window.Sottolineature && window.Sottolineature.refreshNavCount) {
+      window.Sottolineature.refreshNavCount();
+    }
   }
 
   if (hadLegacy) {

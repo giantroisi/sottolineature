@@ -194,12 +194,19 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     {raccolta_link_html}
     <button type="button" id="copyBtn">Copia citazione</button>
     <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
+    <button type="button" id="underlineBtn" aria-pressed="false">Sottolinea</button>
     <a href="/#{slug}">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
     <span class="share-choice-label">Sfondo dell'immagine:</span>
     <button type="button" data-variant="chiaro">Chiaro</button>
     <button type="button" data-variant="scuro">Scuro</button>
+  </div>
+  <div class="quote-note sans" id="quoteNote" hidden>
+    <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>
+    <textarea id="quoteNoteField" class="quote-note-field sans" rows="2" placeholder="Perché ti ha colpita? (facoltativo)"></textarea>
+    <p class="quote-note-print sans" id="quoteNotePrint" hidden></p>
+    <p class="quote-note-hint">Resta su questo dispositivo. La ritrovi in <a href="/le-mie-sottolineature/">Le mie sottolineature</a>.</p>
   </div>
   {tags_html}
   {related_html}
@@ -264,6 +271,90 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         );
       }});
     }});
+
+    // Sottolinea: stesso archivio della home (localStorage, chiave = slug), cosi'
+    // una citazione sottolineata qui compare fra "Le mie" e resta segnata anche
+    // sulla card in home. Questa e' la pagina su cui si arriva dalle ricerche:
+    // finche' non c'era il pulsante, chi entrava da qui non poteva salvare nulla.
+    var SLUG = {slug_js};
+    var LEGACY_KEY = {legacy_key_js};
+    var SIBLING_SLUGS = {sibling_slugs_js};
+
+    function readStore(key, fallback) {{
+      try {{ return JSON.parse(localStorage.getItem(key) || fallback); }}
+      catch (e) {{ return JSON.parse(fallback); }}
+    }}
+    var underlined = readStore('sottolineature-underlined', '[]');
+    var notes = readStore('sottolineature-notes', '{{}}');
+    if (!Array.isArray(underlined)) {{ underlined = []; }}
+
+    function saveStore() {{
+      try {{
+        localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+        localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+      }} catch (e) {{}}
+      if (window.Sottolineature && window.Sottolineature.refreshNavCount) {{
+        window.Sottolineature.refreshNavCount();
+      }}
+    }}
+
+    // Le sottolineature salvate prima del passaggio agli slug hanno chiave
+    // "autore|titolo". Qui si sostituisce con gli slug di tutte le citazioni di
+    // quell'opera: senza, togliere questa toglierebbe anche l'altra.
+    var legacyAt = underlined.indexOf(LEGACY_KEY);
+    if (legacyAt !== -1) {{
+      underlined.splice(legacyAt, 1);
+      SIBLING_SLUGS.forEach(function (s) {{
+        if (underlined.indexOf(s) === -1) {{ underlined.push(s); }}
+      }});
+      if (notes[LEGACY_KEY]) {{
+        SIBLING_SLUGS.forEach(function (s) {{ if (!notes[s]) {{ notes[s] = notes[LEGACY_KEY]; }} }});
+        delete notes[LEGACY_KEY];
+      }}
+      saveStore();
+    }}
+
+    var underlineBtn = document.getElementById('underlineBtn');
+    var noteWrap = document.getElementById('quoteNote');
+    var noteField = document.getElementById('quoteNoteField');
+    var notePrint = document.getElementById('quoteNotePrint');
+
+    function isUnderlined() {{ return underlined.indexOf(SLUG) !== -1; }}
+    function syncNotePrint() {{
+      var text = noteField.value.trim();
+      notePrint.textContent = text;
+      notePrint.hidden = !text;
+    }}
+    function renderUnderline() {{
+      var on = isUnderlined();
+      underlineBtn.textContent = on ? 'Sottolineata' : 'Sottolinea';
+      underlineBtn.setAttribute('aria-pressed', String(on));
+      underlineBtn.classList.toggle('is-underlined', on);
+      noteWrap.hidden = !on;
+    }}
+
+    noteField.value = notes[SLUG] || '';
+    syncNotePrint();
+    renderUnderline();
+
+    underlineBtn.addEventListener('click', function () {{
+      var at = underlined.indexOf(SLUG);
+      if (at === -1) {{ underlined.push(SLUG); }} else {{ underlined.splice(at, 1); }}
+      saveStore();
+      renderUnderline();
+      if (isUnderlined() && !noteField.value) {{ noteField.focus(); }}
+    }});
+
+    var noteTimer;
+    noteField.addEventListener('input', function () {{
+      syncNotePrint();
+      clearTimeout(noteTimer);
+      noteTimer = setTimeout(function () {{
+        var text = noteField.value.trim();
+        if (text) {{ notes[SLUG] = text; }} else {{ delete notes[SLUG]; }}
+        saveStore();
+      }}, 400);
+    }});
   }})();
 </script>
 </body>
@@ -293,7 +384,8 @@ def related_card(slug, q, meta_html):
     )
 
 
-def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=None):
+def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=None,
+                sibling_slugs=None):
     quote_esc = html.escape(q['quote'])
     author_esc = html.escape(q['author'])
     title_esc = html.escape(q['title'])
@@ -466,6 +558,9 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         share_author_js=json.dumps(q['author'], ensure_ascii=False),
         share_title_js=json.dumps(q['title'], ensure_ascii=False),
         share_year_js=json.dumps(q.get('year') or '', ensure_ascii=False),
+        slug_js=json.dumps(slug, ensure_ascii=False),
+        legacy_key_js=json.dumps(q['author'] + '|' + q['title'], ensure_ascii=False),
+        sibling_slugs_js=json.dumps(sibling_slugs or [slug], ensure_ascii=False),
     )
 
 
@@ -485,15 +580,21 @@ def main(opera_map=None, raccolta_map=None):
 
     by_author = {}
     by_category = {}
+    # Serve alla pagina per convertire in modo sicuro una vecchia sottolineatura
+    # salvata come "autore|titolo": va sostituita con gli slug di tutte le
+    # citazioni di quell'opera, non solo con il proprio.
+    by_legacy_key = {}
     for slug, q in entries:
         by_author.setdefault(q['author'], []).append((slug, q))
         if q['category']:
             by_category.setdefault(q['category'], []).append((slug, q))
+        by_legacy_key.setdefault(q['author'] + '|' + q['title'], []).append(slug)
 
     for slug, q in entries:
         same_author = [(s, oq) for s, oq in by_author[q['author']] if s != slug]
         same_theme = [(s, oq) for s, oq in by_category.get(q['category'], []) if s != slug]
-        page = render_page(q, slug, same_author, same_theme, opera_map, raccolta_map)
+        siblings = by_legacy_key.get(q['author'] + '|' + q['title'], [slug])
+        page = render_page(q, slug, same_author, same_theme, opera_map, raccolta_map, siblings)
         path = os.path.join(OUT_DIR, slug + '.html')
         with open(path, 'w', encoding='utf-8') as f:
             f.write(page)

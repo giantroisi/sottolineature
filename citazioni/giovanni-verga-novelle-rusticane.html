@@ -23,7 +23,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://covers.openlibrary.org">
-<link rel="stylesheet" href="/assets/site.css?v=5b8b57e8">
+<link rel="stylesheet" href="/assets/site.css?v=76e19e42">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/#webpage", "url": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/", "name": "«Sicché quando gli dissero che era tempo di…» — Giovanni Verga, Novelle rusticane", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/#breadcrumb"}}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/#quotation", "text": "Sicché quando gli dissero che era tempo di lasciare la sua roba, per pensare all'anima, uscì nel cortile come un pazzo, barcollando, e andava ammazzando a colpi di bastone le sue anitre e i suoi tacchini.", "creator": {"@id": "https://sottolineature.it/autori/giovanni-verga/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/#book"}, "url": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/", "citation": "La roba, p. 119", "sameAs": "https://it.wikiquote.org/wiki/Giovanni_Verga"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/#book", "name": "Novelle rusticane", "author": {"@id": "https://sottolineature.it/autori/giovanni-verga/#person"}, "datePublished": "1883"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/giovanni-verga/#person", "name": "Giovanni Verga", "url": "https://sottolineature.it/autori/giovanni-verga/"}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Giovanni Verga", "item": "https://sottolineature.it/autori/giovanni-verga/"}, {"@type": "ListItem", "position": 3, "name": "Sicché quando gli dissero che era tempo…", "item": "https://sottolineature.it/citazioni/giovanni-verga-novelle-rusticane/"}]}]}</script>
 <script>
   try {
@@ -53,7 +53,7 @@
     </nav>
   </div>
 </header>
-<script src="/assets/nav.js?v=8b0c5e25" defer></script>
+<script src="/assets/nav.js?v=fc747049" defer></script>
 <div class="page">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/giovanni-verga/">Giovanni Verga</a> › <span aria-current="page">Sicché quando gli dissero che era tempo…</span>
@@ -75,12 +75,19 @@
     
     <button type="button" id="copyBtn">Copia citazione</button>
     <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
+    <button type="button" id="underlineBtn" aria-pressed="false">Sottolinea</button>
     <a href="/#giovanni-verga-novelle-rusticane">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
     <span class="share-choice-label">Sfondo dell'immagine:</span>
     <button type="button" data-variant="chiaro">Chiaro</button>
     <button type="button" data-variant="scuro">Scuro</button>
+  </div>
+  <div class="quote-note sans" id="quoteNote" hidden>
+    <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>
+    <textarea id="quoteNoteField" class="quote-note-field sans" rows="2" placeholder="Perché ti ha colpita? (facoltativo)"></textarea>
+    <p class="quote-note-print sans" id="quoteNotePrint" hidden></p>
+    <p class="quote-note-hint">Resta su questo dispositivo. La ritrovi in <a href="/le-mie-sottolineature/">Le mie sottolineature</a>.</p>
   </div>
   <div class="tags sans"><a href="/autori/giovanni-verga/">Giovanni Verga</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Giovanni Verga</h2><ul><li class="related-card"><a href="/citazioni/giovanni-verga-i-malavoglia/"><img class="related-cover" src="/assets/covers/5410364.jpg" alt="" width="40" height="60" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><span class="related-text"><span class="related-quote">«Un tempo i Malavoglia erano stati numerosi come i sassi della strada…»</span><span class="related-meta sans">I Malavoglia</span></span></a></li><li class="related-card"><a href="/citazioni/giovanni-verga-mastro-don-gesualdo/"><span class="related-text"><span class="related-quote">«Suonava la messa dell&#x27;alba a San Giovanni; ma il paesetto dormiva…»</span><span class="related-meta sans">Mastro-don Gesualdo</span></span></a></li><li class="related-card"><a href="/citazioni/giovanni-verga-storia-di-una-capinera/"><span class="related-text"><span class="related-quote">«Avevo visto una povera capinera chiusa in gabbia: era timida, triste,…»</span><span class="related-meta sans">Storia di una capinera</span></span></a></li></ul></div></div>
@@ -144,6 +151,90 @@
           b, 'post', b.getAttribute('data-variant')
         );
       });
+    });
+
+    // Sottolinea: stesso archivio della home (localStorage, chiave = slug), cosi'
+    // una citazione sottolineata qui compare fra "Le mie" e resta segnata anche
+    // sulla card in home. Questa e' la pagina su cui si arriva dalle ricerche:
+    // finche' non c'era il pulsante, chi entrava da qui non poteva salvare nulla.
+    var SLUG = "giovanni-verga-novelle-rusticane";
+    var LEGACY_KEY = "Giovanni Verga|Novelle rusticane";
+    var SIBLING_SLUGS = ["giovanni-verga-novelle-rusticane"];
+
+    function readStore(key, fallback) {
+      try { return JSON.parse(localStorage.getItem(key) || fallback); }
+      catch (e) { return JSON.parse(fallback); }
+    }
+    var underlined = readStore('sottolineature-underlined', '[]');
+    var notes = readStore('sottolineature-notes', '{}');
+    if (!Array.isArray(underlined)) { underlined = []; }
+
+    function saveStore() {
+      try {
+        localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+        localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+      } catch (e) {}
+      if (window.Sottolineature && window.Sottolineature.refreshNavCount) {
+        window.Sottolineature.refreshNavCount();
+      }
+    }
+
+    // Le sottolineature salvate prima del passaggio agli slug hanno chiave
+    // "autore|titolo". Qui si sostituisce con gli slug di tutte le citazioni di
+    // quell'opera: senza, togliere questa toglierebbe anche l'altra.
+    var legacyAt = underlined.indexOf(LEGACY_KEY);
+    if (legacyAt !== -1) {
+      underlined.splice(legacyAt, 1);
+      SIBLING_SLUGS.forEach(function (s) {
+        if (underlined.indexOf(s) === -1) { underlined.push(s); }
+      });
+      if (notes[LEGACY_KEY]) {
+        SIBLING_SLUGS.forEach(function (s) { if (!notes[s]) { notes[s] = notes[LEGACY_KEY]; } });
+        delete notes[LEGACY_KEY];
+      }
+      saveStore();
+    }
+
+    var underlineBtn = document.getElementById('underlineBtn');
+    var noteWrap = document.getElementById('quoteNote');
+    var noteField = document.getElementById('quoteNoteField');
+    var notePrint = document.getElementById('quoteNotePrint');
+
+    function isUnderlined() { return underlined.indexOf(SLUG) !== -1; }
+    function syncNotePrint() {
+      var text = noteField.value.trim();
+      notePrint.textContent = text;
+      notePrint.hidden = !text;
+    }
+    function renderUnderline() {
+      var on = isUnderlined();
+      underlineBtn.textContent = on ? 'Sottolineata' : 'Sottolinea';
+      underlineBtn.setAttribute('aria-pressed', String(on));
+      underlineBtn.classList.toggle('is-underlined', on);
+      noteWrap.hidden = !on;
+    }
+
+    noteField.value = notes[SLUG] || '';
+    syncNotePrint();
+    renderUnderline();
+
+    underlineBtn.addEventListener('click', function () {
+      var at = underlined.indexOf(SLUG);
+      if (at === -1) { underlined.push(SLUG); } else { underlined.splice(at, 1); }
+      saveStore();
+      renderUnderline();
+      if (isUnderlined() && !noteField.value) { noteField.focus(); }
+    });
+
+    var noteTimer;
+    noteField.addEventListener('input', function () {
+      syncNotePrint();
+      clearTimeout(noteTimer);
+      noteTimer = setTimeout(function () {
+        var text = noteField.value.trim();
+        if (text) { notes[SLUG] = text; } else { delete notes[SLUG]; }
+        saveStore();
+      }, 400);
     });
   })();
 </script>

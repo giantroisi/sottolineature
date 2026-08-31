@@ -23,7 +23,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://covers.openlibrary.org">
-<link rel="stylesheet" href="/assets/site.css?v=5b8b57e8">
+<link rel="stylesheet" href="/assets/site.css?v=76e19e42">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/#webpage", "url": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/", "name": "«La nostra personalità sociale è una…» — Marcel Proust, Alla ricerca del tempo perduto", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/#breadcrumb"}}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/#quotation", "text": "La nostra personalità sociale è una creazione del pensiero altrui.", "creator": {"@id": "https://sottolineature.it/autori/marcel-proust/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/#book"}, "url": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/", "citation": "p. 16", "sameAs": "https://it.wikiquote.org/wiki/Marcel_Proust"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/#book", "name": "Alla ricerca del tempo perduto", "author": {"@id": "https://sottolineature.it/autori/marcel-proust/#person"}, "datePublished": "1913"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/marcel-proust/#person", "name": "Marcel Proust", "url": "https://sottolineature.it/autori/marcel-proust/"}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Marcel Proust", "item": "https://sottolineature.it/autori/marcel-proust/"}, {"@type": "ListItem", "position": 3, "name": "La nostra personalità sociale è una…", "item": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita/"}]}]}</script>
 <script>
   try {
@@ -53,7 +53,7 @@
     </nav>
   </div>
 </header>
-<script src="/assets/nav.js?v=8b0c5e25" defer></script>
+<script src="/assets/nav.js?v=fc747049" defer></script>
 <div class="page">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/marcel-proust/">Marcel Proust</a> › <span aria-current="page">La nostra personalità sociale è una…</span>
@@ -75,12 +75,19 @@
     
     <button type="button" id="copyBtn">Copia citazione</button>
     <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
+    <button type="button" id="underlineBtn" aria-pressed="false">Sottolinea</button>
     <a href="/#marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
     <span class="share-choice-label">Sfondo dell'immagine:</span>
     <button type="button" data-variant="chiaro">Chiaro</button>
     <button type="button" data-variant="scuro">Scuro</button>
+  </div>
+  <div class="quote-note sans" id="quoteNote" hidden>
+    <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>
+    <textarea id="quoteNoteField" class="quote-note-field sans" rows="2" placeholder="Perché ti ha colpita? (facoltativo)"></textarea>
+    <p class="quote-note-print sans" id="quoteNotePrint" hidden></p>
+    <p class="quote-note-hint">Resta su questo dispositivo. La ritrovi in <a href="/le-mie-sottolineature/">Le mie sottolineature</a>.</p>
   </div>
   <div class="tags sans"><a href="/autori/marcel-proust/">Marcel Proust</a></div>
   <div class="related-grid"><div class="related sans"><h2>Altre citazioni di Marcel Proust</h2><ul><li class="related-card"><a href="/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto/"><img class="related-cover" src="/assets/covers/12332709.jpg" alt="" width="40" height="60" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><span class="related-text"><span class="related-quote">«Per molto tempo mi sono coricato presto la sera.»</span><span class="related-meta sans">Alla ricerca del tempo perduto</span></span></a></li><li class="related-card"><a href="/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-era-l-immagine-della/"><img class="related-cover" src="/assets/covers/12332709.jpg" alt="" width="40" height="60" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()"><span class="related-text"><span class="related-quote">«Era l&#x27;immagine della stanzetta dello zio Adolphe, a Combray, che…»</span><span class="related-meta sans">Alla ricerca del tempo perduto</span></span></a></li><li class="related-card"><a href="/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-un-uomo-che/"><span class="related-text"><span class="related-quote">«Un uomo che dorme tiene in cerchio intorno a sé il filo delle ore,…»</span><span class="related-meta sans">Alla ricerca del tempo perduto</span></span></a></li></ul></div></div>
@@ -144,6 +151,90 @@
           b, 'post', b.getAttribute('data-variant')
         );
       });
+    });
+
+    // Sottolinea: stesso archivio della home (localStorage, chiave = slug), cosi'
+    // una citazione sottolineata qui compare fra "Le mie" e resta segnata anche
+    // sulla card in home. Questa e' la pagina su cui si arriva dalle ricerche:
+    // finche' non c'era il pulsante, chi entrava da qui non poteva salvare nulla.
+    var SLUG = "marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita";
+    var LEGACY_KEY = "Marcel Proust|Alla ricerca del tempo perduto";
+    var SIBLING_SLUGS = ["marcel-proust-alla-ricerca-del-tempo-perduto", "marcel-proust-alla-ricerca-del-tempo-perduto-era-l-immagine-della", "marcel-proust-alla-ricerca-del-tempo-perduto-un-uomo-che", "marcel-proust-alla-ricerca-del-tempo-perduto-la-nostra-personalita"];
+
+    function readStore(key, fallback) {
+      try { return JSON.parse(localStorage.getItem(key) || fallback); }
+      catch (e) { return JSON.parse(fallback); }
+    }
+    var underlined = readStore('sottolineature-underlined', '[]');
+    var notes = readStore('sottolineature-notes', '{}');
+    if (!Array.isArray(underlined)) { underlined = []; }
+
+    function saveStore() {
+      try {
+        localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+        localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+      } catch (e) {}
+      if (window.Sottolineature && window.Sottolineature.refreshNavCount) {
+        window.Sottolineature.refreshNavCount();
+      }
+    }
+
+    // Le sottolineature salvate prima del passaggio agli slug hanno chiave
+    // "autore|titolo". Qui si sostituisce con gli slug di tutte le citazioni di
+    // quell'opera: senza, togliere questa toglierebbe anche l'altra.
+    var legacyAt = underlined.indexOf(LEGACY_KEY);
+    if (legacyAt !== -1) {
+      underlined.splice(legacyAt, 1);
+      SIBLING_SLUGS.forEach(function (s) {
+        if (underlined.indexOf(s) === -1) { underlined.push(s); }
+      });
+      if (notes[LEGACY_KEY]) {
+        SIBLING_SLUGS.forEach(function (s) { if (!notes[s]) { notes[s] = notes[LEGACY_KEY]; } });
+        delete notes[LEGACY_KEY];
+      }
+      saveStore();
+    }
+
+    var underlineBtn = document.getElementById('underlineBtn');
+    var noteWrap = document.getElementById('quoteNote');
+    var noteField = document.getElementById('quoteNoteField');
+    var notePrint = document.getElementById('quoteNotePrint');
+
+    function isUnderlined() { return underlined.indexOf(SLUG) !== -1; }
+    function syncNotePrint() {
+      var text = noteField.value.trim();
+      notePrint.textContent = text;
+      notePrint.hidden = !text;
+    }
+    function renderUnderline() {
+      var on = isUnderlined();
+      underlineBtn.textContent = on ? 'Sottolineata' : 'Sottolinea';
+      underlineBtn.setAttribute('aria-pressed', String(on));
+      underlineBtn.classList.toggle('is-underlined', on);
+      noteWrap.hidden = !on;
+    }
+
+    noteField.value = notes[SLUG] || '';
+    syncNotePrint();
+    renderUnderline();
+
+    underlineBtn.addEventListener('click', function () {
+      var at = underlined.indexOf(SLUG);
+      if (at === -1) { underlined.push(SLUG); } else { underlined.splice(at, 1); }
+      saveStore();
+      renderUnderline();
+      if (isUnderlined() && !noteField.value) { noteField.focus(); }
+    });
+
+    var noteTimer;
+    noteField.addEventListener('input', function () {
+      syncNotePrint();
+      clearTimeout(noteTimer);
+      noteTimer = setTimeout(function () {
+        var text = noteField.value.trim();
+        if (text) { notes[SLUG] = text; } else { delete notes[SLUG]; }
+        saveStore();
+      }, 400);
     });
   })();
 </script>

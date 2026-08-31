@@ -12,7 +12,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=5b8b57e8">
+<link rel="stylesheet" href="/assets/site.css?v=76e19e42">
 <style>
   .mine-empty { max-width: 34rem; }
   .mine-empty p { color: var(--ink-soft); line-height: 1.7; }
@@ -80,7 +80,7 @@
     </nav>
   </div>
 </header>
-<script src="/assets/nav.js?v=8b0c5e25" defer></script>
+<script src="/assets/nav.js?v=fc747049" defer></script>
 <script src="/assets/share.js?v=7b19b628" defer></script>
 <div class="page">
   <p class="eyebrow sans">La tua raccolta</p>
@@ -163,6 +163,10 @@
       localStorage.setItem('sottolineature-underlined', JSON.stringify(slugs));
       localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
     } catch (e) {}
+    // il contatore sulla voce "Le mie" resterebbe fermo al numero di partenza
+    if (window.Sottolineature && window.Sottolineature.refreshNavCount) {
+      window.Sottolineature.refreshNavCount();
+    }
   }
 
   if (hadLegacy) {
