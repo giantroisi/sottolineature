@@ -249,12 +249,33 @@ def generate_taxonomy_index(kind, labels, counts):
         '<span class="sans" style="color:var(--ink-faint)">(' + str(counts.get(slug, 0)) + ')</span></li>'
         for slug, label in labels.items() if counts.get(slug, 0) > 0
     )
-    body_html = '<ul class="index-list" style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
+    # Queste due erano le uniche pagine indice senza una riga di testo: una
+    # cinquantina di parole in tutto, contando il menu. Un elenco di link e
+    # basta non dice a nessuno - lettore o motore di ricerca - che cosa sta
+    # guardando ne' perche' le etichette sono queste e non altre.
+    if kind == 'tema':
+        intro = (
+            '<p class="index-intro">Non sono categorie, sono umori. Una pagina puo\u2019 riconoscersi '
+            'in pi\u00f9 d\u2019uno, e nessuna citazione entra in un umore per riempirlo: '
+            'l\u2019etichetta arriva dopo la lettura, non prima. Sette in tutto, perch\u00e9 un '
+            'ottavo avrebbe voluto dire spezzare il capello.</p>')
+    else:
+        intro = (
+            '<p class="index-intro">I generi valgono quando dicono qualcosa: un romanzo di '
+            'fantascienza e un saggio non si leggono allo stesso modo. Sono pochi di proposito \u2014 '
+            'ne entra uno solo se ha almeno quattro titoli dietro, altrimenti \u00e8 un\u2019etichetta '
+            'che sta in piedi da sola.</p>')
+    body_html = intro + '<ul class="index-list" style="list-style:none;margin:0;padding:0;font-size:1.1rem;line-height:2.2">' + lis + '</ul>'
 
     canonical = SITE_URL + '/' + dir_name + '/'
     label_word = 'umori' if kind == 'tema' else 'generi'
     title_tag = ('Tutti gli umori' if kind == 'tema' else 'Tutti i generi') + ' | Sottolineature'
-    description = 'Indice dei ' + label_word + ' in cui sono raggruppate le citazioni su Sottolineature.'
+    if kind == 'tema':
+        description = ('I sette umori in cui si raggruppano le citazioni di Sottolineature: non una '
+                       'classificazione, ma un\u2019atmosfera. Una pagina pu\u00f2 stare in pi\u00f9 d\u2019uno.')
+    else:
+        description = ('I generi dell\u2019archivio di Sottolineature: fantasy, fantascienza, distopia, '
+                       'horror, saggistica. Ne entra uno solo se ha almeno quattro titoli dietro.')
 
     item_list = {
         '@type': 'ItemList',

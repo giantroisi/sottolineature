@@ -400,6 +400,9 @@ footer.sans a { color: var(--ink-faint); }
 /* --- elenchi degli indici (/autori/, /temi/, /generi/, /opere/, /raccolte/):
        i link erano <a> nudi, quindi il browser li dipingeva del suo blu
        sottolineato, in mezzo a una pagina che di blu non ha niente --- */
+.index-intro {
+  max-width: 34rem; color: var(--ink-soft); line-height: 1.65; margin: 0 0 2rem;
+}
 .index-list a {
   color: var(--ink);
   text-decoration: none;
