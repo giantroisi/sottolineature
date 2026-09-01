@@ -77,6 +77,62 @@ citazioni nuove senza fonte.
 
 ---
 
+## 3-bis. Come si classifica: tema e genere
+
+**Questa sezione nasce da un errore vero, il 2026-08-31.** Erano finite in archivio 162 citazioni
+con un genere scritto nel campo del tema («Narrativa», «Saggistica», «Poesia») o con temi inventati
+(«arte», «morte», «Teatro»), e 164 con generi fuori elenco. Guardando l'ordine di inserimento si
+vedono **21 citazioni consecutive marcate con lo stesso valore**, e giornate intere in cui più della
+metà del lotto porta la stessa etichetta: il 30 agosto 86 citazioni su 154, il 29 agosto il 53% su
+«verità». Non è un giudizio preso frase per frase, è un timbro applicato a un blocco. Il danno non
+si vede subito: una citazione con un tema che non esiste **non compare in nessun filtro e in nessun
+hub**, si raggiunge solo dalla ricerca.
+
+### Il tema — obbligatorio, uno solo, fra questi sette
+
+Si legge la citazione e si sceglie. Non esistono altri valori: quelli in `tools/labels.py` sono
+tutti, e sono in minuscolo senza accenti (`liberta`, `verita`).
+
+| Tema | Quando |
+|---|---|
+| `vita` | il vivere di ogni giorno, il mondo com'è, crescere, gli incipit che aprono una scena o presentano una persona. È il tema largo: quando nessun altro calza meglio, sta qui — non in `verita` |
+| `amore` | amore, amicizia, legami familiari, desiderio, tenerezza, cura |
+| `coraggio` | affrontare la paura, resistere, insistere, osare, il coraggio di scegliere |
+| `liberta` | potere, oppressione, politica, regole, autonomia, dissenso, ingiustizia |
+| `tempo` | memoria, invecchiare, il passare delle cose, passato e futuro, la morte come fine |
+| `solitudine` | stare soli, sentirsi estranei, il silenzio, l'esilio, il non essere capiti |
+| `verita` | **solo quando la verità, la conoscenza o l'inganno sono il soggetto della frase**: cosa possiamo sapere, cosa ci illude, l'arte che dice il vero. Non è il posto delle citazioni «di pensiero» in generale |
+
+### Il genere — facoltativo, e appartiene all'opera
+
+Sei valori, in `tools/labels.py`: `fantasy`, `fantascienza`, `distopia`, `horror`, `saggistica`,
+`poesia`. Due regole:
+
+1. **Il genere è una proprietà dell'opera, non della citazione.** Due righe dallo stesso libro hanno
+   sempre lo stesso genere. Si decide guardando il libro, non la frase.
+2. **Nel dubbio si lascia vuoto.** Il campo vuoto è la norma: oggi 405 opere su 523 non hanno
+   genere, ed è giusto così. «Narrativa» non è un genere su un sito di citazioni da libri: lo sono
+   quasi tutte. Un genere entra solo se dice davvero come si legge quel testo.
+
+### Errori da non rifare
+
+- **Non inventare valori.** Nessun tema o genere fuori dai due elenchi. Introdurne uno nuovo
+  richiede l'ok dell'utente (§10), e per i generi vale la regola dei 4+ titoli.
+- **Non scrivere un genere nel campo del tema.** Sono due campi diversi e non si sostituiscono.
+- **Attenzione alle maiuscole.** `Fantascienza` non è `fantascienza`: il filtro non lo riconosce e
+  la citazione sparisce dagli hub senza che nessuno se ne accorga.
+- **Non timbrare un lotto.** Se in un lotto di dieci citazioni più di quattro finiscono nello stesso
+  tema, quasi sempre è pigrizia, non un caso: si rilegge. Un archivio equilibrato oggi sta intorno a
+  25/15/14/13/13/11/9 — un tema largo e sei specifici.
+
+### Verifica, sempre
+
+Dopo l'inserimento si lancia `python3 tools/build.py`. Da 2026-08-31 `check_links.py` confronta ogni
+tema e ogni genere con `labels.py` e li conta fra i problemi, stampando accanto i valori validi.
+**Se il build segnala anche un solo valore inesistente, non si fa commit: si corregge.**
+
+---
+
 ## 4. Lunghezza e diritti
 
 *Nota: non sono indicazioni legali, sono criteri prudenziali di redazione. Per una valutazione
@@ -233,7 +289,10 @@ Vincoli, in ordine di importanza:
   da film, niente aggregatori come fonte.
 - Ogni citazione deve avere tutti i requisiti del punto 2: testo verificato, autore/titolo/anno,
   luogo nel testo (capitolo, libro, canto, verso, lettera), traduttore ed edizione se tradotta,
-  contesto, umore, copertina guardata o nessuna copertina.
+  contesto, tema, copertina guardata o nessuna copertina.
+- Il tema si sceglie leggendo la citazione, una per una, secondo la tabella del punto 3-bis: e' il
+  punto dove si e' gia' sbagliato timbrando lotti interi con lo stesso valore. Il genere appartiene
+  all'opera e nel dubbio resta vuoto. Nessun valore fuori da tools/labels.py, maiuscole comprese.
 - Se non riesci a collocare una citazione nel testo, SCARTALA e annota il motivo in LOG.md.
   Meglio consegnare 7 citazioni solide che 12 con tre incerte.
 - Dai la precedenza al pubblico dominio, dove puoi anche allegare il link alla fonte
@@ -255,8 +314,8 @@ per essere applicati senza interpretazione: se una decisione non rientra qui, ci
 
 ### Cosa si può fare senza chiedere
 
-Cercare e verificare candidati; scartare; scrivere contesto, umore, generi; recuperare la
-copertina; inserire le citazioni in `data/citazioni.json`; lanciare `tools/build.py`; eseguire i controlli;
+Cercare e verificare candidati; scartare; scrivere contesto, tema e genere **seguendo il punto
+3-bis** (uno per uno, mai a lotti, mai valori inventati); recuperare la copertina; inserire le citazioni in `data/citazioni.json`; lanciare `tools/build.py`; eseguire i controlli;
 scrivere in `LOG.md`; aggiornare la roadmap di `CLAUDE.md`; fare commit e push.
 
 ### Cosa richiede sempre l'ok dell'utente
