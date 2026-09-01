@@ -194,7 +194,13 @@ dall'utente; Sarah J. Maas e Leigh Bardugo scartati di nuovo, nessuna fonte con 
 verificabile. **Lotto 6 fatto il 2026-08-28** (8 citazioni): guerra (Remarque, Hemingway), animali
 (Jack London), musica (Nietzsche), natura (Emerson), pace (Kant), lavoro (Primo Levi),
 infanzia (Proust). Restano aperti solo montagna e figli, nessun candidato solido trovato con
-lo stesso rigore — da riprendere in un lotto futuro. **Approfondimento avviato il 2026-08-28**
+lo stesso rigore — da riprendere in un lotto futuro. **Aggiornamento del 2026-09-01**: musica
+portata da 1 a 8 citazioni pertinenti (Baricco, Süskind, Hornby, Verlaine, Hoffmann — tre autori
+nuovi in archivio) e raccolta "Musica" pubblicata (27/27); figli coperto a parte dalla raccolta SEO
+omonima del 2026-08-30. Resta aperta solo montagna. **Lotto 3 chiuso del tutto il 2026-09-01**:
+Epitteto e Boezio, ultimi due rimasti a 2 citazioni, portati a 4 ciascuno — filosofia e classici non
+narrativi restano al 5% dell'archivio, ben sotto il tetto del 15%. Dettagli in `LOG.md`.
+**Approfondimento avviato il 2026-08-28**
 (punto 5 di CATALOGO.md, portare autori da 1 a 3 citazioni): 24 autori finora portati da 1 a 2
 citazioni (Cervantes, Machiavelli, Austen, Boccaccio, Charlotte Brontë, Balzac, Voltaire,
 Stevenson, Collodi, Omero, Pascoli, Sant'Agostino, Cicerone, Conrad, Stoker, George Eliot,
