@@ -563,3 +563,17 @@
   per le opere più lunghe (7 volumi). Temi riletti uno per uno: vita 2, liberta 2, verita 1, tempo
   1 — nessun tema sopra il 30% del lotto. Build pulita (0 problemi). Archivio: 682 citazioni, 252
   autori.
+
+- 2026-09-01 UTC — Prosegue il filone "musica" (Lotto 6, tema ad alta domanda e copertura quasi
+  nulla): Patrick Süskind (Il contrabbasso, il monologo del contrabbassista sull'ineffabilità della
+  musica, nuova opera per lui, da 2 a 3 citazioni), Nick Hornby (Alta fedeltà, due passi sul
+  rapporto fra musica e vita amorosa — **autore nuovo**), Paul Verlaine (Art poétique, «La musica
+  prima di tutto» — **autore nuovo**, manifesto simbolista, pubblico dominio), E.T.A. Hoffmann
+  (Kreisleriana, sulla Quinta di Beethoven — **autore nuovo**, pubblico dominio). Schede autore
+  scritte per tutti e tre. Scartati con fonte insufficiente: una seconda citazione di Süskind, una
+  traduzione ridondante della stessa quartina di Verlaine (Minore/Newton Compton, tenuta solo la
+  versione Binni/Garzanti via Wikiquote), una citazione di Hoffmann da «Don Giovanni» (traduttore
+  identificato solo con le iniziali). Nessuna copertina trovata in lingua corretta per nessuna delle
+  5: tile placeholder. Il tema "musica" ha ora 8 citazioni pertinenti (Nietzsche + 2 Baricco + le 5
+  di questo lotto), la soglia minima per una raccolta — valutare la pubblicazione in un prossimo
+  passo. Build pulita (0 problemi). Archivio: 687 citazioni, 255 autori.
