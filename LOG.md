@@ -587,3 +587,19 @@
   è pertinente (Flaubert e Tasso, unici altri risultati lessicali, riguardano linguaggio e canto
   degli uccelli, non la musica). Build pulita (0 problemi, 27/27 raccolte). Archivio raccolte: da
   26 a 27.
+
+- 2026-09-01 UTC — Tema **montagna**, ultimo rimasto aperto dal Lotto 6 originale di CATALOGO.md
+  (1.000 di volume di ricerca, copertura pressoché nulla): Dino Buzzati (Bàrnabo delle montagne, il
+  suo romanzo d'esordio dolomitico — nuova opera, da 2 a 4 citazioni), Paolo Cognetti (terzo e
+  ultimo passo da «Le otto montagne» al tetto per opera singola, più uno da «Senza mai arrivare in
+  cima» — nuova opera, da 2 a 4 citazioni), Mario Rigoni Stern (Uomini boschi e api, Il bosco degli
+  urogalli — **autore nuovo**, scrittore dell'Altopiano di Asiago), John Muir (La mia prima estate
+  sulla Sierra, 1911 — **autore nuovo**, pubblico dominio, fondatore del Sierra Club). Schede
+  autore scritte per i due nuovi. Verifica su Wikiquote con locus, sito dell'editore (Cognetti/
+  Einaudi), o due fonti indipendenti concordanti parola per parola (Buzzati, Muir — quest'ultimo
+  incrociato anche col testo originale inglese su Project Gutenberg). Scartate 2 candidate con
+  fonte insufficiente. Nessuna copertina trovata per le opere nuove: tile placeholder. Temi riletti
+  uno per uno: solitudine 1, verita 1, coraggio 1, vita 2, amore 1, tempo 1 — nessun tema sopra il
+  30%. Build pulita (0 problemi). Archivio: 694 citazioni, 257 autori. Con questo lotto si chiude
+  per intero il Lotto 6 originale di CATALOGO.md (guerra, natura, animali, musica, pace, lavoro,
+  infanzia, figli, montagna): tutti i temi ad alta domanda segnalati sono ora coperti.
