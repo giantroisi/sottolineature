@@ -20,6 +20,7 @@ import generate_raccolte_pages as rp  # noqa: E402
 import generate_og_images as og  # noqa: E402
 import generate_index_pages as ip  # noqa: E402
 import generate_feed as feed  # noqa: E402
+import generate_404 as nf  # noqa: E402
 
 
 HOST_REDIRECTS = [
@@ -139,6 +140,7 @@ def main():
     citazioni_index_urls = ip.main(qp_entries, author_slugs, tema_status, genere_status, opere, op_status, raccolte, rc_status)
     feed_path = feed.main(qp_entries)
     mine.main()
+    nf.main(qp_entries, author_slugs, opere, raccolte)
 
     indexable_temi = [c for c, ok in tema_status.items() if ok]
     indexable_generi = [g for g, ok in genere_status.items() if ok]
