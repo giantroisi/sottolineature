@@ -814,7 +814,7 @@
      chi viene per ultimo. */
   @media (max-width: 700px) {
     .page { display: flex; flex-direction: column; }
-    .page > * { order: 6; }
+    .page > * { order: 7; }
     .masthead-row { display: contents; }
     .masthead-row .masthead { order: 1; margin-bottom: 1.2rem; }
     .search-sentinel { order: 2; }
@@ -834,7 +834,17 @@
       border-top: 1px solid var(--rule);
     }
     .page > .site-nav a { font-size: 0.72rem; letter-spacing: 0.09em; }
-    .page > .site-nav .theme-toggle { margin-left: auto; }
+    /* Il selettore del tema non entra nella riga del menu senza mandarla a
+       capo per lui solo: va all'altezza dell'occhiello, a destra, dove lo
+       spazio c'e' gia' ed e' vuoto. Fuori dall'intestazione tornerebbe a
+       essere il pulsante fisso in alto a sinistra che finiva sopra al logo. */
+    header.masthead { position: relative; padding-right: 3rem; }
+    header.masthead > .theme-toggle {
+      /* top e left arrivano dalla regola del pulsante fisso e vincono su
+         bottom/right se restano impostati: vanno azzerati */
+      position: absolute; top: auto; left: auto; right: 0; bottom: 0;
+      width: 2.2rem; height: 2.2rem; font-size: 1rem; margin: 0;
+    }
     /* Con tre righe (marchio, menu, ricerca) l'intestazione agganciata si
        mangerebbe un quarto dello schermo del telefono per tutta la lettura, e
        si sovrapporrebbe alla barra di ricerca fissata. Sul telefono scorre via
@@ -852,8 +862,8 @@
       z-index: 40;
     }
     .search-bar.is-stuck .search-bar-logo { display: none; }
-    .masthead-row .hero { order: 4; margin: 0 0 1.5rem; }
-    .masthead-row .lede { order: 5; margin: 0 0 1.6rem; }
+    .masthead-row .hero { order: 5; margin: 0 0 1.5rem; }
+    .masthead-row .lede { order: 6; margin: 0 0 1.6rem; }
   }
 
   /* --- scelta dello sfondo dell'immagine da condividere: compare solo dopo
@@ -7620,11 +7630,15 @@
       var page = document.getElementById('page');
       if (!nav || !headerInner || !page) { return; }
       var phone = window.matchMedia('(max-width: 700px)');
+      var toggle = document.getElementById('themeToggle');
+      var masthead = document.querySelector('header.masthead');
       function place() {
         if (phone.matches) {
           if (nav.parentNode !== page) { page.appendChild(nav); }
-        } else if (nav.parentNode !== headerInner) {
-          headerInner.appendChild(nav);
+          if (toggle && masthead && toggle.parentNode !== masthead) { masthead.appendChild(toggle); }
+        } else {
+          if (nav.parentNode !== headerInner) { headerInner.appendChild(nav); }
+          if (toggle && toggle.parentNode !== nav) { nav.appendChild(toggle); }
         }
       }
       place();
