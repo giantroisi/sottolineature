@@ -929,6 +929,14 @@ genere è facoltativo e sta fra i sei, si decide guardando l'opera e non la sing
 dubbio si lascia vuoto il genere e **non** si inventa un tema: lanciare `python3 tools/build.py` e
 leggere quello che dice.
 
+**La pagina citazione, misurata per la prima volta (2026-09-01).** È la pagina su cui atterra chi
+arriva da una ricerca, e non era mai stata misurata: stesso telefono e stessa strozzatura usati per
+la home (4G a 1,6 Mbps, CPU rallentata 4×), tre esecuzioni. **LCP 860-920 ms, CLS 0, ~150 ms di long
+task, 132 nodi, `DOMContentLoaded` ~880 ms.** CLS a zero secco perché la copertina ha `width` e
+`height` dichiarati e non fa saltare niente. Le copertine locali pesano in media 14 KB, la più
+grande 72 KB, nessuna sopra i 200 KB. **Non c'è niente da ottimizzare qui**: se un giorno le misure
+peggiorano, il confronto è questo.
+
 **Accessibilità (2026-09-01).** Passata con **axe-core** sui sei tipi di pagina, telefono, WCAG 2.1
 AA più buone pratiche: **da oltre 1.400 segnalazioni a sei.** Mancava il landmark `main` — nessuna
 pagina ce l'aveva, quindi per un lettore di schermo tutto il contenuto stava fuori dalle regioni
