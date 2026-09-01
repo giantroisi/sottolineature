@@ -784,6 +784,15 @@ quindi prima come **elenco di ciò che conviene raccogliere**, poi come piano ed
       pubblicato. Il piano completo dei lotti è in `CATALOGO.md`, punto 7
 - [ ] **Aggiornare `data/keywords.json` dopo ogni lotto**: le raccolte in lista d'attesa che
       superano la soglia si spostano da sole in "pronta".
+- [x] **Chiusura sessione del 2026-09-01**: 7 lotti in autonomia — canone scolastico italiano
+      (chiude CATALOGO.md Lotto 4), Epitteto/Boezio (chiude Lotto 3), filone musica con raccolta
+      pubblicata (chiude il tema musica del Lotto 6 originale), tema montagna con Buzzati/Cognetti/
+      Rigoni Stern/Muir (chiude il Lotto 6 originale per intero), tre lotti di seconda citazione per
+      18 autori rimasti a una sola voce. Archivio da 662 a 720 citazioni, da 252 a 257 autori, da 26
+      a 27 raccolte. Cinque autori nuovi ex novo: Nick Hornby, Paul Verlaine, E.T.A. Hoffmann, Mario
+      Rigoni Stern, John Muir. Restano solo 6 autori con una sola citazione (Munro, Kertész, Muir,
+      Buck, Tagore, Hoffmann), tutti già ritentati senza fonte sufficiente. Dettagli per lotto in
+      `LOG.md`.
 
 **Cosa è già stato scartato e non va riproposto** (32,6% del volume, dettaglio in
 `SEO-KEYWORDS.md`): film e serie TV (14.540), ricorrenze e auguri (9.700), altre lingue e dialetti
