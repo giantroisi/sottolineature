@@ -72,7 +72,7 @@ Aggiornata: 2026-08-28.
 - Rimosso il gate con password: il sito è pubblico
 - Immagine profilo Instagram: monogramma "S + piuma" estratto dal logo vettoriale (S e piuma ricomposte vicine, piuma leggermente più alta), sfondo `--paper`, margine per il ritaglio circolare — salvata in `archivio/instagram-avatar.png` (gitignored, asset locale)
 - Pulsante chiaro/scuro ingrandito a 44px (target di tocco) su mobile, riposizionato leggermente più vicino al bordo
-- Filtri "umore" e "genere" resi facet indipendenti: selezionarne uno azzera l'altro, così non capita più di restare bloccati su una combinazione (es. Coraggio + Fantasy) senza risultati. Su mobile il blocco Genere è ora un riquadro visivamente distinto (sfondo, bordo, pulsanti a pillola) invece di sembrare la prosecuzione dei filtri Umore
+- Filtri "tema" e "genere" resi esclusivi: selezionarne uno azzera l'altro, così non capita di restare bloccati su una combinazione (es. Coraggio + Fantasy) senza risultati. *(Il riquadro a pillole del blocco Genere su mobile è stato tolto il 2026-09-01: da quando i due filtri stanno affiancati sotto la barra di ricerca devono somigliarsi, non distinguersi.)*
 - Più respiro su mobile tra barra di ricerca, filtri e contenuto delle card (citazione/citazione bibliografica/contesto)
 - Barra di ricerca con suggerimenti anticipatori: mentre si scrive, mostra fino a 7 corrispondenze tra autori e opere (etichettate), navigabili con le frecce e selezionabili con Invio/clic — chiude alla selezione o su Esc/blur
 - Pulsante "×" per cancellare la ricerca: sostituisce l'icona nativa del browser (incoerente tra Safari/Chrome/Firefox) con un pulsante custom, sempre presente e ben visibile anche su mobile
@@ -880,6 +880,14 @@ pagina orfana (la 404, giusto così). **Corretto:**
 - **56 description sotto i 70 caratteri**: sono le citazioni brevissime, dove la descrizione è la
   frase stessa. Non è un difetto da correggere allungando per finta.
 - **Divisione dell'archivio in home**: misurata e rimandata, vedi sopra.
+
+**Lasciato com'e' di proposito (2026-09-01):** in home tema e genere **si escludono a vicenda** —
+scegliendo un genere il tema torna a «Tutte» e viceversa. Nasceva per non restare bloccati su
+combinazioni vuote (Coraggio + Fantasy). Ora che i due filtri stanno uno sotto l'altro sotto la
+barra di ricerca la cosa si nota di più e può sembrare un difetto invece che una scelta. Discusso
+con l'utente, che ha deciso di lasciarla così. Da riaprire solo se qualcuno si lamenta di non poter
+incrociare i due, e in quel caso va gestito il caso «nessun risultato» in modo esplicito, non
+lasciando la griglia vuota.
 
 **Bloccato sull'utente** (nessuno dei tre è aggirabile da qui):
 
