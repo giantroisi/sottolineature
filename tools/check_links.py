@@ -10,6 +10,7 @@ ma leggendo i file, quindi funziona anche senza rete.
 Uso: python3 tools/check_links.py   (esce con codice 1 se trova qualcosa)
 """
 import collections
+import json
 import os
 import re
 import sys
@@ -170,6 +171,43 @@ def main():
             print('\nURL IN SITEMAP MA CON noindex:', len(in_sitemap_noindex))
             for u in in_sitemap_noindex[:10]:
                 print('  ', u)
+
+    # --- tassonomia: tema e genere si scrivono a mano in data/citazioni.json, e
+    #     niente controllava che fossero valori esistenti. Il 2026-08-30 sono
+    #     finite 162 citazioni con un genere scritto nel campo del tema
+    #     ("Narrativa", "Saggistica", "Poesia") e temi inventati ("arte",
+    #     "morte"): valori che non corrispondono a nessun filtro e a nessun hub,
+    #     quindi quelle citazioni erano raggiungibili solo dalla ricerca. Un
+    #     refuso di maiuscola ("Fantascienza" invece di "fantascienza") fa lo
+    #     stesso danno in silenzio. ---
+    data_path = os.path.join(ROOT, 'data', 'citazioni.json')
+    if os.path.isfile(data_path):
+        sys.path.insert(0, os.path.join(ROOT, 'tools'))
+        from labels import CATEGORY_LABELS, GENRE_LABELS
+        with open(data_path, encoding='utf-8') as f:
+            quotes = json.load(f)
+        bad_cat = collections.Counter()
+        bad_gen = collections.Counter()
+        for q in quotes:
+            cat = (q.get('category') or '').strip()
+            if cat and cat not in CATEGORY_LABELS:
+                bad_cat[cat] += 1
+            for g in (q.get('genre') or '').split():
+                if g not in GENRE_LABELS:
+                    bad_gen[g] += 1
+        if bad_cat:
+            problems += sum(bad_cat.values())
+            print('\nTEMI INESISTENTI in data/citazioni.json:', sum(bad_cat.values()), 'citazioni')
+            print('   (non compaiono in nessun filtro ne in nessun hub: solo ricerca)')
+            for v, n in bad_cat.most_common():
+                print('   %-16s %d' % (v, n))
+            print('   temi validi:', ', '.join(sorted(CATEGORY_LABELS)))
+        if bad_gen:
+            problems += sum(bad_gen.values())
+            print('\nGENERI INESISTENTI in data/citazioni.json:', sum(bad_gen.values()), 'citazioni')
+            for v, n in bad_gen.most_common():
+                print('   %-16s %d' % (v, n))
+            print('   generi validi:', ', '.join(sorted(GENRE_LABELS)))
 
     print('\nProblemi totali:', problems)
     return 1 if problems else 0
