@@ -889,6 +889,30 @@ con l'utente, che ha deciso di lasciarla così. Da riaprire solo se qualcuno si 
 incrociare i due, e in quel caso va gestito il caso «nessun risultato» in modo esplicito, non
 lasciando la griglia vuota.
 
+**Tassonomia rimessa in ordine (2026-09-01).** Tema e genere si scrivono a mano in
+`data/citazioni.json` e **nessuno li controllava**: erano finite 162 citazioni con un genere scritto
+nel campo del tema («Narrativa», «Saggistica», «Poesia») o con temi inventati («arte», «morte»,
+«Teatro»), e 164 con generi fuori elenco, comprese cinque «Fantascienza» con la maiuscola che il
+filtro non riconosceva. Valori che non corrispondono a nessun filtro e a nessun hub: quelle
+citazioni si raggiungevano solo dalla ricerca. Cosa è stato fatto:
+
+- **`check_links.py` ora confronta tema e genere con `labels.py`** e li conta fra i problemi. È il
+  controllo che mancava: un refuso di maiuscola faceva lo stesso danno di un valore inventato, in
+  silenzio. **Da qui in avanti il build lo grida.**
+- **Genere assegnato a tutte e 523 le opere.** Il genere è una proprietà dell'opera, non della
+  singola citazione — due righe dallo stesso libro non possono avere generi diversi. Da 119
+  citazioni con genere a 257; poesia da 31 a 80, saggistica da 42 a 124. **Poesia è il sesto
+  genere**, deciso con l'utente. Dove un'opera non ha uno dei sei, il campo resta vuoto: è la norma,
+  non una dimenticanza.
+- **«Verità» da 214 citazioni a 84.** Era diventato il raccoglitore contro cui `CATALOGO.md` metteva
+  in guardia. Rilette tutte e 214; 130 spostate dove stavano. Distribuzione da 32/23/12/11/8/7/7 a
+  **28/13/13/13/13/11/9** — un tema largo, «vita», e sei specifici.
+
+**Regola per chi aggiunge citazioni:** il tema è obbligatorio e sta fra i sette di `labels.py`; il
+genere è facoltativo e sta fra i sei, si decide guardando l'opera e non la singola riga. In caso di
+dubbio si lascia vuoto il genere e **non** si inventa un tema: lanciare `python3 tools/build.py` e
+leggere quello che dice.
+
 **Bloccato sull'utente** (nessuno dei tre è aggirabile da qui):
 
 - **Email di contatto** — senza non si possono pubblicare né il contatto nel footer né *Segnala un
