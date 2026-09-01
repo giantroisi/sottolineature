@@ -533,3 +533,16 @@
   domanda") risultava già completato a 4 citazioni ciascuno dalla sessione concorrente prima di
   iniziare questo lotto: nessun lavoro duplicato. Build pulita (0 problemi). Archivio: 676
   citazioni, 252 autori.
+
+- 2026-09-01 UTC — Autocorrezione sul lotto precedente (Ariosto/Tasso/Goldoni/Alfieri/Saba/
+  Montale/Quasimodo), dopo aver riletto CATALOGO.md 3-bis: "vita" era finito su 7 delle 14
+  citazioni (50%), sopra la soglia del 30% del punto 10 — esattamente l'errore all'origine del
+  punto 3-bis. Rilette tutte e 14 una per una senza ancorarmi alle scelte precedenti: tre
+  riclassificazioni motivate — Goldoni "la farina del diavolo va tutta in crusca" da vita a verita
+  (l'inganno del guadagno facile è il soggetto della frase, non un'osservazione generica);
+  Alfieri "Mirra infelice, strascina una vita peggio assai d'ogni morte" da vita a tempo (confronto
+  esplicito con la morte); Saba "Città vecchia" da vita ad amore (la tenerezza per la gente umile
+  del porto è il cuore della poesia, la definizione di "amore" include esplicitamente cura e
+  tenerezza). Nuova distribuzione del lotto: amore 4, vita 4, tempo 3, solitudine 2, verita 1 —
+  nessun tema sopra il 30%. Nessun genere toccato (erano già tutti verificati opera per opera).
+  Build pulita (0 problemi). Nessuna citazione di altri lotti toccata.
