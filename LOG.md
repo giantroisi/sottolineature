@@ -546,3 +546,20 @@
   tenerezza). Nuova distribuzione del lotto: amore 4, vita 4, tempo 3, solitudine 2, verita 1 —
   nessun tema sopra il 30%. Nessun genere toccato (erano già tutti verificati opera per opera).
   Build pulita (0 problemi). Nessuna citazione di altri lotti toccata.
+
+- 2026-09-01 UTC — Lotto Epitteto/Boezio + prime citazioni sulla musica. Chiude il Lotto 3 di
+  CATALOGO.md: Epitteto (Manuale, cap. XV «il banchetto della vita», cap. XVII «il teatro della
+  vita») e Boezio (Della consolazione della filosofia, Libro III prosa II sulla beatitudine e prosa
+  X sulla bontà di Dio), entrambi da 2 a 4 citazioni, verificati parola per parola su Wikisource
+  italiano (Leopardi 1825, Varchi 1551). Filosofia/classici non narrativi al 5% dell'archivio,
+  lontano dal tetto del 15%. Avviata anche una futura raccolta "musica" (tema ad alta domanda,
+  oggi quasi scoperto, Lotto 6): Alessandro Baricco, Novecento — il monologo del pianista
+  transatlantico, mai citato finora, portato da 2 a 4 citazioni con copertina Feltrinelli verificata
+  guardandola. Scartati con fonte insufficiente: 2 citazioni di Thomas Mann (solo una tesi di
+  dottorato come fonte, nessun secondo riscontro sulla resa esatta), 1 di Milan Kundera (solo due
+  blog non specialistici); 2 citazioni di Marcel Proust da «La Prigioniera» erano solide (Wikiquote
+  con pagina) ma non aggiunte perché «Alla ricerca del tempo perduto» è già a 4 citazioni, sopra il
+  tetto di 3 per opera singola di CATALOGO.md §10 — da tenere presente se si vuole alzare quel tetto
+  per le opere più lunghe (7 volumi). Temi riletti uno per uno: vita 2, liberta 2, verita 1, tempo
+  1 — nessun tema sopra il 30% del lotto. Build pulita (0 problemi). Archivio: 682 citazioni, 252
+  autori.
