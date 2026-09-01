@@ -603,3 +603,20 @@
   30%. Build pulita (0 problemi). Archivio: 694 citazioni, 257 autori. Con questo lotto si chiude
   per intero il Lotto 6 originale di CATALOGO.md (guerra, natura, animali, musica, pace, lavoro,
   infanzia, figli, montagna): tutti i temi ad alta domanda segnalati sono ora coperti.
+
+- 2026-09-01 UTC — Approfondimento: Emily St. John Mandel, Madeline Miller, Donna Tartt, Elif
+  Shafak, Alba de Céspedes, Amin Maalouf portati da 1 a 2-3 citazioni ciascuno. Mandel (un secondo
+  passo da «Stazione undici», l'incipit, più uno da «La musica delle parole» — nuova opera), Miller
+  (due passi da «Circe» — nuova opera), Tartt (due passi da «Dio di illusioni» — nuova opera),
+  Shafak («La bastarda di Istanbul» — nuova opera), de Céspedes («Quaderno proibito» e «Dalla
+  parte di lei» — due opere nuove), Maalouf (due passi da «Il periplo di Baldassarre» — nuova
+  opera). Verifica su Wikiquote con locus o più fonti indipendenti concordanti parola per parola.
+  Scartate con fonte insufficiente: 2 candidate di Mandel, 2 di de Céspedes, 1 seconda di Shafak
+  (locus mancante, fonte solo indiretta). Nessuna copertina nuova (un candidato per Tartt era in
+  inglese, scartato); riusata quella già verificata per «Stazione undici». Temi riletti uno per
+  uno: vita 3, solitudine 3, liberta 2, verita 2, amore 1 — nessun tema sopra il 30%. Build pulita
+  (0 problemi). Archivio: 705 citazioni, 257 autori; restano 14 autori con una sola citazione
+  (Amos Oz, Donna Tartt* ora a 3, Elif Shafak* ora a 2, E.T.A. Hoffmann, Imre Kertész, John Muir,
+  Michel Houellebecq, Michel de Montaigne, Naguib Mahfouz, Octavia E. Butler, Paul Verlaine,
+  Pearl S. Buck, Rabindranath Tagore, Rick Riordan, Susanna Tamaro — asterisco per chiarezza,
+  usciti dalla lista dei "singoli" con questo lotto).
