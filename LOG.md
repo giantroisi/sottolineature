@@ -501,3 +501,35 @@
 - 2026-08-31 UTC — Approfondimento: Maya Angelou, Audre Lorde, Hannah Arendt, Roald Dahl, Sinclair Lewis portati da 1 a 2 citazioni ciascuno. Angelou (poesia «Lavoro di donna», fonte moderata — due siti editoriali indipendenti ma traduttore non accertabile), Lorde (Zami, fonte editoriale ufficiale ETS), Arendt (Le origini del totalitarismo, invece di un titolo minore già presente — Wikiquote con pagine precise), Dahl (Danny il campione del mondo), Sinclair Lewis (Opera d'arte, invece di Qui non può succedere) — questi ultimi tre su Wikiquote con locus/pagina espliciti, corroborati anche dal testo inglese integrale. **Scartato Imre Kertész**: nessuna fonte sufficiente trovata per un'opera diversa da Essere senza destino, segnalato onestamente dalla ricerca invece di forzare una fonte debole. Build pulita per la parte di mia competenza. Archivio: 657 citazioni, 252 autori; restano 23 autori con una sola citazione.
 
 - 2026-08-31 UTC — Approfondimento: Annie Ernaux, Clarice Lispector, Wole Soyinka, Astrid Lindgren, Patrick Süskind portati da 1 a 2 citazioni ciascuno. Ernaux (Il posto, invece di Gli anni), Lispector (La passione secondo G.H.), Soyinka (Sul far del giorno, invece de L'uomo è morto), Lindgren (I fratelli Cuordileone, invece di Pippi Calzelunghe), Süskind (Storia del signor Sommer, invece de Il profumo) — tutte su fonti sostanziali indipendenti (recensioni letterarie, portali editoriali), non aggregatori. **Scartata Pearl S. Buck**: nessun testo italiano pubblicato reperibile online per le opere alternative (edizioni Mondadori del 1958-1979, fuori catalogo e non digitalizzate) — segnalato onestamente come limite di ricerca, non forzato. **Nota tecnica**: durante questo lotto la sessione parallela ha introdotto un nuovo controllo di build (tema/genere non validi, 326 casi) e ha corretto la tassonomia in un proprio commit che ha finito per includere anche le mie 5 citazioni non ancora committate (stesso repository condiviso) — verificato che il contenuto fosse integro, completate solo le voci mancanti in tools/slugs.json e le immagini OG rimaste non tracciate. Build pulita (0 problemi). Con questo lotto si chiude la serie di approfondimento autori di questa sessione: 32 autori portati da 1 a 2 citazioni in totale. Archivio: 662 citazioni, 252 autori; restano 18 autori con una sola citazione (Alba de Céspedes, Alice Munro, Amin Maalouf, Amos Oz, Donna Tartt, Elif Shafak, Emily St. John Mandel, Imre Kertész, Madeline Miller, Michel Houellebecq, Michel de Montaigne, Naguib Mahfouz, Octavia E. Butler, Pearl S. Buck, Rabindranath Tagore, Rick Riordan, Susanna Tamaro — più Kertész e Tagore già ritentati senza successo, da riprendere solo con fonti nuove).
+
+- 2026-09-01 UTC — Lotto CATALOGO.md 4 ("canone scolastico italiano poco coperto"): sette autori
+  ad alta domanda di ricerca portati da 2 a 4 citazioni ciascuno, in ricerca affidata a sottoagenti
+  paralleli con la stessa metodologia rigorosa in uso (Wikisource in lingua originale con
+  confronto fra edizioni indipendenti > Wikiquote con locus esplicito + fonte indipendente
+  concordante, mai aggregatori di aforismi). Ludovico Ariosto (Orlando furioso, canto VII ott. 11
+  — il ritratto di Alcina; canto XXXIV ott. 83 — il senno d'Orlando sulla luna), Torquato Tasso
+  (Gerusalemme liberata, canto III ott. 3 — i crociati avvistano Gerusalemme; canto XVI ott. 12 —
+  il giardino di Armida), Carlo Goldoni (La bottega del caffè, invece de La locandiera già
+  presente: atto I scena I e scena XI, verificate su Wikisource testo grezzo, pagine SAL 100%),
+  Vittorio Alfieri (dalle tragedie invece che dalla Vita già presente: Saul atto I scena IV e Mirra
+  atto I scena I — scartata una citazione dalla Vita per un refuso OCR non ripulito nell'edizione
+  Wikisource, sostituita con testo su pagina proofread al 100%), Umberto Saba (Città vecchia e
+  Amai, invece di Trieste e Il poeta già presenti), Eugenio Montale ("Spesso il male di vivere ho
+  incontrato" da Ossi di seppia, diverso dalla chiusa di Meriggiare già presente; "Ho sceso,
+  dandoti il braccio" da Satura/Xenia — nuova opera in archivio per l'autore), Salvatore Quasimodo
+  (Alle fronde dei salici e Al padre, invece di Ed è subito sera e Milano, agosto 1943 già
+  presenti). Le quattro citazioni Otto-Novecento restano entro le ~40 parole per il diritto
+  d'autore (Saba, Montale, Quasimodo ancora protetti). 14 citazioni totali, metà da opere anteriori
+  al 1900. **Corrette anche due copertine sbagliate scoperte durante la verifica visiva delle
+  nuove**: quella già pubblicata per Umberto Saba (Trieste, Il poeta) era la copertina del romanzo
+  breve "Ernesto" nella traduzione inglese Carcanet, non de Il Canzoniere — sostituita con
+  l'edizione italiana Einaudi de Il Canzoniere (1900-1954), verificata visivamente e ora usata
+  anche per le due nuove citazioni. Quella già pubblicata per Salvatore Quasimodo (Ed è subito
+  sera, Milano agosto 1943) era un'edizione inglese (Complete Poems, trad. Jack Bevan, Schocken
+  Books) — contro la regola già in uso di scartare le copertine in lingua sbagliata: rimossa senza
+  sostituto, nessuna edizione italiana affidabile trovata su Open Library per nessuna delle quattro
+  opere di Quasimodo in archivio. Verificato anche che il precedente Lotto 2 di CATALOGO.md (Wilde,
+  Shakespeare, Dante, D'Annunzio, Pavese, Leopardi, Pirandello, Seneca, Merini, tutti ad "alta
+  domanda") risultava già completato a 4 citazioni ciascuno dalla sessione concorrente prima di
+  iniziare questo lotto: nessun lavoro duplicato. Build pulita (0 problemi). Archivio: 676
+  citazioni, 252 autori.

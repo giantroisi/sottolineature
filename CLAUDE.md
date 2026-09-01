@@ -744,10 +744,13 @@ quindi prima come **elenco di ciò che conviene raccogliere**, poi come piano ed
       dall'utente, le successive 15 pubblicate in autonomia. Archivio raccolte: da 10 a 26. Dettagli
       per lotto, candidati letti e scartati in `LOG.md`; tabella riassuntiva in `SEO-KEYWORDS.md`
       §7; `data/keywords.json` aggiornato con verdetto "pubblicata" su tutti e sedici i cluster.
-- [ ] **Lotti citazioni sugli autori a più alta domanda**, fino a 3-4 citazioni a testa: Wilde
-      (1.610 di volume, **1** citazione), Shakespeare (1.580 / 2), Dante (1.220 / 2), D'Annunzio
-      (970 / 1), Pavese (730 / 2), Leopardi (720 / 2), Pirandello (700 / 2), Seneca (670 / 1),
-      Merini (650 / 1). Le pagine con più domanda sono oggi quelle con meno contenuto.
+- [x] **Lotti citazioni sugli autori a più alta domanda**, portati tutti a 4 citazioni: Wilde,
+      Shakespeare, Dante, D'Annunzio, Pavese, Leopardi, Pirandello, Seneca, Merini (lavoro della
+      sessione concorrente, verificato completo il 2026-09-01). A seguire, **CATALOGO.md Lotto 4
+      (canone scolastico italiano) fatto il 2026-09-01**: Ariosto, Tasso, Goldoni, Alfieri, Saba,
+      Montale, Quasimodo portati da 2 a 4 citazioni ciascuno, 14 citazioni verificate su
+      Wikisource/Wikiquote. Corrette anche due copertine sbagliate scoperte nel lavoro (Saba,
+      Quasimodo). Dettagli in `LOG.md`.
 - [ ] **Pagine opera** per i titoli con domanda che nel frattempo arrivano a 2+ citazioni:
       Alice nel paese delle meraviglie (770), Il grande Gatsby (290), Cime tempestose (280),
       L'amore ai tempi del colera (220), Cent'anni di solitudine (170), Oceano mare (170),
