@@ -209,6 +209,42 @@ def main():
                 print('   %-16s %d' % (v, n))
             print('   generi validi:', ', '.join(sorted(GENRE_LABELS)))
 
+    # --- copertine: la copertina e' una proprieta' dell'opera, come il genere.
+    #     Due citazioni dallo stesso libro non possono mostrarne una diversa, ne'
+    #     una si' e una no. Il 2026-09-01 questo controllo ha trovato 19 opere
+    #     con la copertina a meta' e, soprattutto, «Non lasciarmi» di Ishiguro
+    #     che ne mostrava due: una delle due era «Quando eravamo orfani», cioe'
+    #     il libro sbagliato, rimasto da una citazione tolta mesi prima. ---
+    if os.path.isfile(data_path):
+        per_opera = collections.defaultdict(list)
+        for q in quotes:
+            per_opera[(q['author'], q['title'])].append((q.get('cover') or '').strip())
+        diverse, meta, senza_file = [], [], set()
+        for (autore, titolo), covs in per_opera.items():
+            distinte = set(c for c in covs if c)
+            if len(distinte) > 1:
+                diverse.append((autore, titolo, sorted(distinte)))
+            elif distinte and len(covs) != sum(1 for c in covs if c):
+                meta.append((autore, titolo, len(covs), sum(1 for c in covs if c)))
+            for c in distinte:
+                if not os.path.isfile(os.path.join(ROOT, c.lstrip('/'))):
+                    senza_file.add(c)
+        if diverse:
+            problems += len(diverse)
+            print('\nCOPERTINE DIVERSE PER LA STESSA OPERA:', len(diverse))
+            for a, t, cs in diverse[:10]:
+                print('   %s — %s: %s' % (a, t, ', '.join(cs)))
+        if meta:
+            problems += len(meta)
+            print('\nCOPERTINA SOLO SU ALCUNE CITAZIONI DELLA STESSA OPERA:', len(meta))
+            for a, t, tot, con in meta[:10]:
+                print('   %s — %s (%d citazioni, %d con copertina)' % (a, t, tot, con))
+        if senza_file:
+            problems += len(senza_file)
+            print('\nCOPERTINE DICHIARATE MA SENZA FILE:', len(senza_file))
+            for c in sorted(senza_file)[:10]:
+                print('  ', c)
+
     print('\nProblemi totali:', problems)
     return 1 if problems else 0
 
