@@ -16,4 +16,5 @@ GENRE_LABELS = {
     'distopia': 'Distopia',
     'horror': 'Horror/Gotico',
     'saggistica': 'Saggistica',
+    'poesia': 'Poesia',
 }
