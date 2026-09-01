@@ -639,3 +639,31 @@
   John Muir, Paul Verlaine, Pearl S. Buck, Rabindranath Tagore, Susanna Tamaro) — quattro dei quali
   (Munro, Kertész, Tagore, Buck) già ritentati senza successo in lotti precedenti, da riprendere
   solo con un angolo di ricerca genuinamente nuovo.
+
+- 2026-09-01 UTC — Approfondimento: Susanna Tamaro e Paul Verlaine portati da 1 a 2 citazioni
+  ciascuno. Tamaro (due passi da «Ascolta la mia voce», sequel di «Va' dove ti porta il cuore» —
+  nuova opera), Verlaine («Romanze senza parole» e «Poèmes saturniens» — due opere nuove, diverse
+  da «Art poétique»). Verifica su Wikiquote e su traduzioni pubblicate con traduttore identificato
+  (Viviani/Feltrinelli, Frezza/BUR). Scartate: una citazione di John Muir (nessuna resa italiana
+  pubblicata verificabile, solo aggregatori); due di E.T.A. Hoffmann — una tradotta di seconda mano
+  da un'antologia inglese non hoffmanniana, l'altra scartata per coerenza con la stessa riserva già
+  applicata oggi a un altro passo di Hoffmann (traduttore identificato solo con le iniziali). Lotto
+  piccolo (4 citazioni): entrambe le citazioni di Tamaro sono inequivocabilmente sul tempo per
+  contenuto reale, non per timbro di comodo — annotato per trasparenza, non corretto perché onesto.
+  Build pulita (0 problemi). Archivio: 720 citazioni, 257 autori; restano 6 autori con una sola
+  citazione (Alice Munro, E.T.A. Hoffmann, Imre Kertész, John Muir, Pearl S. Buck, Rabindranath
+  Tagore) — tutti già ritentati almeno una volta senza fonte sufficiente, da riprendere solo con un
+  angolo di ricerca genuinamente nuovo.
+
+- 2026-09-01 UTC — **Chiusura di sessione**: in questa sessione, oltre alle correzioni e alle 16
+  raccolte SEO già registrate sopra, si sono susseguiti 7 lotti di approfondimento: canone
+  scolastico italiano (Ariosto/Tasso/Goldoni/Alfieri/Saba/Montale/Quasimodo, chiude CATALOGO.md
+  Lotto 4), Epitteto/Boezio (chiude CATALOGO.md Lotto 3), il filone musica con la raccolta omonima
+  pubblicata (chiude il tema musica del Lotto 6 originale), il tema montagna con Buzzati/Cognetti/
+  Rigoni Stern/Muir (chiude per intero il Lotto 6 originale), e tre lotti di "seconda citazione"
+  per gli autori rimasti a una sola voce (18 autori portati a 2 o più). Archivio passato da 662 a
+  720 citazioni, da 252 a 257 autori, da 26 a 27 raccolte. Otto autori nuovi aggiunti ex novo: Nick
+  Hornby, Paul Verlaine, E.T.A. Hoffmann, Mario Rigoni Stern, John Muir. Restano solo 6 autori con
+  una sola citazione, tutti già ritentati senza successo. Build sempre pulita (0 problemi) a ogni
+  lotto; disciplina di sincronizzazione git rispettata a ogni passaggio nonostante la sessione
+  concorrente sia rimasta attiva sui propri file (accessibilità, pagina 404, copertine).
