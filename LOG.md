@@ -667,3 +667,23 @@
   una sola citazione, tutti già ritentati senza successo. Build sempre pulita (0 problemi) a ogni
   lotto; disciplina di sincronizzazione git rispettata a ogni passaggio nonostante la sessione
   concorrente sia rimasta attiva sui propri file (accessibilità, pagina 404, copertine).
+
+- 2026-09-01 UTC — Copertine mancanti, primo lotto (le 15 opere con più citazioni fra le 235 senza
+  immagine, da `tools/opere_senza_copertina.py`). Solo il campo `cover` toccato, nessun altro dato
+  modificato. Trovate e verificate guardandole (autore, titolo, edizione corrispondenti): Erri De
+  Luca (Montedidio), Gabriele D'Annunzio (Il libro delle vergini), Michel de Montaigne (Saggi),
+  Nick Hornby (Alta fedeltà), Octavia E. Butler (Legami di sangue), Donna Tartt (Dio di illusioni),
+  Natalia Ginzburg (Le piccole virtù) — 7 opere, 15 citazioni. **Nota tecnica**: diverse copertine
+  Open Library rispondono con un redirect 302 sull'URL diretto `/b/id/<id>-M.jpg`; un fetch che non
+  segue il redirect restituisce un file di 9 byte indistinguibile a prima vista da un "nessuna
+  immagine", portando a scartare per errore candidati validi — corretto seguendo sempre i redirect
+  prima di dichiarare un'opera senza copertina disponibile. Lasciate vuote, dopo verifica con
+  l'endpoint editions.json (non solo la ricerca semplice) che nessuna edizione italiana esiste in
+  catalogo: Amin Maalouf (Il periplo di Baldassarre — solo francese/spagnolo/arabo/inglese),
+  Dino Buzzati (Bàrnabo delle montagne — nessuna copertina in nessuna lingua), Fernando Pessoa
+  (L'educazione dello stoico — solo portoghese/inglese), Madeline Miller (Circe — nessuna edizione
+  italiana), Michela Murgia (Noi siamo tempesta — non indicizzata), Paulo Coelho (Manuale del
+  guerriero della luce — nessuna copertina italiana), Emily Dickinson (Lettere — nessuna edizione
+  italiana). Scartata anche Niccolò Machiavelli (Discorsi sopra la prima deca di Tito Livio):
+  l'unica copertina disponibile era in inglese. `check_links` pulito su copertine diverse/parziali/
+  senza file. Build pulita (0 problemi). Copertine locali: 476.
