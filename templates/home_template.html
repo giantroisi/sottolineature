@@ -814,7 +814,7 @@
      chi viene per ultimo. */
   @media (max-width: 700px) {
     .page { display: flex; flex-direction: column; }
-    .page > * { order: 7; }
+    .page > * { order: 8; }
     .masthead-row { display: contents; }
     .masthead-row .masthead { order: 1; margin-bottom: 1.2rem; }
     .search-sentinel { order: 2; }
@@ -862,8 +862,35 @@
       z-index: 40;
     }
     .search-bar.is-stuck .search-bar-logo { display: none; }
-    .masthead-row .hero { order: 5; margin: 0 0 1.5rem; }
-    .masthead-row .lede { order: 6; margin: 0 0 1.6rem; }
+    /* Le due righe di filtri, andando a capo, si mangiavano mezza schermata:
+       qui scorrono di lato, una riga ciascuna, e si somigliano - quella dei
+       generi era una scatola con i bottoni a pillola, disegnata per stare da
+       un'altra parte. La riga di prosa sui temi sparisce: la stessa cosa e'
+       gia' scritta in /temi/, e qui rubava due righe alla prima schermata. */
+    .filter-block {
+      order: 4; margin: 0 0 1.4rem; padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .filter-block .filters-note { display: none; }
+    .filter-block nav.filters {
+      flex-wrap: nowrap; overflow-x: auto;
+      scrollbar-width: none; -ms-overflow-style: none;
+      margin: 0; padding: 0 0 0.35rem; border-bottom: 0; gap: 0 1.1rem;
+    }
+    .filter-block nav.filters::-webkit-scrollbar { display: none; }
+    .filter-block nav.genre-filters {
+      margin: 0; padding: 0; background: none; border: 0; border-radius: 0;
+      gap: 0 0.9rem;
+    }
+    .filter-block .genre-filters-label { display: inline; width: auto; margin: 0 0.2rem 0 0; }
+    .filter-block nav.genre-filters .filter-btn {
+      padding: 0.4rem 0.1rem; border: 0; border-radius: 0; background: none;
+    }
+    .filter-block .filter-btn { white-space: nowrap; }
+    .filter-block .filter-count { margin: 0.7rem 0 0; }
+    .page > .site-nav { order: 5; }
+    .masthead-row .hero { order: 6; margin: 0 0 1.5rem; }
+    .masthead-row .lede { order: 7; margin: 0 0 1.6rem; }
   }
 
   /* --- scelta dello sfondo dell'immagine da condividere: compare solo dopo
@@ -880,6 +907,22 @@
     font-family: inherit;
   }
   .share-choice button:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* --- Ricerca e filtri sono lo stesso mestiere: restringere l'archivio.
+         Stavano a duemila pixel di distanza, con i filtri appena sopra la
+         griglia; ora sono un blocco solo sotto la barra. --- */
+  .filter-block { margin: 0 0 2rem; }
+  .filter-count { font-size: 0.78rem; color: var(--ink-faint); margin: 0.9rem 0 0; }
+
+  /* Quando una ricerca o un filtro sono attivi la pagina passa in "modo
+     risultati": citazione del giorno, presentazione, fascia Esplora e le due
+     strisce si tolgono di mezzo, e la griglia sale subito sotto i filtri.
+     Senza, si toccava un filtro e non si vedeva succedere niente, perche' i
+     risultati erano tremila pixel piu' in basso. */
+  .page.is-filtering .hero,
+  .page.is-filtering .lede,
+  .page.is-filtering .explore,
+  .page.is-filtering .strip { display: none; }
 
   /* --- fasce "Ultime aggiunte" e "Dalle raccolte" --- */
   .strip { margin: 3rem 0; }
@@ -988,6 +1031,32 @@
   </div>
 
 
+  <div class="filter-block" id="filterBlock">
+  <p class="filters-note sans">Non una classificazione: la stessa pagina può riconoscersi in più di un tema.</p>
+  <nav class="filters sans" id="filters">
+    <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
+    <a class="filter-btn" data-filter="vita" href="/temi/vita/">Vita</a>
+    <a class="filter-btn" data-filter="amore" href="/temi/amore/">Amore</a>
+    <a class="filter-btn" data-filter="coraggio" href="/temi/coraggio/">Coraggio</a>
+    <a class="filter-btn" data-filter="liberta" href="/temi/liberta/">Libertà</a>
+    <a class="filter-btn" data-filter="tempo" href="/temi/tempo/">Tempo</a>
+    <a class="filter-btn" data-filter="solitudine" href="/temi/solitudine/">Solitudine</a>
+    <a class="filter-btn" data-filter="verita" href="/temi/verita/">Verità</a>
+    <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
+  </nav>
+
+  <nav class="filters genre-filters sans" id="genreFilters">
+    <span class="genre-filters-label sans">Genere</span>
+    <button class="filter-btn active" data-genre="tutti" type="button">Tutti</button>
+    <a class="filter-btn" data-genre="fantasy" href="/generi/fantasy/">Fantasy</a>
+    <a class="filter-btn" data-genre="fantascienza" href="/generi/fantascienza/">Fantascienza</a>
+    <a class="filter-btn" data-genre="distopia" href="/generi/distopia/">Distopia</a>
+    <a class="filter-btn" data-genre="horror" href="/generi/horror/">Horror/Gotico</a>
+    <a class="filter-btn" data-genre="saggistica" href="/generi/saggistica/">Saggistica</a>
+  </nav>
+    <p class="filter-count sans" id="filterCount" hidden></p>
+  </div>
+
   <nav class="explore sans" aria-label="Esplora l'archivio">
     <h2 class="explore-title">Esplora l'archivio</h2>
     <ul class="explore-list">
@@ -1016,28 +1085,6 @@
     <p class="strip-more sans"><a href="/raccolte/">Tutte le raccolte →</a></p>
   </section>
 
-  <p class="filters-note sans">Non una classificazione: la stessa pagina può riconoscersi in più di un tema.</p>
-  <nav class="filters sans" id="filters">
-    <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
-    <a class="filter-btn" data-filter="vita" href="/temi/vita/">Vita</a>
-    <a class="filter-btn" data-filter="amore" href="/temi/amore/">Amore</a>
-    <a class="filter-btn" data-filter="coraggio" href="/temi/coraggio/">Coraggio</a>
-    <a class="filter-btn" data-filter="liberta" href="/temi/liberta/">Libertà</a>
-    <a class="filter-btn" data-filter="tempo" href="/temi/tempo/">Tempo</a>
-    <a class="filter-btn" data-filter="solitudine" href="/temi/solitudine/">Solitudine</a>
-    <a class="filter-btn" data-filter="verita" href="/temi/verita/">Verità</a>
-    <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
-  </nav>
-
-  <nav class="filters genre-filters sans" id="genreFilters">
-    <span class="genre-filters-label sans">Genere</span>
-    <button class="filter-btn active" data-genre="tutti" type="button">Tutti</button>
-    <a class="filter-btn" data-genre="fantasy" href="/generi/fantasy/">Fantasy</a>
-    <a class="filter-btn" data-genre="fantascienza" href="/generi/fantascienza/">Fantascienza</a>
-    <a class="filter-btn" data-genre="distopia" href="/generi/distopia/">Distopia</a>
-    <a class="filter-btn" data-genre="horror" href="/generi/horror/">Horror/Gotico</a>
-    <a class="filter-btn" data-genre="saggistica" href="/generi/saggistica/">Saggistica</a>
-  </nav>
 
   <button class="print-selection-btn sans" id="printSelectionBtn" type="button" hidden>Stampa o esporta questa selezione</button>
 
@@ -1612,6 +1659,15 @@
       redistribute();
       emptyState.hidden = visibleCount > 0;
       printSelectionBtn.hidden = !(activeCategory === 'sottolineate' && visibleCount > 0);
+
+      // modo risultati: vedi il commento nel foglio di stile
+      var filtering = !!term || activeCategory !== 'tutte' || activeGenre !== 'tutti';
+      document.getElementById('page').classList.toggle('is-filtering', filtering);
+      var countEl = document.getElementById('filterCount');
+      if (countEl) {
+        countEl.hidden = !filtering;
+        countEl.textContent = visibleCount === 1 ? '1 citazione' : visibleCount + ' citazioni';
+      }
     }
 
     var filterBtns = Array.prototype.slice.call(document.querySelectorAll('#filters .filter-btn'));
