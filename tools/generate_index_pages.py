@@ -56,7 +56,7 @@ PAGE_SHELL = """<!DOCTYPE html>
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
-    <form class="header-search sans" action="/" method="get" role="search">
+    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
       <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
       <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
     </form>
@@ -71,7 +71,7 @@ PAGE_SHELL = """<!DOCTYPE html>
   </div>
 </header>
 <script src="/assets/nav.js" defer></script>
-<div class="page">
+<div class="page" role="main">
   <a class="back-link sans" href="/">← Torna alla home</a>
   <p class="eyebrow sans">{eyebrow}</p>
   <h1>{h1}</h1>

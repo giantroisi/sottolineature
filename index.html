@@ -507,7 +507,9 @@
     font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    color: rgba(255, 255, 255, 0.92);
+    /* bianco pieno: al 92% il contrasto sui fondi della palette scendeva
+       sotto 4,5 e le iniziali diventavano difficili da leggere */
+    color: #fff;
   }
 
   .card-mark {
@@ -986,7 +988,7 @@
 </header>
 <script src="/assets/nav.js?v=b7987fd5" defer></script>
 
-<div class="page" id="page">
+<div class="page" id="page" role="main">
 
   <div class="masthead-row">
   <header class="masthead">
@@ -1032,7 +1034,7 @@
 
   <div class="filter-block" id="filterBlock">
   <p class="filters-note sans">Non una classificazione: la stessa pagina può riconoscersi in più di un tema.</p>
-  <nav class="filters sans" id="filters">
+  <nav class="filters sans" id="filters" aria-label="Filtra per tema">
     <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
     <a class="filter-btn" data-filter="vita" href="/temi/vita/">Vita</a>
     <a class="filter-btn" data-filter="amore" href="/temi/amore/">Amore</a>
@@ -1044,7 +1046,7 @@
     <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
   </nav>
 
-  <nav class="filters genre-filters sans" id="genreFilters">
+  <nav class="filters genre-filters sans" id="genreFilters" aria-label="Filtra per genere">
     <span class="genre-filters-label sans">Genere</span>
     <button class="filter-btn active" data-genre="tutti" type="button">Tutti</button>
     <a class="filter-btn" data-genre="fantasy" href="/generi/fantasy/">Fantasy</a>
@@ -7922,7 +7924,9 @@
     var grid = document.getElementById('grid');
     var cards = Array.prototype.slice.call(grid.querySelectorAll('.card'));
 
-    var COVER_PALETTE = ['#8a6f5c', '#6b7c6e', '#7d6a8a', '#8a7355', '#6f7d8a', '#8a5f5f', '#5f7a7d', '#7a6f8a'];
+    // quattro tinte scurite quel tanto che basta a portare il contrasto con le
+    // iniziali bianche sopra 4,5 su tutte e otto
+    var COVER_PALETTE = ['#8a6f5c', '#67786a', '#7d6a8a', '#856f52', '#687581', '#8a5f5f', '#5c7679', '#7a6f8a'];
 
     function initialsFor(name) {
       var tokens = name.replace(/\./g, '').split(/\s+/).filter(Boolean);
