@@ -835,6 +835,11 @@ partire da una keyword senza il contenuto che la giustifica.
    in cambio tocca ricerca, filtri, sottolineature e ancore `#slug`, cioè quattro cose che oggi
    funzionano. **Decisione: non farla adesso.** Va rimessa in cima se l'archivio supera le ~900
    citazioni o se le misure peggiorano — rifare la misura, non fidarsi di questa.
+   *Rimisurata il 2026-09-01 a 676 citazioni (649 KB, 107 KB compressi, 7.631 nodi), stesso
+   telefono e stessa strozzatura: **LCP 456-616 ms, CLS 0,021, 300-460 ms di long task,
+   `DOMContentLoaded` 3,77 s**. In due giorni l'archivio è cresciuto del 9% e i Core Web
+   Vitals non si sono mossi fuori dal rumore. Decisione confermata: si rimanda. Prossima
+   misura alle ~900 citazioni, che di questo passo arrivano in fretta.*
 3. ~~**Citazioni senza blocco fonte.**~~ **Chiuso il 2026-08-31, referto in `VERIFICHE-FONTI.md`.**
    Le 23 segnalate dal build sono state controllate una per una sul testo pubblicato o sull'originale
    in lingua: **13 compilate, 3 corrette, 5 tolte**. L'archivio passa da 621 a 616 citazioni e
