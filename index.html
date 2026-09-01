@@ -78,7 +78,13 @@
   header.masthead {
     max-width: 40rem;
     margin-bottom: 1.75rem;
+    /* il marchio e' il titolo: viene prima lui, la riga di presentazione sta
+       sotto come una didascalia */
+    display: flex;
+    flex-direction: column;
   }
+  header.masthead .eyebrow { order: 2; margin: 0.9rem 0 0; }
+  header.masthead h1.title { order: 1; }
 
   .eyebrow {
     font-size: 0.72rem;
@@ -812,7 +818,23 @@
     .masthead-row { display: contents; }
     .masthead-row .masthead { order: 1; margin-bottom: 1.2rem; }
     .search-sentinel { order: 2; }
-    .search-bar { order: 3; margin-bottom: 1.6rem; }
+    .search-bar { order: 3; margin-bottom: 1.4rem; }
+    /* Su telefono la pagina comincia dal marchio grande, non dalla barra
+       stretta con la piuma: quella riga la si toglie e il menu scende sotto la
+       ricerca, dove non ruba la prima schermata. Lo spostamento lo fa il JS
+       (vedi in fondo); senza JS l'intestazione resta dov'era, e il menu con
+       lei. */
+    .js .site-header { display: none; }
+    .page > .site-nav {
+      order: 4;
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 0.5rem 1.15rem;
+      margin: 0 0 1.9rem;
+      padding: 0.95rem 0 0;
+      border-top: 1px solid var(--rule);
+    }
+    .page > .site-nav a { font-size: 0.72rem; letter-spacing: 0.09em; }
+    .page > .site-nav .theme-toggle { margin-left: auto; }
     /* Con tre righe (marchio, menu, ricerca) l'intestazione agganciata si
        mangerebbe un quarto dello schermo del telefono per tutta la lettura, e
        si sovrapporrebbe alla barra di ricerca fissata. Sul telefono scorre via
@@ -872,9 +894,23 @@
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://sottolineature.it/#website","url":"https://sottolineature.it/","name":"Sottolineature","description":"Citazioni da libri raccolte e verificate a mano, senza algoritmo.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sottolineature.it/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <script>
+  document.documentElement.className += ' js';
   try {
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+    /* Riparazione una tantum, 2026-09-01. La conversione delle chiavi vecchie
+       "autore|titolo" in slug prendeva tutte le citazioni dell'opera invece di
+       una: chi apriva il sito si ritrovava segnate frasi che non aveva mai
+       letto, e quelle finivano scritte nel browser, dove restavano anche dopo
+       la correzione del difetto. Non c'e' modo di distinguere le vere dalle
+       inventate, quindi l'elenco si azzera una volta sola. Le note scritte a
+       mano non si toccano: sono testo di chi legge, e tornano visibili appena
+       la citazione viene sottolineata di nuovo. */
+    if (localStorage.getItem('sottolineature-reset') !== '2026-09-01') {
+      localStorage.removeItem('sottolineature-underlined');
+      localStorage.setItem('sottolineature-reset', '2026-09-01');
+    }
+
   } catch (e) {}
 </script>
 </head>
@@ -896,7 +932,7 @@
     </nav>
   </div>
 </header>
-<script src="/assets/nav.js?v=fc747049" defer></script>
+<script src="/assets/nav.js?v=b7987fd5" defer></script>
 
 <div class="page" id="page">
 
@@ -7555,6 +7591,28 @@
         );
       });
     });
+
+    // Su telefono il menu vive sotto la barra di ricerca, non in cima: e' un
+    // trasloco vero del nodo, non una copia, cosi' la pagina ha una sola
+    // navigazione e i lettori di schermo non ne trovano due.
+    (function moveNav() {
+      var nav = document.querySelector('.site-header .site-nav') ||
+                document.querySelector('.page > .site-nav');
+      var headerInner = document.querySelector('.site-header-inner');
+      var page = document.getElementById('page');
+      if (!nav || !headerInner || !page) { return; }
+      var phone = window.matchMedia('(max-width: 700px)');
+      function place() {
+        if (phone.matches) {
+          if (nav.parentNode !== page) { page.appendChild(nav); }
+        } else if (nav.parentNode !== headerInner) {
+          headerInner.appendChild(nav);
+        }
+      }
+      place();
+      if (phone.addEventListener) { phone.addEventListener('change', place); }
+      else if (phone.addListener) { phone.addListener(place); }
+    })();
 
     var searchInput = document.getElementById('searchInput');
     var activeCategory = 'tutte';

@@ -75,6 +75,19 @@ PAGE = '''<!DOCTYPE html>
   try {
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+    /* Riparazione una tantum, 2026-09-01. La conversione delle chiavi vecchie
+       "autore|titolo" in slug prendeva tutte le citazioni dell'opera invece di
+       una: chi apriva il sito si ritrovava segnate frasi che non aveva mai
+       letto, e quelle finivano scritte nel browser, dove restavano anche dopo
+       la correzione del difetto. Non c'e' modo di distinguere le vere dalle
+       inventate, quindi l'elenco si azzera una volta sola. Le note scritte a
+       mano non si toccano: sono testo di chi legge, e tornano visibili appena
+       la citazione viene sottolineata di nuovo. */
+    if (localStorage.getItem('sottolineature-reset') !== '2026-09-01') {
+      localStorage.removeItem('sottolineature-underlined');
+      localStorage.setItem('sottolineature-reset', '2026-09-01');
+    }
+
   } catch (e) {}
 </script>
 </head>

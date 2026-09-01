@@ -7,6 +7,16 @@
  * di lasciare un numero vecchio finche' non si ricarica. */
 (function () {
   'use strict';
+  // Riparazione una tantum, 2026-09-01: vedi il commento nelle pagine che
+  // leggono le sottolineature. Qui serve perche' il contatore sulla voce
+  // "Le mie" compare su ogni pagina del sito, anche su quelle che l'elenco
+  // non lo scrivono mai.
+  try {
+    if (localStorage.getItem('sottolineature-reset') !== '2026-09-01') {
+      localStorage.removeItem('sottolineature-underlined');
+      localStorage.setItem('sottolineature-reset', '2026-09-01');
+    }
+  } catch (e) {}
   function count() {
     try {
       var stored = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
