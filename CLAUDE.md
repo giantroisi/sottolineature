@@ -197,7 +197,9 @@ infanzia (Proust). Restano aperti solo montagna e figli, nessun candidato solido
 lo stesso rigore — da riprendere in un lotto futuro. **Aggiornamento del 2026-09-01**: musica
 portata da 1 a 8 citazioni pertinenti (Baricco, Süskind, Hornby, Verlaine, Hoffmann — tre autori
 nuovi in archivio) e raccolta "Musica" pubblicata (27/27); figli coperto a parte dalla raccolta SEO
-omonima del 2026-08-30. Resta aperta solo montagna. **Lotto 3 chiuso del tutto il 2026-09-01**:
+omonima del 2026-08-30; **montagna chiuso lo stesso giorno**: Buzzati e Cognetti portati a 4
+citazioni, Mario Rigoni Stern e John Muir aggiunti ex novo (7 citazioni). **Il Lotto 6 originale è
+ora coperto per intero** su tutti i temi segnalati. **Lotto 3 chiuso del tutto il 2026-09-01**:
 Epitteto e Boezio, ultimi due rimasti a 2 citazioni, portati a 4 ciascuno — filosofia e classici non
 narrativi restano al 5% dell'archivio, ben sotto il tetto del 15%. Dettagli in `LOG.md`.
 **Approfondimento avviato il 2026-08-28**
