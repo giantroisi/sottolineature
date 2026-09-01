@@ -929,6 +929,18 @@ genere è facoltativo e sta fra i sei, si decide guardando l'opera e non la sing
 dubbio si lascia vuoto il genere e **non** si inventa un tema: lanciare `python3 tools/build.py` e
 leggere quello che dice.
 
+**Accessibilità (2026-09-01).** Passata con **axe-core** sui sei tipi di pagina, telefono, WCAG 2.1
+AA più buone pratiche: **da oltre 1.400 segnalazioni a sei.** Mancava il landmark `main` — nessuna
+pagina ce l'aveva, quindi per un lettore di schermo tutto il contenuto stava fuori dalle regioni
+note (1.143 elementi sulla sola home): risolto con `role="main"` sul contenitore `.page` in tutti e
+sette i generatori. Contrasto insufficiente su 252 segnaposto di copertina: le iniziali erano
+bianche al 92%, che sui fondi della palette scendeva a 3,86 contro il minimo di 4,5 — ora bianco
+pieno e quattro tinte scurite, rapporto minimo 4,66. Aggiunte le etichette ai due nav dei filtri e
+alle ricerche. **Le sei rimaste** sono tutte della stessa famiglia: `footer` e testata stanno dentro
+il landmark principale invece che accanto. Sistemarle vorrebbe dire cambiare i tag in tutti i
+generatori e i selettori corrispondenti nel CSS — più rumore che guadagno, nessun effetto pratico
+per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenticanza.**
+
 **Bloccato sull'utente** (nessuno dei tre è aggirabile da qui):
 
 - **Email di contatto** — senza non si possono pubblicare né il contatto nel footer né *Segnala un
