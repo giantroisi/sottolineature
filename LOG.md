@@ -620,3 +620,22 @@
   Michel Houellebecq, Michel de Montaigne, Naguib Mahfouz, Octavia E. Butler, Paul Verlaine,
   Pearl S. Buck, Rabindranath Tagore, Rick Riordan, Susanna Tamaro — asterisco per chiarezza,
   usciti dalla lista dei "singoli" con questo lotto).
+
+- 2026-09-01 UTC — Approfondimento: Amos Oz, Naguib Mahfouz, Michel de Montaigne, Michel
+  Houellebecq, Rick Riordan, Octavia E. Butler portati da 1 a 2 citazioni ciascuno. Oz (Conoscere
+  una donna; Una storia di amore e di tenebra — due opere nuove), Mahfouz (Il ladro e i cani —
+  nuova opera), Montaigne (due nuovi saggi dai Saggi: Dell'educazione dei fanciulli e
+  Dell'esperienza, diversi da Dell'amicizia già presente), Houellebecq (Estensione del dominio
+  della lotta e Sottomissione — due opere nuove), Riordan (Il ladro di fulmini e Il mare dei
+  mostri, primi due libri di Percy Jackson, diversi dal quarto già presente), Butler (Legami di
+  sangue, due passi — nuova opera, trad. Veronica Raimo/SUR 2020, l'edizione oggi in commercio).
+  Verifica su Wikiquote con locus esplicito o fonti indipendenti concordanti parola per parola; per
+  Riordan anche riscontro diretto sul PDF dell'edizione italiana. Scartata una seconda citazione di
+  Mahfouz («Vicolo del mortaio»): nessun luogo preciso reperibile nel testo, prudenza particolare
+  vista la storia di un'attribuzione errata già corretta su questo autore. Nessuna copertina nuova
+  trovata su Open Library. Temi riletti uno per uno: verita 3, liberta 3, solitudine 2, vita 2,
+  amore 1 — nessun tema sopra il 30%. Build pulita (0 problemi). Archivio: 716 citazioni, 257
+  autori; restano 8 autori con una sola citazione (Alice Munro, E.T.A. Hoffmann, Imre Kertész,
+  John Muir, Paul Verlaine, Pearl S. Buck, Rabindranath Tagore, Susanna Tamaro) — quattro dei quali
+  (Munro, Kertész, Tagore, Buck) già ritentati senza successo in lotti precedenti, da riprendere
+  solo con un angolo di ricerca genuinamente nuovo.
