@@ -577,3 +577,13 @@
   5: tile placeholder. Il tema "musica" ha ora 8 citazioni pertinenti (Nietzsche + 2 Baricco + le 5
   di questo lotto), la soglia minima per una raccolta — valutare la pubblicazione in un prossimo
   passo. Build pulita (0 problemi). Archivio: 687 citazioni, 255 autori.
+
+- 2026-09-01 UTC — Pubblicata la raccolta **"Musica"** (27/27), Lotto 6 di CATALOGO.md: 8
+  citazioni dove la musica è il soggetto esplicito della frase, non sfondo — Friedrich Nietzsche
+  (Il crepuscolo degli idoli), Alessandro Baricco (Novecento, due passi), Patrick Süskind (Il
+  contrabbasso), Nick Hornby (Alta fedeltà, due passi), Paul Verlaine (Art poétique), E.T.A.
+  Hoffmann (Kreisleriana). Introduzione scritta a mano (255 parole, 3 paragrafi). Soglia minima
+  raggiunta esattamente con il lotto di ricerca del pomeriggio: nessun'altra citazione in archivio
+  è pertinente (Flaubert e Tasso, unici altri risultati lessicali, riguardano linguaggio e canto
+  degli uccelli, non la musica). Build pulita (0 problemi, 27/27 raccolte). Archivio raccolte: da
+  26 a 27.
