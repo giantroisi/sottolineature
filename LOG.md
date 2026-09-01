@@ -687,3 +687,23 @@
   italiana). Scartata anche Niccolò Machiavelli (Discorsi sopra la prima deca di Tito Livio):
   l'unica copertina disponibile era in inglese. `check_links` pulito su copertine diverse/parziali/
   senza file. Build pulita (0 problemi). Copertine locali: 476.
+
+- 2026-09-01 UTC — Copertine mancanti, secondo lotto esteso (tutte le 228 opere rimaste dopo il
+  primo lotto). Ricerca distribuita su 8 sottolotti in parallelo, poi ogni singola copertina
+  proposta (69 in tutto) riverificata visivamente da me stesso una per una, non a campione, prima
+  di applicarla. Trovate e applicate: 69 opere, 72 citazioni (contando le poesie singole che
+  condividono la copertina della raccolta: Leopardi «A se stesso»/«L'infinito» su Canti, Pascoli
+  «Il lampo»/«X Agosto» su Myricae). **Nota tecnica confermata su scala più ampia**: diversi
+  candidati validi erano stati scartati dai sottolotti di ricerca per redirect 302 non seguiti — tra
+  questi, la copertina di Rick Riordan «Il ladro di fulmini», la stessa scartata per errore nel
+  lotto di stamattina, ora recuperata. Scartate dopo revisione mia, nonostante proposte dai
+  sottolotti: Francesco Petrarca «Lettera ai posteri» (proposta la copertina del Canzoniere come
+  ripiego, ma è un'opera diversa che non contiene la lettera), Hans Christian Andersen «La
+  sirenetta» (adattamento illustrato con coautrice, non traduzione diretta), Pablo Neruda «Odi
+  elementari» (titolo dell'edizione proposta non corrispondente, è una selezione con titolo
+  diverso), Salvatore Quasimodo «Ed è subito sera» (l'ID Open Library mostra una pagina
+  bibliografica, non la copertina), Seamus Heaney (antologia generica di poesie scelte, non la
+  raccolta «North» da cui viene la citazione). Restano senza copertina oltre 150 opere per assenza
+  di un'edizione italiana con immagine caricata su Open Library, verificato sia con la ricerca
+  semplice sia con l'endpoint editions.json. check_links pulito. Build pulita (0 problemi).
+  Copertine locali: da 476 a 548.
