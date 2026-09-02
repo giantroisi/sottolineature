@@ -707,3 +707,15 @@
   di un'edizione italiana con immagine caricata su Open Library, verificato sia con la ricerca
   semplice sia con l'endpoint editions.json. check_links pulito. Build pulita (0 problemi).
   Copertine locali: da 476 a 548.
+
+- 2026-09-02 UTC — Copertine mancanti, terzo lotto (secondo passaggio approfondito sulle 159 opere
+  rimaste dopo il lotto precedente, con query alternative per ciascuna). Trovate e verificate
+  visivamente: Antoine de Saint-Exupéry (Volo di notte, frontespizio Mondadori), Giovanni Pascoli
+  (Myricae — la citazione con titolo esatto "Myricae", oltre a Il lampo/X Agosto già coperti con la
+  stessa immagine), Joan Didion (L'anno del pensiero magico, Il Saggiatore), Milan Kundera
+  (L'immortalità, Adelphi — recuperato dopo che un tentativo precedente aveva un ID con metadati
+  Open Library sbagliati, un libro di Enzo Biagi). Rendimento molto più basso del lotto precedente
+  (4 su 159, contro 69 su 228): per la grande maggioranza delle opere rimaste l'edizione italiana
+  esiste su Open Library ma senza alcuna immagine di copertina caricata nel database — non un
+  limite della ricerca ma un vuoto del catalogo stesso, verificato sistematicamente con
+  editions.json opera per opera. Build pulita (0 problemi). Copertine locali: 552.
