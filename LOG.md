@@ -942,3 +942,25 @@
   Anne Frank (2, pp. 146-147 e p. 225), Natalia Ginzburg (p. 149, dubbio di titolo aperto nel
   lotto 2). Build pulita (0 problemi). Contesti sotto le 20 parole: 17 -> 7 (tutti e sette ormai
   casi già segnalati, nessuno nuovo). Contesti sotto le 45 parole: 581/583 -> 571.
+
+- 2026-09-03 UTC — Contesti riscritti, quarto lotto (CATALOGO.md 6-ter/6-quater): esaurita la
+  fascia sotto le 20 parole (i 7 rimasti sono tutti casi già segnalati e lasciati com'erano),
+  primo lotto nella fascia 20-44 parole: 20 citazioni riscritte, media 65,2 parole. Fonte aperta
+  per ognuna prima di scrivere: dove il campo `source_url` era già compilato, letta direttamente
+  (Donna Tartt, Michel de Montaigne, Emily St. John Mandel, Jules Verne, Lewis Carroll, Cormac
+  McCarthy, Niccolò Machiavelli «Il Principe» cap. XVII, Arundhati Roy, Giovanni Boccaccio); dove
+  mancava, cercata con una ricerca web mirata sul passo esatto prima di scrivere (Octavia E.
+  Butler «Legami di sangue», due passi; Neil Gaiman «Coraline»; Isabel Allende «La casa degli
+  spiriti»; Sylvia Plath «La campana di vetro»; Madeline Miller «Circe»; Dino Buzzati «Bàrnabo
+  delle montagne», due passi; George R.R. Martin «La Danza dei Draghi»; Antoine de Saint-Exupéry
+  «Il piccolo principe», capitolo della volpe; Marguerite Yourcenar «Memorie di Adriano»).
+  `speaker` compilato dove esplicito: Panfilo (Decameron, è il narratore della novella a chiudere
+  con il proverbio), Jon Snow (pensiero interiore, non battuta detta ad alta voce ma comunque
+  attribuito a lui con chiarezza), Eete (fratello di Circe), il Re di Cuori (Alice), la volpe
+  (Il piccolo principe). Lasciato vuoto per il mennonita di «Meridiano di sangue» (voce senza
+  nome proprio) e per Adriano nelle «Memorie» (l'intero libro è la sua lettera in prima persona,
+  stesso trattamento riservato ai narratori-autori negli altri lotti).
+
+  Nessuna citazione lasciata com'era in questo lotto: tutte e venti le fonti cercate hanno dato
+  materiale sufficiente per un contesto verificato. Build pulita (0 problemi). Contesti sotto le
+  45 parole: 571 -> 551.
