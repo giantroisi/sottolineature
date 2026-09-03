@@ -1083,3 +1083,26 @@
   nessun incidente, verificato `git status` pulito prima e dopo ogni fase.
 
   Build pulita (0 problemi). Contesti sotto le 45 parole: 500 -> 481.
+
+- 2026-09-03 UTC — Contesti riscritti, nono lotto (CATALOGO.md 6-ter/6-quater): 16 citazioni nella
+  fascia 20-44 parole, media 71,6 parole. Fonte aperta per ognuna prima di scrivere: Roberto Bolaño
+  «2666» (terzo passo, dialogo lettura/scrittura nella «parte di Archimboldi»), Erri De Luca «Il
+  giorno prima della felicità» (nuovo libro in archivio per questo autore, speaker don Gaetano),
+  Joseph Conrad «Cuore di tenebra» (speaker Kurtz), Karen Blixen «La mia Africa», Kazuo Ishiguro
+  «Non lasciarmi» (terzo passo, la chiusa del romanzo), Michael Ende «La storia infinita», Paulo
+  Coelho «L'Alchimista» (due passi, speaker Melchisedec nel primo), Viktor E. Frankl «Uno psicologo
+  nei lager», Arthur Schopenhauer «Aforismi sulla saggezza del vivere», Giuseppe Tomasi di
+  Lampedusa «Il Gattopardo» (due passi, speaker Tancredi e Don Fabrizio), Kurt Vonnegut «Mattatoio
+  n. 5», Michail Bulgakov «Il Maestro e Margherita» (speaker Woland), Miguel de Cervantes «Don
+  Chisciotte della Mancia» (speaker Don Chisciotte), Victor Hugo «Notre-Dame de Paris» (fonte
+  Wikisource in francese, tradotta).
+
+  Lasciate senza modifica per fonte insufficiente (già cercate in questo o in lotti precedenti):
+  Michael Ondaatje, Susanna Tamaro, Ta-Nehisi Coates, Louisa May Alcott, Marilynne Robinson,
+  Vittorio Alfieri (nuova, «Vita»: la pagina Wikisource mostra solo l'indice, non il testo del
+  capitolo), Anna Maria Ortese (nuova, «Il mare non bagna Napoli»: l'incipit cercato non compare
+  nella pagina Wikiquote), Philip Roth (nuovo passo su «Pastorale americana», diverso da quello già
+  fatto nel lotto 6), Robert Louis Stevenson (nuova, «Lo strano caso del dottor Jekyll e del
+  signor Hyde»: la confessione finale di Jekyll non è nella pagina Wikiquote).
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 481 -> 465.
