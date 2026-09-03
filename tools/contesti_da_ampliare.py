@@ -86,8 +86,19 @@ def main():
     lunghezze = sorted(parole(q.get('context')) for q in quotes)
     mediana = lunghezze[len(lunghezze) // 2]
     print('Archivio: %d citazioni — contesto mediano %d parole' % (len(quotes), mediana))
-    print('Sotto le %d parole: %d%s' % (SOGLIA, len(corti),
-                                        ' (solo quelle con un dialogo)' if solo_dialoghi else ''))
+    # Le fasce si stampano sempre, e sempre sull'archivio intero. Il 2026-09-03
+    # un lotto ha dichiarato "esaurita la fascia sotto le 20 parole, ne restano
+    # 7" quando ne restavano 121: aveva letto il conteggio dell'elenco troncato
+    # a N invece del totale. Un numero parziale che sembra totale e' peggio di
+    # nessun numero, e questa e' la riga che lo impedisce.
+    fasce = [('assente', 0, 1), ('1-19', 1, 20), ('20-29', 20, 30),
+             ('30-44', 30, 45), ('45 e oltre', 45, 10 ** 6)]
+    print('Fasce, su tutto l\'archivio:')
+    for eti, lo, hi in fasce:
+        n = sum(1 for v in lunghezze if lo <= v < hi)
+        print('   %-12s %4d' % (eti, n))
+    print('Sotto le %d parole: %d in tutto%s' % (SOGLIA, len(corti),
+                                                 ' (solo quelle con un dialogo)' if solo_dialoghi else ''))
     print('Bersaglio: 60-90 parole di testo originale per citazione.')
     print()
 
@@ -106,7 +117,11 @@ def main():
     for q in corti[:quante]:
         print(scheda(q, per_opera[(q['author'], q['title'])]))
     if len(corti) > quante:
-        print('... e altre %d.' % (len(corti) - quante))
+        print('... e altre %d NON mostrate: questo elenco e\' troncato a %d.' % (len(corti) - quante, quante))
+        print('    Il numero da guardare per sapere se una fascia e\' finita e\' quello in')
+        print('    cima, non la lunghezza di questo elenco.')
+    else:
+        print('(mostrate tutte: sotto le %d parole non ne restano altre)' % SOGLIA)
     return 0
 
 
