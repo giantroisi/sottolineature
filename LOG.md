@@ -1106,3 +1106,23 @@
   signor Hyde»: la confessione finale di Jekyll non è nella pagina Wikiquote).
 
   Build pulita (0 problemi). Contesti sotto le 45 parole: 481 -> 465.
+
+- 2026-09-03 UTC — Contesti riscritti, decimo lotto (CATALOGO.md 6-ter/6-quater): 15 citazioni
+  nella fascia 20-44 parole, media 69,9 parole. Fonte aperta per ognuna prima di scrivere (per
+  quattro di queste una prima ricerca su Wikiquote non bastava, integrata con una ricerca web
+  mirata al passo esatto): Zadie Smith «Denti bianchi», Zora Neale Hurston «I loro occhi
+  guardavano Dio» (speaker Janie), Walt Whitman «Foglie d'erba», Aldous Huxley «Il mondo nuovo»
+  (quarto passo, speaker Helmholtz Watson), Antonio Tabucchi «Sostiene Pereira», Arundhati Roy «Il
+  dio delle piccole cose» (quarto passo, l'arrivo e l'annegamento di Sophie Mol), Carlo Goldoni «La
+  bottega del caffè» (nuovo libro, due passi, speaker Ridolfo in entrambi), Dante Alighieri
+  «Inferno» (canto I, il verso d'apertura più celebre della letteratura italiana), F. Scott
+  Fitzgerald «Il grande Gatsby» (terzo passo, speaker Daisy Buchanan), Ian McEwan «Espiazione»
+  (speaker Briony Tallis), Kurt Vonnegut «Mattatoio n. 5» (quarto passo, «Così va la vita»), Thomas
+  Hardy «Tess dei d'Urberville», Ray Bradbury «Fahrenheit 451» (due passi, speaker Faber e il
+  capitano Beatty).
+
+  Lasciate senza modifica per fonte insufficiente (già cercate in questo o in lotti precedenti):
+  Michael Ondaatje, Susanna Tamaro, Ta-Nehisi Coates, Louisa May Alcott, Marilynne Robinson,
+  Vittorio Alfieri, Anna Maria Ortese, Philip Roth, Robert Louis Stevenson.
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 465 -> 450.
