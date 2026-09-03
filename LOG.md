@@ -914,3 +914,31 @@
 
   Build pulita (0 problemi). Contesti sotto le 20 parole: 40 -> 17. Contesti sotto le 45 parole:
   606 -> 581/583 (differenza fra lo strumento e il build, come nel lotto precedente).
+
+- 2026-09-03 UTC — Contesti riscritti, terzo lotto (CATALOGO.md 6-ter/6-quater): 10 citazioni su 12
+  esaminate fra quelle con contesto sotto le 20 parole, media 66,5 parole. Ogni fonte aperta prima
+  di scrivere: Emily Dickinson «Lettere» (lettera 417 a Mrs. Henry Hills, estate 1874), Lewis
+  Carroll «Attraverso lo specchio» (cap. V, scena della Regina Bianca e la marmellata), Jules Verne
+  «Dalla Terra alla Luna» (cap. V, «Romanzo della Luna»), Niccolò Machiavelli «Discorsi sopra la
+  prima deca di Tito Livio» (due passi, libro I capp. IV e VI), Douglas Adams «Guida galattica per
+  gli autostoppisti» (incipit), Vladimir Nabokov «Lolita» (p. 319, il finto annuncio di persona
+  scomparsa composto da Humbert Humbert), Roberto Bolaño «2666» (incipit della «parte dei critici»),
+  Giuseppe Ungaretti «L'allegria» (poesia «Mattina», data e luogo di composizione confermati da
+  fonte esterna). Harper Lee «Il buio oltre la siepe»: `speaker` compilato (Atticus Finch, già
+  esplicito nel campo `dove` del tool).
+
+  **Lasciate com'erano (2 nuove), con motivo:**
+  - Susanna Tamaro, «Ascolta la mia voce» (p. non indicata): la pagina Wikiquote riporta solo la
+    frase isolata, senza narratore, destinatario o collocazione nel libro — nessun dato su cui
+    costruire un contesto vero.
+  - Louisa May Alcott, «Piccole donne», parte seconda cap. 44 («Mio signore e mia signora»): il
+    `source_url` punta a un elenco Gutenberg, non al testo; due tentativi di recuperare il testo
+    integrale del capitolo si sono fermati entrambi al capitolo 5 per un limite di lunghezza della
+    pagina. La scena (Amy che rassicura Laurie sul matrimonio appena iniziato) è già nota dal campo
+    `dove`, ma scriverne il contesto senza aver letto il capitolo violerebbe la regola che viene
+    prima di tutte.
+
+  Restano invariate, già segnalate nei lotti precedenti: Goliarda Sapienza (2, capp. 42 e 63),
+  Anne Frank (2, pp. 146-147 e p. 225), Natalia Ginzburg (p. 149, dubbio di titolo aperto nel
+  lotto 2). Build pulita (0 problemi). Contesti sotto le 20 parole: 17 -> 7 (tutti e sette ormai
+  casi già segnalati, nessuno nuovo). Contesti sotto le 45 parole: 581/583 -> 571.
