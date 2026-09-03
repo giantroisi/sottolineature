@@ -783,10 +783,9 @@
     .site-header-inner { padding: 0.6rem 1.1rem; gap: 0.6rem; row-gap: 0.45rem; flex-wrap: wrap; }
     .brand-name { font-size: 0.95rem; }
     .site-nav {
-      gap: 0.5rem; flex: 1 0 100%; order: 2; min-width: 0; justify-content: space-between;
-      overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+      gap: 0.45rem 1rem; flex: 1 0 100%; order: 2; min-width: 0;
+      justify-content: flex-start; flex-wrap: wrap;
     }
-    .site-nav::-webkit-scrollbar { display: none; }
     .site-nav a { font-size: 0.7rem; letter-spacing: 0.08em; white-space: nowrap; }
     .site-header .theme-toggle { flex: 0 0 auto; }
   }
@@ -844,6 +843,7 @@
     .page > .site-nav {
       order: 4;
       display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: flex-start; overflow-x: visible;
       gap: 0.5rem 1.15rem;
       margin: 0 0 1.9rem;
       padding: 0;
@@ -888,16 +888,16 @@
     }
     .filter-block .filters-note { display: none; }
     .filter-block nav.filters {
-      flex-wrap: nowrap; overflow-x: auto;
-      scrollbar-width: none; -ms-overflow-style: none;
-      margin: 0; padding: 0 0 0.35rem; border-bottom: 0; gap: 0 1.1rem;
+      flex-wrap: wrap;
+      margin: 0; padding: 0 0 0.35rem; border-bottom: 0; gap: 0.55rem 1.1rem;
     }
     .filter-block nav.filters::-webkit-scrollbar { display: none; }
     .filter-block nav.genre-filters {
-      margin: 0; padding: 0; background: none; border: 0; border-radius: 0;
-      gap: 0 0.9rem;
+      margin: 0.55rem 0 0; padding: 0; background: none; border: 0; border-radius: 0;
+      gap: 0.55rem 0.9rem; flex-wrap: wrap;
     }
     .filter-block .genre-filters-label { display: inline; width: auto; margin: 0 0.2rem 0 0; }
+    .filter-block .tema-filters-label { display: inline; width: auto; margin: 0 0.2rem 0 0; }
     .filter-block nav.genre-filters .filter-btn {
       padding: 0.4rem 0.1rem; border: 0; border-radius: 0; background: none;
     }
@@ -928,6 +928,11 @@
          griglia; ora sono un blocco solo sotto la barra. --- */
   .filter-block { margin: 0 0 2rem; }
   .filter-count { font-size: 0.78rem; color: var(--ink-faint); margin: 0.9rem 0 0; }
+  .search-fix {
+    font-size: 0.82rem; color: var(--ink-soft); margin: 0.5rem 0 0;
+    border-left: 2px solid var(--gold); padding-left: 0.7rem;
+  }
+  .search-fix b { font-weight: 400; color: var(--ink); }
 
   /* Quando una ricerca o un filtro sono attivi la pagina passa in "modo
      risultati": citazione del giorno, presentazione, fascia Esplora e le due
@@ -993,6 +998,7 @@
     <nav class="site-nav sans" aria-label="Principale">
       <a href="/citazioni/">Citazioni</a>
       <a href="/autori/">Autori</a>
+      <a href="/raccolte/">Raccolte</a>
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
@@ -1049,6 +1055,7 @@
   <div class="filter-block" id="filterBlock">
   <p class="filters-note sans">Non una classificazione: la stessa pagina può riconoscersi in più di un tema.</p>
   <nav class="filters sans" id="filters" aria-label="Filtra per tema">
+    <span class="genre-filters-label tema-filters-label sans">Tema</span>
     <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
     <a class="filter-btn" data-filter="vita" href="/temi/vita/">Vita</a>
     <a class="filter-btn" data-filter="amore" href="/temi/amore/">Amore</a>
@@ -1071,6 +1078,7 @@
     <a class="filter-btn" data-genre="poesia" href="/generi/poesia/">Poesia</a>
   </nav>
     <p class="filter-count sans" id="filterCount" hidden></p>
+    <p class="search-fix sans" id="searchFix" hidden></p>
   </div>
 
   <nav class="explore sans" aria-label="Esplora l'archivio">
@@ -8883,12 +8891,134 @@
       });
     });
 
+    // --- errori di battitura ------------------------------------------------
+    // Una lettera sbagliata svuotava lo schermo: "kafca" dava zero risultati e
+    // il sito sembrava non avere Kafka. Quando la ricerca non trova nulla si
+    // cerca la parola piu' vicina fra autori e titoli e si mostrano quelli,
+    // dicendolo. Il vocabolario si costruisce una volta sola, alla prima
+    // ricerca a vuoto: sono un migliaio di parole, il confronto costa pochi
+    // millisecondi.
+    var vocabolario = null;
+
+    function costruisciVocabolario() {
+      if (vocabolario) { return vocabolario; }
+      var conta = {};
+      cards.forEach(function (card) {
+        var grezzo = card.querySelector('.card-author').textContent + ' ' +
+                     card.querySelector('.card-title').textContent;
+        grezzo.split(/[^\wÀ-ÿ']+/).forEach(function (parola) {
+          var chiave = normalize(parola);
+          if (chiave.length < 4) { return; }
+          if (!conta[chiave]) { conta[chiave] = { n: 0, forma: parola }; }
+          conta[chiave].n++;
+        });
+      });
+      vocabolario = Object.keys(conta).map(function (w) {
+        return [w, conta[w].n, conta[w].forma];
+      });
+      return vocabolario;
+    }
+
+    // Levenshtein con taglio: appena la riga supera il massimo consentito si
+    // smette, cosi' le parole lontane costano quasi nulla.
+    function distanza(a, b, max) {
+      var la = a.length, lb = b.length;
+      if (Math.abs(la - lb) > max) { return max + 1; }
+      var riga = new Array(lb + 1), i, j;
+      for (j = 0; j <= lb; j++) { riga[j] = j; }
+      for (i = 1; i <= la; i++) {
+        var prec = riga[0];
+        riga[0] = i;
+        var minRiga = riga[0];
+        for (j = 1; j <= lb; j++) {
+          var temp = riga[j];
+          riga[j] = Math.min(
+            riga[j] + 1,
+            riga[j - 1] + 1,
+            prec + (a.charAt(i - 1) === b.charAt(j - 1) ? 0 : 1)
+          );
+          prec = temp;
+          if (riga[j] < minRiga) { minRiga = riga[j]; }
+        }
+        if (minRiga > max) { return max + 1; }
+      }
+      return riga[lb];
+    }
+
+    function correggiParola(term) {
+      // sotto le quattro lettere una correzione e' quasi sempre un'altra parola
+      if (term.length < 4) { return null; }
+      var max = term.length <= 6 ? 1 : 2;
+      var voci = costruisciVocabolario();
+      var scelta = null, migliore = max + 1, frequenza = 0;
+      for (var k = 0; k < voci.length; k++) {
+        var parola = voci[k][0];
+        if (parola === term) { return null; }
+        var d = distanza(term, parola, max);
+        if (d <= max && (d < migliore || (d === migliore && voci[k][1] > frequenza))) {
+          scelta = { chiave: parola, forma: voci[k][2] };
+          migliore = d; frequenza = voci[k][1];
+        }
+      }
+      return scelta;
+    }
+
+    // Anche le frasi: "il piccolo prinicpe" si corregge parola per parola,
+    // lasciando stare quelle che gia' esistono e quelle troppo corte.
+    function correggiFrase(term) {
+      var parti = term.split(/\s+/);
+      if (parti.length === 1) {
+        var una = correggiParola(term);
+        return una ? { termine: una.chiave, mostra: una.forma } : null;
+      }
+      var cambiate = false;
+      var fuori = [];
+      var dentro = parti.map(function (pezzo) {
+        var c = correggiParola(pezzo);
+        if (c) { cambiate = true; fuori.push(c.forma); return c.chiave; }
+        fuori.push(pezzo);
+        return pezzo;
+      });
+      if (!cambiate) { return null; }
+      return { termine: dentro.join(' '), mostra: fuori.join(' ') };
+    }
+
     var emptyState = document.getElementById('emptyState');
     var printSelectionBtn = document.getElementById('printSelectionBtn');
     printSelectionBtn.addEventListener('click', function () { window.print(); });
 
     function applyFilters() {
-      var term = normalize(searchInput.value.trim());
+      var termOriginale = searchInput.value.trim();
+      var term = normalize(termOriginale);
+      var corretto = null;
+      var visibleCount = passata(term);
+
+      // niente risultati: si prova la parola piu' vicina prima di arrendersi
+      if (term && visibleCount === 0) {
+        corretto = correggiFrase(term);
+        if (corretto) { visibleCount = passata(corretto.termine); }
+      }
+      var fixEl = document.getElementById('searchFix');
+      if (fixEl) {
+        if (corretto && visibleCount > 0) {
+          fixEl.hidden = false;
+          fixEl.innerHTML = 'Nessun risultato per &laquo;' + escapeHtml(termOriginale) +
+            '&raquo;. Ti mostro <b>' + escapeHtml(corretto.mostra) + '</b>.';
+        } else {
+          fixEl.hidden = true;
+          fixEl.textContent = '';
+        }
+      }
+      chiudi(term, visibleCount);
+    }
+
+    function escapeHtml(t) {
+      var d = document.createElement('div');
+      d.textContent = t;
+      return d.innerHTML;
+    }
+
+    function passata(term) {
       var visibleCount = 0;
       cards.forEach(function (card) {
         var categoryOk = activeCategory === 'tutte' || card.getAttribute('data-category') === activeCategory;
@@ -8910,6 +9040,10 @@
         card.style.display = visible ? '' : 'none';
         if (visible) { visibleCount++; }
       });
+      return visibleCount;
+    }
+
+    function chiudi(term, visibleCount) {
       redistribute();
       emptyState.hidden = visibleCount > 0;
       printSelectionBtn.hidden = !(activeCategory === 'sottolineate' && visibleCount > 0);

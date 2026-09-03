@@ -93,6 +93,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
     <nav class="site-nav sans" aria-label="Principale">
       <a href="/citazioni/">Citazioni</a>
       <a href="/autori/">Autori</a>
+      <a href="/raccolte/">Raccolte</a>
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>

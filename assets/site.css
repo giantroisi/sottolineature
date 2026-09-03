@@ -352,12 +352,10 @@ footer.sans a { color: var(--ink-faint); }
      prende una riga tutta sua sotto il marchio, cosi' "Citazioni" non finisce
      tagliata fuori dallo schermo */
   .site-header-inner { gap: 0.6rem; row-gap: 0.45rem; }
-  .site-nav {
+  .site-header .site-nav {
     flex: 1 0 100%; order: 2; min-width: 0;
-    justify-content: space-between; gap: 0.5rem;
-    overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+    justify-content: flex-start; flex-wrap: wrap; gap: 0.45rem 1rem;
   }
-  .site-nav::-webkit-scrollbar { display: none; }
   .site-nav a { white-space: nowrap; }
   .site-header .theme-toggle { flex: 0 0 auto; }
 

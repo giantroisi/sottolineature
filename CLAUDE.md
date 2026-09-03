@@ -915,7 +915,44 @@ pagina orfana (la 404, giusto così). **Corretto:**
 - **`/temi/` e `/generi/` erano due elenchi muti** (55 e 51 parole): ora hanno un'introduzione che
   dice la regola dietro le etichette.
 
+**Passaggio dagli occhi di chi arriva — 2026-09-03.** Sito guardato su un telefono vero fingendo
+di essere una professoressa, uno studente e una ragazzina. Tre cose corrette subito:
+
+1. **Le raccolte erano invisibili.** Ventisette selezioni fatte a mano con i nomi che la gente
+   cerca davvero (*Il mare, Amicizia, La tristezza, Frasi brevi, Incipit memorabili*) stavano solo
+   in una fascia in fondo alla home. Ora sono in navigazione su tutte le pagine.
+2. **Meta' dei filtri era fuori dallo schermo.** Misurato su 375 px: la riga dei temi era larga
+   717 px in una finestra da 319, quella dei generi 672. Scorrevano in orizzontale, ma con la barra
+   nascosta e senza sfumatura nessuno poteva saperlo: restavano invisibili *Liberta', Tempo,
+   Solitudine, Verita'*, il filtro **Sottolineate** (cioe' la propria raccolta), *Saggistica* e
+   *Poesia*. Ora vanno a capo. Aggiunta l'etichetta **Tema**, che mancava mentre i generi ce
+   l'avevano. Stessa cosa per il menu di testata, che con la voce nuova sarebbe uscito dallo
+   schermo sulle pagine interne.
+3. **La ricerca non perdonava un errore di battitura**: "kafca" dava zero risultati e la pagina si
+   svuotava. Ora, solo quando non trova nulla, cerca la parola piu' vicina fra autori e titoli
+   (Levenshtein con taglio, vocabolario costruito una volta sola) e mostra quei risultati
+   dicendolo: *«Nessun risultato per "kafca". Ti mostro Kafka.»* Funziona anche sulle frasi,
+   parola per parola: *"cent anni di solitudien"* -> *Cento anni di solitudine*. Costa 19 ms la
+   prima volta e 3-8 ms dopo. Sotto le quattro lettere non corregge: a quella lunghezza una
+   correzione e' quasi sempre un'altra parola.
+
 **Resta aperto, in ordine di valore:**
+
+- **Il traduttore sulle opere tradotte.** Il punto piu' serio emerso dal passaggio: su 741
+  citazioni solo 209 indicano il traduttore e 460 l'edizione; 345 hanno un "dove si trova" di una
+  o due parole (*«incipit»*) senza dire di quale edizione. Su un testo tradotto la frase italiana
+  e' del traduttore: senza il suo nome la citazione non e' attribuibile, ed e' esattamente cio' che
+  `metodo.html` promette. Da fare per opera, partendo da quelle con piu' citazioni.
+- **Temi e raccolte si sovrappongono senza spiegazione**: sette temi e ventisette raccolte, con
+  *amore* fra i temi e *amicizia*/*felicita'* fra le raccolte. Chi arriva non puo' capire la
+  differenza. O si uniscono, o una delle due prende un nome che dica cosa e'.
+- **La ricerca non propone la pagina dell'autore**: cercando "Leopardi" escono cinque citazioni
+  sciolte e mai la pagina di Leopardi, che esiste ed e' migliore.
+- **Un blocco "come si cita questa pagina"** in fondo alla citazione, per rendere il sito usabile
+  in una tesina.
+- **Solo 40 pagine di opere su 559**: chi cerca "citazioni da 1984" pensa per libro, non per autore.
+- **`metodo.html` non ha la navigazione del sito**, solo un link di ritorno: e' l'unica pagina
+  rimasta fuori dallo schema.
 
 - **Le riserve sulle formulazioni italiane** (`VERIFICHE-FONTI.md`): dieci citazioni con il punto del
   testo certo e la frase pubblicata no. La più seria è Ferrante, dove i puntini cuciono due frasi
