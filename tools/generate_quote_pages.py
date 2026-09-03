@@ -194,7 +194,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </div>
 </header>
 <script src="/assets/nav.js" defer></script>
-<div class="page" role="main">
+<div class="page">
+<div class="page-main" role="main">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/{author_slug}/">{author}</a> › <span aria-current="page">{breadcrumb_last}</span>
   </nav>
@@ -231,6 +232,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </div>
   {tags_html}
   {related_html}
+  </div>
   <footer class="sans" data-url="sottolineature.it/citazioni/{slug}/">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo. <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>.
   </footer>

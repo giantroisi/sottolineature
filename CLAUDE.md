@@ -926,6 +926,26 @@ pagina orfana (la 404, giusto così). **Corretto:**
   frase stessa. Non è un difetto da correggere allungando per finta.
 - **Divisione dell'archivio in home**: misurata e rimandata, vedi sopra.
 
+**Accessibilita' — chiuso il 2026-09-03.** Le sei violazioni di annidamento dei landmark che
+restavano aperte erano in realta' una sola causa ripetuta su tutto il sito: il piede di pagina
+(`contentinfo`) stava dentro `role="main"`, e sulla home anche il blocco del logo (`<header>`,
+cioe' `banner`) faceva lo stesso. Un landmark dentro un altro landmark non e' un cavillo: a chi
+naviga con un lettore di schermo dice il falso su dove finisce il contenuto della pagina.
+Risolto senza toccare l'aspetto: nelle pagine generate `role="main"` e' passato a un
+`div.page-main` interno e il piede e' rimasto suo fratello; sulla home il piede e' uscito da
+`#page` (dove le regole `.page > *` governano l'ordine su telefono, quindi un contenitore in
+piu' avrebbe rotto tutto) e il blocco del logo e' tornato a essere un `div`, visto che il vero
+banner e' `.site-header`. Verificato con axe su nove tipi di pagina: **zero violazioni**.
+
+*Trovato nello stesso passaggio un difetto piu' serio che nessuno aveva mai misurato: **in tema
+scuro `--ink-faint` non raggiungeva il contrasto minimo su nessuno dei due fondi** (3,49 su
+`--paper`, 3,16 su `--paper-raised`, contro il 4,5 richiesto). Non riguardava testo marginale ma
+la navigazione principale, i pulsanti dei filtri, l'etichetta della citazione del giorno e il
+tasto Sottolinea: il passaggio di accessibilita' precedente aveva corretto solo il tema chiaro.
+Portato a `#918a7a` (5,15 e 4,66), stessa tinta calda. E `metodo.html`, scritta a mano, era
+rimasta alla tavolozza vecchia in entrambi i temi: allineata. Zero violazioni di contrasto in
+chiaro e in scuro.*
+
 **Lasciato com'e' di proposito (2026-09-01):** in home tema e genere **si escludono a vicenda** —
 scegliendo un genere il tema torna a «Tutte» e viceversa. Nasceva per non restare bloccati su
 combinazioni vuote (Coraggio + Fantasy). Ora che i due filtri stanno uno sotto l'altro sotto la

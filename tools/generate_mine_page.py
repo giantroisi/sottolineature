@@ -114,7 +114,8 @@ PAGE = '''<!DOCTYPE html>
 </header>
 <script src="/assets/nav.js" defer></script>
 <script src="/assets/share.js" defer></script>
-<div class="page" role="main">
+<div class="page">
+<div class="page-main" role="main">
   <p class="eyebrow sans">La tua raccolta</p>
   <h1>Le mie sottolineature</h1>
   <p class="mine-count sans" id="mineCount"></p>
@@ -131,6 +132,7 @@ PAGE = '''<!DOCTYPE html>
   <div class="mine-tools sans" id="mineTools" hidden>
     <a href="/citazioni/">Aggiungine altre</a>
     <button type="button" id="printBtn">Stampa</button>
+  </div>
   </div>
   <footer class="sans">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> &mdash; citazioni verificate a mano, senza algoritmo.

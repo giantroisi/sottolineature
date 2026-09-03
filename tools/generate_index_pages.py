@@ -71,12 +71,14 @@ PAGE_SHELL = """<!DOCTYPE html>
   </div>
 </header>
 <script src="/assets/nav.js" defer></script>
-<div class="page" role="main">
+<div class="page">
+<div class="page-main" role="main">
   <a class="back-link sans" href="/">← Torna alla home</a>
   <p class="eyebrow sans">{eyebrow}</p>
   <h1>{h1}</h1>
   <p class="count sans">{count_line}</p>
   {body_html}
+  </div>
   <footer class="sans">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo. <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>.
   </footer>

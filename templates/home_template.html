@@ -44,7 +44,7 @@
     --paper-raised: #1f2224;
     --ink: #ece7dd;
     --ink-soft: #a9a296;
-    --ink-faint: #746e62;
+    --ink-faint: #918a7a;
     --accent: #8fb59b;
     --accent-soft: #5c7c68;
     --gold: #c9a45c;
@@ -72,10 +72,24 @@
     margin: 0 auto;
     /* la barra in alto e' gia' un margine: 4.5rem sotto di essa lasciavano un
        vuoto in cima alla home prima ancora di leggere una parola */
-    padding: 2rem 1.75rem 5rem;
+    /* niente spazio in fondo: lo spazio prima del piede di pagina lo mette
+       il piede stesso, che dal 2026-09-03 sta fuori da questo contenitore */
+    padding: 2rem 1.75rem 0;
   }
 
-  header.masthead {
+  /* il piede di pagina e' uscito da .page per non essere un landmark dentro
+     un altro landmark: qui riprende la stessa gabbia */
+  body > footer.sans {
+    max-width: 68rem;
+    margin: 4rem auto 0;
+    padding: 1.75rem 1.75rem 5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+  }
+  body > footer.sans a { color: var(--ink-faint); }
+
+  .masthead {
     max-width: 40rem;
     margin-bottom: 1.75rem;
     /* il marchio e' il titolo: viene prima lui, la riga di presentazione sta
@@ -83,8 +97,8 @@
     display: flex;
     flex-direction: column;
   }
-  header.masthead .eyebrow { order: 2; margin: 0.9rem 0 0; }
-  header.masthead h1.title { order: 1; }
+  .masthead .eyebrow { order: 2; margin: 0.9rem 0 0; }
+  .masthead h1.title { order: 1; }
 
   .eyebrow {
     font-size: 0.72rem;
@@ -399,7 +413,7 @@
 
     #searchInput { padding: 0.8rem 2.3rem 0.8rem 1rem; font-size: 1rem; }
     .search-clear-btn { width: 2.6rem; max-height: 2.85rem; font-size: 1.4rem; }
-    header.masthead { margin-bottom: 1.1rem; }
+    .masthead { margin-bottom: 1.1rem; }
     .logo-mark { height: clamp(6rem, 24vw, 8.5rem); }
     .page { padding-top: 1.25rem; }
     .search-bar { margin-bottom: 1.1rem; }
@@ -699,7 +713,7 @@
     .card-mark {
       display: none !important;
     }
-    header.masthead { max-width: none; }
+    .masthead { max-width: none; }
     .grid { display: block; }
     .grid-col { width: 100%; }
     .card-note { display: none !important; }
@@ -839,8 +853,8 @@
        capo per lui solo: va all'altezza dell'occhiello, a destra, dove lo
        spazio c'e' gia' ed e' vuoto. Fuori dall'intestazione tornerebbe a
        essere il pulsante fisso in alto a sinistra che finiva sopra al logo. */
-    header.masthead { position: relative; padding-right: 3rem; }
-    header.masthead > .theme-toggle {
+    .masthead { position: relative; padding-right: 3rem; }
+    .masthead > .theme-toggle {
       /* top e left arrivano dalla regola del pulsante fisso e vincono su
          bottom/right se restano impostati: vanno azzerati */
       position: absolute; top: 0; left: auto; right: 0; bottom: auto;
@@ -991,10 +1005,10 @@
 <div class="page" id="page" role="main">
 
   <div class="masthead-row">
-  <header class="masthead">
+  <div class="masthead">
     <p class="eyebrow sans">Una raccolta di citazioni</p>
     <h1 class="title"><img src="/logo.svg" alt="Sottolineature" class="logo-mark"></h1>
-  </header>
+  </div>
 
   <section class="hero" id="hero">
     <p class="hero-label sans" id="heroLabel">Citazione del giorno</p>
@@ -1098,14 +1112,15 @@
   </div>
 
 
-  <footer class="sans">
-    {{COUNT}} citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
-    qui sono solo tenute da parte per essere rilette.
-    <a href="/metodo/">Come verifichiamo le citazioni →</a>
-    <a href="/feed.xml">Segui le nuove citazioni →</a>
-  </footer>
 
 </div>
+
+<footer class="sans">
+  {{COUNT}} citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
+  qui sono solo tenute da parte per essere rilette.
+  <a href="/metodo/">Come verifichiamo le citazioni →</a>
+  <a href="/feed.xml">Segui le nuove citazioni →</a>
+</footer>
 
 <script src="/assets/share.js"></script>
 <script>
@@ -1479,7 +1494,7 @@
       if (!nav || !headerInner || !page) { return; }
       var phone = window.matchMedia('(max-width: 700px)');
       var toggle = document.getElementById('themeToggle');
-      var masthead = document.querySelector('header.masthead');
+      var masthead = document.querySelector('.masthead');
       function place() {
         if (phone.matches) {
           if (nav.parentNode !== page) { page.appendChild(nav); }

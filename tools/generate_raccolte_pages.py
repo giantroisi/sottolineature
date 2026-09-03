@@ -76,7 +76,8 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </div>
 </header>
 <script src="/assets/nav.js" defer></script>
-<div class="page" role="main">
+<div class="page">
+<div class="page-main" role="main">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/raccolte/">Raccolte</a> › <span aria-current="page">{title}</span>
   </nav>
@@ -85,6 +86,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <p class="count sans">{count} citazion{count_suffix} scelte a mano</p>
   <div class="hub-intro">{intro_html}</div>
   {cards_html}
+  </div>
   <footer class="sans">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo. <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>.
   </footer>
