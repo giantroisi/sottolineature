@@ -888,3 +888,29 @@
   Build pulita (0 problemi). Contesti sotto le 45 parole: 623 -> 606 (lo strumento e il build
   danno numeri di poco diversi, 604 vs 606: la sessione concorrente lavora in parallelo sullo
   stesso campo).
+
+- 2026-09-03 UTC — Contesti riscritti, secondo lotto (CATALOGO.md 6-ter/6-quater): 23 citazioni su
+  24 esaminate fra quelle con contesto sotto le 20 parole, media 64,4 parole. Ogni fonte aperta
+  prima di scrivere (Wikiquote, sempre con locus dove disponibile): Rainer Maria Rilke «I quaderni
+  di Malte Laurids Brigge» (incipit e le pagine subito successive), Sibilla Aleramo «Amo dunque
+  sono», Fernando Pessoa «L'educazione dello stoico» (confessione del Barone di Teive, l'eteronimo
+  a cui l'opera è attribuita — non compilato come `speaker`: è la voce dell'intero libro, non un
+  personaggio citato all'interno di una scena), Paulo Coelho «Manuale del guerriero della luce»,
+  Ugo Foscolo «Sonetti» («Alla sera» e «A Zacinto»), Virgilio «Bucoliche» (ecloga X, Gallo, e
+  ecloga II, speaker Coridone perché l'intero canto è il suo discorso diretto ad Alessi), Voltaire
+  «L'ingenuo», Emily Dickinson «Lettere» (a Elizabeth Holland, primavera 1878), Gabriele
+  D'Annunzio «Il libro delle vergini» (due racconti, «Le Vergini» e «Favola sentimentale»), Amin
+  Maalouf «Il periplo di Baldassarre» (due passi sulla comunità genovese d'Oriente), Erri De Luca
+  «Montedidio», Michela Murgia «Noi siamo tempesta», George R.R. Martin «La Danza dei Draghi»
+  (speaker Jon Snow, dialogo esplicito con Samwell Tarly).
+
+  **Lasciata com'era (1), con motivo:**
+  - Natalia Ginzburg, «Le piccole virtù», p. 149 («Essere capiti vuol dire essere presi e
+    accettati per quello che siamo»): la fonte consultata non permette di stabilire con certezza
+    quale saggio della raccolta contenga il passo, e in un punto sembra addirittura attribuirlo a
+    un'opera diversa dell'autrice («Mai devi domandarmi») — una discrepanza che tocca il titolo
+    stesso, fuori dal perimetro di questo lotto (solo `context`/`speaker`). Segnalo qui perché va
+    verificata a parte, sul testo, prima di scrivere qualunque contesto o correggere il titolo.
+
+  Build pulita (0 problemi). Contesti sotto le 20 parole: 40 -> 17. Contesti sotto le 45 parole:
+  606 -> 581/583 (differenza fra lo strumento e il build, come nel lotto precedente).
