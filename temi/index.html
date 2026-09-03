@@ -27,7 +27,7 @@
 <script>
   try {
     var savedTheme = localStorage.getItem('sottolineature-theme');
-    if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); }
+    if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) { mtc.setAttribute('content', '#16191a'); } }
   } catch (e) {}
 </script>
 </head>
@@ -53,7 +53,7 @@
     </nav>
   </div>
 </header>
-<script src="/assets/nav.js?v=b7987fd5" defer></script>
+<script src="/assets/nav.js?v=e084e15f" defer></script>
 <div class="page">
 <div class="page-main" role="main">
   <a class="back-link sans" href="/">← Torna alla home</a>

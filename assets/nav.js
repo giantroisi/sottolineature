@@ -40,6 +40,34 @@
     badge.textContent = n;
     badge.setAttribute('aria-label', n === 1 ? '1 citazione sottolineata' : n + ' citazioni sottolineate');
   }
+  // --- colore della barra di stato -------------------------------------
+  // Su telefono la striscia in alto (ora, batteria, segnale) prende il colore
+  // da <meta name="theme-color">. Le due meta nell'head lo legano al tema del
+  // sistema, e per il primo disegno basta; ma il sito ha un interruttore
+  // proprio, e chi teneva il telefono in chiaro e il sito in scuro vedeva una
+  // striscia bianca sopra una pagina nera. Qui le meta si allineano al tema
+  // che si sta davvero mostrando.
+  var COLORE = { light: '#f2f0eb', dark: '#16191a' };
+  function temaCorrente() {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+  }
+  function allineaBarra() {
+    var metas = document.querySelectorAll('meta[name="theme-color"]');
+    if (!metas.length) { return; }
+    var c = COLORE[temaCorrente()];
+    for (var i = 0; i < metas.length; i++) { metas[i].setAttribute('content', c); }
+  }
+  window.Sottolineature = window.Sottolineature || {};
+  window.Sottolineature.allineaBarraDiStato = allineaBarra;
+  // il primo colore lo mette gia' lo script in testa alla pagina, prima del
+  // disegno; qui si ripassa per sicurezza e si resta in ascolto dell'interruttore
+  allineaBarra();
+  // e ogni volta che qualcuno tocca l'interruttore
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t && t.closest && t.closest('.theme-toggle')) { setTimeout(allineaBarra, 0); }
+  });
+
   window.Sottolineature = window.Sottolineature || {};
   window.Sottolineature.refreshNavCount = refresh;
   refresh();

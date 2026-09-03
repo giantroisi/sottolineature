@@ -955,6 +955,23 @@ duplicati era comunque basso — Google collassa pagine quasi identiche, non pag
 non c'e' nemmeno il caso peggiore. Nota utile per il futuro: la somiglianza **non** dipende dalla
 lunghezza dei contesti (correlazione -0,15), dipendeva dalle correlate identiche.
 
+**La striscia in alto del telefono restava chiara sul tema scuro — 2026-09-03.** Su telefono la
+barra di stato (ora, batteria, segnale) prende il colore da `<meta name="theme-color">`, che su
+tutte e otto le pagine era fisso a `#f2f0eb`. In tema scuro restava quindi una striscia color
+carta sopra una pagina nera.
+
+Un dettaglio importante nel decidere la correzione: **questo sito non segue il tema di sistema**.
+I token scuri stanno solo sotto `:root[data-theme="dark"]`, e `data-theme` lo mette l'interruttore
+del sito leggendo `localStorage`. La correzione ovvia — due meta legate a `prefers-color-scheme` —
+sarebbe stata **peggiore del male**: su un telefono impostato in scuro avrebbe dipinto la striscia
+di nero sopra una pagina chiara, cioe' lo stesso difetto rovesciato. Provata, misurata, buttata.
+
+La meta segue quindi il tema **del sito**, e si aggiorna nello script che sta gia' in testa alla
+pagina, prima del primo disegno: aggiornarla dopo avrebbe fatto lampeggiare la striscia bianca su
+una pagina scura a ogni caricamento. `assets/nav.js` la riallinea quando si tocca l'interruttore.
+Verificato su due tipi di pagina, con il telefono in chiaro e in scuro, all'apertura, dopo
+l'interruttore e dopo un ricarico: dodici casi, tutti coerenti.
+
 **I filtri su telefono, terza forma — 2026-09-03.** Prima erano una riga che scorreva in
 orizzontale: stavano in poco spazio ma **meta' delle voci non si vedeva e niente diceva che ci
 fossero** (misurato: 717 px di contenuto in una finestra da 319). Li ho fatti andare a capo, e

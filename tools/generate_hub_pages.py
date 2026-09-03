@@ -75,7 +75,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
 <script>
   try {{
     var savedTheme = localStorage.getItem('sottolineature-theme');
-    if (savedTheme === 'dark') {{ document.documentElement.setAttribute('data-theme', 'dark'); }}
+    if (savedTheme === 'dark') {{ document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) {{ mtc.setAttribute('content', '#16191a'); }} }}
   }} catch (e) {{}}
 </script>
 </head>
