@@ -955,6 +955,10 @@ duplicati era comunque basso — Google collassa pagine quasi identiche, non pag
 non c'e' nemmeno il caso peggiore. Nota utile per il futuro: la somiglianza **non** dipende dalla
 lunghezza dei contesti (correlazione -0,15), dipendeva dalle correlate identiche.
 
+**I comandi per Sonnet stanno in `CATALOGO.md` §9-bis**, con lo stato di ciascuno: in corso, il
+prossimo, in coda, bloccato. Nascevano nella conversazione e sparivano con lei; ora sopravvivono
+alla sessione. Si danno uno per volta, e mai mentre un lotto e' a meta'.
+
 **Resta aperto, in ordine di valore:**
 
 - **Il traduttore sulle opere tradotte.** Il punto piu' serio emerso dal passaggio: su 741

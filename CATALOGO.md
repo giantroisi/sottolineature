@@ -355,6 +355,89 @@ CLAUDE.md.
 
 ---
 
+## 9-bis. Comandi in coda per Sonnet
+
+Scritti qui perché non vadano persi con la conversazione in cui sono nati. Si danno **uno per
+volta**, e mai mentre un lotto è a metà: interrompere un lotto lo lascia a pezzi.
+
+| | lotto | stato |
+|---|---|---|
+| 1 | Riscrittura dei contesti brevi | **in corso** (2026-09-03, lotto 6) |
+| 2 | Genere alle opere che ne sono prive | **il prossimo** — comando qui sotto |
+| 3 | Ampliamento delle 20 raccolte tematiche rimaste | in coda, `tools/raccolte_da_ampliare.py` |
+| 4 | «Frasi brevi» e «Incipit memorabili» | in coda, criterio diverso: vedi nota in fondo |
+| 5 | Copertine delle 169 opere rimaste | bloccato: su Open Library non esiste un'edizione italiana con immagine. Si sblocca solo cambiando fonte o accettando l'edizione originale — decisione dell'utente |
+
+### 2. Genere alle opere che ne sono prive
+
+```
+Leggi CLAUDE.md e CATALOGO.md, in particolare il punto 3-bis sulla classificazione.
+
+Compito: assegnare il GENERE alle opere che ne sono prive. Solo il campo `genre` di
+data/citazioni.json, più LOG.md. Non toccare testo, autore, contesto, tema, fonte.
+
+LEGGI QUESTO PRIMA DI COMINCIARE, perché il compito non è quello che sembra. Le opere senza
+genere sono 367 su 577, ma NON sono 367 caselle da riempire. I generi ammessi sono sei e sono
+stretti: distopia, fantascienza, fantasy, horror, poesia, saggistica. Un romanzo realista —
+Moravia, Ferrante, Camus, Austen, Tolstoj — non è nessuno dei sei, e il suo campo genere deve
+restare vuoto. È il comportamento corretto, non una mancanza.
+
+Quello che devi cercare sono le opere che UNO DEI SEI lo hanno davvero e a cui non è stato
+assegnato: una raccolta di poesie senza `poesia`, un saggio senza `saggistica`, un romanzo di
+fantascienza senza `fantascienza`. Mi aspetto qualche decina, non trecento. Se arrivi a
+centocinquanta, ti sei messo a timbrare — ed è esattamente l'errore che questo archivio ha già
+pagato una volta, quando 162 temi erano stati assegnati a lotti.
+
+Per l'elenco delle opere da esaminare:
+
+  python3 - <<'EOF'
+  import json, collections
+  qs=json.load(open('data/citazioni.json',encoding='utf-8'))
+  op=collections.defaultdict(list)
+  for q in qs: op[(q['author'],q['title'])].append(q)
+  senza=sorted([k for k,v in op.items() if not any(x.get('genre') for x in v)])
+  print(len(senza),'opere senza genere')
+  for a,t in senza:
+      q=op[(a,t)][0]
+      print('%-28s %-40s %s' % (a[:28], t[:40], q.get('year','')))
+  EOF
+
+Regole:
+1. Il genere appartiene all'OPERA, non alla citazione: se lo assegni, lo assegni a tutte le
+   citazioni di quell'opera.
+2. Un'opera può avere più generi separati da spazio (es. "fantascienza distopia"), ma solo se li
+   ha entrambi davvero.
+3. Nessun valore fuori da tools/labels.py, maiuscole comprese: sono minuscoli.
+4. Nel dubbio si lascia vuoto. Sempre. "Forse è saggistica" significa no.
+5. `poesia` va all'opera in versi (una raccolta, un poema, una singola poesia), non a un romanzo
+   lirico. `saggistica` va a un testo che argomenta, non a un romanzo con dentro delle idee. Se
+   questa distinzione ti sembra sottile su un caso, quel caso resta vuoto.
+6. Lavora a lotti di 40 opere, non tutte in una volta.
+
+Poi `python3 tools/build.py` e verifica che check_links dia zero problemi: se segnala anche un
+solo genere inesistente, non fare commit.
+
+In LOG.md, per ogni lotto: quante opere hai classificato, il conteggio per genere, e — la parte
+che conta — tre o quattro esempi di opere che hai LASCIATO VUOTE e perché. Se su quaranta ne
+classifichi otto, va benissimo.
+
+Regole di convivenza: lavori in parallelo a un'altra sessione. Tocca solo data/citazioni.json e
+LOG.md. Niente in tools/, templates/, assets/, né altri file .md. Mai `git stash`,
+`git checkout -- .`, `git reset --hard`, `git clean`: se trovi modifiche non tue, lasciale e
+committa solo i tuoi file elencandoli uno per uno. Prima di ogni push: `git pull --rebase`.
+```
+
+### Nota sul lotto 4
+
+«Frasi brevi» e «Incipit memorabili» hanno un criterio meccanico — la lunghezza, il punto nel
+testo — quindi `tools/raccolte_da_ampliare.py` le trova tutte (158 e 140 candidate) e la
+tentazione è di incollarle in blocco. Allora però smettono di essere selezioni e diventano
+elenchi, che è esattamente ciò che `metodo.html` promette di non essere. Vanno fatte a parte, e
+la domanda non è «parla di questo» ma «questa frase regge da sola»: un giudizio molto più
+difficile da delegare, da dare con un comando scritto apposta.
+
+---
+
 ## 10. Lavoro in autonomia — parametri
 
 Quando l'utente autorizza un agente a procedere da solo, valgono questi parametri. Sono scritti
