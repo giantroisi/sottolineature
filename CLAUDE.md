@@ -967,7 +967,8 @@ due elenchi interi, tutti visibili.
 
 Poi una passata sugli spazi della prima schermata, che erano 118 px di aria fra cinque elementi:
 respiro sopra il marchio, sotto il marchio, sotto la ricerca, sotto i filtri, sotto il menu.
-**La citazione in evidenza risale da 575 a 373 px** — su un telefono corto da 667 px ora ci sta
+**La citazione in evidenza risale da 575 a 337 px** (in due passate: 373, poi 337 con una seconda
+limatura sul marchio, portato da 96 a 83 px, e sugli ultimi stacchi) — su un telefono corto da 667 px ora ci sta
 tutta nella prima schermata, testo, attribuzione e pulsanti compresi. Trovata e tolta anche una
 **riga separatrice doppia**: il bordo stava sia sul pulsante sia sul blocco, e da chiuso si
 vedevano tutte e due; ora lo porta solo l'elemento visibile.
