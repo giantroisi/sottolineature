@@ -436,6 +436,14 @@ def titolo_esplicativo(q):
                 or 'apertura' in locus)
     verso = (q.get('genre') == 'poesia' or 'verso' in locus or 'canto' in locus
              or 'strofa' in locus)
+    # Chi cerca una battuta cerca quasi sempre il personaggio, non l'autore:
+    # «chi dice uccidi il ragazzo» prima di «citazione Martin». Il campo
+    # `speaker` esiste per questo ed e' facoltativo: si compila solo quando si
+    # sa chi parla, e resta vuoto per il narratore o quando c'e' un dubbio.
+    speaker = (q.get('speaker') or '').strip()
+    if speaker:
+        return ('\u00ab' + incipit + '\u00bb: la frase di ' + speaker + ' in \u00ab' + q['title']
+                + '\u00bb di ' + q['author'])
     if apertura:
         return '\u00ab' + incipit + '\u00bb: l\u2019incipit di \u00ab' + q['title'] + '\u00bb di ' + q['author']
     if verso:
@@ -612,6 +620,8 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
                 'url': canonical,
                 **({'citation': q['source_locus']} if q.get('source_locus') else {}),
                 **({'sameAs': q['source_url']} if q.get('source_url') else {}),
+                **({'spokenByCharacter': {'@type': 'Person', 'name': q['speaker']}}
+                   if q.get('speaker') else {}),
             },
             {
                 '@type': 'Book',

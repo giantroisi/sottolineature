@@ -1,5 +1,33 @@
 # Log
 
+- 2026-09-03 UTC — **campo `speaker` e misura vera dei contesti brevi** (nessuna citazione aggiunta
+  o tolta). Aggiunto a `data/citazioni.json` il campo facoltativo **`speaker`**: chi pronuncia la
+  frase. Quando c'è, l'H1 della pagina diventa *«Se vogliamo che tutto rimanga com'è…»: la frase di
+  **Tancredi** in «Il Gattopardo» di Giuseppe Tomasi di Lampedusa*, e il nome finisce in
+  `spokenByCharacter` dei dati strutturati. È la forma in cui la gente cerca una battuta: prima il
+  personaggio, poi l'autore.
+  - **45 speaker compilati, nessuno dedotto.** Vengono tutti da `source_locus`, cioè da un dato già
+    verificato citazione per citazione: «parole di Tancredi», «battuta di Smerdjakov», «riflessione
+    di Santiago», «monologo del capitano Nemo», «battuta di Atticus Finch». Dove il luogo nel testo
+    dice «riflessione della narratrice», «lettera del 13 aprile 1942» o «discorso di laurea a
+    Kenyon College» il campo resta vuoto: non c'è un personaggio, c'è l'autore o una voce senza
+    nome. Nessun nome ricavato dal titolo dell'opera o dalla memoria.
+  - **I contesti brevi non sono 623.** Il numero dell'avviso di `check_links` è vero ma grosso, e
+    messo così porta fuori strada. La distribuzione: **2 assenti** (Dostoevskij *Delitto e
+    castigo*, Sciascia *Il giorno della civetta*); **169 fra 1 e 19 parole**, di cui 147 sotto le
+    15, e la maggioranza dice solo «L'incipit del romanzo», che ripete il luogo nel testo senza
+    aggiungere niente; **159 fra 20 e 29**, spesso una frase sola; **293 fra 30 e 44**, che sono
+    già buoni — densi e precisi, allungarli li annacquerebbe; **126 sopra le 45**, a posto. Il
+    lavoro che rende è sui primi due scaglioni: **171 citazioni, non 623.**
+  - Aggiunto `tools/contesti_da_ampliare.py`: le ordina per opera (un contesto scritto bene su
+    un'opera da cui il sito cita quattro volte vale quattro volte) e stampa per ciascuna la scheda
+    già pronta — testo, luogo nel testo, edizione, link online, contesto attuale, e l'avviso quando
+    la frase sembra una battuta e quindi vuole anche `speaker`.
+  - Scritti in `CATALOGO.md` i punti **6-ter** (il contesto sta fra 60 e 90 parole, e non si
+    allunga per arrivarci: un contesto corto e vero vale più di uno lungo e inventato) e
+    **6-quater** (quando si compila `speaker` e quando si lascia vuoto).
+  - Build pulita, `check_links` 0 problemi su 1120 pagine.
+
 - 2026-08-30 UTC — added 10 quotes, dodicesima applicazione della correzione di rotta (total now 621, 251 autori, 46 con una sola citazione, 83 con tre o più) — cinque autori ad alta domanda di ricerca portati a **4 citazioni ciascuno**: Goliarda Sapienza (+2, da L'arte della gioia cap. 42 e cap. 63 — unica opera disponibile su Wikiquote per quest'autrice, ricca comunque di materiale con locus per capitolo), Wisława Szymborska (+2, dalla poesia "La cipolla" in Grande numero p. 9 e da "Il silenzio delle piante" in Attimo p. 33 — diversificando da Amore a prima vista e Nulla è in regalo!), Antonio Tabucchi (+2, gli incipit di La testa perduta di Damasceno Monteiro e di Tristano muore. Una vita — diversificando da Sostiene Pereira), Natalia Ginzburg (+2, l'incipit de La famiglia Manzoni e da Le piccole virtù p. 149 — quest'ultima già presente con locus diverso, p. 121), Charles Dickens (+2, gli incipit di Grandi speranze, via Fruttero & Lucentini, e di Canto di Natale, trad. Maria Luisa Fehr, RCS 1997 — diversificando da Racconto di due città e Oliver Twist). Nessuna sovrapposizione con le citazioni già in archivio. Nessuna copertina reperibile per nessuna delle nuove opere. Build pulita, 0 errori. Nessuna attività concorrente rilevata in questo giro. **Deploy ancora sospeso**: commit locale, nessun push.
 
 - 2026-08-30 UTC — added 10 quotes, undicesima applicazione della correzione di rotta (total now 611, 251 autori, 46 con una sola citazione, 78 con tre o più) — cinque autori ad alta domanda di ricerca portati a **4 citazioni ciascuno**: Milan Kundera (+2, gli incipit di L'immortalità e di La lentezza, entrambi Adelphi — diversificando da L'insostenibile leggerezza dell'essere e Il libro del riso e dell'oblio), Alberto Moravia (+2, gli incipit di Il conformista e di La noia — evitata La ciociara per i suoi temi legati alla guerra, diversificando da Gli indifferenti), Sibilla Aleramo (+2, da Amo dunque sono pp. 35 e 112 — diversificando da Una donna), Sylvia Plath (+2, dalle poesie "Specchio" p. 209 in Attraversando l'acqua e "Tempi normali" p. 239 in Il colosso — evitati i versi da Papà e Lady Lazarus per i loro temi più cupi e politicamente carichi, diversificando da La campana di vetro), Simone Weil (+2, l'incipit de La rivelazione greca e da Riflessioni sulle cause della libertà e dell'oppressione sociale p. 13 — diversificando da L'ombra e la grazia). Nessuna sovrapposizione con le citazioni già in archivio. Nessuna copertina reperibile per nessuna delle nuove opere. Build pulita, 0 errori. Nessuna attività concorrente rilevata in questo giro. **Deploy ancora sospeso**: commit locale, nessun push.

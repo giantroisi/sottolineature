@@ -285,6 +285,33 @@ promette a chi legge.
 6. Inserire la citazione in **`data/citazioni.json`**, che dalla Fase 2 SEO è la fonte di verità
    (`index.html` è un file generato: modificarlo a mano si perde al build successivo). Poi
    `python3 tools/build.py`, che rigenera home, pagina citazione, hub, immagini OG e sitemap.
+6-ter. **Il contesto si scrive fra le 60 e le 90 parole.** È l'unico testo originale della pagina
+   citazione: la frase è di altri, il blocco fonte è un dato, i tag e le correlate sono
+   impaginazione. Un contesto deve dire **in che punto dell'opera siamo** e **perché quella frase
+   conta lì**. Sotto le 40 parole quasi sempre si è solo detto dove sta la frase — «L'incipit del
+   romanzo» ripete il luogo nel testo e non aggiunge niente; sopra le 90 si comincia a girare
+   intorno, e si vede. Modello di riferimento, 43 parole già pubblicate: *«È don Abbondio a dirlo
+   al cardinal Federigo Borromeo, che lo rimprovera per essersi rifiutato di celebrare il
+   matrimonio…»* — chi parla, a chi, in quale momento, e cosa c'è in gioco.
+
+   Non si allunga un contesto per farlo arrivare a 60 parole. Se non si sa altro dell'opera di
+   quanto già scritto, si lascia com'è e si annota: un contesto corto e vero vale più di uno lungo
+   e inventato. Per l'elenco di quelli da riprendere, in ordine di resa:
+
+   ```
+   python3 tools/contesti_da_ampliare.py            # da quali opere conviene cominciare
+   python3 tools/contesti_da_ampliare.py 12         # le schede pronte, con testo, luogo, edizione
+   python3 tools/contesti_da_ampliare.py --dialoghi # quelle che hanno un personaggio
+   ```
+
+6-quater. **`speaker`: chi pronuncia la frase.** Campo facoltativo di `data/citazioni.json`. Si
+   compila **solo quando il luogo nel testo o il contesto dicono chi parla**, e resta vuoto per il
+   narratore, per la voce dell'autore e in ogni caso di dubbio. Non si deduce dal titolo
+   dell'opera: dedurlo è inventarlo. Quando c'è, l'H1 della pagina diventa *«Se vogliamo che tutto
+   rimanga com'è…»: la frase di **Tancredi** in «Il Gattopardo» di Giuseppe Tomasi di Lampedusa*,
+   e il dato finisce anche in `spokenByCharacter` dei dati strutturati. È la forma in cui la gente
+   cerca davvero una battuta: prima il personaggio, poi l'autore.
+
 6-bis. **Guardare se la citazione appartiene a una raccolta esistente**, e in quel caso aggiungere
    la sua chiave in `quote_keys` dentro `data/raccolte.json`. Dieci secondi per citazione. È il
    passaggio che per due settimane non è esistito, ed è il motivo per cui il 2026-09-03 le
