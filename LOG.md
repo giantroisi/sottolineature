@@ -1171,3 +1171,18 @@
   segnalate nei lotti precedenti.
 
   Build pulita (0 problemi). Contesti sotto le 45 parole: 438 -> 427.
+
+- 2026-09-03 UTC — Contesti riscritti, tredicesimo lotto (CATALOGO.md 6-ter/6-quater): 10 citazioni
+  nella fascia 20-44 parole, media 69,3 parole. Fonte aperta per ognuna prima di scrivere: Elena
+  Ferrante (due libri diversi, «I giorni dell'abbandono» e «L'amica geniale»), Jack Kerouac
+  «Sulla strada», William Faulkner «Luce d'agosto», Arthur Conan Doyle «Il mastino dei Baskerville»
+  (speaker Sherlock Holmes), Elie Wiesel «La notte», Gabriele D'Annunzio «Il piacere», Giovanni
+  Verga «I Malavoglia», Imre Kertész «Kaddish per il bambino non nato», J.K. Rowling «Harry Potter
+  e la Camera dei Segreti» (speaker Albus Silente).
+
+  Lasciata senza modifica per fonte insufficiente: James Baldwin (nuova, «La prossima volta il
+  fuoco»: la pagina Wikiquote non contiene la citazione del saggio «My Dungeon Shook»), oltre alle
+  dieci già segnalate nei lotti precedenti (fra cui Elif Shafak e Rabindranath Tagore, ancora
+  presenti nel pool e non ritentate in questo lotto).
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 427 -> 417.
