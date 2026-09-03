@@ -943,6 +943,19 @@ di essere una professoressa, uno studente e una ragazzina. Tre cose corrette sub
   o due parole (*«incipit»*) senza dire di quale edizione. Su un testo tradotto la frase italiana
   e' del traduttore: senza il suo nome la citazione non e' attribuibile, ed e' esattamente cio' che
   `metodo.html` promette. Da fare per opera, partendo da quelle con piu' citazioni.
+- **Le raccolte sono ferme alla taglia minima.** *(Diagnosi del 2026-09-03, strumento pronto,
+  lavoro di contenuto da fare.)* Le ventisette raccolte contengono 234 citazioni distinte su 749:
+  due terzi dell'archivio non sta in nessuna. Non e' una scelta di curatela. Le raccolte non sono
+  interrogazioni ma elenchi scritti a mano (`quote_keys` in `data/raccolte.json`), ognuna e' stata
+  pubblicata alla soglia minima di otto citazioni fra il 28 agosto e il 1 settembre — quando
+  l'archivio ne aveva fra 321 e 687 — e nessuna e' piu' stata riaperta. Ventiquattro su ventisette
+  stanno ancora fra 8 e 11. Le candidate gia' in archivio sono molte: *Frasi brevi* 158, *Incipit*
+  140, *Natura* 62, *Libri e scrittura* 55, *Morte* 33, *Il mare* 27. La causa era nel processo,
+  non nei dati: la procedura del CATALOGO per una citazione nuova non nominava le raccolte, e
+  `check_links` non le guarda. Aggiunti il passo **6-bis** al CATALOGO e
+  `tools/raccolte_da_ampliare.py`, che elenca le candidate con la chiave gia' pronta da incollare.
+  Resta da fare la scelta, raccolta per raccolta: e' un lotto per Sonnet.
+
 - **Temi e raccolte si sovrappongono senza spiegazione**: sette temi e ventisette raccolte, con
   *amore* fra i temi e *amicizia*/*felicita'* fra le raccolte. Chi arriva non puo' capire la
   differenza. O si uniscono, o una delle due prende un nome che dica cosa e'.

@@ -254,6 +254,20 @@ Bardugo, che restano da fare da tempo perché manca una fonte italiana tracciabi
 casella*. Prima deve essere una buona citazione; il tema è il criterio di ricerca, non di
 accettazione. Una raccolta con otto citazioni mediocri vale meno di una raccolta che non esiste.
 
+**Il rovescio della stessa regola:** otto è la soglia sotto la quale una raccolta non si pubblica,
+non la taglia a cui deve restare. Una raccolta si amplia ogni volta che entra in archivio una
+citazione che le appartiene. Per ritrovare quelle già in archivio e mai valutate:
+
+```
+python3 tools/raccolte_da_ampliare.py            # quante candidate ha ciascuna
+python3 tools/raccolte_da_ampliare.py mare       # le candidate, con la chiave da incollare
+```
+
+Lo strumento non decide niente: elenca le citazioni che nominano le parole della raccolta e che la
+raccolta non contiene. Quali meritino di entrarci si legge una per una — è l'unica differenza fra
+una selezione curata e un elenco generato da una parola chiave, ed è quella che `metodo.html`
+promette a chi legge.
+
 ---
 
 ## 8. Procedura per ogni lotto
@@ -271,6 +285,13 @@ accettazione. Una raccolta con otto citazioni mediocri vale meno di una raccolta
 6. Inserire la citazione in **`data/citazioni.json`**, che dalla Fase 2 SEO è la fonte di verità
    (`index.html` è un file generato: modificarlo a mano si perde al build successivo). Poi
    `python3 tools/build.py`, che rigenera home, pagina citazione, hub, immagini OG e sitemap.
+6-bis. **Guardare se la citazione appartiene a una raccolta esistente**, e in quel caso aggiungere
+   la sua chiave in `quote_keys` dentro `data/raccolte.json`. Dieci secondi per citazione. È il
+   passaggio che per due settimane non è esistito, ed è il motivo per cui il 2026-09-03 le
+   ventisette raccolte contenevano 234 citazioni su 749: erano state riempite fino alla soglia
+   minima di otto e mai più riaperte, mentre l'archivio raddoppiava. Le raccolte non sono
+   interrogazioni che si aggiornano da sole: sono elenchi scritti a mano, e restano fermi finché
+   qualcuno non li tocca.
 7. **Controlli automatici prima del commit:** nessun contesto identico su due citazioni diverse,
    nessuna fonte identica su due citazioni diverse, nessun title duplicato, nessuna citazione
    senza luogo nel testo.
