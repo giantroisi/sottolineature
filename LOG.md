@@ -719,3 +719,23 @@
   esiste su Open Library ma senza alcuna immagine di copertina caricata nel database — non un
   limite della ricerca ma un vuoto del catalogo stesso, verificato sistematicamente con
   editions.json opera per opera. Build pulita (0 problemi). Copertine locali: 552.
+
+- 2026-09-02 UTC — Approfondimento con angolo nuovo: Alice Munro, E.T.A. Hoffmann, Pearl S. Buck,
+  Rabindranath Tagore, Imre Kertész portati da 1 a 2 citazioni ciascuno, dopo che i tentativi
+  precedenti erano falliti per fonte insufficiente. Munro (Il percorso dell'amore, trad. Basso/
+  Pareschi), Hoffmann (Lo Schiaccianoci e il re dei sorci, trad. Clara Valiani per esteso — risolve
+  il problema del traduttore identificato solo con le iniziali), Buck (Figli, sequel de La buona
+  terra, trad. Andrea Damiano), Tagore (La casa e il mondo, trad. Sabina Terziani/Fazi 2020 —
+  abbandonato Gitanjali, mai tradotto in edizione verificabile), Kertész (Kaddish per il bambino
+  non nato, trad. Mariarosaria Sciglitano — verificato anche su scansione diretta Google Libri, p.
+  22). Scartato un candidato per John Muir (Piano B 2022): confermato da una sola fonte italiana,
+  senza secondo riscontro sulla resa esatta — resta l'unico autore a una sola citazione. Temi
+  riletti uno per uno: vita 2, amore 2, tempo 1. Build pulita (0 problemi). Archivio: 725
+  citazioni, 257 autori.
+
+  **Nota operativa**: da oggi lavoro in parallelo a una sessione umana attiva sugli stessi file.
+  Regole di convivenza comunicate dall'utente: tocco solo data/citazioni.json, assets/covers/ e
+  LOG.md (posso comunque eseguire tools/build.py e committare i file generati che ne risultano);
+  mai git stash/checkout -- ./reset --hard/clean; commit sempre con file elencati uno per uno, mai
+  git add -A; git pull --rebase prima di ogni push, e in caso di conflitto su file generati si
+  rilancia il build invece di risolvere a mano.
