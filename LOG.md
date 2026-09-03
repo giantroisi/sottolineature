@@ -739,3 +739,23 @@
   mai git stash/checkout -- ./reset --hard/clean; commit sempre con file elencati uno per uno, mai
   git add -A; git pull --rebase prima di ogni push, e in caso di conflitto su file generati si
   rilancia il build invece di risolvere a mano.
+
+- 2026-09-03 UTC — Approfondimento guidato da `data/keywords.json` (volume di ricerca reale, non
+  scelta arbitraria): George R.R. Martin era il gap più alto rimasto sul sito (380 di volume, solo
+  2 citazioni), portato a 4 con due citazioni da «La Danza dei Draghi» (Libro quinto) — Jon Snow su
+  Samwell Tarly, sul coraggio. Aldous Huxley (50 di volume) a 4: un terzo passo da «Il mondo nuovo»
+  e uno da «L'isola» (1962), mai citato finora. Julio Cortázar (30 di volume) a 3, da «Bestiario» —
+  l'apertura di «Lettera a una signorina a Parigi». Sibilla Aleramo (30 di volume) a 4, da «Il
+  passaggio» (1919), verificato anche sul testo integrale Project Gutenberg che conferma pagina e
+  resa esatte. Scartato un candidato Yukio Mishima (nessun luogo preciso reperibile) e una prima
+  citazione di Martin (Varys — il testo su Wikiquote stesso conteneva un «[...]», non verificabile
+  per intero), sostituita con due citazioni complete dallo stesso libro. Temi: coraggio 2, liberta
+  1, verita 1, vita 2. Build pulita (0 problemi). Archivio: 731 citazioni, 257 autori.
+
+  **Nota tecnica sulla convivenza**: durante questo lotto la sessione concorrente ha committato in
+  parallelo (`1b86880`, le 29 pagine autore senza introduzione ora coperte), il cui build è partito
+  da `data/citazioni.json` con le mie 6 citazioni già presenti — le pagine generate corrispondenti
+  sono quindi finite nel suo commit, non nel mio. Rispettato il nuovo protocollo di convivenza:
+  atteso il rilascio di `index.lock` senza toccarlo, poi commit del solo `data/citazioni.json` +
+  `tools/slugs.json` + asset non ancora tracciati, file elencati uno per uno, `git pull --rebase`
+  prima del push.
