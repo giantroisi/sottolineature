@@ -276,6 +276,42 @@ def main():
             print('   il contesto e\' l\'unico testo originale della pagina citazione:')
             print('   60-90 parole la rendono una pagina che spiega, 30 la lasciano una scheda')
 
+    # --- traduttore: su un'opera tradotta la frase italiana e' del traduttore.
+    #     Senza il suo nome la citazione non e' attribuibile, ed e' esattamente
+    #     cio' che metodo.html promette. Due controlli: uno bloccante, uno di
+    #     avviso. Bloccante e' l'incoerenza — la stessa edizione con due
+    #     traduttori diversi, o con il nome su una citazione e non sulle altre:
+    #     il traduttore appartiene all'edizione, come la copertina all'opera. ---
+    if os.path.isfile(data_path):
+        per_ed = collections.defaultdict(list)
+        for q in quotes:
+            if q.get('source_edition'):
+                per_ed[(q['author'], q['title'], q['source_edition'])].append(q)
+        discordi, meta_trad = [], []
+        for (a, t, ed), gruppo in per_ed.items():
+            nomi = set(q.get('source_translator') or '' for q in gruppo)
+            pieni = set(n for n in nomi if n)
+            if len(pieni) > 1:
+                discordi.append((a, t, sorted(pieni)))
+            elif pieni and '' in nomi:
+                meta_trad.append((a, t, len(gruppo), len(gruppo) - sum(1 for q in gruppo if not q.get('source_translator'))))
+        if discordi:
+            problems += len(discordi)
+            print('\nTRADUTTORI DIVERSI PER LA STESSA EDIZIONE:', len(discordi))
+            for a, t, ns in discordi[:10]:
+                print('   %s — %s: %s' % (a, t, ', '.join(ns)))
+        if meta_trad:
+            problems += len(meta_trad)
+            print('\nTRADUTTORE SOLO SU ALCUNE CITAZIONI DELLA STESSA EDIZIONE:', len(meta_trad))
+            for a, t, tot, con in meta_trad[:10]:
+                print('   %s — %s (%d citazioni, %d con traduttore)' % (a, t, tot, con))
+        senza_trad = [q for q in quotes
+                      if q.get('source_edition') and not q.get('source_translator')]
+        if senza_trad:
+            print('\nAVVISO — citazioni con edizione ma senza traduttore: %d' % len(senza_trad))
+            print('   su un\'opera tradotta la frase italiana e\' del traduttore: senza il suo')
+            print('   nome la citazione non e\' attribuibile (le opere italiane non contano)')
+
     print('\nProblemi totali:', problems)
     return 1 if problems else 0
 
