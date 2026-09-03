@@ -245,6 +245,22 @@ def main():
             for c in sorted(senza_file)[:10]:
                 print('  ', c)
 
+    # --- sameAs: ogni autore dovrebbe avere la sua voce Wikipedia/Wikidata
+    #     verificata in data/autori_sameas.json. Un autore nuovo che arriva con
+    #     un lotto di citazioni non ce l'ha: e' un avviso, non un problema
+    #     (il nodo Person semplicemente non viene emesso), ma va visto, perche'
+    #     senza sameAs la pagina autore resta un'entita' anonima per un motore. ---
+    sameas_path = os.path.join(ROOT, 'data', 'autori_sameas.json')
+    if os.path.isfile(data_path) and os.path.isfile(sameas_path):
+        with open(sameas_path, encoding='utf-8') as f:
+            sameas = json.load(f)
+        senza = sorted(set(q['author'] for q in quotes) - set(sameas))
+        if senza:
+            print('\nAVVISO — autori senza voce in data/autori_sameas.json:', len(senza))
+            for a in senza[:15]:
+                print('  ', a)
+            print('   (vanno risolti su it.wikipedia.org e verificati su Wikidata, mai dedotti dal nome)')
+
     print('\nProblemi totali:', problems)
     return 1 if problems else 0
 

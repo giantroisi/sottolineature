@@ -17,6 +17,23 @@ from generate_quote_pages import (  # noqa: E402
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
 
 HUB_INTROS_PATH = os.path.join(ROOT, 'data', 'hub_intros.json')
+SAMEAS_PATH = os.path.join(ROOT, 'data', 'autori_sameas.json')
+
+
+def load_sameas():
+    """Voce di Wikipedia italiana ed elemento Wikidata di ogni autore.
+
+    Serve al nodo Person delle pagine /autori/<slug>/: `sameAs` e' il modo in
+    cui un motore di ricerca capisce che il Kafka di questo sito e' quello di
+    Wikidata Q905 e non un omonimo. Ogni voce e' stata risolta interrogando
+    l'API di Wikipedia e verificata su Wikidata (P31 = essere umano): nessun
+    URL e' dedotto dal nome. Un autore assente da questo file semplicemente
+    non ha il nodo Person - meglio nessun collegamento che uno sbagliato.
+    """
+    if os.path.exists(SAMEAS_PATH):
+        with open(SAMEAS_PATH, encoding='utf-8') as f:
+            return json.load(f)
+    return {}
 
 
 def load_hub_intros():
@@ -26,6 +43,8 @@ def load_hub_intros():
         with open(HUB_INTROS_PATH, encoding='utf-8') as f:
             return json.load(f)
     return {}
+
+SAMEAS = load_sameas()
 
 HUB_TEMPLATE = """<!DOCTYPE html>
 <html lang="it">
@@ -205,6 +224,15 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
         'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
         'mainEntity': item_list,
     }
+    if kind == 'autore':
+        links = SAMEAS.get(label)
+        if links:
+            collection_page['about'] = {
+                '@type': 'Person',
+                '@id': canonical + '#person',
+                'name': label,
+                'sameAs': [links[k] for k in ('wikipedia', 'wikidata') if links.get(k)],
+            }
     jsonld = json.dumps(collection_page, ensure_ascii=False)
 
     return HUB_TEMPLATE.format(
