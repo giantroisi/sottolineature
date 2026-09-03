@@ -216,7 +216,7 @@ def main():
     for slug, _ in qp_entries:
         path = os.path.join(qp.OUT_DIR, slug + '.html')
         with open(path, encoding='utf-8') as f:
-            if '<h1 class="card-quote">' not in f.read():
+            if '<h1 class="quote-h1">' not in f.read():
                 missing_h1.append(slug)
 
     quotes_with_source = sum(1 for _, q in qp_entries if q.get('source_edition') or q.get('source_locus'))
