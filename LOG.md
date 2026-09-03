@@ -1207,3 +1207,61 @@
   assottigliando lotto dopo lotto (79 candidati nella fascia 20-44 parole a inizio lotto, di cui
   solo 6 effettivamente scrivibili con fonti sufficienti) — il lavoro prosegue, ma il rendimento per
   lotto è in calo naturale via via che si esauriscono i casi con fonte facilmente reperibile.
+
+- 2026-09-03 UTC — Genere assegnato a 25 opere su 367 esaminate (CATALOGO.md 3-bis, nuovo compito
+  su indicazione esplicita dell'utente: "mi aspetto qualche decina, non trecento"). Esaminate tutte
+  e 367 le opere prive di genere elencate dallo script fornito, una per una, decidendo solo in base
+  al contenuto/forma reale dell'opera — non un lotto timbrato. Tre commit separati (7+13+5 opere),
+  build e check_links puliti dopo ognuno.
+
+  **Conteggio per genere** (un'opera, Non lasciarmi, ne ha due): horror 6, fantasy 8, distopia 4,
+  fantascienza 4, saggistica 2, poesia 2.
+
+  **Assegnate:**
+  - `horror`: Arthur Conan Doyle «Il mastino dei Baskerville», Daphne du Maurier «Rebecca, la
+    prima moglie», Emily Brontë «Cime tempestose», Nathaniel Hawthorne «La casa dei sette abbaini»,
+    Oscar Wilde «Il ritratto di Dorian Gray», William Shakespeare «Macbeth» — tutti romanzi/opere
+    gotici classici con soprannaturale strutturale (streghe, fantasmi, patti, maledizioni), non
+    semplice atmosfera cupa.
+  - `fantasy`: Astrid Lindgren «I fratelli Cuordileone», Lewis Carroll «Alice» e «Attraverso lo
+    specchio», Madeline Miller «Circe» e «La canzone di Achille», Michail Bulgakov «Il Maestro e
+    Margherita», Roald Dahl «La fabbrica di cioccolato», William Shakespeare «La Tempesta» — mondi
+    o eventi esplicitamente magici come motore della trama, non un elemento incidentale.
+  - `distopia`/`fantascienza`: Doris Lessing «Memorie di una sopravvissuta», Michel Houellebecq
+    «Sottomissione», Sinclair Lewis «Qui non può succedere» (distopia); Kurt Vonnegut «Ghiaccio-
+    nove» e «Mattatoio n. 5», Octavia E. Butler «Legami di sangue» (fantascienza); Kazuo Ishiguro
+    «Non lasciarmi» (entrambi: cloni per donazione d'organi in una società speculativa oppressiva).
+  - `saggistica`: John Muir «La mia prima estate sulla Sierra», Octavio Paz «Il labirinto della
+    solitudine» — testi non narrativi che argomentano, non romanzi con idee dentro.
+  - `poesia`: Cesare Pavese «Verrà la morte e avrà i tuoi occhi», Fernando Pessoa «Tabacaria» —
+    solo le due vere raccolte/poemi trovate nell'elenco.
+
+  **Le 342 lasciate vuote, con motivo — la parte che conta:**
+  - Realismo magico (Gabriel García Márquez «Cent'anni di solitudine», Isabel Allende «La casa
+    degli spiriti», Salman Rushdie «I figli della mezzanotte»): movimento letterario distinto dal
+    fantasy editoriale, mai classificato come tale in libreria — includerlo avrebbe forzato la
+    distinzione che la regola vuole evitare.
+  - Narrativa con elementi surreali ma letta come letteratura generale (Haruki Murakami «1Q84» e
+    «Kafka sulla spiaggia», Jorge Luis Borges «Finzioni»/«L'Aleph», Julio Cortázar «Bestiario»):
+    stesso principio, "fantastico" non equivale a "fantasy" di genere.
+  - Fiabe con elementi magici incidentali, non un genere strutturato (Antoine de Saint-Exupéry «Il
+    piccolo principe», Carlo Collodi «Pinocchio», Hans Christian Andersen «La sirenetta»): la
+    differenza rispetto a «I fratelli Cuordileone» o «Alice» è che qui la magia è un espediente
+    narrativo isolato, non il mondo in cui vive tutta la storia.
+  - Casi sottili valutati e respinti apposta (regola 5: nel dubbio, vuoto): Toni Morrison
+    «Amatissima» (un fantasma, ma il romanzo è sulla schiavitù, non horror di genere), Patrick
+    Süskind «Il profumo» (la critica letteraria stessa lo dice «non riducibile a un genere unico»),
+    J.M. Coetzee «Aspettando i barbari» (allegoria politica senza tempo/luogo, vicina alla
+    distopia ma non lo è davvero), Fernando Pessoa «Il libro dell'inquietudine» (prosa diaristica,
+    né poesia né saggio argomentativo).
+  - Teatro classico interamente in versi (William Shakespeare «Amleto» e «Romeo e Giulietta»,
+    Vittorio Alfieri «Mirra» e «Saul», Alessandro Manzoni «Adelchi»): scelta interpretativa
+    esplicita, segnalata qui perché reversibile — la regola dice «l'opera in versi (una raccolta,
+    un poema, una singola poesia)» senza nominare il teatro. Ho deciso di non estendere `poesia`
+    alla sola forma versificata quando il contenuto non è anche fantasy/horror/distopia (per questo
+    «La Tempesta» e «Macbeth» hanno comunque preso genere, ma per il contenuto magico/soprannaturale,
+    non per essere in versi). Se l'intento era includere anche il teatro in versi puro, va corretto.
+  - Tutto il resto (la grande maggioranza): romanzi realisti, storici, di formazione, gialli senza
+    soprannaturale (Agatha Christie, Andrea Camilleri, Arthur Conan Doyle «Il segno dei quattro»),
+    teatro in prosa (Cechov, Ibsen, Goldoni, Pirandello, Brecht) — nessuno dei sei generi si applica,
+    e forzarne uno sarebbe esattamente l'errore già commesso una volta con i temi.
