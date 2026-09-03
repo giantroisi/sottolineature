@@ -1153,3 +1153,21 @@
   copy. `git fetch` successivo ha confermato che il repository era già correttamente sincronizzato.
 
   Build pulita (0 problemi). Contesti sotto le 45 parole: 450 -> 438.
+
+- 2026-09-03 UTC — Contesti riscritti, dodicesimo lotto (CATALOGO.md 6-ter/6-quater): 11 citazioni
+  nella fascia 20-44 parole, media 71,5 parole. Fonte aperta per ognuna prima di scrivere: Elena
+  Ferrante «Storia della bambina perduta», Alba de Céspedes «Quaderno proibito» (fonte
+  precedentemente insufficiente nel lotto 11, questa volta trovata con una ricerca web mirata al
+  romanzo invece che a Wikiquote), James Baldwin «A Talk to Teachers» (discorso del 1963), Mario
+  Rigoni Stern «Uomini, boschi e api», Olga Tokarczuk «Il mio caffè con la Szymborska»
+  (un'intervista, non un romanzo), Ralph Waldo Emerson «Circoli», Wisława Szymborska «Amore a
+  prima vista», Alice Munro «Il percorso dell'amore», Italo Svevo «La coscienza di Zeno» (speaker
+  Zeno Cosini, ultime righe del romanzo), Rick Riordan «Percy Jackson e gli dei dell'Olimpo: il
+  mare dei mostri» (speaker Ermes), Simone de Beauvoir «Memorie d'una ragazza perbene».
+
+  Lasciate senza modifica per fonte insufficiente: Elif Shafak (nuova, «La bastarda di Istanbul»:
+  la pagina Wikiquote non contiene l'incipit cercato, solo altre citazioni), Rabindranath Tagore
+  (nuova, «La casa e il mondo»: nessun estratto disponibile sulla pagina), oltre alle otto già
+  segnalate nei lotti precedenti.
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 438 -> 427.
