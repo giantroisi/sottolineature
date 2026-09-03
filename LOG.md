@@ -781,3 +781,18 @@
   il protocollo: nessun tocco a `assets/site.css` o `tools/`, atteso che la working copy tornasse
   pulita prima di editare `data/citazioni.json`, lanciato il build solo a working copy pulita per
   non mescolare le due modifiche, commit con file elencati uno per uno.
+
+- 2026-09-03 UTC — Approfondimento guidato da `data/keywords.json`, terzo lotto della giornata:
+  William Faulkner a 4 («Mentre morivo», «Luce d'agosto» — due opere mai citate finora), Vladimir
+  Nabokov a 3 (secondo passo da «Lolita»), Ray Bradbury a 3 (terzo passo da «Fahrenheit 451», il
+  monologo di Beatty sulla censura), Mario Vargas Llosa a 4 («La città e i cani», «La zia Julia e
+  lo scribacchino» — due opere nuove), J.D. Salinger a 3 (terzo passo da «Il giovane Holden», il
+  colloquio con Antolini), Honoré de Balzac a 3 («Eugénie Grandet», tradotto da Grazia Deledda —
+  unica traduzione della sua carriera letteraria). Scartati: due candidati per Thomas Hardy e tre
+  per Sandro Veronesi, nessuno con locus verificabile su doppia fonte; un secondo candidato Nabokov
+  da «Ada o ardore» (l'edizione oggi in commercio ha una traduttrice diversa da quella su Wikiquote,
+  con incipit leggermente difforme — rischio di citare la traduzione sbagliata). Corretto anche un
+  mio errore prima del commit: due copertine scritte come percorso locale invece che come URL Open
+  Library, individuato dal controllo "copertine dichiarate ma senza file". Temi riletti uno per
+  uno: verita 2, vita 2, tempo 1, amore 1, liberta 1, coraggio 1. Build pulita (0 problemi).
+  Archivio: 749 citazioni, 257 autori.
