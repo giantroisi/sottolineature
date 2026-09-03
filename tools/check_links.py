@@ -261,6 +261,21 @@ def main():
                 print('  ', a)
             print('   (vanno risolti su it.wikipedia.org e verificati su Wikidata, mai dedotti dal nome)')
 
+    # --- contesto: la pagina citazione non e' povera di parole (mediana 237
+    #     visibili, minimo 167), ma quasi tutte vengono dalla citazione, dal
+    #     blocco fonte e dalle correlate. L'unico testo originale e' il
+    #     contesto, e al 2026-09-03 la sua mediana era di 31 parole. E' li' che
+    #     si gioca la differenza fra una pagina che aggiunge qualcosa e una
+    #     scheda. Avviso, non problema: allungare per allungare sarebbe peggio. ---
+    if os.path.isfile(data_path):
+        corti = [q for q in quotes if 0 < len((q.get('context') or '').split()) < 45]
+        vuoti = [q for q in quotes if not (q.get('context') or '').strip()]
+        if corti or vuoti:
+            print('\nAVVISO — contesti brevi: %d sotto le 45 parole, %d assenti (su %d)'
+                  % (len(corti), len(vuoti), len(quotes)))
+            print('   il contesto e\' l\'unico testo originale della pagina citazione:')
+            print('   60-90 parole la rendono una pagina che spiega, 30 la lasciano una scheda')
+
     print('\nProblemi totali:', problems)
     return 1 if problems else 0
 

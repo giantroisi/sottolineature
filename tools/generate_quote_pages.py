@@ -200,9 +200,10 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/{author_slug}/">{author}</a> › <span aria-current="page">{breadcrumb_last}</span>
   </nav>
+  <h1 class="quote-h1">{h1_esplicativo}</h1>
   <figure class="card" data-category="{category}"{genre_attr}>
-    <blockquote class="card-quote-block">
-      <h1 class="card-quote"><span class="quote-open" aria-hidden="true">«</span><span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">{h1_quote}</span><span class="quote-close" aria-hidden="true">»</span></h1>
+    <blockquote class="card-quote-block"{blockquote_cite}>
+      <p class="card-quote">{quote_open}<span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">{h1_quote}</span>{quote_close}</p>
       {full_quote_html}
     </blockquote>
     <div class="card-body">
@@ -387,6 +388,12 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 """
 
 
+def strip_accenti(testo):
+    """Confronti sul luogo nel testo senza inciampare sugli accenti."""
+    scomposto = unicodedata.normalize('NFD', testo)
+    return ''.join(c for c in scomposto if unicodedata.category(c) != 'Mn')
+
+
 def truncate_words(text, max_len):
     if len(text) <= max_len:
         return text, False
@@ -409,6 +416,33 @@ def related_card(slug, q, meta_html):
     )
 
 
+def titolo_esplicativo(q):
+    """H1 della pagina citazione: dice di che frase si tratta e da dove viene.
+
+    Non nomina il personaggio che la pronuncia - sarebbe la cosa piu' utile per
+    chi cerca, ma in `data/citazioni.json` quel dato non esiste e dedurlo dal
+    titolo dell'opera vorrebbe dire inventarlo. Si dice quello che si sa:
+    l'autore, l'opera e, quando il luogo nel testo lo dichiara, che quella
+    frase e' l'incipit o un verso.
+    """
+    incipit, _ = truncate_words(q['quote'], 52)
+    # virgolette annidate: una citazione che contiene gia' un dialogo
+    # («Uccidi il ragazzo» penso' Jon) dentro le caporali dell'H1 darebbe
+    # ««Uccidi il ragazzo»...». In italiano il secondo livello sono gli apici
+    # doppi alti.
+    incipit = incipit.replace('\u00ab', '\u201c').replace('\u00bb', '\u201d')
+    locus = strip_accenti((q.get('source_locus') or '').lower())
+    apertura = ('incipit' in locus or 'prima frase' in locus or 'prime righe' in locus
+                or 'apertura' in locus)
+    verso = (q.get('genre') == 'poesia' or 'verso' in locus or 'canto' in locus
+             or 'strofa' in locus)
+    if apertura:
+        return '\u00ab' + incipit + '\u00bb: l\u2019incipit di \u00ab' + q['title'] + '\u00bb di ' + q['author']
+    if verso:
+        return '\u00ab' + incipit + '\u00bb: il verso di ' + q['author'] + ' da \u00ab' + q['title'] + '\u00bb'
+    return '\u00ab' + incipit + '\u00bb: la frase di ' + q['author'] + ' in \u00ab' + q['title'] + '\u00bb'
+
+
 def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=None,
                 sibling_slugs=None):
     quote_esc = html.escape(q['quote'])
@@ -424,8 +458,20 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         source_parts.append(html.escape(q['source_edition']))
     if q.get('source_locus'):
         source_parts.append(html.escape(q['source_locus']))
+    # Su 79 citazioni l'edizione conteneva gia' il traduttore ("trad. Renato
+    # Giani, Fratelli Bocca, 1915") e la pagina lo ripeteva subito dopo: «trad.
+    # Renato Giani, Fratelli Bocca, 1915, trad. Renato Giani». Si stampa solo
+    # se non e' gia nominato nell'edizione.
     if q.get('source_translator'):
-        source_parts.append('trad. ' + html.escape(q['source_translator']))
+        # confronto per parole e non per sottostringa: l'edizione scrive
+        # "trad. Sergio Altieri e Gaetano Luigi Staffilano", il campo
+        # traduttore "Sergio Altieri, Gaetano Luigi Staffilano" - stesse
+        # persone, separatore diverso
+        edizione = strip_accenti((q.get('source_edition') or '').lower())
+        nomi = [w for w in re.split(r'[^\w]+', strip_accenti(q['source_translator'].lower())) if len(w) > 2]
+        gia_detto = bool(nomi) and all(n in edizione for n in nomi)
+        if not gia_detto:
+            source_parts.append('trad. ' + html.escape(q['source_translator']))
     source_html = ''
     if source_parts:
         source_url = q.get('source_url', '')
@@ -446,11 +492,24 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     genre_attr = (' data-genre="' + html.escape(q['genre']) + '"') if q['genre'] else ''
     author_slug = slugify(q['author'])
 
-    # H1 = testo della citazione; se troppo lungo, H1 troncato e testo
-    # integrale mostrato comunque sotto (non come intestazione).
+    # Fino al 2026-09-03 l'H1 era la citazione stessa: ripeteva parola per
+    # parola il tag <title> e il testo visibile subito sotto, e su una frase
+    # lunga diventava un'intestazione di duecento caratteri. La citazione resta
+    # l'elemento visivamente dominante, ma dentro un <blockquote>, che e' cio'
+    # che e'; l'H1 dice invece di che pagina si tratta - chi ha scritto quella
+    # frase e dove - che e' la domanda con cui la gente arriva.
+    # Tre citazioni contengono un dialogo e iniziano gia' con le caporali: le
+    # virgolette decorative del modello ne aggiungevano un secondo paio
+    # («\u00ab\u00abUccidi il ragazzo\u00bb pens\u00f2 Jon\u2026\u00bb\u00bb). In quel caso il testo si
+    # presenta nudo, le sue virgolette bastano.
+    gia_virgolettata = q['quote'].strip().startswith('\u00ab')
     h1_text, was_truncated = truncate_words(q['quote'], 200)
     h1_quote = html.escape(h1_text)
     full_quote_html = ('<p class="card-quote-full">' + quote_esc + '</p>') if was_truncated else ''
+    h1_esplicativo = html.escape(titolo_esplicativo(q))
+    # <blockquote cite> vuole l'URL del documento da cui la citazione proviene:
+    # e' quello che il campo source_url contiene gia'.
+    blockquote_cite = (' cite="' + html.escape(q['source_url'], quote=True) + '"') if q.get('source_url') else ''
 
     ref = q['title'] + (', ' + q['year'] if q['year'] else '')
     # Google taglia la descrizione intorno ai 155-160 caratteri: quello che sta
@@ -530,6 +589,19 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
                 'url': canonical,
                 'name': title_tag,
                 'breadcrumb': {'@id': canonical + '#breadcrumb'},
+                # di che cosa parla la pagina (il libro) e qual e' il suo
+                # contenuto principale (la citazione): senza questi due, un
+                # motore vede cinque nodi slegati e deve indovinare il legame
+                'about': {'@id': book_id},
+                'mainEntity': {'@id': canonical + '#quotation'},
+                'publisher': {'@id': SITE_URL + '/#publisher'},
+                'inLanguage': 'it',
+            },
+            {
+                '@type': 'Organization',
+                '@id': SITE_URL + '/#publisher',
+                'name': 'Sottolineature',
+                'url': SITE_URL + '/',
             },
             {
                 '@type': 'Quotation',
@@ -574,6 +646,10 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         og_title=html.escape(og_title),
         og_image=og_image,
         h1_quote=h1_quote,
+        quote_open='' if gia_virgolettata else '<span class="quote-open" aria-hidden="true">\u00ab</span>',
+        quote_close='' if gia_virgolettata else '<span class="quote-close" aria-hidden="true">\u00bb</span>',
+        h1_esplicativo=h1_esplicativo,
+        blockquote_cite=blockquote_cite,
         full_quote_html=full_quote_html,
         author=author_esc,
         author_slug=author_slug,

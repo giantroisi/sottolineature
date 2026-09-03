@@ -292,6 +292,21 @@ footer.sans a { color: var(--ink-faint); }
 .page-quote .card-mark {
   left: -1.6rem; top: -2.2rem; font-size: 7rem; opacity: 0.13; z-index: 0;
 }
+/* L'H1 della pagina citazione dice di che frase si tratta e da dove viene; la
+   frase in se' resta l'elemento dominante, ma dentro il <blockquote>, dove sta
+   di diritto. L'intestazione fa quindi il lavoro di una didascalia e va vestita
+   come tale: se avesse il corpo di un titolo ruberebbe la scena alla
+   citazione, che e' l'unica ragione per cui qualcuno apre questa pagina. */
+.page-quote .quote-h1 {
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: 0 0 1.6rem;
+  max-width: 40rem;
+}
+
 .page-quote .card-quote {
   font-size: clamp(1.6rem, 3.6vw, 2.3rem); line-height: 1.3;
   margin: 0; letter-spacing: -0.005em; position: relative; z-index: 1;
