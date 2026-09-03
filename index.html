@@ -74,7 +74,7 @@
        vuoto in cima alla home prima ancora di leggere una parola */
     /* niente spazio in fondo: lo spazio prima del piede di pagina lo mette
        il piede stesso, che dal 2026-09-03 sta fuori da questo contenitore */
-    padding: 2rem 1.75rem 0;
+    padding: 1.35rem 1.75rem 0;
   }
 
   /* il piede di pagina e' uscito da .page per non essere un landmark dentro
@@ -419,7 +419,7 @@
     .search-clear-btn { width: 2.6rem; max-height: 2.85rem; font-size: 1.4rem; }
     .masthead { margin-bottom: 1.1rem; }
     .logo-mark { height: clamp(6rem, 24vw, 8.5rem); }
-    .page { padding-top: 1.25rem; }
+    .page { padding-top: 0.85rem; }
     .search-bar { margin-bottom: 1.1rem; }
 
     .filters-note { margin-bottom: 1.1rem; }
@@ -835,9 +835,9 @@
     .page { display: flex; flex-direction: column; }
     .page > * { order: 8; }
     .masthead-row { display: contents; }
-    .masthead-row .masthead { order: 1; margin-bottom: 1.2rem; }
+    .masthead-row .masthead { order: 1; margin-bottom: 0.85rem; }
     .search-sentinel { order: 2; }
-    .search-bar { order: 3; margin-bottom: 1.4rem; }
+    .search-bar { order: 3; margin-bottom: 1.05rem; }
     /* Su telefono la pagina comincia dal marchio grande, non dalla barra
        stretta con la piuma: quella riga la si toglie e il menu scende sotto la
        ricerca, dove non ruba la prima schermata. Lo spostamento lo fa il JS
@@ -848,8 +848,8 @@
       order: 4;
       display: flex; flex-wrap: wrap; align-items: center;
       justify-content: flex-start; overflow-x: visible;
-      gap: 0.5rem 1.15rem;
-      margin: 0 0 1.9rem;
+      gap: 0.45rem 1.15rem;
+      margin: 0 0 1.35rem;
       padding: 0;
     }
     .page > .site-nav a { font-size: 0.72rem; letter-spacing: 0.09em; }
@@ -886,14 +886,19 @@
        generi era una scatola con i bottoni a pillola, disegnata per stare da
        un'altra parte. La riga di prosa sui temi sparisce: la stessa cosa e'
        gia' scritta in /temi/, e qui rubava due righe alla prima schermata. */
-    .filter-block {
-      order: 4; margin: 0 0 1.4rem; padding-bottom: 0.9rem;
-      border-bottom: 1px solid var(--rule);
+    /* La riga sotto il pulsante e quella sotto il blocco erano due, e da
+       chiuso si vedevano tutte e due. Il bordo lo porta solo l'elemento
+       visibile: il pulsante quando e' chiuso, il pannello quando e' aperto. */
+    .page .filter-block {
+      order: 4; margin: 0 0 1.05rem; padding-bottom: 0; border-bottom: 0;
     }
     .filter-block .filters-note { display: none; }
     .js .filter-toggle { display: flex; }
     .js .filter-block #filterPanel[hidden] { display: none; }
-    .filter-block #filterPanel { padding-top: 0.9rem; }
+    .filter-block #filterPanel {
+      padding: 0.85rem 0; border-bottom: 1px solid var(--rule);
+    }
+    .js .filter-block #filterPanel:not([hidden]) ~ .filter-count { margin-top: 0.7rem; }
     .filter-block nav.filters {
       flex-wrap: wrap;
       margin: 0; padding: 0 0 0.35rem; border-bottom: 0; gap: 0.55rem 1.1rem;
@@ -911,7 +916,7 @@
     .filter-block .filter-btn { white-space: nowrap; }
     .filter-block .filter-count { margin: 0.7rem 0 0; }
     .page > .site-nav { order: 5; }
-    .masthead-row .hero { order: 6; margin: 0 0 1.5rem; }
+    .masthead-row .hero { order: 6; margin: 0 0 1.25rem; }
     .masthead-row .lede { order: 7; margin: 0 0 1.6rem; }
   }
 

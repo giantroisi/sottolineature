@@ -962,8 +962,20 @@ allora si vedeva tutto ma occupavano **223 px su 812, il 27% dello schermo** —
 corto un terzo — spingendo la citazione in evidenza sotto la piega. Ne' l'uno ne' l'altro.
 
 Ora sono **filtri richiudibili**: chiusi sono una riga sola che dice cosa c'e' dentro e, quando un
-filtro e' attivo, quale (*«Tema: Amore»*, in oro). Blocco filtri **223 px -> 51 px, dal 27% al 6%**;
-la citazione in evidenza risale di 171 px. Aperti sono i due elenchi interi, tutti visibili.
+filtro e' attivo, quale (*«Tema: Amore»*, in oro). Blocco filtri **223 px -> 36 px**. Aperti sono i
+due elenchi interi, tutti visibili.
+
+Poi una passata sugli spazi della prima schermata, che erano 118 px di aria fra cinque elementi:
+respiro sopra il marchio, sotto il marchio, sotto la ricerca, sotto i filtri, sotto il menu.
+**La citazione in evidenza risale da 575 a 373 px** — su un telefono corto da 667 px ora ci sta
+tutta nella prima schermata, testo, attribuzione e pulsanti compresi. Trovata e tolta anche una
+**riga separatrice doppia**: il bordo stava sia sul pulsante sia sul blocco, e da chiuso si
+vedevano tutte e due; ora lo porta solo l'elemento visibile.
+
+Un inciampo da ricordare, il secondo nella stessa giornata: la regola `.filter-block { margin: 0 0
+2rem }` sta piu' in basso nel foglio e a parita' di specificita' **vinceva su quella del blocco
+telefono**, che quindi non faceva niente. Si e' risolto alzando la specificita' (`.page
+.filter-block`), non spostando la regola. In questo foglio l'ordine conta piu' di quanto sembri.
 
 Due cose fatte apposta: il pannello **resta nell'HTML anche da chiuso** (`hidden`, non rimosso),
 cosi' i tredici link ai temi e ai generi restano link per chi legge e per chi scansiona; e senza
