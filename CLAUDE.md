@@ -936,6 +936,25 @@ di essere una professoressa, uno studente e una ragazzina. Tre cose corrette sub
    prima volta e 3-8 ms dopo. Sotto le quattro lettere non corregge: a quella lunghezza una
    correzione e' quasi sempre un'altra parola.
 
+**Link interni e pagine gemelle — misurato e corretto il 2026-09-03.** Cercando il rischio che
+Search Console segnala come «Pagina duplicata senza URL canonico», la misura ha trovato un
+problema diverso e piu' concreto. Le sezioni «Altre citazioni di X» e «Altre citazioni su TEMA»
+prendevano sempre le prime della lista: **quattro pagine ricevevano 189 link interni ciascuna, la
+mediana era 3, e una pagina non ne riceveva nessuno**. In un tema da cinquanta citazioni le altre
+quarantasei non venivano linkate mai, e un motore che scopre le pagine seguendo i link vedeva
+sempre le stesse quattro.
+
+Sostituito il taglio fisso con una **finestra scorrevole**: ogni pagina parte da un punto diverso
+della lista, scelto in modo deterministico dal proprio slug (stessa pagina, stesse correlate: la
+build resta riproducibile). Risultato: **max 189 -> 13 link entranti, mediana 3 -> 6, pagine senza
+link entranti 1 -> 0**, tutte e 749 raggiunte.
+
+Nello stesso passaggio, la somiglianza fra pagine della stessa opera (Jaccard sul testo visibile):
+**mediana 0,38 -> 0,36, massimo 0,75 -> 0,54, coppie sopra 0,60 da 21 a zero**. Il rischio
+duplicati era comunque basso — Google collassa pagine quasi identiche, non pagine al 75% — ma ora
+non c'e' nemmeno il caso peggiore. Nota utile per il futuro: la somiglianza **non** dipende dalla
+lunghezza dei contesti (correlazione -0,15), dipendeva dalle correlate identiche.
+
 **Resta aperto, in ordine di valore:**
 
 - **Il traduttore sulle opere tradotte.** Il punto piu' serio emerso dal passaggio: su 741

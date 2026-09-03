@@ -416,6 +416,33 @@ def related_card(slug, q, meta_html):
     )
 
 
+def finestra(candidati, slug, quante):
+    """Le stesse quattro citazioni non possono comparire in fondo a tutte.
+
+    Le sezioni «Altre citazioni di X» e «Altre citazioni su TEMA» prendevano
+    sempre le prime della lista. Misurato il 2026-09-03: quattro pagine
+    ricevevano 189 link interni ciascuna, la mediana era 3, e in un tema da
+    cinquanta citazioni le altre quarantasei non venivano linkate mai. Un
+    motore che scopre le pagine seguendo i link vedeva sempre le stesse.
+
+    Qui la finestra scorre: ogni pagina parte da un punto diverso della lista,
+    scelto dal proprio slug. E' deterministico — la stessa pagina mostra sempre
+    le stesse correlate, cosi' la build resta riproducibile — ma su cinquanta
+    pagine i link si distribuiscono su tutte e cinquanta invece di ammucchiarsi
+    sulle prime quattro.
+    """
+    if not candidati:
+        return []
+    if len(candidati) <= quante:
+        return candidati
+    seme = 0
+    for ch in slug:
+        seme = (seme * 31 + ord(ch)) % 1000003
+    inizio = seme % len(candidati)
+    doppia = candidati + candidati
+    return doppia[inizio:inizio + quante]
+
+
 def titolo_esplicativo(q):
     """H1 della pagina citazione: dice di che frase si tratta e da dove viene.
 
@@ -558,10 +585,10 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
 
     related_sections = []
     if same_author:
-        items = ''.join(related_card(s, oq, html.escape(oq['title'])) for s, oq in same_author[:5])
+        items = ''.join(related_card(s, oq, html.escape(oq['title'])) for s, oq in finestra(same_author, slug, 5))
         related_sections.append('<div class="related sans"><h2>Altre citazioni di ' + author_esc + '</h2><ul>' + items + '</ul></div>')
     if same_theme and q['category'] in CATEGORY_LABELS:
-        items = ''.join(related_card(s, oq, html.escape(oq['author'])) for s, oq in same_theme[:4])
+        items = ''.join(related_card(s, oq, html.escape(oq['author'])) for s, oq in finestra(same_theme, slug, 4))
         related_sections.append(
             '<div class="related sans"><h2>Altre citazioni su ' + CATEGORY_LABELS[q['category']] + '</h2><ul>' + items + '</ul></div>'
         )
