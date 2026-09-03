@@ -857,6 +857,26 @@ partire da una keyword senza il contenuto che la giustifica.
    `DOMContentLoaded` 3,77 s**. In due giorni l'archivio è cresciuto del 9% e i Core Web
    Vitals non si sono mossi fuori dal rumore. Decisione confermata: si rimanda. Prossima
    misura alle ~900 citazioni, che di questo passo arrivano in fretta.*
+   *Rimisurata il 2026-09-03 a 731 citazioni (701 KB, 114 KB compressi, 8.236 nodi), stesso
+   telefono e stessa strozzatura, tre giri: **LCP 404-748 ms, CLS 0,039, long task 55-295 ms,
+   `DOMContentLoaded` 3,92-4,12 s**. Aggiunta una misura che mancava e che conta più delle
+   altre: **la ricerca risponde in 33-41 ms** con tutte le 731 card nel documento, cioè filtrare
+   costa nulla anche a CPU rallentata quattro volte. Il timore che l'archivio intero rendesse
+   la home lenta da usare è smentito dai numeri: il costo è tutto nel primo caricamento, e cresce
+   di circa 0,1 s ogni 50 citazioni (a 900 si prevedono ~4,4 s di `DOMContentLoaded`).
+   Decisione confermata per la terza volta: si rimanda.*
+
+   *Trovata anche la causa unica del CLS, cercandola con `PerformanceObserver` sulle sorgenti dei
+   singoli spostamenti: **non sono le immagini né i segnaposto delle copertine** (verificato
+   bloccandone l'inserimento: il CLS resta identico), ma la **citazione del giorno**. La home
+   nasce con una frase fissa di Dante nel riquadro in evidenza; a fine caricamento
+   `applyOfTheDay()` la sostituisce con quella del giorno, che è quasi sempre di un'altra
+   lunghezza — il riquadro passa da 224 a 250 px e tutto ciò che sta sotto scivola. È un solo
+   spostamento, a 3,9 s. Si toglierebbe riservando al riquadro un'altezza minima: sui 731 testi
+   misurati servirebbero 4 righe (103 px su telefono) per coprirne il 69%, e le citazioni di una
+   o due righe si ritroverebbero fino a 77 px di vuoto sotto. **Non fatto di proposito**: 0,039
+   sta a un quarto della soglia di Google (0,1), e il prezzo sarebbe un buco visibile nella parte
+   più curata della pagina. Da rifare solo se il CLS supera 0,07 o se il riquadro cambia forma.*
 3. ~~**Citazioni senza blocco fonte.**~~ **Chiuso il 2026-08-31, referto in `VERIFICHE-FONTI.md`.**
    Le 23 segnalate dal build sono state controllate una per una sul testo pubblicato o sull'originale
    in lingua: **13 compilate, 3 corrette, 5 tolte**. L'archivio passa da 621 a 616 citazioni e
