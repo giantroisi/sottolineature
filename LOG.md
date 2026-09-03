@@ -863,3 +863,28 @@
   dell'H1 in `quote-h1`. Corretto con l'ok esplicito dell'utente, in un commit separato e minimo
   (una riga). Build pulita dopo la correzione (0 problemi). Raccolte totali: sempre 27, ora molto
   più piene.
+
+- 2026-09-03 UTC — Contesti riscritti, primo lotto (CATALOGO.md 6-ter/6-quater): 17 citazioni su
+  21 esaminate fra quelle con contesto sotto le 20 parole, media 63,4 parole. Ogni fonte aperta
+  prima di scrivere (Wikiquote o Wikisource, mai dedotto): Khalil Gibran «Il Profeta» (discorsi
+  «Sul matrimonio» e «Sul lavoro», speaker Almustafa), Marcel Proust «Alla ricerca del tempo
+  perduto» (due passi dall'apertura di «Dalla parte di Swann»), Marco Aurelio «Colloqui con sé
+  stesso», Walt Whitman «Foglie d'erba» (tre passi), Charles Baudelaire «I fiori del male» («I
+  gatti» e «I fari»), Jorge Luis Borges «Finzioni» («Tlön, Uqbar, Orbis Tertius» e «Pierre Menard»,
+  speaker Pierre Menard), Toni Morrison «Amatissima» (due passi — il secondo identificato tramite
+  una fonte critica esterna, Shmoop, perché Wikiquote non nominava il personaggio: è Sethe),
+  Paolo Cognetti «Le otto montagne», J.D. Salinger «Il giovane Holden» (speaker Antolini),
+  Madeline Miller «Circe».
+
+  **Lasciate com'erano (4), con motivo:**
+  - Goliarda Sapienza, «L'arte della gioia», cap. 42 (sul mestiere del medico): Wikiquote riporta
+    solo la frase isolata, nessun testo circostante — non sapevo con certezza chi la pronunciasse
+    nella scena, ho preferito non attribuirla a Modesta senza conferma.
+  - Anne Frank, «Diario», tre citazioni (pp. 146-147, p. 225, p. 221): Wikiquote dà solo frase e
+    pagina, senza la data dell'annotazione né il testo circostante; le uniche fonti con una data
+    trovate in rete erano siti aggregatori di aforismi, scartati per lo stesso motivo per cui si
+    scartano come fonte di una citazione.
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 623 -> 606 (lo strumento e il build
+  danno numeri di poco diversi, 604 vs 606: la sessione concorrente lavora in parallelo sullo
+  stesso campo).
