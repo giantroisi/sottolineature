@@ -385,10 +385,14 @@
 
   .empty-state {
     font-size: 0.95rem;
+    line-height: 1.65;
     color: var(--ink-faint);
     padding: 2.5rem 0;
     text-align: center;
+    max-width: 32rem;
+    margin: 0 auto;
   }
+  .empty-state b { font-weight: 400; color: var(--ink-soft); }
 
   /* Grid of quote cards */
   .grid {
@@ -1749,6 +1753,21 @@
     }
 
     var emptyState = document.getElementById('emptyState');
+
+    function messaggioVuoto(term) {
+      if (activeCategory === 'sottolineate') {
+        if (term) {
+          return 'Nessuna delle tue sottolineature contiene questa parola.';
+        }
+        return 'Qui finiscono le citazioni che segni con <b>Sottolinea</b>.<br>' +
+               'Per ora non ce n&rsquo;&egrave; nessuna: scorri l&rsquo;archivio, e quando una riga ti ' +
+               'riguarda premi <b>Sottolinea</b>. La ritrovi qui, anche fra un mese.';
+      }
+      if (activeGenre !== 'tutti' && term) {
+        return 'Nessuna citazione di questo genere contiene la parola cercata. Prova a togliere il filtro.';
+      }
+      return 'Nessuna citazione trovata. Prova a cercare un altro autore, titolo o parola.';
+    }
     var printSelectionBtn = document.getElementById('printSelectionBtn');
     printSelectionBtn.addEventListener('click', function () { window.print(); });
 
@@ -1811,6 +1830,7 @@
     function chiudi(term, visibleCount) {
       redistribute();
       emptyState.hidden = visibleCount > 0;
+      if (visibleCount === 0) { emptyState.innerHTML = messaggioVuoto(term); }
       printSelectionBtn.hidden = !(activeCategory === 'sottolineate' && visibleCount > 0);
 
       // modo risultati: vedi il commento nel foglio di stile
@@ -1818,7 +1838,11 @@
       document.getElementById('page').classList.toggle('is-filtering', filtering);
       var countEl = document.getElementById('filterCount');
       if (countEl) {
-        countEl.hidden = !filtering;
+        // "0 citazioni" sopra l'invito a sottolineare suona come un errore:
+        // quando la raccolta personale e' semplicemente ancora vuota, il
+        // conteggio non serve a niente e si toglie di mezzo.
+        var raccoltaVuota = activeCategory === 'sottolineate' && !term && visibleCount === 0;
+        countEl.hidden = !filtering || raccoltaVuota;
         countEl.textContent = visibleCount === 1 ? '1 citazione' : visibleCount + ' citazioni';
       }
     }
