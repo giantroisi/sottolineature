@@ -362,11 +362,79 @@ volta**, e mai mentre un lotto è a metà: interrompere un lotto lo lascia a pez
 
 | | lotto | stato |
 |---|---|---|
-| 1 | Riscrittura dei contesti brevi | **in corso** (2026-09-03, lotto 6) |
-| 2 | Genere alle opere che ne sono prive | **il prossimo** — comando qui sotto |
+| 0 | **Rifiniture: i 21 «L'incipit del romanzo» e due generi** | **il prossimo** — comando qui sotto |
+| 1 | Riscrittura dei contesti brevi | fatta in parte: 150 riscritti, ne restano 121 sotto le 20 parole |
+| 2 | Genere alle opere che ne sono prive | in corso (2026-09-03, 25 opere su 367) |
 | 3 | Ampliamento delle 20 raccolte tematiche rimaste | in coda, `tools/raccolte_da_ampliare.py` |
 | 4 | «Frasi brevi» e «Incipit memorabili» | in coda, criterio diverso: vedi nota in fondo |
 | 5 | Copertine delle 169 opere rimaste | bloccato: su Open Library non esiste un'edizione italiana con immagine. Si sblocca solo cambiando fonte o accettando l'edizione originale — decisione dell'utente |
+
+### 0. Rifiniture: i 21 «L'incipit del romanzo» e due generi
+
+Nato da una verifica del 2026-09-03: il registro del lotto 4 dei contesti dichiarava esaurita la
+fascia sotto le 20 parole con «7 rimasti», ma ricostruendo i numeri commit per commit ne
+restavano **121**, e i 21 il cui contesto dice letteralmente *«L'incipit del romanzo.»* non erano
+mai stati toccati. Hanno tutti il link alla fonte: sono tutti scrivibili.
+
+```
+Leggi CATALOGO.md, punti 6-ter (il contesto) e 3-bis (la classificazione).
+
+Compito in tre parti, tutte piccole. Solo data/citazioni.json e LOG.md.
+
+PARTE 1 — I 21 contesti che dicono soltanto «L'incipit del romanzo».
+Sono esattamente il caso che il punto 6-ter porta come esempio di cio' che non va: ripetono il
+luogo nel testo e non aggiungono niente.
+
+  Alberto Moravia — Il conformista
+  Alberto Moravia — La noia
+  Antoine de Saint-Exupéry — Volo di notte
+  Antonio Tabucchi — La testa perduta di Damasceno Monteiro
+  Charles Dickens — Canto di Natale
+  Charles Dickens — Grandi speranze
+  Elsa Morante — Menzogna e sortilegio
+  Grazia Deledda — Fior di Sardegna
+  Hermann Hesse — Narciso e Boccadoro
+  Isabel Allende — Eva Luna
+  Jack Kerouac — I sotterranei
+  Jack Kerouac — I vagabondi del Dharma
+  José Saramago — Il racconto dell'isola sconosciuta
+  Leonardo Sciascia — Il Consiglio d'Egitto
+  Leonardo Sciascia — Una storia semplice
+  Lev Tolstoj — La morte di Ivan Il'ič
+  Maya Angelou — Il canto del silenzio
+  Milan Kundera — L'immortalità
+  Milan Kundera — La lentezza
+  Philip Roth — Addio, Columbus
+  Philip Roth — Zuckerman scatenato
+
+Valgono le regole di sempre: apri la fonte prima di scrivere, 60-90 parole, di' in che punto
+dell'opera siamo e perche' quella frase conta li'. Che sia l'incipit lo dice gia' il campo
+`source_locus`: il contesto deve dire un'altra cosa — chi apre il libro, dove siamo, cosa sta per
+cominciare. Se una fonte non si apre o non porta al passo, LASCIALA e annotalo.
+
+PARTE 2 — Due generi da correggere.
+
+  Arthur Conan Doyle, Il mastino dei Baskerville : horror -> vuoto
+  William Shakespeare, Macbeth                   : horror -> vuoto
+
+Il primo e' un giallo con atmosfera gotica: il suo genere e' l'indagine, e «giallo» non e' fra i
+sei ammessi, quindi resta vuoto. Il secondo e' una tragedia: ci sono streghe e un fantasma, ma
+«Horror/Gotico» e' un'etichetta che nasce due secoli dopo. In tutti e due i casi e' l'atmosfera
+scambiata per il genere — l'errore contro cui mette in guardia il punto 3-bis. Le altre 23
+assegnazioni sono giuste: non toccarle.
+
+PARTE 3 — Correggi la riga sbagliata in LOG.md.
+Nella voce del lotto 4 dei contesti c'e' scritto «esaurita la fascia sotto le 20 parole (i 7
+rimasti...)». Non e' vero: ne restavano 121. Non riscrivere la storia, aggiungi una nota alla
+voce che dice il numero giusto e come te ne sei accorto. Un registro che si corregge vale piu' di
+uno che e' sempre stato giusto.
+
+Poi `python3 tools/build.py`, check_links a zero problemi, e una riga in LOG.md.
+
+Regole di convivenza: lavori in parallelo a un'altra sessione. Tocca solo data/citazioni.json e
+LOG.md. Niente in tools/, templates/, assets/, ne' altri file .md. Mai `git stash`,
+`git checkout -- .`, `git reset --hard`, `git clean`. Prima di ogni push: `git pull --rebase`.
+```
 
 ### 2. Genere alle opere che ne sono prive
 
