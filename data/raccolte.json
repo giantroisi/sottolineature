@@ -18,7 +18,21 @@
       "Amin Maalouf|Il manoscritto di Samarcanda|In fondo all'Atlantico c'è un libro.",
       "Jorge Luis Borges|Finzioni|L'universo (che altri chiama la Biblioteca)",
       "Gustave Flaubert|Madame Bovary|La parola umana è simile a",
-      "Pablo Neruda|Venti poesie d'amore e una canzone disperata|Posso scrivere i versi più tristi"
+      "Pablo Neruda|Venti poesie d'amore e una canzone disperata|Posso scrivere i versi più tristi",
+      "Charlotte Brontë|Jane Eyre|Lettore, lo sposai. Celebrammo un matrimonio",
+      "Ian McEwan|Espiazione|Non c'è espiazione per Dio, né",
+      "Elias Canetti|Auto da fé|I romanzi sono dei cunei che",
+      "Ray Bradbury|Fahrenheit 451|È un bel lavoro, sapete. Il",
+      "Rainer Maria Rilke|Lettere a un giovane poeta|Anzitutto questo: domandatevi nell'ora più silenziosa",
+      "Sant'Agostino|Confessioni|Non volli leggere oltre, né mi",
+      "Walt Whitman|Foglie d'erba|Quando lessi il libro, la celebre",
+      "Amos Oz|Una storia di amore e di tenebra|I libri, loro non ti abbandonano",
+      "Umberto Saba|Amai|Amai trite parole che non uno",
+      "Annie Ernaux|Il posto|La scrittura piatta mi viene naturale,",
+      "Edgar Allan Poe|Marginalia|Nel procurarmi i libri, mi son",
+      "Goliarda Sapienza|L'arte della gioia|Non c'è niente da fare, come",
+      "William Faulkner|Mentre morivo|Fu allora che capii che le",
+      "Aldous Huxley|Il mondo nuovo|Le parole possono essere paragonate ai"
     ]
   },
   {
@@ -28,7 +42,7 @@
     "intro": [
       "Il mare compare in letteratura da prima che esistesse la parola \"romanzo\", ed è raro trovare un tema capace di attraversare tanti secoli e lingue diverse restando sempre lo stesso: una superficie che promette libertà e nasconde un pericolo, un confine che si può attraversare ma mai davvero possedere.",
       "Giacomo Leopardi non l'aveva nemmeno visto, il mare, quando scrisse «L'infinito» affacciato sulla sua siepe di Recanati — eppure gli bastò immaginarlo per scrivere uno dei versi più noti della lingua italiana, quel «naufragar» che è dolce proprio perché resta immaginazione. Ernest Hemingway lo conosceva invece fin troppo bene, il Golfo del Messico dove il vecchio Santiago combatte il suo marlin pagina dopo pagina. Jules Verne lo trasforma in un mondo sommerso e utopico, sette decimi del pianeta ancora da esplorare; Walt Whitman lo usa come metafora funebre per una nave che ha appena perso il suo capitano, Abramo Lincoln.",
-      "Ci sono anche il mare mancato di Anna Maria Ortese — una Napoli che il mare, in realtà, non lo vede quasi mai — e quello che porta in salvo, letteralmente «per via mare», la piccola Clara di Isabel Allende. Otto scrittori, otto mari diversi, la stessa parola."
+      "Ci sono anche il mare mancato di Anna Maria Ortese — una Napoli che il mare, in realtà, non lo vede quasi mai — e quello che porta in salvo, letteralmente «per via mare», la piccola Clara di Isabel Allende. Diciannove scrittori, diciannove mari diversi, la stessa parola."
     ],
     "quote_keys": [
       "Giacomo Leopardi|L'infinito|E il naufragar m'è dolce in",
@@ -38,7 +52,20 @@
       "Isabel Allende|La casa degli spiriti|Barrabás arrivò in famiglia per via",
       "Walt Whitman|Foglie d'erba|O Capitano! Mio Capitano!",
       "Jules Verne|Ventimila leghe sotto i mari|Il mare è tutto: non per",
-      "Anna Maria Ortese|Il mare non bagna Napoli|Qui, il mare non bagnava Napoli."
+      "Anna Maria Ortese|Il mare non bagna Napoli|Qui, il mare non bagnava Napoli.",
+      "Giovanni Verga|I Malavoglia|Un tempo i Malavoglia erano stati",
+      "Zora Neale Hurston|I loro occhi guardavano Dio|L'amore è come il mare. Mobile,",
+      "Andrea Camilleri|Il campo del vasaio|Meglio piccamora non pinsaricci, meglio starsene",
+      "William Golding|Il signore delle mosche|La prima cosa a cui si",
+      "Hans Christian Andersen|L'improvvisatore|Ci stabilimmo a Santa Lucia, il",
+      "Dante Alighieri|Purgatorio, Divina Commedia|Per correr miglior acque alza le",
+      "Umberto Eco|L'isola del giorno prima|Eppure m'inorgoglisco della mia umiliazione, e",
+      "Ugo Foscolo|Sonetti|Né più mai toccherò le sacre",
+      "José Saramago|Il racconto dell'isola sconosciuta|Un uomo andò a bussare alla",
+      "Isabel Allende|Paula|Ascolta, Paula, ti voglio raccontare una",
+      "Hans Christian Andersen|La sirenetta|Noi non abbiamo un'anima immortale; non",
+      "Salvatore Quasimodo|Al padre|Dove sull'acque viola era Messina, tra",
+      "Rick Riordan|Percy Jackson e gli dei dell'Olimpo: il ladro di fulmini|Poseidone – specificò Chirone – Scuotitore"
     ]
   },
   {
@@ -58,7 +85,22 @@
       "Madeline Miller|La canzone di Achille|Lo riconoscerei anche solo dal tocco,",
       "Jorge Luis Borges|L'Aleph|Essere immortale è cosa da poco:",
       "J.K. Rowling|Harry Potter e i Doni della Morte|Non provare pietà per i morti,",
-      "Orhan Pamuk|Il mio nome è rosso|Adesso io sono un morto, un"
+      "Orhan Pamuk|Il mio nome è rosso|Adesso io sono un morto, un",
+      "Albert Camus|Lo straniero|Oggi la mamma è morta. O",
+      "William Shakespeare|Macbeth|Dimani, e poi dimani. Oh sì!",
+      "Charles Dickens|Canto di Natale|Marley era morto, tanto per cominciare.",
+      "Donna Tartt|Dio di illusioni|«La morte è la madre della",
+      "Rainer Maria Rilke|I quaderni di Malte Laurids Brigge|Pare che la gente venga qui",
+      "Isaac Asimov|Destinazione Cervello|La vita è piacevole. La morte",
+      "Charles Bukowski|Pulp|L'uomo nasce per morire. Che significato",
+      "Erich Maria Remarque|Niente di nuovo sul fronte occidentale|Siamo dei morti spietati che per",
+      "Frank Herbert|Dune|Non devo avere paura. La paura",
+      "Salvatore Quasimodo|Milano, agosto 1943|Invano cerchi tra la polvere, povera",
+      "William Faulkner|L'urlo e il furore|Un uomo vivo è meglio di",
+      "D.H. Lawrence|Donne innamorate|Meglio morire che vivere meccanicamente una",
+      "V.S. Naipaul|Una casa per Mr Biswas|Sarebbe stato tremendo… vivere senza nemmeno",
+      "Giovanni Pascoli|Myricae|Silenzio, intorno: solo, alle ventate, odi",
+      "T.S. Eliot|La terra desolata|Aprile è il mese più crudele,"
     ]
   },
   {
@@ -304,7 +346,18 @@
       "Paolo Cognetti|Le otto montagne|Il passato è a valle, il",
       "Jack Kerouac|Angeli di desolazione|Quei pomeriggi, quei pigri pomeriggi, in",
       "Ernest Hemingway|Per chi suona la campana|Il mento poggiato sulle braccia incrociate,",
-      "Federico García Lorca|Romance sonámbulo|Verde che ti voglio verde. Verde"
+      "Federico García Lorca|Romance sonámbulo|Verde che ti voglio verde. Verde",
+      "Grazia Deledda|Canne al vento|Tutto il giorno Efix, il servo",
+      "Kazuo Ishiguro|Non lasciarmi|Continuo a pensare a un fiume",
+      "Victor Hugo|Notre-Dame de Paris|L'amore è come un albero: spunta",
+      "Alessandro Manzoni|I promessi sposi|Quel ramo del lago di Como,",
+      "Michael Ondaatje|Il paziente inglese|Si alza in piedi nel giardino",
+      "Sylvia Plath|La campana di vetro|Vidi la mia vita diramarsi davanti",
+      "Anne Frank|Diario|Per chi ha paura, o si",
+      "T.S. Eliot|La terra desolata|Aprile è il mese più crudele,",
+      "Maya Angelou|Lavoro di donna|Risplendi su di me, sole, bagnami,",
+      "Dino Buzzati|Bàrnabo delle montagne|Le montagne sono nascoste ma si",
+      "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il"
     ]
   },
   {
@@ -434,7 +487,21 @@
       "Ernest Hemingway|Festa mobile|Se hai avuto la fortuna di",
       "Giorgio Bassani|Il giardino dei Finzi-Contini|Più del presente contava il passato,",
       "Marcel Proust|Alla ricerca del tempo perduto|Era l'immagine della stanzetta dello zio",
-      "Alfred Tennyson|In Memoriam A.H.H.|Ne sono certo, qualunque cosa accada;"
+      "Alfred Tennyson|In Memoriam A.H.H.|Ne sono certo, qualunque cosa accada;",
+      "Gabriel García Márquez|Cent'anni di solitudine|Molti anni dopo, di fronte al",
+      "F. Scott Fitzgerald|Il grande Gatsby|Così remiamo, barche contro corrente, risospinti",
+      "Paolo Cognetti|Le otto montagne|Il passato è a valle, il",
+      "Marilynne Robinson|Gilead|Quando parlo della lunga notte che",
+      "Giacomo Leopardi|A Silvia|Silvia, rimembri ancora quel tempo della",
+      "Virgilio|Eneide|E' verrà tempo un dì, che",
+      "George R.R. Martin|Il Trono di Spade|La nostra terra per diritto di",
+      "Terry Pratchett|Il tristo mietitore|Unici tra tutte le creature del",
+      "Doris Lessing|Memorie di una sopravvissuta|Gli anziani tendono a non vedere",
+      "Toni Morrison|Amatissima|Ma al suo cervello il futuro",
+      "Alberto Moravia|La noia|Ricordo benissimo come fu che cessai",
+      "Susanna Tamaro|Ascolta la mia voce|È il ricordo che costituisce l'essere",
+      "Elena Ferrante|Storia della bambina perduta|Mi ero accorta da tempo che",
+      "William Faulkner|Luce d'agosto|La memoria crede prima che il"
     ]
   },
   {
