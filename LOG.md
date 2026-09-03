@@ -989,3 +989,38 @@
 
   Nessuna citazione lasciata com'era in questo lotto. Build pulita (0 problemi). Contesti sotto le
   45 parole: 551 -> 531.
+
+- 2026-09-03 UTC — Contesti riscritti, sesto lotto (CATALOGO.md 6-ter/6-quater): 17 citazioni nella
+  fascia 20-44 parole, media 71,9 parole. Fonte aperta per ognuna prima di scrivere: Günter Grass
+  «Il tamburo di latta» (incipit), William Golding «Il signore delle mosche», Torquato Tasso
+  «Gerusalemme liberata» (canto I), Jorge Luis Borges «Finzioni» («La biblioteca di Babele», terza
+  citazione da questo racconto oltre alle due già fatte nel lotto 1), Paolo Cognetti «Le otto
+  montagne» (terzo passo, dopo i due già fatti in lotti precedenti), Boris Pasternak «Il dottor
+  Živago» (speaker Jurij Živago), Don DeLillo «Rumore bianco» (secondo passo, diverso da quello
+  corretto nel lotto 5 — qui lo speaker Murray Siskind era già corretto), F. Scott Fitzgerald «Il
+  grande Gatsby», Giorgio Bassani «Il giardino dei Finzi-Contini», Harper Lee «Il buio oltre la
+  siepe» (secondo passo, speaker Atticus Finch), Ignazio Silone «Fontamara», Lewis Carroll «Alice
+  nel paese delle meraviglie» (secondo passo, speaker Alice), Philip Roth «Pastorale americana»,
+  Boezio «Della consolazione della filosofia», Goliarda Sapienza «L'arte della gioia» (speaker
+  Modesta — terzo passo da questo libro, i primi due restano lasciati com'erano dal lotto 1),
+  Ludovico Ariosto «Orlando furioso» (canto VII), Madeline Miller «Circe» (secondo passo, su
+  Odisseo). Lasciate senza modifica per fonte insufficiente: Michael Ondaatje «Il paziente
+  inglese» e Ta-Nehisi Coates «Tra me e il mondo» — in entrambi i casi la pagina Wikiquote
+  dell'autore non conteneva il passo esatto cercato, nessun'altra fonte aperta.
+
+  **Incidente di convivenza, risolto**: durante questo lotto la sessione concorrente ha lavorato
+  in parallelo sullo stesso file (`data/citazioni.json`), aggiungendo il traduttore a 179
+  citazioni con un proprio script; il suo commit si basava su uno stato del file precedente alle
+  mie 17 modifiche di contesto, che sono quindi sparite dal JSON committato da loro (pur restando
+  sul disco locale). Nessun dato perso: verificato campo per campo che l'unica differenza fra la
+  versione committata e quella locale fosse `context`/`speaker` sulle mie 17 citazioni — non un
+  vero conflitto di contenuto, solo un disallineamento di sincronizzazione. Risolto riapplicando
+  le mie 17 modifiche sopra la versione più recente del JSON (con i loro traduttori già dentro) e
+  ricommittando solo `data/citazioni.json`; le pagine `citazioni/*.html` non compaiono in questo
+  commit perché il loro stesso commit le aveva già catturate coerenti con il mio testo (erano
+  rimaste sul disco da un mio build.py precedente). Build e check_links rilanciati e puliti (0
+  problemi) dopo il merge. Verificato anche che nessuna delle 17 citazioni coincidesse con un
+  contesto già riscritto da loro nel frattempo (tutte risultavano ancora sotto le 45 parole nella
+  versione committata) — nessuna sovrascrittura del loro lavoro.
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 531 -> 514.
