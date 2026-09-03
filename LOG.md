@@ -1126,3 +1126,30 @@
   Vittorio Alfieri, Anna Maria Ortese, Philip Roth, Robert Louis Stevenson.
 
   Build pulita (0 problemi). Contesti sotto le 45 parole: 465 -> 450.
+
+- 2026-09-03 UTC — Contesti riscritti, undicesimo lotto (CATALOGO.md 6-ter/6-quater): 12 citazioni
+  nella fascia 20-44 parole, media 69,0 parole. Fonte aperta per ognuna prima di scrivere: Dante
+  Alighieri («Inferno», canto V, speaker Francesca da Rimini), Douglas Adams (secondo passo, la
+  scritta sulla copertina della Guida), Gustave Flaubert, Jane Austen, Nikolaj Gogol', Rainer Maria
+  Rilke (terzo passo), Thomas Hardy (secondo passo, ultime righe del romanzo), Epitteto (terzo
+  passo, cap. 8), Marco Aurelio, J.D. Salinger (speaker Holden Caulfield), Carlo Levi, Dino
+  Buzzati.
+
+  Lasciate senza modifica per fonte insufficiente (già cercate in questo o in lotti precedenti, più
+  tre nuove): Michael Ondaatje, Susanna Tamaro, Ta-Nehisi Coates, Louisa May Alcott, Marilynne
+  Robinson, Vittorio Alfieri, Anna Maria Ortese, Philip Roth, Robert Louis Stevenson, Alba de
+  Céspedes (nuova, «Quaderno proibito»: la pagina Wikiquote non contiene il passo cercato), Oscar
+  Wilde (nuova, «Il ritratto di Dorian Gray»: la pagina rimanda solo a un collegamento senza
+  riportare il testo), Viktor E. Frankl (secondo passo, diverso da quello già fatto nel lotto 9:
+  fonte con solo quattro citazioni brevi, non quella cercata).
+
+  **Nota tecnica di convivenza**: un `git push` è fallito con un errore di lock (`cannot lock ref
+  'refs/remotes/origin/main'`) mostrato *dopo* la conferma che il push era già avvenuto sul server
+  (`41de394..9c3a2ca main -> main`) — segno che solo l'aggiornamento del riferimento locale di
+  tracciamento era bloccato, non il push stesso. Ho aspettato, verificato con `ps aux` che nessun
+  processo git fosse realmente in corso e che il lock (`refs/remotes/origin/main.lock`, dimensione
+  zero) risalisse a quasi dieci minuti prima, poi l'ho rimosso: è un file tecnico di
+  sincronizzazione locale, non dati né lavoro di nessuno, e la sua rimozione non tocca la working
+  copy. `git fetch` successivo ha confermato che il repository era già correttamente sincronizzato.
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 450 -> 438.
