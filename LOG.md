@@ -759,3 +759,25 @@
   atteso il rilascio di `index.lock` senza toccarlo, poi commit del solo `data/citazioni.json` +
   `tools/slugs.json` + asset non ancora tracciati, file elencati uno per uno, `git pull --rebase`
   prima del push.
+
+- 2026-09-03 UTC — Approfondimento guidato da `data/keywords.json`, secondo lotto della giornata:
+  Elena Ferrante a 4 («Storia della bambina perduta», quarto volume dell'Amica geniale), Madeline
+  Miller a 4 (terzo passo da «Circe»), Lewis Carroll a 4 (secondo passo da «Alice nel paese delle
+  meraviglie» e uno da «Attraverso lo specchio», quest'ultimo verificato su Wikisource), Kurt
+  Vonnegut a 3 («Ghiaccio-nove», nuova opera), Jules Verne a 4 (due citazioni da «Dalla Terra alla
+  Luna», mai citata finora, verificate sui facsimile Wikisource pagina per pagina — il livello di
+  prova più solido possibile per un testo di pubblico dominio), Giovanni Boccaccio a 3 (Decameron,
+  II giornata novella VII), Cormac McCarthy a 3 (secondo passo da «Meridiano di sangue»), Ralph
+  Waldo Emerson a 4 (dal saggio «Circoli» — scelta la resa breve fra le alternative trovate, per
+  restare nel limite di lunghezza di una traduzione sotto copyright). Scartati: una seconda
+  citazione di Susanna Tamaro (nessun luogo preciso reperibile), una seconda di Vonnegut (testo
+  confermato ma soggetto della frase incerto), la copertina proposta per Ferrante (edizione
+  spagnola nonostante il tag fuorviante nei metadati Open Library). Temi riletti uno per uno: vita
+  3, amore 2, verita 2, tempo 1, liberta 1, coraggio 1. Build pulita (0 problemi, tutti i 257
+  autori sopra soglia). Archivio: 741 citazioni, 257 autori.
+
+  **Nota tecnica**: durante l'attesa fra la ricerca e l'inserimento, la sessione concorrente ha
+  committato un intervento su larga scala (oltre 1100 file, accessibilità e tema scuro). Rispettato
+  il protocollo: nessun tocco a `assets/site.css` o `tools/`, atteso che la working copy tornasse
+  pulita prima di editare `data/citazioni.json`, lanciato il build solo a working copy pulita per
+  non mescolare le due modifiche, commit con file elencati uno per uno.
