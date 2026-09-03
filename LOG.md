@@ -965,6 +965,16 @@
   materiale sufficiente per un contesto verificato. Build pulita (0 problemi). Contesti sotto le
   45 parole: 571 -> 551.
 
+  **Correzione aggiunta il 2026-09-03, stessa giornata**: la frase "esaurita la fascia sotto le 20
+  parole (i 7 rimasti...)" qui sopra era sbagliata. Non me ne sono accorto da solo: è stato
+  l'utente a segnalarlo, ricostruendo i numeri commit per commit e trovando che a quel punto ne
+  restavano 121, non 7. L'errore più probabile: `contesti_da_ampliare.py` cambia selezione a
+  seconda dell'argomento N passato (non è un filtro puro per soglia di parole, ordina anche per
+  "da quali opere conviene cominciare"), e il controllo "17 -> 7" del lotto precedente era stato
+  fatto con un N che non copriva l'intero archivio — un falso esaurimento, non un esaurimento
+  vero. Lasciata la riga originale sopra invariata: questa è una nota aggiunta accanto, non una
+  riscrittura della cronologia.
+
 - 2026-09-03 UTC — Contesti riscritti, quinto lotto (CATALOGO.md 6-ter/6-quater): 20 citazioni
   nella fascia 20-44 parole, media 71,5 parole. Fonte aperta per ognuna prima di scrivere: Charlotte
   Brontë «Jane Eyre» (cap. XXIII), Donna Tartt «Dio di illusioni» (secondo passo, lezione di greco
@@ -1265,3 +1275,26 @@
     soprannaturale (Agatha Christie, Andrea Camilleri, Arthur Conan Doyle «Il segno dei quattro»),
     teatro in prosa (Cechov, Ibsen, Goldoni, Pirandello, Brecht) — nessuno dei sei generi si applica,
     e forzarne uno sarebbe esattamente l'errore già commesso una volta con i temi.
+
+- 2026-09-03 UTC — Ripulita la coda dei contesti «L'incipit del romanzo» (CATALOGO.md 6-ter) e
+  corretti due generi (CATALOGO.md 3-bis), su segnalazione puntuale dell'utente.
+
+  **Contesti**: 20 dei 21 casi segnalati riscritti, fonte aperta per ognuno prima di scrivere,
+  60-90 parole, media 66 parole circa. Alberto Moravia «Il conformista» e «La noia», Antoine de
+  Saint-Exupéry «Volo di notte», Antonio Tabucchi «La testa perduta di Damasceno Monteiro», Charles
+  Dickens «Canto di Natale» e «Grandi speranze», Elsa Morante «Menzogna e sortilegio», Grazia
+  Deledda «Fior di Sardegna», Hermann Hesse «Narciso e Boccadoro», Isabel Allende «Eva Luna», Jack
+  Kerouac «I sotterranei» e «I vagabondi del Dharma», José Saramago «Il racconto dell'isola
+  sconosciuta», Leonardo Sciascia «Il Consiglio d'Egitto» e «Una storia semplice», Maya Angelou «Il
+  canto del silenzio», Milan Kundera «L'immortalità» e «La lentezza», Philip Roth «Addio, Columbus»
+  e «Zuckerman scatenato». **Lasciata com'era**: Lev Tolstoj «La morte di Ivan Il'ič» — la pagina
+  Wikiquote elenca le sezioni («Incipit», «Citazioni», ecc.) ma non ne riporta il testo, quindi il
+  passo cercato non era davvero apribile.
+
+  **Generi**: tolto `horror` a due delle 25 opere classificate nei tre lotti precedenti — Arthur
+  Conan Doyle «Il mastino dei Baskerville» (è un giallo: l'atmosfera gotica non fa il genere, e
+  «giallo» comunque non è tra i sei ammessi) e William Shakespeare «Macbeth» (l'etichetta
+  «Horror/Gotico» è editoriale e posteriore di secoli alla tragedia; streghe e fantasma non
+  bastano). Le altre 23 assegnazioni restano invariate, non riesaminate in questo lotto.
+
+  Build pulita (0 problemi) dopo entrambe le parti. Contesti sotto le 45 parole: 411 -> 391.
