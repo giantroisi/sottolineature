@@ -1024,3 +1024,34 @@
   versione committata) — nessuna sovrascrittura del loro lavoro.
 
   Build pulita (0 problemi). Contesti sotto le 45 parole: 531 -> 514.
+
+- 2026-09-03 UTC — Contesti riscritti, settimo lotto (CATALOGO.md 6-ter/6-quater): 14 citazioni
+  nella fascia 20-44 parole, media 71,1 parole. Fonte aperta per ognuna prima di scrivere: Kazuo
+  Ishiguro «Non lasciarmi», George R.R. Martin «Il Trono di Spade» (speaker Viserys Targaryen),
+  Honoré de Balzac «Papà Goriot» (speaker Rastignac), Michela Murgia «Noi siamo tempesta» (secondo
+  passo), Neil Gaiman «Coraline» (secondo passo), Epitteto «Manuale» (secondo passo, cap. XV, il
+  banchetto), Michel de Montaigne «Saggi» (secondo passo, «Dell'educazione dei fanciulli»), Daphne
+  du Maurier «Rebecca, la prima moglie», Mary Shelley «Frankenstein» (cap. XXIII), Marguerite
+  Yourcenar «Memorie di Adriano» (terzo passo, l'insonnia), Mark Twain «Le avventure di Huckleberry
+  Finn», Virgilio «Eneide» (speaker Enea), Vladimir Nabokov «Lolita» (incipit, secondo passo da
+  questo romanzo), Alessandro Baricco «Novecento».
+
+  **Corretto un contesto internamente sbagliato**, non solo troppo corto: quello di Kazuo Ishiguro
+  «Non lasciarmi» parlava di «Christopher Banks» e «Shanghai», elementi del romanzo «Quando eravamo
+  orfani» dello stesso autore, non di «Non lasciarmi» — probabile residuo della correzione di
+  attribuzione già fatta in Fase 3 (quella citazione era stata spostata da un libro all'altro senza
+  aggiornare il campo `context`). Corretto con la fonte giusta, che already confermava anche il
+  campo `dove` esistente («narrato da Kathy H.»).
+
+  Lasciate senza modifica per fonte insufficiente (già cercate in questo o in lotti precedenti):
+  Michael Ondaatje, Susanna Tamaro, Ta-Nehisi Coates, Louisa May Alcott (nuovo passo, «Piccole
+  donne» p. 2346 — Wikiquote non specifica il capitolo), Marilynne Robinson «Gilead» (la pagina
+  Wikiquote riporta un incipit diverso da quello in archivio, nessuna conferma trovata per il testo
+  esatto).
+
+  **Incidente di convivenza del lotto precedente, richiamato per chiarezza**: in questo lotto ho
+  verificato prima di ogni scrittura che il repository fosse sincronizzato (`git fetch` + `git
+  status` pulito) sia prima di applicare le modifiche al JSON sia subito dopo il build, per evitare
+  di ripetere il disallineamento capitato nel lotto 6. Nessun incidente questa volta.
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 514 -> 500.
