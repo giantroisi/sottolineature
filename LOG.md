@@ -1055,3 +1055,31 @@
   di ripetere il disallineamento capitato nel lotto 6. Nessun incidente questa volta.
 
   Build pulita (0 problemi). Contesti sotto le 45 parole: 514 -> 500.
+
+- 2026-09-03 UTC — Contesti riscritti, ottavo lotto (CATALOGO.md 6-ter/6-quater): 19 citazioni
+  nella fascia 20-44 parole, media 69,6 parole. Fonte aperta per ognuna prima di scrivere: Eugenio
+  Montale «Ossi di seppia» (due poesie diverse: la chiusa di «Meriggiare pallido e assorto» e la
+  prima strofa di «Spesso il male di vivere ho incontrato»), Emily Dickinson «Poesie» (la 254,
+  «Hope is the thing with feathers»), Voltaire «Candido» (speaker Candido, ultima battuta del
+  romanzo), Epitteto «Manuale» (secondo passo, cap. XVII, il teatro della vita), Torquato Tasso
+  «Gerusalemme liberata» (canto III), Antoine de Saint-Exupéry «Il piccolo principe» (secondo
+  passo, speaker la volpe, sulla responsabilità), Cormac McCarthy «Meridiano di sangue» (secondo
+  passo, speaker il giudice Holden), Erich Maria Remarque «Niente di nuovo sul fronte occidentale»
+  (speaker Paul Bäumer nel testo ma lasciato senza `speaker` perché è il narratore), Jules Verne
+  «Ventimila leghe sotto i mari» (secondo passo, i ritratti nella cabina di Nemo), Nick Hornby
+  «Alta fedeltà» (due passi, speaker Rob Fleming), Rainer Maria Rilke «Lettere a un giovane poeta»,
+  Terry Pratchett «Il tristo mietitore» (secondo passo, i troll e il tempo), Goliarda Sapienza
+  «L'arte della gioia» (quarto passo, speaker Modesta — i primi due, cap. 42 e 63, restano lasciati
+  com'erano dal lotto 1), Aldous Huxley «Il mondo nuovo» (terzo passo, speaker Mustafà Mond),
+  Alberto Moravia «Gli indifferenti» (incipit), Beppe Fenoglio «Una questione privata» (incipit),
+  Carlo Goldoni «La locandiera» (speaker Mirandolina).
+
+  Lasciate senza modifica per fonte insufficiente (già cercate in questo o in lotti precedenti):
+  Michael Ondaatje, Susanna Tamaro, Ta-Nehisi Coates, Louisa May Alcott, Marilynne Robinson.
+
+  **Sessione concorrente rilevata di nuovo in corso** (file `metodo.html` modificato e
+  `prova_metodo.tgz` non tracciato comparsi nella working copy durante questo lotto): non toccati,
+  lasciati esattamente come trovati, staging e commit limitati ai soli file miei elencati sopra —
+  nessun incidente, verificato `git status` pulito prima e dopo ogni fase.
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 500 -> 481.
