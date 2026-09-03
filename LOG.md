@@ -796,3 +796,42 @@
   Library, individuato dal controllo "copertine dichiarate ma senza file". Temi riletti uno per
   uno: verita 2, vita 2, tempo 1, amore 1, liberta 1, coraggio 1. Build pulita (0 problemi).
   Archivio: 749 citazioni, 257 autori.
+
+- 2026-09-03 UTC — Ampliate cinque raccolte con citazioni già in archivio (CATALOGO.md 6-bis), su
+  richiesta esplicita: nessuna fonte nuova cercata, solo selezione fra le citazioni esistenti,
+  individuate con `tools/raccolte_da_ampliare.py` e lette una per una — il criterio è "questa
+  citazione parla di questo", non "nomina la parola".
+  - **natura**: 10 → 21 (+11). Scartate, fra le altre: Voltaire «Bisogna coltivare il nostro
+    giardino» (il contesto stesso dice che non è un consiglio di giardinaggio, è tutt'altro), H.G.
+    Wells «montagna russa» (idioma, non parla di montagne), Seneca/Platone/Kant/Aristotele con
+    «natura» nel senso filosofico di "per natura, di per sé" (non paesaggio o elementi naturali).
+  - **libri-e-scrittura**: 10 → 24 (+14). Scartate: Jane Austen sulla differenza fra vanità e
+    orgoglio (non parla di libri), Nick Hornby che elenca "la musica, e i libri, probabilmente" fra
+    tanti (menzione di passaggio), Epitteto sul "teatro della vita" (il "poeta" è solo la metafora
+    del destino, non si parla di scrittura).
+  - **morte**: 9 → 24 (+15). Scartate: Coetzee «un cadavere attira le mosche» (idioma dentro una
+    battuta su un dibattito pubblico), Cesare Pavese «tornando stanche morte» (idioma, stanchezza
+    non morte), Achmatova «ubriacandolo a morte» (idioma per intensità, non morte). **Nota
+    operativa**: durante la trascrizione a mano di questo lotto sono emersi 7 errori nelle chiavi
+    (parole mancanti rispetto all'originale) — scoperti e corretti prima del commit con un
+    controllo automatico contro `data/citazioni.json`, poi ripetuto per sicurezza su tutte e
+    cinque le raccolte.
+  - **ricordo-e-memoria**: 10 → 24 (+14). Scartate: Boccaccio (Federigo e il falcone — un
+    aneddoto, non un discorso sulla memoria), Eco «a memoria d'uomo» (idioma), Douglas Adams «fu
+    assalito dal ricordo di dove fosse» (menzione comica di passaggio).
+  - **mare**: 8 → 21 (+13). Scartate: entrambe le citazioni di Marco Aurelio già segnalate
+    dall'utente come esempio («chi si ritira lungo il mare» e la metafora della bonaccia — parlano
+    di dominio delle proprie opinioni, non del mare), Blixen «sul livello del mare» (solo
+    un'altitudine), Maalouf su Genova (il mare è sullo sfondo, il tema è il pragmatismo genovese).
+    Corretta l'introduzione, che diceva «Otto scrittori, otto mari diversi»: con le aggiunte sono
+    diciannove, la frase citava un numero non più vero.
+
+  Tutte le chiavi verificate a fine lavoro contro `data/citazioni.json`: 0 chiavi rotte, 0
+  duplicati su tutte e cinque le raccolte. Durante la verifica finale, `python3 tools/build.py`
+  segnalava "ERRORE: build non valido" con "Pagine citazione senza `<h1>`: 749" su *tutte* le
+  pagine del sito, non solo quelle toccate qui: il controllo in `build.py` (riga 219) cercava
+  ancora la classe HTML `card-quote` sull'H1, resa obsoleta dal commit precedente della sessione
+  concorrente che ha spostato il testo della citazione in un blockquote e rinominato la classe
+  dell'H1 in `quote-h1`. Corretto con l'ok esplicito dell'utente, in un commit separato e minimo
+  (una riga). Build pulita dopo la correzione (0 problemi). Raccolte totali: sempre 27, ora molto
+  più piene.
