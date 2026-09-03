@@ -955,6 +955,21 @@ duplicati era comunque basso — Google collassa pagine quasi identiche, non pag
 non c'e' nemmeno il caso peggiore. Nota utile per il futuro: la somiglianza **non** dipende dalla
 lunghezza dei contesti (correlazione -0,15), dipendeva dalle correlate identiche.
 
+**I filtri su telefono, terza forma — 2026-09-03.** Prima erano una riga che scorreva in
+orizzontale: stavano in poco spazio ma **meta' delle voci non si vedeva e niente diceva che ci
+fossero** (misurato: 717 px di contenuto in una finestra da 319). Li ho fatti andare a capo, e
+allora si vedeva tutto ma occupavano **223 px su 812, il 27% dello schermo** — su un telefono
+corto un terzo — spingendo la citazione in evidenza sotto la piega. Ne' l'uno ne' l'altro.
+
+Ora sono **filtri richiudibili**: chiusi sono una riga sola che dice cosa c'e' dentro e, quando un
+filtro e' attivo, quale (*«Tema: Amore»*, in oro). Blocco filtri **223 px -> 51 px, dal 27% al 6%**;
+la citazione in evidenza risale di 171 px. Aperti sono i due elenchi interi, tutti visibili.
+
+Due cose fatte apposta: il pannello **resta nell'HTML anche da chiuso** (`hidden`, non rimosso),
+cosi' i tredici link ai temi e ai generi restano link per chi legge e per chi scansiona; e senza
+JavaScript resta **aperto**, perche' il foglio di stile lo nasconde solo quando la pagina ha la
+classe `.js`. Su desktop non cambia niente: pulsante nascosto, pannello sempre aperto.
+
 **Misurate anche le pagine interne — 2026-09-03, e mancavano.** La home era stata misurata tre
 volte, le pagine che riceveranno il traffico da Google mai. Stesso telefono simulato, stessa
 strozzatura (4G a 1,6 Mbps, CPU rallentata 4x):

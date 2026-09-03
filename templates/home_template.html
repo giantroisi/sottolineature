@@ -891,6 +891,9 @@
       border-bottom: 1px solid var(--rule);
     }
     .filter-block .filters-note { display: none; }
+    .js .filter-toggle { display: flex; }
+    .js .filter-block #filterPanel[hidden] { display: none; }
+    .filter-block #filterPanel { padding-top: 0.9rem; }
     .filter-block nav.filters {
       flex-wrap: wrap;
       margin: 0; padding: 0 0 0.35rem; border-bottom: 0; gap: 0.55rem 1.1rem;
@@ -932,6 +935,44 @@
          griglia; ora sono un blocco solo sotto la barra. --- */
   .filter-block { margin: 0 0 2rem; }
   .filter-count { font-size: 0.78rem; color: var(--ink-faint); margin: 0.9rem 0 0; }
+  /* Su telefono i due elenchi di filtri occupavano 223 px su 812, il 27% dello
+     schermo — e su un telefono corto un terzo — spingendo la citazione in
+     evidenza sotto la piega. Prima erano una riga che scorreva in orizzontale:
+     stavano in poco spazio ma meta' delle voci non si vedeva e niente diceva
+     che ci fossero. Ne' l'uno ne' l'altro. Ora si aprono: chiusi sono una riga
+     sola che dice cosa c'e' dentro e, quando un filtro e' attivo, quale.
+     Il pannello resta nell'HTML anche da chiuso: i link ai temi e ai generi
+     continuano a essere link, per chi legge e per chi scansiona. */
+  .filter-toggle {
+    display: none;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem;
+    padding: 0.62rem 0;
+    background: none;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    font-family: inherit;
+    font-size: 0.76rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    cursor: pointer;
+    text-align: left;
+  }
+  .filter-toggle[hidden] { display: none; }
+  .filter-toggle .filter-toggle-chevron {
+    font-size: 0.9rem;
+    line-height: 1;
+    transition: transform 0.18s ease;
+  }
+  .filter-toggle[aria-expanded="true"] .filter-toggle-chevron { transform: rotate(180deg); }
+  .filter-toggle.has-filter { color: var(--gold); }
+  @media (prefers-reduced-motion: reduce) {
+    .filter-toggle .filter-toggle-chevron { transition: none; }
+  }
+
   .search-fix {
     font-size: 0.82rem; color: var(--ink-soft); margin: 0.5rem 0 0;
     border-left: 2px solid var(--gold); padding-left: 0.7rem;
@@ -1057,6 +1098,10 @@
 
 
   <div class="filter-block" id="filterBlock">
+  <button class="filter-toggle sans" id="filterToggle" type="button" aria-expanded="false" aria-controls="filterPanel" hidden>
+    <span id="filterToggleLabel">Filtra per tema o genere</span><span class="filter-toggle-chevron" aria-hidden="true">&#8964;</span>
+  </button>
+  <div id="filterPanel">
   <p class="filters-note sans">Non una classificazione: la stessa pagina può riconoscersi in più di un tema.</p>
   <nav class="filters sans" id="filters" aria-label="Filtra per tema">
     <span class="genre-filters-label tema-filters-label sans">Tema</span>
@@ -1081,6 +1126,7 @@
     <a class="filter-btn" data-genre="saggistica" href="/generi/saggistica/">Saggistica</a>
     <a class="filter-btn" data-genre="poesia" href="/generi/poesia/">Poesia</a>
   </nav>
+  </div>
     <p class="filter-count sans" id="filterCount" hidden></p>
     <p class="search-fix sans" id="searchFix" hidden></p>
   </div>
@@ -1794,6 +1840,7 @@
         }
       }
       chiudi(term, visibleCount);
+      aggiornaEtichettaFiltri();
     }
 
     function escapeHtml(t) {
@@ -1845,6 +1892,59 @@
         countEl.hidden = !filtering || raccoltaVuota;
         countEl.textContent = visibleCount === 1 ? '1 citazione' : visibleCount + ' citazioni';
       }
+    }
+
+    // --- filtri richiudibili su telefono ---------------------------------
+    // Chiusi sono una riga; aperti, i due elenchi interi. L'etichetta dice
+    // sempre a che punto si e', cosi' chi non apre sa comunque se un filtro e'
+    // attivo. Senza JS il pannello resta aperto: il foglio di stile lo nasconde
+    // solo quando la pagina ha la classe .js.
+    var filterToggle = document.getElementById('filterToggle');
+    var filterPanel = document.getElementById('filterPanel');
+    var filterToggleLabel = document.getElementById('filterToggleLabel');
+    var telefono = window.matchMedia('(max-width: 700px)');
+
+    function etichettaAttiva() {
+      var pezzi = [];
+      var t = document.querySelector('#filters .filter-btn.active');
+      var g = document.querySelector('#genreFilters .filter-btn.active');
+      if (t && t.getAttribute('data-filter') !== 'tutte') { pezzi.push('Tema: ' + t.textContent.trim()); }
+      if (g && g.getAttribute('data-genre') !== 'tutti') { pezzi.push('Genere: ' + g.textContent.trim()); }
+      return pezzi;
+    }
+
+    function aggiornaEtichettaFiltri() {
+      if (!filterToggle || !filterToggleLabel) { return; }
+      var attivi = etichettaAttiva();
+      filterToggleLabel.textContent = attivi.length ? attivi.join(' \u00b7 ') : 'Filtra per tema o genere';
+      filterToggle.classList.toggle('has-filter', attivi.length > 0);
+    }
+
+    function sistemaFiltri() {
+      if (!filterToggle || !filterPanel) { return; }
+      if (telefono.matches) {
+        filterToggle.hidden = false;
+        // aperto se un filtro e' gia' attivo (es. si arriva da un link con
+        // ?tema=), altrimenti chiuso
+        var aperto = filterToggle.getAttribute('aria-expanded') === 'true' || etichettaAttiva().length > 0;
+        filterToggle.setAttribute('aria-expanded', aperto ? 'true' : 'false');
+        filterPanel.hidden = !aperto;
+      } else {
+        filterToggle.hidden = true;
+        filterPanel.hidden = false;
+      }
+      aggiornaEtichettaFiltri();
+    }
+
+    if (filterToggle && filterPanel) {
+      filterToggle.addEventListener('click', function () {
+        var aperto = filterToggle.getAttribute('aria-expanded') === 'true';
+        filterToggle.setAttribute('aria-expanded', aperto ? 'false' : 'true');
+        filterPanel.hidden = aperto;
+      });
+      if (telefono.addEventListener) { telefono.addEventListener('change', sistemaFiltri); }
+      else if (telefono.addListener) { telefono.addListener(sistemaFiltri); }
+      sistemaFiltri();
     }
 
     var filterBtns = Array.prototype.slice.call(document.querySelectorAll('#filters .filter-btn'));
