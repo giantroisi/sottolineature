@@ -964,3 +964,28 @@
   Nessuna citazione lasciata com'era in questo lotto: tutte e venti le fonti cercate hanno dato
   materiale sufficiente per un contesto verificato. Build pulita (0 problemi). Contesti sotto le
   45 parole: 571 -> 551.
+
+- 2026-09-03 UTC — Contesti riscritti, quinto lotto (CATALOGO.md 6-ter/6-quater): 20 citazioni
+  nella fascia 20-44 parole, media 71,5 parole. Fonte aperta per ognuna prima di scrivere: Charlotte
+  Brontë «Jane Eyre» (cap. XXIII), Donna Tartt «Dio di illusioni» (secondo passo, lezione di greco
+  del professor Julian Morrow), Emily Brontë «Cime tempestose» (speaker Heathcliff), Ippolito Nievo
+  «Le confessioni d'un italiano» (due passi, incipit e cap. VI), Jules Verne «Ventimila leghe sotto
+  i mari» (speaker capitano Nemo), Khalil Gibran «Il Profeta» (speaker Almustafa), Marcel Proust
+  «Alla ricerca del tempo perduto», Aldous Huxley «Il mondo nuovo» (speaker Mustafà Mond), Boccaccio
+  «Decameron» (Proemio), Frank Herbert «Dune» (speaker Paul Atreides, prova del gom jabbar), Lucy
+  Maud Montgomery «Anna dai capelli rossi» (speaker Anna Shirley), Anne Frank «Diario» (annotazione
+  del 15 luglio 1944 — diversa dalle tre già lasciate com'erano nei lotti precedenti: qui la data
+  era già nota e verificabile, quindi scritta), Bram Stoker «Dracula» (speaker Jonathan Harker),
+  Francesco Petrarca «Canzoniere» (due sonetti), Giuseppe Ungaretti «L'allegria» (poesia «Soldati»,
+  Bosco di Courton, luglio 1918), Terry Pratchett «Il tristo mietitore», Ludovico Ariosto «Orlando
+  furioso», Don DeLillo «Rumore bianco».
+
+  **Corretta un'attribuzione interna già sbagliata nel vecchio contesto** (non nel testo della
+  citazione, che resta invariato): la frase di Don DeLillo «La famiglia è la culla della
+  disinformazione mondiale» era attribuita a Murray Siskind, ma una ricerca sul testo originale
+  conferma che è il narratore Jack Gladney a dirlo — coerente, tra l'altro, con quanto già diceva
+  il campo `source_locus` dell'archivio («riflessione di Jack Gladney»), che il vecchio contesto
+  contraddiceva.
+
+  Nessuna citazione lasciata com'era in questo lotto. Build pulita (0 problemi). Contesti sotto le
+  45 parole: 551 -> 531.
