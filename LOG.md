@@ -1186,3 +1186,24 @@
   presenti nel pool e non ritentate in questo lotto).
 
   Build pulita (0 problemi). Contesti sotto le 45 parole: 427 -> 417.
+
+- 2026-09-03 UTC — Contesti riscritti, quattordicesimo lotto (CATALOGO.md 6-ter/6-quater): 6
+  citazioni nella fascia 20-44 parole, media 74,7 parole. Fonte aperta per ognuna prima di
+  scrivere: Mario Vargas Llosa «La città e i cani» (speaker Higueras), Salvatore Quasimodo «Ed è
+  subito sera», Yukio Mishima «Confessioni di una maschera», Zbigniew Herbert «Un barbaro nel
+  giardino», J.R.R. Tolkien «Lo Hobbit», Michel Houellebecq «Estensione del dominio della lotta».
+
+  Lasciate senza modifica per fonte insufficiente: V.S. Naipaul (nuova, «Alla curva del fiume»: la
+  pagina Wikiquote ha restituito errore 404), Elena Ferrante (nuovo passo su «Storia del nuovo
+  cognome»: l'unica fonte nota per questa citazione, metropolitanmagazine.it, ha restituito errore
+  403), Emily St. John Mandel (nuovo libro, «La musica delle parole»: pagina Wikiquote senza
+  dettagli oltre l'incipit stesso), Iris Murdoch (nuova, «La ragazza italiana»: citazione confermata
+  ma senza alcun contesto narrativo disponibile sulla fonte), oltre a quelle già segnalate nei lotti
+  precedenti.
+
+  Build pulita (0 problemi). Contesti sotto le 45 parole: 417 -> 411.
+
+  **Nota di passaggio**: il pool di candidati "nuovi" risolvibili con una singola ricerca si sta
+  assottigliando lotto dopo lotto (79 candidati nella fascia 20-44 parole a inizio lotto, di cui
+  solo 6 effettivamente scrivibili con fonti sufficienti) — il lavoro prosegue, ma il rendimento per
+  lotto è in calo naturale via via che si esauriscono i casi con fonte facilmente reperibile.
