@@ -955,6 +955,26 @@ duplicati era comunque basso — Google collassa pagine quasi identiche, non pag
 non c'e' nemmeno il caso peggiore. Nota utile per il futuro: la somiglianza **non** dipende dalla
 lunghezza dei contesti (correlazione -0,15), dipendeva dalle correlate identiche.
 
+**Misurate anche le pagine interne — 2026-09-03, e mancavano.** La home era stata misurata tre
+volte, le pagine che riceveranno il traffico da Google mai. Stesso telefono simulato, stessa
+strozzatura (4G a 1,6 Mbps, CPU rallentata 4x):
+
+| pagina | LCP | CLS | DOMContentLoaded | nodi |
+|---|---|---|---|---|
+| citazione (Kafka, *La metamorfosi*) | 940 ms | **0** | 925 ms | 145 |
+| autore (Franz Kafka) | 732 ms | **0** | 743 ms | 97 |
+| raccolta (Natura) | 816 ms | **0** | 787 ms | 271 |
+
+Tutte dentro le soglie con un margine enorme (LCP < 2,5 s, CLS < 0,1), e il CLS e' **zero**, non
+0,039 come in home: qui non c'e' nessuna citazione del giorno che cambia altezza a caricamento
+finito. Il long task piu' lungo e' 180 ms sulla pagina citazione, sotto la soglia dei 200.
+
+La differenza con la home e' il dato che conta per le decisioni future: **925 ms contro 4.000 di
+`DOMContentLoaded`**. Chi arriva da una ricerca atterra quasi sempre su una pagina citazione, su
+un autore o su una raccolta — non in home. Il peso della home e' un problema per chi gia'
+conosce il sito e ci torna, non per chi lo scopre. Un'altra ragione per cui la divisione
+dell'archivio puo' aspettare.
+
 **I comandi per Sonnet stanno in `CATALOGO.md` §9-bis**, con lo stato di ciascuno: in corso, il
 prossimo, in coda, bloccato. Nascevano nella conversazione e sparivano con lei; ora sopravvivono
 alla sessione. Si danno uno per volta, e mai mentre un lotto e' a meta'.
