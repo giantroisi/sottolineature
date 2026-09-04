@@ -1808,3 +1808,23 @@
   prossimo build pulito, come già successo altre volte in sessione.
 
   Totale sessione: **51 citazioni completate su 37 opere**.
+
+- 2026-09-04 UTC — Traduttore, lotto 6: **3 citazioni completate su 3 opere**. George Orwell «La
+  fattoria degli animali» (Guido Bulla, la traduzione Mondadori descritta più volte come «la più
+  tradizionale e fedele», usata anche dalle edizioni successive), Hermann Hesse «Siddhartha»
+  (Massimo Mila, dal 1973 l'edizione Adelphi, «la più letta fra le sessanta esistenti in varie
+  lingue» secondo le fonti), Hermann Hesse «Il lupo della steppa» (Ervino Pocar, Mondadori 1946).
+
+  **Scartati per lo stesso motivo — troppe traduzioni in concorrenza, nessuna verificabile senza
+  l'edizione**: George Orwell «1984» (Baldini 1950, poi Manferlotti 2000, poi Gardini 2019: tre
+  traduzioni diverse tuttora in circolazione), Hermann Hesse «Demian» (Pocar per Martello, Puglioli
+  per BUR, ignoto quale usi Adelphi), Isaac Asimov «Fondazione» (almeno quattro nomi diversi legati
+  a edizioni Mondadori diverse nel tempo), H.G. Wells «La macchina del tempo» (almeno sei
+  traduzioni italiane dal 1902), Federico García Lorca «Romance sonámbulo» — qui il controllo
+  diretto ha aiutato: la traduzione trovata rende «la barca sopra il mare» in archivio con «la
+  nave sul mare», quindi non è la stessa versione, e non si sa quale sia l'altra.
+
+  Solo `data/citazioni.json` in questo commit, stesso motivo del lotto precedente (modifica ai
+  generatori ancora in corso). Build pulita, check_links a zero problemi.
+
+  **Totale sessione: 54 citazioni completate su 40 opere.**
