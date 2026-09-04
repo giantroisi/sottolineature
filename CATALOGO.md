@@ -360,13 +360,15 @@ CLAUDE.md.
 Scritti qui perché non vadano persi con la conversazione in cui sono nati. Si danno **uno per
 volta**, e mai mentre un lotto è a metà: interrompere un lotto lo lascia a pezzi.
 
+Stato aggiornato al **2026-09-04** (numeri rimisurati, non ereditati dal registro).
+
 | | lotto | stato |
 |---|---|---|
 | 0 | **Rifiniture: i 21 «L'incipit del romanzo» e due generi** | **il prossimo** — comando qui sotto |
-| 1 | Riscrittura dei contesti brevi | fatta in parte: 150 riscritti, ne restano 121 sotto le 20 parole |
-| 2 | Genere alle opere che ne sono prive | in corso (2026-09-03, 25 opere su 367) |
-| 3 | Ampliamento delle 20 raccolte tematiche rimaste | in coda, `tools/raccolte_da_ampliare.py` |
-| 4 | «Frasi brevi» e «Incipit memorabili» | in coda, criterio diverso: vedi nota in fondo |
+| 1 | Riscrittura dei contesti brevi | in corso: **92** sotto le 20 parole, 78 fra 20 e 29, 158 fra 30 e 44 (328 sotto le 45 in tutto) |
+| 2 | Genere alle opere che ne sono prive | in corso: **344 opere su 577** ancora senza (427 citazioni) |
+| 3 | Ampliamento delle 20 raccolte tematiche rimaste | in corso: **399 citazioni su 749 (53%)** in almeno una raccolta. Le piu' fruttuose ora: `notte` +18, `felicita` +17, `ricordo-e-memoria` +15, `donne` +14, `guerra` +13 |
+| 4 | «Frasi brevi» e «Incipit memorabili» | in coda, criterio diverso: vedi nota in fondo. Sono le due piu' grosse: 158 e 140 candidate |
 | 5 | Copertine delle 169 opere rimaste | bloccato: su Open Library non esiste un'edizione italiana con immagine. Si sblocca solo cambiando fonte o accettando l'edizione originale — decisione dell'utente |
 
 ### 0. Rifiniture: i 21 «L'incipit del romanzo» e due generi
