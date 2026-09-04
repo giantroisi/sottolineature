@@ -1616,3 +1616,27 @@
   lotto figli, una volta che l'albero è tornato pulito.
 
   Build pulita, check_links a zero problemi.
+
+- 2026-09-04 UTC — Raccolte lotti 9-11, senza episodi di convivenza (l'utente ha avvertito la
+  sessione parallela di lasciare spazio a questo lavoro).
+
+  **viaggio-e-cammino** (+11, 14→25): Harper Lee («indossare le sue scarpe»), Octavio Paz, Vasco
+  Pratolini, Terry Pratchett, Ian McEwan, Boris Pasternak, T.S. Eliot («E allora andiamo, tu e
+  io»), Zbigniew Herbert, Wole Soyinka, Amin Maalouf, Imre Kertész. L'introduzione della raccolta
+  copre sia il viaggio letterale sia «cammino» come metafora della vita (da Dante in poi), quindi
+  qui sono entrate anche le «strade» prese in senso figurato — cosa che altrove avrei scartato.
+
+  **stelle-e-cielo** (+14, 9→23): Sciascia, Montale, Pascoli (due poesie diverse), Golding, Eliot,
+  Andersen (due opere), de Beauvoir, Angelou, Rigoni Stern, Shafak, Verne, Boccaccio. Scartati
+  «La libertà è come il sole» di Amado e «la libertà... dono del cielo» di Cervantes: il sole e il
+  cielo lì sono paragoni per la libertà, non il soggetto della frase.
+
+  **notte** (+17, 9→26): Calvino (l'incipit stesso, «Se una notte d'inverno...»), Moravia,
+  Robinson, McCarthy, Stoker, Tokarczuk, Verga, Golding, Andersen, Herbert, Pavese, Kundera,
+  Sant'Agostino («tutte le tenebre del dubbio si dissiparono», il momento della conversione),
+  Sontag («La malattia è il lato notturno della vita»), Pearl S. Buck, due citazioni diverse di
+  Verne sulla luna. Scartato «la villa di Fulvia... sulla città di Alba» di Fenoglio: Alba è il
+  nome proprio della sua città natale, non l'alba del giorno — la ricerca per parola non distingue
+  maiuscole a inizio frase da nomi propri.
+
+  Build pulita, check_links a zero problemi dopo ogni lotto.
