@@ -907,11 +907,11 @@ html:not(.js) .js-only { display: none !important; }
     }
     .filter-block .filters-note { display: none; }
     .js .filter-toggle { display: flex; }
-    .js .filter-block #filterPanel[hidden] { display: none; }
+    .js .filter-block #filterPanel:not([data-aperto]) { display: none; }
     .filter-block #filterPanel {
       padding: 0.85rem 0; border-bottom: 1px solid var(--rule);
     }
-    .js .filter-block #filterPanel:not([hidden]) ~ .filter-count { margin-top: 0.7rem; }
+    .js .filter-block #filterPanel[data-aperto] ~ .filter-count { margin-top: 0.7rem; }
     .filter-block nav.filters {
       flex-wrap: wrap;
       margin: 0; padding: 0 0 0.35rem; border-bottom: 0; gap: 0.55rem 1.1rem;
@@ -1116,7 +1116,7 @@ html:not(.js) .js-only { display: none !important; }
 
 
   <div class="filter-block" id="filterBlock">
-  <button class="filter-toggle sans" id="filterToggle" type="button" aria-expanded="false" aria-controls="filterPanel" hidden>
+  <button class="filter-toggle sans" id="filterToggle" type="button" aria-expanded="false" aria-controls="filterPanel">
     <span id="filterToggleLabel">Filtra per tema o genere</span><span class="filter-toggle-chevron" aria-hidden="true">&#8964;</span>
   </button>
   <div id="filterPanel">
@@ -1940,27 +1940,26 @@ html:not(.js) .js-only { display: none !important; }
       filterToggle.classList.toggle('has-filter', attivi.length > 0);
     }
 
+    // Lo stato chiuso e' scritto nel foglio di stile, non imposto dal JS:
+    // .js arriva prima della prima pittura, quindi il pannello nasce gia'
+    // chiuso sul telefono. Prima il JS lo chiudeva a load, e la pagina
+    // saltava di 199px sotto le mani di chi stava leggendo (CLS 0.129).
+    var apertoAMano = false;
+
     function sistemaFiltri() {
       if (!filterToggle || !filterPanel) { return; }
-      if (telefono.matches) {
-        filterToggle.hidden = false;
-        // aperto se un filtro e' gia' attivo (es. si arriva da un link con
-        // ?tema=), altrimenti chiuso
-        var aperto = filterToggle.getAttribute('aria-expanded') === 'true' || etichettaAttiva().length > 0;
-        filterToggle.setAttribute('aria-expanded', aperto ? 'true' : 'false');
-        filterPanel.hidden = !aperto;
-      } else {
-        filterToggle.hidden = true;
-        filterPanel.hidden = false;
-      }
+      var suTelefono = telefono.matches;
+      var aperto = suTelefono ? (apertoAMano || etichettaAttiva().length > 0) : true;
+      filterToggle.setAttribute('aria-expanded', suTelefono && aperto ? 'true' : 'false');
+      if (aperto) { filterPanel.setAttribute('data-aperto', ''); }
+      else { filterPanel.removeAttribute('data-aperto'); }
       aggiornaEtichettaFiltri();
     }
 
     if (filterToggle && filterPanel) {
       filterToggle.addEventListener('click', function () {
-        var aperto = filterToggle.getAttribute('aria-expanded') === 'true';
-        filterToggle.setAttribute('aria-expanded', aperto ? 'false' : 'true');
-        filterPanel.hidden = aperto;
+        apertoAMano = filterToggle.getAttribute('aria-expanded') !== 'true';
+        sistemaFiltri();
       });
       if (telefono.addEventListener) { telefono.addEventListener('change', sistemaFiltri); }
       else if (telefono.addListener) { telefono.addListener(sistemaFiltri); }
