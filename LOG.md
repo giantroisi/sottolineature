@@ -1683,3 +1683,48 @@
   concentrate soprattutto su libri-e-scrittura (20), natura (19), donne (14) e guerra (13).
 
   Build pulita, check_links a zero problemi.
+
+- 2026-09-04 UTC — Aperto il fronte del traduttore (CLAUDE.md, "Resta aperto": su 749 citazioni
+  solo 209 avevano il nome del traduttore). Per ogni opera cercato quale sia la traduzione
+  italiana effettivamente citata, non una qualunque fra le tante possibili — su un testo antico
+  o straniero ce ne sono spesso parecchie, e attribuirne una sbagliata è peggio che non
+  attribuirne nessuna. **Nel dubbio lasciato vuoto**: scartati Seneca (troppe edizioni italiane
+  di «Lettere a Lucilio» in circolazione, nessuna prova di quale sia questa), Voltaire (la
+  traduzione Sonzogno 1882 di «Candido» era anonima: nessun nome da scrivere) e Verne (l'edizione
+  Fanucci 2018 citata in archivio non ha restituito un traduttore verificabile).
+
+  **12 citazioni completate su 5 opere**, tutte verificate con almeno un riscontro indipendente:
+  - **Walt Whitman, «Foglie d'erba»** (3/4): Enzo Giachino. Le prime due citazioni in archivio
+    riportano già la sua edizione Einaudi 1950 per esteso; la terza («Sono vasto, contengo
+    moltitudini») usa la parola «vasto» per «large», una scelta lessicale che le fonti attribuiscono
+    specificamente a Giachino (altri traduttori, come Corona nel 2019, rendono «large» con
+    «grande») — prova sufficiente anche senza l'edizione scritta per esteso. Lasciata fuori «O
+    Capitano! Mio Capitano!»: la frase è troppo breve e troppo citata per distinguere quale
+    traduzione sia.
+  - **Jorge Luis Borges, «Finzioni»** (3/3): Franco Lucentini, che tradusse il libro per Einaudi
+    nel 1955 — la prima traduzione italiana di Borges in assoluto, ancora oggi quella più diffusa.
+    Coerente anche con un dettaglio già in archivio: una delle tre citazioni cita come fonte
+    proprio un libro curato dallo stesso Lucentini (Fruttero & Lucentini, «Íncipit»).
+  - **Kazuo Ishiguro, «Non lasciarmi»** (2/2): Paola Novarese, unica traduttrice italiana del
+    romanzo, edizione Einaudi dal 2006.
+  - **Gabriel García Márquez, «Cent'anni di solitudine»** (2/2): Enrico Cicogna, che tradusse il
+    romanzo per Feltrinelli nel 1968 — rimasta la traduzione italiana standard per circa
+    cinquant'anni, incluso l'incipit («Molti anni dopo, di fronte al plotone di esecuzione...»)
+    citato letteralmente con questa attribuzione da più fonti indipendenti.
+  - **F. Scott Fitzgerald, «Il grande Gatsby»** (2/2): Fernanda Pivano, la sua storica traduzione
+    del 1950 per Mondadori/Einaudi — verificato che il tempo verbale della citazione in archivio
+    («spero che *sia* stupida») coincide con la sua versione, non con parafrasi diverse trovate
+    altrove in rete con lo stesso senso ma tempo diverso («*sarà* stupida»).
+
+  **Nota di convivenza**: mentre verificavo queste dodici, la sessione parallela ha completato e
+  committato un lavoro sulle copertine (`744305f2`, «Copertine originali per 58 opere che ne
+  erano prive») usando un `git add` ampio che ha inglobato anche le mie modifiche non ancora
+  committate a `data/citazioni.json` — la cartella di lavoro è condivisa, terzo episodio di
+  questo tipo in giornata. Verificato con `git show 744305f2:data/citazioni.json` che tutte e
+  dodici le mie voci sono arrivate integre nel commit, insieme alle sue 58 copertine: nessun dato
+  perso, solo il registro da ricostruire a mano come qui. Build pulita, check_links a zero
+  problemi (179 → 175 citazioni con edizione ma senza traduttore).
+
+  Restano da riprendere, in ordine di valore: le opere non italiane con più citazioni ancora
+  senza traduttore (Dostoevskij, le due Brontë, Cicerone, Marco Aurelio, Epitteto — questi ultimi
+  tre in latino/greco, quindi tradotti anch'essi), e via via le altre 300+ opere della lista.
