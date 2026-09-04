@@ -1773,3 +1773,22 @@
 
   Build pulita, check_links a zero problemi dopo ogni lotto. Nessun episodio di convivenza in
   questi due lotti — commit e sync fatti spesso, come da lezione del lotto precedente.
+
+- 2026-09-04 UTC — Traduttore, lotto 4: **8 citazioni completate su 8 opere**. José Saramago
+  «Cecità» e «Le intermittenze della morte» (stessa traduttrice, Rita Desti, per entrambe —
+  confermato indipendentemente per ciascun titolo, non presunto dall'altro); Salman Rushdie «I
+  figli della mezzanotte»; Milan Kundera, due opere diverse con due traduttori diversi
+  («L'insostenibile leggerezza dell'essere» e «Il libro del riso e dell'oblio» sono usciti in
+  anni e con curatele differenti anche per lo stesso editore Adelphi); Orhan Pamuk; Marguerite
+  Duras; Susan Sontag.
+
+  **Scartati**: Simone Weil «La rivelazione greca» (esistono almeno due edizioni Adelphi con
+  traduttori diversi e non è chiaro quale sia quella citata in archivio); Rick Riordan, la
+  citazione da «la battaglia del labirinto» (quarto libro della serie: la ricerca ha trovato la
+  traduttrice del primo libro e quella di un libro molto più tardo, non quella del quarto in
+  particolare — la serie Percy Jackson cambia traduttore lungo il percorso, non si può presumere).
+  Dostoevskij, le due Brontë, Virgilio e Cicerone lasciati da riprendere: sono classici con troppe
+  traduzioni italiane in concorrenza per attribuirne una senza un confronto di testo puntuale.
+
+  Totale sessione sul traduttore: **44 citazioni completate su 30 opere**. Build pulita,
+  check_links a zero problemi. Nessun episodio di convivenza.
