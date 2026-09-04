@@ -2173,3 +2173,18 @@
 
   `python3 tools/contesti_da_ampliare.py`: **97 → 77** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-04 UTC — **Lotto 1, decimo giro: altre 20 citazioni riscritte**. Quasimodo «Milano,
+  agosto 1943», Camus «Il mito di Sisifo» (ultima riga: solo cornice, non altro sull'esito del
+  ragionamento), Baricco «Seta», Ernaux «Gli anni», Leopardi «L'infinito», Kant «Lezioni di
+  etica», Tolkien «La Compagnia dell'Anello» (il Concilio di Elrond), Barnes «Il senso di una
+  fine» (fermato all'eredità e al diario di Adrian Finn, senza il suicidio di Adrian e il colpo
+  di scena centrale del romanzo — trovati e scartati apposta), Paz «Il labirinto della
+  solitudine», Neruda «Cento sonetti d'amore» e «Venti poesie d'amore» (2 citazioni), Heaney
+  «Morte di un naturalista»/Scavando, Camus «L'estate» e «La peste» (2 citazioni), Tartt «Il
+  cardellino», Lessing «Memorie di una sopravvissuta», Kafka «Il processo», García Márquez
+  «Cronaca di una morte annunciata» (la premessa dichiarata dal libro stesso, non un'aggiunta),
+  Bukowski «Pulp», Hoffmann «Kreisleriana».
+
+  `python3 tools/contesti_da_ampliare.py`: **77 → 57** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
