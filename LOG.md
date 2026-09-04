@@ -1342,3 +1342,24 @@
   distruttiva sulla cronologia o sul working tree.
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 391 -> 373.
+
+- 2026-09-04 UTC — Lotto 16 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo del lotto
+  15.
+
+  **13 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Alessandro
+  Manzoni «I promessi sposi» (2, da Wikisource: l'incipit e la battuta di don Abbondio al
+  cardinale, cap. XXV), Torquato Tasso «Gerusalemme liberata» (1, canto XVI, il giardino di
+  Armida), Khalil Gibran «Il Profeta» (1), Ludovico Ariosto «Orlando furioso» (1, canto XXXIV,
+  Astolfo sulla luna), Marco Aurelio «Colloqui con sé stesso» (1), Arthur Schopenhauer «Aforismi
+  sulla saggezza del vivere» (1), Seneca «Lettere a Lucilio» (1), Ray Bradbury «Fahrenheit 451»
+  (1), Charles Baudelaire «I fiori del male» (1, «L'albatro»), Sandro Veronesi «Il colibrì» (1:
+  verificato che «Un filo, un Mago, tre crepe (1992-95)» è uno dei capitoli del romanzo stesso,
+  non un'opera diversa come poteva sembrare dalla formattazione della fonte), Eugenio Montale
+  «Ossi di seppia» (1, «Meriggiare pallido e assorto»), Toni Morrison «Amatissima» (1, la battuta
+  finale di Paul D a Sethe).
+
+  **Lasciata com'era**: Sandro Veronesi, la citazione della lettera di Luisa Lattes a Marco
+  Carrera («Tu sei un colibrì perché...») — nessun `source_url` in archivio, a differenza
+  dell'altra citazione dello stesso romanzo riscritta in questo lotto.
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 375 -> 360.
