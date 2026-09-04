@@ -566,7 +566,15 @@ footer.sans a { color: var(--ink-faint); }
   .actions, .share-choice, .mine-actions, .mine-removed, .tags, .breadcrumb,
   .related-grid, .related, .explore, .filters, .search-bar,
   .underline-toggle, .card-hint, .note-field, .print-selection-btn,
-  .quote-note-field, .quote-note-hint { display: none !important; }
+  .quote-note-field, .quote-note-hint,
+  /* su carta non si preme niente: il pulsante "Stampa" stampato e' la prova
+     che nessuno aveva mai guardato il foglio. E "Segnala un errore" e'
+     un mailto: su un foglio e' una riga sottolineata che non porta da
+     nessuna parte. */
+  .mine-tools, .segnala, .footer-servizi { display: none !important; }
+  /* la data non e' decorazione: chi consegna una selezione di citazioni deve
+     poter dire quando l'ha presa, perche' l'archivio cambia */
+  .print-only { display: block !important; }
   .quote-note[hidden] { display: none !important; }
   .quote-note-print { display: block; }
   .quote-note-print[hidden] { display: none; }
@@ -582,6 +590,7 @@ footer.sans a { color: var(--ink-faint); }
   /* l'indirizzo della pagina stampato in fondo: una citazione su carta senza
      la sua provenienza e' esattamente cio' che questo sito combatte */
   footer.sans { border-top: 1px solid #bbb; padding-top: 0.5em; font-size: 9pt; color: #555; }
+  footer.sans a { color: #555 !important; }
   footer.sans::after { content: " — " attr(data-url); }
   a { color: #000 !important; text-decoration: none; }
   @page { margin: 2cm; }
@@ -596,4 +605,6 @@ footer.sans a { color: var(--ink-faint); }
    link ai temi e ai generi, la navigazione — funziona senza JavaScript, ed e'
    il motivo per cui non serve un avviso: la pagina resta quello che e', un
    testo con dei link. */
+.print-only { display: none; }
+
 html:not(.js) .js-only { display: none !important; }

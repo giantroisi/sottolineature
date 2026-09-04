@@ -288,7 +288,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   {related_html}
   </div>
   <footer class="sans" data-url="sottolineature.it/citazioni/{slug}/">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo. <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
   </footer>
 </div>
 <script src="/assets/share.js"></script>
@@ -495,6 +495,35 @@ def finestra(candidati, slug, quante):
     return doppia[inizio:inizio + quante]
 
 
+PREPOSIZIONE = {
+    'il': 'del', 'lo': 'dello', 'la': 'della',
+    'i': 'dei', 'gli': 'degli', 'le': 'delle',
+}
+
+
+def di_con_articolo(nome):
+    """"di" piu' l'articolo, contratto come si fa in italiano.
+
+    Gli 83 personaggi su 91 che si chiamano per nome - Meursault, Jon Snow -
+    vogliono "di Meursault" e basta. Gli altri otto hanno l'articolo davanti,
+    e uscivano "la frase di la volpe", "di il capitano Nemo": un errore da
+    prima elementare, stampato nell'H1, nel <title> e nella descrizione di
+    otto pagine, cioe' esattamente nelle tre righe che una persona legge
+    prima di decidere se aprire il risultato.
+    """
+    nome = (nome or '').strip()
+    if not nome:
+        return 'di'
+    primo = nome.split()[0]
+    chiave = primo.lower()
+    if chiave in PREPOSIZIONE:
+        return PREPOSIZIONE[chiave] + nome[len(primo):]
+    # l'apostrofo non e' separato da spazio: "l'ammaliatore" -> "dell'ammaliatore"
+    if chiave[:2] in ("l'", 'l\u2019'):
+        return "dell'" + nome[2:]
+    return 'di ' + nome
+
+
 def titolo_esplicativo(q):
     """H1 della pagina citazione: dice di che frase si tratta e da dove viene.
 
@@ -521,8 +550,8 @@ def titolo_esplicativo(q):
     # sa chi parla, e resta vuoto per il narratore o quando c'e' un dubbio.
     speaker = (q.get('speaker') or '').strip()
     if speaker:
-        return ('\u00ab' + incipit + '\u00bb: la frase di ' + speaker + ' in \u00ab' + q['title']
-                + '\u00bb di ' + q['author'])
+        return ('\u00ab' + incipit + '\u00bb: la frase ' + di_con_articolo(speaker) + ' in \u00ab'
+                + q['title'] + '\u00bb di ' + q['author'])
     if apertura:
         return '\u00ab' + incipit + '\u00bb: l\u2019incipit di \u00ab' + q['title'] + '\u00bb di ' + q['author']
     if verso:

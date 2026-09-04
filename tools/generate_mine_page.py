@@ -136,8 +136,9 @@ PAGE = '''<!DOCTYPE html>
     <button class="js-only" type="button" id="printBtn">Stampa</button>
   </div>
   </div>
-  <footer class="sans">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> &mdash; citazioni verificate a mano, senza algoritmo. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.
+  <p class="print-only sans" id="minePrintDate"></p>
+  <footer class="sans" data-url="sottolineature.it">
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> &mdash; citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
   </footer>
 </div>
 <script>
@@ -218,7 +219,11 @@ PAGE = '''<!DOCTYPE html>
     save();
   }
 
-  if (!slugs.length) { emptyEl.hidden = false; return; }
+  // La spiegazione nasce visibile, cosi' chi arriva senza JavaScript la
+  // legge lo stesso; da qui in poi e' il numero di righe a decidere, e la
+  // decide refreshCount() in un posto solo - anche quando le righe le
+  // toglie l'utente una a una.
+  if (!slugs.length) { return; }
 
   var quoteBySlug = {};
   var removedHTML = {};
@@ -228,9 +233,11 @@ PAGE = '''<!DOCTYPE html>
     if (n === 0) {
       countEl.textContent = 'Nessuna citazione sottolineata';
       toolsEl.hidden = true;
+      emptyEl.hidden = false;
     } else {
       countEl.textContent = n === 1 ? '1 citazione sottolineata' : n + ' citazioni sottolineate';
       toolsEl.hidden = false;
+      emptyEl.hidden = true;
     }
   }
 
@@ -314,6 +321,15 @@ PAGE = '''<!DOCTYPE html>
       return itemHTML(x.slug, x.q, (noteBySlug[x.slug] || '').trim());
     }).join('');
     refreshCount();
+    // Chi stampa la propria raccolta la consegna, o la rilegge fra un mese:
+    // senza una data non sa piu' a quando risale.
+    var dataEl = document.getElementById('minePrintDate');
+    if (dataEl) {
+      try {
+        dataEl.textContent = 'Selezione presa da sottolineature.it il ' +
+          new Date().toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' }) + '.';
+      } catch (e) {}
+    }
     list.addEventListener('click', onListClick);
     document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
   }).catch(function () {});
