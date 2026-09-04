@@ -2130,3 +2130,27 @@
 
   `python3 tools/contesti_da_ampliare.py`: **137 → 117** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-04 UTC — **Lotto 1, ottavo giro: altre 20 citazioni riscritte**. Tolkien «Il Signore
+  degli Anelli» (Frodo e Sam sul Monte Fato, senza dire cosa succede dopo), Cortázar «Il gioco
+  del mondo»/Rayuela, Hosseini «Il cacciatore di aquiloni» (la frase che ritorna capovolta, senza
+  raccontare l'evento che la fa tornare), Vargas Llosa «Conversazione nella Catedral» e «Storia
+  di Mayta» (2 citazioni), Verlaine «Poèmes saturniens», Rushdie «I figli della mezzanotte»,
+  Bellow «Herzog», Foscolo «Dei Sepolcri», Faulkner «Mentre morivo», Shakespeare «Romeo e
+  Giulietta», de Céspedes «La bambolona» — **prima bozza sbagliata, corretta prima di
+  applicarla**: avevo scritto "Giulio, industriale, sposato con Bella" fidandomi solo del vecchio
+  contesto senza verificare; una ricerca dedicata ha mostrato che è tutto inventato — il
+  personaggio è Giulio **Broggini**, avvocato, ossessionato da Ivana Scarapecchia (diciassettenne
+  non sposata con lui), ed è lei — non una moglie — la «bambolona» del titolo. Riscritto da capo
+  sulla trama verificata prima di applicare, Dumas «Il conte di Montecristo» (ultime parole del
+  romanzo: aggiunta solo la cornice, non altro sull'esito della vendetta), Malaparte «La pelle»,
+  García Márquez «L'amore ai
+  tempi del colera» (stesso trattamento di Dumas: ultime righe, solo cornice editoriale), Shaw
+  «Guida della donna intelligente», Murakami «Kafka sulla spiaggia», Hesse «Il lupo della
+  steppa», Asimov «Fondazione», Murgia «Chirù» — **corretto un errore di attribuzione grave nel
+  vecchio contesto**: descriveva la trama di "Accabadora" (Bonaria Urrai, l'accabadora, Maria
+  bambina) invece che quella di "Chirù" (Eleonora attrice, il rapporto con l'allievo Chirù),
+  verificato da zero sulla trama reale del libro.
+
+  `python3 tools/contesti_da_ampliare.py`: **117 → 97** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
