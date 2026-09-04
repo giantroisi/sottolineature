@@ -1298,3 +1298,47 @@
   bastano). Le altre 23 assegnazioni restano invariate, non riesaminate in questo lotto.
 
   Build pulita (0 problemi) dopo entrambe le parti. Contesti sotto le 45 parole: 411 -> 391.
+
+- 2026-09-04 UTC — Lotto 15 di riscrittura contesti (CATALOGO.md 6-ter), ripreso in autonomia
+  seguendo l'ordine di `tools/contesti_da_ampliare.py` (opere con più citazioni da riscrivere,
+  poi contesto più corto).
+
+  **18 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Boezio
+  «Della consolazione della filosofia» (3, da Wikisource, Libro I prosa VI e Libro III prosa
+  II/X), Vittorio Alfieri «Vita» (2, da Wikisource, l'incipit dell'autobiografia e l'episodio
+  d'infanzia sulla paura reciproca), Michael Ondaatje «Il paziente inglese» (1: la citazione a
+  p. 336 si è rivelata essere l'incipit stesso del romanzo, non un passo interno), Marilynne
+  Robinson «Gilead» (1: l'incipit, aggiunto anche `speaker: John Ames` per coerenza con l'altra
+  citazione dello stesso narratore già presente in archivio), Anna Maria Ortese «Il mare non
+  bagna Napoli» (1, dal saggio «Chiaia morta e inquieta»), Anne Frank «Diario» (3, verificate
+  sulla pagina Wikiquote primaria — nessuna data di voce disponibile per queste tre, a differenza
+  dell'incipit che è datato), Natalia Ginzburg «Le piccole virtù» (1), Oscar Wilde «Il ritratto
+  di Dorian Gray» (1), Gabriel García Márquez «Cent'anni di solitudine» (2: incipit e chiusa),
+  Margaret Atwood «Il racconto dell'ancella» (1, l'incipit), Fëdor Dostoevskij «I fratelli
+  Karamazov» (2, già con `speaker` compilato in un lotto precedente).
+
+  **Lasciate com'erano, con motivo**: Anna Maria Ortese, la citazione «Qui, il mare non bagnava
+  Napoli...» — nessun `source_url` in archivio, e una ricerca indipendente la colloca nel
+  racconto «Oro a Forcella», non necessariamente all'incipit del libro come dice il campo
+  `source_locus`: senza una fonte primaria da aprire, non ho scritto un contesto che avrei dovuto
+  in parte inventare. Michael Ondaatje, «Tutto ciò che desideravo era camminare su una terra che
+  non aveva carte geografiche» — nessun `source_url`. Marilynne Robinson, la citazione sulla
+  «lunga notte che precedette questi miei giorni di felicità» — nessun `source_url`, anche se
+  probabilmente fa parte dello stesso incipit dell'altra citazione riscritta in questo lotto.
+  Natalia Ginzburg, «Essere capiti vuol dire...» — una ricerca ha sollevato il dubbio che
+  appartenga a un'altra raccolta («Mai devi domandarmi») e non a «Le piccole virtù» come dice il
+  campo `title`: non essendo compito di questo lotto correggere titoli, e non potendo scrivere un
+  contesto certo su un'attribuzione incerta, l'ho lasciata. Goliarda Sapienza «L'arte della
+  gioia» (2 citazioni) e Susanna Tamaro «Ascolta la mia voce» (2): nessuna fonte online porta al
+  passo, solo elenchi di citazioni isolate. Louisa May Alcott «Piccole donne»: l'unica edizione
+  italiana integrale reperibile online (Liber Liber) ha restituito errore 403.
+
+  **Nota tecnica**: durante il commit, git ha bloccato le operazioni con una serie di lock file
+  residui (`index.lock`, `HEAD.lock`, `packed-refs.lock`, `objects/maintenance.lock`,
+  `refs/stash.lock`, `refs/heads/main.lock`, due lock sotto `refs/remotes/`) lasciati da una
+  manutenzione automatica di git (`git maintenance`/gc) interrotta, non da un processo attivo:
+  verificato con `ps aux` che nessun processo git fosse in esecuzione, e che i lock fossero stabili
+  nel tempo. Rimossi solo quei file dopo conferma esplicita dell'utente; nessuna operazione
+  distruttiva sulla cronologia o sul working tree.
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 391 -> 373.
