@@ -2055,3 +2055,25 @@
 
   `python3 tools/contesti_da_ampliare.py`: **217 → 197** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-04 UTC — **Lotto 1, quarto giro: altre 20 citazioni riscritte**, su istruzione
+  esplicita di procedere senza interruzioni fra un lotto e l'altro. Saba «Amai» (il manifesto
+  poetico, «Mediterranee»), Pavese «Verrà la morte e avrà i tuoi occhi» (Constance Dowling,
+  senza indicare il suicidio se non come cornice biografica già nota, non come esito narrato),
+  Adichie «Americanah», Dostoevskij «Memorie dal sottosuolo», Hamsun «Fame» (fermato alla
+  fama internazionale ottenuta dal libro, non alla fuga finale del protagonista), Vargas Llosa
+  «La zia Julia e lo scribacchino» (fermato alla premessa autobiografica, senza il matrimonio
+  finale né la follia di Camacho, entrambi trovati in una fonte e scartati), Mahfouz «Il ladro e
+  i cani» (fermato al rifugio presso lo sceicco sufi, senza il tentativo di vendetta e l'errore
+  tragico che segue, trovati e scartati), Weil «L'ombra e la grazia» (la storia editoriale
+  postuma, curata da Thibon), Mann «La montagna incantata», Hugo «I miserabili», Nabokov «Fuoco
+  pallido» (Kinbote narratore inattendibile), Faulkner «Requiem per una monaca» (fermato alla
+  struttura ibrida romanzo/dramma, senza il delitto di cui parla il libro — trovato e scartato,
+  è il caso più delicato del lotto), Christie «Dieci piccoli indiani» (la sola premessa, dieci
+  ospiti su un'isola, nessun accenno a chi o come), Manzoni «Il cinque maggio», Nin «Diario I»,
+  Dickens «Oliver Twist», Shafak «Le quaranta porte», Vittorini «Conversazione in Sicilia»
+  (verificata la lettera del padre che annuncia l'abbandono della madre, dettaglio spesso
+  confuso nelle fonti secondarie), Kafka «Il Castello», Henry James «Ritratto di signora».
+
+  `python3 tools/contesti_da_ampliare.py`: **197 → 177** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
