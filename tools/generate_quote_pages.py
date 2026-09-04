@@ -16,10 +16,59 @@ import urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
 
+
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 INDEX = os.path.join(ROOT, 'index.html')
 OUT_DIR = os.path.join(ROOT, 'citazioni')
 SITE_URL = 'https://sottolineature.it'
+
+SAMEAS_PATH = os.path.join(ROOT, 'data', 'autori_sameas.json')
+
+
+def carica_sameas():
+    """Wikipedia e Wikidata di ogni autore, risolti e verificati una volta.
+
+    Stavano solo sugli hub /autori/<slug>/, che sono 257 e quasi nessuno
+    cerca. Le pagine che la gente trova sono le 749 citazioni, e li' il nodo
+    Person era un nome senza appigli: un motore non ha modo di sapere che
+    quell'Albert Camus e' Q34670. Google non unisce i grafi di pagine diverse,
+    quindi il collegamento va ripetuto dove serve.
+    """
+    if os.path.exists(SAMEAS_PATH):
+        with open(SAMEAS_PATH, encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+
+SAMEAS = carica_sameas()
+
+ANNO_PULITO = re.compile(r'^\s*(\d{1,4})\s*$')
+
+
+def data_pubblicazione(anno):
+    """Il campo datePublished, ma solo quando e' davvero una data.
+
+    Trentotto citazioni e quattro opere portavano anni che una data non sono:
+    "397-400 d.C. ca.", "IV secolo a.C.", "1833 (comp.), 1842", "Antichita'".
+    Finivano tali e quali dentro datePublished, che per schema.org vuole una
+    data ISO 8601: "1349-1353" si legge come mese tredici, "Antichita'" non si
+    legge affatto. Un valore invalido non e' neutro - Search Console lo
+    segnala come errore e puo' portarsi dietro l'intero risultato arricchito.
+
+    Regola: se e' un anno e basta lo dichiariamo come data (con lo zero
+    davanti dove serve, perche' l'anno 49 in ISO si scrive 0049); in tutti
+    gli altri casi niente datePublished e la dicitura umana va in
+    temporalCoverage, che il testo libero lo accetta. Sulla pagina l'anno
+    resta scritto com'e': la datazione incerta di un testo antico e' un fatto,
+    non un difetto da nascondere.
+    """
+    anno = (anno or '').strip()
+    if not anno:
+        return {}
+    m = ANNO_PULITO.match(anno)
+    if m:
+        return {'datePublished': m.group(1).zfill(4)}
+    return {'temporalCoverage': anno}
 SLUGS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'slugs.json')
 REDIRECTS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'redirects.json')
 DATA_PATH = os.path.join(ROOT, 'data', 'citazioni.json')
@@ -667,7 +716,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
                 '@id': book_id,
                 'name': book_name,
                 'author': {'@id': author_id},
-                **({'datePublished': q['year']} if q['year'] else {}),
+                **data_pubblicazione(q['year']),
                 **({'translator': {'@type': 'Person', 'name': q['source_translator']}} if q.get('source_translator') else {}),
             },
             {
@@ -675,6 +724,9 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
                 '@id': author_id,
                 'name': q['author'],
                 'url': SITE_URL + '/autori/' + author_slug + '/',
+                **({'sameAs': [SAMEAS[q['author']][k] for k in ('wikipedia', 'wikidata')
+                               if SAMEAS[q['author']].get(k)]}
+                   if SAMEAS.get(q['author']) else {}),
             },
             {
                 '@type': 'BreadcrumbList',

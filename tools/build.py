@@ -12,6 +12,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import generate_home as gh  # noqa: E402
 import check_links
+import controlla_jsonld
 import generate_mine_page as mine
 import generate_quote_pages as qp  # noqa: E402
 import generate_hub_pages as hp  # noqa: E402
@@ -252,6 +253,12 @@ def main():
     # invece di scoprirlo mesi dopo da un utente.
     print()
     link_problems = check_links.main()
+    print()
+    # I dati strutturati sono l'unica parte del sito che non si vede
+    # guardandola: un valore invalido non rompe niente a schermo, sparisce
+    # solo il risultato arricchito su Google. Quindi si controlla a ogni
+    # build, come i link.
+    jsonld_problems = controlla_jsonld.main()
     print()
 
     print('--- Rapporto build.py ---')

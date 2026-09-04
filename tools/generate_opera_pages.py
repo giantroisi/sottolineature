@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from generate_quote_pages import ROOT, SITE_URL, slugify  # noqa: E402
+from generate_quote_pages import ROOT, SAMEAS, SITE_URL, data_pubblicazione, slugify  # noqa: E402
 
 OPERE_PATH = os.path.join(ROOT, 'data', 'opere.json')
 OUT_DIR = os.path.join(ROOT, 'opere')
@@ -201,13 +201,16 @@ def render_opera(op, items):
                 '@id': book_id,
                 'name': op['title'],
                 'author': {'@id': author_id},
-                **({'datePublished': op['year']} if op.get('year') else {}),
+                **data_pubblicazione(op.get('year')),
             },
             {
                 '@type': 'Person',
                 '@id': author_id,
                 'name': op['author'],
                 'url': SITE_URL + '/autori/' + author_slug + '/',
+                **({'sameAs': [SAMEAS[op['author']][k] for k in ('wikipedia', 'wikidata')
+                               if SAMEAS[op['author']].get(k)]}
+                   if SAMEAS.get(op['author']) else {}),
             },
             {
                 '@type': 'CollectionPage',
