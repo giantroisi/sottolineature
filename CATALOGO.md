@@ -364,14 +364,56 @@ Stato aggiornato al **2026-09-04** (numeri rimisurati, non ereditati dal registr
 
 | | lotto | stato |
 |---|---|---|
-| 0 | **Rifiniture: i 21 «L'incipit del romanzo» e due generi** | **il prossimo** — comando qui sotto |
+| 0 | **I 61 contesti che lasciano la descrizione uguale alla citazione** | **il prossimo**, `python3 tools/contesti_da_ampliare.py --descrizione` |
+| 0-bis | Rifiniture: i 21 «L'incipit del romanzo» e due generi | dopo il lotto 0, comando piu' sotto |
 | 1 | Riscrittura dei contesti brevi | in corso: **92** sotto le 20 parole, 78 fra 20 e 29, 158 fra 30 e 44 (328 sotto le 45 in tutto) |
 | 2 | Genere alle opere che ne sono prive | in corso: **344 opere su 577** ancora senza (427 citazioni) |
 | 3 | Ampliamento delle 20 raccolte tematiche rimaste | in corso: **399 citazioni su 749 (53%)** in almeno una raccolta. Le piu' fruttuose ora: `notte` +18, `felicita` +17, `ricordo-e-memoria` +15, `donne` +14, `guerra` +13 |
 | 4 | «Frasi brevi» e «Incipit memorabili» | in coda, criterio diverso: vedi nota in fondo. Sono le due piu' grosse: 158 e 140 candidate |
 | 5 | Copertine delle opere rimaste | **sbloccato e fatto in parte il 2026-09-04**: l'utente ha accettato l'edizione originale. Da 169 opere senza copertina a **111** (121 citazioni). Le rimaste non hanno un'immagine su Open Library nemmeno col titolo originale, o ce l'hanno inutilizzabile |
 
-### 0. Rifiniture: i 21 «L'incipit del romanzo» e due generi
+### 0. I 61 contesti che lasciano la descrizione uguale alla citazione
+
+Nato da una misura del 2026-09-04, dopo che la meta description e' passata a
+costruirsi sul contesto (`generate_quote_pages.py`, `DESC_MIN_CONTEXT = 80`).
+La descrizione ora e' buona quasi ovunque — mediana 151 caratteri, **nessuna
+oltre 155**, cioe' sotto la soglia in cui Google tronca — ma **61 pagine hanno
+un contesto sotto gli 80 caratteri e ripiegano sulla citazione**: nel risultato
+di ricerca mettono esattamente la riga che il lettore vedra' cliccando.
+
+E' il sottoinsieme che rende di piu' di tutta la coda: la descrizione e' la riga
+che decide il clic, e li' oggi non c'e' scritto niente che la frase non dica
+gia'. Vale piu' del genere (che aggiunge righe a sei hub gia' esistenti) e piu'
+delle raccolte.
+
+Due vincoli che prima non c'erano:
+- **la descrizione si taglia a 155 caratteri**, quindi la prima frase del
+  contesto si porta via tutto lo spazio: deve aprire con la sostanza, non con
+  «L'incipit del romanzo.»;
+- resta il bersaglio di 60-90 parole del punto 6-ter: i primi 155 caratteri
+  fanno la descrizione, il resto fa la pagina.
+
+```
+Leggi CATALOGO.md, punto 6-ter (il contesto) e il punto 0 di questa sezione.
+
+Lancia `python3 tools/contesti_da_ampliare.py --descrizione`: sono 61 citazioni
+il cui contesto sta sotto gli 80 caratteri. Per ognuna la meta description
+ripiega sulla citazione stessa, cioe' il risultato di ricerca ripete la frase
+che si vedra' aprendo la pagina.
+
+Riscrivi il contesto di quelle 61 a 60-90 parole, con due accortezze:
+1. i primi 155 caratteri diventano la descrizione nei risultati di ricerca:
+   apri con quello che quella pagina ha di suo (chi parla, in che punto
+   dell'opera siamo, perche' quella riga conta), mai con «L'incipit del
+   romanzo» o «Dalla poesia X»;
+2. niente che il lettore possa gia' leggere sopra: non ripetere la frase, non
+   parafrasarla.
+
+Solo data/citazioni.json e LOG.md. A fine lotto rilancia il comando: il numero
+deve scendere, e la riga di riepilogo dice esattamente cosa sta contando.
+```
+
+### 0-bis. Rifiniture: i 21 «L'incipit del romanzo» e due generi
 
 Nato da una verifica del 2026-09-03: il registro del lotto 4 dei contesti dichiarava esaurita la
 fascia sotto le 20 parole con «7 rimasti», ma ricostruendo i numeri commit per commit ne

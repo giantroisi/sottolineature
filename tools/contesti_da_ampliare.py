@@ -20,6 +20,15 @@ Uso:
     python3 tools/contesti_da_ampliare.py             riepilogo per opera
     python3 tools/contesti_da_ampliare.py 12          le prime 12 da scrivere
     python3 tools/contesti_da_ampliare.py --dialoghi  quelle con un personaggio
+    python3 tools/contesti_da_ampliare.py --descrizione  quelle la cui descrizione
+                                          nei risultati di ricerca ripiega sulla citazione
+
+Da quando la meta description e' costruita sul contesto (generate_quote_pages.py,
+DESC_MIN_CONTEXT), un contesto sotto gli 80 caratteri non e' piu' soltanto una
+pagina magra: la pagina ripiega sulla citazione, cioe' mette nel risultato di
+ricerca esattamente la riga che il lettore vedra' cliccando. Sono 61 pagine, ed
+e' il sottoinsieme che rende di piu': la descrizione e' la riga che decide il
+clic, e li' oggi non c'e' scritto niente che la frase non dica gia'.
 """
 import collections
 import json
@@ -75,6 +84,7 @@ def scheda(q, n_opera):
 def main():
     argomenti = sys.argv[1:]
     solo_dialoghi = '--dialoghi' in argomenti
+    solo_descrizione = '--descrizione' in argomenti
     numeri = [a for a in argomenti if a.isdigit()]
     quante = int(numeri[0]) if numeri else 0
 
@@ -82,6 +92,10 @@ def main():
     corti, per_opera = da_fare(quotes)
     if solo_dialoghi:
         corti = [q for q in corti if DIALOGO.search(q['quote'])]
+    if solo_descrizione:
+        # la stessa soglia di generate_quote_pages.DESC_MIN_CONTEXT
+        corti = [q for q in corti
+                 if len(' '.join((q.get('context') or '').split())) < 80]
 
     lunghezze = sorted(parole(q.get('context')) for q in quotes)
     mediana = lunghezze[len(lunghezze) // 2]
@@ -97,8 +111,15 @@ def main():
     for eti, lo, hi in fasce:
         n = sum(1 for v in lunghezze if lo <= v < hi)
         print('   %-12s %4d' % (eti, n))
-    print('Sotto le %d parole: %d in tutto%s' % (SOGLIA, len(corti),
-                                                 ' (solo quelle con un dialogo)' if solo_dialoghi else ''))
+    # Il filtro cambia cosa si sta contando, e la riga deve dirlo: e' la stessa
+    # trappola del lotto del 2026-09-03, un numero vero sotto un'etichetta
+    # sbagliata.
+    if solo_descrizione:
+        print('Con la descrizione che ripiega sulla citazione (contesto sotto '
+              'gli 80 caratteri): %d' % len(corti))
+    else:
+        print('Sotto le %d parole: %d in tutto%s' % (SOGLIA, len(corti),
+              ' (solo quelle con un dialogo)' if solo_dialoghi else ''))
     print('Bersaglio: 60-90 parole di testo originale per citazione.')
     print()
 
