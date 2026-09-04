@@ -1557,3 +1557,30 @@
   Build pulita, check_links a zero problemi. `index.html` e `templates/home_template.html` esclusi
   dal mio commit precedente perché mostravano una modifica in corso (non mia) sul toggle dei
   filtri; risolto poi dal commit dell'altra sessione stessa.
+
+- 2026-09-04 UTC — Raccolte lotto 4 e 5: **natura** (+7, 21→28, senza episodi di convivenza) e poi
+  **occhi-e-sguardo**: le mie 15 proposte erano di nuovo tutte già dentro (terza volta che questo
+  succede sulla stessa identica raccolta scelta da entrambe le sessioni), quindi spostato il
+  lavoro su **morte** (+11, 24→35): Pirandello, Faulkner, Müller, Ariosto, Fenoglio, Soyinka,
+  Gibran, Whitman, Morante, Alfieri, Salinger — letti uno per uno, scartando gli idiomi («stanche
+  morte» di Pavese, «colpo d'occhio» di Schopenhauer, «un cadavere attira le mosche» di Coetzee:
+  nessuno di questi parla davvero di morte).
+
+  **Terzo episodio di convivenza, di tipo diverso dai primi due.** Questa volta non un commit
+  altrui che inglobava le mie modifiche non committate, ma una vera corsa sull'indice di git
+  condiviso: un `git add` esplicito su 4 file miei si è ritrovato, un attimo dopo, con centinaia
+  di file dell'altra sessione già in staging (il suo lavoro sui dati strutturati — `sameAs` verso
+  Wikipedia/Wikidata — toccava tutte le 749 pagine citazione). Risolto con `git reset` (annulla
+  solo lo stage, non tocca il working tree) e un nuovo `git add` mirato, ma anche quello è stato
+  raggiunto da un commit altrui prima che riuscissi a fare il mio: verificato con `git show
+  <hash>:data/raccolte.json` che **morte** e **occhi-e-sguardo** erano comunque presenti nel
+  commit `7d39e0a` — di nuovo nessun dato perso. Trovato anche un effetto collaterale innocuo:
+  `raccolte/occhi-e-sguardo.html` era rimasto al conteggio vecchio (9) perché quel commit non
+  includeva un build successivo alla scrittura dei dati; rigenerato e committato a parte.
+
+  Non è più un caso isolato: **due sessioni che lavorano sullo stesso `data/raccolte.json` nella
+  stessa cartella, a questa cadenza di commit, si scontreranno quasi sempre.** Nessun danno finora
+  — i dati arrivano comunque a destinazione — ma l'attribuzione nel registro ne risente, ed è
+  quello che sto ricostruendo qui a mano ogni volta.
+
+  Build pulita, check_links a zero problemi dopo ogni verifica.
