@@ -1617,6 +1617,26 @@
 
   Build pulita, check_links a zero problemi.
 
+- 2026-09-04 UTC — Verifica finale sulle raccolte: riletti a mano i residui di guerra (13),
+  animali (11), mare (10), occhi-e-sguardo (10), donne (14), libri-e-scrittura (20) e natura (19)
+  — le sette con più candidate rimaste. **Nessuna aggiunta**: sono, senza eccezioni, gli stessi
+  falsi positivi già scartati nei lotti precedenti (la radice `esercit-` che cattura sia
+  «esercito» sia «esercitare», «natura» nel senso filosofico di «per natura» invece che paesaggio,
+  «cavallier» che è «cavaliere» non «cavallo», «leggero» che cattura anche «leggere», nomi propri
+  minuscoli come «donna Arminda», idiomi come «il lupo perde il pelo»). Non è pigrizia: è la
+  differenza fra una selezione curata e un elenco per parola chiave di cui parla CATALOGO.md —
+  qui il setaccio ha smesso di trovare pesce nuovo.
+
+  **Chiusura di questa fase**: 25 raccolte su 27 riprese almeno una volta in questa sessione (le
+  due mancanti, frasi-brevi e incipit, restano fuori di proposito: hanno un criterio meccanico —
+  lunghezza e posizione nel testo — non tematico, e CATALOGO.md le assegna a un lavoro a parte,
+  con un giudizio diverso: «questa frase regge da sola», non «parla di questo»). **228 citazioni
+  aggiunte in totale a 25 raccolte, in 14 lotti**: da 234 a 419 citazioni coperte, dal 39% al 56%
+  dell'archivio in almeno una raccolta. Le tre raccolte più cresciute: sogni (8→20), tristezza
+  (8→25), notte (9→26). Per riaprire questo lavoro in futuro: se l'archivio cresce ancora,
+  `tools/raccolte_da_ampliare.py` troverà nuove candidate genuine fra le citazioni non ancora
+  esistenti oggi — non ha senso rileggere le stesse scartate qui.
+
 - 2026-09-04 UTC — Raccolte lotti 9-11, senza episodi di convivenza (l'utente ha avvertito la
   sessione parallela di lasciare spazio a questo lavoro).
 
