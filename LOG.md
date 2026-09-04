@@ -1452,3 +1452,16 @@
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 334 -> 331,
   contesti assenti: 1 -> 0 — nessuna citazione in tutto l'archivio è più priva di contesto.
+
+- 2026-09-04 UTC — Lotto 24 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo.
+
+  **3 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Lev Tolstoj
+  «La morte di Ivan Il'ič» (l'incipit — questa citazione era rimasta senza contesto ampliato dal
+  2026-09-03, quando la fonte allora collegata non riportava il testo; oggi il campo `source_url`
+  in archivio punta a una pagina diversa, la voce Wikiquote generale su Tolstoj, che riporta il
+  passo per intero: probabilmente aggiornato da chi lavora in parallelo su questo stesso
+  archivio), Sylvia Plath «Attraversando l'acqua» (poesia «Specchio», p. 209 — diversa dalla
+  raccolta «La campana di vetro» già trattata nel lotto 18), Zadie Smith «Il blues della
+  biblioteca» (Internazionale, luglio 2012).
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 331 -> 328.
