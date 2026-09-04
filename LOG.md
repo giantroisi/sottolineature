@@ -1496,3 +1496,41 @@
   origin (nessuna divergenza), quindi niente `pull --rebase` necessario, solo push diretto. Nella
   cartella di lavoro erano presenti modifiche non mie a `tools/generate_*`, `templates/`,
   `assets/site.css`, `metodo.html`, `privacy.html`: lasciate intatte, non incluse nel commit.
+
+- 2026-09-04 UTC — Raccolte lotto 2, con un episodio di convivenza da segnalare, non un errore ma
+  degno di nota per chi legge questo registro.
+
+  Ripreso lo stesso lavoro (CATALOGO.md 6-bis) su altre quattro raccolte: **amicizia** (letto un
+  candidato per volta, scartando gli usi vocativi di «amico» che non sono sull'amicizia — Platone,
+  Cervantes, Tasso, dove è solo un modo di rivolgersi a qualcuno, non il tema della frase), **mare**
+  (scartato «sul livello del mare» di Blixen e le «onde» di Alfieri, che in italiano antico è la
+  congiunzione «onde» = «per cui», non le onde del mare — due false corrispondenze da ricerca per
+  parola), **animali** (la raccolta più selettiva: quasi tutti i candidati erano usi metaforici di
+  «bestia»/«lupo» — Sartre, Roy, un modo di dire su Vargas Llosa — non animali veri), **guerra**
+  (trovato che la parola-chiave `esercit-` in `tools/raccolte_da_ampliare.py` cattura sia
+  «esercito» sia «esercitare»/«esercizio»: quasi tutti i candidati di guerra erano di questo
+  secondo tipo, falsi positivi — non ho toccato lo strumento, fuori dal perimetro di questo
+  compito, ma lo segnalo per chi vorrà affinarlo).
+
+  Nel momento di scrivere il lotto, un'altra sessione stava lavorando in parallelo esattamente
+  sulle stesse quattro raccolte: il mio script di applicazione ha trovato tutte e venti le mie
+  proposte già presenti in `data/raccolte.json` (non ancora committate), segno che le due sessioni
+  erano arrivate, in autonomia, alle stesse scelte quasi parola per parola. Spostato quindi il
+  lavoro su una quinta raccolta non ancora toccata, **libri-e-scrittura** (38 candidate, la più
+  numerosa dopo le due escluse per criterio meccanico): **18 citazioni aggiunte**, da Baudelaire
+  («Bisogna essere sempre ubriachi...») a Heaney, Hugo, Hemingway, Saba, Achebe, Lorde, Austen,
+  Merini, Woolf, Sartre, Ungaretti, De Luca, Saint-Exupéry, Sinclair Lewis, Epitteto, Tamaro.
+  Scartati i falsi positivi della radice `legger-`, che cattura sia «leggere» (il verbo) sia
+  «leggero/leggeri/leggerezza» (il contrario di pesante) — quattro citazioni di Alcott, DeLillo,
+  Hamsun e Achmatova erano di questo secondo tipo e non c'entravano nulla con la lettura.
+
+  **L'episodio**: mentre scrivevo questo lotto, l'altra sessione ha completato il proprio lavoro
+  (una funzione «il sito funziona senza JavaScript», su file che non ho toccato) e ha fatto commit
+  e push prima di me. Il suo commit, arrivato mentre le mie 18 aggiunte a `data/raccolte.json`
+  erano ancora scritte su disco ma non committate, le ha inglobate — la cartella di lavoro è
+  condivisa fra le sessioni, quindi un commit prende quello che trova. Verificato con `git diff`
+  e `git log` che **nessun dato è andato perso**: le 18 citazioni di libri-e-scrittura sono
+  presenti nel commit `c775915`, insieme alle sue modifiche. Non ho corretto il commit (mai
+  `amend` o `rebase` su cronologia già pubblicata): il registro corregge se stesso con una nota,
+  non riscrive quello che è già successo. Build pulita e check_links a zero problemi dopo la
+  verifica.
