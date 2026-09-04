@@ -1248,6 +1248,14 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   HEAD che avanza e' vivo, e allora si aspetta. Aspettare costa due minuti, sbagliare costa un
   commit altrui.
 
+- **Sitemap mandata a Search Console il 2026-09-04** — `https://sottolineature.it/sitemap.xml`,
+  1.119 URL, file unico (non un indice), dichiarata anche in `robots.txt`. Chiesta l'indicizzazione
+  di `/privacy/`, l'unica pagina mai segnalata prima. **Da qui parte l'unica attesa che conta**: fra
+  il 10 e il 12 settembre si guarda quante pagine sono entrate davvero, quali hub ricevono
+  impressioni e con quali chiavi. Quel dato riordina tutta la coda dei contenuti, che finora e'
+  stata ordinata a intuito. Finche' non c'e', ogni priorita' e' una scommessa: se le pagine
+  indicizzate sono poche decine invece di mille, il problema non e' nessuno di quelli in coda.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.
