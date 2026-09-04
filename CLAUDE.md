@@ -1256,6 +1256,19 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   stata ordinata a intuito. Finche' non c'e', ogni priorita' e' una scommessa: se le pagine
   indicizzate sono poche decine invece di mille, il problema non e' nessuno di quelli in coda.
 
+- **Verifica dei 58 contesti riscritti, 2026-09-04** — misurati e letti, non solo contati.
+  Lunghezza: tutti fra 60 e 90 parole (min 60, mediana 65, max 78). Zero aprono con la
+  collocazione o una formula generica. Zero ripetono, nei primi 155 caratteri, le parole piene
+  della citazione. Letti per esteso, dicono chi parla, dove siamo e cosa c'e' in gioco: il livello
+  e' quello del modello di 6-ter. **Unica falla, tre casi su 58**: anticipavano come finisce il
+  libro, e la regola non c'era — ora e' in 6-ter.
+- **Sonnet committa solo `data/citazioni.json`, e non sempre** — verificato commit per commit: i
+  cinque lotti "Descrizione" hanno toccato **un file ciascuno**, zero pagine rigenerate, mentre
+  altri suoi commit (`21c82ad3`) ne includevano 750. Per mezza giornata cinque lotti di contenuto
+  non sono mai arrivati in linea: il sito serviva l'HTML committato, e quello era vecchio. Se ne e'
+  accorto per caso il commit delle storie, che li ha portati dentro. **Va messo nel comando ogni
+  volta**: a fine lotto `python3 tools/build.py` e commit dell'HTML rigenerato, non solo del dato.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.

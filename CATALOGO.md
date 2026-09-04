@@ -294,6 +294,15 @@ promette a chi legge.
    al cardinal Federigo Borromeo, che lo rimprovera per essersi rifiutato di celebrare il
    matrimonio…»* — chi parla, a chi, in quale momento, e cosa c'è in gioco.
 
+   **Non si racconta come va a finire.** Regola aggiunta il 2026-09-04 verificando i 58 contesti
+   riscritti: due su tre delle eccezioni trovate anticipavano l'esito del libro — «lo condurrà
+   quasi alla rovina, prima di un finale che lo riporta, sconfitto ma vivo, dentro quella stessa
+   società», «verso la delusione che chiude il libro». Chi arriva su quella pagina cercando una
+   frase spesso il libro non l'ha letto: dirgli come finisce gli toglie il motivo di aprirlo. Si
+   dice dove siamo e cosa c'è in gioco **in quel punto**, non cosa succederà dopo. Fa eccezione
+   il fatto che la collocazione stessa richiede — «nell'ultima scena della tragedia» va detto, se
+   la frase sta li'.
+
    Non si allunga un contesto per farlo arrivare a 60 parole. Se non si sa altro dell'opera di
    quanto già scritto, si lascia com'è e si annota: un contesto corto e vero vale più di uno lungo
    e inventato. Per l'elenco di quelli da riprendere, in ordine di resa:
@@ -364,8 +373,8 @@ Stato aggiornato al **2026-09-04** (numeri rimisurati, non ereditati dal registr
 
 | | lotto | stato |
 |---|---|---|
-| 0 | **I 61 contesti che lasciano la descrizione uguale alla citazione** | **il prossimo**, `python3 tools/contesti_da_ampliare.py --descrizione` |
-| 0-bis | Rifiniture: i 21 «L'incipit del romanzo» e due generi | dopo il lotto 0, comando piu' sotto |
+| 0 | I 61 contesti che lasciano la descrizione uguale alla citazione | **quasi chiuso**: ne restano **3** (Arendt, de Beauvoir, Ginzburg). 58 riscritti, tutti fra 60 e 90 parole |
+| 0-bis | ~~Rifiniture: i 21 «L'incipit del romanzo»~~ | **fatta** (commit 7705db13): zero contesti dicono ancora solo «L'incipit del romanzo» |
 | 1 | Riscrittura dei contesti brevi | in corso: **92** sotto le 20 parole, 78 fra 20 e 29, 158 fra 30 e 44 (328 sotto le 45 in tutto) |
 | 2 | Genere alle opere che ne sono prive | in corso: **344 opere su 577** ancora senza (427 citazioni) |
 | 3 | Ampliamento delle 20 raccolte tematiche rimaste | in corso: **399 citazioni su 749 (53%)** in almeno una raccolta. Le piu' fruttuose ora: `notte` +18, `felicita` +17, `ricordo-e-memoria` +15, `donne` +14, `guerra` +13 |
