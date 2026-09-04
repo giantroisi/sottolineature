@@ -1377,3 +1377,15 @@
   un livello di conferma che ho considerato equivalente all'apertura diretta della fonte.
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 360 -> 354.
+
+- 2026-09-04 UTC — Lotto 18 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo.
+
+  **6 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Jack London
+  «Il richiamo della foresta» (da Wikiquote, cap. III), Mark Twain «Le avventure di Huckleberry
+  Finn» (l'avviso dell'autore, p. 11), Sylvia Plath «La campana di vetro» (p. 111, l'albero di
+  fico), Daphne du Maurier «Rebecca, la prima moglie» (cap. 9), Giorgio Bassani «Il giardino dei
+  Finzi-Contini» (parte III, cap. VI), Boris Pasternak «Il dottor Živago» (nessun `source_url` in
+  archivio: verificato con una ricerca mirata sul testo esatto, riportato identico da più fonti
+  indipendenti).
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 354 -> 348.
