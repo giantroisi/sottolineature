@@ -1792,3 +1792,19 @@
 
   Totale sessione sul traduttore: **44 citazioni completate su 30 opere**. Build pulita,
   check_links a zero problemi. Nessun episodio di convivenza.
+
+- 2026-09-04 UTC — Traduttore, lotto 5: **7 citazioni completate su 7 opere**. Elie Wiesel «La
+  notte», Donna Tartt «Il cardellino», David Foster Wallace («Infinite Jest» e «Questa è
+  l'acqua», due traduttori diversi per due opere diverse dello stesso autore), Imre Kertész
+  «Essere senza destino», Herta Müller «Il paese delle prugne verdi», Doris Lessing «Il taccuino
+  d'oro». Scartato Henry James «Gli ambasciatori»: due traduzioni diverse trovate (Marcella
+  Bonsanti per Elliot 2016, Hilia Brinis per Frassinelli 1998), nessun modo di sapere quale sia
+  quella in archivio senza l'edizione. Scartato anche Edith Wharton «L'età dell'innocenza», stessa
+  ragione (edizioni Feltrinelli, Rizzoli e Bompiani, tutte diverse).
+
+  Solo `data/citazioni.json` in questo commit: l'albero di lavoro mostrava un cambio in corso non
+  mio ai generatori (`tools/generate_quote_pages.py`), che avrebbe reso ogni pagina rigenerata in
+  quel momento una mescolanza non attribuibile — le pagine si rigenereranno correttamente al
+  prossimo build pulito, come già successo altre volte in sessione.
+
+  Totale sessione: **51 citazioni completate su 37 opere**.
