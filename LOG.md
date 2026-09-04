@@ -2077,3 +2077,19 @@
 
   `python3 tools/contesti_da_ampliare.py`: **197 → 177** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-04 UTC — **Lotto 1, quinto giro: altre 20 citazioni riscritte**. Melville «Bartleby lo
+  scrivano», Saramago «Cecità» (ultime righe del libro: aggiunta solo la cornice — anno di
+  pubblicazione, Nobel — non altro contenuto oltre quello già nella citazione), Hawthorne «La
+  lettera scarlatta», Tagore «Uccelli migranti», Saba «Trieste», Woolf «Gita al faro» (stesso
+  trattamento di Saramago: ultime righe, cornice biografica di Lily Briscoe senza aggiungere
+  altro alla scena che il testo già mostra), Munro «Nemico, amico, amante...», Oz «Conoscere una
+  donna» (fermato al ritiro di Yoel dal Mossad, senza il seguito della ricerca), Lewis «Diario di
+  un dolore», Pavese «La luna e i falò», Hemingway «Festa mobile», Kafka «Lettera al padre»,
+  Murakami «1Q84» (fermato alla premessa — due protagonisti separati, un mondo con due lune —
+  senza avvicinarsi alla trama delle oltre mille pagine), Coetzee «La vita degli animali»,
+  Borges «L'Aleph»/L'immortale, Tolstoj «Anna Karenina», Duras «L'amante», Verlaine «Art
+  poétique», Zweig «Il mondo di ieri», Tamaro «Va' dove ti porta il cuore».
+
+  `python3 tools/contesti_da_ampliare.py`: **177 → 157** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
