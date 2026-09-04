@@ -1584,3 +1584,35 @@
   quello che sto ricostruendo qui a mano ogni volta.
 
   Build pulita, check_links a zero problemi dopo ogni verifica.
+
+- 2026-09-04 UTC — Raccolte lotti 6-8, ripresi su indicazione dell'utente ("gli ho chiesto di non
+  intaccarti, prova") dopo che l'utente stesso ha avvertito la sessione parallela di lasciare
+  spazio: da qui in avanti nessuna collisione sui contenuti, solo un paio di lock di git rimasti
+  da manutenzione automatica interrotta, stessa causa già diagnosticata prima in sessione.
+
+  **tristezza** (+17, 8→25): Dostoevskij, Pascoli («X Agosto»), David Foster Wallace, Platone,
+  Foscolo, Heaney, Remarque, Iris Murdoch, Tennyson, Lispector, due di Anna Achmatova, Verga,
+  Schopenhauer, Quasimodo, Octavia Butler, Verlaine («Piange nel mio cuore come piove sulla
+  città»). Scartato Salinger («che l'addio sia triste o brutto non me ne importa») perché il
+  soggetto è la sua indifferenza, non la tristezza, e Petrarca («triste Agatocle») perché lì
+  «triste» è un epiteto arcaico per «crudele», non l'emozione.
+
+  **cambiamento** (+15, 8→23): de Beauvoir («Donna non si nasce, lo si diventa»), Saint-Exupéry,
+  Saramago, Pirandello, Steinbeck, Martin, Ondaatje, Boezio, Didion («La vita cambia in fretta»),
+  Roy, due di Murgia, Baldwin, Pavese, Kundera. Scartati diversi «diverso» che in realtà
+  significano «differente da», non «cambiato» (Steinbeck «Uomini e topi», Adichie, Frankl,
+  Baricco «Novecento») — la stessa parola, due sensi, solo uno dei due è il tema della raccolta.
+
+  **figli** (+11, 9→20): Maraini, Aleramo, Murgia, Hugo, le due Morante, Moravia, Ginzburg,
+  Montaigne, Hoffmann («Lo Schiaccianoci», la sera di Natale in cui ai bambini Stahlbaum è
+  vietato entrare in salotto), Miller. Qui il criterio più utile è stato distinguere «nascere»
+  in senso esistenziale (Hesse, Merini — scartati) da «figli» come legame genitore-figlio, che è
+  il tema vero della raccolta secondo la sua stessa introduzione.
+
+  **Nota tecnica sui commit**: i lotti tristezza e cambiamento sono stati committati come solo
+  `data/raccolte.json` (senza le pagine generate), perché in quel momento il resto dell'albero
+  mostrava un cambio in corso non mio (CSS e generatori) che avrebbe reso ogni pagina generata
+  una mescolanza non attribuibile. Le pagine sono state rigenerate e committate correttamente nel
+  lotto figli, una volta che l'albero è tornato pulito.
+
+  Build pulita, check_links a zero problemi.
