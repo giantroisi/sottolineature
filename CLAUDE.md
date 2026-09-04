@@ -1172,6 +1172,33 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
 - **Copertine per le 11 citazioni che ne sono ancora prive** — recuperate 32/43 in totale il 2026-08-28 (dettagli in LOG.md); delle 11 restanti, 2 sono poesie senza edizione autonoma (Leopardi, Pascoli — irrecuperabili), le altre 9 non hanno restituito su Open Library un'edizione con copertina disponibile nemmeno cercando per titolo originale (Kundera, Kafka "Il Castello", Simone Weil, Elif Shafak, Čechov, più Camus "L'estate" e Beauvoir "Il secondo sesso" scartati per copertine sbagliate/parziali) — probabilmente da lasciare alla tile placeholder
 - **Stato della routine cloud automatica** — da riverificare con l'utente, non è implementabile in autonomia
 
+- **Divisione della home (30 righe in HTML + il resto da JSON)** — misurata prima di scriverla,
+  perche' tocca ricerca, filtri, sottolineature e ancore `#slug`, cioe' quattro cose che oggi
+  funzionano. Misura su 390px con rete a 1,6 Mbps, 150ms di latenza e CPU rallentata 4x:
+
+  | | home intera | home con 30 righe |
+  |---|---|---|
+  | LCP | 420 ms | 404 ms |
+  | CLS | 0.013 | 0 |
+  | load completo | 1,30 s | 0,67 s |
+  | tempo bloccato (TBT) | 211 ms | 90 ms |
+  | nodi | 8443 | 534 |
+  | trasferito | 157 KB gz | 63 KB gz (+76 KB gz di JSON dopo) |
+
+  Cioe': **LCP, che e' la metrica su cui Google giudica, non si muove** (la prima schermata e' il
+  logo e la citazione del giorno, che stanno in testa al file in tutti e due i casi). Guadagni
+  veri ma modesti: mezzo secondo sul load e 121 ms di TBT sotto un rallentamento 4x, che su un
+  telefono vero sono ~30 ms. In cambio la ricerca smetterebbe di funzionare appena l'HTML e'
+  letto e comincerebbe a funzionare quando arriva il JSON (piu' tardi di adesso), i byte totali
+  scenderebbero solo del 15% (102 KB contro 120), e i 719 link alle citazioni sparirebbero dalla
+  home, che smetterebbe di essere lo snodo da cui si raggiunge l'archivio (resta la paginazione
+  di `/citazioni/`, quindi non e' fatale, ma e' una perdita).
+  Il profilo della CPU dice che il tempo non se ne va nel nostro JS - il vocabolario della
+  ricerca e' gia' costruito in ritardo, alla prima ricerca a vuoto, e nessuna nostra funzione
+  supera i 20 ms - ma nel parsing e nel layout, che e' esattamente cio' che
+  `content-visibility: auto` sulle card gia' contiene. **Non fatta.** Da riaprire solo se LCP
+  supera 1,5 s o se l'archivio passa le ~1500 righe.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.
