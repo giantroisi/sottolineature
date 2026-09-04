@@ -100,6 +100,11 @@ TITLE_MAX = 64
 TITLE_MIN_INCIPIT = 30
 TITLE_MAX_INCIPIT = 48
 DESC_MAX = 155
+
+# Profili ufficiali dell'editore, usati come `sameAs` nello schema Organization.
+PROFILI_UFFICIALI = [
+    'https://www.instagram.com/sottolineature.it/',
+]
 # Sotto questa soglia il `context` e' troppo corto per fare da descrizione:
 # resterebbe un moncone e si torna alla citazione (61 pagine su 749).
 DESC_MIN_CONTEXT = 80
@@ -736,6 +741,11 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
                 '@id': SITE_URL + '/#publisher',
                 'name': 'Sottolineature',
                 'url': SITE_URL + '/',
+                # `sameAs` collega l'editore ai profili dove esiste anche fuori
+                # da questo dominio: e' cosi' che un motore di ricerca capisce
+                # che dietro il sito c'e' un soggetto e non un dominio isolato.
+                # Aggiungere qui ogni nuovo profilo ufficiale, e solo quelli.
+                'sameAs': PROFILI_UFFICIALI,
             },
             {
                 '@type': 'Quotation',
