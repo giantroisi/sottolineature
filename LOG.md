@@ -1828,3 +1828,20 @@
   generatori ancora in corso). Build pulita, check_links a zero problemi.
 
   **Totale sessione: 54 citazioni completate su 40 opere.**
+
+- 2026-09-04 UTC — Traduttore, lotto 7: **7 citazioni completate su 7 opere**. Albert Camus, tre
+  opere: «Lo straniero» (Alberto Zevi — verificato non solo per dominanza storica ma parola per
+  parola: l'incipit in archivio, «Oggi **la mamma** è morta», coincide con Zevi e non con la
+  versione più recente di Perroni, che apre con «Oggi è morta **mamma**», ordine delle parole
+  diverso), «La peste» (Beniamino Dal Fabbro), «Il mito di Sisifo» (Attilio Borelli, confermato
+  sulla frase finale «Bisogna immaginare Sisifo felice»). Cormac McCarthy «La strada» (Martina
+  Testa), Annie Ernaux «Gli anni» (Lorenzo Flabbi, che ha tradotto tutti i suoi libri per L'orma).
+  Chimamanda Ngozi Adichie «Americanah» (Andrea Sirotti). Chinua Achebe «Le cose crollano»: qui
+  di nuovo il titolo in archivio ha risolto il dubbio — la prima traduzione italiana del 1976 si
+  chiamava «Il crollo» (Silvana Antonioli Cameroni), quella più recente del 2016 ha il titolo
+  identico a quello in archivio, «Le cose crollano» (Alberto Pezzotta): è quest'ultima.
+
+  Solo `data/citazioni.json`, stesso motivo dei lotti precedenti. Build pulita, check_links a
+  zero problemi.
+
+  **Totale sessione: 61 citazioni completate su 47 opere.**
