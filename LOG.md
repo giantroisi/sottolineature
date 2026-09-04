@@ -1728,3 +1728,16 @@
   Restano da riprendere, in ordine di valore: le opere non italiane con più citazioni ancora
   senza traduttore (Dostoevskij, le due Brontë, Cicerone, Marco Aurelio, Epitteto — questi ultimi
   tre in latino/greco, quindi tradotti anch'essi), e via via le altre 300+ opere della lista.
+
+  **Correzione**, non della sessione parallela questa volta ma mia: nel tentativo di isolare le
+  mie 12 modifiche da quelle in corso altrove, a un certo punto ho sovrascritto
+  `data/citazioni.json` con una versione ricostruita da un HEAD ormai vecchio — per pochi minuti
+  il file su disco è stato privo delle 64 copertine appena recuperate dall'altra sessione, prima
+  che me ne accorgessi e lo ricostruissi da capo sull'HEAD corretto. In quella finestra qualcuno
+  ha salvato lo stato sbagliato, ed è dovuto intervenire un commit apposito dell'altra sessione
+  per rimetterle (`e249025f`, «Rimesse le 64 copertine che una risalvataggio aveva riportato
+  indietro»). Nessun dato è andato perso — le copertine sono tutte lì, verificato contandole
+  (628) — ma è stato un rischio inutile che mi sono creato da solo. **Lezione per la prossima
+  volta**: su un file condiviso e attivamente scritto da un'altra sessione, non ricostruirlo mai
+  da uno snapshot precedente per isolare le proprie modifiche — si modifica sempre lo stato
+  attuale sul disco, aggiungendo solo i propri campi, mai sostituendo il file intero.

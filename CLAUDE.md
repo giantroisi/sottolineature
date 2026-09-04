@@ -1220,6 +1220,34 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   `content-visibility: auto` sulle card gia' contiene. **Non fatta.** Da riaprire solo se LCP
   supera 1,5 s o se l'archivio passa le ~1500 righe.
 
+- **Copertine originali invece che italiane, 2026-09-04** — decisione dell'utente: «vanno bene anche
+  le copertine originali, meglio di niente». Opere senza copertina da **169 a 111**, citazioni da 185
+  a 121. Open Library non e' raggiungibile da nessuna delle due shell (l'egress consente solo i
+  registri dei pacchetti e github): la ricerca e' passata dal browser dell'utente, come per Wikidata.
+  Il titolo italiano da solo trova poco (45 su 169: Open Library indicizza *The Castle*, non *Il
+  Castello*); il secondo passaggio traduce il titolo via Wikidata verificando che l'autore
+  dell'elemento sia il nostro, e ne aggiunge 42. Delle 87 trovate ne sono rimaste **58**: 21
+  puntavano a un altro libro dello stesso autore (*L'estate* dava *The Myth of Sisyphus*,
+  *L'Assommoir* dava *Nana*) e 8 sono cadute guardando il provino — due erano il libro sbagliato,
+  cinque erano rilegature mute (a 60px un rettangolo blu senza scritte non si distingue da
+  un'immagine rotta, e la piastrella segnaposto e' piu' onesta), una aveva sopra il codice a barre
+  di una biblioteca. Le immagini stanno in `assets/covers/` come le altre: l'informativa dichiara
+  che il sito non contatta server esterni, e resta vero.
+- **Convivenza fra due sessioni: il file risalvato dalla memoria** — episodio del 2026-09-04, il
+  piu' costoso finora. Le 64 copertine appena committate sono tornate vuote perche' l'altra
+  sessione aveva `data/citazioni.json` in memoria da prima e lo ha risalvato: nessun conflitto
+  git, nessun errore, solo il lavoro sparito. **Regola: prima di risalvare un file condiviso,
+  rileggerlo dal disco.** E per rimediare non si ripristina il file intero dal proprio commit —
+  sarebbe lo stesso errore al contrario — ma si riporta il solo campo perduto dove adesso e'
+  vuoto, dopo aver verificato che il diff tocchi quel campo e nient'altro
+  (`tools/riapplica_copertine.py`).
+- **Il lock di git non si cancella al buio** — le due sessioni condividono `.git`. Un
+  `.git/index.lock` puo' essere un processo vivo dell'altra sessione: cancellarlo le rompe il
+  commit sotto le mani. Da distinguere prima: un lock **a zero byte, fermo da minuti, con HEAD
+  che non si muove e il branch allineato al remoto** e' un residuo; uno che cresce o accompagna un
+  HEAD che avanza e' vivo, e allora si aspetta. Aspettare costa due minuti, sbagliare costa un
+  commit altrui.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.

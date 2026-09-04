@@ -369,7 +369,7 @@ Stato aggiornato al **2026-09-04** (numeri rimisurati, non ereditati dal registr
 | 2 | Genere alle opere che ne sono prive | in corso: **344 opere su 577** ancora senza (427 citazioni) |
 | 3 | Ampliamento delle 20 raccolte tematiche rimaste | in corso: **399 citazioni su 749 (53%)** in almeno una raccolta. Le piu' fruttuose ora: `notte` +18, `felicita` +17, `ricordo-e-memoria` +15, `donne` +14, `guerra` +13 |
 | 4 | «Frasi brevi» e «Incipit memorabili» | in coda, criterio diverso: vedi nota in fondo. Sono le due piu' grosse: 158 e 140 candidate |
-| 5 | Copertine delle 169 opere rimaste | bloccato: su Open Library non esiste un'edizione italiana con immagine. Si sblocca solo cambiando fonte o accettando l'edizione originale — decisione dell'utente |
+| 5 | Copertine delle opere rimaste | **sbloccato e fatto in parte il 2026-09-04**: l'utente ha accettato l'edizione originale. Da 169 opere senza copertina a **111** (121 citazioni). Le rimaste non hanno un'immagine su Open Library nemmeno col titolo originale, o ce l'hanno inutilizzabile |
 
 ### 0. Rifiniture: i 21 «L'incipit del romanzo» e due generi
 
