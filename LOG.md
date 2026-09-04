@@ -1886,3 +1886,78 @@
 
   **Totale sessione: 66 citazioni completate su 52 opere**, su circa 136 ancora prive di
   traduttore fra le opere non italiane dell'archivio.
+
+- 2026-09-04 UTC — Nuovo compito, da CATALOGO.md 6-ter e 9-bis punto 0: 61 citazioni hanno un
+  contesto sotto gli 80 caratteri, quindi la meta description nei risultati di ricerca ripiega
+  sulla citazione stessa e ripete quello che il lettore vedrà comunque aprendo la pagina.
+  Riscritti a 60-90 parole, con apertura che dice qualcosa di proprio nei primi 155 caratteri
+  (mai «l'incipit di» o «dalla poesia X») e senza mai ripetere o parafrasare la frase già
+  citata sopra. Sette lotti, tutti verificati su fonte prima di scrivere (Wikiquote, ricerche
+  mirate su trama/biografia/edizione):
+
+  **Lotto 1 (12 citazioni)**: Pavese «La bella estate», Murakami «L'arte di correre», DFW «Una
+  cosa divertente che non farò mai più», Petrarca «Rime estravaganti», de Beauvoir «L'età
+  forte», Verga «Storia di una capinera», Flaubert «Bouvard e Pécuchet», Manzoni «Adelchi»,
+  Pascoli «Canti di Castelvecchio», Asimov «La fine dell'Eternità», Plath «Il colosso»,
+  Szymborska «Grande numero».
+
+  **Lotto 2 (9 citazioni)**: Lindgren «Pippi Calzelunghe», Dante «Purgatorio», Tolstoj «I
+  cosacchi», Adams «Ristorante al termine dell'universo» e «La vita, l'universo e tutto
+  quanto», Svevo «Una vita», Allende «Paula», Asimov «Destinazione Cervello», Weil
+  «Riflessioni sulle cause della libertà e dell'oppressione sociale».
+
+  **Lotto 3 (9 citazioni)**: Levi «Il sistema periodico», Pasolini «La Divina Mimesis», Neruda
+  «Confesso che ho vissuto», Eco «Numero zero», Orwell «Giorni in Birmania», Sartre «Le
+  parole», Petrarca «Lettera ai posteri», Flaubert «L'educazione sentimentale», Morante
+  «Aracoeli».
+
+  **Lotto 4 (6 citazioni)**: Twain «Le avventure di Tom Sawyer» e «L'uomo che corruppe
+  Hadleyburg», Sartre «La morte nell'anima», Saramago «Tutti i nomi», Zadie Smith «Il
+  fallimento riuscito», Kerouac «Angeli di desolazione».
+
+  **Lotto 5 (9 citazioni)**: Soyinka «L'uomo è morto», Amos Oz «Cari fanatici», Hamsun «Pan»,
+  Murgia «Accabadora», Orwell «Fiorirà l'aspidistra», Ungaretti «Vita d'un uomo», Svevo «Corto
+  viaggio sentimentale», Saint-Exupéry «Terra degli uomini», Tabucchi «Tristano muore».
+
+  **Lotto 6 (7 citazioni)**: Hugo «Il Novantatré» (chi è Cimourdain, il suo
+  legame col giovane Gauvain che dovrà poi condannare), Eco «L'isola del giorno prima» (la nave
+  Daphne, l'estate 1643, il naufragio di Roberto de la Grive), de Céspedes «Dalla parte di lei»
+  (Alessandra Corteggiani narratrice, la madre suicida per amore), Woolf «La camera di Jacob»
+  (la tecnica del romanzo, Jacob Flanders mai raccontato dall'interno), Poe «I delitti della
+  Rue Morgue» (il trattatello su scacchi, dama e whist che precede Dupin), Szymborska «Attimo»
+  (la «conoscenza unilaterale» del resto della poesia «Il silenzio delle piante», verificata sul
+  testo integrale per non inventare dettagli), Neruda «Odi elementari» (la raccolta del 1954,
+  il verso successivo a quello già citato).
+
+  **Lotto 7 (6 citazioni)**: Sapienza «L'arte della gioia» (due citazioni: la biografia di
+  Modesta — nata il 1° gennaio 1900, sopravvissuta all'incendio che sterminò la sua famiglia,
+  cresciuta fra convento e palazzo Brandiforti — e la storia editoriale del romanzo, rimasto
+  vent'anni inedito e pubblicato nel 1998, due anni dopo la morte dell'autrice), Deledda «La
+  chiesa della solitudine» (Maria Concezione, il cancro tenuto segreto, l'ultimo romanzo
+  pubblicato in vita da Deledda — corretto un mio primo errore: non è postumo, «Cosima» sì),
+  Murdoch «Una testa tagliata» (la trama del romanzo, Martin Lynch-Gibbon e Antonia, senza
+  attribuire la battuta a un personaggio preciso perché non verificabile), DFW «Il re pallido»
+  (la struttura del romanzo, capitoli quasi autonomi assemblati postumi da Michael Pietsch),
+  Weil «La rivelazione greca» (i testi scritti per un pubblico operaio, l'esperienza diretta
+  nelle fabbriche Renault).
+
+  **Scartate, genuinamente irrisolvibili — 3 restano**: Ginzburg «Le piccole virtù» (la
+  raccolta ha undici saggi diversi, e senza sapere da quale viene la frase a p. 149 scrivere il
+  contesto significherebbe indovinare); Arendt «Gli incidenti ai tempi della globalizzazione»
+  (l'articolo di Internazionale n. 767 del 2008 non si trova online, solo il riferimento
+  bibliografico); de Beauvoir «Il sangue degli altri» (la frase in archivio risulta in realtà
+  da un'altra opera, «Memorie di una ragazza perbene» — stessa famiglia di discrepanze già
+  incontrate con Ginzburg e Montgomery in lavori precedenti: non correggo il titolo, che esula
+  da questo compito, segnalo soltanto).
+
+  Verificato ogni lotto con `python3 tools/contesti_da_ampliare.py --descrizione`: 61 → 49 → 40
+  → 31 → 25 → 16 → 9 → **3**. Build pulita (`tools/build.py`, 0 title/description duplicati),
+  `check_links.py` a zero problemi.
+
+  Convivenza: durante questo lavoro la sessione parallela ha tenuto modifiche non committate a
+  `templates/home_template.html` e `tools/generate_quote_pages.py`. Il diff di
+  `data/citazioni.json` prima di ogni commit è stato controllato riga per riga per restare
+  entro le sole 6-13 righe di contesto riscritte in quel lotto; le pagine generate
+  (`citazioni/*.html`, `index.html`, ecc.) non sono state commesse in questo lotto perché
+  costruite sopra ai template ancora in corso d'opera altrove — restano da rigenerare, con
+  build pulita, quando quel lavoro sarà committato.
