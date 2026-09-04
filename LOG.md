@@ -1363,3 +1363,17 @@
   dell'altra citazione dello stesso romanzo riscritta in questo lotto.
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 375 -> 360.
+
+- 2026-09-04 UTC — Lotto 17 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo.
+
+  **6 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Dino Buzzati
+  «Il deserto dei Tartari» (da Wikiquote, cap. 7), Erri De Luca «Il giorno prima della felicità»
+  (da Wikiquote, p. 9), Isabel Allende «La casa degli spiriti» (da Wikiquote, cap. X), Viktor E.
+  Frankl «Uno psicologo nei lager», Robert Louis Stevenson «Lo strano caso del dottor Jekyll e
+  del signor Hyde» (la confessione finale, cap. X), Philip Roth «Pastorale americana» (il
+  narratore Nathan Zuckerman su Seymour Levov). Questi ultimi tre non avevano `source_url` in
+  archivio: verificati con una ricerca mirata sul testo esatto della citazione, che ha restituito
+  in ciascun caso lo stesso passo, con capitolo o sezione, riportato da più fonti indipendenti —
+  un livello di conferma che ho considerato equivalente all'apertura diretta della fonte.
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 360 -> 354.
