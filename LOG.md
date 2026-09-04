@@ -1465,3 +1465,34 @@
   biblioteca» (Internazionale, luglio 2012).
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 331 -> 328.
+
+- 2026-09-04 UTC — Raccolte lotto 1 (CATALOGO.md 6-bis, e il punto in coda in CLAUDE.md "Le
+  raccolte sono ferme alla taglia minima"): ripreso il lavoro dell'archivio partendo da
+  `CATALOGO.md`, come richiesto esplicitamente dall'utente.
+
+  Le 27 raccolte tematiche erano ferme alla soglia minima di otto citazioni da quando erano state
+  pubblicate (fra il 28 agosto e il 1 settembre), mentre l'archivio nel frattempo raddoppiava:
+  `tools/raccolte_da_ampliare.py` mostra 749 citazioni con solo 292 (39%) presenti in almeno una
+  raccolta. Lavorate le prime 7 raccolte (escluse di proposito «frasi-brevi» e «incipit», che
+  CATALOGO.md segnala come da trattare a parte perché hanno un criterio meccanico e non tematico):
+  ogni candidata elencata dallo strumento è stata letta una per una, non incollata in blocco —
+  molte erano falsi positivi della ricerca per parola (es. «canto» nell'invocazione epica di
+  Ariosto/Tasso/Virgilio non è musica; «bella prima» in Verne è un modo di dire, non la bellezza;
+  «gioco» nel «campo da gioco di Satana» di Nabokov non è infanzia).
+
+  **32 citazioni aggiunte**: silenzio 9→10 (+1, Tolstoj), musica 8→9 (+1, Verlaine), arte 9→11
+  (+2, Mishima e Hornby), infanzia 9→14 (+5, fra cui Golding e due di Murgia), sogni 8→20 (+12 —
+  la raccolta più ricettiva: la sua stessa introduzione copre sia sogni nel sonno sia sogni come
+  aspirazione, quindi accetta candidate come Frankl, Canetti, Conrad, Hamsun che altrove sarebbero
+  state escluse), bellezza 8→13 (+5, tenendo fuori ogni «bello» puramente descrittivo — Andersen,
+  Pavese, Murakami — a favore di citazioni dove la bellezza è davvero il soggetto, come Donna Tartt
+  «Dio di illusioni»), lavoro 10→16 (+6, tenendo fuori gli usi metaforici di «guadagnare»/«ufficio»
+  che non parlano di lavoro).
+
+  Build pulita (0 problemi), check_links a zero problemi. Restano 20 raccolte da riprendere nello
+  stesso modo, elenco e candidate sempre in `tools/raccolte_da_ampliare.py`.
+
+  Nota di convivenza: al momento del push, `git log` mostrava lo stesso commit di partenza su
+  origin (nessuna divergenza), quindi niente `pull --rebase` necessario, solo push diretto. Nella
+  cartella di lavoro erano presenti modifiche non mie a `tools/generate_*`, `templates/`,
+  `assets/site.css`, `metodo.html`, `privacy.html`: lasciate intatte, non incluse nel commit.
