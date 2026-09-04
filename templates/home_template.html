@@ -108,6 +108,12 @@
     margin: 0 0 0.7rem;
   }
 
+  /* --- testo per lettori di schermo e motori di ricerca: la home non carica
+         assets/site.css, quindi la regola va ripetuta qui. --- */
+  .visually-hidden {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+  }
   h1.title {
     margin: 0 0 1rem;
     line-height: 0;
@@ -1076,7 +1082,7 @@ html:not(.js) .js-only { display: none !important; }
   <div class="masthead-row">
   <div class="masthead">
     <p class="eyebrow sans">Una raccolta di citazioni</p>
-    <h1 class="title"><img src="/logo.svg" alt="Sottolineature" class="logo-mark"></h1>
+    <h1 class="title"><img src="/logo.svg" alt="" class="logo-mark"><span class="visually-hidden">Citazioni da libri: frasi celebri di romanzi, poesie e saggi</span></h1>
   </div>
 
   <section class="hero" id="hero">

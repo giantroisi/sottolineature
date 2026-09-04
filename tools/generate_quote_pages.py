@@ -100,6 +100,9 @@ TITLE_MAX = 64
 TITLE_MIN_INCIPIT = 30
 TITLE_MAX_INCIPIT = 48
 DESC_MAX = 155
+# Sotto questa soglia il `context` e' troppo corto per fare da descrizione:
+# resterebbe un moncone e si torna alla citazione (61 pagine su 749).
+DESC_MIN_CONTEXT = 80
 
 
 def quote_key(q):
@@ -631,9 +634,15 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     # Google taglia la descrizione intorno ai 155-160 caratteri: quello che sta
     # oltre non lo legge nessuno, e la coda troncata a meta' frase fa un effetto
     # peggiore di una frase corta.
-    description = ('«' + q['quote'] + '» — ' + q['author'] + ', ' + ref)
-    if len(description) > DESC_MAX:
-        description = description[:DESC_MAX - 1].rsplit(' ', 1)[0] + '…'
+    # SEO: la description ripeteva la citazione, cioe' esattamente quello che il
+    # <title> mostra gia' una riga sopra. In SERP erano due righe per dire la
+    # stessa cosa, e nessun motivo per aprire il risultato. Il campo `context`
+    # dice invece perche' quella frase conta, ed e' diverso su ogni pagina:
+    # 688 citazioni su 749 ne hanno abbastanza, le altre tengono la citazione.
+    fallback = ('«' + q['quote'] + '» — ' + q['author'] + ', ' + ref)
+    contesto = ' '.join((q.get('context') or '').split())
+    description = contesto if len(contesto) >= DESC_MIN_CONTEXT else fallback
+    description, _ = truncate_words(description, DESC_MAX - 1)
 
     # Il <title> lo si scriveva come incipit di 45 caratteri piu' autore e opera
     # per intero: veniva fuori una media di 80 caratteri e punte di 127, quando
