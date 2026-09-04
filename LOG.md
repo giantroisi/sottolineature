@@ -1741,3 +1741,35 @@
   volta**: su un file condiviso e attivamente scritto da un'altra sessione, non ricostruirlo mai
   da uno snapshot precedente per isolare le proprie modifiche — si modifica sempre lo stato
   attuale sul disco, aggiungendo solo i propri campi, mai sostituendo il file intero.
+
+- 2026-09-04 UTC — Traduttore, lotti 2-3: **16 citazioni completate su 11 opere**, stesso metodo
+  del lotto 1 — nessun nome scritto senza un riscontro verificabile. Applicato in modo sicuro
+  stavolta: mai riscritto il file, solo aggiunto il campo mancante allo stato attuale su disco.
+
+  **5 estrazioni dirette**: alcune citazioni avevano già il nome del traduttore scritto dentro
+  `source_edition` («trad. e postfazione di Anna Banti», «trad. e note di Giuseppe Ierolli»...)
+  senza che fosse mai stato copiato nel campo dedicato — Virginia Woolf «La camera di Jacob»
+  (Anna Banti), Fernando Pessoa «L'educazione dello stoico» ×2 (Luciana Stegagno Picchio), Emily
+  Dickinson «Lettere» ×2 (Giuseppe Ierolli).
+
+  **11 nuove ricerche verificate**: Wisława Szymborska, tutte e tre le poesie in archivio (Pietro
+  Marchesani, che ne ha tradotto l'opera omnia — dato confermato da più fonti indipendenti);
+  Zbigniew Herbert, due opere diverse con due traduttori diversi (Marchesani per la poesia in
+  «Rapporto dalla città assediata», Andrea Ceccherelli per la prosa saggistica di «Un barbaro nel
+  giardino» — stesso autore, generi diversi, non si può presumere lo stesso traduttore); Ursula
+  K. Le Guin, V.S. Naipaul ×2, Julian Barnes, Madeline Miller, Kazuo Ishiguro («Quel che resta del
+  giorno», diverso dal romanzo già fatto nel lotto 1). Per Le Guin e uno dei due Naipaul il titolo
+  stesso in archivio («La mano sinistra delle tenebre», non «...del buio»; «Alla curva del
+  fiume», non «Sull'ansa del fiume») ha fatto da prova: coincide con la vecchia traduzione, non
+  con quella più recente che ha cambiato titolo.
+
+  **Scartati per lo stesso motivo di sempre — dubbio non risolto**: T.S. Eliot, «Il canto d'amore
+  di J. Alfred Prufrock» — trovata la traduzione di Roberto Sanesi, la più diffusa, ma il
+  confronto riga per riga non coincide («la sera **si stende** contro il cielo» contro «la sera
+  **è tesa** contro il cielo» in archivio): non è la stessa traduzione, e non si sa quale sia
+  l'altra. Khaled Hosseini, «Il cacciatore di aquiloni»: esistono due traduzioni italiane
+  (Isabella Vaj per Piemme, Mariagiulia Castagnone per Feltrinelli) e la frase citata, «Per te,
+  mille volte ancora», è troppo iconica e ripetuta per distinguere quale delle due sia.
+
+  Build pulita, check_links a zero problemi dopo ogni lotto. Nessun episodio di convivenza in
+  questi due lotti — commit e sync fatti spesso, come da lezione del lotto precedente.
