@@ -1534,3 +1534,26 @@
   `amend` o `rebase` su cronologia già pubblicata): il registro corregge se stesso con una nota,
   non riscrive quello che è già successo. Build pulita e check_links a zero problemi dopo la
   verifica.
+
+- 2026-09-04 UTC — Raccolte lotto 3: **donne** (+15, 11→26) e **famiglia** (+19, 10→29), stesso
+  metodo, letture una per una — es. scartato «Donna Olimpia» di Pasolini (è un nome di via a Roma,
+  non «donna» come tema) e «figlio di un tonno e di una vacca» di Primo Levi (una battuta
+  scientifica sul delfino, non sulla famiglia umana). Diverse citazioni compaiono in entrambe le
+  raccolte quando parlano insieme di una donna e del suo ruolo in famiglia (Ibsen, Hugo, le due
+  Morante, Ginzburg, Miller).
+
+  **Stesso episodio del lotto precedente, una seconda volta.** Mentre queste 34 aggiunte erano
+  scritte su `data/raccolte.json` ma non ancora committate, un secondo commit dell'altra sessione
+  («CLS della home da 0.129 a 0.013») le ha di nuovo inglobate — stessa causa, cartella di lavoro
+  condivisa. Verificato di nuovo con `git show HEAD:data/raccolte.json` che **donne** e
+  **famiglia** hanno rispettivamente 26 e 29 chiavi nel commit `aa54657`: nessun dato perso, di
+  nuovo. Lo segnalo perché due episodi identici in una ventina di minuti non sono più una
+  coincidenza isolata ma un pattern: **chi riprende questo lavoro in autonomia con `data/raccolte.json`
+  aperto dovrebbe committare più spesso, a lotti più piccoli**, per ridurre la finestra in cui una
+  modifica scritta su disco ma non ancora committata può finire dentro il commit di qualcun altro.
+  Il dato non si perde (finisce comunque nel commit successivo), ma l'attribuzione nel registro sì,
+  ed è quello che sto correggendo qui a mano.
+
+  Build pulita, check_links a zero problemi. `index.html` e `templates/home_template.html` esclusi
+  dal mio commit precedente perché mostravano una modifica in corso (non mia) sul toggle dei
+  filtri; risolto poi dal commit dell'altra sessione stessa.
