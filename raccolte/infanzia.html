@@ -22,10 +22,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=b3005a50">
+<link rel="stylesheet" href="/assets/site.css?v=5375f12e">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "@id": "https://sottolineature.it/raccolte/infanzia/#collectionpage", "url": "https://sottolineature.it/raccolte/infanzia/", "name": "Frasi e citazioni sull'infanzia | Sottolineature", "description": "14 citazioni scelte a mano — L'infanzia, in letteratura, è quasi sempre raccontata da lontano, con lo sguardo di chi la osserva già da adulto. Marcel…", "isPartOf": {"@type": "WebSite", "@id": "https://sottolineature.it/#website"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://sottolineature.it/citazioni/marcel-proust-alla-ricerca-del-tempo-perduto-era-l-immagine-della/"}, {"@type": "ListItem", "position": 2, "url": "https://sottolineature.it/citazioni/natalia-ginzburg-lessico-famigliare/"}, {"@type": "ListItem", "position": 3, "url": "https://sottolineature.it/citazioni/jean-paul-sartre-le-parole/"}, {"@type": "ListItem", "position": 4, "url": "https://sottolineature.it/citazioni/vittorio-alfieri-vita-onde-io-imparai/"}, {"@type": "ListItem", "position": 5, "url": "https://sottolineature.it/citazioni/yukio-mishima-confessioni-di-una-maschera/"}, {"@type": "ListItem", "position": 6, "url": "https://sottolineature.it/citazioni/alberto-moravia-il-conformista/"}, {"@type": "ListItem", "position": 7, "url": "https://sottolineature.it/citazioni/elsa-morante-menzogna-e-sortilegio/"}, {"@type": "ListItem", "position": 8, "url": "https://sottolineature.it/citazioni/gunter-grass-il-tamburo-di-latta-vidi-la-luce/"}, {"@type": "ListItem", "position": 9, "url": "https://sottolineature.it/citazioni/niccolo-ammaniti-io-non-ho-paura-da-piccolo-sognavo/"}, {"@type": "ListItem", "position": 10, "url": "https://sottolineature.it/citazioni/michela-murgia-noi-siamo-tempesta/"}, {"@type": "ListItem", "position": 11, "url": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche-la-prima-cosa/"}, {"@type": "ListItem", "position": 12, "url": "https://sottolineature.it/citazioni/michela-murgia-accabadora/"}, {"@type": "ListItem", "position": 13, "url": "https://sottolineature.it/citazioni/ugo-foscolo-sonetti/"}, {"@type": "ListItem", "position": 14, "url": "https://sottolineature.it/citazioni/paolo-cognetti-senza-mai-arrivare-in-cima/"}]}}</script>
 <script>
   try {
+    document.documentElement.className += ' js';
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) { mtc.setAttribute('content', '#16191a'); } }
   } catch (e) {}
@@ -38,7 +39,7 @@
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
-    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
+    <form class="header-search sans js-only" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
       <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
       <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
     </form>
@@ -49,7 +50,7 @@
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+      <button class="theme-toggle js-only" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
     </nav>
   </div>
 </header>

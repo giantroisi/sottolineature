@@ -73,6 +73,7 @@ PAGE = '''<!DOCTYPE html>
 </style>
 <script>
   try {
+    document.documentElement.className += ' js';
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) { mtc.setAttribute('content', '#16191a'); } }
     /* Riparazione una tantum, 2026-09-01. La conversione delle chiavi vecchie
@@ -98,7 +99,7 @@ PAGE = '''<!DOCTYPE html>
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
-    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
+    <form class="header-search sans js-only" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
       <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
       <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
     </form>
@@ -109,7 +110,7 @@ PAGE = '''<!DOCTYPE html>
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" aria-current="page">Le mie</a>
       <a href="/metodo/">Metodo</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">&#9790;</button>
+      <button class="theme-toggle js-only" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">&#9790;</button>
     </nav>
   </div>
 </header>
@@ -121,7 +122,7 @@ PAGE = '''<!DOCTYPE html>
   <h1>Le mie sottolineature</h1>
   <p class="mine-count sans" id="mineCount"></p>
   <div id="mineList"></div>
-  <div class="mine-empty sans" id="mineEmpty" hidden>
+  <div class="mine-empty sans" id="mineEmpty">
     <p>Qui finiscono le citazioni che segni con <strong>Sottolinea</strong>, insieme alle note che
     scrivi accanto a ciascuna. Per ora non ce n'e' nessuna.</p>
     <p>Vai all&#39;archivio, e quando una riga ti riguarda premi <em>Sottolinea</em>: la ritrovi qui,
@@ -132,7 +133,7 @@ PAGE = '''<!DOCTYPE html>
   </div>
   <div class="mine-tools sans" id="mineTools" hidden>
     <a href="/citazioni/">Aggiungine altre</a>
-    <button type="button" id="printBtn">Stampa</button>
+    <button class="js-only" type="button" id="printBtn">Stampa</button>
   </div>
   </div>
   <footer class="sans">
@@ -172,7 +173,6 @@ PAGE = '''<!DOCTYPE html>
 
   if (!underlined.length) {
     countEl.textContent = '';
-    emptyEl.hidden = false;
     return;
   }
 
@@ -308,7 +308,7 @@ PAGE = '''<!DOCTYPE html>
   fetch('/data/citazioni.json').then(function (r) { return r.json(); }).then(function (quotes) {
     var found = slugs.map(function (slug) { return { slug: slug, q: quotes[SLUG_INDEX[slug]] }; })
                      .filter(function (x) { return x.q; });
-    if (!found.length) { emptyEl.hidden = false; return; }
+    if (!found.length) { return; }
     found.forEach(function (x) { quoteBySlug[x.slug] = x.q; });
     list.innerHTML = found.map(function (x) {
       return itemHTML(x.slug, x.q, (noteBySlug[x.slug] || '').trim());
@@ -316,9 +316,7 @@ PAGE = '''<!DOCTYPE html>
     refreshCount();
     list.addEventListener('click', onListClick);
     document.getElementById('printBtn').addEventListener('click', function () { window.print(); });
-  }).catch(function () {
-    emptyEl.hidden = false;
-  });
+  }).catch(function () {});
 })();
 </script>
 </body>

@@ -32,7 +32,25 @@
       "Edgar Allan Poe|Marginalia|Nel procurarmi i libri, mi son",
       "Goliarda Sapienza|L'arte della gioia|Non c'è niente da fare, come",
       "William Faulkner|Mentre morivo|Fu allora che capii che le",
-      "Aldous Huxley|Il mondo nuovo|Le parole possono essere paragonate ai"
+      "Aldous Huxley|Il mondo nuovo|Le parole possono essere paragonate ai",
+      "Charles Baudelaire|Lo spleen di Parigi|Bisogna essere sempre ubriachi. Tutto sta",
+      "Seamus Heaney|Morte di un naturalista|Tra il mio pollice e l'indice",
+      "Victor Hugo|Notre-Dame de Paris|Ogni faccia, ogni pietra del venerabile",
+      "Ernest Hemingway|Addio alle armi|Ero sempre imbarazzato dalle parole sacro,",
+      "Charles Baudelaire|I fiori del male|Il Poeta, che è avvezzo alle",
+      "Umberto Saba|Il poeta|Il poeta ha le sue giornate",
+      "Chinua Achebe|The Role of a Writer in a New Nation|Fra gli Ibo c'è un proverbio,",
+      "Audre Lorde|Sorella Outsider|Per le donne, quindi, la poesia",
+      "Jane Austen|Persuasione|Sir Walter Elliot di Kellynch Hall,",
+      "Alda Merini|Corpo d'amore|Domandano tutti come si fa a",
+      "Virginia Woolf|La camera di Jacob|Troppo spesso le parole sono state",
+      "Jean-Paul Sartre|Le parole|Ma i libri sono stati i",
+      "Giuseppe Ungaretti|Vita d'un uomo|Non sono il poeta dell'abbandono alle",
+      "Erri De Luca|Montedidio|Ho visto che in italiano esistono",
+      "Antoine de Saint-Exupéry|Terra degli uomini|La terra ci fornisce, sul nostro",
+      "Sinclair Lewis|Opera d'arte|Io non sapevo che la Bibbia",
+      "Epitteto|Manuale|Sovvengati che tu non sei qui",
+      "Susanna Tamaro|Ascolta la mia voce|È il ricordo che costituisce l'essere"
     ]
   },
   {
@@ -65,7 +83,11 @@
       "Isabel Allende|Paula|Ascolta, Paula, ti voglio raccontare una",
       "Hans Christian Andersen|La sirenetta|Noi non abbiamo un'anima immortale; non",
       "Salvatore Quasimodo|Al padre|Dove sull'acque viola era Messina, tra",
-      "Rick Riordan|Percy Jackson e gli dei dell'Olimpo: il ladro di fulmini|Poseidone – specificò Chirone – Scuotitore"
+      "Rick Riordan|Percy Jackson e gli dei dell'Olimpo: il ladro di fulmini|Poseidone – specificò Chirone – Scuotitore",
+      "Federico García Lorca|Romance sonámbulo|Verde che ti voglio verde. Verde",
+      "Agatha Christie|Dieci piccoli indiani|C'era qualcosa di magico in un'isola:",
+      "Umberto Saba|Città vecchia|Qui tra la gente che viene",
+      "Amin Maalouf|Il periplo di Baldassarre|Ma Genova non ha mai pregato,"
     ]
   },
   {
@@ -173,7 +195,15 @@
       "Aristotele|Etica Nicomachea|Senza amici nessuno sceglierebbe di vivere,",
       "Michel de Montaigne|Saggi|Perché era lui, perché ero io.",
       "Ralph Waldo Emerson|L'amicizia|L'unico modo per avere un amico",
-      "Marco Tullio Cicerone|L'amicizia|L'amico certo si riconosce nella sorte"
+      "Marco Tullio Cicerone|L'amicizia|L'amico certo si riconosce nella sorte",
+      "Goliarda Sapienza|L'arte della gioia|No, non si può comunicare a",
+      "J.K. Rowling|Harry Potter e la Pietra Filosofale|Affrontare i nemici richiede notevole ardimento.",
+      "Andrea Camilleri|Il ladro di merendine|Quella era l'amicizia siciliana, la vera,",
+      "Suzanne Collins|La ragazza di fuoco|O che non gli importasse più.",
+      "Henry James|Ritratto di signora|È sciocco dubitar di sé stessi",
+      "Clarice Lispector|Dove siete stati di notte|Si può pensare in fretta al",
+      "Michela Murgia|Noi siamo tempesta|Essere amici è questo: diventare il",
+      "Anaïs Nin|Diario II. 1934-1939|Ogni amico rappresenta un mondo in"
     ]
   },
   {
@@ -341,7 +371,12 @@
       "Bertolt Brecht|Madre Courage e i suoi figli|La pace è solo disordine; non",
       "Immanuel Kant|Per la pace perpetua|Lo stato di pace fra esseri",
       "Beppe Fenoglio|Una questione privata|Non poteva più vivere senza sapere",
-      "Boris Pasternak|Il dottor Živago|Anche più dell'affinità delle loro anime,"
+      "Boris Pasternak|Il dottor Živago|Anche più dell'affinità delle loro anime,",
+      "Virgilio|Eneide|L'armi canto e 'l valor del",
+      "Carlo Levi|Cristo si è fermato a Eboli|Nessuno ha toccato questa terra se",
+      "Francesco Petrarca|Canzoniere|Pace non trovo, et non ò",
+      "Jean-Paul Sartre|La morte nell'anima|La pace non è né democratica",
+      "Grazia Deledda|La chiesa della solitudine|Tutti siamo impastati di bene e"
     ]
   },
   {
@@ -397,7 +432,10 @@
       "Primo Levi|Ranocchi sulla luna e altri animali|Perché il delfino è simile ad",
       "Pablo Neruda|Odi elementari|L'uomo vuol essere pesce e uccello,",
       "Giovanni Verga|Storia di una capinera|Avevo visto una povera capinera chiusa",
-      "Jack London|Il richiamo della foresta|I desiderî nòmadi ed atàvici squassano"
+      "Jack London|Il richiamo della foresta|I desiderî nòmadi ed atàvici squassano",
+      "Franz Kafka|La metamorfosi|Un mattino, Gregor Samsa, destandosi da",
+      "Olga Tokarczuk|Il mio caffè con la Szymborska|Per me si fa politica in",
+      "Charles Baudelaire|I fiori del male|Gl'innamorati ardenti e i sapienti austeri,"
     ]
   },
   {

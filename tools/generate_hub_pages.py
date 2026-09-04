@@ -74,6 +74,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
 <script type="application/ld+json">{jsonld}</script>
 <script>
   try {{
+    document.documentElement.className += ' js';
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') {{ document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) {{ mtc.setAttribute('content', '#16191a'); }} }}
   }} catch (e) {{}}
@@ -86,7 +87,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
-    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
+    <form class="header-search sans js-only" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
       <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
       <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
     </form>
@@ -97,7 +98,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+      <button class="theme-toggle js-only" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
     </nav>
   </div>
 </header>

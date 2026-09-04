@@ -155,6 +155,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <script type="application/ld+json">{jsonld}</script>
 <script>
   try {{
+    document.documentElement.className += ' js';
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') {{ document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) {{ mtc.setAttribute('content', '#16191a'); }} }}
     /* Riparazione una tantum, 2026-09-01. La conversione delle chiavi vecchie
@@ -180,7 +181,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
-    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
+    <form class="header-search sans js-only" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
       <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
       <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
     </form>
@@ -191,7 +192,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+      <button class="theme-toggle js-only" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
     </nav>
   </div>
 </header>
@@ -217,9 +218,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <div class="actions sans">
     {opera_link_html}
     {raccolta_link_html}
-    <button type="button" id="copyBtn">Copia citazione</button>
-    <button type="button" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
-    <button type="button" id="underlineBtn" aria-pressed="false">Sottolinea</button>
+    <button type="button" class="js-only" id="copyBtn">Copia citazione</button>
+    <button type="button" class="js-only" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
+    <button type="button" class="js-only" id="underlineBtn" aria-pressed="false">Sottolinea</button>
     <a href="/#{slug}">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>

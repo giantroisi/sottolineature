@@ -22,10 +22,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=b3005a50">
+<link rel="stylesheet" href="/assets/site.css?v=5375f12e">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "@id": "https://sottolineature.it/raccolte/sogni/#collectionpage", "url": "https://sottolineature.it/raccolte/sogni/", "name": "Frasi e citazioni sui sogni | Sottolineature", "description": "20 citazioni scelte a mano — Dal Rinascimento italiano al romanzo per ragazzi vittoriano, la letteratura non ha mai smesso di chiedersi se ciò che…", "isPartOf": {"@type": "WebSite", "@id": "https://sottolineature.it/#website"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://sottolineature.it/citazioni/francesco-petrarca-canzoniere/"}, {"@type": "ListItem", "position": 2, "url": "https://sottolineature.it/citazioni/william-shakespeare-la-tempesta/"}, {"@type": "ListItem", "position": 3, "url": "https://sottolineature.it/citazioni/daphne-du-maurier-rebecca-la-prima-moglie/"}, {"@type": "ListItem", "position": 4, "url": "https://sottolineature.it/citazioni/edgar-allan-poe-un-sogno-nel-sogno/"}, {"@type": "ListItem", "position": 5, "url": "https://sottolineature.it/citazioni/lewis-carroll-attraverso-lo-specchio/"}, {"@type": "ListItem", "position": 6, "url": "https://sottolineature.it/citazioni/paulo-coelho-l-alchimista/"}, {"@type": "ListItem", "position": 7, "url": "https://sottolineature.it/citazioni/alda-merini-la-terra-santa/"}, {"@type": "ListItem", "position": 8, "url": "https://sottolineature.it/citazioni/erri-de-luca-montedidio-ho-visto-che/"}, {"@type": "ListItem", "position": 9, "url": "https://sottolineature.it/citazioni/franz-kafka-la-metamorfosi/"}, {"@type": "ListItem", "position": 10, "url": "https://sottolineature.it/citazioni/fernando-pessoa-tabacaria/"}, {"@type": "ListItem", "position": 11, "url": "https://sottolineature.it/citazioni/fedor-dostoevskij-i-fratelli-karamazov-2/"}, {"@type": "ListItem", "position": 12, "url": "https://sottolineature.it/citazioni/elias-canetti-la-provincia-dell-uomo/"}, {"@type": "ListItem", "position": 13, "url": "https://sottolineature.it/citazioni/joseph-conrad-cuore-di-tenebra-non-tradii-il/"}, {"@type": "ListItem", "position": 14, "url": "https://sottolineature.it/citazioni/niccolo-ammaniti-io-non-ho-paura-da-piccolo-sognavo/"}, {"@type": "ListItem", "position": 15, "url": "https://sottolineature.it/citazioni/marguerite-yourcenar-memorie-di-adriano-che-cos-e-l-insonnia/"}, {"@type": "ListItem", "position": 16, "url": "https://sottolineature.it/citazioni/viktor-e-frankl-uno-psicologo-nei-lager-guai-a-chi/"}, {"@type": "ListItem", "position": 17, "url": "https://sottolineature.it/citazioni/guy-de-maupassant-una-vita/"}, {"@type": "ListItem", "position": 18, "url": "https://sottolineature.it/citazioni/audre-lorde-sorella-outsider/"}, {"@type": "ListItem", "position": 19, "url": "https://sottolineature.it/citazioni/knut-hamsun-pan/"}, {"@type": "ListItem", "position": 20, "url": "https://sottolineature.it/citazioni/paolo-cognetti-senza-mai-arrivare-in-cima/"}]}}</script>
 <script>
   try {
+    document.documentElement.className += ' js';
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) { mtc.setAttribute('content', '#16191a'); } }
   } catch (e) {}
@@ -38,7 +39,7 @@
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
-    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
+    <form class="header-search sans js-only" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
       <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
       <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
     </form>
@@ -49,7 +50,7 @@
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+      <button class="theme-toggle js-only" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
     </nav>
   </div>
 </header>

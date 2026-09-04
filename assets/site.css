@@ -586,3 +586,14 @@ footer.sans a { color: var(--ink-faint); }
   a { color: #000 !important; text-decoration: none; }
   @page { margin: 2cm; }
 }
+
+/* --- controlli che senza JavaScript non fanno niente ---------------------
+   Un pulsante che non risponde e' peggio di un pulsante che non c'e': chi lo
+   preme pensa che il sito sia rotto, e non ha modo di sapere che il problema
+   e' dalla sua parte. Misurato il 2026-09-04 con JavaScript spento: Copia,
+   Condividi, Sottolinea e il selettore del tema restavano visibili e inerti su
+   ogni pagina citazione. Qui spariscono. Tutto il resto — l'archivio intero, i
+   link ai temi e ai generi, la navigazione — funziona senza JavaScript, ed e'
+   il motivo per cui non serve un avviso: la pagina resta quello che e', un
+   testo con dei link. */
+html:not(.js) .js-only { display: none !important; }

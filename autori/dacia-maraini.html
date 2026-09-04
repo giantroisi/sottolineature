@@ -22,10 +22,11 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=b3005a50">
+<link rel="stylesheet" href="/assets/site.css?v=5375f12e">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "@id": "https://sottolineature.it/autori/dacia-maraini/#collectionpage", "url": "https://sottolineature.it/autori/dacia-maraini/", "name": "Frasi e citazioni di Dacia Maraini | Sottolineature", "description": "Le citazioni di Dacia Maraini raccolte su Sottolineature: 2 righe scelte a mano, verificate sulle fonti.", "isPartOf": {"@type": "WebSite", "@id": "https://sottolineature.it/#website"}, "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "position": 1, "url": "https://sottolineature.it/citazioni/dacia-maraini-la-lunga-vita-di-marianna-ucria/"}, {"@type": "ListItem", "position": 2, "url": "https://sottolineature.it/citazioni/dacia-maraini-il-treno-dell-ultima-notte/"}]}, "about": {"@type": "Person", "@id": "https://sottolineature.it/autori/dacia-maraini/#person", "name": "Dacia Maraini", "sameAs": ["https://it.wikipedia.org/wiki/Dacia_Maraini", "https://www.wikidata.org/wiki/Q286600"]}}</script>
 <script>
   try {
+    document.documentElement.className += ' js';
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) { mtc.setAttribute('content', '#16191a'); } }
   } catch (e) {}
@@ -38,7 +39,7 @@
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
-    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
+    <form class="header-search sans js-only" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
       <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
       <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
     </form>
@@ -49,7 +50,7 @@
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+      <button class="theme-toggle js-only" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
     </nav>
   </div>
 </header>

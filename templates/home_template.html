@@ -322,6 +322,17 @@
     color: var(--ink-faint);
   }
 
+  /* --- controlli che senza JavaScript non fanno niente ---------------------
+   Un pulsante che non risponde e' peggio di un pulsante che non c'e': chi lo
+   preme pensa che il sito sia rotto, e non ha modo di sapere che il problema
+   e' dalla sua parte. Misurato il 2026-09-04 con JavaScript spento: Copia,
+   Condividi, Sottolinea e il selettore del tema restavano visibili e inerti su
+   ogni pagina citazione. Qui spariscono. Tutto il resto — l'archivio intero, i
+   link ai temi e ai generi, la navigazione — funziona senza JavaScript, ed e'
+   il motivo per cui non serve un avviso: la pagina resta quello che e', un
+   testo con dei link. */
+html:not(.js) .js-only { display: none !important; }
+
   /* Filters */
   .filters-note {
     font-size: 0.8rem;
@@ -1054,7 +1065,7 @@
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+      <button class="theme-toggle js-only" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
     </nav>
   </div>
 </header>
@@ -1075,10 +1086,10 @@
       <span class="card-author">Dante Alighieri</span> — <span class="card-title">Inferno, Divina Commedia</span> · <span class="card-year">1321</span>
     </p>
     <div class="hero-actions">
-      <button class="shuffle-btn sans" id="shuffleBtn" type="button">↻ un'altra citazione</button>
-      <button class="hero-copy-btn sans" id="heroCopyBtn" type="button">Copia citazione</button>
-      <button class="hero-copy-btn sans" id="heroExportBtn" type="button">Condividi</button>
-      <button class="underline-toggle sans hero-underline-btn" id="heroUnderlineBtn" type="button">Sottolinea</button>
+      <button class="shuffle-btn sans js-only" id="shuffleBtn" type="button">↻ un'altra citazione</button>
+      <button class="hero-copy-btn sans js-only" id="heroCopyBtn" type="button">Copia citazione</button>
+      <button class="hero-copy-btn sans js-only" id="heroExportBtn" type="button">Condividi</button>
+      <button class="underline-toggle sans hero-underline-btn js-only" id="heroUnderlineBtn" type="button">Sottolinea</button>
     </div>
     <div class="share-choice sans" id="heroShareChoice" hidden>
       <span class="share-choice-label">Sfondo dell'immagine:</span>
@@ -1094,7 +1105,7 @@
   </div>
 
   <div class="search-sentinel" id="searchSentinel" aria-hidden="true"></div>
-  <div class="search-bar" id="searchBar">
+  <div class="search-bar js-only" id="searchBar">
     
     <div class="search-input-wrap">
       <input type="search" id="searchInput" class="sans" aria-label="Cerca fra le citazioni" placeholder="Cerca per autore, parola o frase…" autocomplete="off" role="combobox" aria-expanded="false" aria-autocomplete="list" aria-controls="searchSuggestions">
@@ -1112,7 +1123,7 @@
   <p class="filters-note sans">Non una classificazione: la stessa pagina può riconoscersi in più di un tema.</p>
   <nav class="filters sans" id="filters" aria-label="Filtra per tema">
     <span class="genre-filters-label tema-filters-label sans">Tema</span>
-    <button class="filter-btn active" data-filter="tutte" type="button">Tutte</button>
+    <button class="filter-btn active js-only" data-filter="tutte" type="button">Tutte</button>
     <a class="filter-btn" data-filter="vita" href="/temi/vita/">Vita</a>
     <a class="filter-btn" data-filter="amore" href="/temi/amore/">Amore</a>
     <a class="filter-btn" data-filter="coraggio" href="/temi/coraggio/">Coraggio</a>
@@ -1120,12 +1131,12 @@
     <a class="filter-btn" data-filter="tempo" href="/temi/tempo/">Tempo</a>
     <a class="filter-btn" data-filter="solitudine" href="/temi/solitudine/">Solitudine</a>
     <a class="filter-btn" data-filter="verita" href="/temi/verita/">Verità</a>
-    <button class="filter-btn filter-btn-underlined" data-filter="sottolineate" type="button">Sottolineate</button>
+    <button class="filter-btn filter-btn-underlined js-only" data-filter="sottolineate" type="button">Sottolineate</button>
   </nav>
 
   <nav class="filters genre-filters sans" id="genreFilters" aria-label="Filtra per genere">
     <span class="genre-filters-label sans">Genere</span>
-    <button class="filter-btn active" data-genre="tutti" type="button">Tutti</button>
+    <button class="filter-btn active js-only" data-genre="tutti" type="button">Tutti</button>
     <a class="filter-btn" data-genre="fantasy" href="/generi/fantasy/">Fantasy</a>
     <a class="filter-btn" data-genre="fantascienza" href="/generi/fantascienza/">Fantascienza</a>
     <a class="filter-btn" data-genre="distopia" href="/generi/distopia/">Distopia</a>
@@ -1167,7 +1178,7 @@
   </section>
 
 
-  <button class="print-selection-btn sans" id="printSelectionBtn" type="button" hidden>Stampa o esporta questa selezione</button>
+  <button class="print-selection-btn sans js-only" id="printSelectionBtn" type="button" hidden>Stampa o esporta questa selezione</button>
 
   <p class="empty-state sans" id="emptyState" hidden>Nessuna citazione trovata. Prova a cercare un altro autore, titolo o parola.</p>
 

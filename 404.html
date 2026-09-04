@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=b3005a50">
+<link rel="stylesheet" href="/assets/site.css?v=5375f12e">
 <style>
   .nf-lead { font-size: 1.05rem; line-height: 1.7; color: var(--ink-soft); max-width: 34rem; }
   .nf-search { display: flex; gap: 0.6rem; margin: 2rem 0 2.5rem; max-width: 32rem; }
@@ -48,6 +48,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Pagina non trovata","url":"https://sottolineature.it/404/","isPartOf":{"@type":"WebSite","@id":"https://sottolineature.it/#website"}}</script>
 <script>
   try {
+    document.documentElement.className += ' js';
     var savedTheme = localStorage.getItem('sottolineature-theme');
     if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) { mtc.setAttribute('content', '#16191a'); } }
   } catch (e) {}
@@ -60,7 +61,7 @@
       <img src="/mark-quill.png" alt="" width="30" height="30">
       <span class="brand-name">Sottolineature</span>
     </a>
-    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
+    <form class="header-search sans js-only" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
       <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
       <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase…" autocomplete="off">
     </form>
@@ -71,7 +72,7 @@
       <a href="/temi/">Temi</a>
       <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
       <a href="/metodo/">Metodo</a>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+      <button class="theme-toggle js-only" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
     </nav>
   </div>
 </header>
@@ -83,7 +84,7 @@
   <h1>Questa pagina non esiste</h1>
   <p class="count sans"></p>
   <p class="nf-lead">O forse è stata segnata in un libro sbagliato: qualche indirizzo è cambiato quando l'archivio è stato rimesso in ordine, e i link vecchi non portano più dove portavano. Da qui si riparte.</p>
-  <form class="nf-search sans" action="/" method="get" role="search" aria-label="Cerca fra le citazioni">
+  <form class="nf-search sans js-only" action="/" method="get" role="search" aria-label="Cerca fra le citazioni">
     <label class="visually-hidden" for="nfSearch">Cerca fra le citazioni</label>
     <input type="search" id="nfSearch" name="q" placeholder="Cerca per autore, parola o frase…" autocomplete="off">
     <button type="submit">Cerca</button>

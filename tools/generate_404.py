@@ -96,7 +96,7 @@ def main(entries=None, author_slugs=None, opere=None, raccolte=None):
         '<p class="nf-lead">O forse è stata segnata in un libro sbagliato: qualche indirizzo è '
         'cambiato quando l\'archivio è stato rimesso in ordine, e i link vecchi non portano più '
         'dove portavano. Da qui si riparte.</p>\n'
-        '  <form class="nf-search sans" action="/" method="get" role="search" aria-label="Cerca fra le citazioni">\n'
+        '  <form class="nf-search sans js-only" action="/" method="get" role="search" aria-label="Cerca fra le citazioni">\n'
         '    <label class="visually-hidden" for="nfSearch">Cerca fra le citazioni</label>\n'
         '    <input type="search" id="nfSearch" name="q" placeholder="Cerca per autore, parola o frase…" autocomplete="off">\n'
         '    <button type="submit">Cerca</button>\n'
