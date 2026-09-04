@@ -2188,3 +2188,18 @@
 
   `python3 tools/contesti_da_ampliare.py`: **77 → 57** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-04 UTC — **Lotto 1, undicesimo giro: altre 20 citazioni riscritte**. Murakami
+  «Norwegian Wood», Ibsen «Casa di bambola», Miller «La canzone di Achille», Pamuk «Il mio nome
+  è rosso», Eliot «Il canto d'amore di J. Alfred Prufrock», Capote «Colazione da Tiffany»,
+  Alfieri «Mirra» (il tema dell'amore incestuoso dichiarato, come già Adelchi in un lotto
+  precedente rientra nell'eccezione della collocazione), Poe «Il corvo», Dostoevskij «L'idiota»
+  (confermata la correzione già presente: non è Myškin a dirlo ma Ippolit), Müller «Il paese
+  delle prugne verdi», Tolkien «Il Signore degli Anelli» (la poesia di Bilbo su Grampasso), Le
+  Guin «Un uomo del popolo», Merini «La Terra Santa», Čechov «Il gabbiano», Aristotele «Etica
+  Nicomachea», McCarthy «La strada», Sartre «A porte chiuse», Hosseini «E l'eco rispose»,
+  Tolstoj «Guerra e pace» (Bolkonskij ad Austerlitz, non un momento finale del libro), Süskind
+  «Il contrabbasso».
+
+  `python3 tools/contesti_da_ampliare.py`: **57 → 37** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
