@@ -1640,3 +1640,26 @@
   maiuscole a inizio frase da nomi propri.
 
   Build pulita, check_links a zero problemi dopo ogni lotto.
+
+- 2026-09-04 UTC — Raccolte lotti 12-13, stesso metodo, nessun episodio di convivenza.
+
+  **felicita** (+15, 9→24): Tolstoj (l'incipit di «Anna Karenina»), Baricco, Sapienza, Bolaño,
+  Robinson, Tolkien («Sono felice di essere con te, Samvise Gamgee»), Stendhal («Bellezza è una
+  promessa di felicità»), Boezio, DeLillo, Zola, Poe, Verga, Tabucchi, Schopenhauer, Wharton.
+  Scartato «il felice ritorno delle sue navi» di Maalouf: qui «felice» significa «fortunato»,
+  non l'emozione — un arcaismo che il setaccio per parola non distingue dal senso comune.
+
+  **ricordo-e-memoria** (+10, 24→34): Pirandello, Ortese, Martin, Boccaccio, du Maurier, Ende,
+  Angelou, Douglas Adams, Eliot (l'incipit di «La terra desolata», «Aprile è il mese più
+  crudele... confondendo memoria e desiderio»), Tamaro. Scartato «a memoria d'uomo» di Umberto
+  Eco (modo di dire, non è la memoria il soggetto della frase) e «nella silenziosa memoria di
+  Dio» di Gibran (di nuovo il passo sul matrimonio, «memoria» lì è metafora dell'eternità, non
+  del ricordare).
+
+  Archivio raccolte: **56% delle 749 citazioni ora in almeno una raccolta** (era 39% a inizio
+  sessione). Tutte le 27 raccolte sono state riprese almeno una volta tranne le due escluse di
+  proposito (frasi-brevi, incipit — criterio meccanico, da trattare a parte come indica
+  CATALOGO.md). Le candidate rimaste sono ormai poche per la maggior parte delle raccolte (2-8),
+  concentrate soprattutto su libri-e-scrittura (20), natura (19), donne (14) e guerra (13).
+
+  Build pulita, check_links a zero problemi.
