@@ -1411,3 +1411,20 @@
   Wikisource, cap. II), Ian McEwan «Espiazione» (da Wikiquote, p. 295).
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 342 -> 338.
+
+- 2026-09-04 UTC — Lotto 21 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo.
+
+  **3 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole, tutti da
+  Wikiquote: Honoré de Balzac «Papà Goriot» (p. 109), George Eliot «Middlemarch» (libro VIII,
+  cap. LXXII), Günter Grass «Il tamburo di latta» (pp. 40-41).
+
+  **Lasciata com'era, e scoperto un secondo caso come quello di Ginzburg nel lotto 15**: Lucy
+  Maud Montgomery, «Avere degli amici significa vedere solo la parte migliore di loro...» — il
+  campo `title` in archivio dice «Anna dai capelli rossi», ma verificando la fonte con una
+  domanda mirata sulla sezione esatta della pagina Wikiquote, la citazione risulta sotto «Anna di
+  Avonlea», il libro successivo. Scrivere un contesto avrebbe richiesto affermare un luogo del
+  testo (cap. XIV di «Anna dai capelli rossi») che non è quello vero. Non essendo compito di
+  questo lotto correggere titoli, l'ho lasciata; segnalo che le due opere di Lucy Maud Montgomery
+  meriterebbero un controllo dei titoli in archivio, come già notato per Natalia Ginzburg.
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 340 -> 335.
