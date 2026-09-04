@@ -2112,3 +2112,21 @@
 
   `python3 tools/contesti_da_ampliare.py`: **157 → 137** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-04 UTC — **Lotto 1, settimo giro: altre 20 citazioni riscritte**. Capote «Preghiere
+  esaudite», Conan Doyle «Il segno dei quattro», Lawrence «Figli e amanti», Lessing «Il taccuino
+  d'oro», Lorca «La casa di Bernarda Alba» (ultima scena della tragedia: solo la cornice
+  biografica — la fucilazione di Lorca poche settimane dopo — non altro sull'esito della
+  vicenda), Pascoli «X Agosto», Deledda «Canne al vento» (il segreto di Efix nominato ma non
+  svelato), Calvino «Se una notte d'inverno un viaggiatore», Sartre «La Nausea», Didion «The
+  White Album» e «L'anno del pensiero magico» (2 citazioni), Buck «La buona terra» (fermato al
+  testamento di Wang Lung, senza il seguito raccontato nel sequel «Figli», già coperto nel lotto
+  precedente), Mann «La morte a Venezia» (fermato alla fascinazione per Tadzio, senza la morte
+  di Aschenbach che chiude la novella — trovata e scartata), Eco «Il pendolo di Foucault», Saba
+  «Il poeta» e «Città vecchia» (2 citazioni), Achebe «Le cose crollano», Maupassant «Una vita»,
+  Wells «La macchina del tempo», Coetzee «Aspettando i barbari» (fermato all'arrivo del
+  colonnello Joll, senza la tortura e la trasformazione del Magistrato che segue nel libro —
+  trovata e scartata).
+
+  `python3 tools/contesti_da_ampliare.py`: **137 → 117** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
