@@ -1172,6 +1172,27 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
 - **Copertine per le 11 citazioni che ne sono ancora prive** — recuperate 32/43 in totale il 2026-08-28 (dettagli in LOG.md); delle 11 restanti, 2 sono poesie senza edizione autonoma (Leopardi, Pascoli — irrecuperabili), le altre 9 non hanno restituito su Open Library un'edizione con copertina disponibile nemmeno cercando per titolo originale (Kundera, Kafka "Il Castello", Simone Weil, Elif Shafak, Čechov, più Camus "L'estate" e Beauvoir "Il secondo sesso" scartati per copertine sbagliate/parziali) — probabilmente da lasciare alla tile placeholder
 - **Stato della routine cloud automatica** — da riverificare con l'utente, non è implementabile in autonomia
 
+- **Dati strutturati validati, 2026-09-04** — `tools/controlla_jsonld.py`, ora dentro `build.py`
+  come `check_links.py`. Il JSON-LD e' l'unica parte del sito che non si vede guardandola: un
+  valore invalido non rompe niente a schermo, sparisce solo il risultato arricchito. Ha trovato 42
+  pagine con `datePublished` non ISO ("397-400 d.C. ca.", "IV secolo a.C.", "1349-1353" = mese
+  tredici): ora `datePublished` esce solo per un anno pulito, il resto va in `temporalCoverage`.
+  E ha fatto vedere che il `sameAs` verso Wikidata stava solo sui 257 hub autore, non sulle 749
+  pagine che la gente trova davvero — Google non unisce i grafi fra pagine diverse, il
+  collegamento va ripetuto dove serve. Aggiunto JSON-LD anche a /metodo/ (AboutPage) e /privacy/.
+- **La stampa guardata per la prima volta, 2026-09-04** — le regole `@media print` c'erano da mesi
+  ma nessuno aveva mai stampato il foglio. Uscivano il mailto "Segnala un errore" (una riga
+  sottolineata che su carta non porta da nessuna parte) e, sulla raccolta personale, i pulsanti
+  "Aggiungine altre" e "Stampa" — stampato. Il piede finiva con un trattino sospeso perche' quella
+  pagina non aveva `data-url`. Sistemato, piu' una riga con la data della selezione: chi consegna
+  un foglio di citazioni deve poter dire a quando risale.
+- **Lezione: le regressioni si trovano solo guardando il risultato** — nello stesso passaggio sono
+  usciti due difetti miei che nessun controllo automatico segnalava. La spiegazione di
+  /le-mie-sottolineature/ restava sotto sei citazioni salvate (avevo tolto la riga che la
+  nascondeva rendendola visibile senza JavaScript), e otto H1 dicevano "la frase di la volpe",
+  "di il capitano Nemo" — nel titolo, nella descrizione e nel risultato di ricerca. Nessuno dei
+  due rompeva il build.
+
 - **Divisione della home (30 righe in HTML + il resto da JSON)** — misurata prima di scriverla,
   perche' tocca ricerca, filtri, sottolineature e ancore `#slug`, cioe' quattro cose che oggi
   funzionano. Misura su 390px con rete a 1,6 Mbps, 150ms di latenza e CPU rallentata 4x:
