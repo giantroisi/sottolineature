@@ -2093,3 +2093,22 @@
 
   `python3 tools/contesti_da_ampliare.py`: **177 → 157** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-04 UTC — **Lotto 1, sesto giro: altre 20 citazioni riscritte**. Morrison «Sula»
+  (corretto anche un errore del vecchio contesto: la frase è detta alla nonna Eva, non
+  all'amica Nel come diceva la versione precedente — verificato sul campo `dove` già presente),
+  Woolf «La signora Dalloway», Shakespeare «Amleto», C.S. Lewis «Le cronache di Narnia»,
+  Dickens «Racconto di due città», Malaparte «Kaputt», Maraini «Il treno dell'ultima notte»,
+  Morante «L'isola di Arturo», Montale «Satura»/Xenia, Lorca «Romance sonámbulo», Leopardi
+  «Canto notturno di un pastore errante dell'Asia», Hesse «Siddhartha» (fermato all'incontro con
+  Govinda nell'ultimo capitolo, senza il momento di illuminazione di Govinda che segue subito
+  dopo nel testo), Amado «Capitani della spiaggia», Ishiguro «Quel che resta del giorno»,
+  Vonnegut «Ghiaccio-nove», Pirandello «Uno, nessuno e centomila» (ultime parole del romanzo:
+  aggiunta solo la cornice — data di pubblicazione a puntate — non altro oltre quanto la
+  citazione già mostra), Kundera «L'insostenibile leggerezza dell'essere», Hawthorne «La casa
+  dei sette abbaini», Pearl S. Buck «Figli» (l'incipit è già la scena della morte di Wang Lung:
+  nessuna aggiunta oltre la cornice editoriale, trilogia e volume precedente), Aleramo «Una
+  donna».
+
+  `python3 tools/contesti_da_ampliare.py`: **157 → 137** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
