@@ -2038,3 +2038,20 @@
   `python3 tools/contesti_da_ampliare.py`: **239 → 217** sotto le 45 parole (fascia 1-19: solo
   i 3 casi del lotto 0, ormai stabile lì). Build pulita, `check_links.py` a zero problemi.
   Commit di dato + le 22 pagine rigenerate, stesso motivo del giro precedente.
+
+- 2026-09-04 UTC — **Lotto 1, terzo giro: altre 20 citazioni riscritte**. Müller «Parola
+  d'autore» (la deportazione della madre in un lager sovietico, dietro la parola scelta per il
+  vocabolario europeo del Corriere), Calvino «Il barone rampante» (la visita di Voltaire),
+  Cortázar «Bestiario», Ginzburg «Lessico famigliare», Cognetti «Senza mai arrivare in cima»,
+  Verlaine «Romanze senza parole» (le Ariettes oubliées e Rimbaud), Aleramo «Il passaggio»,
+  Čechov «Tre sorelle» (il grido «a Mosca» — fermato al «mai realizzato», non a come l'opera si
+  chiude per davvero), Hoffmann «Lo Schiaccianoci», Hemingway «Il vecchio e il mare», Maupassant
+  «Bel-Ami», Kertész «Essere senza destino», Steinbeck «Furore» (fermato alla premessa storica
+  della famiglia Joad, mai al capitolo finale da cui viene la citazione — il libro ha uno dei
+  finali più spiazzanti della letteratura del Novecento, non accennato), Saramago «Le
+  intermittenze della morte», Sciascia «A ciascuno il suo», Houellebecq «Sottomissione»,
+  Pasolini «Ragazzi di vita», Riordan «Percy Jackson», Seneca «De brevitate vitae», Collins «La
+  ragazza di fuoco».
+
+  `python3 tools/contesti_da_ampliare.py`: **217 → 197** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
