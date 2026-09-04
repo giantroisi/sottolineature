@@ -2154,3 +2154,22 @@
 
   `python3 tools/contesti_da_ampliare.py`: **117 → 97** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-04 UTC — **Lotto 1, nono giro: altre 20 citazioni riscritte**, con verifica più rigida
+  dopo l'errore di de Céspedes nel giro precedente — ogni nome, cognome e relazione fra
+  personaggi controllato con una ricerca dedicata prima di scrivere, non dedotto dal vecchio
+  contesto né dalla sola memoria. Butler «La parabola del seminatore» (Earthseed, Lauren
+  Olamina), Pamuk «Neve», Riordan «la battaglia del labirinto», Bellow «Il pianeta di Mr.
+  Sammler», de Beauvoir «Il secondo sesso», Sinclair Lewis «Qui non può succedere», Zweig
+  «Novella degli scacchi», Le Guin «La mano sinistra delle tenebre», Faulkner «L'urlo e il
+  furore», Camus «Lo straniero», Tennyson «In Memoriam A.H.H.», Maalouf «Il manoscritto di
+  Samarcanda» (contesto scritto restando entro i fatti storici verificabili — Omar Khayyam, il
+  Titanic — senza toccare il dubbio di attribuzione già aperto su questa citazione dalle sessioni
+  precedenti, fuori perimetro di questo compito), Wharton «Estate» (verificato il nome
+  dell'architetto Lucius Harney, assente dal vecchio contesto), Wells «L'uomo invisibile»,
+  Calvino «Palomar», Rowling «i Doni della Morte», Pirandello «Il fu Mattia Pascal», Kundera «Il
+  libro del riso e dell'oblio», Mahfouz «La via dello zucchero», Süskind «Il profumo» (fermato
+  al talento di Grenouille, senza menzionare i delitti che il romanzo racconta).
+
+  `python3 tools/contesti_da_ampliare.py`: **97 → 77** sotto le 45 parole. Build pulita,
+  `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
