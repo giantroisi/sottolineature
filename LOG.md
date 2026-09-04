@@ -1428,3 +1428,16 @@
   meriterebbero un controllo dei titoli in archivio, come già notato per Natalia Ginzburg.
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 340 -> 335.
+
+- 2026-09-04 UTC — Lotto 22 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo.
+
+  **3 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Oscar Wilde
+  «Il ritratto di Dorian Gray» (cap. II, da Wikiquote), Jane Austen «Orgoglio e pregiudizio»
+  (p. 19, da Wikiquote), Fëdor Dostoevskij «Delitto e castigo» — quest'ultima aveva contesto
+  completamente assente (0 parole), una delle sole due citazioni in tutto l'archivio senza
+  nessun testo originale; non avendo `source_url`, verificata con una ricerca mirata che ha
+  confermato il testo esatto su più fonti indipendenti, coerente con `speaker: Raskolnikov` già
+  presente in archivio.
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 335 -> 333,
+  contesti assenti: 2 -> 1.
