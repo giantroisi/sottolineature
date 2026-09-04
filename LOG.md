@@ -1441,3 +1441,14 @@
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 335 -> 333,
   contesti assenti: 2 -> 1.
+
+- 2026-09-04 UTC — Lotto 23 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo.
+
+  **3 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Leonardo
+  Sciascia «Il giorno della civetta» (nessun `source_url`, verificato con ricerca mirata; era
+  l'ultimo contesto completamente assente rimasto in tutto l'archivio), Alda Merini «Mistica
+  d'amore» (da Wikiquote, poesia «Magnificat», p. 97), Giovanni Pascoli «Myricae» (da Wikiquote,
+  poesia «Novembre»).
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 334 -> 331,
+  contesti assenti: 1 -> 0 — nessuna citazione in tutto l'archivio è più priva di contesto.
