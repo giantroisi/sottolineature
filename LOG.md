@@ -1845,3 +1845,20 @@
   zero problemi.
 
   **Totale sessione: 61 citazioni completate su 47 opere.**
+
+- 2026-09-04 UTC — Traduttore, lotto 8: **4 citazioni completate su 4 opere**. Gabriel García
+  Márquez «Cronaca di una morte annunciata» (Dario Puccini), Ernest Hemingway «Il vecchio e il
+  mare» (Fernanda Pivano), Astrid Lindgren «I fratelli Cuordileone» (Fiorella Onesti, presente sia
+  nell'edizione 1977 sia in quella 2020), Bertolt Brecht «L'opera da tre soldi» (Emilio Castellani,
+  la sua versione definita «insuperabile» dalle fonti, usata da Einaudi ininterrottamente dal 1997).
+
+  **Scartati**: García Márquez «L'amore ai tempi del colera» (due traduttori diversi per due
+  collane Mondadori diverse, A. Morino e C.M. Valentinetti, nessun modo di distinguerli senza
+  l'edizione); Hemingway «Festa mobile» (due edizioni sostanzialmente diverse, non solo due
+  traduzioni: quella del 1964 di Vincenzo Mantovani e quella «restaurata» del 2011 di Luigi
+  Lunari, con capitoli diversi — non è nemmeno detto che citino lo stesso passo).
+
+  Solo `data/citazioni.json`, stesso motivo dei lotti precedenti. Build pulita, check_links a
+  zero problemi.
+
+  **Totale sessione: 65 citazioni completate su 51 opere.**
