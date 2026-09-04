@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=a64b28e7">
+<link rel="stylesheet" href="/assets/site.css?v=fc533457">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/#webpage", "url": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/", "name": "«Lo riconoscerei anche solo dal tocco, dal…» — Madeline Miller", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/#quotation", "text": "Lo riconoscerei anche solo dal tocco, dal profumo; lo riconoscerei anche se fossi cieco, dal modo in cui respira, da come i suoi piedi sferzano la terra. Lo riconoscerei anche nella morte, anche alla fine del mondo.", "creator": {"@id": "https://sottolineature.it/autori/madeline-miller/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/#book"}, "url": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/", "citation": "parole di Patroclo su Achille", "spokenByCharacter": {"@type": "Person", "name": "Patroclo"}}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/#book", "name": "La canzone di Achille", "author": {"@id": "https://sottolineature.it/autori/madeline-miller/#person"}, "datePublished": "2011", "translator": {"@type": "Person", "name": "Matteo Curtoni e Maura Parolini"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/madeline-miller/#person", "name": "Madeline Miller", "url": "https://sottolineature.it/autori/madeline-miller/", "sameAs": ["https://it.wikipedia.org/wiki/Madeline_Miller", "https://www.wikidata.org/wiki/Q469349"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Madeline Miller", "item": "https://sottolineature.it/autori/madeline-miller/"}, {"@type": "ListItem", "position": 3, "name": "Lo riconoscerei anche solo dal tocco,…", "item": "https://sottolineature.it/citazioni/madeline-miller-la-canzone-di-achille/"}]}]}</script>
 <script>
   try {
@@ -95,7 +95,11 @@
     <a href="/#madeline-miller-la-canzone-di-achille">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
-    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <span class="share-choice-label">Formato:</span>
+    <button type="button" data-formato="post" aria-pressed="true">Post</button>
+    <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
+    <span class="share-choice-sep" aria-hidden="true"></span>
+    <span class="share-choice-label">Sfondo:</span>
     <button type="button" data-variant="chiaro">Chiaro</button>
     <button type="button" data-variant="scuro">Scuro</button>
   </div>
@@ -113,7 +117,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
   </footer>
 </div>
-<script src="/assets/share.js?v=7b19b628"></script>
+<script src="/assets/share.js?v=b35beb89"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -162,11 +166,20 @@
       shareChoice.hidden = !open;
       shareBtn.setAttribute('aria-expanded', String(open));
     });
-    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+    var formatoScelto = 'post';
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (b) {
+      b.addEventListener('click', function () {
+        formatoScelto = b.getAttribute('data-formato');
+        Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (x) {
+          x.setAttribute('aria-pressed', String(x === b));
+        });
+      });
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-variant]'), function (b) {
       b.addEventListener('click', function () {
         window.Sottolineature.share(
           "Lo riconoscerei anche solo dal tocco, dal profumo; lo riconoscerei anche se fossi cieco, dal modo in cui respira, da come i suoi piedi sferzano la terra. Lo riconoscerei anche nella morte, anche alla fine del mondo.", "Madeline Miller", "La canzone di Achille", "2011",
-          b, 'post', b.getAttribute('data-variant')
+          b, formatoScelto, b.getAttribute('data-variant')
         );
       });
     });

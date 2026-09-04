@@ -953,6 +953,15 @@ html:not(.js) .js-only { display: none !important; }
     font-family: inherit;
   }
   .share-choice button:hover { border-color: var(--gold); color: var(--gold); }
+  /* Il formato si sceglie, non si preme: il tasto resta segnato finche' non si
+     cambia idea, e poi e' lo sfondo a far partire l'immagine. Due pulsanti in
+     piu' dentro un pannello che si apriva gia', non due pulsanti in piu' sulla
+     pagina - la lezione del 30 agosto, quando "storia" e "post" stavano in
+     chiaro e appesantivano l'interfaccia. */
+  .share-choice button[aria-pressed="true"] {
+    border-color: var(--gold); color: var(--gold); background: var(--paper-raised);
+  }
+  .share-choice .share-choice-sep { flex-basis: 100%; height: 0; }
 
   /* --- Ricerca e filtri sono lo stesso mestiere: restringere l'archivio.
          Stavano a duemila pixel di distanza, con i filtri appena sopra la
@@ -1098,7 +1107,11 @@ html:not(.js) .js-only { display: none !important; }
       <button class="underline-toggle sans hero-underline-btn js-only" id="heroUnderlineBtn" type="button">Sottolinea</button>
     </div>
     <div class="share-choice sans" id="heroShareChoice" hidden>
-      <span class="share-choice-label">Sfondo dell'immagine:</span>
+      <span class="share-choice-label">Formato:</span>
+      <button type="button" data-formato="post" aria-pressed="true">Post</button>
+      <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
+      <span class="share-choice-sep" aria-hidden="true"></span>
+      <span class="share-choice-label">Sfondo:</span>
       <button type="button" data-variant="chiaro">Chiaro</button>
       <button type="button" data-variant="scuro">Scuro</button>
     </div>
@@ -1554,7 +1567,16 @@ html:not(.js) .js-only { display: none !important; }
       heroShareChoice.hidden = !open;
       heroExportBtn.setAttribute('aria-expanded', String(open));
     });
-    Array.prototype.forEach.call(heroShareChoice.querySelectorAll('button'), function (b) {
+    var formatoScelto = 'post';
+    Array.prototype.forEach.call(heroShareChoice.querySelectorAll('[data-formato]'), function (b) {
+      b.addEventListener('click', function () {
+        formatoScelto = b.getAttribute('data-formato');
+        Array.prototype.forEach.call(heroShareChoice.querySelectorAll('[data-formato]'), function (x) {
+          x.setAttribute('aria-pressed', String(x === b));
+        });
+      });
+    });
+    Array.prototype.forEach.call(heroShareChoice.querySelectorAll('[data-variant]'), function (b) {
       b.addEventListener('click', function () {
         if (!currentHeroCard) { return; }
         downloadQuoteImage(
@@ -1562,7 +1584,7 @@ html:not(.js) .js-only { display: none !important; }
           currentHeroCard.querySelector('.card-author').textContent,
           currentHeroCard.querySelector('.card-title').textContent,
           currentHeroCard.querySelector('.card-year').textContent,
-          b, 'post', b.getAttribute('data-variant')
+          b, formatoScelto, b.getAttribute('data-variant')
         );
       });
     });

@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=a64b28e7">
+<link rel="stylesheet" href="/assets/site.css?v=fc533457">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#webpage", "url": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/", "name": "«Da un punto di vista strettamente pratico, si…» — Arundhati Roy", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#quotation", "text": "Da un punto di vista strettamente pratico, si potrebbe forse dire che tutto cominciò con l'arrivo di Sophie Mol ad Ayemenem. Forse è vero che tutto può cambiare in un giorno.", "creator": {"@id": "https://sottolineature.it/autori/arundhati-roy/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#book"}, "url": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/", "citation": "pp. 43-44", "sameAs": "https://it.wikiquote.org/wiki/Arundhati_Roy"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#book", "name": "Il dio delle piccole cose", "author": {"@id": "https://sottolineature.it/autori/arundhati-roy/#person"}, "datePublished": "1997", "translator": {"@type": "Person", "name": "Chiara Gabutti"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/arundhati-roy/#person", "name": "Arundhati Roy", "url": "https://sottolineature.it/autori/arundhati-roy/", "sameAs": ["https://it.wikipedia.org/wiki/Arundhati_Roy", "https://www.wikidata.org/wiki/Q212801"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Arundhati Roy", "item": "https://sottolineature.it/autori/arundhati-roy/"}, {"@type": "ListItem", "position": 3, "name": "Da un punto di vista strettamente…", "item": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/"}]}]}</script>
 <script>
   try {
@@ -95,7 +95,11 @@
     <a href="/#arundhati-roy-il-dio-delle-piccole-cose-da-un-punto">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
-    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <span class="share-choice-label">Formato:</span>
+    <button type="button" data-formato="post" aria-pressed="true">Post</button>
+    <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
+    <span class="share-choice-sep" aria-hidden="true"></span>
+    <span class="share-choice-label">Sfondo:</span>
     <button type="button" data-variant="chiaro">Chiaro</button>
     <button type="button" data-variant="scuro">Scuro</button>
   </div>
@@ -113,7 +117,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
   </footer>
 </div>
-<script src="/assets/share.js?v=7b19b628"></script>
+<script src="/assets/share.js?v=b35beb89"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -162,11 +166,20 @@
       shareChoice.hidden = !open;
       shareBtn.setAttribute('aria-expanded', String(open));
     });
-    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+    var formatoScelto = 'post';
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (b) {
+      b.addEventListener('click', function () {
+        formatoScelto = b.getAttribute('data-formato');
+        Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (x) {
+          x.setAttribute('aria-pressed', String(x === b));
+        });
+      });
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-variant]'), function (b) {
       b.addEventListener('click', function () {
         window.Sottolineature.share(
           "Da un punto di vista strettamente pratico, si potrebbe forse dire che tutto cominciò con l'arrivo di Sophie Mol ad Ayemenem. Forse è vero che tutto può cambiare in un giorno.", "Arundhati Roy", "Il dio delle piccole cose", "1997",
-          b, 'post', b.getAttribute('data-variant')
+          b, formatoScelto, b.getAttribute('data-variant')
         );
       });
     });

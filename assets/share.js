@@ -50,9 +50,31 @@
   // Formati di condivisione. Nelle storie Instagram sovrappone la propria
   // interfaccia sopra e sotto: i margini verticali ampi tengono il contenuto
   // dentro la zona sicura, così il logo non finisce sotto la barra dei messaggi.
+  /* Le misure non possono essere costanti in pixel: lo erano, e la storia
+     usciva col blocco di testo identico al post dentro una tela alta 570px in
+     piu'. Il risultato era "il post con dei margini", non una composizione a
+     tutta pagina - segnalato guardando le immagini appaiate il 2026-09-04.
+     Ora ogni misura tipografica si moltiplica per `scala`, e la cornice ha un
+     inserto laterale proprio: nella storia deve crescere anche quello, se no
+     un riquadro largo e basso dentro una pagina alta legge come una cartolina
+     appoggiata sopra uno sfondo. */
   var SHARE_FORMATS = {
-    post: { w: 1080, h: 1350, marginTop: 40, marginBottom: 40, label: 'post' },
-    storia: { w: 1080, h: 1920, marginTop: 250, marginBottom: 280, label: 'storia' }
+    post: {
+      w: 1080, h: 1350, marginTop: 40, marginBottom: 40,
+      inserto: 40, padding: 90, scala: 1, label: 'post'
+    },
+    storia: {
+      // I margini tengono il contenuto dentro la zona sicura di Instagram, le
+      // cui barre coprono circa 220px sopra e sotto. Erano 250/280: prudenti,
+      // ma insieme alla firma ingrandita si mangiavano tutti i 570px di
+      // altezza in piu' della storia, e per una citazione lunga il testo
+      // finiva piu' piccolo che nel post. Ora stanno appena sopra la soglia.
+      w: 1080, h: 1920, marginTop: 224, marginBottom: 236,
+      // il respiro dentro la cornice non si scala: la cornice e' gia' larga,
+      // scalarlo anche lui restituiva al vuoto lo spazio appena recuperato
+      inserto: 72, padding: 116, padTop: 96, padBottom: 100,
+      scala: 1.32, label: 'storia'
+    }
   };
   // Formato usato dal pulsante Condividi. Si usa 4:5 perché è il più
   // tollerante: pubblicato in una storia resta tutto visibile (con due bande),
@@ -63,7 +85,10 @@
     var fmt = SHARE_FORMATS[formatName || DEFAULT_SHARE_FORMAT] || SHARE_FORMATS.post;
     var width = fmt.w;
     var height = fmt.h;
-    var padding = 90;
+    var scala = fmt.scala || 1;
+    // arrotonda al pixel: i mezzi pixel sul canvas sfocano il testo
+    var k = function (v) { return Math.round(v * scala); };
+    var padding = fmt.padding || 90;
     var maxWidth = width - padding * 2;
     var canvas = document.createElement('canvas');
     canvas.width = width;
@@ -94,19 +119,20 @@
     ctx.fillStyle = colPaper;
     ctx.fillRect(0, 0, width, height);
     ctx.strokeStyle = colRule;
-    ctx.lineWidth = 2;
-    ctx.strokeRect(40, frameTop, width - 80, frameBottom - frameTop);
+    ctx.lineWidth = Math.max(2, k(2));
+    var inserto = fmt.inserto || 40;
+    ctx.strokeRect(inserto, frameTop, width - inserto * 2, frameBottom - frameTop);
 
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
 
     // --- blocco firma in basso: logo + url ---
-    var urlBaseline = frameBottom - 52;
+    var urlBaseline = frameBottom - k(52);
     var brandTop = urlBaseline;
     if (shareLogoImg.complete && shareLogoImg.naturalWidth > 0) {
-      var logoH = 92;
+      var logoH = k(92);
       var logoW = logoH * (shareLogoImg.naturalWidth / shareLogoImg.naturalHeight);
-      var logoTop = urlBaseline - 34 - logoH;
+      var logoTop = urlBaseline - k(34) - logoH;
       // il logo è a inchiostro nero: sul fondo scuro va schiarito, come nel sito
       var logoSource = isDarkTheme
         ? tintedLogo(shareLogoImg, colInk, logoW, logoH)
@@ -115,8 +141,8 @@
       brandTop = logoTop;
     }
     ctx.fillStyle = colGold;
-    ctx.font = '22px -apple-system, "Helvetica Neue", Arial, sans-serif';
-    var urlLetterSpacing = 5;
+    ctx.font = k(22) + 'px -apple-system, "Helvetica Neue", Arial, sans-serif';
+    var urlLetterSpacing = k(5);
     ctx.letterSpacing = urlLetterSpacing + 'px';
     // la spaziatura viene aggiunta anche dopo l'ultima lettera: si recupera meta
     ctx.fillText('SOTTOLINEATURE.IT', cx + urlLetterSpacing / 2, urlBaseline);
@@ -125,27 +151,29 @@
     // Citazione e attribuzione formano un blocco unico, centrato nello spazio
     // sopra la firma: così l'attribuzione resta legata alla citazione invece
     // di sembrare appartenere al logo.
-    var markSize = 108;
-    var markGap = 26;
-    var quoteToAuthorGap = 78;
-    var authorToWorkGap = 46;
-    var workLineHeight = 37;
+    var markSize = k(108);
+    var markGap = k(26);
+    var quoteToAuthorGap = k(78);
+    var authorToWorkGap = k(46);
+    var workLineHeight = k(37);
 
-    var areaTop = frameTop + 100;
-    var areaBottom = brandTop - 104;
+    var areaTop = frameTop + (fmt.padTop || k(100));
+    var areaBottom = brandTop - (fmt.padBottom || k(104));
 
     // opera (titolo · anno), in corsivo
     var work = title + (year ? ' · ' + year : '');
-    ctx.font = 'italic 27px "Iowan Old Style", Georgia, serif';
+    var workSize = k(27);
+    ctx.font = 'italic ' + workSize + 'px "Iowan Old Style", Georgia, serif';
     var workLines = wrapCanvasText(ctx, work, maxWidth).slice(0, 2);
     var workHeight = (workLines.length - 1) * workLineHeight;
 
     // autore in maiuscolo spaziato, rimpicciolito se il nome è lungo
     var authorText = author.toUpperCase();
-    var authorSpacing = 6;
-    var authorSize = 26;
+    var authorSpacing = k(6);
+    var authorSize = k(26);
+    var authorMin = k(16);
     ctx.letterSpacing = authorSpacing + 'px';
-    while (authorSize > 16) {
+    while (authorSize > authorMin) {
       ctx.font = authorSize + 'px -apple-system, "Helvetica Neue", Arial, sans-serif';
       if (ctx.measureText(authorText).width <= maxWidth) { break; }
       authorSize -= 1;
@@ -155,7 +183,11 @@
     var attributionHeight = quoteToAuthorGap + authorSize + authorToWorkGap + workHeight;
 
     // corpo della citazione: il più grande che entra nello spazio restante
-    var sizes = [72, 64, 58, 52, 46, 40, 35, 30, 26, 22];
+    // La scala si fermava a 72 e il vincolo e' la larghezza: per una riga breve
+    // il 72 entrava gia' nel post, quindi la storia riceveva lo stesso corpo e
+    // l'altezza in piu' diventava soltanto vuoto. Ora la scala si moltiplica
+    // come tutto il resto, e la storia parte da un corpo piu' grande.
+    var sizes = [72, 64, 58, 52, 46, 40, 35, 30, 26, 22].map(k);
     var chosenLines = [];
     var chosenSize = sizes[sizes.length - 1];
     var lineHeight = 0;
@@ -200,7 +232,7 @@
 
     // opera
     ctx.fillStyle = colInkSoft;
-    ctx.font = 'italic 27px "Iowan Old Style", Georgia, serif';
+    ctx.font = 'italic ' + workSize + 'px "Iowan Old Style", Georgia, serif';
     var workY = authorBaseline + authorToWorkGap;
     workLines.forEach(function (line) {
       ctx.fillText(line, cx, workY);

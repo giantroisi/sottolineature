@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=a64b28e7">
+<link rel="stylesheet" href="/assets/site.css?v=fc533457">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/#webpage", "url": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/", "name": "«A volte il nostro bisogno di un segno di…» — E.M. Forster", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/#quotation", "text": "A volte il nostro bisogno di un segno di comprensione è così grande che non ci importa cosa significhi esattamente o quanto dovremo pagarlo in seguito.", "creator": {"@id": "https://sottolineature.it/autori/e-m-forster/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/#book"}, "url": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/", "citation": "cap. 7, p. 72", "sameAs": "https://it.wikiquote.org/wiki/E._M._Forster"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/#book", "name": "Camera con vista", "author": {"@id": "https://sottolineature.it/autori/e-m-forster/#person"}, "datePublished": "1908", "translator": {"@type": "Person", "name": "Pietro Meneghelli"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/e-m-forster/#person", "name": "E.M. Forster", "url": "https://sottolineature.it/autori/e-m-forster/", "sameAs": ["https://it.wikipedia.org/wiki/E._M._Forster", "https://www.wikidata.org/wiki/Q189119"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "E.M. Forster", "item": "https://sottolineature.it/autori/e-m-forster/"}, {"@type": "ListItem", "position": 3, "name": "A volte il nostro bisogno di un segno…", "item": "https://sottolineature.it/citazioni/e-m-forster-camera-con-vista/"}]}]}</script>
 <script>
   try {
@@ -95,7 +95,11 @@
     <a href="/#e-m-forster-camera-con-vista">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
-    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <span class="share-choice-label">Formato:</span>
+    <button type="button" data-formato="post" aria-pressed="true">Post</button>
+    <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
+    <span class="share-choice-sep" aria-hidden="true"></span>
+    <span class="share-choice-label">Sfondo:</span>
     <button type="button" data-variant="chiaro">Chiaro</button>
     <button type="button" data-variant="scuro">Scuro</button>
   </div>
@@ -113,7 +117,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
   </footer>
 </div>
-<script src="/assets/share.js?v=7b19b628"></script>
+<script src="/assets/share.js?v=b35beb89"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -162,11 +166,20 @@
       shareChoice.hidden = !open;
       shareBtn.setAttribute('aria-expanded', String(open));
     });
-    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {
+    var formatoScelto = 'post';
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (b) {
+      b.addEventListener('click', function () {
+        formatoScelto = b.getAttribute('data-formato');
+        Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (x) {
+          x.setAttribute('aria-pressed', String(x === b));
+        });
+      });
+    });
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-variant]'), function (b) {
       b.addEventListener('click', function () {
         window.Sottolineature.share(
           "A volte il nostro bisogno di un segno di comprensione è così grande che non ci importa cosa significhi esattamente o quanto dovremo pagarlo in seguito.", "E.M. Forster", "Camera con vista", "1908",
-          b, 'post', b.getAttribute('data-variant')
+          b, formatoScelto, b.getAttribute('data-variant')
         );
       });
     });

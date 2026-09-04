@@ -281,7 +281,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <a href="/#{slug}">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
-    <span class="share-choice-label">Sfondo dell'immagine:</span>
+    <span class="share-choice-label">Formato:</span>
+    <button type="button" data-formato="post" aria-pressed="true">Post</button>
+    <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
+    <span class="share-choice-sep" aria-hidden="true"></span>
+    <span class="share-choice-label">Sfondo:</span>
     <button type="button" data-variant="chiaro">Chiaro</button>
     <button type="button" data-variant="scuro">Scuro</button>
   </div>
@@ -348,11 +352,20 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       shareChoice.hidden = !open;
       shareBtn.setAttribute('aria-expanded', String(open));
     }});
-    Array.prototype.forEach.call(shareChoice.querySelectorAll('button'), function (b) {{
+    var formatoScelto = 'post';
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (b) {{
+      b.addEventListener('click', function () {{
+        formatoScelto = b.getAttribute('data-formato');
+        Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (x) {{
+          x.setAttribute('aria-pressed', String(x === b));
+        }});
+      }});
+    }});
+    Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-variant]'), function (b) {{
       b.addEventListener('click', function () {{
         window.Sottolineature.share(
           {share_quote_js}, {share_author_js}, {share_title_js}, {share_year_js},
-          b, 'post', b.getAttribute('data-variant')
+          b, formatoScelto, b.getAttribute('data-variant')
         );
       }});
     }});

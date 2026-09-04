@@ -465,6 +465,13 @@ footer.sans a { color: var(--ink-faint); }
   font-size: 0.78rem; color: var(--ink-soft); background: none; cursor: pointer;
 }
 .share-choice button:hover { border-color: var(--gold); color: var(--gold); }
+/* Il formato si sceglie e resta segnato; e' lo sfondo a far partire
+   l'immagine. Due pulsanti dentro un pannello che si apriva gia', non due
+   pulsanti in piu' sulla pagina. */
+.share-choice button[aria-pressed="true"] {
+  border-color: var(--gold); color: var(--gold); background: var(--paper-raised);
+}
+.share-choice .share-choice-sep { flex-basis: 100%; height: 0; }
 @media (max-width: 640px) { .cover-caption { max-width: 92px; } }
 
 /* --- fascia "Esplora l'archivio" in home: apre le sezioni che dalla home
