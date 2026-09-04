@@ -2011,3 +2011,30 @@
   sessione parallela), quindi commit di **`data/citazioni.json` insieme alle 31 pagine
   `citazioni/*.html` rigenerate** — non solo il dato, come richiesto esplicitamente per evitare
   che il lavoro resti fuori linea come già successo con i lotti "Descrizione" 1-5.
+
+- 2026-09-04 UTC — **Lotto 1, secondo giro: altre 22 citazioni riscritte** (CATALOGO.md §9-bis,
+  punto 1). Lorde «Sorella Outsider» (il saggio «La poesia non è un lusso»), Andersen
+  «L'improvvisatore» (Antonio, la Napoli del debutto), Balzac «Eugénie Grandet», Duras
+  «L'arcangelo Michel», Rigoni Stern «Il bosco degli urogalli» (l'amicizia con Primo Levi nata
+  da quel libro), Dahl «La fabbrica di cioccolato», Verga «Novelle rusticane»/La roba (il
+  finale della novella è già nella citazione stessa: aggiunta solo la storia di come Mazzarò
+  si è arricchito, non altro dopo la scena che il testo già mostra), Brecht «L'opera da tre
+  soldi» e «Madre Courage» (2 citazioni), Achebe (il saggio del 1964 sul ruolo dello
+  scrittore), Zola «L'Assommoir», Shafak «La bastarda di Istanbul», Tagore «La casa e il
+  mondo», Baldwin «La prossima volta il fuoco», Naipaul «Alla curva del fiume» (fermato alla
+  premessa, senza dire che l'impresa di Salim è «destinata a fallire» come riportano le fonti),
+  Ferrante «Storia del nuovo cognome», Emily St. John Mandel «La musica delle parole», Murdoch
+  «La ragazza italiana» (fermato al funerale e alla famiglia, senza l'esito—Maggie ed Edmund
+  insieme a fine libro—trovato in una fonte e scartato apposta), Primo Levi «Se questo è un
+  uomo»/Shemà, Merini «Vuoto d'amore», Baricco «Oceano mare» (fermato ad Ann Deverià e alla
+  locanda Almayer, senza il destino tragico di lei e Adams trovato in una fonte e scartato),
+  Amos Oz «Una storia di amore e di tenebra».
+
+  Due esclusioni deliberate per la regola del finale, degne di nota perché la fonte le dava per
+  intero: la trama completa di «La ragazza italiana» include chi sposa chi, quella di «Oceano
+  mare» include chi uccide chi. In entrambi i casi il contesto si è fermato al punto della
+  citazione, lasciando fuori l'informazione trovata ma non pertinente a quella riga.
+
+  `python3 tools/contesti_da_ampliare.py`: **239 → 217** sotto le 45 parole (fascia 1-19: solo
+  i 3 casi del lotto 0, ormai stabile lì). Build pulita, `check_links.py` a zero problemi.
+  Commit di dato + le 22 pagine rigenerate, stesso motivo del giro precedente.
