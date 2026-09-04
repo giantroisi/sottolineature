@@ -1862,3 +1862,27 @@
   zero problemi.
 
   **Totale sessione: 65 citazioni completate su 51 opere.**
+
+- 2026-09-04 UTC — Traduttore, lotto 9, il più piccolo: **1 citazione**. Franz Kafka «Lettera al
+  padre» (Anita Rho, edizione Mondadori del 1972 tuttora ristampata). Scartate nello stesso lotto
+  «La metamorfosi» e «Il processo» di Kafka — per la prima, il confronto diretto ha mostrato
+  almeno tre incipit italiani diversi in circolazione, nessuno identico a quello in archivio
+  («Un mattino, Gregor Samsa, destandosi da sogni inquieti, si trovò trasformato, nel suo letto,
+  in un enorme insetto» non coincide né con la versione Einaudi né con altre trovate); per la
+  seconda, Mondadori (Pocar) e Adelphi (Zampa) hanno pubblicato due traduzioni diverse e non c'è
+  modo di sapere quale sia citata. Scartato anche Edgar Allan Poe «Il corvo»: è forse il caso più
+  estremo di traduzioni in concorrenza incontrato finora, almeno sei nomi diversi trovati
+  (Ragazzoni, Nencioni, Diano, Contaldi, Bruno, Praz) su un testo di poche righe.
+
+  **Bilancio di questo tratto di lavoro sul traduttore**: il bacino delle opere con una singola
+  traduzione italiana chiaramente identificabile si sta esaurendo. Le opere rimaste senza
+  traduttore sono sempre più spesso classici plurisecolari o plurinovecenteschi con molte edizioni
+  storiche in concorrenza (Kafka, Poe, Dostoevskij, le Brontë, Wells, Asimov, Lorca...): per
+  queste serve l'edizione specifica citata in archivio, non il nome del traduttore più noto.
+  Aggiungerla richiederebbe riaprire ogni citazione già pubblicata, cosa che va oltre questo
+  compito — resta un lavoro futuro, se si deciderà di farlo.
+
+  Solo `data/citazioni.json`. Build pulita, check_links a zero problemi.
+
+  **Totale sessione: 66 citazioni completate su 52 opere**, su circa 136 ancora prive di
+  traduttore fra le opere non italiane dell'archivio.
