@@ -1961,3 +1961,53 @@
   (`citazioni/*.html`, `index.html`, ecc.) non sono state commesse in questo lotto perché
   costruite sopra ai template ancora in corso d'opera altrove — restano da rigenerare, con
   build pulita, quando quel lavoro sarà committato.
+
+- 2026-09-04 UTC — **Lotto 0 chiuso** (CATALOGO.md §9-bis, punto 0): verificati di nuovo, senza
+  successo, i 3 casi rimasti. Per Ginzburg «Le piccole virtù» resta impossibile capire da quale
+  degli undici saggi della raccolta viene la frase a p. 149. Per de Beauvoir «Il sangue degli
+  altri» confermato che la frase risulta altrove, in «Memorie di una ragazza perbene» — stessa
+  famiglia di discrepanze già vista con Ginzburg e Montgomery, titolo non corretto perché fuori
+  perimetro di questo compito. **Novità su Arendt**: il sommario di Internazionale n. 767
+  (`internazionale.it/sommario/767`) descrive l'articolo a p. 23 come un'intervista a «il filosofo
+  francese esperto di tecnologie e disastri» — verosimilmente Paul Virilio, non Hannah Arendt.
+  L'attribuzione della citazione a Arendt su Wikiquote è quindi dubbia, forse un articolo che la
+  cita ma non è suo. Non corretto (stesso motivo di de Beauvoir): segnalato per chi riprenderà
+  in mano le attribuzioni. **3 casi restano aperti, tutti genuinamente irrisolvibili con la
+  ricerca a disposizione.**
+
+- 2026-09-04 UTC — **Lotto 1, contesti brevi, primo giro: 31 citazioni riscritte a 60-90 parole**
+  (CATALOGO.md §9-bis, punto 1; regola nuova di 6-ter applicata: mai anticipare come va a finire
+  il libro). Cognetti «Le otto montagne» (l'amicizia con Bruno, non il loro allontanarsi),
+  Tamaro «Ascolta la mia voce» (2 citazioni: Marta nipote di Olga, l'Alzheimer della nonna),
+  Alcott «Piccole donne» (2 citazioni: Amy e Laurie sposi, il gioco del Pilgrim's Progress),
+  Ondaatje «Il paziente inglese» (Almásy/Hana, senza rivelare l'esito della storia con Katherine),
+  Coates «Tra me e il mondo», Robinson «Gilead» (il reverendo Ames, senza dire come muore),
+  Ortese «Il mare non bagna Napoli», Atwood «Il racconto dell'ancella», Veronesi «Il colibrì»
+  (fermato al soprannome nella lettera, non al destino di Marco e Luisa), Montgomery «Anna dai
+  capelli rossi», Adichie «Il mio buio oltre la siepe» (il rimando esplicito al titolo di Harper
+  Lee), Merini «Corpo d'amore», Huxley «L'isola» (Pala e Farnaby, senza il tentativo di golpe di
+  Dipa), Poe «Marginalia», Austen «Ragione e sentimento» e «Persuasione» (entrambe sull'incipit,
+  senza toccare i due finali), Ginzburg «La famiglia Manzoni», Primo Levi «Ranocchi sulla luna»,
+  Rushdie «Le voci del mondo», Sontag «Davanti al dolore degli altri», Achmatova «Lo stormo
+  bianco», Lispector «Dove siete stati di notte», Hemingway «Per chi suona la campana» (fermato a
+  Robert Jordan e Anselmo nel bosco), Pasolini «Lettere luterane», Asimov (antologia di citazioni
+  scientifiche), Pirandello «Enrico IV» (la premessa della finzione, non l'esito finale del
+  dramma), Houellebecq «Piattaforma» (fermato al progetto turistico, non al «declino in
+  tragedia» che il libro racconta dopo), Christie «La sagra del delitto» (il meccanismo
+  dell'indagine, non chi è il colpevole), Muir «La mia prima estate sulla Sierra».
+
+  Verificato ogni fatto biografico o di trama con almeno una ricerca mirata prima di scriverlo —
+  non solo quelli su opere meno note (Cognetti, Tamaro, Ondaatje, Coates, Veronesi, Houellebecq,
+  Merini) ma anche sui classici, per non fidarsi della sola memoria (es. la scena di apertura di
+  «Per chi suona la campana» con Anselmo, il retroscena del Pilgrim's Progress in «Piccole
+  donne», la vera identità dei quattro finti consiglieri in «Enrico IV»).
+
+  `python3 tools/contesti_da_ampliare.py`: **270 → 239** sotto le 45 parole (fascia 1-19: 34 →
+  13). Build pulita (`tools/build.py`, 0 title/description duplicati, 0 pagine senza H1),
+  `check_links.py` a zero problemi. Restano 239 citazioni sotto soglia: lavoro da continuare nei
+  prossimi lotti.
+
+  Convivenza: albero di lavoro pulito all'inizio del lotto (nessuna modifica non committata della
+  sessione parallela), quindi commit di **`data/citazioni.json` insieme alle 31 pagine
+  `citazioni/*.html` rigenerate** — non solo il dato, come richiesto esplicitamente per evitare
+  che il lavoro resti fuori linea come già successo con i lotti "Descrizione" 1-5.
