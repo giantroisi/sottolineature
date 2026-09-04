@@ -1401,3 +1401,13 @@
   XV), Niccolò Ammaniti «Io non ho paura» (p. 118).
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 348 -> 342.
+
+- 2026-09-04 UTC — Lotto 20 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo.
+
+  **4 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Carlo
+  Collodi «Le avventure di Pinocchio» (cap. XVII, la Fata dai capelli turchini; nessun
+  `source_url` in archivio, verificato con ricerca mirata), Emily St. John Mandel «Stazione
+  undici» (nessun `source_url`, verificato allo stesso modo), Bram Stoker «Dracula» (da
+  Wikisource, cap. II), Ian McEwan «Espiazione» (da Wikiquote, p. 295).
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 342 -> 338.
