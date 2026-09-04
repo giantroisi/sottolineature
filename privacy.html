@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#f2f0eb">
+<title>Privacy — Sottolineature</title>
+<meta name="description" content="Che cosa fa e che cosa non fa Sottolineature con i dati di chi legge: nessun cookie, nessun tracciamento, nessun account. Titolare, base giuridica e contatti.">
+<link rel="canonical" href="https://sottolineature.it/privacy/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Privacy — Sottolineature">
+<meta property="og:description" content="Nessun cookie, nessun tracciamento, nessun account. Che cosa resta sul tuo dispositivo e che cosa no.">
+<meta property="og:image" content="https://sottolineature.it/og-banner.png">
+<meta property="og:url" content="https://sottolineature.it/privacy/">
+<meta property="og:site_name" content="Sottolineature">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Privacy — Sottolineature">
+<meta name="twitter:description" content="Nessun cookie, nessun tracciamento, nessun account.">
+<meta name="twitter:image" content="https://sottolineature.it/og-banner.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/assets/site.css?v=b3005a50">
+<style>
+  :root {
+    color-scheme: light;
+    --paper: #f2f0eb;
+    --paper-raised: #f8f7f3;
+    --ink: #211f1b;
+    --ink-soft: #5b564d;
+    --ink-faint: #736d60;
+    --accent: #33523f;
+    --accent-soft: #6b8574;
+    --gold: #84662d;
+    --rule: #ddd9cf;
+    --shadow: rgba(33, 31, 27, 0.08);
+  }
+
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --paper: #16191a;
+    --paper-raised: #1f2224;
+    --ink: #ece7dd;
+    --ink-soft: #a9a296;
+    --ink-faint: #918a7a;
+    --accent: #8fb59b;
+    --accent-soft: #5c7c68;
+    --gold: #c9a45c;
+    --rule: #33362f;
+    --shadow: rgba(0, 0, 0, 0.4);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .sans {
+    font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  .page {
+    max-width: 38rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.75rem 6rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+    margin-bottom: 2.5rem;
+  }
+  .back-link:hover { color: var(--gold); border-color: var(--gold); }
+
+  .eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 0.9rem;
+  }
+
+  h1 {
+    font-weight: 400;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    margin: 0 0 1.75rem;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin: 2.75rem 0 0.9rem;
+  }
+
+  p {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 1.1rem;
+  }
+
+  ul {
+    margin: 0 0 1.1rem;
+    padding-left: 1.3rem;
+  }
+  li {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 0.6rem;
+  }
+
+  strong { color: var(--ink); font-weight: 600; }
+
+  .theme-toggle {
+    all: unset;
+    position: fixed;
+    top: 1.1rem;
+    left: 1.1rem;
+    z-index: 20;
+    width: 2.4rem;
+    height: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--paper-raised);
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    color: var(--ink-soft);
+    font-size: 1.1rem;
+    line-height: 1;
+    box-shadow: 0 1px 3px var(--shadow);
+  }
+  .theme-toggle:hover { color: var(--gold); border-color: var(--gold); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+</style>
+<script>
+  try {
+    var savedTheme = localStorage.getItem('sottolineature-theme');
+    if (savedTheme === 'dark') { document.documentElement.setAttribute('data-theme', 'dark'); var mtc = document.querySelector('meta[name="theme-color"]'); if (mtc) { mtc.setAttribute('content', '#16191a'); } }
+  } catch (e) {}
+</script>
+<style>
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.92em; }
+  .titolare { padding: 1rem 1.2rem; background: var(--paper-raised); border-left: 2px solid var(--gold); }
+</style>
+</head>
+<body class="has-header">
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="brand" href="/">
+      <img src="/mark-quill.png" alt="" width="30" height="30">
+      <span class="brand-name">Sottolineature</span>
+    </a>
+    <form class="header-search sans" action="/" method="get" role="search" aria-label="Cerca dall'intestazione">
+      <label class="visually-hidden" for="headerSearch">Cerca fra le citazioni</label>
+      <input type="search" id="headerSearch" name="q" placeholder="Cerca autore, parola o frase&#8230;" autocomplete="off">
+    </form>
+    <nav class="site-nav sans" aria-label="Principale">
+      <a href="/citazioni/">Citazioni</a>
+      <a href="/autori/">Autori</a>
+      <a href="/raccolte/">Raccolte</a>
+      <a href="/temi/">Temi</a>
+      <a href="/le-mie-sottolineature/" id="navMine">Le mie</a>
+      <a href="/metodo/">Metodo</a>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Cambia tema chiaro/scuro">☾</button>
+    </nav>
+  </div>
+</header>
+<script src="/assets/nav.js?v=e084e15f" defer></script>
+<div class="page">
+<div class="page-main" role="main">
+  <p class="eyebrow sans">Privacy</p>
+  <h1>Che cosa succede ai tuoi dati</h1>
+
+  <p>Niente di quello che fai su questo sito viene raccolto, profilato o venduto. Questa pagina lo
+  dice per esteso, con la stessa onestà con cui la pagina <a href="/metodo/">Metodo</a> spiega come
+  verifichiamo le citazioni: se c'è un limite, è scritto qui invece che nascosto.</p>
+
+  <h2>Nessun cookie, nessun tracciamento, nessun account</h2>
+  <p>Sottolineature non installa cookie, non usa Google Analytics né altri strumenti di statistica,
+  non ha pulsanti social che ti seguono, non carica caratteri tipografici da server esterni e non
+  chiede di registrarsi. Non c'è nessun modulo da compilare, quindi non ci sono dati che ci arrivano
+  mentre navighi. È il motivo per cui non vedi nessuna finestra che chiede il consenso ai cookie:
+  non ce n'è da chiedere.</p>
+
+  <h2>Quello che resta sul tuo dispositivo</h2>
+  <p>Quando premi <em>Sottolinea</em> su una citazione, o scrivi una nota accanto a essa, o scegli il
+  tema scuro, quelle informazioni vengono salvate nella memoria del tuo browser
+  (<span class="mono">localStorage</span>) e restano lì. <strong>Non passano da nessun server, non
+  arrivano a noi e nessun altro può leggerle.</strong> Se cancelli i dati del sito dal browser, o
+  apri il sito da un altro dispositivo, non ci sono più: è il rovescio della stessa medaglia, e vale
+  la pena saperlo prima di segnare cinquanta citazioni.</p>
+  <p>Le voci salvate sono quattro: le citazioni sottolineate, le note che hai scritto, la scelta fra
+  tema chiaro e scuro, e un contrassegno tecnico che serve a non ripetere una riparazione già fatta.
+  Puoi cancellarle tutte in qualsiasi momento svuotando i dati del sito dalle impostazioni del
+  browser.</p>
+
+  <h2>Quello che vede chi ospita il sito</h2>
+  <p>Le pagine sono servite da <strong>Vercel</strong>, che come ogni server web registra
+  temporaneamente gli accessi: indirizzo IP, momento della richiesta, pagina richiesta, browser
+  usato. Sono registri tecnici, servono a far funzionare e proteggere il servizio, non li
+  consultiamo per profilare nessuno e non vengono incrociati con altro. Vercel opera come
+  responsabile del trattamento; la sua informativa è su
+  <a href="https://vercel.com/legal/privacy-policy" rel="noopener">vercel.com/legal/privacy-policy</a>.</p>
+
+  <h2>Se ci scrivi</h2>
+  <p>Se mandi una mail — per segnalare un errore in una citazione, per esempio — riceviamo il tuo
+  indirizzo e quello che hai scritto. Li usiamo per risponderti e per correggere l'errore, e non per
+  altro: nessuna newsletter, nessuna lista, nessuna cessione a terzi. La base giuridica è il nostro
+  legittimo interesse a rispondere a chi ci scrive e a tenere l'archivio corretto. Se vuoi che
+  cancelliamo la corrispondenza, basta chiederlo.</p>
+
+  <h2>I tuoi diritti</h2>
+  <p>Il Regolamento europeo 2016/679 ti dà il diritto di sapere quali tuoi dati trattiamo, di
+  chiederne la copia, la correzione o la cancellazione, e di opporti al trattamento. Nel nostro caso
+  la risposta è quasi sempre la stessa — non abbiamo tuoi dati, tranne l'eventuale mail che ci hai
+  mandato — ma il diritto di chiedere resta, e a una richiesta rispondiamo. Puoi anche presentare un
+  reclamo al Garante per la protezione dei dati personali
+  (<a href="https://www.garanteprivacy.it" rel="noopener">garanteprivacy.it</a>).</p>
+
+  <h2>Titolare e contatti</h2>
+  <p class="titolare">Titolare del trattamento: <strong>Sottolineature</strong><br>
+  Contatto: <a href="mailto:sottolineature@outlook.it">sottolineature@outlook.it</a></p>
+
+  <h2>Se questa pagina cambia</h2>
+  <p>Se un giorno aggiungeremo qualcosa che tratta dati — una statistica, un modulo, un servizio
+  esterno — questa pagina lo dirà prima, non dopo. Ultimo aggiornamento: 4 settembre 2026.</p>
+
+  </div>
+  <footer class="sans">
+    Se trovi un errore — una citazione, una copertina, un contesto sbagliato — è un problema del nostro metodo,
+    non tuo. Scrivi a <a href="mailto:sottolineature@outlook.it">sottolineature@outlook.it</a>: correggiamo e lo scriviamo nel registro
+    delle modifiche. <a href="/privacy/">Informativa privacy</a>.
+  </footer>
+</div>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('themeToggle');
+    var root = document.documentElement;
+
+    function currentTheme() {
+      return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    }
+
+    function render() {
+      toggle.textContent = currentTheme() === 'dark' ? '☀' : '☾';
+    }
+
+    render();
+
+    toggle.addEventListener('click', function () {
+      var next = currentTheme() === 'dark' ? 'light' : 'dark';
+      if (next === 'dark') {
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.removeAttribute('data-theme');
+      }
+      try { localStorage.setItem('sottolineature-theme', next); } catch (e) {}
+      render();
+    });
+  })();
+</script>
+</body>
+</html>

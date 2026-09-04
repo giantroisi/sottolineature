@@ -157,6 +157,7 @@ def main():
         f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
         f.write('  <url><loc>' + qp.SITE_URL + '/</loc></url>\n')
         f.write('  <url><loc>' + qp.SITE_URL + '/metodo/</loc></url>\n')
+        f.write('  <url><loc>' + qp.SITE_URL + '/privacy/</loc></url>\n')
         for slug, q in qp_entries:
             lastmod = ('<lastmod>' + q['added'] + '</lastmod>') if q.get('added') else ''
             f.write('  <url><loc>' + qp.SITE_URL + '/citazioni/' + slug + '/</loc>' + lastmod + '</url>\n')

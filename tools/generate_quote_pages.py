@@ -11,6 +11,7 @@ import os
 import re
 import sys
 import unicodedata
+import urllib.parse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
@@ -45,6 +46,7 @@ def save_slugs(data):
 
 # Limiti di lunghezza per <title> e meta description: non sono estetici, sono
 # quanto ne mostra Google prima di tagliare.
+CONTATTO = 'sottolineature@outlook.it'
 TITLE_MAX = 64
 TITLE_MIN_INCIPIT = 30
 TITLE_MAX_INCIPIT = 48
@@ -149,7 +151,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://covers.openlibrary.org">
 <link rel="stylesheet" href="/assets/site.css">
 <script type="application/ld+json">{jsonld}</script>
 <script>
@@ -233,10 +234,11 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <p class="quote-note-hint">Resta su questo dispositivo. La ritrovi in <a href="/le-mie-sottolineature/">Le mie sottolineature</a>.</p>
   </div>
   {tags_html}
+  <p class="segnala sans"><a class="segnala-errore" href="{segnala_href}">Segnala un errore in questa citazione</a></p>
   {related_html}
   </div>
   <footer class="sans" data-url="sottolineature.it/citazioni/{slug}/">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo. <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>.
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo. <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.
   </footer>
 </div>
 <script src="/assets/share.js"></script>
@@ -568,6 +570,15 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     title_tag = '«' + title_incipit + '»' + tail
     og_title = '«' + (q['quote'] if len(q['quote']) <= 120 else q['quote'][:117].rsplit(' ', 1)[0] + '…') + '»'
     canonical = SITE_URL + '/citazioni/' + slug + '/'
+
+    oggetto = 'Errore in: ' + q['author'] + ', ' + q['title']
+    corpo = ('Pagina: ' + canonical + '\n\n'
+             'Che cosa non torna (testo, autore, opera, anno, luogo nel testo, '
+             'traduttore, contesto o copertina):\n\n')
+    segnala_href = ('mailto:' + CONTATTO
+                    + '?subject=' + urllib.parse.quote(oggetto)
+                    + '&body=' + urllib.parse.quote(corpo))
+
     og_image = SITE_URL + '/assets/og/' + slug + '.png'
     copy_text = '"' + q['quote'] + '" — ' + q['author'] + ', ' + q['title']
 
@@ -683,6 +694,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         og_title=html.escape(og_title),
         og_image=og_image,
         h1_quote=h1_quote,
+        segnala_href=html.escape(segnala_href, quote=True),
         quote_open='' if gia_virgolettata else '<span class="quote-open" aria-hidden="true">\u00ab</span>',
         quote_close='' if gia_virgolettata else '<span class="quote-close" aria-hidden="true">\u00bb</span>',
         h1_esplicativo=h1_esplicativo,

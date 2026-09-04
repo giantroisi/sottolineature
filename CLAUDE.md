@@ -1150,14 +1150,23 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   nuovi, si porta a **4 citazioni** ciascuno gli autori gia' in archivio con piu' domanda di
   ricerca, con precedenza alle opere anteriori al Novecento. Motivo: 176 autori su 251 sono fermi
   a due citazioni e il Novecento resta il 58% dell'archivio
-- **Contatto e "Segnala un errore" — in sospeso su richiesta dell'utente (2026-08-30):** manca solo
-  un indirizzo email da pubblicare. Quando arriva (l'utente valuta se crearne uno dedicato tipo
-  `ciao@sottolineature.it` su Hostinger, dove sta il dominio): email nel footer di ogni pagina, e
-  sulla pagina citazione un link *Segnala un errore* che apre una mail precompilata con l'URL della
-  citazione nell'oggetto. Su un sito costruito sulla verifica delle fonti e' anche il canale
-  naturale per ricevere segnalazioni dagli insegnanti e guadagnare link in entrata. **Non pubblicare
-  l'email personale dell'utente senza che sia lui a indicarla**
-- **Informativa privacy** — richiesta dall'utente, in sospeso: servono nome/ragione ed email da usare come titolare del trattamento (dati che non si possono inventare in un documento legale). Nessun cookie/tracking sul sito, solo `localStorage` funzionale — confermato controllando il codice
+- ~~**Contatto e "Segnala un errore"**~~ **Chiuso il 2026-09-04.** L'utente ha creato
+  `sottolineature@outlook.it` e indicato «Sottolineature» come titolare. Nel piede di ogni pagina
+  ora ci sono *Scrivici* e *Privacy*; sulla pagina citazione un link **Segnala un errore in questa
+  citazione** apre una mail con oggetto e URL gia' scritti — su un sito costruito sulla verifica
+  delle fonti la segnalazione e' il controllo di qualita' piu' prezioso che ci sia, perche' chi
+  scrive ha in mano il libro, e se deve spiegare da sola di quale citazione parla meta' delle
+  segnalazioni non arriva
+- ~~**Informativa privacy**~~ **Chiusa il 2026-09-04**, `/privacy/`, scritta sui fatti verificati
+  nel codice e non su un modello: nessun cookie, nessuna statistica, nessun carattere tipografico
+  da server esterni, nessun account; le quattro voci in `localStorage` (sottolineature, note, tema,
+  contrassegno di riparazione) elencate una per una, col loro rovescio detto in chiaro — cancelli i
+  dati del sito e non ci sono piu'. Dichiarati i registri di Vercel come responsabile del
+  trattamento, la base giuridica per chi scrive, i diritti GDPR e il reclamo al Garante. Tolto nello
+  stesso passaggio il `preconnect` a `covers.openlibrary.org`, rimasto in testa a ogni pagina
+  citazione quando le copertine erano remote: da giorni sono tutte locali, e quella riga apriva una
+  connessione a un terzo senza che ne arrivasse un'immagine — un contatto che l'informativa avrebbe
+  dovuto dichiarare, tolto invece che dichiarato
 - **Contesto per le ultime 2 citazioni** — Dostoevskij (Delitto e castigo), Sciascia (Il giorno della civetta): da ritentare solo se emerge una fonte primaria (es. testo del romanzo su Wikisource/Google Libri), non ha senso riprovare con le stesse ricerche generiche già fatte più volte
 - **Sarah J. Maas e Leigh Bardugo** — restano da aggiungere (Rick Riordan fatto): nessuna citazione italiana verificabile trovata finora, serve una fonte tracciabile al testo pubblicato (anteprima Google Libri o editore), non solo blog/trame
 - **Copertine per le 11 citazioni che ne sono ancora prive** — recuperate 32/43 in totale il 2026-08-28 (dettagli in LOG.md); delle 11 restanti, 2 sono poesie senza edizione autonoma (Leopardi, Pascoli — irrecuperabili), le altre 9 non hanno restituito su Open Library un'edizione con copertina disponibile nemmeno cercando per titolo originale (Kundera, Kafka "Il Castello", Simone Weil, Elif Shafak, Čechov, più Camus "L'estate" e Beauvoir "Il secondo sesso" scartati per copertine sbagliate/parziali) — probabilmente da lasciare alla tile placeholder

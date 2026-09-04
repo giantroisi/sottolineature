@@ -147,6 +147,17 @@ h1 { font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 0 0 0.75re
 .card-source a:hover { color: var(--gold); border-color: var(--gold); }
 .card-cover { width: 54px; height: 81px; object-fit: cover; border-radius: 2px; flex-shrink: 0; box-shadow: 0 1px 3px var(--shadow); }
 
+/* Segnalare un errore e' il controllo di qualita' piu' prezioso che questo
+   sito abbia: chi scrive ha in mano il libro. Il link sta dopo i tag, dove
+   arriva chi ha finito di leggere, e non prima, dove interromperebbe. */
+.segnala { margin: 2rem 0 0; font-size: 0.82rem; }
+.segnala a {
+  color: var(--ink-faint);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+}
+.segnala a:hover { color: var(--gold); border-color: var(--gold); }
+
 .breadcrumb {
   font-size: 0.78rem;
   color: var(--ink-faint);
