@@ -1389,3 +1389,15 @@
   indipendenti).
 
   Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 354 -> 348.
+
+- 2026-09-04 UTC — Lotto 19 di riscrittura contesti (CATALOGO.md 6-ter), stesso metodo.
+
+  **6 contesti riscritti**, fonte aperta per ognuno prima di scrivere, 60-90 parole: Mary Shelley
+  «Frankenstein» (da Wikiquote), Zora Neale Hurston «I loro occhi guardavano Dio» (cap. XX),
+  Alessandro Baricco «Novecento» (il monologo finale, nessun `source_url` in archivio ma
+  verificato con ricerca mirata: il testo esatto, con la continuazione della battuta sui tasti
+  del pianoforte, è confermato da più fonti), George R.R. Martin «Il Trono di Spade» (nessun
+  `source_url`, stesso tipo di verifica), Michael Ende «La storia infinita» (Graograman, cap.
+  XV), Niccolò Ammaniti «Io non ho paura» (p. 118).
+
+  Build pulita (0 problemi), check_links a zero problemi. Contesti sotto le 45 parole: 348 -> 342.
