@@ -2277,3 +2277,16 @@
   citazioni). Build pulita, `check_links.py` a zero problemi (tema/genere 6/6 validi). Commit di
   dato + le 11 pagine citazione + le pagine hub genere/home rigenerate (poesia, saggistica,
   indice generi, index.html).
+
+- 2026-09-05 07:32 UTC — corretto un difetto in `tools/check_links.py`: l'avviso "citazioni con
+  edizione ma senza traduttore" contava anche le opere scritte in italiano, che non hanno (e non
+  possono avere) un traduttore per definizione — il conteggio non poteva quindi mai arrivare a
+  zero, come segnalato dall'utente. Aggiunto un elenco esplicito di 57 autori che scrivono/
+  scrivevano in italiano (`ITALIAN_AUTHORS`), escluso da questo conteggio; latino e greco antico
+  restano fuori dall'elenco (Aristotele, Boezio, Epitteto, Marco Aurelio, Cicerone, Omero,
+  Platone, Sant'Agostino, Seneca, Virgilio: sono comunque testi da tradurre). Un solo caso di
+  autore misto gestito come eccezione: Francesco Petrarca scrive sia in volgare (Canzoniere, Rime
+  estravaganti) sia in latino (Lettera ai posteri/Epistola posteritati), quindi quest'ultima resta
+  fra le citazioni che richiedono un traduttore. L'avviso passa da un conteggio inutilizzabile a
+  **47 citazioni reali** ancora senza traduttore verificato — è il punto di partenza dei lotti
+  successivi. `check_links.py` resta a zero problemi bloccanti (l'avviso non lo era già prima).

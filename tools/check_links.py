@@ -25,6 +25,46 @@ DESC = re.compile(r'<meta name="description" content="(.*?)"', re.S)
 CANON = re.compile(r'<link rel="canonical" href="([^"]+)"')
 ROBOTS = re.compile(r'<meta name="robots" content="([^"]+)"')
 
+# Autori che scrivono/scrivevano in italiano: per le loro opere il "traduttore"
+# non esiste per definizione, quindi non vanno contati fra le citazioni senza
+# traduttore. Il criterio e' la lingua originale del testo, non la nazionalita'
+# dell'autore o l'epoca: latino e greco antico restano fuori (Aristotele,
+# Boezio, Epitteto, Marco Aurelio, Marco Tullio Cicerone, Omero, Platone,
+# Sant'Agostino, Seneca, Virgilio), perche' anche quei testi vanno tradotti.
+ITALIAN_AUTHORS = {
+    'Alba de Céspedes', 'Alberto Moravia', 'Alda Merini', 'Alessandro Baricco',
+    'Alessandro Manzoni', 'Andrea Camilleri', 'Anna Maria Ortese',
+    'Antonio Tabucchi', 'Beppe Fenoglio', 'Carlo Collodi', 'Carlo Goldoni',
+    'Carlo Levi', 'Cesare Pavese', 'Curzio Malaparte', 'Dacia Maraini',
+    'Dante Alighieri', 'Dino Buzzati', 'Elena Ferrante', 'Elio Vittorini',
+    'Elsa Morante', 'Erri De Luca', 'Eugenio Montale', 'Francesco Petrarca',
+    "Gabriele D'Annunzio", 'Giacomo Leopardi', 'Giorgio Bassani',
+    'Giovanni Boccaccio', 'Giovanni Pascoli', 'Giovanni Verga',
+    'Giuseppe Tomasi di Lampedusa', 'Giuseppe Ungaretti', 'Goliarda Sapienza',
+    'Grazia Deledda', 'Ignazio Silone', 'Ippolito Nievo', 'Italo Calvino',
+    'Italo Svevo', 'Leonardo Sciascia', 'Ludovico Ariosto', 'Luigi Pirandello',
+    'Mario Rigoni Stern', 'Michela Murgia', 'Natalia Ginzburg',
+    'Niccolò Ammaniti', 'Niccolò Machiavelli', 'Paolo Cognetti',
+    'Pier Paolo Pasolini', 'Primo Levi', 'Salvatore Quasimodo',
+    'Sandro Veronesi', 'Sibilla Aleramo', 'Susanna Tamaro', 'Torquato Tasso',
+    'Ugo Foscolo', 'Umberto Eco', 'Umberto Saba', 'Vasco Pratolini',
+    'Vittorio Alfieri',
+}
+
+# Eccezione dentro un autore altrimenti italiano: opere scritte in un'altra
+# lingua dallo stesso autore. Petrarca scriveva sia in volgare (Canzoniere,
+# Rime estravaganti) sia in latino: la "Lettera ai posteri" (Epistola
+# posteritati) e' un testo latino e va tradotta come le altre.
+NON_ITALIAN_WORKS = {
+    ('Francesco Petrarca', 'Lettera ai posteri'),
+}
+
+
+def is_italian_original(quote):
+    if (quote['author'], quote['title']) in NON_ITALIAN_WORKS:
+        return False
+    return quote['author'] in ITALIAN_AUTHORS
+
 
 def html_files():
     for dirpath, dirnames, filenames in os.walk(ROOT):
@@ -306,7 +346,8 @@ def main():
             for a, t, tot, con in meta_trad[:10]:
                 print('   %s — %s (%d citazioni, %d con traduttore)' % (a, t, tot, con))
         senza_trad = [q for q in quotes
-                      if q.get('source_edition') and not q.get('source_translator')]
+                      if q.get('source_edition') and not q.get('source_translator')
+                      and not is_italian_original(q)]
         if senza_trad:
             print('\nAVVISO — citazioni con edizione ma senza traduttore: %d' % len(senza_trad))
             print('   su un\'opera tradotta la frase italiana e\' del traduttore: senza il suo')
