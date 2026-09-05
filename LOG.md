@@ -2670,3 +2670,43 @@
   fuori da questo commit) — commit dei soli file elencati esplicitamente, come da protocollo.
 
   Build pulita, zero problemi. Copertura totale raccolte: da 448 a 479 citazioni su 748 (64%).
+
+- 2026-09-05 13:22 UTC — chiuso il punto 4 della coda, «frasi brevi» e «incipit memorabili», con il
+  criterio diverso richiesto dalla nota in CATALOGO.md: non «ne parla», ma «questa frase regge da
+  sola». Le candidate erano meccaniche (158 e 140, per lunghezza e per `source_locus == incipit`),
+  la selezione no: letta ogni riga chiedendomi se varrebbe la pena citarla fuori dal libro, a chi
+  non l'ha letto.
+
+  **Frasi brevi: 132 aggiunte su 158 candidate.** Criterio: l'aforisma o il verso deve reggersi da
+  solo come pensiero compiuto, non solo essere corto. Dentro tutto ciò che comprime «un'intera
+  filosofia in una manciata di parole» (Dante, Shakespeare, Dostoevskij «Se Dio non esiste»,
+  Beauvoir «Donna non si nasce», Bulgakov «I manoscritti non bruciano», Vonnegut «Così va la
+  vita»...). Fuori le righe che sono famose come apertura di romanzo ma non come pensiero
+  autonomo: «La signora Dalloway disse che i fiori li avrebbe comprati lei» o «In un buco nel
+  terreno viveva uno Hobbit» sono incipit, non aforismi — restano fuori da qui e vanno the-
+  maticamente nell'altra raccolta. Fuori anche le righe che hanno bisogno del romanzo per contare
+  qualcosa (nomi propri, riferimenti alla trama): «Talè che cosa stramma» di Camilleri (dialetto
+  non tradotto in chiaro), «Cara la mia vecchia triglia» di Dahl (battuta comica che ha senso solo
+  in scena), «Signore e signori, che i settantaquattresimi Hunger Games abbiano inizio!» (il
+  numero è muto senza il libro).
+
+  **Incipit memorabili: 26 aggiunte su 140 candidate.** Qui il criterio è più stretto di quanto
+  sembri: non «è la prima frase di un libro», ma «è un'apertura celebrata come tale» — il tipo di
+  riga che finisce nelle antologie delle «migliori prime righe della letteratura». Dentro: Verga
+  (I Malavoglia), Manzoni (il ramo del lago di Como), Boccaccio (il Proemio del Decameron), Dickens
+  (due, «Grandi speranze» e «Canto di Natale»), García Márquez, Bellow, Ellison, Wiesel, Cortázar,
+  Le Guin, Rushdie, Achebe. Fuori la maggioranza delle 140: aperture che sono semplicemente la
+  prima frase di un buon romanzo (Baricco, Munro, Munro, Pamuk, i tre Moravia, i tre Kerouac, i due
+  Svevo...), corrette come dato ma non «memorabili» nel senso di celebrate, antologizzate, citate a
+  memoria da chi non ha letto il libro. La differenza è la stessa fra «una frase che apre un libro»
+  e «una frase che il libro ha reso immortale».
+
+  Con questo la coda di CATALOGO.md §9-bis è esaurita per intero: punto 0 chiuso, punto 1 già
+  chiuso da altri, punto 2 fatto (resa bassa ma onesta), punto 3 fatto su tutte le raccolte con
+  candidate, punto 4 chiuso ora, punto 5 già sbloccato e fatto in parte (il resto non ha
+  un'immagine disponibile). Copertura totale raccolte: da 479 a 637 citazioni su 748 (85%).
+
+  Build pulita, zero problemi. Nota di convivenza: in questo giro la sessione parallela ha
+  committato piu' volte modifiche a un componente "Condividi" mentre lavoravo — isolato di nuovo,
+  con `git diff --stat`, le sole tre pagine (frasi-brevi, incipit, indice raccolte) che il mio
+  intervento cambia davvero, lasciando fuori dal commit tutto il resto.
