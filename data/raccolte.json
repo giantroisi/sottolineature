@@ -50,7 +50,11 @@
       "Antoine de Saint-Exupéry|Terra degli uomini|La terra ci fornisce, sul nostro",
       "Sinclair Lewis|Opera d'arte|Io non sapevo che la Bibbia",
       "Epitteto|Manuale|Sovvengati che tu non sei qui",
-      "Susanna Tamaro|Ascolta la mia voce|È il ricordo che costituisce l'essere"
+      "Susanna Tamaro|Ascolta la mia voce|È il ricordo che costituisce l'essere",
+      "Alexandre Dumas|Il conte di Montecristo|Tutta l'umana saggezza sarà riposta in",
+      "Roberto Bolaño|2666|La prima volta che Jean-Claude Pelletier",
+      "Leonardo Sciascia|Il Consiglio d'Egitto|Il benedettino passò un mazzetto di",
+      "Nick Hornby|Alta fedeltà|Sembra quasi che se metti la"
     ]
   },
   {
@@ -220,7 +224,10 @@
       "Henry James|Ritratto di signora|È sciocco dubitar di sé stessi",
       "Clarice Lispector|Dove siete stati di notte|Si può pensare in fretta al",
       "Michela Murgia|Noi siamo tempesta|Essere amici è questo: diventare il",
-      "Anaïs Nin|Diario II. 1934-1939|Ogni amico rappresenta un mondo in"
+      "Anaïs Nin|Diario II. 1934-1939|Ogni amico rappresenta un mondo in",
+      "Torquato Tasso|Gerusalemme liberata|Amico hai vinto; io ti perdon:",
+      "Miguel de Cervantes|Don Chisciotte della Mancia|Vedi là, amico Sancio, come si",
+      "Elsa Morante|Menzogna e sortilegio|Sono già due mesi che la"
     ]
   },
   {
@@ -255,7 +262,9 @@
       "Michela Murgia|Noi siamo tempesta|Essere amici è questo: diventare il",
       "James Baldwin|A Talk to Teachers|Il paradosso dell'istruzione è proprio questo:",
       "Cesare Pavese|La bella estate|A quei tempi era sempre festa.",
-      "Milan Kundera|La lentezza|Ci è venuta voglia di passare"
+      "Milan Kundera|La lentezza|Ci è venuta voglia di passare",
+      "Zora Neale Hurston|I loro occhi guardavano Dio|L'amore è come il mare. Mobile,",
+      "Viktor E. Frankl|Uno psicologo nei lager|Guai a chi non si ritrova"
     ]
   },
   {
@@ -324,7 +333,10 @@
       "Anna Achmatova|Sera|Strinsi le mani sotto il velo",
       "Salvatore Quasimodo|Alle fronde dei salici|Alle fronde dei salici, per voto,",
       "Octavia E. Butler|Legami di sangue|Il lavoro era più faticoso, gli",
-      "Paul Verlaine|Romanze senza parole|Piange nel mio cuore come piove"
+      "Paul Verlaine|Romanze senza parole|Piange nel mio cuore come piove",
+      "Marilynne Robinson|Gilead|Quando parlo della lunga notte che",
+      "J.D. Salinger|Il giovane Holden|Voglio dire che ho lasciato scuole",
+      "Isaac Asimov|Isaac Asimov's Book of Science and Nature Quotations|L'aspetto più triste della vita in"
     ]
   },
   {
@@ -349,7 +361,12 @@
       "Donna Tartt|Il cardellino|Tra la realtà, da un lato,",
       "F. Scott Fitzgerald|Il grande Gatsby|Spero che sia stupida: è la",
       "John Muir|La mia prima estate sulla Sierra|Mai mi sono trovato dinanzi a",
-      "Donna Tartt|Dio di illusioni|«La morte è la madre della"
+      "Donna Tartt|Dio di illusioni|«La morte è la madre della",
+      "Dacia Maraini|La lunga vita di Marianna Ucrìa|Un padre e una figlia eccoli",
+      "Hans Christian Andersen|L'improvvisatore|Ci stabilimmo a Santa Lucia, il",
+      "Cesare Pavese|La bella estate|A quei tempi era sempre festa.",
+      "Simone Weil|La rivelazione greca|Circa duemilacinquecento anni fa in Grecia",
+      "Amin Maalouf|Il periplo di Baldassarre|Nessuno appartiene a Genova quanto i"
     ]
   },
   {
@@ -556,7 +573,10 @@
       "Natalia Ginzburg|La famiglia Manzoni|Giulia Beccaria aveva i capelli rossi",
       "Michel de Montaigne|Saggi|Per un figlio di buona famiglia",
       "E.T.A. Hoffmann|Lo Schiaccianoci e il re dei sorci|La sera del 24 dicembre i",
-      "Madeline Miller|Circe|Ma forse nessun genitore riesce a"
+      "Madeline Miller|Circe|Ma forse nessun genitore riesce a",
+      "Hermann Hesse|Demian|L'uccello lotta per uscire dall'uovo. L'uovo",
+      "Alda Merini|Vuoto d'amore|Sono nata il ventuno a primavera,",
+      "Paolo Cognetti|Senza mai arrivare in cima|Alla fine ci sono andato davvero,"
     ]
   },
   {
@@ -618,7 +638,8 @@
       "William Golding|Il signore delle mosche|La prima cosa a cui si",
       "Michela Murgia|Accabadora|Fillus de anima. È così che",
       "Ugo Foscolo|Sonetti|Né più mai toccherò le sacre",
-      "Paolo Cognetti|Senza mai arrivare in cima|Alla fine ci sono andato davvero,"
+      "Paolo Cognetti|Senza mai arrivare in cima|Alla fine ci sono andato davvero,",
+      "Friedrich Nietzsche|Così parlò Zarathustra|Tre metamorfosi dello spirito io vi"
     ]
   },
   {
@@ -646,7 +667,9 @@
       "Ray Bradbury|Fahrenheit 451|È un bel lavoro, sapete. Il",
       "Carlo Goldoni|La bottega del caffè|Non v'innamoraste mai di questo guadagno,",
       "Michel de Montaigne|Saggi|Per un figlio di buona famiglia",
-      "Octavia E. Butler|Legami di sangue|Il lavoro era più faticoso, gli"
+      "Octavia E. Butler|Legami di sangue|Il lavoro era più faticoso, gli",
+      "George Orwell|Fiorirà l'aspidistra|L'orologio batté le due e mezzo.",
+      "Boezio|Della consolazione della filosofia|Tutta la sollecitudine de' mortali, la"
     ]
   },
   {
@@ -692,7 +715,9 @@
       "Maya Angelou|Il canto del silenzio|Perché mi guardate? Non sono venuta",
       "Douglas Adams|La vita, l'universo e tutto quanto|Come sempre, nel dormiveglia, fu assalito",
       "T.S. Eliot|La terra desolata|Aprile è il mese più crudele,",
-      "Susanna Tamaro|Ascolta la mia voce|Il passato non si può più"
+      "Susanna Tamaro|Ascolta la mia voce|Il passato non si può più",
+      "Ta-Nehisi Coates|Tra me e il mondo|Avere la pelle nera vuol dire",
+      "Khalil Gibran|Il Profeta|Voi siete nati insieme e insieme"
     ]
   },
   {
@@ -757,7 +782,10 @@
       "Donna Tartt|Il cardellino|Tra la realtà, da un lato,",
       "Saul Bellow|Il pianeta di Mr. Sammler|Il sistema esige la mediocrità, non",
       "Yukio Mishima|Il tempio dell'alba|In fin dei conti, nella vita",
-      "Nick Hornby|Alta fedeltà|Sembra quasi che se metti la"
+      "Nick Hornby|Alta fedeltà|Sembra quasi che se metti la",
+      "Pier Paolo Pasolini|Lettere luterane|Uno dei temi più misteriosi del",
+      "Roald Dahl|Danny il campione del mondo|La caccia di frodo è un'arte.",
+      "Torquato Tasso|Gerusalemme liberata|Vezzosi augelli infra le verdi fronde"
     ]
   },
   {
@@ -867,7 +895,8 @@
       "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il",
       "Elif Shafak|La bastarda di Istanbul|Non maledire ciò che viene dal",
       "Jules Verne|Dalla Terra alla Luna|L'astro delle notti, per la sua",
-      "Giovanni Boccaccio|Decameron|E per ciò si disse: «Bocca"
+      "Giovanni Boccaccio|Decameron|E per ciò si disse: «Bocca",
+      "Jorge Amado|Capitani della spiaggia|La libertà è come il sole:"
     ]
   },
   {
@@ -889,7 +918,9 @@
       "Giovanni Pascoli|Myricae|Silenzio, intorno: solo, alle ventate, odi",
       "Clarice Lispector|Dove siete stati di notte|Si può pensare in fretta al",
       "Giacomo Leopardi|Canto notturno di un pastore errante dell'Asia|Che fai tu, luna, in ciel?",
-      "Lev Tolstoj|I cosacchi|A Mosca tutto tace. Solo di"
+      "Lev Tolstoj|I cosacchi|A Mosca tutto tace. Solo di",
+      "Khalil Gibran|Il Profeta|Voi siete nati insieme e insieme",
+      "Amos Oz|Una storia di amore e di tenebra|I libri, loro non ti abbandonano"
     ]
   },
   {

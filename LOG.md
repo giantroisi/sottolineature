@@ -2603,3 +2603,70 @@
 
   Build pulita, zero problemi. Opere senza genere: 332 → 330 (414 → 412 citazioni). Commit di
   dato + le 4 pagine rigenerate.
+
+- 2026-09-05 13:13 UTC — proseguito il punto 3 (ampliamento raccolte) su tutte quelle rimaste con
+  candidate, oltre alle 7 già fatte stamattina: `python3 tools/raccolte_da_ampliare.py` (senza
+  argomenti) per la mappa completa, poi ogni raccolta separatamente, stessa disciplina — candidate
+  lette una per una, non incollate. **48 aggiunte su 139 candidate proposte (35%)**:
+
+  - **libri-e-scrittura +4/20**: Dumas (le due parole «Aspettare e sperare» come tutta la
+    saggezza umana), Bolaño (un libro discusso per nome dentro la trama di 2666), Sciascia (un
+    monaco che sfoglia un libro fisico), Hornby (musica e libri come priorità di vita). Scartati
+    16 «parole»/«scritto»/«leggero» che non parlano affatto di scrittura: «era scritto» di Conrad
+    è un modo di dire per «era destino», «leggeri» in Hamsun descrive persone spensierate, non un
+    peso di carta.
+  - **figli +3/8**: Hesse (la terza metamorfosi dello spirito diventa un fanciullo), Merini (la
+    propria nascita), Cognetti (il proprio sogno di bambino). Scartato Primo Levi sul delfino che
+    «partorisce e allatta»: è biologia marina scherzosa, non figli umani.
+  - **bellezza +5/8**: Maraini, Andersen, Pavese, Weil (i «bellissimi poemi» greci), Maalouf (Genova
+    vista bella anche quando è brutta, per amore). Scartato Verne: «a bella prima» è un modo di
+    dire per «subito», non un giudizio estetico.
+  - **lavoro +2/7**: Orwell («Fiorirà l'aspidistra», romanzo sul lavoro d'ufficio, scena d'apertura
+    in ufficio), Boezio (il faticare dei mortali verso un unico fine). Scartati 4 «guadagnare»/
+    «guadagnata» che parlano di fede, fama o libertà, mai di un mestiere.
+  - **arte +3/7**: Pasolini (il teatro tragico greco), Dahl (la caccia di frodo come arte,
+    esplicito), Tasso («sia caso od arte», la domanda se la natura sia artificio). Scartato
+    Voltaire: «il quadro dei delitti» è un modo di dire per «il panorama», non un dipinto.
+  - **cambiamento +2/6**: Hurston (l'amore come il mare, diverso su ogni spiaggia), Frankl (il
+    momento sognato che si rivela diverso dalla realtà). Scartata Adichie: «diverso da noi»
+    significa persone non simili a noi, non un cambiamento nel tempo.
+  - **amicizia +3/6**: Tasso (Clorinda morente chiama «amico» chi l'ha uccisa), Cervantes (Don
+    Chisciotte si rivolge a «amico Sancio»), Morante (la madre adottiva «mia sola amica»).
+    Scartato Remarque: «la terra è amica al fante» è una metafora sul suolo in trincea, non
+    un'amicizia fra persone.
+  - **infanzia +1/6**: Nietzsche (la terza metamorfosi diventa un fanciullo — vale sia per figli
+    sia per infanzia). Scartati Atwood e Duras: «gioco»/«campo di gioco» sono rispettivamente
+    un vecchio impianto sportivo e il gergo calcistico, non l'infanzia.
+  - **ricordo-e-memoria +2/5**: Coates (un marchio che non si può mai dimenticare), Gibran
+    (la «silenziosa memoria di Dio»). Scartato Umberto Eco: «a memoria d'uomo» è un modo di dire
+    per «nella storia recente», non una riflessione sul ricordare.
+  - **morte +0/4**: tutti scartati. «Stanche morte» in Pavese è un modo di dire per «sfinite», non
+    la morte; «sepolcro» in Tasso è il luogo storico della crociata, non una meditazione sulla fine.
+  - **mare +0/4** (oltre ai 6 già aggiunti stamattina): stessi scarti di allora, nessuna nuova.
+  - **tristezza +3/4**: Robinson, Salinger (l'indifferenza di Holden ai saluti tristi), Asimov
+    («l'aspetto più triste della vita», riflessione esplicita). Scartato Petrarca: «triste»
+    descrive tiranni «acerbi e crudi» in una rassegna storica, aggettivo non riflessione.
+  - **stelle-e-cielo +1/4**: Amado (la libertà paragonata al sole). Scartati Cervantes («il cielo»
+    = la Provvidenza, non il cielo fisico) e Flaubert («le stelle» dentro la stessa metafora sulla
+    povertà delle parole già esclusa da musica).
+  - **felicità +0/2**, **notte +0/1**: nessuno regge. «Alba» in Fenoglio è il nome proprio della
+    città, non l'alba del giorno — lo stesso tipo di errore di «Onde» = congiunzione già trovato
+    ieri per Alfieri.
+  - **silenzio +2/2**: Gibran (già in ricordo-e-memoria, il riuso è normale), Amos Oz (i libri che
+    aspettano «nel più completo silenzio» sullo scaffale).
+  - **donne, guerra, occhi-e-sguardo, famiglia, animali, musica, viaggio-e-cammino: confermato
+    0 aggiunte** anche dopo un secondo giro (le candidate rimaste dopo gli inserimenti di stamattina
+    sono le stesse già scartate, rilette per sicurezza). Su musica in particolare, tutti i «canto»
+    (Ariosto, Tasso, Virgilio, Whitman) sono l'invocazione epica classica, non musica in senso
+    proprio — già collocati altrove (guerra, viaggio-e-cammino).
+
+  **Nota tecnica sulla convivenza**: in questo giro la sessione concorrente aveva modifiche non
+  ancora committate su `templates/home_template.html`, `tools/generate_quote_pages.py`, alcuni
+  CSS/JS e diverse pagine generate (opere/temi/generi/metodo/privacy). Lanciare `build.py` ha
+  rigenerato anche quelle pagine con lo stato corrente. Per non committare lavoro altrui a metà,
+  isolato con `git diff --stat` le sole pagine con un contenuto realmente cambiato dal mio
+  intervento (le 12 raccolte con nuove citazioni + l'indice raccolte) da quelle toccate solo dal
+  cambio di hash dell'asset CSS (tutte le altre, incluse le 749 pagine citazione, che restano
+  fuori da questo commit) — commit dei soli file elencati esplicitamente, come da protocollo.
+
+  Build pulita, zero problemi. Copertura totale raccolte: da 448 a 479 citazioni su 748 (64%).
