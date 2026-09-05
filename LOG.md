@@ -2236,3 +2236,11 @@
 
   `python3 tools/contesti_da_ampliare.py`: **37 → 3**. Build pulita, `check_links.py` a zero
   problemi. Commit di dato + le 34 pagine rigenerate.
+
+- 2026-09-05 UTC — **Due correzioni dal controllo di qualità dell'utente sulla regola del
+  finale (6-ter)**: Canetti «Auto da fé» rivelava l'inganno subito da Kien alla fine del
+  romanzo — tolto, sostituito con cosa c'è in gioco nel pensiero di Kien in quel punto (la sua
+  diffidenza verso ogni narrativa, coerente con l'ossessione per il sapere puro). Forster «Casa
+  Howard» rivelava il matrimonio di Margaret con Wilcox e l'eredità della casa — tolto, resta
+  solo il contrasto fra le due famiglie e il motto «Only connect». Build pulita, `check_links.py`
+  a zero problemi. Commit di dato + le 2 pagine rigenerate.
