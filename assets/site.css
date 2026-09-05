@@ -425,7 +425,13 @@ footer.sans a { color: var(--ink-faint); }
   border: 1px solid var(--rule); border-radius: 4px; padding: 4px; background: var(--paper-raised);
 }
 .share-preview img { display: block; border-radius: 2px; }
-.share-rows { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+/* `flex: 1 1 240px` e non un semplice `min-width: 0`: la colonna dei
+   controlli non cresceva e restava larga 261px anche quando accanto ce
+   n'erano 320, cosi' "Reels" finiva esattamente sul bordo e col carattere di
+   sistema di un telefono vero andava a capo. Con la base a 240 sta accanto
+   all'anteprima quando c'e' posto, e quando non ce n'e' va sotto prendendosi
+   tutta la larghezza. */
+.share-rows { display: flex; flex-direction: column; gap: 0.5rem; flex: 1 1 240px; min-width: 0; }
 .share-row { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
 .share-row .share-choice-label { flex: 0 0 3.6rem; }
 /* Un pulsante solo fa partire lo scaricamento, e lo dice. Prima a scaricare

@@ -952,7 +952,13 @@ html:not(.js) .js-only { display: none !important; }
     border: 1px solid var(--rule); border-radius: 4px; padding: 4px; background: var(--paper-raised);
   }
   .share-preview img { display: block; border-radius: 2px; }
-  .share-rows { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+  /* `flex: 1 1 240px` e non un semplice `min-width: 0`: la colonna dei
+     controlli non cresceva e restava larga 261px anche quando accanto ce
+     n'erano 320, cosi' "Reels" finiva esattamente sul bordo e col carattere di
+     sistema di un telefono vero andava a capo. Con la base a 240 sta accanto
+     all'anteprima quando c'e' posto, e quando non ce n'e' va sotto prendendosi
+     tutta la larghezza. */
+  .share-rows { display: flex; flex-direction: column; gap: 0.5rem; flex: 1 1 240px; min-width: 0; }
   .share-row { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
   .share-row .share-choice-label { flex: 0 0 3.6rem; }
   /* `.share-choice button` ha specificita' 0-1-1 e batteva `.share-go` (0-1-0):
@@ -1228,9 +1234,9 @@ html:not(.js) .js-only { display: none !important; }
   <section class="strip" aria-labelledby="raccolteTitolo">
     <h2 class="strip-title sans" id="raccolteTitolo">Dalle raccolte</h2>
     <ul class="strip-list strip-collections">
+      <li><a href="/raccolte/frasi-brevi/"><span class="strip-quote">Frasi brevi</span><span class="strip-meta sans">Ci sono romanzi di seicento pagine ricordati per una sola riga. Questa raccolta parte da lì: dalla capacità della grande…</span><span class="strip-count sans">143 citazioni</span></a></li>
       <li><a href="/raccolte/libri-e-scrittura/"><span class="strip-quote">Libri e scrittura</span><span class="strip-meta sans">Ci sono citazioni che parlano d&#x27;amore, di coraggio, del tempo che passa — e poi ci sono quelle che parlano di loro stesse:…</span><span class="strip-count sans">46 citazioni</span></a></li>
-      <li><a href="/raccolte/ricordo-e-memoria/"><span class="strip-quote">Ricordo e memoria</span><span class="strip-meta sans">«Meditate che questo è stato»: la poesia che apre «Se questo è un uomo» di Primo Levi non è solo un ricordo, è un&#x27;esortazione a…</span><span class="strip-count sans">36 citazioni</span></a></li>
-      <li><a href="/raccolte/morte/"><span class="strip-quote">La morte</span><span class="strip-meta sans">Non esiste, in letteratura, un solo modo di scrivere della morte. C&#x27;è chi la affronta di petto, come Marguerite Yourcenar…</span><span class="strip-count sans">35 citazioni</span></a></li>
+      <li><a href="/raccolte/incipit/"><span class="strip-quote">Incipit memorabili</span><span class="strip-meta sans">La prima frase di un romanzo lavora più di ogni altra riga: deve stabilire una voce, un ritmo, a volte un&#x27;intera visione del…</span><span class="strip-count sans">39 citazioni</span></a></li>
     </ul>
     <p class="strip-more sans"><a href="/raccolte/">Tutte le raccolte →</a></p>
   </section>
