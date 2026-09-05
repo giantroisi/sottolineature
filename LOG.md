@@ -2203,3 +2203,36 @@
 
   `python3 tools/contesti_da_ampliare.py`: **57 → 37** sotto le 45 parole. Build pulita,
   `check_links.py` a zero problemi. Commit di dato + le 20 pagine rigenerate.
+
+- 2026-09-05 UTC — **Lotto 1 chiuso: ultime 34 citazioni riscritte, da 749 a 3 sotto le 45
+  parole**. Sontag «Malattia come metafora», Pratolini «Cronache di poveri amanti», Camilleri
+  «Il ladro di merendine», «Il campo del vasaio» e «La stagione della caccia» (3 citazioni),
+  Pessoa «Il libro dell'inquietudine» e «Tabacaria» (2 citazioni), Rowling «la Pietra
+  Filosofale», Quasimodo «Al padre» e «Alle fronde dei salici» (2 citazioni), Lindgren «I
+  fratelli Cuordileone», Kafka «La metamorfosi», Calvino «Le città invisibili» (ultime parole
+  del libro: solo cornice editoriale), Pasolini «Scritti corsari», Alfieri «Saul», DFW «Questa è
+  l'acqua» e «Infinite Jest» (2 citazioni), Morante «La Storia», Melville «Moby Dick», Emerson
+  «Fiducia in se stessi», Stendhal «Il rosso e il nero», Foscolo «Ultime lettere di Jacopo
+  Ortis», Eco «Il nome della rosa» (ultima riga: stesso trattamento), Baudelaire «Lo spleen di
+  Parigi», Bukowski «Factotum», Forster «Camera con vista» e «Casa Howard» (2 citazioni), Woolf
+  «Una stanza tutta per sé», Canetti «Auto da fé» (fermato all'inganno subito da Kien, senza
+  l'autoincendio finale — trovato e scartato), Orwell «1984», Deledda «Elias Portolu», Svevo
+  «Senilità», Amado «Gabriella, garofano e cannella», Szymborska «Nulla è in regalo!».
+
+  **Bilancio dell'intero compito (CATALOGO.md §9-bis, punto 1 e punto 0)**: partito da 270
+  citazioni sotto le 45 parole (61 delle quali con la descrizione di ricerca ripiegata sulla
+  citazione stessa), chiuso a **3**, tutti e tre casi genuinamente irrisolvibili nonostante
+  ricerche ripetute e mirate: Ginzburg «Le piccole virtù» (11 saggi nella raccolta, impossibile
+  isolare quale contiene la frase a p. 149 senza indovinare), Arendt «Gli incidenti ai tempi
+  della globalizzazione» (probabile misattribuzione — l'articolo sembra un'intervista a Paul
+  Virilio, non un testo di Arendt — segnalata ma non corretta, fuori perimetro), de Beauvoir
+  «Il sangue degli altri» (la frase risulta altrove, in «Memorie di una ragazza perbene» —
+  stessa famiglia di discrepanze già viste con Ginzburg e Montgomery, titolo non corretto per lo
+  stesso motivo). Durante il lavoro, tre errori scoperti e corretti prima o durante
+  l'applicazione, non dopo: Morrison «Sula» (l'interlocutrice era attribuita a Nel invece che a
+  Eva), Murgia «Chirù» (il vecchio contesto descriveva la trama di «Accabadora», copiata per
+  errore), de Céspedes «La bambolona» (una mia prima bozza inventava cognome, professione e stato
+  civile del personaggio — corretta con una ricerca dedicata prima di committare, non dopo).
+
+  `python3 tools/contesti_da_ampliare.py`: **37 → 3**. Build pulita, `check_links.py` a zero
+  problemi. Commit di dato + le 34 pagine rigenerate.
