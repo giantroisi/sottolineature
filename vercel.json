@@ -118,6 +118,11 @@
       "source": "/citazioni/iris-murdoch-una-testa-tagliata/",
       "destination": "/autori/iris-murdoch/",
       "permanent": true
+    },
+    {
+      "source": "/citazioni/simone-de-beauvoir-il-sangue-degli-altri/",
+      "destination": "/citazioni/simone-de-beauvoir-memorie-d-una-ragazza-perbene-mi-e-stato/",
+      "permanent": true
     }
   ],
   "headers": [

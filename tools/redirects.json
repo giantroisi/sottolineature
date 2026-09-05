@@ -74,5 +74,9 @@
   {
     "from": "/citazioni/iris-murdoch-una-testa-tagliata/",
     "to": "/autori/iris-murdoch/"
+  },
+  {
+    "from": "/citazioni/simone-de-beauvoir-il-sangue-degli-altri/",
+    "to": "/citazioni/simone-de-beauvoir-memorie-d-una-ragazza-perbene-mi-e-stato/"
   }
 ]

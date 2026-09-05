@@ -2537,3 +2537,40 @@
   Build pulita, zero problemi, tutte e 30 le raccolte sopra soglia. Commit di dato + le pagine
   rigenerate (34 file: le pagine citazione delle 17 aggiunte più mare/animali/ecc., gli indici,
   la sitemap, le due pagine viaggio).
+
+- 2026-09-05 13:00 UTC — chiuso il punto 0 di CATALOGO.md §9-bis: le ultime 3 citazioni con un
+  contesto sotto le 45 parole (segnaposto tipo «Aforisma sul senso di essere capiti.», mai scritti
+  davvero). Ricercata e scritta una descrizione vera per ciascuna, 60-90 parole.
+
+  - Natalia Ginzburg, «Essere capiti vuol dire essere presi e accettati per quello che siamo»:
+    la frase viene dal saggio «I rapporti umani», dentro «Le piccole virtù» — verificato che è
+    quello e non il saggio omonimo che dà il titolo alla raccolta.
+  - Hannah Arendt, «Il progresso e la catastrofe sono il diritto e il rovescio della stessa
+    medaglia»: risalita alla frase inglese originale, «Progress and Doom are two sides of the
+    same coin... Both are articles of superstition, not of faith» — un pensiero sulla filosofia
+    della storia, non un'osservazione occasionale, che l'Internazionale del 2008 ha ripreso con
+    un titolo redazionale («Gli incidenti ai tempi della globalizzazione») che non è di Arendt.
+
+  **Trovata durante la ricerca una seconda citazione mal attribuita** (dopo Iris Murdoch di
+  ieri): Simone de Beauvoir, «Mi è stato più facile pensare un mondo senza creatore, che un
+  creatore pieno di tutte le contraddizioni del mondo», era attribuita a «Il sangue degli altri»
+  (romanzo, 1945). Verificato su due fonti indipendenti — Wikiquote (la stessa già citata nel
+  campo `source_url` della citazione) e il testo francese originale su un sito di citazioni
+  francese — che la frase appartiene invece a «Mémoires d'une jeune fille rangée» (1958, il primo
+  volume dell'autobiografia), dove de Beauvoir ripercorre la propria crisi religiosa adolescenziale.
+  Prova ulteriore, trovata per caso: l'archivio ha già un'altra citazione dallo stesso libro
+  (aggiunta il 2026-07-31, «Nulla era risolto, tutto restava possibile»), il cui contesto descrive
+  esattamente lo stesso percorso — «la progressiva presa di distanza dall'educazione borghese e
+  cattolica ricevuta» — confermando in modo indipendente la correzione.
+
+  Corretti titolo (→ «Memorie d'una ragazza perbene»), anno (1945 → 1958), genere (vuoto →
+  saggistica, coerente con l'altra citazione dello stesso libro), edizione (Einaudi, 1960,
+  traduzione di Bruno Fonzi, verificata sulla pagina ufficiale dell'editore — sostituisce
+  l'edizione Mondadori 2023 che apparteneva al romanzo sbagliato). Locus lasciato vuoto: nessuna
+  fonte permette di risalire con certezza alla pagina esatta nella traduzione Fonzi. Copertina
+  rimossa (apparteneva al romanzo sbagliato); nessuna nuova trovata da rimettere. Redirect 301
+  aggiunto in `tools/redirects.json` dal vecchio URL al nuovo, chiave rimossa da `tools/slugs.json`
+  così che `build.py` ne generi una nuova (coerente con la correzione Ishiguro/Munro/Murgia).
+
+  Build pulita, zero problemi. Il conteggio dei contesti brevi (punto 0 della coda) è ora **0/748**
+  — chiuso per intero. Commit di dato + tutte le pagine rigenerate.
