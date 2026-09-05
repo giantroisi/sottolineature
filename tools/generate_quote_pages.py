@@ -296,7 +296,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
         <button type="button" data-variant="chiaro" aria-pressed="true">Chiaro</button>
         <button type="button" data-variant="scuro" aria-pressed="false">Scuro</button>
       </div>
-      <button class="share-go" type="button" id="shareGo">Scarica l&#x27;immagine</button>
+      <button class="share-go" type="button" id="shareGo" aria-label="Condividi l&#x27;immagine">Condividi</button>
     </div>
   </div>
   <div class="quote-note sans" id="quoteNote" hidden>
