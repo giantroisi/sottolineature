@@ -2244,3 +2244,36 @@
   Howard» rivelava il matrimonio di Margaret con Wilcox e l'eredità della casa — tolto, resta
   solo il contrasto fra le due famiglie e il motto «Only connect». Build pulita, `check_links.py`
   a zero problemi. Commit di dato + le 2 pagine rigenerate.
+
+- 2026-09-05 UTC — **Lotto 3 aperto: genere alle opere che ne sono prive** (CATALOGO.md §3-bis).
+  344 opere su 577 non avevano genere (427 citazioni). Analisi via script di scratchpad (non
+  toccato `tools/`, per convivenza con la sessione parallela): raggruppate le 749 citazioni per
+  (autore, titolo), isolate le 344 dove nessuna citazione ha ancora un genere.
+
+  Letto il campo `context` già scritto di **ognuna** delle 344 opere, non il solo titolo — due
+  scoperte utili proprio per questo: «Il mio caffè con la Szymborska» di Olga Tokarczuk non è un
+  libro ma un'intervista su «la Repubblica» (nessun genere applicabile, resta vuoto); «Lavoro di
+  donna» di Maya Angelou non è un romanzo ma la poesia «Woman Work» dalla raccolta «And Still I
+  Rise» (genere **poesia**).
+
+  **10 opere classificate (11 citazioni), le altre 334 restano deliberatamente vuote** — non è
+  lavoro a metà, è la regola stessa di 3-bis applicata: "nel dubbio si lascia vuoto", e la
+  stragrande maggioranza delle opere aggiunte di recente è narrativa o teatro, categorie che non
+  corrispondono a nessuno dei sei generi. Criterio usato per **saggistica**: solo memoir/diario
+  dichiarati tali nel testo (mai un romanzo autobiografico o un roman à clef, anche quando la
+  fonte richiama fatti reali — es. Kerouac, Vargas Llosa, Duras, Lawrence restano narrativa e
+  vuoti, perché il loro stesso contesto li chiama «romanzo»). Assegnati:
+
+  **saggistica**: Annie Ernaux «Gli anni» e «Il posto» (memoir), Saint-Exupéry «Terra degli
+  uomini» (memoir di un aviatore vero), Amos Oz «Una storia di amore e di tenebra» (memoir),
+  Audre Lorde «Zami» (autobiografia), Julian Barnes «Livelli di vita» (memoir sul lutto),
+  Wole Soyinka «Sul far del giorno» (memoir, verificato via ricerca dedicata — non teatro,
+  benché l'autore sia noto soprattutto come drammaturgo), Maya Angelou «Il canto del silenzio»
+  (prima autobiografia), Sibilla Aleramo «Amo dunque sono» (diario d'amore reale, non romanzo).
+
+  **poesia**: Maya Angelou «Lavoro di donna» (la poesia «Woman Work»).
+
+  `python3 tools/generi_da_ampliare.py` [scratchpad]: **344 → 334** opere senza genere (427 → 416
+  citazioni). Build pulita, `check_links.py` a zero problemi (tema/genere 6/6 validi). Commit di
+  dato + le 11 pagine citazione + le pagine hub genere/home rigenerate (poesia, saggistica,
+  indice generi, index.html).
