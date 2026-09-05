@@ -50,6 +50,16 @@
     "scheda": "Un aviatore precipitato nel deserto del Sahara incontra un piccolo principe venuto da un asteroide lontano, che gli racconta il suo pianeta, la rosa che ha lasciato e i personaggi bizzarri incrociati nel viaggio verso la Terra. Pubblicato nel 1943, un anno prima della morte dell'autore in missione di guerra, è insieme una favola per bambini e un testo sull'amicizia, la perdita e lo sguardo adulto che si è dimenticato di essere stato bambino."
   },
   {
+    "slug": "antonio-tabucchi-sostiene-pereira",
+    "author": "Antonio Tabucchi",
+    "title": "Sostiene Pereira",
+    "titles": [
+      "Sostiene Pereira"
+    ],
+    "year": "1994",
+    "scheda": "Lisbona, 1938, sotto la dittatura di Salazar: un giornalista culturale grasso e vedovo, che si occupa solo di letteratura francese e parla col ritratto della moglie morta, incontra un giovane e comincia lentamente a cambiare. Uscì in Italia mentre il paese cambiava governo e fu letto subito come un libro sul risvegliarsi tardi, ma in tempo."
+  },
+  {
     "slug": "arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere",
     "author": "Arthur Schopenhauer",
     "title": "Aforismi sulla saggezza del vivere",
@@ -68,6 +78,16 @@
     ],
     "year": "524 d.C. ca.",
     "scheda": "Scritto in carcere, mentre l'autore aspettava un'esecuzione che sarebbe arrivata. Boezio immagina che la Filosofia in persona venga a trovarlo e discuta con lui di fortuna, giustizia e felicità: non per consolarlo, ma per smontare l'idea che le cose perdute fossero mai state sue. È stato uno dei libri più letti dell'intero Medioevo."
+  },
+  {
+    "slug": "boris-pasternak-il-dottor-zivago",
+    "author": "Boris Pasternak",
+    "title": "Il dottor Živago",
+    "titles": [
+      "Il dottor Živago"
+    ],
+    "year": "1957",
+    "scheda": "Un medico e poeta attraversa la rivoluzione russa e la guerra civile senza schierarsi con nessuno, ed è proprio questo a renderlo inaccettabile. Rifiutato in Unione Sovietica, il romanzo fu pubblicato per la prima volta in Italia da Feltrinelli grazie a un manoscritto uscito clandestinamente. Pasternak ottenne il Nobel l'anno dopo e fu costretto a rifiutarlo."
   },
   {
     "slug": "charles-baudelaire-i-fiori-del-male",
@@ -98,6 +118,26 @@
     ],
     "year": "1314 ca.",
     "scheda": "Prima delle tre cantiche della Divina Commedia, racconta la discesa di Dante attraverso i nove cerchi dell'Inferno, guidato da Virgilio. È il testo fondativo della lingua e della letteratura italiana: ogni cerchio corrisponde a un peccato e a una pena costruita per contrappasso. Scritta in terzine incatenate, resta il testo poetico più letto e commentato della tradizione italiana."
+  },
+  {
+    "slug": "dino-buzzati-il-deserto-dei-tartari",
+    "author": "Dino Buzzati",
+    "title": "Il deserto dei Tartari",
+    "titles": [
+      "Il deserto dei Tartari"
+    ],
+    "year": "1940",
+    "scheda": "Il tenente Drogo arriva alla Fortezza Bastiani per una destinazione che pensava provvisoria, e resta ad aspettare un nemico che dal deserto potrebbe arrivare da un momento all'altro. Gli anni passano così, nell'attesa di un evento che darebbe senso a tutto. È il romanzo italiano che ha dato un nome all'idea che la vita si consumi mentre la si rimanda."
+  },
+  {
+    "slug": "douglas-adams-guida-galattica-per-gli-autostoppisti",
+    "author": "Douglas Adams",
+    "title": "Guida galattica per gli autostoppisti",
+    "titles": [
+      "Guida galattica per gli autostoppisti"
+    ],
+    "year": "1979",
+    "scheda": "Nato come radiodramma per la BBC prima di diventare libro, racconta di un inglese qualunque salvato dalla demolizione della Terra pochi istanti prima che avvenga, per far posto a una superstrada iperspaziale. È il libro che ha insegnato alla fantascienza a essere comica senza smettere di essere fantascienza, e che ha reso il numero quarantadue una battuta universale."
   },
   {
     "slug": "emily-bronte-cime-tempestose",
@@ -220,6 +260,16 @@
     "scheda": "Idillio scritto a Recanati quando Leopardi aveva ventun anni: una siepe che chiude la vista basta a far immaginare spazi, silenzi e un tempo senza fine, finché il pensiero si perde e \"il naufragar m'è dolce in questo mare\". In quindici versi condensa il rapporto tra il finito dei sensi e l'infinito dell'immaginazione che attraversa tutta l'opera leopardiana. È probabilmente la poesia più memorizzata nelle scuole italiane."
   },
   {
+    "slug": "giorgio-bassani-il-giardino-dei-finzi-contini",
+    "author": "Giorgio Bassani",
+    "title": "Il giardino dei Finzi-Contini",
+    "titles": [
+      "Il giardino dei Finzi-Contini"
+    ],
+    "year": "1962",
+    "scheda": "Ferrara alla fine degli anni Trenta: una famiglia ebrea benestante si chiude dentro il proprio giardino murato mentre fuori arrivano le leggi razziali, e il narratore ci entra come ospite e innamorato. Bassani, ferrarese ed ebreo, racconta l'illusione che un muro potesse bastare. Il romanzo si apre dicendo subito come va a finire."
+  },
+  {
     "slug": "giovanni-boccaccio-decameron",
     "author": "Giovanni Boccaccio",
     "title": "Decameron",
@@ -268,6 +318,16 @@
     ],
     "year": "1998",
     "scheda": "Rifiutato da tutti gli editori italiani mentre Goliarda Sapienza era viva, uscì postumo in poche copie a spese del marito, fu scoperto in Francia dieci anni dopo e solo allora tornò in Italia come un caso letterario. Racconta un secolo attraverso Modesta, nata in Sicilia nel 1900, che si prende tutto quello che le donne del suo tempo non potevano prendersi."
+  },
+  {
+    "slug": "gunter-grass-il-tamburo-di-latta",
+    "author": "Günter Grass",
+    "title": "Il tamburo di latta",
+    "titles": [
+      "Il tamburo di latta"
+    ],
+    "year": "1959",
+    "scheda": "Oskar Matzerath decide a tre anni di smettere di crescere e resta alto un metro per decenni, attraversando il nazismo e il dopoguerra con un tamburo di latta e una voce capace di rompere il vetro. Fu il libro che costrinse la Germania a guardarsi indietro invece che avanti, e valse a Grass il Nobel quarant'anni dopo."
   },
   {
     "slug": "gustave-flaubert-madame-bovary",
@@ -370,6 +430,16 @@
     ],
     "year": "1944",
     "scheda": "Racconti che fingono di essere altro: la recensione di un libro che non esiste, la voce di un'enciclopedia immaginaria, la nota su un autore inventato. Borges sosteneva che scrivere romanzi di cinquecento pagine per esporre un'idea fosse una fatica inutile, e che convenisse fingere che quei libri esistessero già e commentarli. Da qui passano le biblioteche infinite e i labirinti."
+  },
+  {
+    "slug": "joseph-conrad-cuore-di-tenebra",
+    "author": "Joseph Conrad",
+    "title": "Cuore di tenebra",
+    "titles": [
+      "Cuore di tenebra"
+    ],
+    "year": "1899",
+    "scheda": "Marlow risale un fiume africano per conto di una compagnia commerciale, cercando un agente di cui tutti parlano e che nessuno vede, e trova qualcosa che non riesce a raccontare fino in fondo. Conrad aveva fatto davvero quel viaggio in Congo nel 1890. È il libro da cui Coppola trasse Apocalypse Now spostandolo in Vietnam."
   },
   {
     "slug": "kazuo-ishiguro-non-lasciarmi",
@@ -482,6 +552,16 @@
     "scheda": "Appunti privati di un imperatore romano, scritti in greco durante le campagne militari sul Danubio e mai destinati a essere letti da altri. Non c'è dottrina né sistema: c'è un uomo che ogni sera si ricorda come comportarsi il giorno dopo, e che si rimprovera sempre le stesse cose. Il titolo, letteralmente, significa «a sé stesso»."
   },
   {
+    "slug": "marguerite-yourcenar-memorie-di-adriano",
+    "author": "Marguerite Yourcenar",
+    "title": "Memorie di Adriano",
+    "titles": [
+      "Memorie di Adriano"
+    ],
+    "year": "1951",
+    "scheda": "Una lunga lettera che l'imperatore Adriano, ormai malato, scrive al giovane Marco Aurelio per raccontargli la propria vita e ciò che ha capito troppo tardi. Yourcenar ci lavorò per quasi trent'anni, distruggendo e ricominciando più volte, e mise a punto un metodo che dichiarò apertamente: stare con un piede nell'erudizione e uno nella magia simpatica."
+  },
+  {
     "slug": "mary-shelley-frankenstein",
     "author": "Mary Shelley",
     "title": "Frankenstein",
@@ -490,6 +570,26 @@
     ],
     "year": "1818",
     "scheda": "Il giovane scienziato Victor Frankenstein dà vita a una creatura assemblata da resti umani, per poi abbandonarla inorridito dal proprio stesso esperimento — spingendola, nel rifiuto, verso la violenza che teme di temere. Scritto da Mary Shelley a diciotto anni e pubblicato anonimo nel 1818, è considerato il primo romanzo di fantascienza e resta un testo fondativo sulla responsabilità della scienza verso ciò che crea."
+  },
+  {
+    "slug": "michael-ende-la-storia-infinita",
+    "author": "Michael Ende",
+    "title": "La storia infinita",
+    "titles": [
+      "La storia infinita"
+    ],
+    "year": "1979",
+    "scheda": "Un bambino ruba un libro e si nasconde in soffitta a leggerlo: dentro il libro il regno di Fantàsia sta scomparendo, divorato dal Nulla, e a un certo punto risulta chiaro che l'unico modo di salvarlo è entrarci. Ende costruisce una storia che si legge mentre si racconta di sé stessa, e litigò a lungo con chi ne fece un film."
+  },
+  {
+    "slug": "michail-bulgakov-il-maestro-e-margherita",
+    "author": "Michail Bulgakov",
+    "title": "Il Maestro e Margherita",
+    "titles": [
+      "Il Maestro e Margherita"
+    ],
+    "year": "1967",
+    "scheda": "Il diavolo arriva nella Mosca sovietica degli anni Trenta con un seguito di complici, fra cui un gatto nero che parla, e mette a soqquadro una città che ufficialmente non crede al soprannaturale. Bulgakov ci lavorò per dodici anni e ne bruciò una stesura; uscì censurato ventisei anni dopo la sua morte, e integrale solo molto più tardi."
   },
   {
     "slug": "michel-de-montaigne-saggi",
@@ -632,6 +732,26 @@
     "scheda": "Jean Valjean, condannato al bagno penale per il furto di un pezzo di pane, esce trasformato dall'incontro con un vescovo misericordioso e ricostruisce la propria vita restando per sempre inseguito dall'ispettore Javert e dalla propria condanna passata. Pubblicato nel 1862, è un affresco della Francia post-napoleonica e insieme un lungo argomento narrativo contro la miseria e l'ingiustizia sociale."
   },
   {
+    "slug": "victor-hugo-notre-dame-de-paris",
+    "author": "Victor Hugo",
+    "title": "Notre-Dame de Paris",
+    "titles": [
+      "Notre-Dame de Paris"
+    ],
+    "year": "1831",
+    "scheda": "Parigi nel 1482, con la cattedrale al centro non come sfondo ma come personaggio: Hugo lo scrisse anche per fermare la demolizione degli edifici gotici, che all'epoca si abbattevano senza troppi rimpianti. Funzionò: il successo del romanzo contribuì al restauro di Notre-Dame e alla nascita dell'idea stessa di patrimonio da conservare."
+  },
+  {
+    "slug": "voltaire-candido",
+    "author": "Voltaire",
+    "title": "Candido",
+    "titles": [
+      "Candido"
+    ],
+    "year": "1759",
+    "scheda": "Un giovane cresciuto nella convinzione di vivere «nel migliore dei mondi possibili» attraversa terremoti, guerre, torture e naufragi che smentiscono quella tesi a ogni capitolo. Voltaire lo scrisse in poche settimane dopo il terremoto di Lisbona del 1755, contro l'ottimismo filosofico di chi sosteneva che il male apparente servisse a un bene più grande."
+  },
+  {
     "slug": "walt-whitman-foglie-derba",
     "author": "Walt Whitman",
     "title": "Foglie d'erba",
@@ -640,6 +760,16 @@
     ],
     "year": "1855",
     "scheda": "Raccolta poetica che Whitman ampliò e riscrisse per tutta la vita, dalla prima edizione del 1855 fino a quella \"da letto di morte\" del 1892. In versi liberi, lontani dalla metrica tradizionale, canta il corpo, la democrazia americana, la natura e l'io che si identifica con la moltitudine (\"Canto me stesso\"). È il punto di partenza della poesia americana moderna."
+  },
+  {
+    "slug": "william-golding-il-signore-delle-mosche",
+    "author": "William Golding",
+    "title": "Il signore delle mosche",
+    "titles": [
+      "Il signore delle mosche"
+    ],
+    "year": "1954",
+    "scheda": "Un gruppo di ragazzi inglesi sopravvive a un incidente aereo e si ritrova solo su un'isola: cominciano organizzandosi con regole e assemblee, e finiscono altrove. Golding, che aveva combattuto in guerra e insegnava in una scuola maschile, lo scrisse come risposta esplicita ai romanzi d'avventura in cui i ragazzi naufraghi se la cavano da gentiluomini."
   },
   {
     "slug": "william-shakespeare-amleto",
