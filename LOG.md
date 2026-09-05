@@ -2344,3 +2344,87 @@
 
   Build pulita, `check_links.py` a zero problemi (avviso traduttore: 47 → 43). Commit di dato +
   4 pagine citazione rigenerate.
+
+- 2026-09-05 08:55 UTC — secondo lotto traduttori, questa volta partendo dal collo di bottiglia
+  reale: molti dei 43 campi `source_edition` rimasti non erano edizioni italiane vere, ma la data
+  di composizione originale (latino, greco, tedesco, inglese) o il riferimento a un'antologia che
+  cita solo l'incipit. Metodo: per ciascuna opera, prima identificare un'edizione italiana
+  realmente pubblicata e identificabile (editore + anno), poi cercarne il traduttore dichiarato —
+  sempre e solo su OPAC SBN, catalogo ufficiale dell'editore, o frontespizio/scheda del volume
+  fisico (mai un aggregatore o un blog).
+
+  **9 nuovi traduttori applicati**, ciascuno verificato personalmente (non solo dalla ricerca
+  delegata) prima di scrivere il nome:
+  - Seneca, «Lettere a Lucilio» (3 citazioni) → **Giuseppe Monti** (BUR, introduzione di Luca
+    Canali) — confermato incrociando l'ISBN della pagina ufficiale Rizzoli con un catalogo
+    bibliotecario indipendente (Erasmo, rete scuole) che riporta lo stesso ISBN e la stessa
+    introduzione, più il nome del traduttore.
+  - Marco Tullio Cicerone, «L'amicizia» → **Nicoletta Marini** (Garzanti, 2006), dalla pagina
+    ufficiale dell'editore, confermata anche dal record OPAC della Biblioteca Nazionale Centrale
+    di Firenze.
+  - Sant'Agostino, «Confessioni» → **Carlo Carena** (Einaudi, ET Classici, 2015), dalla pagina
+    ufficiale dell'editore — è la traduzione storica Einaudi, in stampa ininterrotta dal 1984.
+  - Alexandre Dumas, «I tre moschettieri» → **Maria Zini** (Einaudi, ET Classici, 2017), dalla
+    pagina ufficiale dell'editore. Applicata con l'eccezione "frase fissa": «Tutti per uno, uno
+    per tutti» è un motto reso in modo identico da qualunque traduzione italiana.
+  - Arthur Schopenhauer, «Aforismi sulla saggezza del vivere» (2 citazioni) → **Maria Teresa
+    Giannelli** (Mondadori, 1994), dalla scheda del volume fisico digitalizzato su Internet
+    Archive (metadato "Associated-names", verificato con fetch diretto). Attenzione: questo titolo
+    non va confuso con «Aforismi sulla saggezza della vita» di Adelphi (curatela Colli), opera
+    diversa nonostante il titolo simile.
+  - Louisa May Alcott, «Piccole donne» → **Fausta Cialente** (Giunti, «Classici tascabili», 27
+    giugno 2012), dalla pagina ufficiale dell'editore, che conferma anche la data esatta 2012 già
+    presente nel nostro campo.
+  - Naguib Mahfouz, «La via dello zucchero» → **Clelia Sarnelli Cerqua** (Tullio Pironti, Napoli,
+    1992), dal record OPAC della Biblioteca Nazionale Centrale di Firenze — unica traduzione
+    italiana mai pubblicata di questo romanzo (poi ristampata identica da Crocetti nel 2025).
+  - Joan Didion, «L'anno del pensiero magico» → **Vincenzo Mantovani** (Il Saggiatore, 2006), dal
+    record OPAC BNCF — stesso traduttore su tutte e 4 le ristampe italiane del libro (2006, 2008
+    doppio, 2017): nessun editore concorrente ha mai pubblicato una traduzione diversa.
+  - Marcel Proust, «Alla ricerca del tempo perduto», le due citazioni dalla pagina d'apertura del
+    romanzo → **Paolo Pinto**, correggendo anche l'edizione a "Newton Compton, 1990, vol. I".
+    Non da una ricerca nuova, ma da una coerenza interna: il volume è stato identificato come
+    «Dalla parte di Swann» (confrontando il testo francese originale), e l'archivio ha già
+    un'altra citazione dallo stesso volume/stessa edizione con il traduttore Paolo Pinto già
+    verificato e pubblicato (p. 402) — la Ricerca fu tradotta da un team di 7 persone, una per
+    volume, quindi lo stesso volume implica lo stesso traduttore.
+
+  **Confermato — non un buco da colmare ma un fatto verificato**: Voltaire, «Candido» (Sonzogno,
+  1882): il record OPAC SBN dell'esatta edizione non riporta alcun nome di traduttore in nessun
+  campo — la citazione era anonima all'origine (coerente con la storia della censura di Voltaire
+  in Italia). Annotato nel campo edizione, come già per Kerouac.
+
+  **Scoperta e corretta una citazione mal attribuita**: Iris Murdoch, «Una testa tagliata» —
+  «L'arte ha sempre a che fare con l'assurdo e tende alla semplicità. La vera arte parla il vero,
+  è in effetti il vero, forse, la sola verità.» Verificato che questa frase appartiene in realtà a
+  «The Black Prince» (1973), non a «Una testa tagliata» (1961): il testo integrale del romanzo (via
+  Internet Archive) conferma che è Bradley Pearson a pronunciarla nella sua Prefazione. «The Black
+  Prince» **non è mai stato pubblicato in italiano** (zero risultati sia in OPAC SBN sia nel
+  catalogo BNCF sotto l'autrice Murdoch) — quindi la citazione non è né correttamente attribuita
+  né traducibile a una fonte italiana verificabile. **Rimossa** dal catalogo, redirect 301 aggiunto
+  in `tools/redirects.json` verso `/autori/iris-murdoch/` (l'autrice resta in archivio con l'altra
+  citazione, «La ragazza italiana»). La citazione compariva anche nella raccolta «arte»: tolta
+  dall'elenco (scende da 11 a 10 citazioni, sempre sopra la soglia di 8) e riscritta la frase
+  dell'introduzione che la citava, mantenendo il confronto Wilde/Zadie Smith sull'arte e la verità.
+  File OG orfano rimosso da `assets/og/`.
+
+  **29 citazioni restano senza traduttore.** La maggior parte per un motivo ormai chiaro e non
+  altrimenti risolvibile: opere con **più traduzioni italiane concorrenti e testo genuinamente
+  diverso** (verificato via OPAC SBN caso per caso) — Lorca (5 traduzioni diverse del Romancero
+  gitano), T.S. Eliot (la formulazione del sito, «quando la sera è tesa contro il cielo», non
+  corrisponde neppure alla traduzione Sanesi più diffusa — probabile una terza traduzione ancora
+  da identificare), Tolstoj (5 traduzioni), Dickens (6+ traduzioni), oltre a Wilde e Marco Aurelio
+  (edizione 1989) già segnalati nel lotto precedente. Altri 9 restano bloccati dall'accesso agli
+  archivi di riviste (Internazionale, la Repubblica, Corriere della Sera, L'Europeo — inclusi i
+  due pezzi di Zadie Smith): non raggiungibili né in chiaro né via web.archive.org (bloccato per
+  gli strumenti di questa sessione). Emerson e Tennyson restano con un curatore dichiarato ma
+  nessuna fonte che lo chiami esplicitamente "traduttore" (per Tennyson due rivenditori indipendenti
+  concordano su Saverio Tomaiuolo, ma una scheda di rivendita non è una fonte qualificante per lo
+  standard richiesto — lasciato vuoto per coerenza con gli altri casi analoghi). Simone Weil (2
+  edizioni Adelphi/RCS) ha solo curatori dichiarati, mai un traduttore distinto, in nessuna fonte
+  controllata. Achebe, Asimov, Baldwin: confermato che il testo citato è di un saggio/raccolta mai
+  tradotto in italiano.
+
+  Build pulita, `check_links.py` a zero problemi (avviso traduttore: 43 → 29). Commit di dato +
+  raccolta + redirect + tutte le pagine rigenerate (l'indice /citazioni/ si è tutto rinumerato per
+  la rimozione di una citazione, come da normale cascata).
