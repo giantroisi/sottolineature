@@ -128,6 +128,11 @@
       "source": "/citazioni/hannah-arendt-gli-incidenti-ai-tempi-della-globalizzazione/",
       "destination": "/autori/hannah-arendt/",
       "permanent": true
+    },
+    {
+      "source": "/raccolte/viaggio-e-cammino/",
+      "destination": "/raccolte/viaggio/",
+      "permanent": true
     }
   ],
   "headers": [

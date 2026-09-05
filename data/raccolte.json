@@ -528,13 +528,14 @@
     ]
   },
   {
-    "slug": "viaggio-e-cammino",
+    "slug": "viaggio",
     "title": "Viaggio e cammino",
     "h1": "Frasi e citazioni sul viaggio e sul cammino",
     "intro": [
-      "Il viaggio è forse il tema più antico della narrativa occidentale — prima ancora del romanzo esisteva il poema epico, ed era già un racconto di rotte, ritorni e strade sconosciute. Da lì non ha mai smesso di essere anche una metafora: della vita che si vive, del tempo che passa, di una meta — o una persona — mai davvero raggiunta.",
+      "Il viaggio è forse il tema più antico della narrativa occidentale — prima ancora del romanzo esisteva il poema epico, ed era già un racconto di rotte, ritorni e strade sconosciute. Da lì non ha mai smesso di essere due cose insieme: lo spostamento vero, con le sue valigie e i suoi treni, e la metafora della vita che si vive, del tempo che passa, di una meta — o una persona — mai davvero raggiunta.",
       "Omero apre l'Odissea presentando Ulisse come l'uomo che «molto errò» prima di fare ritorno a Itaca, e Virgilio fa lo stesso con Enea nell'Eneide, «errando» dalle rovine di Troia fino alle coste del Lazio: due proemi antichi che fondano il genere. Dante userà la stessa parola, cammino, per aprire la Commedia mille anni dopo, smarrito «nel mezzo del cammin di nostra vita»; Giacomo Leopardi la affida a un pastore errante dell'Asia, invenzione poetica fatta di solo moto senza meta. Cicerone deride invece chi accumula provviste per un viaggio ormai vicino alla fine, e Imre Kertész fa dire al suo giovane protagonista, «sul mio cammino», che la felicità lo aspetta come una trappola.",
-      "Ci sono poi i viaggi sospesi: quello mai compiuto delle tre sorelle di Čechov, che ripetono per un'intera opera «A Mosca, a Mosca!» senza mai partire, e quello impossibile del conte Almásy ne Il paziente inglese, che sognava di camminare «su una terra che non aveva carte geografiche». Ci sono i viaggi che si mettono in moto dentro il racconto stesso, come l'imbarco sul battello a vapore che apre L'educazione sentimentale di Flaubert. Khaled Hosseini paragona la storia a «un treno in corsa», che porta a destinazione chiunque vi salga; Silone chiude il cerchio con l'ironia contadina di Fontamara: «Il mondo è rotondo. Chi parte, perde tempo»."
+      "Ci sono poi i viaggi sospesi: quello mai compiuto delle tre sorelle di Čechov, che ripetono per un'intera opera «A Mosca, a Mosca!» senza mai partire, e quello impossibile del conte Almásy ne Il paziente inglese, che sognava di camminare «su una terra che non aveva carte geografiche». Ci sono i viaggi che si mettono in moto dentro il racconto stesso, come l'imbarco sul battello a vapore che apre L'educazione sentimentale di Flaubert. Khaled Hosseini paragona la storia a «un treno in corsa», che porta a destinazione chiunque vi salga; Silone chiude il cerchio con l'ironia contadina di Fontamara: «Il mondo è rotondo. Chi parte, perde tempo».",
+      "E poi c'è il viaggio senza metafora, lo spostamento e basta: chi parte davvero, chi vive di strada, chi guarda un paese straniero con occhi che non gli appartengono. Jack Kerouac lo scrive da dentro, prima nei pazzi per cui vale la pena vivere di «Sulla strada», poi saltando lui stesso su un treno merci in «I vagabondi del Dharma». Antoine de Saint-Exupéry il viaggio lo faceva di mestiere: pilota postale fra scali nel deserto in «Terra degli uomini», nel crepuscolo sudamericano di «Volo di notte». Karen Blixen apre «La mia Africa» descrivendo la fattoria ai piedi degli altopiani del Ngong che avrebbe gestito per diciassette anni; John Steinbeck segue invece chi il viaggio non l'ha scelto, la famiglia Joad in fuga verso la California in «Furore». Paulo Coelho affida il cammino di Santiago a un deserto, Jules Verne l'elogio del mare al capitano Nemo, Tolkien la sua verità più nota a un verso: non tutti quelli che vagano sono perduti."
     ],
     "quote_keys": [
       "Omero|Odissea|Musa, quell'uom di moltiforme ingegno dimmi,",
@@ -561,7 +562,16 @@
       "Zbigniew Herbert|Rapporto dalla città assediata|Cammina eretto tra quelli in ginocchio",
       "Wole Soyinka|Sul far del giorno|Viandante, mettiti in strada sul far",
       "Amin Maalouf|Il periplo di Baldassarre|Ma Genova non ha mai pregato,",
-      "Imre Kertész|Kaddish per il bambino non nato|Se uno si avvia sulla strada"
+      "Imre Kertész|Kaddish per il bambino non nato|Se uno si avvia sulla strada",
+      "Jack Kerouac|Sulla strada|Le uniche persone per me sono",
+      "Jack Kerouac|I vagabondi del Dharma|Saltato su un treno merci che",
+      "Antoine de Saint-Exupéry|Terra degli uomini|La terra ci fornisce, sul nostro",
+      "Antoine de Saint-Exupéry|Volo di notte|Sotto l'aeroplano, le colline scavavano già",
+      "Karen Blixen|La mia Africa|In Africa avevo una fattoria ai",
+      "Paulo Coelho|L'Alchimista|Ascolta il tuo cuore. Esso conosce",
+      "Jules Verne|Ventimila leghe sotto i mari|Il mare è tutto: non per",
+      "J.R.R. Tolkien|Il Signore degli Anelli|Non tutti quelli che vagano sono",
+      "John Steinbeck|Furore|Nell'anima degli affamati i semi del"
     ]
   },
   {
@@ -1100,25 +1110,6 @@
       "Paul Verlaine|Art poétique|La musica prima di tutto, e",
       "E.T.A. Hoffmann|Kreisleriana|Ogni passione, così come un'opera ce",
       "Paul Verlaine|Poèmes saturniens|Singhiozzi lunghi dei violini dell'autunno mordono"
-    ]
-  },
-  {
-    "slug": "viaggio",
-    "title": "Partire e viaggiare",
-    "h1": "Frasi e citazioni su chi parte e viaggia",
-    "intro": [
-      "Qui il viaggio è lo spostamento vero, non il cammino come metafora della vita: chi parte, chi vive di strada, chi guarda un paese straniero con occhi che non gli appartengono. Jack Kerouac lo scrive da dentro, prima nei pazzi per cui vale la pena vivere di «Sulla strada», poi saltando lui stesso su un treno merci in «I vagabondi del Dharma». Antoine de Saint-Exupéry il viaggio lo faceva di mestiere: pilota postale fra scali nel deserto in «Terra degli uomini», nel crepuscolo sudamericano di «Volo di notte». Karen Blixen apre «La mia Africa» descrivendo la fattoria ai piedi degli altopiani del Ngong che avrebbe gestito per diciassette anni; John Steinbeck segue invece chi il viaggio non l'ha scelto, la famiglia Joad in fuga verso la California in «Furore». Paulo Coelho affida il cammino di Santiago a un deserto, Jules Verne l'elogio del mare al capitano Nemo, J.R.R. Tolkien la sua verità più nota a un verso: non tutti quelli che vagano sono perduti."
-    ],
-    "quote_keys": [
-      "Jack Kerouac|Sulla strada|Le uniche persone per me sono",
-      "Jack Kerouac|I vagabondi del Dharma|Saltato su un treno merci che",
-      "Antoine de Saint-Exupéry|Terra degli uomini|La terra ci fornisce, sul nostro",
-      "Antoine de Saint-Exupéry|Volo di notte|Sotto l'aeroplano, le colline scavavano già",
-      "Karen Blixen|La mia Africa|In Africa avevo una fattoria ai",
-      "Paulo Coelho|L'Alchimista|Ascolta il tuo cuore. Esso conosce",
-      "Jules Verne|Ventimila leghe sotto i mari|Il mare è tutto: non per",
-      "J.R.R. Tolkien|Il Signore degli Anelli|Non tutti quelli che vagano sono",
-      "John Steinbeck|Furore|Nell'anima degli affamati i semi del"
     ]
   },
   {

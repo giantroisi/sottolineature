@@ -62,7 +62,7 @@ PAROLE = {
     'tristezza': ['triste', 'tristi', 'tristezza', 'dolore', 'dolori', 'pianto', 'piange',
                   'piangere', 'lacrim-', 'malincon-', 'sofferenz-', 'angoscia'],
     'bellezza': ['bello', 'bella', 'belle', 'belli', 'bellezz-', 'bellissim-', 'splendid-'],
-    'viaggio-e-cammino': ['viaggio', 'viaggi', 'viaggiar-', 'cammin-', 'partire', 'partenza',
+    'viaggio': ['viaggio', 'viaggi', 'viaggiar-', 'cammin-', 'partire', 'partenza',
                           'strada', 'strade', 'sentiero', 'ritorno', 'valigia'],
     'donne': ['donna', 'donne', 'femmin-', 'madre', 'madri', 'sorella', 'sorelle', 'ragazza',
               'ragazze', 'moglie', 'signora'],

@@ -558,6 +558,19 @@ elenchi, che è esattamente ciò che `metodo.html` promette di non essere. Vanno
 la domanda non è «parla di questo» ma «questa frase regge da sola»: un giudizio molto più
 difficile da delegare, da dare con un comando scritto apposta.
 
+### Nota sulle raccolte gemelle — «viaggio» e «viaggio e cammino»
+
+Il 2026-09-05 le due raccolte sono state fuse in una sola, su `/raccolte/viaggio/`, 34 citazioni.
+La distinzione editoriale era vera — lo spostamento reale da una parte, il cammino come metafora
+della vita dall'altra — ma il lettore non la cerca: digita «frasi sul viaggio» e basta. Il
+risultato erano due pagine in gara sulla stessa domanda, con quella più ricca (25 citazioni) sullo
+slug più debole e quella magra (9) sull'URL esatto. Il vecchio indirizzo redirige.
+
+La regola che ne resta, per i lotti futuri: **due raccolte non possono condividere la parola
+chiave principale.** Se un tema si può nominare solo aggiungendo un secondo sostantivo per
+distinguerlo da una raccolta che esiste già, non è una raccolta nuova: è una sezione di quella che
+c'è. La sfumatura si racconta nell'intro, dove nessun motore di ricerca deve sceglierla.
+
 ---
 
 ## 10. Lavoro in autonomia — parametri
