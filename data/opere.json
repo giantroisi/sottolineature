@@ -1,5 +1,15 @@
 [
   {
+    "slug": "aldous-huxley-il-mondo-nuovo",
+    "author": "Aldous Huxley",
+    "title": "Il mondo nuovo",
+    "titles": [
+      "Il mondo nuovo"
+    ],
+    "year": "1932",
+    "scheda": "Una società senza guerre, senza malattie e senza dolore, dove nessuno è costretto a niente perché a tutti piace quello che devono fare: la stabilità si ottiene con il condizionamento, il consumo e una droga senza effetti collaterali. È la distopia opposta a quella di Orwell — qui il controllo non passa dalla paura ma dal piacere — e per molti è la più somigliante."
+  },
+  {
     "slug": "alessandro-manzoni-i-promessi-sposi",
     "author": "Alessandro Manzoni",
     "title": "I promessi sposi",
@@ -20,6 +30,16 @@
     "scheda": "Ode scritta da Manzoni in pochi giorni alla notizia della morte di Napoleone a Sant'Elena, il 5 maggio 1821. Ripercorre la parabola dell'imperatore, dai trionfi alla caduta e all'esilio, per arrivare a una domanda tutta manzoniana: cosa resta di una vita straordinaria di fronte alla fede e al giudizio di Dio. È uno dei testi più antologizzati della poesia italiana dell'Ottocento."
   },
   {
+    "slug": "anne-frank-diario",
+    "author": "Anne Frank",
+    "title": "Diario",
+    "titles": [
+      "Diario"
+    ],
+    "year": "1947",
+    "scheda": "Il diario che Anne Frank tenne fra i tredici e i quindici anni, nascosta con la famiglia in un alloggio segreto dietro l'ufficio del padre ad Amsterdam. Lo scrisse rivolgendosi a un'amica immaginaria, e lo stava riscrivendo per farne un libro quando il nascondiglio fu scoperto. Otto Frank, unico sopravvissuto della famiglia, lo pubblicò nel 1947."
+  },
+  {
     "slug": "antoine-de-saint-exupery-il-piccolo-principe",
     "author": "Antoine de Saint-Exupéry",
     "title": "Il piccolo principe",
@@ -28,6 +48,36 @@
     ],
     "year": "1943",
     "scheda": "Un aviatore precipitato nel deserto del Sahara incontra un piccolo principe venuto da un asteroide lontano, che gli racconta il suo pianeta, la rosa che ha lasciato e i personaggi bizzarri incrociati nel viaggio verso la Terra. Pubblicato nel 1943, un anno prima della morte dell'autore in missione di guerra, è insieme una favola per bambini e un testo sull'amicizia, la perdita e lo sguardo adulto che si è dimenticato di essere stato bambino."
+  },
+  {
+    "slug": "arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere",
+    "author": "Arthur Schopenhauer",
+    "title": "Aforismi sulla saggezza del vivere",
+    "titles": [
+      "Aforismi sulla saggezza del vivere"
+    ],
+    "year": "1851",
+    "scheda": "Fa parte dei Parerga e Paralipomena, la raccolta tarda che diede a Schopenhauer la fama che l'opera maggiore non gli aveva dato. Qui il filosofo del pessimismo scrive un manuale pratico su come vivere meno male: cosa si è, cosa si ha, cosa si rappresenta agli occhi degli altri — e perché solo il primo dei tre conta davvero."
+  },
+  {
+    "slug": "boezio-della-consolazione-della-filosofia",
+    "author": "Boezio",
+    "title": "Della consolazione della filosofia",
+    "titles": [
+      "Della consolazione della filosofia"
+    ],
+    "year": "524 d.C. ca.",
+    "scheda": "Scritto in carcere, mentre l'autore aspettava un'esecuzione che sarebbe arrivata. Boezio immagina che la Filosofia in persona venga a trovarlo e discuta con lui di fortuna, giustizia e felicità: non per consolarlo, ma per smontare l'idea che le cose perdute fossero mai state sue. È stato uno dei libri più letti dell'intero Medioevo."
+  },
+  {
+    "slug": "charles-baudelaire-i-fiori-del-male",
+    "author": "Charles Baudelaire",
+    "title": "I fiori del male",
+    "titles": [
+      "I fiori del male"
+    ],
+    "year": "1857",
+    "scheda": "Nell'anno stesso dell'uscita autore ed editore furono processati per oltraggio alla morale pubblica e sei poesie vennero condannate e soppresse; la condanna fu annullata solo nel 1949. È il libro che porta in poesia la città moderna con le sue folle, i suoi vizi e la sua noia, e che da lì in avanti nessun poeta europeo ha più potuto ignorare."
   },
   {
     "slug": "charlotte-bronte-jane-eyre",
@@ -58,6 +108,26 @@
     ],
     "year": "1847",
     "scheda": "L'unico romanzo che Emily Brontë abbia scritto, pubblicato con lo pseudonimo maschile di Ellis Bell un anno prima di morire a trent'anni. Nella brughiera dello Yorkshire, l'amore fra Heathcliff e Catherine attraversa due generazioni senza mai diventare consolatorio: è un libro sulla vendetta almeno quanto sul desiderio. I contemporanei lo trovarono brutale, e non avevano tutti i torti."
+  },
+  {
+    "slug": "epitteto-manuale",
+    "author": "Epitteto",
+    "title": "Manuale",
+    "titles": [
+      "Manuale"
+    ],
+    "year": "125 d.C. ca.",
+    "scheda": "Epitteto non scrisse nulla: il Manuale è la sintesi delle sue lezioni messa per iscritto dall'allievo Arriano. Nato schiavo e poi liberto, insegnava una sola distinzione, ripetuta in ogni pagina: alcune cose dipendono da noi, tutte le altre no, e quasi ogni infelicità nasce dal confonderle. È il testo stoico più breve e più citato."
+  },
+  {
+    "slug": "eugenio-montale-ossi-di-seppia",
+    "author": "Eugenio Montale",
+    "title": "Ossi di seppia",
+    "titles": [
+      "Ossi di seppia"
+    ],
+    "year": "1925",
+    "scheda": "Il primo libro di Montale, scritto fra il paesaggio ligure delle Cinque Terre e il muro, il rovo, la terra secca che ne diventano gli oggetti ricorrenti. La poesia rinuncia a consolare e a spiegare: dichiara di non avere formule, e proprio per questo apre la strada al Novecento italiano. Montale avrebbe ricevuto il Nobel cinquant'anni dopo."
   },
   {
     "slug": "f-scott-fitzgerald-il-grande-gatsby",
@@ -190,6 +260,16 @@
     "scheda": "Raccolta che riunisce, nella forma definitiva del 1931, le poesie scritte da Ungaretti tra le trincee della Prima guerra mondiale (già pubblicate nel 1916 come \"Il porto sepolto\"). Versi scarnificati, spesso di poche parole, cercano l'essenziale in un momento di distruzione totale: \"Mattina\", con il suo \"m'illumino / d'immenso\", è tra i testi più brevi e più citati della poesia italiana del Novecento."
   },
   {
+    "slug": "goliarda-sapienza-l-arte-della-gioia",
+    "author": "Goliarda Sapienza",
+    "title": "L'arte della gioia",
+    "titles": [
+      "L'arte della gioia"
+    ],
+    "year": "1998",
+    "scheda": "Rifiutato da tutti gli editori italiani mentre Goliarda Sapienza era viva, uscì postumo in poche copie a spese del marito, fu scoperto in Francia dieci anni dopo e solo allora tornò in Italia come un caso letterario. Racconta un secolo attraverso Modesta, nata in Sicilia nel 1900, che si prende tutto quello che le donne del suo tempo non potevano prendersi."
+  },
+  {
     "slug": "gustave-flaubert-madame-bovary",
     "author": "Gustave Flaubert",
     "title": "Madame Bovary",
@@ -282,6 +362,16 @@
     "scheda": "Elizabeth Bennet, seconda di cinque sorelle in una famiglia della piccola nobiltà di campagna, si scontra e infine si innamora del ricco e altezzoso Mr. Darcy, superando i pregiudizi reciproci nati da un primo, pessimo incontro. Pubblicato nel 1813, resta il romanzo più amato di Austen per l'ironia con cui osserva i matrimoni, il denaro e le convenienze sociali dell'Inghilterra georgiana."
   },
   {
+    "slug": "jorge-luis-borges-finzioni",
+    "author": "Jorge Luis Borges",
+    "title": "Finzioni",
+    "titles": [
+      "Finzioni"
+    ],
+    "year": "1944",
+    "scheda": "Racconti che fingono di essere altro: la recensione di un libro che non esiste, la voce di un'enciclopedia immaginaria, la nota su un autore inventato. Borges sosteneva che scrivere romanzi di cinquecento pagine per esporre un'idea fosse una fatica inutile, e che convenisse fingere che quei libri esistessero già e commentarli. Da qui passano le biblioteche infinite e i labirinti."
+  },
+  {
     "slug": "kazuo-ishiguro-non-lasciarmi",
     "author": "Kazuo Ishiguro",
     "title": "Non lasciarmi",
@@ -290,6 +380,16 @@
     ],
     "year": "2005",
     "scheda": "Kathy, Ruth e Tommy crescono in un collegio inglese apparentemente idilliaco, Hailsham, scoprendo solo a poco a poco il destino a cui sono realmente predestinati. Ishiguro costruisce una distopia sommessa, raccontata in prima persona con lo stesso understatement dei suoi altri romanzi, che usa la fantascienza per interrogare cosa renda umana una vita, quanto essa sia breve o già segnata. Pubblicato nel 2005, tre anni prima che Ishiguro ricevesse il Nobel per la letteratura nel 2017."
+  },
+  {
+    "slug": "khalil-gibran-il-profeta",
+    "author": "Khalil Gibran",
+    "title": "Il Profeta",
+    "titles": [
+      "Il Profeta"
+    ],
+    "year": "1923",
+    "scheda": "Ventisei brevi prose poetiche: il profeta Almustafa, che sta per lasciare la città dove ha vissuto dodici anni, risponde a chi gli chiede dell'amore, del lavoro, dei figli, del dolore. Scritto in inglese da un autore libanese emigrato a New York, non è mai uscito di catalogo da un secolo ed è fra i libri più tradotti al mondo."
   },
   {
     "slug": "lev-tolstoj-guerra-e-pace",
@@ -352,6 +452,36 @@
     "scheda": "Vitangelo Moscarda scopre da un'osservazione della moglie sul proprio naso che l'immagine che gli altri hanno di lui non coincide affatto con quella che ha di sé, e che esistono tante versioni di lui quante sono le persone che lo conoscono. Ultimo romanzo pirandelliano, porta alle estreme conseguenze il tema dell'identità come costruzione sociale instabile, fino allo scioglimento finale in una vita senza nome."
   },
   {
+    "slug": "madeline-miller-circe",
+    "author": "Madeline Miller",
+    "title": "Circe",
+    "titles": [
+      "Circe"
+    ],
+    "year": "2018",
+    "scheda": "L'Odissea raccontata dalla parte della maga: la figlia del Sole che Omero liquida in poche centinaia di versi diventa qui la voce narrante di una vita intera, fatta soprattutto dei secoli di esilio sull'isola in cui gli eroi si fermano solo di passaggio. Miller insegna greco e latino, e si vede: il mito non viene modernizzato, viene guardato da un'altra sedia."
+  },
+  {
+    "slug": "marcel-proust-alla-ricerca-del-tempo-perduto",
+    "author": "Marcel Proust",
+    "title": "Alla ricerca del tempo perduto",
+    "titles": [
+      "Alla ricerca del tempo perduto"
+    ],
+    "year": "1913",
+    "scheda": "Sette volumi e circa tremila pagine costruiti attorno a un'idea: che il passato non si recuperi volendolo, ma torni intero e per caso attraverso una sensazione: un sapore, un dislivello del selciato, il fruscio di un tovagliolo. Il primo volume fu rifiutato dagli editori e Proust lo pubblicò a proprie spese."
+  },
+  {
+    "slug": "marco-aurelio-colloqui-con-se-stesso",
+    "author": "Marco Aurelio",
+    "title": "Colloqui con sé stesso",
+    "titles": [
+      "Colloqui con sé stesso"
+    ],
+    "year": "170-180 ca.",
+    "scheda": "Appunti privati di un imperatore romano, scritti in greco durante le campagne militari sul Danubio e mai destinati a essere letti da altri. Non c'è dottrina né sistema: c'è un uomo che ogni sera si ricorda come comportarsi il giorno dopo, e che si rimprovera sempre le stesse cose. Il titolo, letteralmente, significa «a sé stesso»."
+  },
+  {
     "slug": "mary-shelley-frankenstein",
     "author": "Mary Shelley",
     "title": "Frankenstein",
@@ -360,6 +490,16 @@
     ],
     "year": "1818",
     "scheda": "Il giovane scienziato Victor Frankenstein dà vita a una creatura assemblata da resti umani, per poi abbandonarla inorridito dal proprio stesso esperimento — spingendola, nel rifiuto, verso la violenza che teme di temere. Scritto da Mary Shelley a diciotto anni e pubblicato anonimo nel 1818, è considerato il primo romanzo di fantascienza e resta un testo fondativo sulla responsabilità della scienza verso ciò che crea."
+  },
+  {
+    "slug": "michel-de-montaigne-saggi",
+    "author": "Michel de Montaigne",
+    "title": "Saggi",
+    "titles": [
+      "Saggi"
+    ],
+    "year": "1580",
+    "scheda": "Il libro che ha inventato il saggio come forma: Montaigne si ritira nella torre del suo castello e comincia a scrivere di tutto — l'amicizia, i cannibali, l'abitudine, la paura di morire — usando sé stesso come unico materiale d'indagine disponibile. La domanda che gli fece incidere sul soffitto, «che ne so io?», è il metodo prima che la conclusione."
   },
   {
     "slug": "miguel-de-cervantes-don-chisciotte-della-mancia",
@@ -392,6 +532,16 @@
     "scheda": "Il giovane e bellissimo Dorian Gray ottiene, quasi per un desiderio pronunciato a voce alta, che sia il suo ritratto a invecchiare e a segnarsi dei vizi al suo posto, mentre lui resta esteriormente immutato negli anni. Unico romanzo di Wilde, pubblicato nel 1890, è insieme un manifesto dell'estetismo di fine Ottocento e una parabola morale sulle conseguenze nascoste di una vita senza limiti."
   },
   {
+    "slug": "paolo-cognetti-le-otto-montagne",
+    "author": "Paolo Cognetti",
+    "title": "Le otto montagne",
+    "titles": [
+      "Le otto montagne"
+    ],
+    "year": "2016",
+    "scheda": "L'amicizia fra Pietro, che in montagna ci va d'estate dalla città, e Bruno, che in montagna ci vive tutto l'anno: due modi opposti di stare nello stesso posto, seguiti per trent'anni. Vinse il Premio Strega nel 2017 ed è stato tradotto in una quarantina di lingue, cosa rara per un romanzo italiano contemporaneo."
+  },
+  {
     "slug": "primo-levi-se-questo-e-un-uomo",
     "author": "Primo Levi",
     "title": "Se questo è un uomo",
@@ -410,6 +560,36 @@
     ],
     "year": "1953",
     "scheda": "In un futuro prossimo i pompieri non spengono gli incendi: bruciano i libri, e il titolo è la temperatura a cui la carta prende fuoco. Il protagonista Montag fa quel mestiere finché non comincia a leggere ciò che dovrebbe distruggere. Bradbury sosteneva che il libro non parlasse di censura di Stato ma di una società che smette di leggere da sola, e che alla censura arriva dopo."
+  },
+  {
+    "slug": "sant-agostino-confessioni",
+    "author": "Sant'Agostino",
+    "title": "Confessioni",
+    "titles": [
+      "Confessioni"
+    ],
+    "year": "397-400 d.C. ca.",
+    "scheda": "Tredici libri scritti in seconda persona, rivolti direttamente a Dio: Agostino ripercorre la propria vita — gli studi, le amanti, il manicheismo, la conversione a Milano — cercando non di giustificarsi ma di capirsi. È considerata la prima autobiografia della letteratura occidentale, e il libro XI resta una delle riflessioni più celebri mai scritte sul tempo."
+  },
+  {
+    "slug": "seneca-lettere-a-lucilio",
+    "author": "Seneca",
+    "title": "Lettere a Lucilio",
+    "titles": [
+      "Lettere a Lucilio"
+    ],
+    "year": "63-65 d.C. ca.",
+    "scheda": "Centoventiquattro lettere a un amico più giovane, scritte negli ultimi anni di vita, quando Seneca si era ritirato dalla corte di Nerone che poco dopo gli avrebbe imposto il suicidio. Non sono trattati: sono lettere vere, che partono da un fatto minimo — un viaggio, un rumore, una cena — per arrivare al tempo, alla morte, a come si usa una giornata."
+  },
+  {
+    "slug": "toni-morrison-amatissima",
+    "author": "Toni Morrison",
+    "title": "Amatissima",
+    "titles": [
+      "Amatissima"
+    ],
+    "year": "1987",
+    "scheda": "Ohio, dopo la guerra civile: Sethe è fuggita dalla schiavitù e vive in una casa che qualcosa infesta. Morrison partì da un fatto di cronaca del 1856, la storia di Margaret Garner, e ne fece un romanzo che rifiuta di raccontare l'orrore in modo lineare perché lineare non era. Vinse il Pulitzer nel 1988; il Nobel arrivò cinque anni dopo."
   },
   {
     "slug": "torquato-tasso-gerusalemme-liberata",
