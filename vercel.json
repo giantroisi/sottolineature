@@ -113,6 +113,11 @@
       "source": "/citazioni/nikolaj-gogol-le-anime-morte-hanno-un-bell-essere/",
       "destination": "/autori/nikolaj-gogol/",
       "permanent": true
+    },
+    {
+      "source": "/citazioni/iris-murdoch-una-testa-tagliata/",
+      "destination": "/autori/iris-murdoch/",
+      "permanent": true
     }
   ],
   "headers": [
