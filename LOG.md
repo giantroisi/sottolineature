@@ -2290,3 +2290,57 @@
   fra le citazioni che richiedono un traduttore. L'avviso passa da un conteggio inutilizzabile a
   **47 citazioni reali** ancora senza traduttore verificato — è il punto di partenza dei lotti
   successivi. `check_links.py` resta a zero problemi bloccanti (l'avviso non lo era già prima).
+
+- 2026-09-05 07:57 UTC — primo lotto di verifica traduttori (istruzione dell'utente: "il nome del
+  traduttore va scritto SOLO se trovato su una fonte che lo dichiara — catalogo dell'editore,
+  scheda OPAC/SBN, frontespizio... se non lo trovi, lascia il campo vuoto"). Lavorate le 47
+  citazioni segnalate dopo la correzione di `check_links.py`. Metodo: ricerca dedicata per
+  ciascuna edizione, accettando solo un nome dichiarato da OPAC SBN, dal catalogo ufficiale
+  dell'editore o dal frontespizio — mai una menzione su un sito di rivendita, un blog o un'
+  antologia che cita solo l'incipit senza indicare l'edizione italiana reale.
+
+  **4 traduttori applicati**, tutti con l'edizione già coincidente per intero con quella già
+  registrata in `data/citazioni.json` (nessuna sostituzione di edizione, solo completamento):
+  - Audre Lorde, «Sorella Outsider» (Il Dito e la Luna, 2014) → **Margherita Giacobino**,
+    verificato sulla pagina autrice del catalogo dell'editore (Marta Gianello Guida, l'altra
+    curatrice nominata in copertina, risulta solo attivista/curatrice, non traduttrice).
+  - George Bernard Shaw, «Guida della donna intelligente» (BMM, 1950) → **Mario Pettinati**,
+    da scheda OPAC SBN dell'esatta edizione (Biblioteca Moderna Mondadori 168/170).
+  - Viktor E. Frankl, «Uno psicologo nei lager» (in «L'uomo in cerca di senso», Franco Angeli,
+    2017) → **Nicoletta Schmitz Sipos**, da scheda OPAC SBN: è la traduttrice dal tedesco della
+    parte narrativa (il racconto del lager); un secondo traduttore, Matteo Franco, ha reso solo i
+    capitoli 7-8 (i fondamenti teorici della logoterapia, scritti in inglese) — non pertinenti a
+    questa citazione. **Attenzione**: esiste una seconda citazione dello stesso Frankl/stessa
+    opera ma con `source_edition` vuoto — non toccata, perché senza un'edizione registrata non si
+    può sapere quale traduzione l'abbia originata.
+  - Patrick Süskind, «Storia del signor Sommer» (Longanesi, «La Gaja scienza») → **Giovanna
+    Agabio**, da scheda OPAC SBN (Milano, Longanesi, 1992, collana n. 361).
+
+  **43 citazioni restano senza traduttore**, deliberatamente: per la grande maggioranza il
+  problema non è l'assenza di una fonte, ma che il campo `source_edition` in archivio non è
+  un'edizione italiana reale — è la data di composizione originale (es. Seneca "63-65 d.C. ca.",
+  Cicerone "44 a.C.", Sant'Agostino "397-400 d.C. ca.", Wilde "1889", Schopenhauer "1851", Dumas
+  "1844") o il riferimento a un'antologia che cita solo l'incipit (Fruttero & Lucentini "Íncipit",
+  "Incipit" di Skira, «Dizionario delle citazioni» BUR) senza indicare quale edizione/traduzione
+  italiana del romanzo integrale abbia usato. In questi casi la ricerca ha spesso trovato un nome
+  di traduttore reale e ben documentato (es. Maria Zini per Einaudi "I tre moschettieri", Vincenzo
+  Mantovani per Il Saggiatore "L'anno del pensiero magico", Roberto Sanesi per Eliot, Enrico
+  Damiani e Corrado Malavasi per un'edizione Vallecchi 1950 di Tolstoj, Maria Luisa Giartosio De
+  Courten per un'edizione Einaudi di "Grandi speranze") — **ma tutti per un'edizione diversa da
+  quella (o assente) registrata in archivio**, spesso in opere con più traduzioni italiane
+  concorrenti e testo che varia da una all'altra (Seneca, Cicerone, Eliot, Tolstoj, Dickens,
+  Lorca, Alcott). Applicare quel nome avrebbe significato scommettere su quale traduzione reale
+  abbia originato la frase italiana già pubblicata sul sito — esattamente l'errore che l'utente ha
+  chiesto di evitare ("un nome sbagliato è un errore pubblicato su un sito che promette il
+  contrario"). Lasciati vuoti anche 6 casi di articoli su rivista (Internazionale, la Repubblica,
+  Corriere della Sera, L'Europeo) i cui archivi online non erano raggiungibili per verificare il
+  credito in redazione, e 2 casi (Asimov, Baldwin) dove il campo `source_edition` risulta essere
+  in realtà l'edizione originale inglese, senza che esista una traduzione italiana pubblicata.
+
+  **Lavoro futuro utile, non fatto qui**: correggere i campi `source_edition` placeholder
+  (date di composizione originale invece di edizioni italiane reali) su un lotto dedicato, opera
+  per opera — solo dopo, la ricerca del traduttore per quei casi diventerebbe risolvibile con lo
+  stesso rigore appena applicato qui.
+
+  Build pulita, `check_links.py` a zero problemi (avviso traduttore: 47 → 43). Commit di dato +
+  4 pagine citazione rigenerate.
