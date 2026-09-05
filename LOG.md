@@ -2574,3 +2574,32 @@
 
   Build pulita, zero problemi. Il conteggio dei contesti brevi (punto 0 della coda) è ora **0/748**
   — chiuso per intero. Commit di dato + tutte le pagine rigenerate.
+
+- 2026-09-05 13:04 UTC — verificato lo stato della coda in CATALOGO.md §9-bis prima di procedere.
+  **Il punto 1 (328 contesti sotto le 45 parole al 2026-09-04) risulta già a zero**:
+  `tools/contesti_da_ampliare.py` non segnala più nessuna citazione sotto soglia — chiuso
+  nel frattempo, probabilmente da una sessione concorrente. Nessun lavoro necessario lì.
+
+  Passato quindi al punto 2, genere alle opere che ne sono prive (332 opere su 575 al momento di
+  cominciare). Esaminate una per una, non a lotti: **2 assegnazioni su 332** (Natalia Ginzburg,
+  «Lessico famigliare»; Primo Levi, «Il sistema periodico», entrambi memoir/testimonianza
+  autobiografica genuini → saggistica). Una resa bassa, deliberatamente: la maggior parte delle
+  opere rimaste sono romanzi o autobiografie narrative già passate al setaccio nei lotti precedenti
+  di questa sessione e della sessione concorrente, quindi il bacino di «saggistica non ancora
+  trovata» si è già in gran parte svuotato. Esempi di scarto e perché:
+
+  - Jack Kerouac, «Angeli di desolazione», e i quattro romanzi di Charles Bukowski (Donne,
+    Factotum, Post Office, Pulp): tutti romanzi autobiografici (alter ego Chinaski, il narratore
+    di Kerouac stesso da guardaboschi), non memoir — stessa regola già applicata a Kerouac e
+    Aleramo nel lotto del 2026-09-01, restano vuoti.
+  - Fernando Pessoa, «Il libro dell'inquietudine»: genere volutamente ambiguo (diario, saggio e
+    narrativa insieme) — perfino il curatore italiano Antonio Tabucchi lo presenta come
+    «romanzo» nell'introduzione. Nel dubbio, vuoto.
+  - Astrid Lindgren, «Pippi Calzelunghe»: elementi magici (forza sovrumana, un cavallo parlante)
+    ma nessun mondo secondario o sistema magico — letteratura per l'infanzia, non fantasy in
+    senso stretto come Tolkien o Rowling già in archivio.
+  - Curzio Malaparte, «Kaputt» e «La pelle»: reportage romanzato della guerra, ma l'autore stesso
+    li chiamava romanzi — stessa cautela di Kerouac/Bukowski.
+
+  Build pulita, zero problemi. Opere senza genere: 332 → 330 (414 → 412 citazioni). Commit di
+  dato + le 4 pagine rigenerate.
