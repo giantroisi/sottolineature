@@ -369,17 +369,18 @@ CLAUDE.md.
 Scritti qui perché non vadano persi con la conversazione in cui sono nati. Si danno **uno per
 volta**, e mai mentre un lotto è a metà: interrompere un lotto lo lascia a pezzi.
 
-Stato aggiornato al **2026-09-04** (numeri rimisurati, non ereditati dal registro).
+Stato aggiornato al **2026-09-05** (coda chiusa per intero in una sessione, dettagli lotto per
+lotto in `LOG.md`).
 
 | | lotto | stato |
 |---|---|---|
-| 0 | I 61 contesti che lasciano la descrizione uguale alla citazione | **quasi chiuso**: ne restano **3** (Arendt, de Beauvoir, Ginzburg). 58 riscritti, tutti fra 60 e 90 parole |
+| 0 | I 61 contesti che lasciano la descrizione uguale alla citazione | **chiuso il 2026-09-05**: gli ultimi 3 (Arendt, de Beauvoir, Ginzburg) riscritti a 60-90 parole. Nel farlo, trovata e corretta una seconda misattribuzione (dopo Murdoch): la citazione di de Beauvoir non era de «Il sangue degli altri» ma di «Mémoires d'une jeune fille rangée», confermato da due fonti indipendenti |
 | 0-bis | ~~Rifiniture: i 21 «L'incipit del romanzo»~~ | **fatta** (commit 7705db13): zero contesti dicono ancora solo «L'incipit del romanzo» |
-| 1 | Riscrittura dei contesti brevi | in corso: **92** sotto le 20 parole, 78 fra 20 e 29, 158 fra 30 e 44 (328 sotto le 45 in tutto) |
-| 2 | Genere alle opere che ne sono prive | in corso: **344 opere su 577** ancora senza (427 citazioni) |
-| 3 | Ampliamento delle 20 raccolte tematiche rimaste | in corso: **399 citazioni su 749 (53%)** in almeno una raccolta. Le piu' fruttuose ora: `notte` +18, `felicita` +17, `ricordo-e-memoria` +15, `donne` +14, `guerra` +13 |
-| 4 | «Frasi brevi» e «Incipit memorabili» | in coda, criterio diverso: vedi nota in fondo. Sono le due piu' grosse: 158 e 140 candidate |
-| 5 | Copertine delle opere rimaste | **sbloccato e fatto in parte il 2026-09-04**: l'utente ha accettato l'edizione originale. Da 169 opere senza copertina a **111** (121 citazioni). Le rimaste non hanno un'immagine su Open Library nemmeno col titolo originale, o ce l'hanno inutilizzabile |
+| 1 | Riscrittura dei contesti brevi | **già a zero all'apertura del lotto il 2026-09-05** — chiuso nel frattempo da una sessione concorrente, nessun lavoro necessario |
+| 2 | Genere alle opere che ne sono prive | **fatto il 2026-09-05, resa bassa e onesta**: solo 2 assegnazioni su 332 opere esaminate (Ginzburg «Lessico famigliare», Primo Levi «Il sistema periodico» — memoir veri, non romanzi autobiografici come Kerouac/Bukowski, esclusi). Il bacino si era già in gran parte svuotato nei lotti precedenti |
+| 3 | Ampliamento delle raccolte tematiche | **fatto il 2026-09-05** su tutte le raccolte con candidate: 96 aggiunte su 226 candidate proposte (~42%), tre nuove raccolte aperte (viaggio, filosofia, montagna). Copertura totale: da 448 a 637 citazioni su 748 (85%) |
+| 4 | «Frasi brevi» e «Incipit memorabili» | **fatto il 2026-09-05**: 132 aggiunte su 158 (frasi brevi), 26 su 140 (incipit) — criterio di giudizio, non tematico: «questa frase regge da sola», non solo se è corta o se è la prima riga di un libro |
+| 5 | Copertine delle opere rimaste | **sbloccato e fatto in parte il 2026-09-04**: l'utente ha accettato l'edizione originale. Da 169 opere senza copertina a **111** (121 citazioni). Le rimaste non hanno un'immagine su Open Library nemmeno col titolo originale, o ce l'hanno inutilizzabile — **resta bloccato**, serve un nuovo accesso a Open Library o nuove candidate da un lotto di citazioni future |
 
 ### 0. I 61 contesti che lasciano la descrizione uguale alla citazione
 
