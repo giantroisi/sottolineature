@@ -123,6 +123,11 @@
       "source": "/citazioni/simone-de-beauvoir-il-sangue-degli-altri/",
       "destination": "/citazioni/simone-de-beauvoir-memorie-d-una-ragazza-perbene-mi-e-stato/",
       "permanent": true
+    },
+    {
+      "source": "/citazioni/hannah-arendt-gli-incidenti-ai-tempi-della-globalizzazione/",
+      "destination": "/autori/hannah-arendt/",
+      "permanent": true
     }
   ],
   "headers": [
