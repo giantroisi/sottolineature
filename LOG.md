@@ -2475,3 +2475,65 @@
   problemi, tutte e tre le raccolte sopra la soglia di 8 (30/30 raccolte indicizzabili). Commit di
   dato + le pagine rigenerate (33 pagine citazione che ora linkano alla raccolta, 3 pagine raccolta
   nuove, indice raccolte, sitemap).
+
+- 2026-09-05 12:46 UTC — correzione segnalata dall'utente: la raccolta «viaggio» aperta stamattina
+  aveva title, h1 e (di conseguenza) meta description quasi identici a «viaggio e cammino» già
+  pubblicata — due pagine in competizione sulla stessa ricerca. La distinzione editoriale era
+  già giusta (spostamento reale contro cammino come metafora dell'esistenza), il problema era
+  solo nel titolo. Corretto: h1 da «Frasi e citazioni sul viaggio» a **«Frasi e citazioni su chi
+  parte e viaggia»**, title da «Viaggio» a **«Partire e viaggiare»**, e riscritta la prima frase
+  dell'introduzione perché la meta description (che si costruisce dal primo paragrafo) porti da
+  sola la differenza, senza rimandare il lettore a «altre pagine del sito» — frase che in un
+  risultato di ricerca, fuori contesto, non avrebbe voluto dire niente. «Viaggio e cammino» non
+  toccata: bastava correggere «viaggio».
+
+  Poi punto 3 del CATALOGO, ampliamento raccolte, sui sette margini indicati (natura +19, donne
+  +14, guerra +13, animali +11, famiglia +10, mare +10, occhi-e-sguardo +10). Candidate lette una
+  per una con `tools/raccolte_da_ampliare.py`, non incollate: il setaccio per radice ha di nuovo
+  sbagliato pesantemente, la maggior parte dei suggerimenti erano falsi positivi.
+
+  **Risultato: 17 citazioni aggiunte su 87 candidate proposte (20%)**, con due raccolte a **zero**
+  aggiunte perché nessuna reggeva:
+
+  - **natura: 0/19.** Tutti i 19 erano o un idioma con un significato del tutto diverso da
+    "paesaggio" («per natura» = innatamente, in Aristotele; «di qual si sia natura» = di qualunque
+    tipo, in Schopenhauer; «montagna russa» = le giostre, in H.G. Wells; «smuovere le montagne» =
+    ottenere grandi risultati, in Forster), oppure «natura» nel senso filosofico di ordine
+    cosmico (Seneca, Platone, Kant), non nel senso di paesaggio che questa raccolta usa altrove
+    (Emerson, Jack London, Anne Frank). Nessuno dei 19 supera la prova che la raccolta stessa
+    già applica: la metafora vale se resta un'immagine di natura vera (l'albero-amore di Victor
+    Hugo, già dentro), non se la parola è solo un suono che ha un altro significato.
+  - **mare: 6/10.** Qui il criterio corretto non è "parla del mare", ma "usa la parola nel suo
+    senso vero" — la raccolta include già il naufragar metafisico di Leopardi e il paragone
+    amore/mare di Zora Neale Hurston, quindi una similitudine vera (Zadie Smith: perdere una fede
+    è come far bollire acqua di mare) o un'immagine di mare vero anche se incidentale (Murakami,
+    diario di corsa aperto sulla costa nord di Kauai) contano. Scartati invece i casi in cui
+    «mare» o «onde» sono un'altra parola travestita: «sul livello del mare» di Karen Blixen è
+    un'unità di misura di altitudine, non il mare; «Onde io imparai» di Alfieri è una congiunzione
+    arcaica («cosicché»), non le onde. Aggiunte: Zadie Smith, Marco Aurelio (il mare calmo dopo la
+    tempesta, stessa citazione già usata anche in "filosofia" — è normale, una citazione può stare
+    in più raccolte), Robert Louis Stevenson, Haruki Murakami, Hannah Arendt, Torquato Tasso.
+  - **animali: 4/11.** Scartati "cavallier" di Ariosto (sono cavalieri, non cavalli), «lupo perde
+    il pelo» di Vargas Llosa (un modo di dire su un uomo, non un lupo), «Signore dei Cavalli» di
+    Riordan (un epiteto divino, non un animale reale). Aggiunte: Arundhati Roy (una bestia vera,
+    paragonata all'odio umano), Jean-Paul Sartre (l'esistenza pesa «come una grossa bestia
+    immobile» — la stessa logica della similitudine accettata altrove), Eugenio Montale (il
+    cavallo stramazzato di «Ossi di seppia»), Mario Rigoni Stern (pesci e api reali).
+  - **guerra: 1/13.** Dodici erano «esercitare»/«esercitavo» confusi con «esercito», «soldato di
+    Gesù» (un modo di dire per un cresimando, non un militare), «fucilato» come minaccia scherzosa
+    dell'autore ai propri lettori, «combattere» nel senso di lottare per i propri diritti sul
+    lavoro. Aggiunto solo Stefan Zweig, «Novella degli scacchi»: il contesto è la prigionia
+    dell'autore sotto la Gestapo, quindi la citazione appartiene davvero al tema.
+  - **donne: 2/14** (Herta Müller, Isabel Allende «Eva Luna») **e famiglia: 2/10** (la stessa
+    Allende, più Alda Merini). Scartati «donna Arminda» di Amado (un titolo di cortesia dentro un
+    nome proprio, non "una donna"), «la razza è la figlia del razzismo, non la madre» di Coates
+    (una metafora sulla razza, non sulla famiglia), «via Donna Olimpia» di Pasolini (il nome di
+    una strada di Roma).
+  - **occhi-e-sguardo: 1/10** (Lucy Maud Montgomery, sul vedere il meglio degli amici). Scartati
+    tutti i «punto di vista» (un modo di dire, non uno sguardo) e «colpo d'occhio» di Schopenhauer
+    (idem); anche gli «occhi verdi» di Ginzburg, pura descrizione fisica, non rientrano: la
+    raccolta è sull'atto del vedere, non sul colore degli occhi.
+
+  Build pulita, zero problemi, tutte e 30 le raccolte sopra soglia. Commit di dato + le pagine
+  rigenerate (34 file: le pagine citazione delle 17 aggiunte più mare/animali/ecc., gli indici,
+  la sitemap, le due pagine viaggio).

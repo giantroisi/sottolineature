@@ -87,7 +87,13 @@
       "Federico García Lorca|Romance sonámbulo|Verde che ti voglio verde. Verde",
       "Agatha Christie|Dieci piccoli indiani|C'era qualcosa di magico in un'isola:",
       "Umberto Saba|Città vecchia|Qui tra la gente che viene",
-      "Amin Maalouf|Il periplo di Baldassarre|Ma Genova non ha mai pregato,"
+      "Amin Maalouf|Il periplo di Baldassarre|Ma Genova non ha mai pregato,",
+      "Zadie Smith|Denti bianchi|Liberarsi di una fede è come",
+      "Marco Aurelio|Colloqui con sé stesso|Tutto è opinione, e l'opinione dipende",
+      "Robert Louis Stevenson|Lo strano caso del dottor Jekyll e del signor Hyde|Mi avvicinavo a quella verità, dalla",
+      "Haruki Murakami|L'arte di correre|Oggi è il 5 Agosto 2005,",
+      "Hannah Arendt|Le origini del totalitarismo|La concezione dei diritti umani è",
+      "Torquato Tasso|Gerusalemme liberata|Vezzosi augelli infra le verdi fronde"
     ]
   },
   {
@@ -418,7 +424,9 @@
       "Madeline Miller|Circe|Nacqui quando ancora non esisteva nome",
       "Alba de Céspedes|Dalla parte di lei|Io rabbrividii, smarrita, entro una improvvisa",
       "Rabindranath Tagore|La casa e il mondo|Mio marito sosteneva che uomo e",
-      "Honoré de Balzac|Eugénie Grandet|Quasi sempre gli errori di una"
+      "Honoré de Balzac|Eugénie Grandet|Quasi sempre gli errori di una",
+      "Herta Müller|Parola d'autore. I lemmi del vocabolario europeo 2009|Lager, s.n.: campo. Da quando so",
+      "Isabel Allende|Eva Luna|Mi chiamo Eva, che vuol dire"
     ]
   },
   {
@@ -445,7 +453,8 @@
       "Carlo Levi|Cristo si è fermato a Eboli|Nessuno ha toccato questa terra se",
       "Francesco Petrarca|Canzoniere|Pace non trovo, et non ò",
       "Jean-Paul Sartre|La morte nell'anima|La pace non è né democratica",
-      "Grazia Deledda|La chiesa della solitudine|Tutti siamo impastati di bene e"
+      "Grazia Deledda|La chiesa della solitudine|Tutti siamo impastati di bene e",
+      "Stefan Zweig|Novella degli scacchi|Niente al mondo è in grado"
     ]
   },
   {
@@ -511,7 +520,11 @@
       "Jack London|Il richiamo della foresta|I desiderî nòmadi ed atàvici squassano",
       "Franz Kafka|La metamorfosi|Un mattino, Gregor Samsa, destandosi da",
       "Olga Tokarczuk|Il mio caffè con la Szymborska|Per me si fa politica in",
-      "Charles Baudelaire|I fiori del male|Gl'innamorati ardenti e i sapienti austeri,"
+      "Charles Baudelaire|I fiori del male|Gl'innamorati ardenti e i sapienti austeri,",
+      "Arundhati Roy|Il dio delle piccole cose|Nessuna bestia ha mai uguagliato l'arte",
+      "Jean-Paul Sartre|La Nausea|L'esistenza non è qualcosa che si",
+      "Eugenio Montale|Ossi di seppia|Spesso il male di vivere ho",
+      "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il"
     ]
   },
   {
@@ -720,7 +733,9 @@
       "Edith Wharton|L'età dell'innocenza|Telegramma della nonna riportato vittoria. Papà",
       "Madeline Miller|Circe|Nacqui quando ancora non esisteva nome",
       "Michel de Montaigne|Saggi|Per un figlio di buona famiglia",
-      "Alice Munro|Il percorso dell'amore|Ricevetti una telefonata in ufficio; era"
+      "Alice Munro|Il percorso dell'amore|Ricevetti una telefonata in ufficio; era",
+      "Isabel Allende|Eva Luna|Mi chiamo Eva, che vuol dire",
+      "Alda Merini|Mistica d'amore|Perché vergine se io sono madre"
     ]
   },
   {
@@ -778,7 +793,8 @@
       "Antonio Tabucchi|La testa perduta di Damasceno Monteiro|Manolo il Gitano aprì gli occhi,",
       "John Muir|La mia prima estate sulla Sierra|Mai mi sono trovato dinanzi a",
       "Madeline Miller|Circe|Ma forse nessun genitore riesce a",
-      "Jules Verne|Dalla Terra alla Luna|L'astro delle notti, per la sua"
+      "Jules Verne|Dalla Terra alla Luna|L'astro delle notti, per la sua",
+      "Lucy Maud Montgomery|Anna dai capelli rossi|Avere degli amici significa vedere solo"
     ]
   },
   {
@@ -899,10 +915,10 @@
   },
   {
     "slug": "viaggio",
-    "title": "Viaggio",
-    "h1": "Frasi e citazioni sul viaggio",
+    "title": "Partire e viaggiare",
+    "h1": "Frasi e citazioni su chi parte e viaggia",
     "intro": [
-      "Qui il viaggio non è la metafora dell'esistenza che attraversa altre pagine del sito, ma lo spostamento reale: chi parte, chi vive di strada, chi guarda un paese straniero con occhi che non gli appartengono. Jack Kerouac lo scrive da dentro, prima nei pazzi per cui vale la pena vivere di «Sulla strada», poi saltando lui stesso su un treno merci in «I vagabondi del Dharma». Antoine de Saint-Exupéry il viaggio lo faceva di mestiere: pilota postale fra scali nel deserto in «Terra degli uomini», nel crepuscolo sudamericano di «Volo di notte». Karen Blixen apre «La mia Africa» descrivendo la fattoria ai piedi degli altopiani del Ngong che avrebbe gestito per diciassette anni; John Steinbeck segue invece chi il viaggio non l'ha scelto, la famiglia Joad in fuga verso la California in «Furore». Paulo Coelho affida il cammino di Santiago a un deserto, Jules Verne l'elogio del mare al capitano Nemo, J.R.R. Tolkien la sua verità più nota a un verso: non tutti quelli che vagano sono perduti."
+      "Qui il viaggio è lo spostamento vero, non il cammino come metafora della vita: chi parte, chi vive di strada, chi guarda un paese straniero con occhi che non gli appartengono. Jack Kerouac lo scrive da dentro, prima nei pazzi per cui vale la pena vivere di «Sulla strada», poi saltando lui stesso su un treno merci in «I vagabondi del Dharma». Antoine de Saint-Exupéry il viaggio lo faceva di mestiere: pilota postale fra scali nel deserto in «Terra degli uomini», nel crepuscolo sudamericano di «Volo di notte». Karen Blixen apre «La mia Africa» descrivendo la fattoria ai piedi degli altopiani del Ngong che avrebbe gestito per diciassette anni; John Steinbeck segue invece chi il viaggio non l'ha scelto, la famiglia Joad in fuga verso la California in «Furore». Paulo Coelho affida il cammino di Santiago a un deserto, Jules Verne l'elogio del mare al capitano Nemo, J.R.R. Tolkien la sua verità più nota a un verso: non tutti quelli che vagano sono perduti."
     ],
     "quote_keys": [
       "Jack Kerouac|Sulla strada|Le uniche persone per me sono",
