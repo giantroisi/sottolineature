@@ -896,5 +896,68 @@
       "E.T.A. Hoffmann|Kreisleriana|Ogni passione, così come un'opera ce",
       "Paul Verlaine|Poèmes saturniens|Singhiozzi lunghi dei violini dell'autunno mordono"
     ]
+  },
+  {
+    "slug": "viaggio",
+    "title": "Viaggio",
+    "h1": "Frasi e citazioni sul viaggio",
+    "intro": [
+      "Qui il viaggio non è la metafora dell'esistenza che attraversa altre pagine del sito, ma lo spostamento reale: chi parte, chi vive di strada, chi guarda un paese straniero con occhi che non gli appartengono. Jack Kerouac lo scrive da dentro, prima nei pazzi per cui vale la pena vivere di «Sulla strada», poi saltando lui stesso su un treno merci in «I vagabondi del Dharma». Antoine de Saint-Exupéry il viaggio lo faceva di mestiere: pilota postale fra scali nel deserto in «Terra degli uomini», nel crepuscolo sudamericano di «Volo di notte». Karen Blixen apre «La mia Africa» descrivendo la fattoria ai piedi degli altopiani del Ngong che avrebbe gestito per diciassette anni; John Steinbeck segue invece chi il viaggio non l'ha scelto, la famiglia Joad in fuga verso la California in «Furore». Paulo Coelho affida il cammino di Santiago a un deserto, Jules Verne l'elogio del mare al capitano Nemo, J.R.R. Tolkien la sua verità più nota a un verso: non tutti quelli che vagano sono perduti."
+    ],
+    "quote_keys": [
+      "Jack Kerouac|Sulla strada|Le uniche persone per me sono",
+      "Jack Kerouac|I vagabondi del Dharma|Saltato su un treno merci che",
+      "Antoine de Saint-Exupéry|Terra degli uomini|La terra ci fornisce, sul nostro",
+      "Antoine de Saint-Exupéry|Volo di notte|Sotto l'aeroplano, le colline scavavano già",
+      "Karen Blixen|La mia Africa|In Africa avevo una fattoria ai",
+      "Paulo Coelho|L'Alchimista|Ascolta il tuo cuore. Esso conosce",
+      "Jules Verne|Ventimila leghe sotto i mari|Il mare è tutto: non per",
+      "J.R.R. Tolkien|Il Signore degli Anelli|Non tutti quelli che vagano sono",
+      "John Steinbeck|Furore|Nell'anima degli affamati i semi del"
+    ]
+  },
+  {
+    "slug": "filosofia",
+    "title": "Filosofia",
+    "h1": "Frasi e citazioni sulla filosofia",
+    "intro": [
+      "Quattordici opere di filosofia in senso proprio, non pensieri di chi la filosofia l'ha solo vissuta nei romanzi. L'antichità apre la raccolta: Aristotele nella «Metafisica» dice che tutti gli uomini per natura tendono al sapere, Platone fa morire Socrate nell'«Apologia» difendendo una vita esaminata, Cicerone dedica un intero dialogo all'amicizia. Vengono poi gli stoici — Seneca nel «De brevitate vitae», Epitteto nel «Manuale», Marco Aurelio nei «Colloqui con sé stesso» — per cui il tempo e le opinioni contano più delle cose. Boezio scrive la «Consolazione della filosofia» in un carcere in attesa dell'esecuzione; Sant'Agostino, nelle «Confessioni», si chiede cosa sia il tempo e scopre di non saperlo spiegare. Montaigne inventa il saggio filosofico moderno, Kant immagina la pace perpetua fra le nazioni. Chiudono la raccolta tre voci del pensiero più recente: Nietzsche e il superuomo dello «Zarathustra», Schopenhauer e il mondo come rappresentazione, Simone Weil sulla rivelazione greca, Camus che chiede di immaginare Sisifo felice."
+    ],
+    "quote_keys": [
+      "Aristotele|Metafisica|Tutti gli uomini per natura tendono",
+      "Platone|Apologia di Socrate|La vita senza esame è indegna",
+      "Marco Aurelio|Colloqui con sé stesso|Tutto è opinione, e l'opinione dipende",
+      "Seneca|De brevitate vitae|Non abbiamo poco tempo, ma ne",
+      "Epitteto|Manuale|Gli uomini sono agitati e turbati,",
+      "Boezio|Della consolazione della filosofia|Ritengo che agli uomini giovi più",
+      "Sant'Agostino|Confessioni|Cos'è dunque il tempo? Se nessuno",
+      "Marco Tullio Cicerone|L'amicizia|L'amicizia non è niente altro che",
+      "Friedrich Nietzsche|Così parlò Zarathustra|Io insegno a voi il Superuomo.",
+      "Arthur Schopenhauer|Il mondo come volontà e rappresentazione|Il mondo è una mia rappresentazione:",
+      "Immanuel Kant|Per la pace perpetua|Lo stato di pace fra esseri",
+      "Simone Weil|La rivelazione greca|Circa duemilacinquecento anni fa in Grecia",
+      "Michel de Montaigne|Saggi|C'è più da fare a interpretare",
+      "Albert Camus|Il mito di Sisifo|Bisogna immaginare Sisifo felice."
+    ]
+  },
+  {
+    "slug": "montagna",
+    "title": "Montagna",
+    "h1": "Frasi e citazioni sulla montagna",
+    "intro": [
+      "Dieci citazioni radunate intorno a un'unica geografia verticale. Paolo Cognetti la racconta due volte: ne «Le otto montagne», nel rapporto fra un padre che non scende mai a valle e un figlio che fatica a seguirlo fin sulle cime; e in «Senza mai arrivare in cima», il reportage in cui attraversa a piedi le valli himalayane del Dolpo. Dino Buzzati guarda le Dolomiti da un guardaboschi solitario in «Bàrnabo delle montagne», dove le vette «non assomigliano veramente a torri». Mario Rigoni Stern racconta l'Altopiano di Asiago in due libri, «Uomini, boschi e api» e «Il bosco degli urogalli», fra stagioni, boschi e il canto delle coturnici all'alba. John Muir, il naturalista che per primo difese la wilderness americana, scopre la valle di Yosemite risalendo un sentiero della Sierra Nevada. Grazia Deledda apre «Fior di Sardegna» in una piccola città di montagna lasciata apposta senza nome, perché conta più l'atmosfera del luogo di un nome preciso sulla carta."
+    ],
+    "quote_keys": [
+      "Paolo Cognetti|Le otto montagne|Il passato è a valle, il",
+      "Paolo Cognetti|Le otto montagne|Avevo già imparato un fatto a",
+      "Paolo Cognetti|Le otto montagne|È sulle cime che andiamo. Scendiamo",
+      "Paolo Cognetti|Senza mai arrivare in cima|Alla fine ci sono andato davvero,",
+      "Dino Buzzati|Bàrnabo delle montagne|Le montagne sono nascoste ma si",
+      "Dino Buzzati|Bàrnabo delle montagne|Non assomigliano veramente a torri, non",
+      "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il",
+      "Mario Rigoni Stern|Il bosco degli urogalli|Passarono le stagioni: la primavera con",
+      "John Muir|La mia prima estate sulla Sierra|Mai mi sono trovato dinanzi a",
+      "Grazia Deledda|Fior di Sardegna|Siamo in Sardegna, nella parte montuosa"
+    ]
   }
 ]

@@ -2428,3 +2428,50 @@
   Build pulita, `check_links.py` a zero problemi (avviso traduttore: 43 → 29). Commit di dato +
   raccolta + redirect + tutte le pagine rigenerate (l'indice /citazioni/ si è tutto rinumerato per
   la rimozione di una citazione, come da normale cascata).
+
+- 2026-09-05 12:29 UTC — tre nuove raccolte, i cluster di ricerca a più alto volume rimasti
+  scoperti (viaggio 3.420, filosofia 1.110, montagna 1.000). Tutte e tre costruite senza
+  aggiungere nessuna citazione nuova: già in archivio, selezionate a mano leggendo quote e
+  contesto, scartando i falsi positivi di un conteggio grezzo per radici (che per "viaggio" dava
+  125 righe solo perché contenevano parole come "strada" o "partire" in senso figurato).
+
+  **Viaggio (9 citazioni)** — deliberatamente distinta dalla raccolta «Viaggio e cammino» già
+  pubblicata (25 citazioni, più orientata al cammino come metafora dell'esistenza): qui solo
+  spostamento reale — Jack Kerouac («Sulla strada», «I vagabondi del Dharma»), Antoine de
+  Saint-Exupéry («Terra degli uomini», «Volo di notte»), Karen Blixen («La mia Africa»), John
+  Steinbeck («Furore»), Paulo Coelho («L'Alchimista»), Jules Verne («Ventimila leghe sotto i
+  mari»), J.R.R. Tolkien. Scartati per pertinenza debole: Elsa Morante «Aracoeli» (il contesto in
+  archivio non menziona il viaggio del figlio, solo l'origine della madre), Bram Stoker «Dracula»
+  e Joseph Conrad «Cuore di tenebra» (il viaggio è nella trama ma non nelle righe citate), Jules
+  Verne «Dalla Terra alla Luna» (descrive solo la luna, non il volo). data/keywords.json segnava
+  già il cluster "viaggio" come "pubblicata" riferendosi a «Viaggio e cammino» — verificato con
+  l'utente prima di procedere, che ha confermato di volere comunque una raccolta distinta.
+
+  **Filosofia (14 citazioni)** — solo opere di filosofia in senso proprio (trattati, dialoghi,
+  meditazioni), non romanzi scritti da filosofi: un'opera per autore, dall'antichità al Novecento.
+  Aristotele («Metafisica»), Platone («Apologia di Socrate»), Cicerone («L'amicizia»), Seneca («De
+  brevitate vitae»), Epitteto («Manuale»), Marco Aurelio («Colloqui con sé stesso»), Boezio («Della
+  consolazione della filosofia»), Sant'Agostino («Confessioni»), Montaigne («Saggi»), Kant («Per la
+  pace perpetua»), Nietzsche («Così parlò Zarathustra»), Schopenhauer («Il mondo come volontà e
+  rappresentazione»), Simone Weil («La rivelazione greca»), Camus («Il mito di Sisifo»). Esclusi
+  di proposito Sartre (tutte le sue citazioni in archivio vengono da romanzi o testi teatrali, non
+  da un trattato) e i romanzi di Camus («Lo straniero», «La peste», «L'estate»): l'autore è un
+  filosofo, ma quelle pagine non sono filosofia. Nessun rischio per il tetto del 15% di CATALOGO.md
+  — sono le stesse citazioni già in archivio, solo raccolte in una pagina.
+
+  **Montagna (10 citazioni)** — Paolo Cognetti («Le otto montagne» ×3, «Senza mai arrivare in
+  cima»), Dino Buzzati («Bàrnabo delle montagne» ×2), Mario Rigoni Stern («Uomini, boschi e api»,
+  «Il bosco degli urogalli»), John Muir («La mia prima estate sulla Sierra»), Grazia Deledda
+  («Fior di Sardegna», l'apertura del romanzo colloca esplicitamente la vicenda «nella parte
+  montuosa della Sardegna»). Scartati per pertinenza debole nonostante il match lessicale:
+  Leopardi «L'infinito» (il verso citato è sul mare, non sul colle), tre citazioni di Montale
+  da «Ossi di seppia» (nessuna delle tre menziona la montagna), il passo di Marco Aurelio sul
+  ritirarsi «sui monti» (l'elenco di luoghi è incidentale, il punto filosofico è un altro — quella
+  citazione è finita invece nella nuova raccolta filosofia).
+
+  Introduzioni scritte a mano, un paragrafo ciascuna (156-168 parole), modellate sullo stile più
+  compatto dei generi (distopia, horror) piuttosto che sulla media delle 27 raccolte precedenti
+  (in genere 3 paragrafi, 230-280 parole) — scelta esplicita dell'utente. Build pulita, zero
+  problemi, tutte e tre le raccolte sopra la soglia di 8 (30/30 raccolte indicizzabili). Commit di
+  dato + le pagine rigenerate (33 pagine citazione che ora linkano alla raccolta, 3 pagine raccolta
+  nuove, indice raccolte, sitemap).
