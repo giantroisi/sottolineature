@@ -414,8 +414,34 @@ footer.sans a { color: var(--ink-faint); }
   color: var(--ink-faint); text-align: center; max-width: 150px;
 }
 .share-choice {
-  display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: -0.8rem 0 1.6rem;
+  display: flex; align-items: flex-start; gap: 0.9rem; flex-wrap: wrap; margin: -0.8rem 0 1.6rem;
 }
+/* L'anteprima non e' un ornamento: prima si sceglieva formato e sfondo alla
+   cieca e si scopriva l'immagine solo dopo averla scaricata. E' disegnata
+   dalla stessa funzione che produce il file, quindi quello che si vede e'
+   esattamente quello che si prende. */
+.share-preview {
+  flex: 0 0 auto; line-height: 0;
+  border: 1px solid var(--rule); border-radius: 4px; padding: 4px; background: var(--paper-raised);
+}
+.share-preview img { display: block; border-radius: 2px; }
+.share-rows { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+.share-row { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
+.share-row .share-choice-label { flex: 0 0 3.6rem; }
+/* Un pulsante solo fa partire lo scaricamento, e lo dice. Prima a scaricare
+   era il pulsante dello sfondo, che non lo diceva: si sceglieva "Chiaro" e
+   partiva un file. */
+/* `.share-choice button` ha specificita' 0-1-1 e batteva `.share-go` (0-1-0):
+   il pulsante prendeva i colori degli altri e restava grigio, salvo diventare
+   oro al passaggio del mouse, perche' li' la specificita' saliva. E' la terza
+   volta che questo foglio inganna cosi' (prima .site-nav, poi .filter-block):
+   si sale di specificita', non si sposta la regola. */
+.share-choice .share-go {
+  align-self: flex-start; margin-top: 0.15rem;
+  border: 1px solid var(--gold); border-radius: 999px; padding: 0.45rem 1.2rem;
+  font-size: 0.8rem; font-family: inherit; color: var(--gold); background: none; cursor: pointer;
+}
+.share-choice .share-go:hover { background: var(--gold); color: var(--paper); }
 /* senza questa riga il display:flex qui sopra batte l'attributo hidden e la
    scelta dello sfondo resta sempre in pagina: premere "Condividi" sembrava
    non fare nulla, perche' apriva un pannello gia' aperto */
@@ -465,13 +491,12 @@ footer.sans a { color: var(--ink-faint); }
   font-size: 0.78rem; color: var(--ink-soft); background: none; cursor: pointer;
 }
 .share-choice button:hover { border-color: var(--gold); color: var(--gold); }
-/* Il formato si sceglie e resta segnato; e' lo sfondo a far partire
-   l'immagine. Due pulsanti dentro un pannello che si apriva gia', non due
-   pulsanti in piu' sulla pagina. */
+/* Formato e sfondo si scelgono e restano segnati: cambiano l'anteprima, non
+   fanno partire niente. A scaricare e' il pulsante che lo dice. */
 .share-choice button[aria-pressed="true"] {
   border-color: var(--gold); color: var(--gold); background: var(--paper-raised);
 }
-.share-choice .share-choice-sep { flex-basis: 100%; height: 0; }
+
 @media (max-width: 640px) { .cover-caption { max-width: 92px; } }
 
 /* --- fascia "Esplora l'archivio" in home: apre le sezioni che dalla home

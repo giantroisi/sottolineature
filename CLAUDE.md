@@ -1269,6 +1269,26 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   accorto per caso il commit delle storie, che li ha portati dentro. **Va messo nel comando ogni
   volta**: a fine lotto `python3 tools/build.py` e commit dell'HTML rigenerato, non solo del dato.
 
+- **La sezione condividi rifatta, 2026-09-05** — tre cose insieme, chieste dall'utente. **Reels non
+  e' la storia**: stessa tela 1080x1920, ma sotto didascalia, audio e pulsanti coprono ~310px
+  contro i ~220 delle storie, e a destra la colonna di like/commenti ne mangia ~110, che con
+  l'inserto della storia (72) passavano sopra la cornice. Formato suo: cornice a 132 per lato,
+  piede a 336, colonna di testo stretta a 732px - il prezzo si paga volentieri per non avere il
+  logo sotto un pulsante. Verificato sovrapponendo le zone rosse alle tre immagini, con una
+  citazione breve e una lunga. **L'anteprima**: `downloadQuoteImage` disegnava e scaricava in un
+  colpo, quindi non c'era modo di far vedere cosa sarebbe uscito; separata in `disegnaCitazione`
+  che restituisce il canvas, e l'anteprima nel pannello usa lo stesso disegno - quello che si vede
+  e' il file, non un'approssimazione. **Un gesto solo**: lo sfondo parte gia' sul tema con cui si
+  legge e a scaricare e' un pulsante che lo dice, invece del pulsante dello sfondo che lo faceva
+  di nascosto.
+- **La trappola della specificita', terza volta** — `.share-choice button` (0-1-1) batteva
+  `.share-go` (0-1-0): il pulsante restava grigio come gli altri e diventava oro solo al passaggio
+  del mouse, perche' li' la specificita' saliva. Identico a `.site-nav` e a `.filter-block`. **In
+  questo foglio una regola nuova su un elemento dentro `.share-choice`, `.site-header`,
+  `.filter-block` va scritta con due classi**, non si sposta la regola piu' in basso. E il modo per
+  accorgersene e' leggere il colore calcolato, non guardare lo scatto: al passaggio del mouse
+  sembrava giusto.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.

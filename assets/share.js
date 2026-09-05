@@ -63,6 +63,19 @@
       w: 1080, h: 1350, marginTop: 40, marginBottom: 40,
       inserto: 40, padding: 90, scala: 1, label: 'post'
     },
+    // I Reels non sono le storie, benche' la tela sia la stessa. Sotto,
+    // didascalia, audio e pulsanti coprono ~310px contro i ~220 delle storie;
+    // a destra la colonna di like/commenti/condividi ne mangia altri ~110, che
+    // con l'inserto della storia (72) passerebbero sopra la cornice. Qui la
+    // cornice sta a 132 per lato - simmetrica, perche' una cornice storta si
+    // vede - e il piede scende a 336. La colonna di testo si stringe a 732px:
+    // e' il prezzo, e si paga volentieri per non avere il logo sotto un
+    // pulsante.
+    reels: {
+      w: 1080, h: 1920, marginTop: 152, marginBottom: 336,
+      inserto: 132, padding: 174, padTop: 92, padBottom: 96,
+      scala: 1.24, label: 'reels'
+    },
     storia: {
       // I margini tengono il contenuto dentro la zona sicura di Instagram, le
       // cui barre coprono circa 220px sopra e sotto. Erano 250/280: prudenti,
@@ -81,7 +94,12 @@
   // mentre un 9:16 messo nel feed verrebbe ritagliato e perderebbe il logo.
   var DEFAULT_SHARE_FORMAT = 'post';
 
-  function downloadQuoteImage(quote, author, title, year, btn, formatName, variantName) {
+  /* Disegnare e scaricare erano un gesto solo, e finche' lo sono stati non
+     c'era modo di far vedere cosa sarebbe uscito: si sceglieva alla cieca.
+     Ora `disegnaCitazione` restituisce il canvas e basta; scaricare e'
+     mestiere di chi lo chiama. L'anteprima nel pannello usa lo stesso
+     disegno, non un'approssimazione: quello che si vede e' il file. */
+  function disegnaCitazione(quote, author, title, year, formatName, variantName) {
     var fmt = SHARE_FORMATS[formatName || DEFAULT_SHARE_FORMAT] || SHARE_FORMATS.post;
     var width = fmt.w;
     var height = fmt.h;
@@ -239,6 +257,13 @@
       workY += workLineHeight;
     });
 
+    return { canvas: canvas, fmt: fmt };
+  }
+
+  function downloadQuoteImage(quote, author, title, year, btn, formatName, variantName) {
+    var esito = disegnaCitazione(quote, author, title, year, formatName, variantName);
+    var canvas = esito.canvas;
+    var fmt = esito.fmt;
     canvas.toBlob(function (blob) {
       var filename = 'sottolineature-' + author.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + fmt.label + '.png';
       var original = btn ? btn.textContent : '';
@@ -280,5 +305,6 @@
   }
   window.Sottolineature = window.Sottolineature || {};
   window.Sottolineature.share = downloadQuoteImage;
+  window.Sottolineature.disegna = disegnaCitazione;
   window.Sottolineature.SHARE_FORMATS = SHARE_FORMATS;
 })();

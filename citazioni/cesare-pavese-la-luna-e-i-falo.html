@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=fc533457">
+<link rel="stylesheet" href="/assets/site.css?v=c2147fde">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/#webpage", "url": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/", "name": "«Un paese ci vuole, non fosse che per il gusto…» — Cesare Pavese", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/#quotation", "text": "Un paese ci vuole, non fosse che per il gusto di andarsene via.", "creator": {"@id": "https://sottolineature.it/autori/cesare-pavese/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/#book"}, "url": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/", "citation": "capitolo I"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/#book", "name": "La luna e i falò", "author": {"@id": "https://sottolineature.it/autori/cesare-pavese/#person"}, "datePublished": "1950"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/cesare-pavese/#person", "name": "Cesare Pavese", "url": "https://sottolineature.it/autori/cesare-pavese/", "sameAs": ["https://it.wikipedia.org/wiki/Cesare_Pavese", "https://www.wikidata.org/wiki/Q2022"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Cesare Pavese", "item": "https://sottolineature.it/autori/cesare-pavese/"}, {"@type": "ListItem", "position": 3, "name": "Un paese ci vuole, non fosse che per il…", "item": "https://sottolineature.it/citazioni/cesare-pavese-la-luna-e-i-falo/"}]}]}</script>
 <script>
   try {
@@ -95,13 +95,23 @@
     <a href="/#cesare-pavese-la-luna-e-i-falo">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
-    <span class="share-choice-label">Formato:</span>
-    <button type="button" data-formato="post" aria-pressed="true">Post</button>
-    <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
-    <span class="share-choice-sep" aria-hidden="true"></span>
-    <span class="share-choice-label">Sfondo:</span>
-    <button type="button" data-variant="chiaro">Chiaro</button>
-    <button type="button" data-variant="scuro">Scuro</button>
+    <div class="share-preview" aria-live="polite">
+      <img id="sharePreview" alt="Anteprima dell&#x27;immagine da condividere" width="132" height="165">
+    </div>
+    <div class="share-rows">
+      <div class="share-row">
+        <span class="share-choice-label">Formato</span>
+        <button type="button" data-formato="post" aria-pressed="true">Post</button>
+        <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
+        <button type="button" data-formato="reels" aria-pressed="false">Reels</button>
+      </div>
+      <div class="share-row">
+        <span class="share-choice-label">Sfondo</span>
+        <button type="button" data-variant="chiaro" aria-pressed="true">Chiaro</button>
+        <button type="button" data-variant="scuro" aria-pressed="false">Scuro</button>
+      </div>
+      <button class="share-go" type="button" id="shareGo">Scarica l&#x27;immagine</button>
+    </div>
   </div>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>
@@ -117,7 +127,7 @@
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
   </footer>
 </div>
-<script src="/assets/share.js?v=b35beb89"></script>
+<script src="/assets/share.js?v=32a03ebf"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');
@@ -165,23 +175,58 @@
       var open = shareChoice.hidden;
       shareChoice.hidden = !open;
       shareBtn.setAttribute('aria-expanded', String(open));
+      if (open) { aggiornaAnteprima(); }
     });
+    // Il pannello mostra quello che uscira', non una descrizione: l'anteprima
+    // e' disegnata dalla stessa funzione che produce il file. Lo sfondo parte
+    // gia' sul tema con cui si sta leggendo, cosi' con le impostazioni buone
+    // bastano due tocchi - aprire e scaricare - ma vedendo cosa si prende.
     var formatoScelto = 'post';
+    var sfondoScelto = document.documentElement.getAttribute('data-theme') === 'dark' ? 'scuro' : 'chiaro';
+    var anteprima = document.getElementById('sharePreview');
+
+    function segnaScelta(attributo, valore) {
+      Array.prototype.forEach.call(shareChoice.querySelectorAll('[' + attributo + ']'), function (x) {
+        x.setAttribute('aria-pressed', String(x.getAttribute(attributo) === valore));
+      });
+    }
+
+    function aggiornaAnteprima() {
+      if (!anteprima || !window.Sottolineature || !window.Sottolineature.disegna) { return; }
+      var esito = window.Sottolineature.disegna(
+        "Un paese ci vuole, non fosse che per il gusto di andarsene via.", "Cesare Pavese", "La luna e i falò", "1950",
+        formatoScelto, sfondoScelto
+      );
+      anteprima.src = esito.canvas.toDataURL('image/png');
+      // 132px di larghezza vanno bene per un 4:5, ma un 9:16 diventerebbe alto
+      // 235 e schiaccerebbe i pulsanti sotto: si limita l'altezza, non la
+      // larghezza, e il formato si riconosce lo stesso dalla proporzione.
+      var largo = Math.min(132, Math.round(168 * esito.fmt.w / esito.fmt.h));
+      anteprima.width = largo;
+      anteprima.height = Math.round(largo * esito.fmt.h / esito.fmt.w);
+    }
+
     Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (b) {
       b.addEventListener('click', function () {
         formatoScelto = b.getAttribute('data-formato');
-        Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (x) {
-          x.setAttribute('aria-pressed', String(x === b));
-        });
+        segnaScelta('data-formato', formatoScelto);
+        aggiornaAnteprima();
       });
     });
     Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-variant]'), function (b) {
       b.addEventListener('click', function () {
-        window.Sottolineature.share(
-          "Un paese ci vuole, non fosse che per il gusto di andarsene via.", "Cesare Pavese", "La luna e i falò", "1950",
-          b, formatoScelto, b.getAttribute('data-variant')
-        );
+        sfondoScelto = b.getAttribute('data-variant');
+        segnaScelta('data-variant', sfondoScelto);
+        aggiornaAnteprima();
       });
+    });
+    segnaScelta('data-variant', sfondoScelto);
+
+    document.getElementById('shareGo').addEventListener('click', function (b) {
+      window.Sottolineature.share(
+        "Un paese ci vuole, non fosse che per il gusto di andarsene via.", "Cesare Pavese", "La luna e i falò", "1950",
+        document.getElementById('shareGo'), formatoScelto, sfondoScelto
+      );
     });
 
     // Sottolinea: stesso archivio della home (localStorage, chiave = slug), cosi'

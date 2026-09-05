@@ -281,13 +281,23 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <a href="/#{slug}">Vedi sul sito</a>
   </div>
   <div class="share-choice sans" id="shareChoice" hidden>
-    <span class="share-choice-label">Formato:</span>
-    <button type="button" data-formato="post" aria-pressed="true">Post</button>
-    <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
-    <span class="share-choice-sep" aria-hidden="true"></span>
-    <span class="share-choice-label">Sfondo:</span>
-    <button type="button" data-variant="chiaro">Chiaro</button>
-    <button type="button" data-variant="scuro">Scuro</button>
+    <div class="share-preview" aria-live="polite">
+      <img id="sharePreview" alt="Anteprima dell&#x27;immagine da condividere" width="132" height="165">
+    </div>
+    <div class="share-rows">
+      <div class="share-row">
+        <span class="share-choice-label">Formato</span>
+        <button type="button" data-formato="post" aria-pressed="true">Post</button>
+        <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
+        <button type="button" data-formato="reels" aria-pressed="false">Reels</button>
+      </div>
+      <div class="share-row">
+        <span class="share-choice-label">Sfondo</span>
+        <button type="button" data-variant="chiaro" aria-pressed="true">Chiaro</button>
+        <button type="button" data-variant="scuro" aria-pressed="false">Scuro</button>
+      </div>
+      <button class="share-go" type="button" id="shareGo">Scarica l&#x27;immagine</button>
+    </div>
   </div>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>
@@ -351,23 +361,58 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       var open = shareChoice.hidden;
       shareChoice.hidden = !open;
       shareBtn.setAttribute('aria-expanded', String(open));
+      if (open) {{ aggiornaAnteprima(); }}
     }});
+    // Il pannello mostra quello che uscira', non una descrizione: l'anteprima
+    // e' disegnata dalla stessa funzione che produce il file. Lo sfondo parte
+    // gia' sul tema con cui si sta leggendo, cosi' con le impostazioni buone
+    // bastano due tocchi - aprire e scaricare - ma vedendo cosa si prende.
     var formatoScelto = 'post';
+    var sfondoScelto = document.documentElement.getAttribute('data-theme') === 'dark' ? 'scuro' : 'chiaro';
+    var anteprima = document.getElementById('sharePreview');
+
+    function segnaScelta(attributo, valore) {{
+      Array.prototype.forEach.call(shareChoice.querySelectorAll('[' + attributo + ']'), function (x) {{
+        x.setAttribute('aria-pressed', String(x.getAttribute(attributo) === valore));
+      }});
+    }}
+
+    function aggiornaAnteprima() {{
+      if (!anteprima || !window.Sottolineature || !window.Sottolineature.disegna) {{ return; }}
+      var esito = window.Sottolineature.disegna(
+        {share_quote_js}, {share_author_js}, {share_title_js}, {share_year_js},
+        formatoScelto, sfondoScelto
+      );
+      anteprima.src = esito.canvas.toDataURL('image/png');
+      // 132px di larghezza vanno bene per un 4:5, ma un 9:16 diventerebbe alto
+      // 235 e schiaccerebbe i pulsanti sotto: si limita l'altezza, non la
+      // larghezza, e il formato si riconosce lo stesso dalla proporzione.
+      var largo = Math.min(132, Math.round(168 * esito.fmt.w / esito.fmt.h));
+      anteprima.width = largo;
+      anteprima.height = Math.round(largo * esito.fmt.h / esito.fmt.w);
+    }}
+
     Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (b) {{
       b.addEventListener('click', function () {{
         formatoScelto = b.getAttribute('data-formato');
-        Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-formato]'), function (x) {{
-          x.setAttribute('aria-pressed', String(x === b));
-        }});
+        segnaScelta('data-formato', formatoScelto);
+        aggiornaAnteprima();
       }});
     }});
     Array.prototype.forEach.call(shareChoice.querySelectorAll('[data-variant]'), function (b) {{
       b.addEventListener('click', function () {{
-        window.Sottolineature.share(
-          {share_quote_js}, {share_author_js}, {share_title_js}, {share_year_js},
-          b, formatoScelto, b.getAttribute('data-variant')
-        );
+        sfondoScelto = b.getAttribute('data-variant');
+        segnaScelta('data-variant', sfondoScelto);
+        aggiornaAnteprima();
       }});
+    }});
+    segnaScelta('data-variant', sfondoScelto);
+
+    document.getElementById('shareGo').addEventListener('click', function (b) {{
+      window.Sottolineature.share(
+        {share_quote_js}, {share_author_js}, {share_title_js}, {share_year_js},
+        document.getElementById('shareGo'), formatoScelto, sfondoScelto
+      );
     }});
 
     // Sottolinea: stesso archivio della home (localStorage, chiave = slug), cosi'

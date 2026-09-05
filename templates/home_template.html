@@ -943,8 +943,29 @@ html:not(.js) .js-only { display: none !important; }
          aver premuto "Condividi" (l'attributo hidden va rinforzato, altrimenti
          il display:flex lo batte e il pannello resta sempre in pagina) --- */
   .share-choice {
-    display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin: 1rem 0 0;
+    display: flex; align-items: flex-start; gap: 0.9rem; flex-wrap: wrap; margin: 1rem 0 0;
   }
+  /* L'anteprima e' disegnata dalla stessa funzione che produce il file:
+     quello che si vede e' quello che si prende. Prima si sceglieva alla cieca. */
+  .share-preview {
+    flex: 0 0 auto; line-height: 0;
+    border: 1px solid var(--rule); border-radius: 4px; padding: 4px; background: var(--paper-raised);
+  }
+  .share-preview img { display: block; border-radius: 2px; }
+  .share-rows { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+  .share-row { display: flex; align-items: center; gap: 0.45rem; flex-wrap: wrap; }
+  .share-row .share-choice-label { flex: 0 0 3.6rem; }
+  /* `.share-choice button` ha specificita' 0-1-1 e batteva `.share-go` (0-1-0):
+     il pulsante prendeva i colori degli altri e restava grigio, salvo diventare
+     oro al passaggio del mouse, perche' li' la specificita' saliva. E' la terza
+     volta che questo foglio inganna cosi' (prima .site-nav, poi .filter-block):
+     si sale di specificita', non si sposta la regola. */
+  .share-choice .share-go {
+    align-self: flex-start; margin-top: 0.15rem;
+    border: 1px solid var(--gold); border-radius: 999px; padding: 0.45rem 1.2rem;
+    font-size: 0.8rem; font-family: inherit; color: var(--gold); background: none; cursor: pointer;
+  }
+  .share-choice .share-go:hover { background: var(--gold); color: var(--paper); }
   .share-choice[hidden] { display: none; }
   .share-choice-label { font-size: 0.78rem; color: var(--ink-faint); }
   .share-choice button {
@@ -961,7 +982,6 @@ html:not(.js) .js-only { display: none !important; }
   .share-choice button[aria-pressed="true"] {
     border-color: var(--gold); color: var(--gold); background: var(--paper-raised);
   }
-  .share-choice .share-choice-sep { flex-basis: 100%; height: 0; }
 
   /* --- Ricerca e filtri sono lo stesso mestiere: restringere l'archivio.
          Stavano a duemila pixel di distanza, con i filtri appena sopra la
@@ -1107,13 +1127,23 @@ html:not(.js) .js-only { display: none !important; }
       <button class="underline-toggle sans hero-underline-btn js-only" id="heroUnderlineBtn" type="button">Sottolinea</button>
     </div>
     <div class="share-choice sans" id="heroShareChoice" hidden>
-      <span class="share-choice-label">Formato:</span>
-      <button type="button" data-formato="post" aria-pressed="true">Post</button>
-      <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
-      <span class="share-choice-sep" aria-hidden="true"></span>
-      <span class="share-choice-label">Sfondo:</span>
-      <button type="button" data-variant="chiaro">Chiaro</button>
-      <button type="button" data-variant="scuro">Scuro</button>
+      <div class="share-preview" aria-live="polite">
+        <img id="heroPreview" alt="Anteprima dell&#x27;immagine da condividere" width="132" height="165">
+      </div>
+      <div class="share-rows">
+        <div class="share-row">
+          <span class="share-choice-label">Formato</span>
+          <button type="button" data-formato="post" aria-pressed="true">Post</button>
+          <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
+          <button type="button" data-formato="reels" aria-pressed="false">Reels</button>
+        </div>
+        <div class="share-row">
+          <span class="share-choice-label">Sfondo</span>
+          <button type="button" data-variant="chiaro" aria-pressed="true">Chiaro</button>
+          <button type="button" data-variant="scuro" aria-pressed="false">Scuro</button>
+        </div>
+        <button class="share-go" type="button" id="heroGo">Scarica l&#x27;immagine</button>
+      </div>
     </div>
   </section>
 
@@ -1554,39 +1584,75 @@ html:not(.js) .js-only { display: none !important; }
     }
     heroCopyBtn.addEventListener('click', copyHero);
 
-    // "Condividi" apre la scelta dello sfondo; l'immagine si scarica premendo
-    // Chiaro o Scuro. Lo sfondo dell'immagine e' indipendente dal tema con cui
-    // si sta leggendo la pagina.
+    // "Condividi" apre un pannello che mostra l'immagine prima di darla: si
+    // sceglievano formato e sfondo alla cieca, e a scaricare era il pulsante
+    // dello sfondo, che non lo diceva. Ora l'anteprima e' disegnata dalla
+    // stessa funzione che produce il file, lo sfondo parte gia' sul tema con
+    // cui si sta leggendo, e a scaricare e' un pulsante che lo dichiara.
     var heroExportBtn = document.getElementById('heroExportBtn');
     var heroShareChoice = document.getElementById('heroShareChoice');
+    var heroPreview = document.getElementById('heroPreview');
+    var formatoScelto = 'post';
+    var sfondoScelto = document.documentElement.getAttribute('data-theme') === 'dark' ? 'scuro' : 'chiaro';
     heroExportBtn.setAttribute('aria-expanded', 'false');
     heroExportBtn.setAttribute('aria-controls', 'heroShareChoice');
+
+    function datiHero() {
+      if (!currentHeroCard) { return null; }
+      return [
+        currentHeroCard.querySelector('.card-quote').textContent,
+        currentHeroCard.querySelector('.card-author').textContent,
+        currentHeroCard.querySelector('.card-title').textContent,
+        currentHeroCard.querySelector('.card-year').textContent
+      ];
+    }
+
+    function segnaScelta(attributo, valore) {
+      Array.prototype.forEach.call(heroShareChoice.querySelectorAll('[' + attributo + ']'), function (x) {
+        x.setAttribute('aria-pressed', String(x.getAttribute(attributo) === valore));
+      });
+    }
+
+    function aggiornaAnteprima() {
+      var d = datiHero();
+      if (!d || !heroPreview || !window.Sottolineature || !window.Sottolineature.disegna) { return; }
+      var esito = window.Sottolineature.disegna(d[0], d[1], d[2], d[3], formatoScelto, sfondoScelto);
+      heroPreview.src = esito.canvas.toDataURL('image/png');
+      // 132px di larghezza vanno bene per un 4:5, ma un 9:16 diventerebbe alto
+      // 235 e schiaccerebbe i pulsanti sotto: si limita l'altezza, non la
+      // larghezza, e il formato si riconosce lo stesso dalla proporzione.
+      var largo = Math.min(132, Math.round(168 * esito.fmt.w / esito.fmt.h));
+      heroPreview.width = largo;
+      heroPreview.height = Math.round(largo * esito.fmt.h / esito.fmt.w);
+    }
+
     heroExportBtn.addEventListener('click', function () {
       if (!currentHeroCard) { return; }
       var open = heroShareChoice.hidden;
       heroShareChoice.hidden = !open;
       heroExportBtn.setAttribute('aria-expanded', String(open));
+      if (open) { aggiornaAnteprima(); }
     });
-    var formatoScelto = 'post';
     Array.prototype.forEach.call(heroShareChoice.querySelectorAll('[data-formato]'), function (b) {
       b.addEventListener('click', function () {
         formatoScelto = b.getAttribute('data-formato');
-        Array.prototype.forEach.call(heroShareChoice.querySelectorAll('[data-formato]'), function (x) {
-          x.setAttribute('aria-pressed', String(x === b));
-        });
+        segnaScelta('data-formato', formatoScelto);
+        aggiornaAnteprima();
       });
     });
     Array.prototype.forEach.call(heroShareChoice.querySelectorAll('[data-variant]'), function (b) {
       b.addEventListener('click', function () {
-        if (!currentHeroCard) { return; }
-        downloadQuoteImage(
-          currentHeroCard.querySelector('.card-quote').textContent,
-          currentHeroCard.querySelector('.card-author').textContent,
-          currentHeroCard.querySelector('.card-title').textContent,
-          currentHeroCard.querySelector('.card-year').textContent,
-          b, formatoScelto, b.getAttribute('data-variant')
-        );
+        sfondoScelto = b.getAttribute('data-variant');
+        segnaScelta('data-variant', sfondoScelto);
+        aggiornaAnteprima();
       });
+    });
+    segnaScelta('data-variant', sfondoScelto);
+    document.getElementById('heroGo').addEventListener('click', function () {
+      var d = datiHero();
+      if (!d) { return; }
+      downloadQuoteImage(d[0], d[1], d[2], d[3],
+        document.getElementById('heroGo'), formatoScelto, sfondoScelto);
     });
 
     // Su telefono il menu vive sotto la barra di ricerca, non in cima: e' un
