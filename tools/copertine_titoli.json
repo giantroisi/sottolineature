@@ -746,5 +746,22 @@
    "orig": "Report from the Besieged City",
    "aOrig": "Zbigniew Herbert"
   }
- ]
+ ],
+ "bocciate_a_vista": {
+  "nota": "cover_id di Open Library gia' guardati e scartati: escluderli in una ricerca futura. Motivo accanto.",
+  "id": {
+   "13109386": "Tess — legatura anonima senza titolo (sostituita al secondo giro)",
+   "9293378": "Mr. Sammler — legatura anonima (sostituita)",
+   "12719018": "It Can't Happen Here — legatura anonima, e l'unica con copertina esistente",
+   "12824691": "Persuasione — legatura anonima (sostituita)",
+   "8246159": "Un nemico del popolo — e' l'adattamento di ARTHUR MILLER, non Ibsen (sostituita)",
+   "13140934": "Donne innamorate — legatura anonima",
+   "11868942": "Marginalia — copertina decorata senza titolo leggibile",
+   "5284024": "Saul di Alfieri — scansione quasi bianca",
+   "10516625": "Guida della donna intelligente — legatura decorata senza titolo (sostituita)",
+   "12987595": "Ed e subito sera — e' una pagina di note bibliografiche, non una copertina",
+   "10720498": "L'Assommoir — fotografia di due volumi su uno scaffale (sostituita)",
+   "13140934b": "Women in Love EasyRead — edizione print-on-demand divisa in Volume I/II: il volume non esiste nell'originale"
+  }
+ }
 }
