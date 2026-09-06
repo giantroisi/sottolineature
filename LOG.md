@@ -2811,3 +2811,59 @@
   `data/raccolte.json` e le pagine HTML rigenerate da questo lotto nel commit, verificato con
   `git diff --stat` che nessun file toccato dalla sessione copertine (`assets/covers/`, altri campi
   di `data/citazioni.json`) fosse incluso.
+
+- 2026-09-06 20:03 UTC — **secondo lotto sulle opere ad alta domanda**, stessa misura del
+  precedente (`data/keywords.json`) ma sulla fascia sotto: cinque opere con 1 sola citazione,
+  scelte per volume di ricerca decrescente. **10 citazioni nuove su 799** (da 789). Due
+  assegnazioni a *frasi-brevi*.
+
+  **Il vecchio e il mare** (+2, 1→3): il fratello-pesce durante la lotta col marlin, la
+  solitudine della vecchiaia in mare aperto — trad. Fernanda Pivano, Mondadori, verificata su
+  tre fonti indipendenti a testo identico (PDF per ipovedenti ADOV Genova, scheda didattica
+  Atlas, copia integrale su scritturacreativa.org), nessuna delle tre Wikisource/Liber Liber ma
+  concordanti parola per parola. **L'insostenibile leggerezza dell'essere** (+2, 1→3): la
+  seconda lacrima del kitsch, la definizione di tradimento di Sabina — trad. Giuseppe
+  Dierna/Adelphi. Scartato un terzo candidato (il paragrafo sull'eterno ritorno) perché troppo
+  vicino al locus della citazione già in archivio (stesso paragrafo dell'incipit). **Oceano
+  mare** (+1, 1→2): la voce di Bartleboom sui limiti della natura, testo originale italiano —
+  verificato su Wikiquote con capitolo/edizione citati e su una seconda fonte indipendente con
+  wording identico. Scartato un secondo candidato su Elisewin: wording diverso da sito a sito
+  senza modo di stabilire quale fosse esatto (stessa regola già applicata più volte in questo
+  progetto). **Le città invisibili** (+3, 1→4): Zaira, Ottavia, Ersilia — testo originale
+  italiano, Einaudi 1972, verificato su due trascrizioni integrali di capitoli con citazione
+  esplicita dell'edizione (nessuna Wikisource/Liber Liber disponibile: Calvino non è di pubblico
+  dominio). **Anna Karenina** (+2, 1→4): "la vita è composta d'ombra e di luce" (Stiva a Levin),
+  "non ci son condizioni a cui l'uomo non possa abituarsi" (Levin) — **traduttore nuovo per
+  l'archivio**: Leone Ginzburg (morto 1944, quindi di pubblico dominio dal 2015), prima
+  traduzione integrale dal russo, edizione Slavia 1929 ripubblicata da Einaudi, testo scaricato
+  per intero da Liber Liber e verificato riga per riga — non ancora presente in archivio.
+
+  **Tre opere scartate per intero, filone esaurito:**
+  - **L'amore ai tempi del colera**: esistono **due traduzioni Mondadori diverse e incompatibili**
+    (Angelo Morino, Meridiani 2004; Claudio M. Valentinetti, Oscar più vecchio) con wording
+    diverso sugli stessi passaggi — nessun modo di stabilire da fonte web quale delle due
+    corrisponda al testo trovato, e Internet Archive ha solo il prestito (non consultabile).
+    Stesso principio già applicato altrove: un nome di traduttore sbagliato è peggio di nessun
+    nome. Resta a 1 citazione.
+  - **La fattoria degli animali**: **tre traduzioni italiane esistono** (Bruno Tasso 1947, Guido
+    Bulla 2000 — quella già in archivio —, Michele Mari 2019), ma delle tre solo Tasso è
+    liberamente reperibile per intero online (fonti non ufficiali) e solo Mari ha un'anteprima
+    Google Libri cercabile: nessuna delle due è Bulla. Aggiungere citazioni con un traduttore
+    diverso da quello già in uso avrebbe reso l'opera incoerente in archivio senza una ragione
+    editoriale. Resta a 1 citazione.
+  - **Colazione da Tiffany**: traduttore storico Garzanti confermato (Bruno Tasso, 1959), ma
+    l'unico passaggio verificabile trovato è una battuta minore di un personaggio secondario
+    durante un brindisi — non regge da sola fuori dal libro. Scartata per qualità, non per fonte:
+    "una raccolta con otto citazioni mediocri vale meno di una che non esiste" vale anche per la
+    singola citazione. Resta a 1 citazione.
+
+  Un quarto agente di ricerca aveva applicato di propria iniziativa un limite di "una sola
+  citazione letterale sotto le 15 parole per risposta": ha comunque individuato posizione,
+  traduttore e fonte per ogni candidato senza trascriverne il testo integrale, che ho verificato
+  e trascritto io stesso dalle fonti primarie indicate (in un caso, Anna Karenina, scaricando
+  l'intero epub da Liber Liber) prima di applicarle.
+
+  `python3 tools/build.py`: zero problemi. `python3 tools/check_links.py`: zero problemi, stesso
+  avviso strutturale di sempre (32 citazioni con edizione ma senza traduttore, nessuna delle
+  nuove). Commit isolato con `git diff --stat`: solo `data/citazioni.json`, `data/raccolte.json`,
+  `LOG.md` e le pagine HTML rigenerate da questo lotto.
