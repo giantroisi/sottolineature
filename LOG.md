@@ -2710,3 +2710,104 @@
   committato piu' volte modifiche a un componente "Condividi" mentre lavoravo — isolato di nuovo,
   con `git diff --stat`, le sole tre pagine (frasi-brevi, incipit, indice raccolte) che il mio
   intervento cambia davvero, lasciando fuori dal commit tutto il resto.
+
+- 2026-09-06 18:32 UTC — **lotto di profondità sulle 15 opere ad alta domanda**, misurata su
+  `data/keywords.json`: pagine con una o due citazioni che inseguono le ricerche più grosse del
+  sito. Bersaglio dichiarato 6-8 a testa (~80 aggiunte); **42 aggiunte effettive su 789** (da 747),
+  fermate dove la verifica reggeva e non oltre — coerente con "meglio poche citazioni sicure che
+  molte incerte" già applicato in Fase 3. Copertina sempre copiata dalle citazioni già in archivio
+  della stessa opera, mai cercata ex novo (istruzione esplicita di questo lotto).
+
+  **Il piccolo principe** (+3, 2→5): volpe e narratore, trad. Franco Perini/Wikisource.
+  **Alice nel paese delle meraviglie** (+6, 2→8): Cheshire Cat, Bruco, Coniglio Bianco, trad.
+  Pietrocòla-Rossetti 1872/Wikisource. **Il Signore degli Anelli** (+1, 1→2): la battuta di Gandalf
+  sul tempo che ci è dato — nessun traduttore attribuibile con certezza, coerente con l'unica
+  citazione già presente (stesso limite). **Orgoglio e pregiudizio** (+5, 2→7): **traduttore
+  cambiato** da quello (non verificato) già in uso a Itala Castellini e Natalia Rosi, 1945,
+  pubblico dominio su Wikisource — un nome verificato sostituisce uno solo presunto, non
+  un'aggiunta neutra. **Romeo e Giulietta** (+6, 1→7): balcone, Mercuzio (Regina Mab e maledizione
+  morente), frate Lorenzo, Prologo — trad. Goffredo Raponi/Liber Liber.
+
+  **Il grande Gatsby** (+2, 2→4): trad. Fernanda Pivano, verificate su anteprima Google Libri con
+  numero di pagina. **Cime tempestose** (+1, 2→3): solo il paradiso del misantropo di Lockwood,
+  trad. Laura Noulian/Feltrinelli, anch'essa su anteprima Google Libri con pagina. **Scartate due
+  candidate della stessa opera** (l'incubo del fantasma alla finestra, "vorrei essere ancora una
+  fanciulla mezzo selvaggia"): il web restituiva wording diversi da fonte a fonte senza modo di
+  stabilire quale fosse quello dell'edizione Noulian — stesso principio di Fase 3, meglio niente
+  che una frase incerta. **Il ritratto di Dorian Gray** (+4, 2→6): Lord Henry su influenza,
+  bellezza, il peccato originale dell'umanità, la ripetizione del peccato — trad. Sergio Ortolani,
+  Facchi 1920, pubblico dominio, testo integrale scaricato da Liber Liber e cercato direttamente
+  (non solo web) per trovare passaggi lontani dal capitolo II già coperto.
+
+  **Cent'anni di solitudine** (+2, 2→4): "il mondo era così recente" (poche righe dopo l'incipit
+  già in archivio) e il dialogo Aureliano/Úrsula sul tempo che passa "ma non tanto" — trad. Enrico
+  Cicogna/Feltrinelli, fonti secondarie (Il Post, un blog letterario) in mancanza di
+  Wikisource/Google Libri per questa traduzione: nessuna delle due disponibile per verifica diretta
+  su questo titolo, accettate perché convergenti su due fonti indipendenti. **Piccole donne** (+2,
+  2→4): l'apertura "Natale non sembrerà più Natale senza regali" e la confessione di Marmee sui
+  quarant'anni contro la propria collera — trovate scaricando ed estraendo il testo integrale
+  dell'edizione Bemporad 1915 (pubblico dominio, Liber Liber): traduttore genuinamente anonimo
+  ("Nuova traduzione italiana", nessun nome nel colophon), stesso limite già presente sulle
+  citazioni esistenti di quest'opera.
+
+  **Uno, nessuno e centomila** (+3, 1→4): la scoperta del naso, "non ero per gli altri quel che
+  m'ero figurato d'essere", i centomila Moscarda — testo originale italiano, verificato riga per
+  riga sul wikitext grezzo di Wikisource (non la resa HTML, per leggere i marcatori di sezione
+  `§` nascosti nei template `Pagina:` e attribuire il § esatto, non solo "Libro primo"). **I
+  promessi sposi** (+3, 2→5): l'addio ai monti di Lucia, "un filo che la provvidenza mi mette
+  nelle mani" di fra Cristoforo, il crollo dell'Innominato — testo originale, Wikisource, edizione
+  definitiva 1840.
+
+  **Jane Eyre** (+2, 2→4): la riflessione di Jane alla finestra di Thornfield sul bisogno d'azione
+  e sul fatto che le donne sentano "come gli uomini" — stesso limite già presente sull'opera:
+  nessun traduttore accertabile con certezza (il colophon Liber Liber dell'edizione Fratelli
+  Treves 1904 non ne nomina uno, verificato direttamente, non presunto). **Se questo è un uomo**
+  (+2, 1→3): "ci toglieranno anche il nome" e "Hier ist kein warum" (qui non c'è un perché) — testo
+  originale italiano, capitolo «Sul fondo», fonti secondarie (un saggio accademico che cita
+  blocchi verbatim, un articolo che riporta lo scambio Warum/kein Warum per intero); scartato un
+  terzo candidato (il canto di Ulisse) perché sarebbe stato il verso di **Dante**, non di Levi,
+  citato dentro il libro — attribuirlo a Levi come autore sarebbe stata una mis-attribuzione.
+
+  **1984** (+0, resta a 1): nessuna aggiunta. Il traduttore storico (Gabriele Baldini, Mondadori
+  1950) è accertabile bibliograficamente ma non c'è modo di verificare che un brano specifico
+  trovato online sia davvero il suo testo — non su Wikisource/Liber Liber (ancora sotto copyright),
+  non su Internet Archive in italiano, nessuna anteprima leggibile su Google Libri. Le frasi
+  italiane che circolano online stanno solo su aggregatori/Wikiquote, esplicitamente vietati come
+  fonte unica. Restato così su istruzione permanente: un campo vuoto è un lavoro da fare, un nome
+  sbagliato è un errore pubblicato.
+
+  **6-bis applicato in questo stesso lotto, non dopo** (la lezione di agosto): per ognuna delle 42
+  citazioni nuove, verificata l'appartenenza a una delle 29 raccolte esistenti prima di chiudere il
+  lotto, non a parte. **10 assegnazioni**, tutte a giudizio, non meccaniche: *amicizia* (le due
+  citazioni del Piccolo Principe sui "mercanti di amici" e sul "nuovo amico"), *natura* (frate
+  Lorenzo su terra madre e sepoltura), *montagna* (l'addio ai monti di Manzoni — fa parte del
+  canone assoluto del tema, mancava), *bellezza* (Lord Henry sulla bellezza come "vero mistero del
+  mondo"), *donne* (Jane Eyre sul bisogno d'azione delle donne), *occhi-e-sguardo* (Moscarda che si
+  guarda "fisso e immobile negli occhi" cercando l'estraneo), *frasi-brevi* (Gandalf sul tempo che
+  ci è dato, "Romeo, Romeo perché sei tu Romeo", "Curiosissimo e sempre più curiosissimo" — tre
+  righe che reggono da sole fuori dal libro). **Scartate esplicitamente**: la buonanotte di
+  Giulietta per *notte* (parla di un saluto, non della notte come luogo/simbolo — lo stesso errore
+  di parola-non-concetto già segnalato in agosto per "mare"/"marito"/"vela"), il misantropo di
+  Lockwood per una raccolta sulla solitudine (non esiste: "solitudine" è categoria, non raccolta),
+  tre candidati per *filosofia* (Gandalf, frate Lorenzo — la raccolta è "opere di filosofia in
+  senso proprio, non pensieri di chi la filosofia l'ha solo vissuta nei romanzi", per sua stessa
+  introduzione).
+
+  Un errore di processo proprio, trovato e corretto durante il lotto: un `Edit` a metà, fra
+  un'interruzione di sessione e la ripresa, aveva lasciato lo script di lavoro con solo le ultime 9
+  sezioni e le prime 5 (Piccolo principe, Alice, Signore degli Anelli, Orgoglio e pregiudizio,
+  Romeo e Giulietta) sparite — riscritto per intero da zero prima di applicare, verificando che le
+  42 entry tornassero tutte con un conteggio programmatico, non a occhio.
+
+  Word count dei 42 contesti verificato via script (60-90 parole): 5 erano sotto soglia di 1-5
+  parole, riscritti allungando una clausola genuina (mai riempitivo) finché non rientravano.
+  `python3 tools/build.py`: zero problemi (un solo link `http://` non cifrato in un URL fonte,
+  portato a `https://` prima del check finale). `python3 tools/check_links.py`: zero problemi, il
+  solo avviso "edizione senza traduttore" (32 in tutto l'archivio) riguarda 4 delle nuove citazioni
+  (Piccole donne, Jane Eyre) per lo stesso limite di traduttore anonimo già presente sull'opera, non
+  un caso nuovo.
+
+  Nota di convivenza: `git status` prima di committare — solo `data/citazioni.json`,
+  `data/raccolte.json` e le pagine HTML rigenerate da questo lotto nel commit, verificato con
+  `git diff --stat` che nessun file toccato dalla sessione copertine (`assets/covers/`, altri campi
+  di `data/citazioni.json`) fosse incluso.
