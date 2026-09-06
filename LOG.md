@@ -2912,3 +2912,33 @@
   Pereira), corretti in `https://` prima del check finale. `python3 tools/check_links.py`: zero
   problemi. Commit isolato con `git diff --stat`: solo `data/citazioni.json`, `data/raccolte.json`,
   `LOG.md` e le pagine HTML rigenerate da questo lotto.
+
+- 2026-09-06 20:26 UTC — **quarto lotto, piccolo per scelta**: filone esaurito su quattro opere
+  su cinque, fermato lì invece di forzare candidati deboli. **3 citazioni nuove su 812** (da 809),
+  tutte sulla stessa opera.
+
+  **Il fu Mattia Pascal** (+3, 1→4): il lavoro da bibliotecario nella premessa, il dialogo con la
+  propria ombra («chi era più ombra di noi due, io o lei?»), il sollievo di poter tornare a
+  chiamarsi Mattia Pascal dopo mesi sotto falso nome — testo originale italiano, edizione 1919,
+  pubblico dominio, Wikisource, verificato scaricando ed estraendo i capitoli I, XV e XVII.
+
+  **Quattro opere scartate, nessuna aggiunta:**
+  - **Il giovane Holden** e **Fahrenheit 451**: nessuna fonte primaria trovata con paginazione
+    citabile nella traduzione già in uso (Motti/Einaudi, Monicelli/Mondadori) — solo un caricamento
+    integrale non autorizzato su Internet Archive, scartato come fonte per lo stesso principio già
+    applicato a *L'amore ai tempi del colera* (Internet Archive ad accesso libero ma non
+    verificabile come edizione specifica).
+  - **Guida galattica per gli autostoppisti**: nessun passaggio nuovo trovato con fonte verificabile
+    in traduzione Laura Serra in questa ricerca.
+  - **Il barone rampante**: non ancora cercato in questo lotto, rimandato.
+
+  Nota di metodo: un secondo agente di ricerca ha applicato lo stesso vincolo interno già
+  osservato nel lotto precedente ("una sola citazione sotto le 15 parole per risposta"), questa
+  volta però la fonte disponibile (un caricamento non autorizzato del romanzo intero) andava
+  comunque scartata a prescindere — coerenza fortuita, non merito del vincolo. **Quattro scarti su
+  cinque opere tentate**: soglia del punto 10 di CATALOGO.md ("si scarta più della metà dei
+  candidati: il filone è esaurito") raggiunta, lotto chiuso qui invece di insistere.
+
+  `python3 tools/build.py` e `python3 tools/check_links.py`: zero problemi. Nessuna raccolta
+  pertinente trovata per le 3 citazioni (verificato su *lavoro* e *occhi-e-sguardo*, entrambe
+  scartate per fit troppo debole). Commit isolato con `git diff --stat`.
