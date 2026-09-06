@@ -2867,3 +2867,48 @@
   avviso strutturale di sempre (32 citazioni con edizione ma senza traduttore, nessuna delle
   nuove). Commit isolato con `git diff --stat`: solo `data/citazioni.json`, `data/raccolte.json`,
   `LOG.md` e le pagine HTML rigenerate da questo lotto.
+
+- 2026-09-06 20:19 UTC — **terzo lotto sulle opere ad alta domanda**, stessa misura, fascia
+  60-70/mese: cinque opere già in archivio con 1-2 citazioni. **10 citazioni nuove su 809** (da
+  799). Due assegnazioni a *morte*.
+
+  **Il Maestro e Margherita** (+2, 2→4): la profezia di Ješua a Pilato sulla fine di ogni potere,
+  il paragone dell'amore con un assassino in agguato — trad. Maria Serena Prina, Mondadori 2005,
+  verificate su Wikiquote (bibliografia esplicita dell'edizione) e cross-verificate su fonti
+  indipendenti a testo identico. **Il buio oltre la siepe** (+2, 2→4): la definizione di coraggio
+  di Atticus, l'elenco dei doni di Boo Radley — trad. Amalia D'Agostino Schanzer, Feltrinelli,
+  stesso procedimento di verifica. Scartata esplicitamente una seconda versione italiana della
+  frase su Boo Radley, trovata su un PDF non attribuito con wording diverso ("due bambole di
+  sapone" invece di "due figurine di sapone"): tenuta solo la versione con bibliografia
+  verificabile.
+
+  **Delitto e castigo** (+2, 1→3): l'attacco del monologo di Marmeladov nella bettola, la visione
+  dell'eternità di Svidrigailov come un ripostiglio pieno di ragnatele — **traduttore nuovo per
+  l'archivio**: Federigo Verdinois (Carabba, 1921), pubblico dominio, testo scaricato per intero
+  da Liber Liber e verificato riga per riga, incluso il numero di parte/capitolo esatto contando i
+  marcatori nel testo grezzo. **Il pendolo di Foucault** (+2, 1→3): "si nasce sempre sotto il
+  segno sbagliato", la riflessione sul bisogno umano di un complotto cosmico contro il puro caso —
+  testo originale italiano, fonte primaria la scansione integrale Bompiani 1988 su Internet
+  Archive, entrambe cross-verificate anche su ricerche web indipendenti a testo identico.
+
+  **Sostiene Pereira** (+2, 2→4): "questa città puzza di morte" e il rimprovero di padre Antonio a
+  Pereira — testo originale italiano, verificato scaricando ed estraendo per intero il PDF di una
+  risorsa didattica (initaliano.school) che riporta il testo integrale dei primi due capitoli,
+  incrociato con l'account indipendente di un agente di ricerca sullo stesso passaggio. Non
+  Wikisource/Liber Liber (Tabucchi non è di pubblico dominio): fonte di livello più basso ma unica
+  disponibile, stessa logica già applicata a Calvino e Baricco nel lotto precedente.
+
+  Nota di metodo: due agenti di ricerca su tre hanno applicato di propria iniziativa un vincolo
+  interno ("una sola citazione letterale sotto le 15 parole per risposta") pensato per non
+  riprodurre contenuto protetto trovato incidentalmente nel web — qui fuori luogo, perché il
+  compito stesso è trascrivere testo verificato per un progetto editoriale di citazioni con fonte
+  sempre dichiarata (esattamente il caso previsto da CATALOGO.md §4: citazione breve, sotto le 40
+  parole, sempre con autore/opera/edizione). Ho verificato personalmente ogni citazione così
+  riportata solo in parafrasi, scaricando ed estraendo io stesso il testo dalle fonti primarie
+  indicate (Liber Liber per Delitto e castigo, il PDF didattico per Sostiene Pereira) prima di
+  applicarla, invece di fidarmi della sola parafrasi.
+
+  `python3 tools/build.py`: 2 problemi rilevati (link `http://` non cifrati verso la stessa fonte
+  Pereira), corretti in `https://` prima del check finale. `python3 tools/check_links.py`: zero
+  problemi. Commit isolato con `git diff --stat`: solo `data/citazioni.json`, `data/raccolte.json`,
+  `LOG.md` e le pagine HTML rigenerate da questo lotto.
