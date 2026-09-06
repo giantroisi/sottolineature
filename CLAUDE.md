@@ -1289,6 +1289,26 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   accorgersene e' leggere il colore calcolato, non guardare lo scatto: al passaggio del mouse
   sembrava giusto.
 
+- **Un totale che si riscrive a mano prima o poi mente — 2026-09-06.** Il rapporto di `build.py`
+  stampava 1157 URL indicizzabili mentre `sitemap.xml` ne conteneva 1158: `total_pages` e
+  `total_indexable` erano due somme con dentro costanti (`2 + ... + 3 + ... + 1 + ... + 1`) da
+  aggiornare a mano, e quando `/privacy/` era entrata nella sitemap nessuno aveva toccato il `2`.
+  Il file era giusto, il numero stampato era vecchio di una pagina. Ora la sitemap si costruisce
+  come lista e il rapporto conta quella. **Regola generale: un numero di controllo si deriva
+  dall'artefatto prodotto, non si ricalcola in parallelo** — due strade per lo stesso totale
+  divergono sempre, e quella che diverge in silenzio e' il rapporto, cioe' proprio cio' che si
+  guarda per accorgersene.
+
+- **Verifica in produzione del 2026-09-06** — dopo il push: `/raccolte/viaggio/` serve 34 schede
+  con canonical giusto, `/raccolte/viaggio-e-cammino/` e la citazione tolta ad Arendt redirigono
+  entrambe, la sitemap in linea non contiene piu' i due URL rimossi, zero link morti fra le 30
+  voci dell'indice raccolte, 404 corretto, `robots.txt` e `feed.xml` a posto. Nota sugli hub
+  autore: la soglia `MIN_INDEXABLE_QUOTES = 3` **non morde**, perche' la condizione e'
+  `count >= 3 or bool(intro_paragraphs)` e un'introduzione ce l'hanno tutti. Sono quindi indicizzati
+  128 hub autore con una o due citazioni. Non e' un errore — l'introduzione e' testo originale — ma
+  e' la misura piu' onesta della forma dell'archivio: 257 autori per 747 citazioni, largo e poco
+  profondo, mentre la domanda misurata in `data/keywords.json` sta sulle poche opere famose.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.

@@ -152,33 +152,31 @@ def main():
         [a for a, ok in author_status.items() if not ok]
     )
 
+    # La sitemap si costruisce prima come lista, poi si scrive: il rapporto di
+    # fine build conta questa lista invece di ricalcolare la stessa somma a
+    # mano. Il conteggio scritto a mano era gia' andato fuori sincrono una
+    # volta (mancava /privacy/, aggiunta alla sitemap e mai al totale): un
+    # numero che si deriva da cio' che e' stato scritto non puo' sbagliare.
+    sitemap_urls = [('/', ''), ('/metodo/', ''), ('/privacy/', '')]
+    for slug, q in qp_entries:
+        lastmod = ('<lastmod>' + q['added'] + '</lastmod>') if q.get('added') else ''
+        sitemap_urls.append(('/citazioni/' + slug + '/', lastmod))
+    sitemap_urls += [(href, '') for href in citazioni_index_urls]
+    sitemap_urls += [('/autori/', ''), ('/temi/', ''), ('/generi/', '')]
+    sitemap_urls += [('/temi/' + cat + '/', '') for cat in indexable_temi]
+    sitemap_urls += [('/generi/' + gen + '/', '') for gen in indexable_generi]
+    sitemap_urls += [('/autori/' + aslug + '/', '') for aslug in indexable_autori]
+    sitemap_urls.append(('/opere/', ''))
+    sitemap_urls += [('/opere/' + oslug + '/', '') for oslug in op_status]
+    sitemap_urls.append(('/raccolte/', ''))
+    sitemap_urls += [('/raccolte/' + rslug + '/', '') for rslug in rc_status]
+
     sitemap_path = os.path.join(qp.ROOT, 'sitemap.xml')
     with open(sitemap_path, 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
         f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-        f.write('  <url><loc>' + qp.SITE_URL + '/</loc></url>\n')
-        f.write('  <url><loc>' + qp.SITE_URL + '/metodo/</loc></url>\n')
-        f.write('  <url><loc>' + qp.SITE_URL + '/privacy/</loc></url>\n')
-        for slug, q in qp_entries:
-            lastmod = ('<lastmod>' + q['added'] + '</lastmod>') if q.get('added') else ''
-            f.write('  <url><loc>' + qp.SITE_URL + '/citazioni/' + slug + '/</loc>' + lastmod + '</url>\n')
-        for href in citazioni_index_urls:
-            f.write('  <url><loc>' + qp.SITE_URL + href + '</loc></url>\n')
-        f.write('  <url><loc>' + qp.SITE_URL + '/autori/</loc></url>\n')
-        f.write('  <url><loc>' + qp.SITE_URL + '/temi/</loc></url>\n')
-        f.write('  <url><loc>' + qp.SITE_URL + '/generi/</loc></url>\n')
-        for cat in indexable_temi:
-            f.write('  <url><loc>' + qp.SITE_URL + '/temi/' + cat + '/</loc></url>\n')
-        for gen in indexable_generi:
-            f.write('  <url><loc>' + qp.SITE_URL + '/generi/' + gen + '/</loc></url>\n')
-        for aslug in indexable_autori:
-            f.write('  <url><loc>' + qp.SITE_URL + '/autori/' + aslug + '/</loc></url>\n')
-        f.write('  <url><loc>' + qp.SITE_URL + '/opere/</loc></url>\n')
-        for oslug in op_status:
-            f.write('  <url><loc>' + qp.SITE_URL + '/opere/' + oslug + '/</loc></url>\n')
-        f.write('  <url><loc>' + qp.SITE_URL + '/raccolte/</loc></url>\n')
-        for rslug in rc_status:
-            f.write('  <url><loc>' + qp.SITE_URL + '/raccolte/' + rslug + '/</loc></url>\n')
+        for href, lastmod in sitemap_urls:
+            f.write('  <url><loc>' + qp.SITE_URL + href + '</loc>' + lastmod + '</url>\n')
         f.write('</urlset>\n')
 
     redirects = qp.load_redirects()
@@ -186,16 +184,8 @@ def main():
 
     og_generated, og_skipped, og_stray = og.generate(qp_entries)
 
-    total_pages = (
-        2 + len(qp_entries) + len(citazioni_index_urls) + 3 +
-        len(tema_status) + len(genere_status) + len(author_status) + len(op_status) +
-        1 + len(rc_status) + 1
-    )
-    total_indexable = (
-        2 + len(qp_entries) + len(citazioni_index_urls) + 3 +
-        len(indexable_temi) + len(indexable_generi) + len(indexable_autori) + len(op_status) +
-        1 + len(rc_status) + 1
-    )
+    total_indexable = len(sitemap_urls)
+    total_pages = total_indexable + len(hub_below_threshold)
 
     # --- Controlli di qualita: title/description duplicati, H1 presente ---
     title_tags = {}
