@@ -54,7 +54,8 @@ motivo in `LOG.md` — non si pubblica "in attesa di completare".
 4. **Traduttore ed edizione**, quando il testo è tradotto. Una traduzione diversa è un testo
    diverso: senza sapere quale si è usata, la citazione non è verificabile.
 5. **Contesto** in linguaggio semplice, prima la storia poi il nome — regola già in uso.
-6. **Copertina** verificata guardandola, o nessuna copertina (la tile placeholder si genera da sé).
+6. **Copertina** verificata guardandola, oppure **nessuna copertina** quando e' la risposta giusta
+   (la tile segnaposto si genera da se'). Come si cerca, quando non si cerca e cosa si rifiuta: **punto 8-bis**.
 7. **Categoria** (uno dei 7 umori) e, se pertinente, uno o più generi.
 8. **La citazione deve reggersi da sola.** Chi non ha letto il libro deve capirla leggendo la
    frase più il contesto. Se per capirla serve la trama, non è una citazione: è un estratto.
@@ -276,12 +277,98 @@ promette a chi legge.
 > `data/citazioni.json`, non `index.html`. La home è generata da `tools/generate_home.py` e non
 > pubblica il contesto, che resta esclusivo di `/citazioni/<slug>/`.
 
+### La lista di chiusura: una citazione e' finita quando ha tutte e dodici queste cose
+
+Scritta il 2026-09-06 perche' prima bisognava incrociare il punto 2, il punto 8 e tre sotto-punti
+sparsi per sapere se si aveva finito. Si esegue **in quest'ordine**, una citazione per volta. Se
+un passaggio non si riesce a chiudere, la citazione **non si pubblica**: si scarta e si annota il
+motivo in `LOG.md`. Non esiste lo stato «pubblicata in attesa di completare».
+
+1. **Testo esatto verificato.** Wikisource o edizione originale; Wikiquote mai da sola e solo con
+   capitolo/edizione; altrimenti due fonti indipendenti che concordano. Dettagli al punto 2.1.
+2. **Autore, titolo, anno.** L'anno e' quello della prima pubblicazione dell'opera. L'attribuzione
+   segue il punto 3: all'autore che ha scritto, non al personaggio che parla.
+3. **Luogo nel testo** (`source_locus`): capitolo, parte, libro, canto, verso, atto/scena, numero
+   di lettera o paragrafo. Senza, non si pubblica.
+4. **Traduttore ed edizione** (`source_translator`, `source_edition`) se l'opera e' tradotta. Una
+   traduzione diversa e' un testo diverso.
+5. **Collegamento alla fonte online** (`source_url`) dove esiste: Wikisource, Liber Liber,
+   Gutenberg. E' il contenuto che nessun aggregatore ha.
+6. **Contesto fra 60 e 90 parole**, regole al punto 6-ter: dove siamo nell'opera e cosa c'e' in
+   gioco li', **senza dire come va a finire**.
+7. **`speaker`** solo se il luogo nel testo o il contesto dicono chi pronuncia la frase; vuoto per
+   il narratore, per la voce dell'autore e in ogni dubbio. Punto 6-quater: dedurlo e' inventarlo.
+8. **Tema obbligatorio** (uno dei sette) e generi se pertinenti, punto 3-bis.
+9. **Copertina**, con le regole del punto 8-bis qui sotto — che includono i casi in cui la
+   risposta giusta e' **non metterne nessuna**.
+10. **Raccolte.** Guardare se la citazione appartiene a una raccolta esistente e, se si', aggiungere
+    la sua chiave in `quote_keys` dentro `data/raccolte.json`. Dieci secondi. **Va fatto adesso,
+    non "dopo"**: per due settimane di agosto non e' stato fatto e le raccolte sono rimaste a 234
+    citazioni su 749 mentre l'archivio raddoppiava. Le raccolte non si aggiornano da sole.
+11. **Pagina opera**, regole al punto 8-ter.
+12. **Build e commit.** `python3 tools/build.py` (rigenera home, pagina citazione, hub, pagina
+    opera, raccolte, immagini OG, sitemap e feed, e ricontrolla link e dati strutturati: deve
+    chiudere con «Problemi totali: 0» e «Nessun errore nei dati strutturati»), riga in `LOG.md`,
+    poi commit **che comprende l'HTML rigenerato**, non solo `data/citazioni.json`. A settembre
+    cinque lotti sono rimasti invisibili online per mezza giornata perche' il commit conteneva un
+    file solo: il sito serve l'HTML committato, e quello era vecchio.
+
+### 8-bis. La copertina
+
+**Se l'opera e' gia' in archivio, non cercarla**: copiare il campo `cover` da una citazione
+esistente della stessa opera. Le copertine stanno in `assets/covers/<cover_id>.jpg` e il campo
+vale `/assets/covers/<cover_id>.jpg`.
+
+**Se il testo e' breve, non cercarla affatto.** Poesia singola, saggio, discorso, lettera,
+articolo, intervista: non hanno un'edizione propria, e l'unica immagine che si trova e' la
+copertina dell'antologia che li contiene. Metterla significa mostrare al lettore la giacca di un
+libro che non e' quello della frase. Il segnaposto si genera da se' ed **e' la risposta corretta**,
+non un ripiego: e' il caso di «Ed e' subito sera», dei saggi di Emerson, di «A Talk to Teachers».
+
+**Se e' un libro nuovo, si cerca su Open Library col titolo ORIGINALE o inglese, mai con quello
+italiano.** Misurato il 2026-09-06 su un campione vero: col titolo italiano si trovano 3 copertine
+su 60, con quello originale 12 su 15. Open Library indicizza le edizioni inglesi e originali, non
+le traduzioni italiane — «Tess dei d'Urberville» non da' niente, «Tess of the d'Urbervilles» da'
+tutto. Vale anche per il nome dell'autore. Se una prima ricerca non rende, chiedere piu' risultati
+(`limit=40`) prima di concludere che non c'e': quasi ogni libro ha piu' edizioni, e L'Assommoir ne
+ha 23 con copertina.
+
+**La si guarda sempre prima di accettarla.** Nessuno degli errori che contano e' visibile nei
+metadati. Si rifiuta:
+- l'**adattamento di un altro autore** — «An Enemy of the People» restituisce Arthur Miller, non
+  Ibsen: se il nome sulla copertina non e' quello dell'autore della frase, si scarta;
+- l'**antologia o l'omnibus** che non nomina l'opera («Three sisters and other plays [7 plays]»);
+- la **legatura anonima**, senza titolo leggibile: non dice niente al lettore;
+- quello che **non e' una copertina**: una pagina di note bibliografiche, la fotografia di volumi
+  su uno scaffale;
+- il **print-on-demand diviso in Volume I e II** quando l'originale non e' diviso.
+
+I `cover_id` gia' guardati e respinti sono elencati in `tools/copertine_titoli.json` sotto
+`bocciate_a_vista`, col motivo: non riproporli. Nello stesso file c'e' la classificazione delle
+opere ancora scoperte, con il titolo originale con cui cercarle.
+
+### 8-ter. La pagina opera
+
+Aggiungere una citazione **non crea** una pagina opera: `data/opere.json` e' una lista curata a
+mano, oggi 79 voci, e ogni voce ha una `scheda` originale di 50-76 parole (mediana 61) scritta
+apposta. Il build non la inventa.
+
+- Se l'opera **ha gia' la sua pagina**, non c'e' niente da fare: il build ci aggancia la citazione
+  nuova da solo.
+- Se **non ce l'ha**, si guarda `data/keywords.json`: se l'opera compare fra quelle con volume di
+  ricerca, e' una candidata. Aprire una voce nuova e' una decisione, non un passaggio automatico —
+  costa la `scheda`, che e' testo originale e non un riassunto della trama copiato.
+- Schema della voce: `slug`, `author`, `title`, `titles` (l'elenco dei titoli che confluiscono
+  nella stessa pagina, per le opere multi-volume o con titolo variante), `year`, `scheda`.
+
+---
+
 1. Scegliere il lotto dal punto 7 e cercare i candidati sulle fonti del punto 6.
 2. Verificare ogni citazione: testo esatto, autore, opera, anno, luogo nel testo, traduttore.
 3. Scartare senza rimpianti ciò che non si riesce a collocare, annotando il motivo.
 4. Scrivere il contesto (prima la storia, poi il nome), assegnare umore e generi.
-5. Cercare la copertina su Open Library **e guardarla** prima di accettarla; verificare che
-   l'autore corrisponda, non fidarsi del match sul titolo.
+5. La copertina: si cerca col **titolo originale**, si **guarda** prima di accettarla, e per i
+   testi brevi non si cerca affatto. Regole complete al **punto 8-bis**.
 6. Inserire la citazione in **`data/citazioni.json`**, che dalla Fase 2 SEO è la fonte di verità
    (`index.html` è un file generato: modificarlo a mano si perde al build successivo). Poi
    `python3 tools/build.py`, che rigenera home, pagina citazione, hub, immagini OG e sitemap.
@@ -344,9 +431,12 @@ Vincoli, in ordine di importanza:
 - Vale il perimetro del punto 1 di CATALOGO.md: entra solo ciò che è tracciabile a un'opera
   scritta e pubblicata, con il punto preciso del testo. Niente massime senza opera, niente frasi
   da film, niente aggregatori come fonte.
-- Ogni citazione deve avere tutti i requisiti del punto 2: testo verificato, autore/titolo/anno,
-  luogo nel testo (capitolo, libro, canto, verso, lettera), traduttore ed edizione se tradotta,
-  contesto, tema, copertina guardata o nessuna copertina.
+- Ogni citazione deve chiudere tutte e dodici le voci della **lista di chiusura del punto 8**:
+  testo verificato, autore/titolo/anno, luogo nel testo, traduttore ed edizione se tradotta, fonte
+  online, contesto di 60-90 parole, speaker, tema, copertina (punto 8-bis: titolo originale, o
+  nessuna copertina se il testo e' breve), **raccolte**, pagina opera, build e commit dell'HTML
+  rigenerato. Le tre che si dimenticano piu' spesso sono le raccolte, la copertina cercata in
+  italiano e il commit senza HTML.
 - Il tema si sceglie leggendo la citazione, una per una, secondo la tabella del punto 3-bis: e' il
   punto dove si e' gia' sbagliato timbrando lotti interi con lo stesso valore. Il genere appartiene
   all'opera e nel dubbio resta vuoto. Nessun valore fuori da tools/labels.py, maiuscole comprese.
