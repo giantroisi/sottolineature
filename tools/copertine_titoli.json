@@ -1,0 +1,750 @@
+{
+ "nota": "Le opere dell'archivio prive di copertina, classificate il 2026-09-06. tipo=libro: ha un'edizione propria, quindi puo' avere una copertina su Open Library. tipo=breve: poesia singola, saggio, discorso, lettera, articolo — non ha edizione propria, la copertina che si trova e' quella di un'antologia: segnaposto definitivo, non riaprire. orig/aOrig: titolo e autore con cui cercare su Open Library. Serve il titolo ORIGINALE o inglese: col titolo italiano si trovano 3 copertine su 60, con quello originale 12 su 15 — Open Library indicizza le edizioni inglesi e originali, non le traduzioni italiane. orig vuoto = non verificabile con sicurezza, resta fuori dalla ricerca finche' qualcuno non lo accerta.",
+ "opere": [
+  {
+   "a": "Simone de Beauvoir",
+   "t": "Memorie d'una ragazza perbene",
+   "tipo": "libro",
+   "orig": "Memoirs of a Dutiful Daughter",
+   "aOrig": "Simone de Beauvoir"
+  },
+  {
+   "a": "Thomas Hardy",
+   "t": "Tess dei d'Urberville",
+   "tipo": "libro",
+   "orig": "Tess of the d'Urbervilles",
+   "aOrig": "Thomas Hardy"
+  },
+  {
+   "a": "Michela Murgia",
+   "t": "Noi siamo tempesta",
+   "tipo": "libro",
+   "orig": "Noi siamo tempesta",
+   "aOrig": "Michela Murgia"
+  },
+  {
+   "a": "Voltaire",
+   "t": "L'ingenuo",
+   "tipo": "libro",
+   "orig": "L'Ingenu",
+   "aOrig": "Voltaire"
+  },
+  {
+   "a": "Niccolò Machiavelli",
+   "t": "Discorsi sopra la prima deca di Tito Livio",
+   "tipo": "libro",
+   "orig": "Discorsi sopra la prima deca di Tito Livio",
+   "aOrig": "Niccolo Machiavelli"
+  },
+  {
+   "a": "Paulo Coelho",
+   "t": "Manuale del guerriero della luce",
+   "tipo": "libro",
+   "orig": "Warrior of the Light",
+   "aOrig": "Paulo Coelho"
+  },
+  {
+   "a": "Emily Dickinson",
+   "t": "Lettere",
+   "tipo": "libro",
+   "orig": "Letters of Emily Dickinson",
+   "aOrig": "Emily Dickinson"
+  },
+  {
+   "a": "Ugo Foscolo",
+   "t": "Sonetti",
+   "tipo": "libro",
+   "orig": "Sonetti",
+   "aOrig": "Ugo Foscolo"
+  },
+  {
+   "a": "Virgilio",
+   "t": "Bucoliche",
+   "tipo": "libro",
+   "orig": "Eclogues",
+   "aOrig": "Virgil"
+  },
+  {
+   "a": "Dino Buzzati",
+   "t": "Bàrnabo delle montagne",
+   "tipo": "libro",
+   "orig": "Barnabo delle montagne",
+   "aOrig": "Dino Buzzati"
+  },
+  {
+   "a": "Amin Maalouf",
+   "t": "Il periplo di Baldassarre",
+   "tipo": "libro",
+   "orig": "Balthasar's Odyssey",
+   "aOrig": "Amin Maalouf"
+  },
+  {
+   "a": "Albert Camus",
+   "t": "L'estate",
+   "tipo": "libro",
+   "orig": "L'ete",
+   "aOrig": "Albert Camus"
+  },
+  {
+   "a": "Elif Shafak",
+   "t": "Le quaranta porte",
+   "tipo": "libro",
+   "orig": "The Forty Rules of Love",
+   "aOrig": "Elif Shafak"
+  },
+  {
+   "a": "Anton Čechov",
+   "t": "Tre sorelle",
+   "tipo": "libro",
+   "orig": "Three Sisters",
+   "aOrig": "Anton Chekhov"
+  },
+  {
+   "a": "Alda Merini",
+   "t": "La Terra Santa",
+   "tipo": "libro",
+   "orig": "La Terra Santa",
+   "aOrig": "Alda Merini"
+  },
+  {
+   "a": "Giuseppe Ungaretti",
+   "t": "Il dolore",
+   "tipo": "libro",
+   "orig": "Il dolore",
+   "aOrig": "Giuseppe Ungaretti"
+  },
+  {
+   "a": "Anton Čechov",
+   "t": "Il gabbiano",
+   "tipo": "libro",
+   "orig": "The Seagull",
+   "aOrig": "Anton Chekhov"
+  },
+  {
+   "a": "Alba de Céspedes",
+   "t": "La bambolona",
+   "tipo": "libro",
+   "orig": "La bambolona",
+   "aOrig": "Alba de Cespedes"
+  },
+  {
+   "a": "Immanuel Kant",
+   "t": "Lezioni di etica",
+   "tipo": "libro",
+   "orig": "Lectures on Ethics",
+   "aOrig": "Immanuel Kant"
+  },
+  {
+   "a": "Mario Vargas Llosa",
+   "t": "Storia di Mayta",
+   "tipo": "libro",
+   "orig": "The Real Life of Alejandro Mayta",
+   "aOrig": "Mario Vargas Llosa"
+  },
+  {
+   "a": "Saul Bellow",
+   "t": "Il pianeta di Mr. Sammler",
+   "tipo": "libro",
+   "orig": "Mr. Sammler's Planet",
+   "aOrig": "Saul Bellow"
+  },
+  {
+   "a": "Bertolt Brecht",
+   "t": "Madre Courage e i suoi figli",
+   "tipo": "libro",
+   "orig": "Mother Courage and Her Children",
+   "aOrig": "Bertolt Brecht"
+  },
+  {
+   "a": "Edith Wharton",
+   "t": "Estate",
+   "tipo": "libro",
+   "orig": "Summer",
+   "aOrig": "Edith Wharton"
+  },
+  {
+   "a": "Sinclair Lewis",
+   "t": "Qui non può succedere",
+   "tipo": "libro",
+   "orig": "It Can't Happen Here",
+   "aOrig": "Sinclair Lewis"
+  },
+  {
+   "a": "Clarice Lispector",
+   "t": "Dove siete stati di notte",
+   "tipo": "libro",
+   "orig": "Onde estivestes de noite",
+   "aOrig": "Clarice Lispector"
+  },
+  {
+   "a": "Anna Achmatova",
+   "t": "Lo stormo bianco",
+   "tipo": "libro",
+   "orig": "White Flock",
+   "aOrig": "Anna Akhmatova"
+  },
+  {
+   "a": "Amos Oz",
+   "t": "Cari fanatici",
+   "tipo": "libro",
+   "orig": "Dear Zealots",
+   "aOrig": "Amos Oz"
+  },
+  {
+   "a": "Zbigniew Herbert",
+   "t": "Un barbaro nel giardino",
+   "tipo": "libro",
+   "orig": "Barbarian in the Garden",
+   "aOrig": "Zbigniew Herbert"
+  },
+  {
+   "a": "Audre Lorde",
+   "t": "Sorella Outsider",
+   "tipo": "libro",
+   "orig": "Sister Outsider",
+   "aOrig": "Audre Lorde"
+  },
+  {
+   "a": "Victor Hugo",
+   "t": "Il Novantatré",
+   "tipo": "libro",
+   "orig": "Ninety-Three",
+   "aOrig": "Victor Hugo"
+  },
+  {
+   "a": "Jane Austen",
+   "t": "Persuasione",
+   "tipo": "libro",
+   "orig": "Persuasion",
+   "aOrig": "Jane Austen"
+  },
+  {
+   "a": "Lev Tolstoj",
+   "t": "I cosacchi",
+   "tipo": "libro",
+   "orig": "The Cossacks",
+   "aOrig": "Leo Tolstoy"
+  },
+  {
+   "a": "Jean-Paul Sartre",
+   "t": "La morte nell'anima",
+   "tipo": "libro",
+   "orig": "Troubled Sleep",
+   "aOrig": "Jean-Paul Sartre"
+  },
+  {
+   "a": "Gustave Flaubert",
+   "t": "L'educazione sentimentale",
+   "tipo": "libro",
+   "orig": "Sentimental Education",
+   "aOrig": "Gustave Flaubert"
+  },
+  {
+   "a": "Gustave Flaubert",
+   "t": "Bouvard e Pécuchet",
+   "tipo": "libro",
+   "orig": "Bouvard et Pecuchet",
+   "aOrig": "Gustave Flaubert"
+  },
+  {
+   "a": "Philip Roth",
+   "t": "Zuckerman scatenato",
+   "tipo": "libro",
+   "orig": "Zuckerman Unbound",
+   "aOrig": "Philip Roth"
+  },
+  {
+   "a": "Sylvia Plath",
+   "t": "Il colosso",
+   "tipo": "libro",
+   "orig": "The Colossus",
+   "aOrig": "Sylvia Plath"
+  },
+  {
+   "a": "Sylvia Plath",
+   "t": "Attraversando l'acqua",
+   "tipo": "libro",
+   "orig": "Crossing the Water",
+   "aOrig": "Sylvia Plath"
+  },
+  {
+   "a": "Henrik Ibsen",
+   "t": "Un nemico del popolo",
+   "tipo": "libro",
+   "orig": "An Enemy of the People",
+   "aOrig": "Henrik Ibsen"
+  },
+  {
+   "a": "D.H. Lawrence",
+   "t": "Donne innamorate",
+   "tipo": "libro",
+   "orig": "Women in Love",
+   "aOrig": "D. H. Lawrence"
+  },
+  {
+   "a": "Susan Sontag",
+   "t": "Malattia come metafora",
+   "tipo": "libro",
+   "orig": "Illness as Metaphor",
+   "aOrig": "Susan Sontag"
+  },
+  {
+   "a": "Yukio Mishima",
+   "t": "Il tempio dell'alba",
+   "tipo": "libro",
+   "orig": "The Temple of Dawn",
+   "aOrig": "Yukio Mishima"
+  },
+  {
+   "a": "V.S. Naipaul",
+   "t": "Una casa per Mr Biswas",
+   "tipo": "libro",
+   "orig": "A House for Mr Biswas",
+   "aOrig": "V. S. Naipaul"
+  },
+  {
+   "a": "Clarice Lispector",
+   "t": "La passione secondo G.H.",
+   "tipo": "libro",
+   "orig": "The Passion According to G.H.",
+   "aOrig": "Clarice Lispector"
+  },
+  {
+   "a": "Astrid Lindgren",
+   "t": "I fratelli Cuordileone",
+   "tipo": "libro",
+   "orig": "The Brothers Lionheart",
+   "aOrig": "Astrid Lindgren"
+  },
+  {
+   "a": "Patrick Süskind",
+   "t": "Storia del signor Sommer",
+   "tipo": "libro",
+   "orig": "The Story of Mr Sommer",
+   "aOrig": "Patrick Suskind"
+  },
+  {
+   "a": "Mario Rigoni Stern",
+   "t": "Il bosco degli urogalli",
+   "tipo": "libro",
+   "orig": "Il bosco degli urogalli",
+   "aOrig": "Mario Rigoni Stern"
+  },
+  {
+   "a": "Mario Rigoni Stern",
+   "t": "Uomini, boschi e api",
+   "tipo": "libro",
+   "orig": "Uomini, boschi e api",
+   "aOrig": "Mario Rigoni Stern"
+  },
+  {
+   "a": "Naguib Mahfouz",
+   "t": "Il ladro e i cani",
+   "tipo": "libro",
+   "orig": "The Thief and the Dogs",
+   "aOrig": "Naguib Mahfouz"
+  },
+  {
+   "a": "Alice Munro",
+   "t": "Il percorso dell'amore",
+   "tipo": "libro",
+   "orig": "The Progress of Love",
+   "aOrig": "Alice Munro"
+  },
+  {
+   "a": "Rabindranath Tagore",
+   "t": "La casa e il mondo",
+   "tipo": "libro",
+   "orig": "The Home and the World",
+   "aOrig": "Rabindranath Tagore"
+  },
+  {
+   "a": "Pearl S. Buck",
+   "t": "Figli",
+   "tipo": "libro",
+   "orig": "Sons",
+   "aOrig": "Pearl S. Buck"
+  },
+  {
+   "a": "E.T.A. Hoffmann",
+   "t": "Lo Schiaccianoci e il re dei sorci",
+   "tipo": "libro",
+   "orig": "The Nutcracker and the Mouse King",
+   "aOrig": "E. T. A. Hoffmann"
+  },
+  {
+   "a": "E.T.A. Hoffmann",
+   "t": "Kreisleriana",
+   "tipo": "libro",
+   "orig": "Kreisleriana",
+   "aOrig": "E. T. A. Hoffmann"
+  },
+  {
+   "a": "Alba de Céspedes",
+   "t": "Dalla parte di lei",
+   "tipo": "libro",
+   "orig": "Dalla parte di lei",
+   "aOrig": "Alba de Cespedes"
+  },
+  {
+   "a": "John Muir",
+   "t": "La mia prima estate sulla Sierra",
+   "tipo": "libro",
+   "orig": "My First Summer in the Sierra",
+   "aOrig": "John Muir"
+  },
+  {
+   "a": "Simone de Beauvoir",
+   "t": "L'età forte",
+   "tipo": "libro",
+   "orig": "The Prime of Life",
+   "aOrig": "Simone de Beauvoir"
+  },
+  {
+   "a": "Rick Riordan",
+   "t": "Percy Jackson e gli dei dell'Olimpo: il mare dei mostri",
+   "tipo": "libro",
+   "orig": "The Sea of Monsters",
+   "aOrig": "Rick Riordan"
+  },
+  {
+   "a": "Michel Houellebecq",
+   "t": "Piattaforma nel centro del mondo",
+   "tipo": "libro",
+   "orig": "Platform",
+   "aOrig": "Michel Houellebecq"
+  },
+  {
+   "a": "Elie Wiesel",
+   "t": "Il processo di Shamgorod",
+   "tipo": "libro",
+   "orig": "The Trial of God",
+   "aOrig": "Elie Wiesel"
+  },
+  {
+   "a": "Wole Soyinka",
+   "t": "L'uomo è morto",
+   "tipo": "libro",
+   "orig": "The Man Died",
+   "aOrig": "Wole Soyinka"
+  },
+  {
+   "a": "Primo Levi",
+   "t": "Ranocchi sulla luna e altri animali",
+   "tipo": "libro",
+   "orig": "Ranocchi sulla luna e altri animali",
+   "aOrig": "Primo Levi"
+  },
+  {
+   "a": "Mark Twain",
+   "t": "L'uomo che corruppe Hadleyburg",
+   "tipo": "libro",
+   "orig": "The Man That Corrupted Hadleyburg",
+   "aOrig": "Mark Twain"
+  },
+  {
+   "a": "Alda Merini",
+   "t": "Mistica d'amore",
+   "tipo": "libro",
+   "orig": "Mistica d'amore",
+   "aOrig": "Alda Merini"
+  },
+  {
+   "a": "Wisława Szymborska",
+   "t": "Grande numero",
+   "tipo": "libro",
+   "orig": "Wielka liczba",
+   "aOrig": "Wislawa Szymborska"
+  },
+  {
+   "a": "Wisława Szymborska",
+   "t": "Attimo",
+   "tipo": "libro",
+   "orig": "Chwila",
+   "aOrig": "Wislawa Szymborska"
+  },
+  {
+   "a": "Simone Weil",
+   "t": "Riflessioni sulle cause della libertà e dell'oppressione sociale",
+   "tipo": "libro",
+   "orig": "Oppression and Liberty",
+   "aOrig": "Simone Weil"
+  },
+  {
+   "a": "Edgar Allan Poe",
+   "t": "Marginalia",
+   "tipo": "libro",
+   "orig": "Marginalia",
+   "aOrig": "Edgar Allan Poe"
+  },
+  {
+   "a": "Ralph Waldo Emerson",
+   "t": "La natura",
+   "tipo": "libro",
+   "orig": "Nature",
+   "aOrig": "Ralph Waldo Emerson"
+  },
+  {
+   "a": "Anna Achmatova",
+   "t": "Sera",
+   "tipo": "libro",
+   "orig": "Vecher",
+   "aOrig": "Anna Akhmatova"
+  },
+  {
+   "a": "Vittorio Alfieri",
+   "t": "Saul",
+   "tipo": "libro",
+   "orig": "Saul",
+   "aOrig": "Vittorio Alfieri"
+  },
+  {
+   "a": "Paul Verlaine",
+   "t": "Romanze senza parole",
+   "tipo": "libro",
+   "orig": "Romances sans paroles",
+   "aOrig": "Paul Verlaine"
+  },
+  {
+   "a": "Paul Verlaine",
+   "t": "Poèmes saturniens",
+   "tipo": "libro",
+   "orig": "Poemes saturniens",
+   "aOrig": "Paul Verlaine"
+  },
+  {
+   "a": "Francesco Petrarca",
+   "t": "Rime estravaganti",
+   "tipo": "libro",
+   "orig": "Rime estravaganti",
+   "aOrig": "Francesco Petrarca"
+  },
+  {
+   "a": "George Bernard Shaw",
+   "t": "Guida della donna intelligente",
+   "tipo": "libro",
+   "orig": "The Intelligent Woman's Guide to Socialism and Capitalism",
+   "aOrig": "Bernard Shaw"
+  },
+  {
+   "a": "Audre Lorde",
+   "t": "Zami. Così riscrivo il mio nome",
+   "tipo": "libro",
+   "orig": "Zami: A New Spelling of My Name",
+   "aOrig": "Audre Lorde"
+  },
+  {
+   "a": "Sinclair Lewis",
+   "t": "Opera d'arte",
+   "tipo": "libro",
+   "orig": "Work of Art",
+   "aOrig": "Sinclair Lewis"
+  },
+  {
+   "a": "Octavio Paz",
+   "t": "Pietra di sole",
+   "tipo": "libro",
+   "orig": "Sunstone",
+   "aOrig": "Octavio Paz"
+  },
+  {
+   "a": "Salvatore Quasimodo",
+   "t": "Ed è subito sera",
+   "tipo": "libro",
+   "orig": "Ed e subito sera",
+   "aOrig": "Salvatore Quasimodo"
+  },
+  {
+   "a": "Salman Rushdie",
+   "t": "Le voci del mondo",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Salman Rushdie"
+  },
+  {
+   "a": "Marguerite Duras",
+   "t": "L'arcangelo Michel",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Marguerite Duras"
+  },
+  {
+   "a": "Zadie Smith",
+   "t": "Il fallimento riuscito",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Zadie Smith"
+  },
+  {
+   "a": "Zadie Smith",
+   "t": "Il blues della biblioteca",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Zadie Smith"
+  },
+  {
+   "a": "Emily St. John Mandel",
+   "t": "La musica delle parole",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Emily St. John Mandel"
+  },
+  {
+   "a": "Ursula K. Le Guin",
+   "t": "Un uomo del popolo",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Ursula K. Le Guin"
+  },
+  {
+   "a": "Chimamanda Ngozi Adichie",
+   "t": "Il mio buio oltre la siepe",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Chimamanda Ngozi Adichie"
+  },
+  {
+   "a": "Simone Weil",
+   "t": "La rivelazione greca",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Simone Weil"
+  },
+  {
+   "a": "Maya Angelou",
+   "t": "Il canto del silenzio",
+   "tipo": "libro",
+   "orig": "",
+   "aOrig": "Maya Angelou"
+  },
+  {
+   "a": "Salvatore Quasimodo",
+   "t": "Milano, agosto 1943",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "Salvatore Quasimodo",
+   "t": "Alle fronde dei salici",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "Salvatore Quasimodo",
+   "t": "Al padre",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "Edgar Allan Poe",
+   "t": "Un sogno nel sogno",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "T.S. Eliot",
+   "t": "Il canto d'amore di J. Alfred Prufrock",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "Alfred Tennyson",
+   "t": "Ulisse",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "Seamus Heaney",
+   "t": "L'Uomo di Grauballe",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "Paul Verlaine",
+   "t": "Art poétique",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "Maya Angelou",
+   "t": "Lavoro di donna",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "Wole Soyinka",
+   "t": "Sul far del giorno",
+   "tipo": "breve",
+   "motivo": "poesia singola"
+  },
+  {
+   "a": "James Baldwin",
+   "t": "A Talk to Teachers",
+   "tipo": "breve",
+   "motivo": "discorso"
+  },
+  {
+   "a": "Chinua Achebe",
+   "t": "The Role of a Writer in a New Nation",
+   "tipo": "breve",
+   "motivo": "saggio/discorso"
+  },
+  {
+   "a": "Ralph Waldo Emerson",
+   "t": "L'amicizia",
+   "tipo": "breve",
+   "motivo": "saggio dentro «Essays»"
+  },
+  {
+   "a": "Ralph Waldo Emerson",
+   "t": "Circoli",
+   "tipo": "breve",
+   "motivo": "saggio dentro «Essays»"
+  },
+  {
+   "a": "Simone Weil",
+   "t": "Lettera a Joë Bousquet",
+   "tipo": "breve",
+   "motivo": "lettera"
+  },
+  {
+   "a": "Francesco Petrarca",
+   "t": "Lettera ai posteri",
+   "tipo": "breve",
+   "motivo": "lettera"
+  },
+  {
+   "a": "Olga Tokarczuk",
+   "t": "Il mio caffè con la Szymborska",
+   "tipo": "breve",
+   "motivo": "articolo"
+  },
+  {
+   "a": "Herta Müller",
+   "t": "Parola d'autore. I lemmi del vocabolario europeo 2009",
+   "tipo": "breve",
+   "motivo": "contributo a un'opera collettiva"
+  },
+  {
+   "a": "Knut Hamsun",
+   "t": "Pan",
+   "tipo": "libro",
+   "orig": "Pan",
+   "aOrig": "Knut Hamsun"
+  },
+  {
+   "a": "Émile Zola",
+   "t": "L'Assommoir",
+   "tipo": "libro",
+   "orig": "L'Assommoir",
+   "aOrig": "Emile Zola"
+  },
+  {
+   "a": "Zbigniew Herbert",
+   "t": "Rapporto dalla città assediata",
+   "tipo": "libro",
+   "orig": "Report from the Besieged City",
+   "aOrig": "Zbigniew Herbert"
+  }
+ ]
+}

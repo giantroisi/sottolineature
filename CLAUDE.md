@@ -1309,6 +1309,34 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   e' la misura piu' onesta della forma dell'archivio: 257 autori per 747 citazioni, largo e poco
   profondo, mentre la domanda misurata in `data/keywords.json` sta sulle poche opere famose.
 
+- **Le copertine: il blocco era la query, non l'archivio — 2026-09-06.** Per due giri la coda ha
+  detto che le opere rimaste «non hanno un'immagine su Open Library nemmeno col titolo originale».
+  Misurato: **col titolo italiano 3 copertine su 60, col titolo originale 12 su 15.** Open Library
+  indicizza le edizioni inglesi e originali, non le traduzioni italiane — cercare «Tess dei
+  d'Urberville» non trova niente, «Tess of the d'Urbervilles» trova tutto. La lezione oltre le
+  copertine: **quando una fonte esterna "non ha" quello che cerchiamo, prima di dichiararla vuota
+  si controlla di averla interrogata nella sua lingua.**
+
+- **Il trasporto dal Chrome dell'utente, ricetta che funziona — 2026-09-06.** Open Library, Google
+  Books e Wikipedia sono irraggiungibili da **entrambe** le shell (riverificato). L'unico canale e'
+  il browser dell'utente, e regge: `covers.openlibrary.org` manda gli header CORS, quindi dalla
+  pagina si leggono i byte e si calcola lo SHA-256. Non passare le immagini in base64 nella
+  conversazione (1,6 MB di archivio = migliaia di righe): si impacchetta **un solo TAR** costruito
+  a mano in JavaScript, un unico `<a download>` — cosi' Chrome non blocca niente, che e' quello che
+  aveva fermato il giro del 4 settembre — e il file arriva in `~/Downloads`, cartella collegata.
+  Due dettagli che servono: Chrome lo lascia per un po' come file temporaneo nascosto
+  (`.Qxxxx.com.anthropic.claudefordesktop.*`), che si puo' copiare subito senza aspettare; e
+  **l'impronta va nel manifest e sull'archivio intero**, perche' e' l'unica cosa che avrebbe
+  smascherato i due file troncati in silenzio del giro precedente (48 su 48 integri, questa volta).
+
+- **Guardarle resta obbligatorio — 2026-09-06.** Su 48 candidati con titolo e autore
+  corrispondenti, **11 erano da buttare**: «An Enemy of the People» era l'adattamento di **Arthur
+  Miller**, non Ibsen; «Ed e subito sera» una pagina di note bibliografiche; «L'Assommoir» la
+  fotografia di due volumi su uno scaffale; sei erano legature anonime senza titolo leggibile.
+  Nessuno di questi errori e' visibile nei metadati: si vedono solo guardando. Il provino a
+  contatto (PIL sul Mac, due PNG da 24 riquadri con titolo cercato e titolo trovato sotto ogni
+  immagine) costa un minuto e li trova tutti.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.
