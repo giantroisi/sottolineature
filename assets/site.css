@@ -55,6 +55,11 @@ body {
   color: var(--ink-faint);
   text-decoration: none;
   border-bottom: 1px solid transparent;
+  /* Bersaglio da toccare: 44px raccomandati, erano 14. Il padding verticale
+     su un elemento inline allarga solo il suo riquadro cliccabile, non la
+     riga di testo intorno - misurato l'8 settembre 2026, non serve nessuna
+     compensazione qui. */
+  padding: 15px 0;
 }
 .site-nav a:hover { color: var(--accent); border-color: var(--accent); }
 
@@ -163,7 +168,7 @@ h1 { font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 0 0 0.75re
   color: var(--ink-faint);
   margin-bottom: 2.5rem;
 }
-.breadcrumb a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+.breadcrumb a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--accent-soft); padding: 15px 0; }
 .breadcrumb a:hover { color: var(--gold); border-color: var(--gold); }
 .breadcrumb [aria-current] { color: var(--ink-faint); }
 
@@ -286,12 +291,16 @@ footer.sans a { color: var(--ink-faint); }
 .brand img { display: block; border-radius: 4px; }
 .brand-name { font-size: 1.02rem; letter-spacing: 0.01em; }
 .site-header .site-nav {
-  max-width: none; margin: 0; padding: 0;
+  /* -5px assorbe il padding di 15px aggiunto sopra a .site-nav a, cosi'
+     l'area cliccabile arriva a 44px senza far crescere la testata piu' di
+     2px su una riga sola. Sotto i 640px il valore cambia: vedi la media
+     query, dove il menu va su una riga tutta sua e puo' spezzarsi su due. */
+  max-width: none; margin: -5px 0; padding: 0;
   display: flex; align-items: center; gap: 1.15rem; flex-wrap: nowrap;
 }
 .site-header .site-nav a { font-size: 0.78rem; letter-spacing: 0.1em; border-bottom: 0; }
 .site-header .theme-toggle {
-  position: static; width: 2rem; height: 2rem; font-size: 0.95rem; margin-left: 0.35rem;
+  position: static; width: 2.75rem; height: 2.75rem; font-size: 0.95rem; margin-left: 0.35rem;
 }
 
 .page-quote .page {
@@ -395,6 +404,11 @@ footer.sans a { color: var(--ink-faint); }
   .site-header .site-nav {
     flex: 1 0 100%; order: 2; min-width: 0;
     justify-content: flex-start; flex-wrap: wrap; gap: 0.45rem 1rem;
+    /* qui il menu va spesso su due righe (misurato a 375px: cinque voci piu'
+       "Metodo" a capo): -5px non basta a riassorbire il padding di due righe
+       insieme, -19px si', verificato misurando la testata prima e dopo
+       (164px -> 168px, dentro il budget di 8px) */
+    margin: -19px 0;
   }
   .site-nav a { white-space: nowrap; }
   .site-header .theme-toggle { flex: 0 0 auto; }
