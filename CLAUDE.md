@@ -1388,6 +1388,16 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   `assets/share.js`, l'`aria-pressed` iniziale dei tre pulsanti e la variabile `formatoScelto` in
   `templates/home_template.html` e `tools/generate_quote_pages.py`. «Post» e «Storia» restano
   scelte a un tocco, non sono state tolte.
+- **Il Reel non era centrato — 2026-09-08, segnalato dall'utente appena diventato il formato
+  predefinito.** `marginTop` era 152 e `marginBottom` 336: tecnicamente corretto (la cornice
+  restava comunque fuori dalla zona coperta da didascalia e pulsanti), ma guardato come immagine
+  — non dentro il lettore Reels — sembrava spostato in alto. Cornice ora simmetrica,
+  `marginTop = marginBottom = 336`: il margine sotto resta quello che serve a superare
+  l'interfaccia di Instagram, quello sopra cresce fino a fargli eco invece di restare il minimo
+  tecnico. Verificato **misurando i pixel**, non a occhio (regola del progetto): il centro
+  verticale del riquadro coincide col centro della tela — offset 0 — su citazione corta e lunga,
+  chiaro e scuro. Prezzo: cornice piu' bassa (1248px contro 1432), il testo piu' lungo del sito
+  la riempie comunque restringendosi come su ogni altro formato.
 
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile

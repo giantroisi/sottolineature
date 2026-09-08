@@ -68,11 +68,21 @@
     // a destra la colonna di like/commenti/condividi ne mangia altri ~110, che
     // con l'inserto della storia (72) passerebbero sopra la cornice. Qui la
     // cornice sta a 132 per lato - simmetrica, perche' una cornice storta si
-    // vede - e il piede scende a 336. La colonna di testo si stringe a 732px:
-    // e' il prezzo, e si paga volentieri per non avere il logo sotto un
-    // pulsante.
+    // vede. La colonna di testo si stringe a 732px: e' il prezzo, e si paga
+    // volentieri per non avere il logo sotto un pulsante.
+    /* marginTop era 152 e marginBottom 336: il minimo indispensabile sopra,
+       tutto lo spazio necessario sotto. Tecnicamente corretto - la cornice
+       stava comunque fuori dalla zona coperta dall'interfaccia - ma il
+       risultato guardato come immagine (non dentro il lettore Reels) sembrava
+       spostato in alto, non centrato: segnalato il 2026-09-08. Ora
+       marginTop = marginBottom = 336, la stessa cornice simmetrica di "post":
+       il margine sotto resta quello che serve a superare didascalia e
+       pulsanti, quello sopra cresce fino a fargli eco invece di restare il
+       minimo tecnico. Il prezzo e' una cornice piu' bassa (1248px contro
+       1432): il testo piu' lungo del sito la riempie comunque, si restringe
+       come su ogni altro formato. */
     reels: {
-      w: 1080, h: 1920, marginTop: 152, marginBottom: 336,
+      w: 1080, h: 1920, marginTop: 336, marginBottom: 336,
       inserto: 132, padding: 174, padTop: 92, padBottom: 96,
       scala: 1.24, label: 'reels'
     },
