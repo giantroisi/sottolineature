@@ -114,6 +114,49 @@ def write_page(path, **kwargs):
         f.write(page)
 
 
+def citazioni_href(page_num):
+    return '/citazioni/' if page_num == 1 else '/citazioni/' + str(page_num) + '/'
+
+
+def pagination_link(page_num, current):
+    href = citazioni_href(page_num)
+    cls = ' class="is-current" aria-current="page"' if page_num == current else ''
+    return '<a href="' + href + '"' + cls + '>' + str(page_num) + '</a>'
+
+
+def build_pagination_html(page_num, num_pages):
+    """Paginazione di /citazioni/: prima solo precedente/successiva, quindi
+    per raggiungere la pagina 28 servivano 27 clic in fila — nessuna pagina
+    oltre la 2 era mai a meno di 27 salti dalla home.
+
+    Sulla pagina 1 (l'unico punto raggiunto direttamente dal menu di sito,
+    quindi a profondita' 1 dalla home) l'elenco e' completo, senza
+    puntini: e' l'unico modo perche' ogni pagina resti a profondita' <= 2
+    dalla home (home -> pagina 1 -> qualunque altra pagina). Sulle pagine
+    successive basta il blocco compresso (prima due, intorno alla
+    corrente, ultime due) perche' la profondita' e' gia' garantita da
+    li'.
+    """
+    if num_pages <= 1:
+        return ''
+    parts = []
+    if page_num > 1:
+        parts.append('<a href="' + citazioni_href(page_num - 1) + '">← Pagina precedente</a>')
+    if page_num == 1:
+        parts.extend(pagination_link(p, page_num) for p in range(1, num_pages + 1))
+    else:
+        shown = sorted({1, 2, num_pages - 1, num_pages, page_num - 1, page_num, page_num + 1} & set(range(1, num_pages + 1)))
+        last = None
+        for p in shown:
+            if last is not None and p - last > 1:
+                parts.append('<span class="pagination-ellipsis" aria-hidden="true">…</span>')
+            parts.append(pagination_link(p, page_num))
+            last = p
+    if page_num < num_pages:
+        parts.append('<a href="' + citazioni_href(page_num + 1) + '">Pagina successiva →</a>')
+    return '<nav class="hub-nav sans" aria-label="Paginazione">' + ''.join(parts) + '</nav>'
+
+
 def generate_citazioni_index(entries):
     """/citazioni/ paginata, 30 per pagina, ognuna self-canonical."""
     out_dir = os.path.join(ROOT, 'citazioni')
@@ -137,13 +180,7 @@ def generate_citazioni_index(entries):
             for s, q in page_entries
         )
 
-        pag_links = []
-        if page_num > 1:
-            prev_href = '/citazioni/' if page_num == 2 else '/citazioni/' + str(page_num - 1) + '/'
-            pag_links.append('<a href="' + prev_href + '">← Pagina precedente</a>')
-        if page_num < num_pages:
-            pag_links.append('<a href="/citazioni/' + str(page_num + 1) + '/">Pagina successiva →</a>')
-        pagination_html = '<nav class="hub-nav sans">' + ''.join(pag_links) + '</nav>' if pag_links else ''
+        pagination_html = build_pagination_html(page_num, num_pages)
 
         link_rel_extra = ''
         if page_num > 1:

@@ -336,7 +336,9 @@ def main(opere=None):
     # --- Generi ---
     generi_dir = os.path.join(ROOT, 'generi')
     os.makedirs(generi_dir, exist_ok=True)
-    genere_nav = [(GENRE_LABELS[g], '/generi/' + g + '/') for g in GENRE_LABELS]
+    # "Tutti i generi" in coda: /generi/ non e' in nessun menu di sito (a
+    # differenza di /temi/) e riceveva un solo link in entrata, dalla home.
+    genere_nav = [(GENRE_LABELS[g], '/generi/' + g + '/') for g in GENRE_LABELS] + [('Tutti i generi', '/generi/')]
     genere_status = {}
     for gen, label in GENRE_LABELS.items():
         items = [(s, q) for s, q in entries if gen in (q['genre'] or '').split(' ')]
