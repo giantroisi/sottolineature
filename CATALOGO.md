@@ -663,6 +663,84 @@ c'è. La sfumatura si racconta nell'intro, dove nessun motore di ricerca deve sc
 
 ---
 
+## 9-ter. Roadmap aperta
+
+Aggiornata al **2026-09-08**. Il punto 9-bis qui sopra e' la coda vecchia, chiusa: resta come
+storia. Questa e' quella viva. Ogni voce dice **chi la fa**, perche' con tre sessioni sul
+repository «lo fa qualcuno» vuol dire che non lo fa nessuno o che lo fanno in due insieme.
+
+Archivio al momento della scrittura: **830 citazioni, 1.244 URL, copertura raccolte 70%,
+63 opere senza copertina** (di cui 18 chiuse per sempre).
+
+### Adesso
+
+| | cosa | chi | fatto quando |
+|---|---|---|---|
+| A1 | **Misurare la home dopo il commit `713e999b`.** 806 card su 830 sono state spostate in `assets/home-resto.js`, 787 KB caricati da uno script **sincrono**: l'HTML e' passato da 848 KB a 116 KB, ma il browser si ferma comunque su quel file prima di dipingere. Nessuno ha misurato l'effetto, e la home e' la pagina piu' visitata e quella da cui Google legge la struttura. Banco di prova gia' esistente: Playwright, throttling 1,6 Mbps / 150 ms / CPU 4x, PerformanceObserver per LCP, layout-shift e long task | sessione codice | quando LCP e CLS del prima e del dopo sono a confronto. Se il dopo e' peggio, la correzione e' `defer` sullo script e iniezione dopo il primo paint |
+| A2 | **Le raccolte tematiche.** La copertura e' al 70%, era 85% ad agosto. Il giro dell'8 settembre ha lavorato dove il criterio e' meccanico (incipit +27, frasi brevi +18) e ha lasciato indietro le tematiche: **+11 chiavi su 22 raccolte**, con guerra a +0 e 15 candidate in coda, natura 17 rimaste, donne 15, occhi-e-sguardo 12. Sono ~140 candidate vere, dove bisogna leggere la citazione e decidere | sessione contenuti | copertura all'80%. **Non oltre, se per andare oltre bisogna forzare**: ci sono citazioni che in nessuna delle 29 raccolte ci stanno |
+
+### Il dato che riordina tutto — arrivato in anticipo
+
+**Aggiornamento dell'8 settembre, ore 08:19.** Mentre questa roadmap veniva scritta, una terza
+sessione stava gia' lavorando sull'indicizzazione, e nel codice che stava scrivendo c'e' la
+frase: *«delle ~107 indicizzate, quante sono hub e quante foglie?»*. Se il numero e' quello —
+**107 pagine indicizzate su 1.244 inviate** — allora il criterio deciso il 4 settembre e'
+scattato: non e' un dettaglio della coda, e' il problema numero uno, e passa davanti a tutto
+quello che c'e' scritto qui sotto. Il numero va confermato guardando Search Console, non dedotto
+da un commento nel codice.
+
+La prima mossa di quella sessione e' gia' la mossa giusta: **dividere la sitemap per tipo di
+pagina** (`sitemap-citazioni.xml`, `sitemap-autori.xml`, `sitemap-opere.xml`, ...) con
+`sitemap.xml` come indice. In Search Console il rapporto Sitemap mostra «rilevate / indicizzate»
+per singolo file: con un file solo da 1.244 URL quel numero e' un totale muto, diviso per tipo
+dice **quali** pagine Google tiene e quali scarta. E' la differenza fra sapere che sono 107 e
+sapere che sono 107 hub e zero foglie, o il contrario.
+
+### Giovedi 10 settembre, 07:00 UTC — il promemoria programmato
+
+Il promemoria programmato parte da solo. I numeri li legge **l'utente**, o serve il suo browser:
+Search Console vuole il suo accesso. Tre cose, in ordine: quante pagine indicizzate contro le
+1.244 inviate; se c'e' un motivo di esclusione ricorrente (i problemi veri stanno li', non nel
+totale); quali chiavi portano le prime impressioni e su quali pagine.
+
+**Il criterio, deciso il 4 settembre e ancora valido:** se le pagine indicizzate sono poche
+decine invece di centinaia, quello diventa il problema numero uno e **passa davanti a tutta
+questa roadmap** — nessuna delle voci qui sotto conterebbe piu' niente. Se invece
+l'indicizzazione procede, si riprende da qui riordinando sui dati appena letti.
+
+### Dopo, in ordine di quanto e' sicuro che valga la pena
+
+| | cosa | chi |
+|---|---|---|
+| B1 | **1984.** 149 parole e una citazione sola contro 140 ricerche al mese: e' la pagina piu' magra fra quelle con domanda. Tre tentativi della sessione contenuti si sono fermati sullo stesso muro, documentato in `LOG.md`: le edizioni verificabili esistono, ma il testo sta dentro anteprime Google Libri che si aprono solo con un rendering JavaScript. Serve un browser vero | sessione con accesso al browser dell'utente |
+| B2 | **Le 45 copertine ancora aperte.** 34 libri senza candidato al primo giro e 9 di cui non e' stato accertato il titolo originale. La classificazione e i titoli stanno in `tools/copertine_titoli.json`, con i 12 `cover_id` gia' bocciati a vista da non riproporre. Vale la regola del punto 8-bis: titolo originale, `limit` alto, e guardarle | sessione con accesso al browser dell'utente |
+| B3 | **Sarah J. Maas e Leigh Bardugo.** Scartati due volte per assenza di fonte con capitolo o pagina. O si abbassa il requisito della fonte per loro, o si tolgono dalla lista: e' una decisione, non un lavoro | utente |
+| B4 | **Analytics.** Fermo non per motivi tecnici: la privacy policy va aggiornata prima. Search Console invece c'e' gia' (proprieta' Dominio, verificata via DNS il 30 agosto) | utente |
+
+### Chiuso — non riaprire senza un motivo nuovo
+
+- **I 18 testi brevi senza copertina** (poesie singole, saggi, discorsi, lettere): non hanno
+  un'edizione propria, la copertina non esistera' mai. Segnaposto definitivo. Punto 8-bis.
+- **Le tre opere rimaste sotto le 6 citazioni** — Cime tempestose (5 traduzioni italiane in
+  circolazione, nessuna attribuzione certa), Il Signore degli Anelli (fermo a 5, non forzato),
+  1984 (vedi B1). I motivi sono in `LOG.md` e sono buoni: sono stop, non dimenticanze.
+- **Le 88 candidate «incipit» residue.** Il bacino buono e' gia' stato scremato in due passaggi
+  (26 su 140, poi 27 su 115): quello che resta sono per lo piu' prime righe qualsiasi, e il
+  criterio e' «apertura celebrata come tale», non «prima frase di un buon romanzo».
+
+### Chi tocca cosa
+
+Dal 2026-09-08 sul repository lavorano **tre sessioni**. La divisione regge finche' e' scritta:
+
+- **sessione contenuti** (finora Sonnet): `data/citazioni.json`, `data/raccolte.json`,
+  `data/opere.json`, `LOG.md`. Tutto cio' che si decide leggendo una citazione.
+- **sessione codice** (finora Opus): `tools/`, `assets/`, `templates/`, misure e prestazioni.
+- **chiunque tocchi la home, gli hub o il build** lo dice prima nel proprio commit e guarda
+  `git status` un attimo prima di committare: il commit `713e999b` ha rifatto la home mentre
+  un'altra sessione lavorava sulle stesse pagine, ed e' andata bene per fortuna, non per metodo.
+
+---
+
 ## 10. Lavoro in autonomia — parametri
 
 Quando l'utente autorizza un agente a procedere da solo, valgono questi parametri. Sono scritti
