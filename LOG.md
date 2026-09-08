@@ -3369,3 +3369,59 @@
   tools/check_links.py`: **Problemi totali: 0**. Verificata in browser locale la pagina
   `raccolte/casa.html` prima del commit. Nessuna modifica a `data/citazioni.json`, solo
   `data/raccolte.json` e l'HTML rigenerato.
+
+- **2026-09-08 16:36 UTC — lotto "portare tutte e 33 le raccolte a un livello decente", Parte 1:
+  le nove raccolte magre.** Fiori, pace e cibo non riletti come da istruzione (già scremati nel
+  giro precedente). Sulle altre sei:
+
+  - **Musica: resta a 9** (0/7). Stesse sette candidate del giro precedente, stesso esito: cinque
+    sono incipit epici che usano «canto» come convenzione retorica («io canto le armi», Ariosto/
+    Tasso/Virgilio/Whitman), non musica; Flaubert usa «musica» come metafora sulla parola umana;
+    Verga e Rigoni Stern hanno uccelli che cantano, non musica come soggetto — coerente con
+    l'introduzione della raccolta, che chiede la musica «soggetto vero» della citazione.
+  - **Arte: resta a 13** (0/4). Roy («l'arte... dell'odio umano») e Petrarca («ne l'arte sua») usano
+    «arte» nel senso di «abilità/mestiera», non arte visiva; Voltaire usa «quadro» come sinonimo di
+    «sintesi» (il quadro della storia); Atwood ha pavimenti dipinti come dettaglio di scena, non arte.
+  - **Casa: 13 → 14** (+1/10). Isabel Allende, *Eva Luna* — «una casa buia» fra «mobili antichi,
+    libri in latino e mummie»: descrizione reale della casa, non uno sfondo nudo. Scarti: «casa di
+    cura» di Rushdie (una clinica, non una casa), «stanza»/«casa» nominate senza alcuna descrizione
+    (Twain, Manzoni «Carneade», Pavese, Eco, Saba), «casa» allegorica di Tagore (il mondo come casa
+    dell'amore, nessuna fisicità), Baudelaire e Saramago (la casa è sfondo per un altro soggetto —
+    i gatti, la porta delle petizioni).
+  - **Montagna: 11 → 13** (+2). `tools/raccolte_da_ampliare.py` non ha una voce «montagna» nel
+    dizionario delle parole — **0 candidate non è assenza di materiale, è una voce mancante nello
+    strumento**, segnalato più sotto. Ho cercato a mano con radici più larghe (montagn-, monte,
+    monti, vetta, cima, valle) e trovato 7 candidate grezze fuori raccolta: 2 accettate, Alessandro
+    Manzoni («Quel ramo del lago di Como... tra due catene non interrotte di monti» — l'incipit dei
+    Promessi sposi, non ancora nella raccolta benché «Addio, monti» dello stesso libro ci fosse già)
+    e Federico García Lorca («il cavallo sulla montagna», già in «animali» — una citazione può stare
+    in più raccolte). Scarti: «cima»/«cime» che significano «sommità» in generale, non di un monte
+    (Montale: cima di un muro; Hemingway: cime degli alberi), «montagna russa» e «smuovere le
+    montagne» (idiomi), il riferimento di Marco Aurelio ai monti come uno fra tre luoghi di ritiro
+    elencati (il punto del passo è che il ritiro vero è interiore, non fisico).
+  - **Silenzio: resta a 12** (0/0, verificato anche allargando le radici a mano). Qui il dizionario
+    ha già una voce completa (silenzio, silenzios-, tacere, tace, taceva, zitto, muto, mutismo):
+    **zero è la risposta onesta, non un buco nello strumento** — il tema non ha altro materiale in
+    archivio oltre a quanto già raccolto.
+  - **Filosofia: resta a 14** (0/0 dallo strumento, 0/3 cercando a mano). Anche qui manca la voce
+    nel dizionario — segnalato sotto — ma trovate a mano tre candidate («filosofia» in Tabucchi,
+    Voltaire, Amos Oz) sono tutte scartate per un motivo diverso dal solito: l'introduzione della
+    raccolta pone un confine esplicito, «opere di filosofia in senso proprio, non pensieri di chi
+    la filosofia l'ha solo vissuta nei romanzi» — le tre candidate sono tutte romanzi (Sostiene
+    Pereira, L'ingenuo, Conoscere una donna) che parlano di filosofia, non opere filosofiche.
+    Restano fuori per coerenza con una regola che la raccolta si è già data, non per un limite di
+    ricerca.
+
+  **Segnalazione allo strumento**: `tools/raccolte_da_ampliare.py` non ha voci per «montagna» e
+  «filosofia» nel dizionario `PAROLE` — per queste due raccolte il conteggio "0 candidate" non
+  significa che il tema è esaurito, significa che lo strumento non le cerca affatto. Per montagna
+  una voce come `['montagn-', 'monte', 'monti', 'vetta', 'vette', 'cima', 'cime', 'alpin-', 'valle',
+  'valli']` (attenzione: «cima»/«cime» danno falsi positivi con «sommità» generiche, da leggere una
+  per una) troverebbe altro; per filosofia una voce `['filosof-']` esiste già nel senso che il
+  lemma va cercato, ma il criterio di accettazione resta stretto per via del vincolo posto
+  dall'introduzione (solo opere di filosofia, mai romanzi che ne parlano).
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, nuova
+  riga di rapporto: «Citazioni in almeno una raccolta: 597 / 830 = 72%». `python3
+  tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a `data/citazioni.json`. Prossimo:
+  Parte 2, le sette introduzioni corte.
