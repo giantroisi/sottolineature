@@ -3500,6 +3500,48 @@
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, nuova
   riga di rapporto: «Citazioni in almeno una raccolta: 601 / 830 = 72%». `python3
   tools/check_links.py`: **Problemi totali: 0**. Verificata in browser locale prima del commit.
-  Nessuna modifica a `data/citazioni.json`. Prossimo: le altre raccolte in ordine di resa
-  (frasi-brevi, natura, donne, guerra, libri-e-scrittura, occhi-e-sguardo, famiglia, casa,
-  viaggio, animali).
+  Nessuna modifica a `data/citazioni.json`.
+
+- **2026-09-08 18:24 UTC — lotto "finire la copertura delle raccolte", il resto delle candidate
+  in ordine di resa.** Frasi-brevi: **1/17**, Alessandro Baricco, *Seta* («Pioveva la sua vita,
+  davanti ai suoi occhi, spettacolo quieto» — immagine autonoma e compiuta, coerente con lo stile
+  a frasi brevi del romanzo). Il resto erano per lo più incipit già riservati alla raccolta
+  omonima (Woolf, Tolkien, Achebe, Cortázar, Vittorini, Pamuk, Deledda), due già scartate in
+  parti precedenti di questo stesso lotto (Alice, Gatsby), il duplicato Tolkien mai risolto
+  («Porterò io l'Anello a Mordor», la versione senza traduttore), Maalouf sotto lo stesso dubbio
+  di attribuzione aperto dalla Fase 3, e candidate che non reggono isolate dal contesto (Camilleri,
+  Christie, Dahl, Zadie Smith, Süskind).
+
+  **Natura, donne, guerra, libri-e-scrittura, occhi-e-sguardo, famiglia, casa, viaggio, animali:
+  0 aggiunte su 89 candidate lette in totale.** Per ciascuna le candidate erano identiche, parola
+  per parola, a quelle già lette e scartate nei giri precedenti di questo stesso lotto — nessuna
+  citazione nuova nel frattempo, quindi nessun motivo per cambiare verdetto. Confermati gli scarti
+  già motivati: "per natura"/"radici"/"montagna"/"vento"/"fiore" filosofici o metaforici (natura);
+  nomi propri e sfondo incidentale di "madre"/"moglie"/"ragazza" (donne, famiglia); "punto di
+  vista"/"colpo d'occhio" idiomatici (occhi-e-sguardo); "leggero"/"scritto"/"inchiostro" fuori
+  tema (libri-e-scrittura); "in una stanza"/"a casa" senza alcuna descrizione (casa); "strada"
+  come pura scenografia (viaggio); "cavallier"/"animale sociale"/"lupo perde il pelo" omonimie o
+  idiomi (animali).
+
+  **Guerra merita la spiegazione chiesta esplicitamente**: non è un buco nel dizionario — le
+  parole cercate (guerra, battaglia, soldato, esercito, nemico, combattere, pace, fucilato) sono
+  esattamente quelle giuste. È che in italiano quelle stesse parole ricorrono per uso quotidiano
+  o metaforico ("esercitare" = praticare, "combattere" = lottare in senso personale, "nemico" =
+  rivale, "lasciatemi in pace" = un modo di dire) molto più spesso che in senso bellico, e le 17
+  già raccolte coprono già il nucleo vero della letteratura di guerra presente in archivio,
+  dall'Iliade a «Se questo è un uomo». Quel che resta è solo omonimia lessicale, non materiale
+  da leggere.
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, riga
+  di rapporto invariata: «Citazioni in almeno una raccolta: 601 / 830 = 72%» (la citazione di
+  Baricco era già contata via «occhi-e-sguardo», dove compariva già). `python3
+  tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a `data/citazioni.json`.
+
+  **Chiusura del lotto**: copertura finale 72% (601/830), sotto l'80% di bersaglio. Il lotto ha
+  colmato il buco più grande (filosofia, cieca per un dizionario incompleto, +10) e riletto per
+  intero tutto il resto del bacino residuo senza forzare — la resa aggiuntiva reale, fuori da
+  filosofia, è stata di 1 citazione su 89 candidate. Le raccolte tematiche generaliste (natura,
+  guerra, donne, occhi-e-sguardo) sembrano aver esaurito il materiale genuino che l'archivio può
+  offrire con questo criterio di lettura; un salto ulteriore di copertura richiederebbe o nuove
+  citazioni in `data/citazioni.json` (fuori dal perimetro di questo lotto) o una raccolta nuova
+  su un tema non ancora coperto.
