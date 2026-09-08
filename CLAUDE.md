@@ -1378,6 +1378,17 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   pulsanti (556px). L'ordine adesso e' **la frase, cosa farne, cosa significa**. Bersagli per il
   pollice portati da 32 a 44px, che e' la soglia raccomandata da Apple.
 
+- **Reels come formato di condivisione predefinito — 2026-09-08**, su richiesta esplicita
+  dell'utente. Fino a oggi il pannello «Condividi» si apriva su «Post» (4:5), scelto in origine
+  perche' il piu' tollerante — visibile senza ritagli sia in un post sia in una storia. Ora si
+  apre gia' su «Reels» (9:16, i margini dedicati del 2026-09-05) su tutte e tre le superfici che
+  condividono un'immagine: la citazione in evidenza in home, ogni pagina citazione, e
+  «Le mie sottolineature» (che non ha un pannello di scelta e passava il formato direttamente:
+  cambiato da `'post'` a `'reels'` nella chiamata). Cambiato `DEFAULT_SHARE_FORMAT` in
+  `assets/share.js`, l'`aria-pressed` iniziale dei tre pulsanti e la variabile `formatoScelto` in
+  `templates/home_template.html` e `tools/generate_quote_pages.py`. «Post» e «Storia» restano
+  scelte a un tocco, non sono state tolte.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.

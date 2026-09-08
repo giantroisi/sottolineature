@@ -1154,9 +1154,9 @@ html:not(.js) .js-only { display: none !important; }
       <div class="share-rows">
         <div class="share-row">
           <span class="share-choice-label">Formato</span>
-          <button type="button" data-formato="post" aria-pressed="true">Post</button>
+          <button type="button" data-formato="post" aria-pressed="false">Post</button>
           <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
-          <button type="button" data-formato="reels" aria-pressed="false">Reels</button>
+          <button type="button" data-formato="reels" aria-pressed="true">Reels</button>
         </div>
         <div class="share-row">
           <span class="share-choice-label">Sfondo</span>
@@ -1615,7 +1615,7 @@ html:not(.js) .js-only { display: none !important; }
     var heroExportBtn = document.getElementById('heroExportBtn');
     var heroShareChoice = document.getElementById('heroShareChoice');
     var heroPreview = document.getElementById('heroPreview');
-    var formatoScelto = 'post';
+    var formatoScelto = 'reels';
     var sfondoScelto = document.documentElement.getAttribute('data-theme') === 'dark' ? 'scuro' : 'chiaro';
     heroExportBtn.setAttribute('aria-expanded', 'false');
     heroExportBtn.setAttribute('aria-controls', 'heroShareChoice');

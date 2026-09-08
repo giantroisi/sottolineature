@@ -89,10 +89,12 @@
       scala: 1.32, label: 'storia'
     }
   };
-  // Formato usato dal pulsante Condividi. Si usa 4:5 perché è il più
-  // tollerante: pubblicato in una storia resta tutto visibile (con due bande),
-  // mentre un 9:16 messo nel feed verrebbe ritagliato e perderebbe il logo.
-  var DEFAULT_SHARE_FORMAT = 'post';
+  // Formato predefinito del pannello Condividi. Fino al 2026-09-08 era 'post'
+  // (4:5, il più tollerante: visibile ovunque, senza ritagli). Cambiato su
+  // richiesta esplicita dell'utente a 'reels', perché è il formato con cui
+  // oggi si condivide di più: chi apre "Condividi" lo vede già selezionato,
+  // e sceglie "Post" o "Storia" solo se gli serve un formato diverso.
+  var DEFAULT_SHARE_FORMAT = 'reels';
 
   /* Disegnare e scaricare erano un gesto solo, e finche' lo sono stati non
      c'era modo di far vedere cosa sarebbe uscito: si sceglieva alla cieca.

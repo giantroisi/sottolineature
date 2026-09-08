@@ -285,9 +285,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <div class="share-rows">
       <div class="share-row">
         <span class="share-choice-label">Formato</span>
-        <button type="button" data-formato="post" aria-pressed="true">Post</button>
+        <button type="button" data-formato="post" aria-pressed="false">Post</button>
         <button type="button" data-formato="storia" aria-pressed="false">Storia</button>
-        <button type="button" data-formato="reels" aria-pressed="false">Reels</button>
+        <button type="button" data-formato="reels" aria-pressed="true">Reels</button>
       </div>
       <div class="share-row">
         <span class="share-choice-label">Sfondo</span>
@@ -376,7 +376,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     // e' disegnata dalla stessa funzione che produce il file. Lo sfondo parte
     // gia' sul tema con cui si sta leggendo, cosi' con le impostazioni buone
     // bastano due tocchi - aprire e scaricare - ma vedendo cosa si prende.
-    var formatoScelto = 'post';
+    var formatoScelto = 'reels';
     var sfondoScelto = document.documentElement.getAttribute('data-theme') === 'dark' ? 'scuro' : 'chiaro';
     var anteprima = document.getElementById('sharePreview');
 
