@@ -2942,3 +2942,69 @@
   `python3 tools/build.py` e `python3 tools/check_links.py`: zero problemi. Nessuna raccolta
   pertinente trovata per le 3 citazioni (verificato su *lavoro* e *occhi-e-sguardo*, entrambe
   scartate per fit troppo debole). Commit isolato con `git diff --stat`.
+
+- 2026-09-08 07:05 UTC — **debito delle raccolte sulle 65 citazioni del 6-8 settembre.** Il
+  passo 6-bis/10 della lista di chiusura era saltato di nuovo: 51 citazioni su 65 non erano in
+  nessuna raccolta, copertura scesa dall'85% al 67% (542/812). Passate in rassegna tutte e 51,
+  una per una, con `tools/raccolte_da_ampliare.py` sulle 24 raccolte con candidate — **17 hanno
+  trovato una collocazione genuina, 34 restano fuori**: non è un esito a metà, è quello che succede
+  quando si giudica invece di incollare in blocco.
+
+  **Assegnate (18 chiavi su 17 citazioni, due doppie):**
+  - *natura*: Baricco, «La natura ha una sua perfezione...» (Oceano mare)
+  - *ricordo-e-memoria*: Calvino, «La città non dice il suo passato...» (Le città invisibili);
+    Fitzgerald, «Non si può ripetere il passato?» (Il grande Gatsby); Wilde, «E tutto ciò che si
+    può realmente dimostrare...» (Il ritratto di Dorian Gray)
+  - *libri-e-scrittura*: Pirandello, «Fui, per circa due anni... biblioteca» (Il fu Mattia Pascal)
+  - *occhi-e-sguardo*: Pirandello, «Mi guardai attorno; poi gli occhi...» (Il fu Mattia Pascal)
+  - *animali*: Hemingway, «Vorrei poter dar da mangiare al pesce... è mio fratello» (Il vecchio e
+    il mare)
+  - *bellezza*: Saint-Exupéry, «Quello che rende più bello il deserto...» (Il piccolo principe);
+    Tolstoj, «Tutta la varietà, tutta la delizia, tutta la bellezza della vita...» (Anna Karenina)
+  - *morte*: Pirandello, «Ah! tornavo a esser vivo...» (Il fu Mattia Pascal)
+  - *felicita*: Brontë, «Il riposo non fa gli uomini felici...» (Jane Eyre); Austen, «La felicità
+    nel matrimonio è solo una questione di fortuna» (Orgoglio e pregiudizio)
+  - *frasi-brevi*: Carroll, «Oimè! Oimè! ho fatto tardi!» (Alice); Shakespeare, «Accidenti alle
+    vostre due famiglie!...» (Romeo e Giulietta); Alcott, «Natale non sembrerà più Natale senza
+    regali» (Piccole donne); Manzoni, «Non son più uomo, non son più uomo!...» (I promessi sposi)
+  - *famiglia*: Shakespeare, «Accidenti alle vostre due famiglie!...» e «Romeo, Romeo! Perché sei
+    tu Romeo?...» (Romeo e Giulietta, entrambe già in frasi-brevi — doppia appartenenza legittima)
+
+  **Scartate esplicitamente, coi falsi positivi più istruttivi** (stesso setaccio già rodato in
+  agosto — parola trovata, concetto assente):
+  - «moglie»/«marito» come sostituto di «donne»: Pirandello (Uno nessuno, «mia moglie» che nota il
+    naso storto), Austen ×2 non sono commento sulla condizione femminile, sono dialogo che nomina
+    una donna — diverso dalla citazione di Jane Eyre già in *donne* dal lotto precedente, che è
+    tesi esplicita
+  - «occhi» come idioma, non organo: Austen «agli occhi dei nostri vicini» (= secondo il giudizio
+    di), Wilde (nessun occhio nel testo della citazione, solo nel contesto), Alcott «farlo vedere»
+    (= mostrarlo)
+  - «combattere»/«esercitare» come metafora, non guerra: Alcott sulla propria collera, Brontë
+    sull'esercizio delle proprie facoltà
+  - «fratello»/«madre» come metafora cosmica o animale, non famiglia vera: Hemingway sul pesce (sì
+    per *animali*, no per *famiglia*), Shakespeare «la terra è madre» (già in *natura* dal lotto
+    precedente, non famiglia umana)
+  - «gatto» come dispositivo fantastico, non specchio della condizione animale: il paradosso del
+    ghigno di Alice, a differenza del pesce-fratello di Hemingway che è una riflessione vera
+  - «onde» dentro «collochiam»: sottostringa, non parola — lo stesso errore già segnalato in
+    agosto su «mare»/«mari-»/«vela»
+  - «partire»/«bello» in Kundera (tradire come partire verso l'ignoto): metafora della libertà, non
+    viaggio reale né meditazione sulla bellezza
+  - Boo Radley (Il buio oltre la siepe) per *amicizia*: cura silenziosa e a distanza, non il legame
+    reciproco che la raccolta definisce (D'Artagnan, Cicerone, Aristotele)
+  - «lavori in un giornale» (Pereira) per *lavoro*: incidentale, non è la dignità/fatica del lavoro
+    che la raccolta racconta
+
+  **13 citazioni senza alcun candidato meccanico**, verificate anche a giudizio prima di
+  confermare il no-fit: entrambe di Cent'anni di solitudine, entrambe di Se questo è un uomo,
+  entrambe del Maestro e Margherita, entrambe del Pendolo di Foucault, una di Delitto e castigo,
+  una di Anna Karenina, due de Le città invisibili (Ersilia, Ottavia), una de I promessi sposi
+  («Ecco un filo»), «Aver coraggio significa...» del Buio oltre la siepe, «Ero dentro e fuori...»
+  del Grande Gatsby, «Chi siete voi?» e «Non c'è posto!» di Alice.
+
+  `python3 tools/build.py`: zero problemi. `python3 tools/check_links.py`: zero problemi.
+  **Copertura raccolte: da 67% (542/812) a 69% (558/812).** Non torna all'85% di prima del
+  6 settembre perché l'archivio nel frattempo è cresciuto di 65 citazioni e non tutte appartengono
+  a una raccolta esistente per natura — è il tasso di fit onesto su un lotto di opere molto
+  diverse tra loro, non un debito residuo. Commit isolato: solo `data/raccolte.json` e l'HTML
+  rigenerato dalle raccolte toccate (nessuna modifica a `data/citazioni.json` in questa parte).

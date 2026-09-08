@@ -54,7 +54,8 @@
       "Alexandre Dumas|Il conte di Montecristo|Tutta l'umana saggezza sarà riposta in",
       "Roberto Bolaño|2666|La prima volta che Jean-Claude Pelletier",
       "Leonardo Sciascia|Il Consiglio d'Egitto|Il benedettino passò un mazzetto di",
-      "Nick Hornby|Alta fedeltà|Sembra quasi che se metti la"
+      "Nick Hornby|Alta fedeltà|Sembra quasi che se metti la",
+      "Luigi Pirandello|Il fu Mattia Pascal|Fui, per circa due anni, non"
     ]
   },
   {
@@ -145,7 +146,8 @@
       "Vittorio Alfieri|Mirra|Mirra infelice, strascina una vita peggio",
       "J.D. Salinger|Il giovane Holden|Ciò che distingue l'uomo immaturo è",
       "Antonio Tabucchi|Sostiene Pereira|Questa città puzza di morte, tutta",
-      "Fëdor Dostoevskij|Delitto e castigo|E se invece non ci fosse"
+      "Fëdor Dostoevskij|Delitto e castigo|E se invece non ci fosse",
+      "Luigi Pirandello|Il fu Mattia Pascal|Ah! tornavo a esser vivo, a"
     ]
   },
   {
@@ -305,7 +307,11 @@
       "William Shakespeare|Romeo e Giulietta|Romeo, Romeo! Perché sei tu Romeo?",
       "Lewis Carroll|Alice nel paese delle meraviglie|Curiosissimo e sempre più curiosissimo!",
       "Milan Kundera|L'insostenibile leggerezza dell'essere|È soltanto la seconda lacrima a",
-      "Ernest Hemingway|Il vecchio e il mare|Nessuno dovrebbe mai restar solo, da"
+      "Ernest Hemingway|Il vecchio e il mare|Nessuno dovrebbe mai restar solo, da",
+      "Lewis Carroll|Alice nel paese delle meraviglie|Oimè! Oimè! ho fatto tardi!",
+      "William Shakespeare|Romeo e Giulietta|Accidenti alle vostre due famiglie! Sono",
+      "Louisa May Alcott|Piccole donne|Natale non sembrerà più Natale senza",
+      "Alessandro Manzoni|I promessi sposi|Non son più uomo, non son"
     ]
   },
   {
@@ -534,7 +540,9 @@
       "Cesare Pavese|La bella estate|A quei tempi era sempre festa.",
       "Simone Weil|La rivelazione greca|Circa duemilacinquecento anni fa in Grecia",
       "Amin Maalouf|Il periplo di Baldassarre|Nessuno appartiene a Genova quanto i",
-      "Oscar Wilde|Il ritratto di Dorian Gray|La gente dice talvolta che la"
+      "Oscar Wilde|Il ritratto di Dorian Gray|La gente dice talvolta che la",
+      "Antoine de Saint-Exupéry|Il piccolo principe|Quello che rende più bello il",
+      "Lev Tolstoj|Anna Karenina|Tutta la varietà, tutta la delizia,"
     ]
   },
   {
@@ -691,7 +699,8 @@
       "Herta Müller|Parola d'autore. I lemmi del vocabolario europeo 2009|Lager, s.n.: campo. Da quando so",
       "Salvatore Quasimodo|Alle fronde dei salici|Alle fronde dei salici, per voto,",
       "Elif Shafak|La bastarda di Istanbul|Non maledire ciò che viene dal",
-      "William Shakespeare|Romeo e Giulietta|Di tutta la natura la terra"
+      "William Shakespeare|Romeo e Giulietta|Di tutta la natura la terra",
+      "Alessandro Baricco|Oceano mare|La natura ha una sua perfezione"
     ]
   },
   {
@@ -721,7 +730,8 @@
       "Arundhati Roy|Il dio delle piccole cose|Nessuna bestia ha mai uguagliato l'arte",
       "Jean-Paul Sartre|La Nausea|L'esistenza non è qualcosa che si",
       "Eugenio Montale|Ossi di seppia|Spesso il male di vivere ho",
-      "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il"
+      "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il",
+      "Ernest Hemingway|Il vecchio e il mare|Vorrei poter dar da mangiare al"
     ]
   },
   {
@@ -792,7 +802,9 @@
       "Giovanni Verga|Storia di una capinera|Avevo visto una povera capinera chiusa",
       "Antonio Tabucchi|Tristano muore. Una vita|Rosamunda Rosamunda che magnifica serata sembra",
       "Arthur Schopenhauer|Aforismi sulla saggezza del vivere|Un semplice colpo d'occhio ci fa",
-      "Edith Wharton|L'età dell'innocenza|Telegramma della nonna riportato vittoria. Papà"
+      "Edith Wharton|L'età dell'innocenza|Telegramma della nonna riportato vittoria. Papà",
+      "Charlotte Brontë|Jane Eyre|Il riposo non fa gli uomini",
+      "Jane Austen|Orgoglio e pregiudizio|La felicità nel matrimonio è solo"
     ]
   },
   {
@@ -897,7 +909,10 @@
       "T.S. Eliot|La terra desolata|Aprile è il mese più crudele,",
       "Susanna Tamaro|Ascolta la mia voce|Il passato non si può più",
       "Ta-Nehisi Coates|Tra me e il mondo|Avere la pelle nera vuol dire",
-      "Khalil Gibran|Il Profeta|Voi siete nati insieme e insieme"
+      "Khalil Gibran|Il Profeta|Voi siete nati insieme e insieme",
+      "Italo Calvino|Le città invisibili|La città non dice il suo",
+      "F. Scott Fitzgerald|Il grande Gatsby|Non si può ripetere il passato?",
+      "Oscar Wilde|Il ritratto di Dorian Gray|E tutto ciò che si può"
     ]
   },
   {
@@ -940,7 +955,9 @@
       "Michel de Montaigne|Saggi|Per un figlio di buona famiglia",
       "Alice Munro|Il percorso dell'amore|Ricevetti una telefonata in ufficio; era",
       "Isabel Allende|Eva Luna|Mi chiamo Eva, che vuol dire",
-      "Alda Merini|Mistica d'amore|Perché vergine se io sono madre"
+      "Alda Merini|Mistica d'amore|Perché vergine se io sono madre",
+      "William Shakespeare|Romeo e Giulietta|Accidenti alle vostre due famiglie! Sono",
+      "William Shakespeare|Romeo e Giulietta|Romeo, Romeo! Perché sei tu Romeo?"
     ]
   },
   {
@@ -1003,7 +1020,8 @@
       "Madeline Miller|Circe|Ma forse nessun genitore riesce a",
       "Jules Verne|Dalla Terra alla Luna|L'astro delle notti, per la sua",
       "Lucy Maud Montgomery|Anna dai capelli rossi|Avere degli amici significa vedere solo",
-      "Luigi Pirandello|Uno, nessuno e centomila|Ma presto l'atroce mio dramma si"
+      "Luigi Pirandello|Uno, nessuno e centomila|Ma presto l'atroce mio dramma si",
+      "Luigi Pirandello|Il fu Mattia Pascal|Mi guardai attorno; poi gli occhi"
     ]
   },
   {
