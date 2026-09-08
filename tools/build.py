@@ -158,27 +158,53 @@ def main():
     # mano. Il conteggio scritto a mano era gia' andato fuori sincrono una
     # volta (mancava /privacy/, aggiunta alla sitemap e mai al totale): un
     # numero che si deriva da cio' che e' stato scritto non puo' sbagliare.
-    sitemap_urls = [('/', ''), ('/metodo/', ''), ('/privacy/', '')]
+    #
+    # La sitemap e' divisa per tipo di pagina, e sitemap.xml e' l'indice che
+    # le elenca (stessa struttura di dietroiltesto). Non e' cosmesi: in Search
+    # Console il rapporto Sitemap mostra "rilevate / indicizzate" *per singolo
+    # file*, quindi separando i tipi si legge quali pagine Google tiene
+    # davvero. Con un file solo da 1.244 URL quel numero e' un totale muto.
+    # Serve a rispondere alla domanda aperta dell'8 settembre: delle ~107
+    # indicizzate, quante sono hub (autori, opere, raccolte) e quante foglie?
+    # Vedi 05-INDICIZZAZIONE nel progetto SEO.
+    citazioni_urls = []
     for slug, q in qp_entries:
         lastmod = ('<lastmod>' + q['added'] + '</lastmod>') if q.get('added') else ''
-        sitemap_urls.append(('/citazioni/' + slug + '/', lastmod))
-    sitemap_urls += [(href, '') for href in citazioni_index_urls]
-    sitemap_urls += [('/autori/', ''), ('/temi/', ''), ('/generi/', '')]
-    sitemap_urls += [('/temi/' + cat + '/', '') for cat in indexable_temi]
-    sitemap_urls += [('/generi/' + gen + '/', '') for gen in indexable_generi]
-    sitemap_urls += [('/autori/' + aslug + '/', '') for aslug in indexable_autori]
-    sitemap_urls.append(('/opere/', ''))
-    sitemap_urls += [('/opere/' + oslug + '/', '') for oslug in op_status]
-    sitemap_urls.append(('/raccolte/', ''))
-    sitemap_urls += [('/raccolte/' + rslug + '/', '') for rslug in rc_status]
+        citazioni_urls.append(('/citazioni/' + slug + '/', lastmod))
+
+    sitemap_groups = [
+        ('sitemap-pagine.xml', [
+            ('/', ''), ('/metodo/', ''), ('/privacy/', ''),
+            ('/autori/', ''), ('/temi/', ''), ('/generi/', ''),
+            ('/opere/', ''), ('/raccolte/', ''),
+        ]),
+        ('sitemap-citazioni.xml', citazioni_urls),
+        ('sitemap-indice-citazioni.xml', [(href, '') for href in citazioni_index_urls]),
+        ('sitemap-autori.xml', [('/autori/' + a + '/', '') for a in indexable_autori]),
+        ('sitemap-opere.xml', [('/opere/' + o + '/', '') for o in op_status]),
+        ('sitemap-raccolte.xml', [('/raccolte/' + r + '/', '') for r in rc_status]),
+        ('sitemap-temi-generi.xml', (
+            [('/temi/' + c + '/', '') for c in indexable_temi] +
+            [('/generi/' + g + '/', '') for g in indexable_generi]
+        )),
+    ]
+    sitemap_urls = [u for _, urls in sitemap_groups for u in urls]
+
+    for filename, urls in sitemap_groups:
+        with open(os.path.join(qp.ROOT, filename), 'w', encoding='utf-8') as f:
+            f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+            f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+            for href, lastmod in urls:
+                f.write('  <url><loc>' + qp.SITE_URL + href + '</loc>' + lastmod + '</url>\n')
+            f.write('</urlset>\n')
 
     sitemap_path = os.path.join(qp.ROOT, 'sitemap.xml')
     with open(sitemap_path, 'w', encoding='utf-8') as f:
         f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-        f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-        for href, lastmod in sitemap_urls:
-            f.write('  <url><loc>' + qp.SITE_URL + href + '</loc>' + lastmod + '</url>\n')
-        f.write('</urlset>\n')
+        f.write('<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+        for filename, _ in sitemap_groups:
+            f.write('  <sitemap><loc>' + qp.SITE_URL + '/' + filename + '</loc></sitemap>\n')
+        f.write('</sitemapindex>\n')
 
     redirects = qp.load_redirects()
     vercel_path = write_vercel_json(redirects)
@@ -284,6 +310,8 @@ def main():
           '=', str(perc) + '%', '(sotto l\'80% vuol dire che il punto 10 e\' stato saltato)')
     print('vercel.json scritto in', vercel_path)
     print('sitemap aggiornata in', sitemap_path)
+    for filename, urls in sitemap_groups:
+        print('   ', filename, len(urls), 'URL')
     print('feed.xml scritto in', feed_path)
 
     missing_og = [slug for slug, _ in qp_entries if not os.path.isfile(os.path.join(og.OUT_DIR, slug + '.png'))]
