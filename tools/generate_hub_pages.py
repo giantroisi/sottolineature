@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from generate_quote_pages import (  # noqa: E402
     ROOT, SITE_URL, load_quotes, slugify, assign_slugs, load_slugs, save_slugs, load_redirects,
 )
-from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
+from labels import CATEGORY_LABELS, GENRE_LABELS, grafo_con_breadcrumb  # noqa: E402
 
 HUB_INTROS_PATH = os.path.join(ROOT, 'data', 'hub_intros.json')
 SAMEAS_PATH = os.path.join(ROOT, 'data', 'autori_sameas.json')
@@ -237,7 +237,7 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
                 'name': label,
                 'sameAs': [links[k] for k in ('wikipedia', 'wikidata') if links.get(k)],
             }
-    jsonld = json.dumps(collection_page, ensure_ascii=False)
+    jsonld = grafo_con_breadcrumb(collection_page, canonical, SITE_URL, foglia=label)
 
     return HUB_TEMPLATE.format(
         title_tag=html.escape(title_tag),

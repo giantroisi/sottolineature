@@ -12,7 +12,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from generate_quote_pages import ROOT, SITE_URL  # noqa: E402
-from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
+from labels import CATEGORY_LABELS, GENRE_LABELS, grafo_con_breadcrumb  # noqa: E402
 
 PAGE_SIZE = 30
 
@@ -163,15 +163,14 @@ def generate_citazioni_index(entries):
                 for j, (s, _) in enumerate(page_entries)
             ],
         }
-        jsonld = json.dumps({
-            '@context': 'https://schema.org',
+        jsonld = grafo_con_breadcrumb({
             '@type': 'CollectionPage',
             '@id': canonical + '#collectionpage',
             'url': canonical,
             'name': title_tag,
             'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
             'mainEntity': item_list,
-        }, ensure_ascii=False)
+        }, canonical, SITE_URL)
 
         write_page(
             path,
@@ -221,15 +220,14 @@ def generate_autori_index(author_slugs, by_author_count):
             for i, (author, slug) in enumerate(sorted(author_slugs.items(), key=lambda x: x[0]))
         ],
     }
-    jsonld = json.dumps({
-        '@context': 'https://schema.org',
+    jsonld = grafo_con_breadcrumb({
         '@type': 'CollectionPage',
         '@id': canonical + '#collectionpage',
         'url': canonical,
         'name': title_tag,
         'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
         'mainEntity': item_list,
-    }, ensure_ascii=False)
+    }, canonical, SITE_URL)
 
     write_page(
         os.path.join(ROOT, 'autori', 'index.html'),
@@ -288,15 +286,14 @@ def generate_taxonomy_index(kind, labels, counts):
             for i, (slug, label) in enumerate(labels.items()) if counts.get(slug, 0) > 0
         ],
     }
-    jsonld = json.dumps({
-        '@context': 'https://schema.org',
+    jsonld = grafo_con_breadcrumb({
         '@type': 'CollectionPage',
         '@id': canonical + '#collectionpage',
         'url': canonical,
         'name': title_tag,
         'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
         'mainEntity': item_list,
-    }, ensure_ascii=False)
+    }, canonical, SITE_URL)
 
     write_page(
         os.path.join(ROOT, dir_name, 'index.html'),
@@ -340,15 +337,14 @@ def generate_opere_index(opere, opera_status):
             for i, o in enumerate(published)
         ],
     }
-    jsonld = json.dumps({
-        '@context': 'https://schema.org',
+    jsonld = grafo_con_breadcrumb({
         '@type': 'CollectionPage',
         '@id': canonical + '#collectionpage',
         'url': canonical,
         'name': title_tag,
         'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
         'mainEntity': item_list,
-    }, ensure_ascii=False)
+    }, canonical, SITE_URL)
 
     write_page(
         os.path.join(ROOT, 'opere', 'index.html'),
@@ -386,15 +382,14 @@ def generate_raccolte_index(raccolte, raccolta_status):
             for i, r in enumerate(published)
         ],
     }
-    jsonld = json.dumps({
-        '@context': 'https://schema.org',
+    jsonld = grafo_con_breadcrumb({
         '@type': 'CollectionPage',
         '@id': canonical + '#collectionpage',
         'url': canonical,
         'name': title_tag,
         'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
         'mainEntity': item_list,
-    }, ensure_ascii=False)
+    }, canonical, SITE_URL)
 
     write_page(
         os.path.join(ROOT, 'raccolte', 'index.html'),

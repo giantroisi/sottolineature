@@ -16,6 +16,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from generate_quote_pages import ROOT, SITE_URL, quote_key  # noqa: E402
+from labels import grafo_con_breadcrumb  # noqa: E402
 
 RACCOLTE_PATH = os.path.join(ROOT, 'data', 'raccolte.json')
 OUT_DIR = os.path.join(ROOT, 'raccolte')
@@ -173,8 +174,7 @@ def render_raccolta(r, items):
             for i, (s, _) in enumerate(items)
         ],
     }
-    jsonld = json.dumps({
-        '@context': 'https://schema.org',
+    jsonld = grafo_con_breadcrumb({
         '@type': 'CollectionPage',
         '@id': canonical + '#collectionpage',
         'url': canonical,
@@ -182,7 +182,7 @@ def render_raccolta(r, items):
         'description': description,
         'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
         'mainEntity': item_list,
-    }, ensure_ascii=False)
+    }, canonical, SITE_URL, foglia=r['title'])
 
     return PAGE_TEMPLATE.format(
         title_tag=html.escape(title_tag),
