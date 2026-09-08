@@ -62,6 +62,18 @@ PAROLE = {
     'tristezza': ['triste', 'tristi', 'tristezza', 'dolore', 'dolori', 'pianto', 'piange',
                   'piangere', 'lacrim-', 'malincon-', 'sofferenz-', 'angoscia'],
     'bellezza': ['bello', 'bella', 'belle', 'belli', 'bellezz-', 'bellissim-', 'splendid-'],
+    # Filosofia e montagna non avevano una voce qui, e lo strumento diceva
+    # «0 candidate» — che chi legge interpreta come «non c'e' altro materiale».
+    # Non era vero: cercando a mano con radici piu' larghe la sessione contenuti
+    # ha trovato 7 candidate grezze per montagna e ne ha accettate 2. Terza volta
+    # che questa mappa mente per omissione (dopo 'viaggio' e le quattro raccolte
+    # nuove): quando si apre una raccolta, la sua voce va aggiunta qui subito.
+    'montagna': ['montagn-', 'monte', 'monti', 'vetta', 'vette', 'cima di', 'cime dei monti',
+                 'alpi', 'ghiacciai', 'sentiero di montagna', 'valle', 'valli', 'rupe',
+                 'salita', 'scalare'],
+    'filosofia': ['filosof-', 'saggezza', 'sapienza', 'ragione', 'verita', 'conoscenza',
+                  'pensiero', 'pensare', 'coscienza', 'esistenza', 'essere e', 'dubbio',
+                  'socrate', 'platone', 'stoic-', 'virtu'],
     # Le quattro raccolte aperte l'8 settembre 2026. Senza queste righe lo
     # strumento non propone nessuna candidata e la raccolta sembra gia' piena:
     # e' successo a 'viaggio', rimasto per giorni a zero candidate solo perche'
