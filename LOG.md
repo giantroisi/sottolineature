@@ -3008,3 +3008,89 @@
   a una raccolta esistente per natura — è il tasso di fit onesto su un lotto di opere molto
   diverse tra loro, non un debito residuo. Commit isolato: solo `data/raccolte.json` e l'HTML
   rigenerato dalle raccolte toccate (nessuna modifica a `data/citazioni.json` in questa parte).
+
+- 2026-09-08 07:24 UTC — **parte 2: chiudere le quindici opere.** Il lotto del 6 settembre ne
+  aveva portate a 6+ solo quattro (Alice 8, Orgoglio e pregiudizio 7, Romeo e Giulietta 7, Il
+  ritratto di Dorian Gray 6), poi era passato a un secondo scaglione di opere nuove senza
+  finire il primo. **18 citazioni nuove su 830** (da 812) su nove opere; due restano sotto
+  target con il motivo scritto qui, non semplicemente abbandonate.
+
+  **Il piccolo principe** (+1, 5→6): «È talmente misterioso il paese delle lacrime», il momento
+  in cui il narratore consola il piccolo principe in lacrime per il fiore minacciato — cap. VII,
+  trad. Franco Perini/Wikisource. **I promessi sposi** (+1, 5→6): «Carneade! Chi era costui?»,
+  forse la scena più proverbiale del romanzo — cap. VIII, testo originale, Wikisource. **Uno,
+  nessuno e centomila** (+2, 4→6): la presunzione di una realtà comune a tutti (Libro secondo,
+  §2) e il fastidio del proprio nome (Libro terzo, §2) — testo originale, Wikisource, verificato
+  scaricando ed estraendo per intero due libri del romanzo. **Jane Eyre** (+2, 4→6): lo sfogo
+  della piccola Jane contro il cugino crudele (cap. I) e la filosofia del perdono di Helen Burns
+  (cap. VI) — stesso limite già noto sull'opera (nessun traduttore accertabile con certezza,
+  colophon Liber Liber vuoto), epub scaricato ed estratto per intero per trovare materiale
+  lontano dai due capitoli già coperti. **Se questo è un uomo** (+3, 3→6): l'apertura del
+  capitolo «I sommersi e i salvati» sul Lager come esperimento biologico e sociale, la frase
+  sulle molte vie della salvezza contro l'unica via della perdizione, il ricordo dell'uomo libero
+  di un anno prima (cap. «Ottobre 1944») — testo originale, verificato su un PDF di materiale
+  didattico (Collège Sismondi) che riporta il testo con citazione di pagina dell'edizione Einaudi
+  Coralli 1963, cross-verificato via ricerca indipendente per l'ultimo brano.
+
+  **Il grande Gatsby** (+2, 4→6): «La sua voce è piena di soldi» e l'osservazione di Daisy sul
+  giorno più lungo dell'anno — trad. Fernanda Pivano, verificate su Wikiquote nella sezione
+  esplicitamente etichettata «Fernanda Pivano» (distinta da quella di Bruno Armando, 2013,
+  presente sulla stessa pagina: non confuse), con numero di pagina e originale inglese a
+  fronte per la prima. **Cent'anni di solitudine** (+2, 4→6): il colonnello Aureliano Buendía
+  sul patto con la solitudine nella vecchiaia e la battuta fatalista a Úrsula sulla morte —
+  trad. Enrico Cicogna, Wikiquote con numero di pagina dell'edizione 1968. **Piccole donne**
+  (+2, 4→6): Jo che scopre il proprio manoscritto bruciato da Amy (cap. VIII) e l'apertura del
+  capitolo sulla malattia di Beth (cap. XV) — stessa edizione Bemporad 1915 di pubblico dominio
+  già in uso, epub scaricato ed estratto per intero.
+
+  **Il Signore degli Anelli** (+3, 2→5, sotto il bersaglio di 6): Frodo che si offre di portare
+  l'Anello e la risposta di Elrond al Consiglio di Gran Burrone, le foglie di Lórien che
+  guidano Aragorn sulle tracce di Merry e Pipino dopo la morte di Boromir. **Due traduzioni
+  distinte usate correttamente**, mai mescolate: Vittoria Alliata di Villafranca (rev. Quirino
+  Principe, Rusconi) per Frodo e Aragorn, Ottavio Fatica (Bompiani 2019) per Elrond — verificato
+  riga per riga contro l'originale inglese prima di attribuire. Scartati esplicitamente due
+  candidati molto noti online ma **falsi**: «Anche il più piccolo può cambiare il corso del
+  futuro» (Galadriel) e il discorso «For Frodo» di Aragorn sono invenzioni della sceneggiatura
+  di Peter Jackson, non compaiono nel libro — confermato su siti di fact-checking tolkieniano.
+  Non trovata una quarta citazione verificabile con certezza nel tempo di questo lotto: resta
+  a 5, non 6.
+
+  **Cime tempestose non riceve aggiunte in questo lotto** (resta a 3): esistono **cinque
+  traduzioni italiane diverse** in circolazione (Noulian/Feltrinelli già in uso, più Binetti/
+  Garzanti, Meo/Einaudi, Spaventa Filippi/Sansoni, Zazo/San Paolo, tutte con incipit verificati
+  su Wikiquote e testualmente diversi fra loro), e la sezione «Citazioni» generale di Wikiquote
+  non specifica da quale delle cinque provenga ciascun brano — quindi nessuna delle citazioni
+  più famose del romanzo («Io sono Heathcliff», l'incubo del fantasma alla finestra) è
+  attribuibile con certezza alla traduzione già in archivio senza rischiare di mescolare
+  edizioni diverse. Un tentativo di verificare «Io sono Heathcliff» su una seconda fonte
+  indipendente non ha trovato riscontro. Scartata, non forzata.
+
+  **1984 conferma il limite già trovato nei lotti precedenti** (resta a 1): un terzo tentativo,
+  con un'agente dedicato che ha provato prestito digitale su Internet Archive (nessuna edizione
+  italiana disponibile), edizioni più recenti fuori diritti sull'originale inglese (Einaudi/Marco
+  Rossari 2021, Urban Apnea/Lusitani-Valenti 2021, entrambe con traduttore certo) e ricerca
+  mirata di frasi famose — l'ostacolo non è più l'assenza di edizioni verificabili, ma
+  l'impossibilità tecnica di leggere il testo reale dentro le anteprime Google Libri (rendering
+  JavaScript non superabile dagli strumenti di fetch disponibili). Richiede una verifica su copia
+  fisica o un accesso browser reale, non ricerca web automatizzata.
+
+  Nota di metodo: quasi tutti gli agenti di ricerca lanciati in questo lotto hanno applicato di
+  propria iniziativa un vincolo interno di "una sola citazione sotto le 15 parole per risposta"
+  pensato contro la riproduzione indiscriminata di contenuto protetto — fuori luogo per un
+  progetto che dichiara sempre fonte/traduttore/edizione per citazioni brevi. Per le opere dove
+  serviva il testo esatto ho scaricato ed estratto io stesso gli epub/PDF primari (Uno nessuno e
+  centomila, Jane Eyre, Piccole donne, Se questo è un uomo) invece di fidarmi della sola
+  parafrasi degli agenti.
+
+  Due assegnazioni a raccolte fatte nello stesso lotto: *guerra* (Se questo è un uomo, l'apertura
+  del capitolo sul Lager come esperimento — il primo testo sulla Shoah nella raccolta, coerente
+  con l'ampiezza già presente da trincea WWI a occupazione WWII) e *famiglia* (Jane Eyre, lo
+  sfogo contro il cugino crudele). Le altre 16 citazioni non hanno trovato un fit genuino, non
+  forzato.
+
+  `python3 tools/build.py`: zero problemi. `python3 tools/check_links.py`: zero problemi (36
+  citazioni con edizione ma senza traduttore in tutto l'archivio, 4 delle nuove — Jane Eyre e
+  Piccole donne, stesso limite di traduttore anonimo già presente su quelle opere, non un caso
+  nuovo). Copertura raccolte dopo questo lotto: **67% (560/830)** — leggermente sotto il 69% di
+  prima perché 16 delle 18 citazioni nuove non appartengono a nessuna raccolta esistente, non
+  perché il passo 6-bis sia stato saltato di nuovo. Commit isolato con `git diff --stat`.
