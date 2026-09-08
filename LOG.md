@@ -3094,3 +3094,48 @@
   nuovo). Copertura raccolte dopo questo lotto: **67% (560/830)** — leggermente sotto il 69% di
   prima perché 16 delle 18 citazioni nuove non appartengono a nessuna raccolta esistente, non
   perché il passo 6-bis sia stato saltato di nuovo. Commit isolato con `git diff --stat`.
+
+- 2026-09-08 07:49 UTC — **riportare la copertura delle raccolte all'80%, gruppo 1 (le 22
+  tematiche).** Il passo 6-bis era saltato tre lotti di fila mentre l'archivio cresceva: 85% ad
+  agosto, 67% oggi (560/830). Lette a giudizio, una per una, **tutte le ~150 candidate
+  meccaniche** delle 22 raccolte tematiche con `tools/raccolte_da_ampliare.py <slug>`. **Resa:
+  15 assegnazioni su 13 citazioni distinte** (due citazioni entrano in due raccolte ciascuna) —
+  circa il 9%, non un errore di metodo ma la prova che il setaccio per radice di parola produce
+  quasi solo falsi positivi quando la si legge davvero.
+
+  **Accettate:** *natura* — Woolf («Le parole che cerchiamo pendono accanto all'albero», La
+  camera di Jacob: nature come veicolo, stesso registro già accettato per Victor Hugo/l'albero
+  dell'amore), Achebe (il proverbio Ibo sulla pioggia, veicolo per il ruolo dello scrittore),
+  Rigoni Stern (il canto delle coturnici, autentica descrizione di natura selvaggia). *Libri e
+  scrittura* — Austen (la distinzione fra le parole «vanità» e «orgoglio»), Plath (la propria
+  vita vista come un racconto), Ariosto («Senno d'Orlando» scritto su un'ampolla, un'iscrizione
+  vera nel testo), Alcott (il manoscritto di Jo bruciato da Amy), più Achebe e Woolf (doppia
+  appartenenza: sono anche, esplicitamente, brani sul mestiere di scrivere), Sapienza (la madre
+  che consiglia di rileggere i libri che ci hanno formato). *Donne* — Austen («Che fortuna per le
+  nostre ragazze!», l'esclamazione di Mrs Bennet: illustra esattamente il passaggio da soggetto a
+  oggetto che l'introduzione della raccolta descrive). *Viaggio* — Tolkien (Frodo che si offre di
+  portare l'Anello «ma non conosco la strada»: l'inizio letterale del viaggio di tutta la
+  trilogia). *Morte* — García Márquez («Non si muore quando si deve, ma quando si può»).
+  *Ricordo e memoria* — Levi (l'uomo libero che era un anno prima, «Ottobre 1944»). *Tristezza*
+  — Saint-Exupéry («È talmente misterioso il paese delle lacrime»).
+
+  **Scartate esplicitamente, i falsi positivi più istruttivi** (non annotati uno per uno come da
+  istruzione, ma il pattern vale la pena fissarlo): «natura»/«per natura» nel senso filosofico di
+  carattere innato (Aristotele, Kant, Seneca, Schopenhauer, Platone) — parola uguale, concetto
+  diverso dalla natura-paesaggio della raccolta; «esercitare»/«combattere»/«nemico»/«pace» usati
+  in senso metaforico o quotidiano, zero su 15 candidate di «guerra»; «punto di vista»/«di
+  vista»/«colpo d'occhio» come idiomi, non sguardo — zero su 12 di «occhi-e-sguardo»; «figlio»/
+  «madre»/«fratello» come metafora (la terra è madre, il pesce è fratello, il delfino è figlio di
+  un tonno) invece che famiglia vera — zero su 11 di «famiglia» e su 5 di «figli»; «onde» come
+  congiunzione arcaica invece che «le onde» del mare (Shakespeare, Alfieri) e «Alba» come nome
+  proprio di città invece che l'alba del giorno (Fenoglio) — lo stesso errore di sottostringa già
+  segnalato in agosto; «a bella prima» come locuzione arcaica per «dapprima», non «bella» —
+  stessa famiglia di «montagna russa» (lunapark, non un monte) e «sul livello del mare»
+  (altitudine, non l'oceano); «canto» nell'incipit epico classico (Ariosto, Tasso, Virgilio,
+  Whitman: «io canto...») come convenzione poetica di invocazione, non musica — zero su 7 di
+  «musica», nonostante includa proprio quell'incipit.
+
+  `python3 tools/build.py`: zero problemi, **nuova riga di rapporto: «Citazioni in almeno una
+  raccolta: 568 / 830 = 68%».** `python3 tools/check_links.py`: zero problemi. Nessuna modifica a
+  `data/citazioni.json` in questo gruppo. Commit isolato con `git diff --stat`. Prossimo: frasi
+  brevi (35 candidate) e incipit (115).
