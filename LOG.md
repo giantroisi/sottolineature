@@ -3182,3 +3182,63 @@
   riga di rapporto: «Citazioni in almeno una raccolta: 576 / 830 = 69%». `python3
   tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a `data/citazioni.json` in questo
   gruppo. Commit isolato con `git diff --stat`. Prossimo: gruppo 3, «incipit» (115 candidate).
+
+- **2026-09-08 08:04 UTC — raccolte, gruppo 3: «incipit», 115 candidate riviste, 27 accettate.**
+  Criterio della Nota sul lotto 4, il più stretto dei tre: non «è la prima riga» ma «è un'apertura
+  celebrata come tale» — nota per nome, anche da chi non ha letto il libro, proprio in quanto
+  apertura (le liste dei "migliori incipit della letteratura" che la citano). Bocciata la maggior
+  parte dei candidati per lo stesso motivo, ripetuto identico su decine di titoli: sono incipit
+  veri (locus verificato in Fase 3) ma **non famosi come tali** — descrizioni d'ambiente, scene
+  che si aprono senza una frase che resti, opere minori dello stesso autore di un'opera più nota
+  (es. i secondi/terzi Kerouac, Roth, Kundera, Saramago, Svevo, Allende, Flaubert, Moravia oltre
+  al titolo già coperto), saggi e memoir aperti con una data o un fatto invece che con una frase
+  (Poe *Marginalia*, Murakami, DFW, Weil). Questo spiega la resa più bassa di questo gruppo (27 su
+  115, 23%) rispetto al lotto equivalente precedente (26/140, 19%): non ho forzato al ribasso per
+  avvicinarmi al numero di allora, ho semplicemente riletto ogni incipit chiedendomi se è
+  riconoscibile a memoria — la Nota chiede di non fare l'opposto (forzare al rialzo), non di
+  restare sotto un tetto.
+
+  **Accettati** (apertura riconoscibile come tale, non solo verificata come locus): Kafka (*La
+  metamorfosi*, *Il processo*), Melville (*Moby Dick*), Pessoa (*Tabacaria*), Tolkien (*Lo
+  Hobbit*, già indicato dalla Nota), Calvino (*Se una notte d'inverno un viaggiatore*, incipit
+  autoriferito), Camus (*Lo straniero*), Proust (*Alla ricerca del tempo perduto*), Dostoevskij
+  (*Memorie dal sottosuolo*), Allende (*La casa degli spiriti*), Pascoli (*X Agosto*), Vittorini
+  (*Conversazione in Sicilia*, «astratti furori», già indicato dalla Nota), du Maurier (*Rebecca*),
+  Nievo (*Le confessioni d'un italiano*), Leopardi (*Canto notturno di un pastore errante
+  dell'Asia*), Saba (*Trieste*), Ferrante (*I giorni dell'abbandono*), Ernaux (*Gli anni*), Grass
+  (*Il tamburo di latta*), Saramago (*Le intermittenze della morte*), Heaney (*Morte di un
+  naturalista*, «Scavando»), Naipaul (*Alla curva del fiume*), Pamuk (*Neve*, già indicato dalla
+  Nota), Didion (*L'anno del pensiero magico*), Eliot (*Il canto d'amore di J. Alfred Prufrock*),
+  Pavese (*La bella estate*), Murgia (*Accabadora*).
+
+  **Segnalazione, non corretta in questo lotto**: tre citazioni hanno `source_locus` = "incipit"
+  in `data/citazioni.json` che non corrisponde a quello che risulta dal testo per come lo conosco:
+  Primo Levi, *Se questo è un uomo* («Meditate che questo è stato.») è una riga della poesia
+  proemiale, ma non la prima — la poesia si apre con «Voi che vivete sicuri»; George Orwell, *La
+  fattoria degli animali* («Tutti gli animali sono uguali, ma alcuni animali sono più uguali degli
+  altri.») è il comandamento riscritto verso la fine del libro, non l'apertura, che parla del
+  signor Jones che chiude i pollai; Jack Kerouac, *Sulla strada* («Le uniche persone per me sono i
+  pazzi...») è una frase della Parte 1 su Dean Moriarty, non la prima riga, che è «Ho conosciuto
+  Dean non molto tempo dopo che mia moglie e io ci eravamo separati.» Le tre sono per questo
+  escluse da questa raccolta (non reggono il criterio «celebrata come apertura» se non sono
+  l'apertura). Non ho toccato `data/citazioni.json` per istruzione esplicita di questo lotto: se il
+  locus è davvero sbagliato serve una verifica diretta sul testo e una correzione a parte.
+
+  Altri scarti degni di nota: Gabriel García Márquez, *Cent'anni di solitudine* — il locus stesso
+  dice «poche righe dopo l'incipit», quindi coerentemente non è un candidato valido per questa
+  raccolta (già presente altrove in *frasi brevi* con un'altra riga). Maalouf scartato per lo
+  stesso dubbio di attribuzione mai risolto (Fase 3). Merini e Shafak scartate qui perché già
+  collocate in *frasi brevi* come aforismi autonomi, non come aperture: includerle anche qui
+  avrebbe duplicato la stessa citazione in due raccolte per due letture diverse della stessa frase,
+  senza una ragione forte per farlo.
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, nuova
+  riga di rapporto: «Citazioni in almeno una raccolta: 583 / 830 = 70%». `python3
+  tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a `data/citazioni.json` in questo
+  gruppo. Commit isolato con `git diff --stat`. **Lotto «riportare la copertura all'85%» chiuso,
+  tutti e tre i gruppi fatti (tematiche, frasi brevi, incipit): 67% → 70%, sotto il bersaglio
+  minimo dell'80% indicato dall'utente.** Non per un errore di processo: le tre code sono state
+  lette per intero (~150 tematiche + 35 frasi brevi + 115 incipit, oltre 300 candidate) e il
+  criterio qualitativo — mai la sola corrispondenza di parola-radice — ha scartato la maggioranza
+  per non reggere un riesame serio. Resoconto completo e raccomandazione nel messaggio di chiusura
+  all'utente, non qui.
