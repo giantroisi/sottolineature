@@ -3139,3 +3139,46 @@
   raccolta: 568 / 830 = 68%».** `python3 tools/check_links.py`: zero problemi. Nessuna modifica a
   `data/citazioni.json` in questo gruppo. Commit isolato con `git diff --stat`. Prossimo: frasi
   brevi (35 candidate) e incipit (115).
+
+- **2026-09-08 07:58 UTC — raccolte, gruppo 2: «frasi brevi», 35 candidate riviste, 18 accettate.**
+  Criterio della Nota sul lotto 4: non «è corta» ma «questa frase, letta senza nessun contesto,
+  regge da sola come pensiero o immagine compiuti» — più stretto della semplice brevità
+  grammaticale. Accettate: Svevo (*La coscienza di Zeno*), Mishima (*Confessioni di una maschera*),
+  Collins (*Hunger Games*, l'apertura dei Giochi), Bukowski (*Pulp*), Balzac (*Papà Goriot*),
+  Vittorini (*Il garofano rosso*), Blixen (*La mia Africa*), Conan Doyle (*Il mastino dei
+  Baskerville*), Pessoa (*L'educazione dello stoico*), Pascoli (*Canti di Castelvecchio*), Alfieri
+  (*Mirra*) — undici prime iscrizioni in questa raccolta; più sette citazioni già presenti altrove
+  nell'archivio che guadagnano una seconda appartenenza (frasi brevi non esclude le altre raccolte):
+  Austen («la felicità nel matrimonio»), Tabucchi («questa città puzza di morte»), Saint-Exupéry
+  («il paese delle lacrime»), Fitzgerald («la sua voce è piena di soldi»), García Márquez («non si
+  muore quando si deve»), e due citazioni distinte di Tolkien dal Signore degli Anelli
+  («Prenderò io l'Anello, ma non conosco la strada» e «Non a caso cadono le foglie di Lórien»).
+
+  Scartate, raggruppate per motivo: **riservate alla revisione «incipit» invece che bocciate** —
+  sono aperture celebrate come tali, non aforismi autonomi, esattamente la distinzione che la Nota
+  sul lotto 4 fa coi suoi stessi esempi (Woolf *La signora Dalloway*, Tolkien *Lo Hobbit*, Achebe
+  *Le cose crollano*, Cortázar *Rayuela*/Maga, Vittorini *Uomini e no*/astratti furori, Pamuk
+  *Neve*, Deledda *Elias Portolu*) — le rivedo nel gruppo 3. **Bocciate per non reggere da sole a
+  un riesame più severo** (sembravano complete ma dipendono dal contesto per avere senso pieno):
+  Zadie Smith, Agatha Christie, Süskind, Baricco. **Bocciate per precedente già scartato in lotti
+  precedenti**: Camilleri, Dahl (stesso motivo di allora). **Bocciate per attribuzione già dubbia
+  altrove in archivio**: Maalouf (stesso dubbio segnalato in Fase 3, mai risolto). **Già scartate
+  in parti precedenti di questo stesso lotto**: Alice/«Non c'è posto», Gatsby/«Ero dentro e fuori».
+
+  **Segnalazione, non corretta in questo lotto**: rivedendo i due candidati Tolkien ho trovato che
+  l'archivio contiene **due citazioni distinte per lo stesso momento narrativo** (Frodo si offre di
+  portare l'Anello a Mordor): una aggiunta il 2026-08-18, titolo «Il Signore degli Anelli - La
+  Compagnia dell'Anello», nessun traduttore («Porterò io l'Anello a Mordor. Solo... non conosco la
+  strada.»); una aggiunta da me il 2026-09-08 (Parte 2 del lotto precedente), titolo «Il Signore
+  degli Anelli», attribuita a Vittoria Alliata di Villafranca/Rusconi p. 341 («Prenderò io
+  l'Anello, ma non conosco la strada.»). Wording e cornice diversi, stesso passaggio del libro: non
+  le ho unificate né corrette, perché questo lotto tocca solo `data/raccolte.json` per istruzione
+  esplicita. In frasi-brevi ho aggiunto solo la seconda (attribuzione tracciabile); la prima resta
+  fuori da questa raccolta per non pubblicare due varianti quasi identiche fianco a fianco. Serve
+  una decisione presa insieme: se unificarle, tenerne una sola, o tenerle entrambe con contesto
+  che le distingua.
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, nuova
+  riga di rapporto: «Citazioni in almeno una raccolta: 576 / 830 = 69%». `python3
+  tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a `data/citazioni.json` in questo
+  gruppo. Commit isolato con `git diff --stat`. Prossimo: gruppo 3, «incipit» (115 candidate).
