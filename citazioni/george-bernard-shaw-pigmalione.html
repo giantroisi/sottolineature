@@ -22,7 +22,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=57a6273e">
+<link rel="stylesheet" href="/assets/site.css?v=cfb4fa2c">
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#webpage", "url": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/", "name": "«Il gran segreto, Elisa, non sta…» — George Bernard Shaw", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#quotation", "text": "Il gran segreto, Elisa, non sta nell'aver cattive maniere o buone maniere, o una qualunque specie di maniere, ma di avere le stesse maniere per tutti.", "creator": {"@id": "https://sottolineature.it/autori/george-bernard-shaw/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#book"}, "url": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/", "citation": "atto V", "sameAs": "https://www.liberliber.eu/mediateca/libri/s/shaw/pigmalione/pdf/shaw_pigmalione.pdf"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#book", "name": "Pigmalione", "author": {"@id": "https://sottolineature.it/autori/george-bernard-shaw/#person"}, "temporalCoverage": "1913 (rappr.), 1916", "translator": {"@type": "Person", "name": "Antonio Agresti"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/george-bernard-shaw/#person", "name": "George Bernard Shaw", "url": "https://sottolineature.it/autori/george-bernard-shaw/", "sameAs": ["https://it.wikipedia.org/wiki/George_Bernard_Shaw", "https://www.wikidata.org/wiki/Q19185"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "George Bernard Shaw", "item": "https://sottolineature.it/autori/george-bernard-shaw/"}, {"@type": "ListItem", "position": 3, "name": "Il gran segreto, Elisa, non sta…", "item": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/"}]}]}</script>
 <script>
   try {
@@ -84,9 +84,20 @@
     </div>
     <figure class="cover-wrap"><img class="card-cover" src="/assets/covers/9267223.jpg" alt="Copertina di &quot;Pigmalione&quot; di George Bernard Shaw" width="150" height="225" fetchpriority="high" referrerpolicy="no-referrer" onerror="this.closest('.cover-wrap').remove()"><figcaption class="cover-caption sans">Pigmalione<span class="cover-caption-year"> · 1913 (rappr.), 1916</span></figcaption></figure>
   </figure>
+  
+  
+  <!-- Il 2026-09-08 i pulsanti erano stati messi PRIMA del contesto, per chi
+       arriva solo per condividere. Rimessi dopo lo stesso giorno, su nuova
+       misura: fra la citazione e la sua spiegazione non deve esserci nulla,
+       nemmeno quattro pulsanti di utilita' - chi vuole il senso della frase
+       lo trova subito sotto, chi vuole condividerla scorre 32-48px in piu'.
+       I due link di navigazione (opera, raccolta) restano invece qui sopra,
+       come riga di testo leggera: portano valore anche a chi non interagisce. -->
+  <div class="quote-detail">
+    <p class="card-context sans">Siamo nell&#x27;atto finale, quando Eliza, ormai trasformata in signora, accusa Higgins di trattarla sempre allo stesso modo scortese con cui tratta chiunque altro, paragonandolo a suo padre. È allora che Higgins, diventando improvvisamente serio, le rivela quello che considera il vero segreto delle buone maniere: non un modo diverso di comportarsi a seconda della classe sociale, ma lo stesso rispetto per ogni essere umano.</p>
+    <p class="card-source sans"><span class="source-label">Dove si trova</span>trad. Antonio Agresti, atto V. <a href="https://www.liberliber.eu/mediateca/libri/s/shaw/pigmalione/pdf/shaw_pigmalione.pdf">Approfondisci →</a></p>
+  </div>
   <div class="actions sans">
-    
-    
     <button type="button" class="js-only" id="copyBtn">Copia citazione</button>
     <button type="button" class="js-only" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
     <button type="button" class="js-only" id="underlineBtn" aria-pressed="false">Sottolinea</button>
@@ -116,17 +127,6 @@
     <textarea id="quoteNoteField" class="quote-note-field sans" rows="2" placeholder="Perché ti ha colpita? (facoltativo)"></textarea>
     <p class="quote-note-print sans" id="quoteNotePrint" hidden></p>
     <p class="quote-note-hint">Resta su questo dispositivo. La ritrovi in <a href="/le-mie-sottolineature/">Le mie sottolineature</a>.</p>
-  </div>
-  <!-- Contesto e fonte stanno DOPO i pulsanti, non prima. Misurato l'8 settembre
-       2026 su uno schermo da 812px: prima la riga «Copia / Condividi /
-       Sottolinea» cadeva a 1126px dall'alto, cioe' una schermata e mezza sotto
-       la citazione, perche' in mezzo c'erano tutto il contesto e il blocco
-       fonte. Chi arriva per condividere una frase non deve leggere ottanta
-       parole per trovare il pulsante; chi vuole il significato scorre di poco,
-       e lo trova subito sotto. -->
-  <div class="quote-detail">
-    <p class="card-context sans">Siamo nell&#x27;atto finale, quando Eliza, ormai trasformata in signora, accusa Higgins di trattarla sempre allo stesso modo scortese con cui tratta chiunque altro, paragonandolo a suo padre. È allora che Higgins, diventando improvvisamente serio, le rivela quello che considera il vero segreto delle buone maniere: non un modo diverso di comportarsi a seconda della classe sociale, ma lo stesso rispetto per ogni essere umano.</p>
-    <p class="card-source sans"><span class="source-label">Dove si trova</span>trad. Antonio Agresti, atto V. <a href="https://www.liberliber.eu/mediateca/libri/s/shaw/pigmalione/pdf/shaw_pigmalione.pdf">Approfondisci →</a></p>
   </div>
   <div class="tags sans"><a href="/autori/george-bernard-shaw/">George Bernard Shaw</a><a href="/temi/vita/">Vita</a></div>
   <p class="segnala sans"><a class="segnala-errore" href="mailto:sottolineature@outlook.it?subject=Errore%20in%3A%20George%20Bernard%20Shaw%2C%20Pigmalione&amp;body=Pagina%3A%20https%3A//sottolineature.it/citazioni/george-bernard-shaw-pigmalione/%0A%0AChe%20cosa%20non%20torna%20%28testo%2C%20autore%2C%20opera%2C%20anno%2C%20luogo%20nel%20testo%2C%20traduttore%2C%20contesto%20o%20copertina%29%3A%0A%0A">Segnala un errore in questa citazione</a></p>
