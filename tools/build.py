@@ -79,7 +79,7 @@ def write_vercel_json(redirects):
 
 
 def stamp_assets():
-    """Aggiunge ?v=<hash> ai riferimenti di site.css, share.js e nav.js.
+    """Aggiunge ?v=<hash> ai riferimenti di site.css, share.js, nav.js e home-resto.js.
 
     vercel.json serve /assets/* con Cache-Control immutable per un anno: senza
     un'impronta nell'URL il browser di chi ha gia' visitato il sito continua a
@@ -91,12 +91,12 @@ def stamp_assets():
     import hashlib
     import re
     fingerprints = {}
-    for name in ('site.css', 'share.js', 'nav.js'):
+    for name in ('site.css', 'share.js', 'nav.js', 'home-resto.js'):
         path = os.path.join(qp.ROOT, 'assets', name)
         if os.path.exists(path):
             with open(path, 'rb') as f:
                 fingerprints[name] = hashlib.md5(f.read()).hexdigest()[:8]
-    pattern = re.compile(r'(/assets/(site\.css|share\.js|nav\.js))(\?v=[0-9a-f]+)?')
+    pattern = re.compile(r'(/assets/(site\.css|share\.js|nav\.js|home-resto\.js))(\?v=[0-9a-f]+)?')
 
     def replace(match):
         return match.group(1) + '?v=' + fingerprints.get(match.group(2), '0')

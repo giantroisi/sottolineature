@@ -23,6 +23,17 @@ import generate_quote_pages as qp  # noqa: E402
 TEMPLATE_PATH = os.path.join(qp.ROOT, 'templates', 'home_template.html')
 OUT_PATH = qp.INDEX
 
+# Quante card finiscono nell'HTML servito. Le altre stanno in
+# assets/home-resto.js e vengono iniettate nel #grid *prima* che lo script
+# principale parta (script classici in ordine = esecuzione sincrona), quindi
+# ricerca, filtri, shuffle e stampa vedono esattamente le stesse card di prima.
+#
+# Perche': con tutte le card nell'HTML la home pesava 848 KB e usciva con 831
+# link identici per importanza, mettendo gli hub (/autori/, /opere/) a
+# profondita' 2, sotto le foglie. Vedi 05-INDICIZZAZIONE nel progetto SEO.
+CARDS_IN_HTML = 24
+RESTO_PATH = os.path.join(qp.ROOT, 'assets', 'home-resto.js')
+
 _UNITS = ['', 'uno', 'due', 'tre', 'quattro', 'cinque', 'sei', 'sette', 'otto', 'nove']
 _TEENS = ['dieci', 'undici', 'dodici', 'tredici', 'quattordici', 'quindici', 'sedici',
           'diciassette', 'diciotto', 'diciannove']
@@ -86,6 +97,30 @@ def render_card(q, slug):
     )
 
 
+def write_resto(cards_html):
+    """Scrive assets/home-resto.js: le card oltre le prime CARDS_IN_HTML.
+
+    Il file si auto-esegue e le appende al #grid. Va incluso con un <script
+    src> classico *prima* dello script principale della home, cosi' il DOM e'
+    gia' completo quando quello parte. Se un domani le citazioni fossero meno
+    di CARDS_IN_HTML il file viene scritto lo stesso (vuoto), per non lasciare
+    un 404 nel template.
+    """
+    payload = json.dumps(cards_html, ensure_ascii=False).replace('</', '<\\/')
+    js = (
+        '/* Generato da tools/generate_home.py - non modificare a mano. */\n'
+        '(function () {\n'
+        "  var g = document.getElementById('grid');\n"
+        '  if (!g) { return; }\n'
+        '  var resto = ' + payload + ';\n'
+        "  if (resto) { g.insertAdjacentHTML('beforeend', resto); }\n"
+        '})();\n'
+    )
+    os.makedirs(os.path.dirname(RESTO_PATH), exist_ok=True)
+    with open(RESTO_PATH, 'w', encoding='utf-8') as f:
+        f.write(js)
+
+
 def main():
     quotes = qp.load_quotes()
 
@@ -100,7 +135,9 @@ def main():
             'generate_home: slug mancante per %d citazioni (esegui prima '
             'generate_quote_pages). Prima: %s' % (len(missing), qp.quote_key(missing[0]))
         )
-    cards_html = '\n'.join(render_card(q, slug_map[qp.quote_key(q)]) for q in quotes)
+    rendered = [render_card(q, slug_map[qp.quote_key(q)]) for q in quotes]
+    cards_html = '\n'.join(rendered[:CARDS_IN_HTML])
+    write_resto('\n'.join(rendered[CARDS_IN_HTML:]))
     count_words = italian_number_words(len(quotes))
     page = template.replace('{{CARDS}}', cards_html.rstrip('\n'))
     page = page.replace('{{COUNT}}', str(len(quotes)))
@@ -167,7 +204,8 @@ def main():
     with open(OUT_PATH, 'w', encoding='utf-8') as f:
         f.write(page)
 
-    print('index.html generato con', len(quotes), 'citazioni')
+    print('index.html generato con', len(quotes), 'citazioni (%d nell\'HTML, %d in assets/home-resto.js)'
+          % (min(CARDS_IN_HTML, len(quotes)), max(0, len(quotes) - CARDS_IN_HTML)))
 
 
 if __name__ == '__main__':
