@@ -3242,3 +3242,39 @@
   criterio qualitativo — mai la sola corrispondenza di parola-radice — ha scartato la maggioranza
   per non reggere un riesame serio. Resoconto completo e raccomandazione nel messaggio di chiusura
   all'utente, non qui.
+
+- **2026-09-08 13:52 UTC — lotto "raccolte tematiche di coda", Parte 1: le 9 tematiche rimaste
+  indietro nel giro precedente.** ~110 candidate lette (`raccolte_da_ampliare.py <slug>`), 5
+  accettate. Per raccolta: natura 0/17, donne 0/15, guerra 0/15 (confermato lo zero già visto nel
+  giro precedente), occhi-e-sguardo 0/12, libri-e-scrittura 1/14, famiglia 1/11, viaggio 1/8,
+  animali 2/8, musica 0/7.
+
+  Resa quasi nulla, e per un motivo strutturale che vale la pena scrivere una volta per tutte:
+  queste sono le code di raccolte già scremate in agosto — le candidate migliori sono già dentro,
+  quel che resta sul tavolo è quasi solo omonimia lessicale. Pattern ricorrenti confermati su
+  decine di candidate: "natura"/"per natura" filosofico (Aristotele, Platone, Kant, Seneca) contro
+  natura-paesaggio; "radici"/"montagna"/"vento"/"fiore" usati come metafora (Svevo, Forster,
+  Murakami, Saba) mai come elemento naturale reale; "madre"/"fratello"/"figlio" quasi sempre
+  metaforici (terra-madre in Shakespeare, morte-madre-della-bellezza in Tartt, pesce-fratello in
+  Hemingway) o riferimenti incidentali di scena (una madre che introduce un personaggio, mai il
+  tema); "punto di vista"/"colpo d'occhio"/"agli occhi di" come locuzioni idiomatiche, mai lo
+  sguardo reale; "esercitare"/"combattere"/"nemico"/"pace" nel senso quotidiano, mai la guerra;
+  "canto" nell'incipit epico come convenzione poetica (Ariosto, Tasso, Virgilio, Whitman), non
+  musica — di nuovo zero su 7, coerente con l'introduzione della raccolta che chiede la musica
+  "soggetto vero" della citazione; "Donna Olimpia"/"donna Arminda" come nomi propri (via, titolo
+  onorifico), non il tema donne; "cavallier"/"lupo perde il pelo"/"Signore dei Cavalli" come
+  omonimie o modi di dire, non animali reali.
+
+  **Accettate**: Calvino, *Le città invisibili* («la città... la contiene come... scritto negli
+  spigoli delle vie») → libri-e-scrittura, la metafora città-come-testo è il tema stesso della
+  raccolta. Primo Levi, *Se questo è un uomo* («avevo un nome e una famiglia») → famiglia,
+  riferimento reale e non metaforico. Kundera, *L'insostenibile leggerezza dell'essere* («partire
+  verso l'ignoto») → viaggio, coincide con la doppia natura — reale e metaforica — che
+  l'introduzione della raccolta descrive. García Lorca, *Romance sonámbulo* («il cavallo sulla
+  montagna») e Lewis Carroll, *Alice* (il gatto dello Cheshire Cat) → animali, immagini animali
+  genuinamente centrali nei rispettivi testi.
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, riga
+  di rapporto: «Citazioni in almeno una raccolta: 585 / 830 = 70%» (invariata al punto percentuale,
+  +2 citazioni). `python3 tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a
+  `data/citazioni.json`. Prossimo: Parte 2, sei raccolte nuove sul volume di ricerca.
