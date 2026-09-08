@@ -1337,6 +1337,47 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   contatto (PIL sul Mac, due PNG da 24 riquadri con titolo cercato e titolo trovato sotto ogni
   immagine) costa un minuto e li trova tutti.
 
+- **I primi dati di Search Console, 2026-09-08.** 107 pagine indicizzate su 1.226 inviate; motivo
+  su 1.012: «Rilevata, ma attualmente non indicizzata», sorgente «Sistemi di Google». Nessun
+  guasto tecnico: le trova tutte e sceglie di non tenerle. 218 impressioni, 6 clic, posizione
+  media 29,3, 73 query. **Le query dicono una cosa sola: la gente cerca la frase singola, e la
+  ricorda male.** Sei varianti storpiate di «amor ch'a nullo amato amar perdona» fanno 23
+  impressioni; ci sono «tutti per uno uno per tutti *significato*» e «*citazione* rosa
+  shakespeare» — la parola in piu' dice cosa vogliono, non cosa c'e' scritto. **La sola query in
+  prima pagina e' «frasi sullo sguardo», posizione 4,0: una raccolta tematica.** Le pagine
+  citazione delle frasi celebri escono fra 32 e 64 — contro gli aggregatori quella guerra oggi
+  non si vince; sulle tematiche la concorrenza e' sottile e una raccolta con un'introduzione
+  scritta batte una lista automatica. **Attenzione al peso della prova: e' una query e due
+  impressioni.** Da qui l'esperimento delle sei raccolte nuove, che serve a confermarla o a
+  smentirla in una settimana.
+
+- **La ricerca del sito non trovava il verso piu' cercato del sito — 2026-09-08.** Era
+  `haystack.indexOf(term)`, sottostringa sul testo intero, e `normalize()` toglieva accenti e
+  maiuscole ma non la punteggiatura. Nel testo c'e' «Amor, ch'a nullo...» con la virgola: cercare
+  il verso **scritto giusto** dava zero. Corretto: punteggiatura a spazi, confronto per parole
+  invece che per sottostringa, parole di tre lettere o meno non pretese (nel verso non c'e'
+  «che», c'e' «ch'a»), vocabolario delle correzioni esteso al testo delle citazioni. **La lezione
+  che vale oltre questo caso: le funzioni si provano con gli input veri degli utenti, non con
+  quelli che ha in testa chi le ha scritte.** Nessuno aveva mai cercato una citazione copiandola.
+  Costo del compromesso, da tenere d'occhio: «tutti per uno, uno per tutti» passa da 1 a 35
+  risultati. Se dara' fastidio, la cura e' ordinare per numero di parole che combaciano, non
+  tornare alla sottostringa.
+
+- **Due difetti da telefono, stessa radice: il telefono non e' un desktop stretto — 2026-09-08.**
+  (a) *Lo schermo tremava scorrendo*: la barra di ricerca agganciata restituiva lo spazio
+  allungando la **sentinella**, cioe' l'elemento che l'IntersectionObserver osserva — un ciclo che
+  si alimenta da solo, innescato su iPhone dalla barra degli indirizzi di Safari che si ritrae e
+  cambia l'altezza della finestra. Ora lo spazio lo restituisce uno spaziatore **sotto** la barra.
+  **Regola: non modificare mai l'elemento che un observer sta osservando.** (b) *iOS zoomava
+  aprendo le note*: qualunque campo sotto i 16px fa ingrandire la pagina, e poi non si torna
+  indietro. Erano a 13,6px le note e la ricerca dell'intestazione.
+
+- **I pulsanti stavano dopo il contesto — 2026-09-08.** Su 812px di schermo la riga «Copia /
+  Condividi / Sottolinea» cadeva a 1126px: una schermata e mezza sotto la citazione, oltre tutto
+  il contesto e il blocco fonte. Contesto e fonte sono usciti dalla scheda e vanno dopo i
+  pulsanti (556px). L'ordine adesso e' **la frase, cosa farne, cosa significa**. Bersagli per il
+  pollice portati da 32 a 44px, che e' la soglia raccomandata da Apple.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.
