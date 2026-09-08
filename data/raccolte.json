@@ -1250,5 +1250,87 @@
       "Grazia Deledda|Fior di Sardegna|Siamo in Sardegna, nella parte montuosa",
       "Alessandro Manzoni|I promessi sposi|Addio, monti sorgenti dall'acque, ed elevati"
     ]
+  },
+  {
+    "slug": "pace",
+    "title": "Pace",
+    "h1": "Frasi e citazioni sulla pace",
+    "intro": [
+      "«Pace non trovo, et non ò da far guerra»: il paradosso con cui Francesco Petrarca apre uno dei sonetti più noti del Canzoniere fissa un'idea che la letteratura non ha mai smesso di riprendere — la pace non è mai solo l'assenza di conflitto, ma una condizione che si cerca, si perde, si teorizza, e quasi mai si possiede del tutto.",
+      "Immanuel Kant intitola il proprio trattato «Per la pace perpetua» e vi sostiene una tesi che ancora oggi sorprende: la pace fra esseri umani non è uno stato di natura, ma un ordine da costruire attivamente contro la tendenza naturale al conflitto. Jean-Paul Sartre, scrivendo ne «La morte nell'anima» nel pieno della seconda guerra mondiale, la spoglia di ogni etichetta politica — «non è né democratica né nazista: è la pace» — mentre Bertolt Brecht, in «Madre Courage e i suoi figli», ne rovescia il valore con l'amara ironia di chi vive di guerra: «la pace è solo disordine».",
+      "Per Epitteto, nel «Manuale», la pace è soprattutto una disciplina interiore: desiderare che gli eventi accadano come accadono, non come si vorrebbe, e la vita «scorrerà serena». Ugo Foscolo la cerca nella «fatal quïete» della sera, presagio della morte in uno dei suoi sonetti più celebri; D.H. Lawrence, in «Figli e amanti», la trova nel calore di un corpo addormentato accanto al proprio; Marilynne Robinson, in «Gilead», la ricorda accanto alla sofferenza, non al suo posto. Isaac Asimov chiude il cerchio con una battuta che è anche un paradosso: la morte, scrive, è pacifica — è la transizione a creare i problemi."
+    ],
+    "quote_keys": [
+      "Immanuel Kant|Per la pace perpetua|Lo stato di pace fra esseri",
+      "Francesco Petrarca|Canzoniere|Pace non trovo, et non ò",
+      "Jean-Paul Sartre|La morte nell'anima|La pace non è né democratica",
+      "Bertolt Brecht|Madre Courage e i suoi figli|La pace è solo disordine; non",
+      "Marilynne Robinson|Gilead|Quando parlo della lunga notte che",
+      "D.H. Lawrence|Figli e amanti|A dispetto degli igienisti, il sonno",
+      "Isaac Asimov|Destinazione Cervello|La vita è piacevole. La morte",
+      "Epitteto|Manuale|Non devi adoperarti perché gli avvenimenti",
+      "Ugo Foscolo|Sonetti|Forse perché della fatal quïete tu"
+    ]
+  },
+  {
+    "slug": "cibo",
+    "title": "Cibo",
+    "h1": "Frasi e citazioni sul cibo",
+    "intro": [
+      "Nel Decameron, Giovanni Boccaccio racconta di Federigo degli Alberighi, che per onorare la donna amata arrostisce l'unico bene che gli resta — il proprio falcone, «degno cibo» servito su un tagliere. È forse la prima volta in cui la letteratura italiana fa del cibo un gesto che dice più di mille parole, e da lì il tema non ha smesso di tornare, sotto forme molto diverse fra loro.",
+      "C'è il cibo come misura della povertà e della dignità: Knut Hamsun intitola «Fame» il romanzo di un uomo che affronta la fame di Christiania restando, a tratti, incapace di invidiare chi non la conosce; Herta Müller, nel «Paese delle prugne verdi», la lega a un ricordo d'infanzia venato di pericolo, e altrove annota la massima di sua madre: «il freddo è peggiore della fame», «una patata calda è un letto caldo». Charles Bukowski, in «Post Office» e in «Factotum», ne fa quasi un principio fisiologico: il cibo tiene in piedi i nervi e lo spirito, la sua assenza si sente come quella dell'acqua.",
+      "C'è il cibo come cultura e identità, nel modo in cui Vasco Pratolini fa del vino toscano — «I fiorentini amano il vino» — un tratto quasi etnografico dei suoi personaggi, alla pari del caffè dei napoletani o della birra dei tedeschi. E c'è il cibo come metafora filosofica: Epitteto, nel «Manuale», paragona la vita a un banchetto in cui bisogna sapere allungare la mano solo quando la portata arriva, senza afferrare oltre il proprio turno — mentre nel «Paese delle meraviglie» di Lewis Carroll un coccodrillo canta la gioia feroce del «pasto agognato», e il cibo torna a essere quello che è sempre stato anche nella fiaba: fame, attesa, appetito."
+    ],
+    "quote_keys": [
+      "Herta Müller|Il paese delle prugne verdi|Non bisogna mai mangiare prugne verdi,",
+      "Charles Bukowski|Factotum|Ero il tipo d'uomo che rifioriva",
+      "Charles Bukowski|Post Office|Il cibo fa bene ai nervi",
+      "Giovanni Boccaccio|Decameron|Ricordandomi del falcon che mi domandate",
+      "Herta Müller|Parola d'autore. I lemmi del vocabolario europeo 2009|Lager, s.n.: campo. Da quando so",
+      "Knut Hamsun|Fame|Com'erano leggeri e sereni tutti quegli",
+      "Vasco Pratolini|Lo scialo|I fiorentini amano il vino. Dante",
+      "Epitteto|Manuale|Tieni a mente che tu ti",
+      "Lewis Carroll|Alice nel paese delle meraviglie|Che dice il Coccodrillo del Nilo"
+    ]
+  },
+  {
+    "slug": "casa",
+    "title": "Casa",
+    "h1": "Frasi e citazioni sulla casa",
+    "intro": [
+      "Poche parole hanno il doppio fondo di «casa»: è il luogo fisico, con il suo tetto e le sue porte, ed è insieme l'idea di appartenenza che quel luogo dovrebbe garantire e a volte tradisce. V.S. Naipaul intitola il proprio romanzo più noto «Una casa per Mr Biswas» e ne fa la storia di un'intera vita spesa a non voler più «vivere e morire come si nasce, superflui e senza un tetto»: la casa, lì, è dignità prima ancora che riparo.",
+      "È lo stesso tradimento che racconta Henrik Ibsen in «Casa di bambola», dove Nora scopre che la propria casa «non è stata altro che un luogo di ricreazione», una scena allestita più che una vita vissuta; Nathaniel Hawthorne, ne «La casa dei sette abbaini», si chiede invece cosa accadrebbe se ogni generazione fosse costretta a costruirsi la propria abitazione invece di ereditarla, con tutto il peso — e il sollievo — che ne conseguirebbe. Alberto Moravia, ne «Il conformista», lega la freddezza dell'adulto Marcello proprio all'indifferenza vissuta in casa da bambino.",
+      "Ci sono poi le case che si scelgono di non lasciare, come quella che brucia in «Fahrenheit 451» di Ray Bradbury, dove una donna preferisce restare fra le proprie fiamme piuttosto che abbandonare i libri; e le case a cui si torna, o da cui si parte senza riuscire a raccontarle davvero, come nel ricordo di Paolo Cognetti in «Le otto montagne». Italo Calvino, ne «Le città invisibili», immagina una città che si ricostruisce altrove portando con sé «le case», mattone su mattone; Goliarda Sapienza, ne «L'arte della gioia», ricorda che una casa «salubre e vivibile» è anzitutto una questione politica, non solo privata."
+    ],
+    "quote_keys": [
+      "Ray Bradbury|Fahrenheit 451|Ci deve essere qualcosa di speciale",
+      "Paolo Cognetti|Le otto montagne|Avevo già imparato un fatto a",
+      "Henrik Ibsen|Casa di bambola|Eri molto carino con me: ma",
+      "Nathaniel Hawthorne|La casa dei sette abbaini|Se ciascuna generazione fosse tenuta a",
+      "Goliarda Sapienza|L'arte della gioia|Il mestiere del medico è valido",
+      "V.S. Naipaul|Una casa per Mr Biswas|Sarebbe stato tremendo… vivere senza nemmeno",
+      "Italo Calvino|Le città invisibili|Riedificano Ersilia altrove. Tessono con i",
+      "Alberto Moravia|Il conformista|Nel tempo della sua fanciullezza, Marcello"
+    ]
+  },
+  {
+    "slug": "fiori",
+    "title": "Fiori",
+    "h1": "Frasi e citazioni sui fiori",
+    "intro": [
+      "«Che cosa c'è in un nome? Ciò che chiamiamo rosa, con un altro nome avrebbe lo stesso profumo»: la domanda di Giulietta a William Shakespeare regala alla rosa il ruolo di fiore più citato della letteratura occidentale, quello a cui si affida per parlare non di petali ma di essenza. Umberto Eco chiude «Il nome della rosa» allo stesso modo, con un verso latino — «Stat rosa pristina nomine, nomina nuda tenemus» — che dice l'opposto e lo stesso: della rosa antica resta solo il nome.",
+      "È un fiore che torna spesso come immagine più che come pianta: nell'«Orlando furioso» di Ludovico Ariosto descrive la carnagione di una dama, «misto color di rose e di ligustri», e in «Storie di cronopios e di fama» di Julio Cortázar diventa il paradosso di un regalo — un orologio come «un piccolo inferno fiorito, una catena di rose». Cormac McCarthy, in «Meridiano di sangue», usa invece il fiorire come metafora del culmine di una vita, che per l'uomo coincide già con l'inizio del suo tramonto.",
+      "E poi ci sono i fiori come presenza reale, quasi un gesto quotidiano: la signora Dalloway di Virginia Woolf che apre il romanzo annunciando che i fiori per la festa «li avrebbe comprati lei», o Voltaire che nel «Candido» affida a un giardino — «bisogna coltivare il nostro giardino» — la morale di un intero romanzo filosofico. Mario Rigoni Stern, ne «Uomini, boschi e api», chiude il cerchio riportando i fiori alla loro forma più semplice: i ciliegi in primavera, e le api che ne raccolgono il nettare."
+    ],
+    "quote_keys": [
+      "Virginia Woolf|La signora Dalloway|La signora Dalloway disse che i",
+      "William Shakespeare|Romeo e Giulietta|Che cosa c'è in un nome?",
+      "Voltaire|Candido|Bisogna coltivare il nostro giardino.",
+      "Umberto Eco|Il nome della rosa|Stat rosa pristina nomine, nomina nuda",
+      "Cormac McCarthy|Meridiano di sangue|Tutte le cose del mondo sbocciano,",
+      "Julio Cortázar|Storie di cronopios e di fama|Pensa a questo: quando ti regalano",
+      "Ludovico Ariosto|Orlando furioso|Di persona era tanto ben formata,",
+      "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il"
+    ]
   }
 ]

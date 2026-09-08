@@ -216,6 +216,17 @@
   .search-sentinel {
     height: 0;
   }
+  /* Lo spaziatore sta SOTTO la barra, non sopra. Quando la barra esce dal
+     flusso (position:fixed su telefono) lo spazio va restituito, ma se lo si
+     restituisce sopra — allungando la sentinella — si sposta la sentinella
+     stessa, che rientra nel campo dell'IntersectionObserver e fa scattare di
+     nuovo l'osservatore: aggancia, sgancia, aggancia. Su iPhone, dove la barra
+     degli indirizzi di Safari si ritrae scorrendo e cambia l'altezza della
+     finestra, quell'oscillazione diventa lo schermo che trema. Sotto la barra
+     l'altezza puo' crescere quanto vuole senza toccare la sentinella. */
+  .search-spacer {
+    height: 0;
+  }
 
   .search-bar {
     position: sticky;
@@ -229,7 +240,11 @@
     margin-bottom: 1.75rem;
     padding: 0.4rem 0;
     background: var(--paper);
-    transition: padding 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    /* La transizione NON tocca il padding: quando la barra si aggancia il
+       codice ne misura l'altezza per compensarla, e misurare un elemento a
+       meta' animazione dava un valore sbagliato di qualche pixel — che e' un
+       salto visibile del contenuto. Ombra e bordo si animano, l'ingombro no. */
+    transition: box-shadow 0.15s ease, border-color 0.15s ease;
   }
   .search-bar.is-stuck {
     padding: 0.6rem 0 0.6rem 4rem;
@@ -1168,6 +1183,7 @@ html:not(.js) .js-only { display: none !important; }
       <ul class="search-suggestions sans" id="searchSuggestions" role="listbox" hidden></ul>
     </div>
   </div>
+  <div class="search-spacer" id="searchSpacer" aria-hidden="true"></div>
 
 
   <div class="filter-block" id="filterBlock">
@@ -1700,17 +1716,27 @@ html:not(.js) .js-only { display: none !important; }
       // Safari un elemento sticky dentro un contenitore flex e' vincolato alla
       // propria riga di flex, e in colonna la riga e' l'elemento stesso -
       // quindi non si muove e scorre via con la pagina. Li' si passa a
-      // position:fixed, e la sentinella sopra prende l'altezza della barra per
-      // non far saltare il contenuto nel momento in cui esce dal flusso.
+      // position:fixed, e lo spazio che lascia va restituito.
+      //
+      // Lo restituisce lo SPAZIATORE SOTTO la barra, non la sentinella sopra.
+      // Allungando la sentinella si sposta la sentinella stessa, che rientra
+      // nel campo dell'osservatore e lo fa scattare di nuovo: aggancia,
+      // sgancia, aggancia. Su iPhone, dove la barra degli indirizzi di Safari
+      // si ritrae mentre si scorre e cambia l'altezza della finestra,
+      // quell'oscillazione diventa lo schermo che trema (segnalato l'8
+      // settembre 2026). Sotto la barra l'altezza cresce senza toccare niente.
+      var spacer = document.getElementById('searchSpacer');
       var phone = window.matchMedia('(max-width: 700px)');
       var stickyObserver = new IntersectionObserver(function (entries) {
         var stuck = !entries[0].isIntersecting;
-        if (stuck && phone.matches) {
-          sentinel.style.height = searchBar.offsetHeight + 'px';
-        } else {
-          sentinel.style.height = '';
-        }
+        // Prima la classe, poi la misura: agganciata la barra ha un padding
+        // diverso ed e' piu' alta di qualche pixel. Misurarla prima voleva dire
+        // compensare l'altezza sbagliata, e il contenuto saltava.
         searchBar.classList.toggle('is-stuck', stuck);
+        if (spacer) {
+          spacer.style.height = (stuck && phone.matches) ? searchBar.offsetHeight + 'px' : '';
+        }
+        sentinel.style.height = '';
       }, { threshold: 0 });
       stickyObserver.observe(sentinel);
     })();

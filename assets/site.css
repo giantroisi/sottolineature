@@ -551,6 +551,16 @@ footer.sans a { color: var(--ink-faint); }
 .header-search input:focus {
   outline: none; border-color: var(--accent); background: var(--paper);
 }
+/* iOS Safari ingrandisce la pagina di sua iniziativa quando si tocca un campo
+   con font-size sotto i 16px, e non la rimpicciolisce piu' da sola: succedeva
+   sulla barra delle note che si apre sottolineando, e nella ricerca
+   dell'intestazione. A 16px non zooma. Vale solo da telefono in giu': sul
+   desktop la misura tipografica resta quella scelta. */
+@media (max-width: 860px) {
+  .quote-note-field,
+  .header-search input { font-size: 16px; }
+}
+
 @media (max-width: 860px) {
   /* con tre righe (marchio, menu, ricerca) l'intestazione agganciata si
      mangerebbe un sesto dello schermo del telefono per tutta la lettura:
