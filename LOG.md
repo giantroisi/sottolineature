@@ -3328,3 +3328,44 @@
   **Chiusura del lotto "raccolte tematiche"**: copertura finale 72% (596/830), partita da 70%.
   Sotto l'80% indicato come bersaglio. Dettagli e raccomandazione nel messaggio di chiusura
   all'utente.
+
+- **2026-09-08 15:46 UTC — lotto "rinforzare le quattro raccolte nuove prima di aprirne altre".**
+  Le parole chiave di pace/cibo/casa/fiori erano appena state aggiunte a
+  `tools/raccolte_da_ampliare.py` da un'altra sessione: margini confermati identici a quelli
+  indicati (casa 15, cibo 6, fiori 5, pace 2). Lette tutte le 28 candidate, nessuna forzata.
+
+  - **Casa: 8 → 13** (5 accettate su 15 lette). Nuove: Virginia Woolf, *Una stanza tutta per sé*
+    (la casa come condizione di libertà e autonomia, il pezzo che mancava di più); Ian McEwan,
+    *Espiazione* («una stanza priva di porta» come immagine di prigionia); Astrid Lindgren, *Pippi
+    Calzelunghe* (la vecchia casa nel giardino abbandonato, non solo scenografia: è la casa che dà
+    inizio al libro); Anna Achmatova, *Lo stormo bianco* (i profili delle case nella sera, immagine
+    visiva reale, non incidentale); Mario Vargas Llosa, *La zia Julia e lo scribacchino* (la villa
+    dai muri bianchi dell'infanzia). Criterio usato per distinguere accettate da scartate: la casa
+    o la stanza deve essere descritta, non solo nominata come sfondo — «in una stanza» senza
+    aggettivi né immagine (Manzoni, «Carneade»; Twain, *Tom Sawyer*) resta uno scarto anche se la
+    parola c'è. Introduzione riscritta, 4 paragrafi (era 3), 380 parole, nomina tutte e 13 le
+    opere — nessuna delle new entry resta senza citazione nel testo.
+  - **Cibo: 9 → 10** (1 accettata su 6 lette). Baudelaire, *Lo spleen di Parigi* («bisogna essere
+    sempre ubriachi... di vino, di poesia o di virtù») — il vino è nominato esplicitamente, non
+    incidentale. Scarti: "gusto" in Pavese è idiomatico («il gusto di andarsene», non un sapore),
+    "pranzo"/"tavola" restano segnaposti di orario (Ferrante, Didion), "fame" resta metaforica
+    (Plath), il pesce-fratello di Hemingway resta fuori tema (già scartato per «famiglia» con lo
+    stesso motivo). Introduzione non riscritta: un'aggiunta su nove non sbilancia il testo, la riga
+    su Baudelaire è stata comunque inserita nel paragrafo sul vino accanto a Pratolini, dove il
+    tema è già presente.
+  - **Fiori: resta a 8** (0 accettate su 5 lette). Saba (*Trieste*, *Amai*), Ondaatje, Lindgren e
+    Quasimodo erano già stati scartati nel giro precedente per lo stesso motivo (fiore/giardino
+    incidentale, "viola" come colore non fiore, rima "fiore/amore" non sul fiore) e restano scarti
+    anche riletti oggi. **Non è un problema di parole chiave**: la rete è già ampia (fiore, fior-,
+    petal-, rosa, viola, giardino, boccio-, sboccia-), il tema semplicemente non ha altro materiale
+    genuino nell'archivio oltre a quanto già raccolto.
+  - **Pace: resta a 9** (0 accettate su 2 lette), esattamente come previsto. Le due candidate
+    residue sono entrambe idiomatiche: "senza tregua" (Baudelaire, = "senza sosta") e "lasciatemi
+    in pace" (Süskind, = "lasciami stare") — nessuna delle due parla di pace come stato, di guerra
+    o di quiete interiore.
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, nuova
+  riga di rapporto: «Citazioni in almeno una raccolta: 597 / 830 = 72%». `python3
+  tools/check_links.py`: **Problemi totali: 0**. Verificata in browser locale la pagina
+  `raccolte/casa.html` prima del commit. Nessuna modifica a `data/citazioni.json`, solo
+  `data/raccolte.json` e l'HTML rigenerato.
