@@ -3425,3 +3425,43 @@
   riga di rapporto: «Citazioni in almeno una raccolta: 597 / 830 = 72%». `python3
   tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a `data/citazioni.json`. Prossimo:
   Parte 2, le sette introduzioni corte.
+
+- **2026-09-08 16:43 UTC — lotto "portare tutte e 33 le raccolte a un livello decente", Parte 2:
+  le otto introduzioni corte** (morte, frasi-brevi, incipit, mare, tristezza, libri-e-scrittura,
+  montagna, filosofia — otto, non sette come diceva il totale in testa al lotto: la lista sotto
+  ne elencava otto). Nessuna modifica a `quote_keys`: solo le introduzioni riscritte, ognuna
+  cresciuta da 1-3 paragrafi (156-217 parole) a 4 paragrafi (244-338 parole), nel metro di
+  «viaggio» e delle introduzioni già buone — nominare le opere, dire perché stanno insieme, mai
+  «ecco N frasi su X».
+
+  - **Morte** (39 citazioni): da 178 a 338 parole. Aggiunti due paragrafi: uno sui rovesciamenti di
+    senso (Asimov «la morte è pacifica», Herbert «la piccola morte» della paura, Pirandello che
+    muore e rinasce a ogni istante, Faulkner, Bukowski), uno sulla morte collettiva (Remarque,
+    Quasimodo, Fenoglio).
+  - **Mare** (31 citazioni): da 197 a 329 parole. Corretto anche un numero invecchiato («diciannove
+    scrittori» quando ormai sono ventinove) e aggiunti Dante, Stevenson, Arendt, Alcott, Hurston,
+    Andersen, Golding, Camilleri, Saramago.
+  - **Tristezza** (29 citazioni): da 198 a 302 parole. Aggiunto un paragrafo sulla tristezza
+    collettiva e storica (Quasimodo, Foscolo, Tennyson) e la citazione di Dostoevskij
+    sull'innamoramento della sofferenza; Verlaine spostato in apertura.
+  - **Libri e scrittura** (52 citazioni): da 217 a 333 parole. Aggiunto un paragrafo su chi
+    interroga il gesto stesso di scrivere (Rilke, Poe, Achebe) e su chi lo difende (Amos Oz,
+    Canetti).
+  - **Frasi brevi** (170 citazioni): da 176 a 259 parole. Aggiunto un paragrafo sulle frasi
+    diventate proverbio (Shakespeare, Sartre, Dostoevskij, Manzoni) — nessuna candidata nuova,
+    solo più esempi fra le 170 già dentro, coerente con la Nota sul lotto 4: qui il criterio è
+    qualitativo, non se ne aggiungono di nuove senza rileggerle una per una.
+  - **Incipit** (66 citazioni): da 185 a 268 parole. Aggiunto un paragrafo su tre aperture diventate
+    proverbio (Dickens, Kafka, Boccaccio), stesso principio di frasi-brevi.
+  - **Montagna** (13 citazioni, cresciuta in questa stessa sessione nella Parte 1): da 157 a 244
+    parole, riscritta da zero in 4 paragrafi per includere le due new entry — l'incipit dei
+    Promessi sposi (distinto da «Addio, monti», già presente) e García Lorca.
+  - **Filosofia** (14 citazioni): da 156 a 278 parole, riorganizzata in 4 paragrafi per epoca
+    (antichità, stoici, tardoantico/moderno, pensiero recente) con più testo per autore invece di
+    un unico paragrafo compresso.
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, riga
+  di rapporto invariata: «Citazioni in almeno una raccolta: 597 / 830 = 72%» (atteso: questo
+  gruppo non tocca `quote_keys`). `python3 tools/check_links.py`: **Problemi totali: 0**.
+  Verificata in browser locale `raccolte/morte.html` prima del commit. Nessuna modifica a
+  `data/citazioni.json`. Prossimo: Parte 3, il resto delle candidate se avanza tempo.
