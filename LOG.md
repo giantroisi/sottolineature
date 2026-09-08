@@ -3278,3 +3278,53 @@
   di rapporto: «Citazioni in almeno una raccolta: 585 / 830 = 70%» (invariata al punto percentuale,
   +2 citazioni). `python3 tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a
   `data/citazioni.json`. Prossimo: Parte 2, sei raccolte nuove sul volume di ricerca.
+
+- **2026-09-08 14:02 UTC — lotto "raccolte tematiche di coda", Parte 2: quattro raccolte nuove
+  scelte sul volume di ricerca (`data/keywords.json`, `raccolte_candidate`).** Nessun candidato
+  già pronto in `raccolte_da_ampliare.py` (le raccolte non esistevano): candidate grezze cercate
+  a mano per radice di parola sulla sola `quote` (stesso metodo dello strumento, script a parte
+  perché `tools/` non è di competenza di questa sessione), poi lette una per una.
+
+  **Pubblicate, tutte sopra la soglia minima di 8:**
+  - **Pace** (9/14 lette): Kant, Petrarca, Sartre, Brecht, Robinson, Lawrence, Asimov, Epitteto,
+    Foscolo. Scarti principali: "lasciatemi in pace" (Süskind, idiomatico = "lasciami stare"),
+    "senza tregua" (Baudelaire, idiomatico = "senza sosta"), "aria tranquilla"/"tranquillo"
+    (Pascoli, Capote — aggettivo di scena, non il tema).
+  - **Cibo** (9/17 lette): Müller ×2, Bukowski ×2, Boccaccio (il falcone del Decameron), Hamsun
+    (il romanzo «Fame»), Pratolini (vino/caffè come tratto culturale), Epitteto (il banchetto del
+    Manuale), Carroll (il coccodrillo di Alice). Scarto sistematico: "dolce" tolto dalla ricerca a
+    metà lavoro perché quasi sempre significa "piacevole" (17 falsi positivi su 23 candidate
+    iniziali), non un sapore — lezione da portare a eventuali raccolte future sullo stesso campo
+    semantico. Altri scarti: "fame"/"affamato" metaforici (Plath, Steinbeck, Morrison — fame
+    d'altro, non di cibo), "bere" metaforico (Achmatova).
+  - **Casa** (8/18 lette): Bradbury, Cognetti, Ibsen (Casa di bambola), Hawthorne (La casa dei
+    sette abbaini), Sapienza, Naipaul (Una casa per Mr Biswas), Calvino, Moravia. Scarti: "a casa"
+    come segnaposto di scena in una decina di candidate (Ferrante, Eco, Pavese, Allende...), mai il
+    tema.
+  - **Fiori** (8/16 lette): Shakespeare (la rosa di Giulietta), Eco (la rosa del titolo), Voltaire
+    (il giardino del Candido), Woolf (l'incipit di Mrs Dalloway), Cortázar, Ariosto, Rigoni Stern,
+    McCarthy. Scarti: "fiorentini" (Pratolini — omonimia pura), "viola" (Quasimodo — colore, non il
+    fiore), "la rima fiore amore" (Saba — sulla rima, non sul fiore), "profumo di umidità" (Proust
+    — non un profumo di fiori).
+
+  **Non aperte, candidate insufficienti anche dopo aver allargato le radici di ricerca**:
+  alba-tramonto (3 buone su 6 grezze: Golding, Herbert, McCarthy — «alba» quasi sempre nome
+  proprio, vedi Fenoglio "città di Alba"), sorriso (5 candidate, quasi tutte "ridere" incidentale o
+  idiomatico), autunno (4 candidate, tutte già viste altrove). Madre non aperta su istruzione
+  esplicita (rischio di sovrapposizione con famiglia/figli/donne). Nessuna delle tre raggiunge
+  lontanamente la soglia di 8: **segnalazione per l'utente**, non uno scarto silenzioso — se in
+  futuro l'archivio cresce su questi campi semantici si può riprovare.
+
+  Introduzioni scritte a mano, 3 paragrafi ciascuna (260-283 parole, in linea con la mediana delle
+  raccolte esistenti), ogni paragrafo ancorato a opere e autori nominati per esteso, mai un elenco
+  di frasi. Verificata una pagina (`raccolte/pace.html`) in browser su server locale prima del
+  commit.
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, 33/33
+  raccolte indicizzabili, nuova riga di rapporto: «Citazioni in almeno una raccolta: 596 / 830 =
+  72%» (era 70%). `python3 tools/check_links.py`: **Problemi totali: 0**. Nessuna modifica a
+  `data/citazioni.json`, solo `data/raccolte.json` (33 record) e l'HTML rigenerato.
+
+  **Chiusura del lotto "raccolte tematiche"**: copertura finale 72% (596/830), partita da 70%.
+  Sotto l'80% indicato come bersaglio. Dettagli e raccomandazione nel messaggio di chiusura
+  all'utente.
