@@ -137,6 +137,7 @@ def main():
     gh.main()
     op_status = op.main(qp_entries)
     rc_status = rp.main(qp_entries)
+    raccolta_keys = {k for r in raccolte for k in r['quote_keys']}
     hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main()
     citazioni_index_urls = ip.main(qp_entries, author_slugs, tema_status, genere_status, opere, op_status, raccolte, rc_status)
     feed_path = feed.main(qp_entries)
@@ -268,6 +269,19 @@ def main():
     print('Citazioni con blocco fonte:', quotes_with_source, '/', len(qp_entries), '| fonti duplicate su citazioni diverse:', len(dup_sources))
     print('Immagini OG generate:', og_generated, '| gia aggiornate:', og_skipped, '| totale attese:', len(qp_entries))
     print('Copertine locali (assets/covers/):', covers_local, '| ancora remote (Open Library):', covers_remote)
+
+    # Copertura delle raccolte. E' il passaggio della lista di chiusura (punto 10)
+    # che salta piu' spesso: e' l'unico che non rompe niente se lo si dimentica —
+    # la citazione esce, la pagina e' valida, e l'unica traccia e' una percentuale
+    # che scende in silenzio. E' gia' successo tre volte: ad agosto le raccolte
+    # sono rimaste a 234 citazioni su 749, e fra il 6 e l'8 settembre la copertura
+    # e' scesa dall'85% al 67% mentre l'archivio cresceva di 65 citazioni. Da qui
+    # in avanti ogni build la dice, e chi aggiunge citazioni senza collocarle la
+    # vede scendere sotto gli occhi.
+    in_raccolta = sum(1 for _, q in qp_entries if rp.quote_key(q) in raccolta_keys)
+    perc = round(100 * in_raccolta / len(qp_entries)) if qp_entries else 0
+    print('Citazioni in almeno una raccolta:', in_raccolta, '/', len(qp_entries),
+          '=', str(perc) + '%', '(sotto l\'80% vuol dire che il punto 10 e\' stato saltato)')
     print('vercel.json scritto in', vercel_path)
     print('sitemap aggiornata in', sitemap_path)
     print('feed.xml scritto in', feed_path)
