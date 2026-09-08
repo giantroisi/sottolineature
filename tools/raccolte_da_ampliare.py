@@ -62,6 +62,18 @@ PAROLE = {
     'tristezza': ['triste', 'tristi', 'tristezza', 'dolore', 'dolori', 'pianto', 'piange',
                   'piangere', 'lacrim-', 'malincon-', 'sofferenz-', 'angoscia'],
     'bellezza': ['bello', 'bella', 'belle', 'belli', 'bellezz-', 'bellissim-', 'splendid-'],
+    # Le quattro raccolte aperte l'8 settembre 2026. Senza queste righe lo
+    # strumento non propone nessuna candidata e la raccolta sembra gia' piena:
+    # e' successo a 'viaggio', rimasto per giorni a zero candidate solo perche'
+    # la sua voce era intestata al vecchio slug.
+    'pace': ['pace', 'pacific', 'tregua', 'concordia', 'disarm', 'guerra e pace',
+             'riconcili', 'quiete', 'serenit'],
+    'cibo': ['cibo', 'cibi', 'mangiare', 'mangia', 'pane', 'vino', 'fame', 'tavola',
+             'cucina', 'banchett', 'cena', 'pranzo', 'sapore', 'gusto', 'nutrir'],
+    'casa': ['casa', 'case', 'focolare', 'soglia', 'tetto', 'dimora', 'stanza',
+             'stanze', 'muri', 'porta di casa', 'tornare a casa', 'abitare'],
+    'fiori': ['fiore', 'fiori', 'fiorir', 'petal', 'rosa', 'rose', 'giglio',
+              'margherit', 'viola', 'giardino', 'bocciol', 'sboccia'],
     'viaggio': ['viaggio', 'viaggi', 'viaggiar-', 'cammin-', 'partire', 'partenza',
                           'strada', 'strade', 'sentiero', 'ritorno', 'valigia'],
     'donne': ['donna', 'donne', 'femmin-', 'madre', 'madri', 'sorella', 'sorelle', 'ragazza',
