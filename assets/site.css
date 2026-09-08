@@ -619,7 +619,7 @@ footer.sans a { color: var(--ink-faint); }
      che nessuno aveva mai guardato il foglio. E "Segnala un errore" e'
      un mailto: su un foglio e' una riga sottolineata che non porta da
      nessuna parte. */
-  .mine-tools, .segnala, .footer-servizi { display: none !important; }
+  .mine-tools, .mine-print-hint, .segnala, .footer-servizi { display: none !important; }
   /* la data non e' decorazione: chi consegna una selezione di citazioni deve
      poter dire quando l'ha presa, perche' l'archivio cambia */
   .print-only { display: block !important; }

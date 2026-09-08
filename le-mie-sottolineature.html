@@ -12,7 +12,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="stylesheet" href="/assets/site.css?v=53fbf0e7">
+<link rel="stylesheet" href="/assets/site.css?v=740b0f82">
 <style>
   .mine-empty { max-width: 34rem; }
   .mine-empty p { color: var(--ink-soft); line-height: 1.7; }
@@ -37,6 +37,11 @@
     text-decoration: none; line-height: 1;
   }
   .mine-tools button:hover, .mine-tools a:hover { border-color: var(--accent); color: var(--accent); }
+  .mine-print-hint {
+    margin: 0.7rem 0 0; max-width: 34rem;
+    font-size: 0.82rem; line-height: 1.5; color: var(--ink-faint);
+  }
+  .mine-print-hint[hidden] { display: none; }
   .mine-actions { display: flex; gap: 1.1rem; flex-wrap: wrap; margin: 0.8rem 0 0; }
   .mine-actions button {
     border: 0; background: none; padding: 0; cursor: pointer; font-family: inherit;
@@ -108,14 +113,21 @@
     scrivi accanto a ciascuna. Per ora non ce n'e' nessuna.</p>
     <p>Vai all&#39;archivio, e quando una riga ti riguarda premi <em>Sottolinea</em>: la ritrovi qui,
     anche fra un mese.</p>
+    <p>Quando ne hai raccolte un po&#39;, da questa pagina le stampi <strong>tutte insieme in un foglio
+    solo</strong> &mdash; o le salvi in PDF: citazioni, fonti e le tue note, come un&#39;antologia fatta
+    da te.</p>
     <p style="font-size:0.85rem;color:var(--ink-faint)">Le tue sottolineature restano su questo
     dispositivo, in questo browser: non vengono inviate da nessuna parte e nessuno le vede oltre a te.
     Se cambi computer o cancelli i dati del sito, non ci sono piu&#39;.</p>
   </div>
   <div class="mine-tools sans" id="mineTools" hidden>
     <a href="/citazioni/">Aggiungine altre</a>
-    <button class="js-only" type="button" id="printBtn">Stampa</button>
+    <button class="js-only" type="button" id="printBtn">Stampa tutto in un foglio</button>
   </div>
+  <p class="mine-print-hint sans js-only" id="minePrintHint" hidden>
+    Le trovi tutte in un unico documento, con fonti e note: dalla finestra di stampa puoi anche
+    salvarlo in PDF e tenertelo.
+  </p>
   </div>
   <p class="print-only sans" id="minePrintDate"></p>
   <footer class="sans" data-url="sottolineature.it">
@@ -150,6 +162,7 @@
   var countEl = document.getElementById('mineCount');
   var emptyEl = document.getElementById('mineEmpty');
   var toolsEl = document.getElementById('mineTools');
+  var printHintEl = document.getElementById('minePrintHint');
 
   function esc(t) { var d = document.createElement('div'); d.textContent = t; return d.innerHTML; }
 
@@ -214,10 +227,16 @@
     if (n === 0) {
       countEl.textContent = 'Nessuna citazione sottolineata';
       toolsEl.hidden = true;
+      if (printHintEl) { printHintEl.hidden = true; }
       emptyEl.hidden = false;
     } else {
       countEl.textContent = n === 1 ? '1 citazione sottolineata' : n + ' citazioni sottolineate';
       toolsEl.hidden = false;
+      // La stampa unica e' la funzione che nessuno trovava: il pulsante diceva
+      // solo "Stampa" e non lasciava capire che raccoglie tutto in un documento
+      // unico. La riga sotto lo spiega, e nomina il PDF — che e' la parola che
+      // la gente ha in testa quando vuole tenersi qualcosa.
+      if (printHintEl) { printHintEl.hidden = false; }
       emptyEl.hidden = true;
     }
   }
