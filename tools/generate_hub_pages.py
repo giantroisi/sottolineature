@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from generate_quote_pages import (  # noqa: E402
     ROOT, SITE_URL, load_quotes, slugify, assign_slugs, load_slugs, save_slugs, load_redirects,
 )
+from generate_opera_pages import load_opere  # noqa: E402
 from labels import CATEGORY_LABELS, GENRE_LABELS, grafo_con_breadcrumb  # noqa: E402
 
 HUB_INTROS_PATH = os.path.join(ROOT, 'data', 'hub_intros.json')
@@ -110,6 +111,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
   <h1>{h1}</h1>
   <p class="count sans">{count} citazion{count_suffix}</p>
   {intro_html}
+  {opere_html}
   {nav_html}
   {cards_html}
   </div>
@@ -154,7 +156,24 @@ def card_html(slug, q):
 MIN_INDEXABLE_QUOTES = 3
 
 
-def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragraphs=None):
+def author_opere_html(author, opere):
+    """Blocco 'Opere di {Autore}' sulla pagina hub autore: chiude il cerchio
+    autore -> opera, che finora si percorreva solo nell'altro verso (dalla
+    pagina opera all'autore, e dalla pagina citazione all'opera). Riusa la
+    classe .related gia' definita per le correlate di fondo pagina citazione
+    - stesso blocco titolo+elenco di link, nessuna CSS nuova. Vuoto (nessun
+    blocco) per gli autori senza nessuna opera in data/opere.json."""
+    author_opere = [op for op in opere if op['author'] == author]
+    if not author_opere:
+        return ''
+    items = ''.join(
+        '<li><a href="/opere/' + op['slug'] + '/">' + html.escape(op['title']) + '</a></li>'
+        for op in author_opere
+    )
+    return '<div class="related sans"><h2>Opere di ' + html.escape(author) + '</h2><ul>' + items + '</ul></div>'
+
+
+def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragraphs=None, opere_html=''):
     count = len(items)
     count_suffix = 'i' if count != 1 else 'e'
     cards_html = '\n  '.join(card_html(s, q) for s, q in items)
@@ -251,6 +270,7 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
         count=count,
         count_suffix=count_suffix,
         intro_html=intro_html,
+        opere_html=opere_html,
         nav_html=nav_html,
         cards_html=cards_html,
     ), indexable
@@ -277,7 +297,9 @@ def assign_author_slugs(authors, slugs_data):
     return author_slugs_map, changed
 
 
-def main():
+def main(opere=None):
+    if opere is None:
+        opere = load_opere()
     quotes = load_quotes()
 
     slugs_data = load_slugs()
@@ -340,7 +362,8 @@ def main():
     for author, items in by_author.items():
         aslug = author_slugs[author]
         intro = hub_intros.get('autori', {}).get(author)
-        page, indexable = render_hub('autore', aslug, author, items, [], '', intro)
+        opere_html = author_opere_html(author, opere)
+        page, indexable = render_hub('autore', aslug, author, items, [], '', intro, opere_html)
         with open(os.path.join(autori_dir, aslug + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
         author_status[aslug] = indexable

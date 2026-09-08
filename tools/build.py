@@ -138,7 +138,7 @@ def main():
     op_status = op.main(qp_entries)
     rc_status = rp.main(qp_entries)
     raccolta_keys = {k for r in raccolte for k in r['quote_keys']}
-    hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main()
+    hp_entries, author_slugs, tema_status, genere_status, author_status = hp.main(opere)
     citazioni_index_urls = ip.main(qp_entries, author_slugs, tema_status, genere_status, opere, op_status, raccolte, rc_status)
     feed_path = feed.main(qp_entries)
     mine.main()
