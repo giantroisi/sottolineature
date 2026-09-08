@@ -3465,3 +3465,41 @@
   gruppo non tocca `quote_keys`). `python3 tools/check_links.py`: **Problemi totali: 0**.
   Verificata in browser locale `raccolte/morte.html` prima del commit. Nessuna modifica a
   `data/citazioni.json`. Prossimo: Parte 3, il resto delle candidate se avanza tempo.
+
+- **2026-09-08 18:17 UTC — lotto "finire la copertura delle raccolte", filosofia: 14 → 24**
+  (10/54 lette). La voce mancante nel dizionario di `tools/raccolte_da_ampliare.py` è stata
+  aggiunta da un'altra sessione su mia segnalazione del giro precedente; la rete allargata
+  (filosof-, saggezza, ragione, verità, pensiero, coscienza, esistenza, dubbio, virtù) ha reso
+  54 candidate come previsto, per lo più falsi positivi.
+
+  Criterio applicato, quello che l'introduzione della raccolta si è già data: **opera di
+  filosofia in senso proprio, non un romanzo/racconto/poesia/commedia che tocca un tema
+  filosofico.** Non basta che la parola trovata sia "vera filosofia" nel contenuto — Austen,
+  Tolstoj, Dostoevskij (non in lista ma per dire), Sartre stesso con «La Nausea» sono tutti
+  scartati perché il libro è un romanzo, non un trattato, anche quando la riga trovata è densa
+  di pensiero. Scartate per questo motivo 41 candidate su 54, fra cui tre già viste e respinte
+  nel giro precedente (Tabucchi, Voltaire «L'ingenuo», Amos Oz — romanzi che parlano di verità,
+  non opere di verità) e Verlaine (poesia lirica sulla malinconia, non un argomento filosofico).
+
+  **Accettate 10**, tutte da opere non narrative: Niccolò Machiavelli, *Discorsi sopra la prima
+  deca di Tito Livio* (trattato politico); Marco Aurelio, *Colloqui con sé stesso* (seconda
+  citazione, già un'opera della raccolta); Sant'Agostino, *Confessioni* (seconda citazione,
+  stesso motivo); Octavio Paz, *Il labirinto della solitudine* (saggio); Natalia Ginzburg, *Le
+  piccole virtù* (saggio); Herta Müller, *Parola d'autore* (prosa saggistica); Audre Lorde,
+  *Sorella Outsider* (raccolta di saggi); Isaac Asimov, dal suo libro di citazioni scientifiche
+  (non narrativa). Due ammesse con un margine più stretto, discusso qui perché non ovvio: C.S.
+  Lewis, *Diario di un dolore*, e Julian Barnes, *Livelli di vita* — entrambi nascono da un lutto
+  personale e hanno una componente narrativa/memorialistica, ma **la loro ragion d'essere è la
+  riflessione filosofico-teologica**, non il racconto di una vita (a differenza, per dire, delle
+  memorie scartate di Simone de Beauvoir, dove il pensiero resta incidentale alla narrazione
+  autobiografica) — stesso genere di «Consolazione della filosofia» di Boezio, già in raccolta,
+  scritta anch'essa affrontando la propria fine.
+
+  Introduzione riscritta da zero, 6 paragrafi (era 4), nomina tutte e 24 le opere.
+
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**, nuova
+  riga di rapporto: «Citazioni in almeno una raccolta: 601 / 830 = 72%». `python3
+  tools/check_links.py`: **Problemi totali: 0**. Verificata in browser locale prima del commit.
+  Nessuna modifica a `data/citazioni.json`. Prossimo: le altre raccolte in ordine di resa
+  (frasi-brevi, natura, donne, guerra, libri-e-scrittura, occhi-e-sguardo, famiglia, casa,
+  viaggio, animali).

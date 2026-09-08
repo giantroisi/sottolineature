@@ -1218,10 +1218,12 @@
     "title": "Filosofia",
     "h1": "Frasi e citazioni sulla filosofia",
     "intro": [
-      "Quattordici opere di filosofia in senso proprio, non pensieri di chi la filosofia l'ha solo vissuta nei romanzi. L'antichità apre la raccolta: Aristotele, nella «Metafisica», dice che tutti gli uomini per natura tendono al sapere; Platone fa morire Socrate nell'«Apologia» difendendo una vita esaminata come l'unica degna di un uomo; Marco Tullio Cicerone dedica un intero dialogo all'amicizia, definendola un accordo su ogni cosa divina e umana.",
-      "Vengono poi gli stoici, per cui il tempo e le opinioni contano più delle cose: Seneca, nel «De brevitate vitae», non si stanca di ripetere che il tempo non manca, si spreca; Epitteto, nel «Manuale», sostiene che a turbare gli uomini non sono le cose ma le opinioni che se ne fanno; Marco Aurelio, nei «Colloqui con sé stesso», scrive che sopprimere l'opinione basta a placare il mare in tempesta.",
-      "Boezio scrive la «Consolazione della filosofia» in un carcere, in attesa dell'esecuzione, e conclude che la sorte avversa giova più di quella favorevole, perché non inganna con l'apparenza della felicità. Sant'Agostino, nelle «Confessioni», si chiede cosa sia il tempo e scopre di saperlo benissimo finché nessuno glielo chiede; Montaigne, nei «Saggi», inventa il genere moderno osservando che si fatica più a interpretare le interpretazioni che le cose stesse; Kant immagina, «Per la pace perpetua», un ordine fra le nazioni che la natura da sola non garantisce.",
-      "Chiudono la raccolta quattro voci del pensiero più recente: Nietzsche e il superuomo dello «Zarathustra», Schopenhauer e il mondo che esiste solo come rappresentazione di chi lo pensa, Simone Weil sulla rivelazione greca che nessuno legge più fuori dagli specialisti, Camus che chiede di immaginare Sisifo felice proprio mentre spinge per l'eternità il suo masso."
+      "Ventiquattro opere di filosofia in senso proprio, non pensieri di chi la filosofia l'ha solo vissuta nei romanzi. L'antichità apre la raccolta: Aristotele, nella «Metafisica», dice che tutti gli uomini per natura tendono al sapere; Platone fa morire Socrate nell'«Apologia» difendendo una vita esaminata come l'unica degna di un uomo; Marco Tullio Cicerone dedica un intero dialogo all'amicizia, definendola un accordo su ogni cosa divina e umana.",
+      "Vengono poi gli stoici, per cui il tempo e le opinioni contano più delle cose: Seneca, nel «De brevitate vitae», non si stanca di ripetere che il tempo non manca, si spreca; Epitteto, nel «Manuale», sostiene che a turbare gli uomini non sono le cose ma le opinioni che se ne fanno; Marco Aurelio, nei «Colloqui con sé stesso», scrive che sopprimere l'opinione basta a placare il mare in tempesta, e che bisogna agire, parlare e pensare come se in ogni istante si potesse lasciare la vita.",
+      "Boezio scrive la «Consolazione della filosofia» in un carcere, in attesa dell'esecuzione, e conclude che la sorte avversa giova più di quella favorevole, perché non inganna con l'apparenza della felicità. Sant'Agostino, nelle «Confessioni», si chiede cosa sia il tempo e scopre di saperlo benissimo finché nessuno glielo chiede, e racconta altrove il momento preciso in cui le tenebre del dubbio si dissipano in lui. Niccolò Machiavelli, nei «Discorsi sopra la prima deca di Tito Livio», lega la virtù pubblica di una repubblica ai buoni esempi che la governano; Montaigne, nei «Saggi», inventa il genere moderno osservando che si fatica più a interpretare le interpretazioni che le cose stesse; Kant immagina, «Per la pace perpetua», un ordine fra le nazioni che la natura da sola non garantisce.",
+      "Il Novecento aggiunge voci che riflettono a partire da un'esperienza precisa, non da un sistema: Octavio Paz apre «Il labirinto della solitudine» chiedendosi cosa significhi essere soli quando la solitudine ha le stesse radici del sentimento religioso; Natalia Ginzburg, ne «Le piccole virtù», distingue le virtù che si insegnano ai figli da quelle grandi che si possono solo mostrare; Herta Müller, in «Parola d'autore», racconta una dittatura voce per voce, quasi lemma per lemma di un vocabolario personale; Audre Lorde, in «Sorella Outsider», sostiene che per le donne la poesia non è un lusso ma una necessità dell'esistenza.",
+      "Due libri nascono dal lutto e restano comunque filosofia, non narrativa: C.S. Lewis, nel «Diario di un dolore» scritto dopo la morte della moglie, scopre che l'infelicità è anche il pensiero continuo della propria infelicità; Julian Barnes, in «Livelli di vita», cerca nell'incontro fra verità e prodigio la definizione più esatta dell'amore che gli riesca di scrivere.",
+      "Chiudono la raccolta le voci del pensiero più recente: Nietzsche e il superuomo dello «Zarathustra», Schopenhauer e il mondo che esiste solo come rappresentazione di chi lo pensa, Simone Weil sulla rivelazione greca che nessuno legge più fuori dagli specialisti, Isaac Asimov sul divario fra la conoscenza che la scienza accumula e la saggezza che la società non riesce a raccogliere altrettanto in fretta, Camus che chiede di immaginare Sisifo felice proprio mentre spinge per l'eternità il suo masso."
     ],
     "quote_keys": [
       "Aristotele|Metafisica|Tutti gli uomini per natura tendono",
@@ -1237,7 +1239,17 @@
       "Immanuel Kant|Per la pace perpetua|Lo stato di pace fra esseri",
       "Simone Weil|La rivelazione greca|Circa duemilacinquecento anni fa in Grecia",
       "Michel de Montaigne|Saggi|C'è più da fare a interpretare",
-      "Albert Camus|Il mito di Sisifo|Bisogna immaginare Sisifo felice."
+      "Albert Camus|Il mito di Sisifo|Bisogna immaginare Sisifo felice.",
+      "Octavio Paz|Il labirinto della solitudine|La nostra solitudine ha le stesse",
+      "Natalia Ginzburg|Le piccole virtù|Per quanto riguarda l'educazione dei figli,",
+      "C.S. Lewis|Diario di un dolore|Ogni infelicità è in parte, per",
+      "Isaac Asimov|Isaac Asimov's Book of Science and Nature Quotations|L'aspetto più triste della vita in",
+      "Herta Müller|Parola d'autore. I lemmi del vocabolario europeo 2009|Lager, s.n.: campo. Da quando so",
+      "Audre Lorde|Sorella Outsider|Per le donne, quindi, la poesia",
+      "Niccolò Machiavelli|Discorsi sopra la prima deca di Tito Livio|Né si può chiamare in alcun",
+      "Marco Aurelio|Colloqui con sé stesso|Devi sempre agire, parlare e pensare,",
+      "Sant'Agostino|Confessioni|Non volli leggere oltre, né mi",
+      "Julian Barnes|Livelli di vita|L'amore è il punto d'incontro fra"
     ]
   },
   {
