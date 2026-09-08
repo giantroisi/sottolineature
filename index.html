@@ -1989,7 +1989,16 @@ html:not(.js) .js-only { display: none !important; }
     })();
 
     function normalize(str) {
-      return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+      // La punteggiatura diventa spazio. Prima non lo era, e la ricerca era un
+      // semplice indexOf sul testo intero: cercare «amor ch'a nullo amato» —
+      // cioe' il verso ESATTO — dava zero risultati, perche' nel testo dopo
+      // «Amor» c'e' una virgola e la sottostringa non combaciava. Funzionava
+      // solo un pezzo senza punteggiatura in mezzo, tipo «nullo amato amar
+      // perdona». Scoperto l'8 settembre 2026 guardando Search Console: le
+      // varianti di quel verso sono la prima fonte di impressioni del sito, e
+      // chi arrivava qui e ricercava trovava il vuoto.
+      return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '')
+                .replace(/[^a-z0-9\s]+/g, ' ').replace(/\s+/g, ' ').trim();
     }
 
     function slugify(str) {
@@ -2113,7 +2122,12 @@ html:not(.js) .js-only { display: none !important; }
       if (vocabolario) { return vocabolario; }
       var conta = {};
       cards.forEach(function (card) {
-        var grezzo = card.querySelector('.card-author').textContent + ' ' +
+        // Anche il testo della citazione, non solo autore e titolo: senza,
+        // «nulla» non poteva essere corretto in «nullo», perche' «nullo» sta
+        // nel verso e non in un titolo — ed e' esattamente l'errore che la
+        // gente fa arrivando qui da Google.
+        var grezzo = card.querySelector('.card-quote').textContent + ' ' +
+                     card.querySelector('.card-author').textContent + ' ' +
                      card.querySelector('.card-title').textContent;
         grezzo.split(/[^\wÀ-ÿ']+/).forEach(function (parola) {
           var chiave = normalize(parola);
@@ -2254,12 +2268,35 @@ html:not(.js) .js-only { display: none !important; }
         var genreOk = activeGenre === 'tutti' || cardGenres.indexOf(activeGenre) !== -1;
         var searchOk = true;
         if (term) {
-          var haystack = normalize(
-            card.querySelector('.card-quote').textContent + ' ' +
-            card.querySelector('.card-author').textContent + ' ' +
-            card.querySelector('.card-title').textContent
-          );
-          searchOk = haystack.indexOf(term) !== -1;
+          // Il testo normalizzato si calcola una volta sola per scheda: prima
+          // si rileggeva il DOM di 830 schede a ogni tasto premuto.
+          var haystack = card.__cerca;
+          if (haystack === undefined) {
+            haystack = normalize(
+              card.querySelector('.card-quote').textContent + ' ' +
+              card.querySelector('.card-author').textContent + ' ' +
+              card.querySelector('.card-title').textContent
+            );
+            card.__cerca = haystack;
+          }
+          // Tutte le parole cercate devono comparire, in qualunque ordine: chi
+          // ricorda un verso a memoria sbaglia l'ordine e salta le parole
+          // piccole, e pretendere la frase esatta lo lascia a mani vuote.
+          //
+          // Le parole di tre lettere o meno non si pretendono: sono articoli e
+          // congiunzioni, e sono proprio quelle che la memoria riscrive.
+          // «amor CHE nulla amato» e' la ricerca piu' frequente che arriva a
+          // questo sito, e nel verso non c'e' nessun «che»: c'e' «ch'a». Se la
+          // si pretende, la ricerca piu' importante del sito non trova niente.
+          // Se la richiesta e' fatta di sole parole corte, allora si pretendono
+          // tutte: cercare «se» deve pur voler dire qualcosa.
+          var parole = term.split(' ');
+          var lunghe = parole.filter(function (w) { return w.length > 3; });
+          var richieste = lunghe.length ? lunghe : parole;
+          searchOk = true;
+          for (var pi = 0; pi < richieste.length; pi++) {
+            if (haystack.indexOf(richieste[pi]) === -1) { searchOk = false; break; }
+          }
         }
         var visible = categoryOk && genreOk && searchOk;
         card.style.display = visible ? '' : 'none';
