@@ -267,8 +267,6 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     </blockquote>
     <div class="card-body">
       <figcaption class="card-citation sans">— <a href="/autori/{author_slug}/" class="card-author">{author}</a>, <cite class="card-title">{title}</cite>{year_html}</figcaption>
-      {context_html}
-      {source_html}
     </div>
     {cover_html}
   </figure>
@@ -304,6 +302,17 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <textarea id="quoteNoteField" class="quote-note-field sans" rows="2" placeholder="Perché ti ha colpita? (facoltativo)"></textarea>
     <p class="quote-note-print sans" id="quoteNotePrint" hidden></p>
     <p class="quote-note-hint">Resta su questo dispositivo. La ritrovi in <a href="/le-mie-sottolineature/">Le mie sottolineature</a>.</p>
+  </div>
+  <!-- Contesto e fonte stanno DOPO i pulsanti, non prima. Misurato l'8 settembre
+       2026 su uno schermo da 812px: prima la riga «Copia / Condividi /
+       Sottolinea» cadeva a 1126px dall'alto, cioe' una schermata e mezza sotto
+       la citazione, perche' in mezzo c'erano tutto il contesto e il blocco
+       fonte. Chi arriva per condividere una frase non deve leggere ottanta
+       parole per trovare il pulsante; chi vuole il significato scorre di poco,
+       e lo trova subito sotto. -->
+  <div class="quote-detail">
+    {context_html}
+    {source_html}
   </div>
   {tags_html}
   <p class="segnala sans"><a class="segnala-errore" href="{segnala_href}">Segnala un errore in questa citazione</a></p>
