@@ -773,6 +773,20 @@
    "tipo": "libro",
    "orig": "La scienza in cucina e l'arte di mangiar bene",
    "aOrig": "Pellegrino Artusi"
+  },
+  {
+   "a": "Walter Bonatti",
+   "t": "Montagne di una vita",
+   "tipo": "libro",
+   "orig": "Montagne di una vita",
+   "aOrig": "Walter Bonatti"
+  },
+  {
+   "a": "Erri De Luca",
+   "t": "Sulla traccia di Nives",
+   "tipo": "libro",
+   "orig": "Sulla traccia di Nives",
+   "aOrig": "Erri De Luca"
   }
  ],
  "bocciate_a_vista": {

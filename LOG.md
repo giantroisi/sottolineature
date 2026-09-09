@@ -3711,3 +3711,22 @@
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 843 citazioni, 262 autori, arte pubblicata a 15 — prima delle otto a chiudere il
   lotto sul bersaglio pieno.
+
+- 2026-09-09 18:46 UTC — **raccolte magre, lotto 7/8: montagna 13 → 15, bersaglio raggiunto.**
+  Prima ricerca (Nan Shepherd, «La montagna vivente») scartata: la citazione trovata online non
+  era riconducibile con certezza alla traduzione italiana pubblicata (Carlo Capararo, Ponte alle
+  Grazie 2018) — un articolo la citava senza indicare il traduttore. Ripartiti da Wikiquote, dove
+  due autori di montagna hanno pagine ricche e ben referenziate.
+  **2 citazioni aggiunte:**
+  - Walter Bonatti, «Montagne di una vita», «Preliminari» p. 14 — «La montagna mi ha insegnato a
+    non barare...», confermata su Wikiquote (Baldini & Castoldi, 2013). **Autore nuovo
+    dell'archivio**: scheda e sameAs Wikidata aggiunti (Q53729).
+  - Erri De Luca, «Sulla traccia di Nives», p. 60 — «La montagna è per me un luogo deserto dove
+    si vede il mondo», confermata su Wikiquote (Mondadori, 2005) fra 59 citazioni referenziate
+    pagina per pagina dallo stesso libro. **Primo titolo nuovo di De Luca in archivio** (aveva
+    già 4 citazioni da altre due opere).
+  Introduzione di **montagna** allungata con un quinto paragrafo su queste due voci. Copertine
+  di entrambe le opere non trovate da qui, aggiunte a `tools/copertine_titoli.json`.
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 845 citazioni, 263 autori, montagna pubblicata a 15 — seconda delle otto a chiudere
+  il lotto sul bersaglio pieno.
