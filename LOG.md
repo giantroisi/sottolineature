@@ -3669,3 +3669,28 @@
   edizioni non identificate): senza la certezza della traduzione giusta, si scarta.
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 839 citazioni, 260 autori, cibo pubblicata a 12.
+
+- 2026-09-09 17:29 UTC — **raccolte magre, lotto 5/8: silenzio 12 → 14.** Terzo caso di
+  candidati genuini scartati per incertezza sulla wording (dopo Tolstoj e Spinoza): Seneca,
+  lettera 56 a Lucilio (sul rumore del bagno pubblico sotto casa e la vera quiete che sta
+  nell'animo, non nel quartiere) — passo autentico, ritrovato per intero in un PDF di dominio
+  amatoriale, ma due fonti diverse danno due traduzioni italiane diverse della stessa frase
+  chiave, nessuna delle due riconducibile con certezza a un'edizione con traduttore dichiarato.
+  Stessa sorte per Max Picard, «Il mondo del silenzio» (il libro sul tema per eccellenza): testo
+  trovato per intero, ma esistono almeno due traduzioni italiane note (Carla di Scipio, Comunità
+  1951; Jean-Luc Egger, Servitium 2007) e non è verificabile quale delle due sia quella
+  riportata nella fonte trovata online.
+  **2 citazioni aggiunte, verificate su Wikiquote con edizione dichiarata:**
+  - Franz Kafka, «Il silenzio delle sirene» — la chiosa finale sul mito di Ulisse: forse le
+    Sirene tacquero davvero, e lui usò la propria finta paura come scudo anche contro gli dèi.
+    Confermata su Wikiquote (trad. Giulio Schiavoni, BUR 1985). Racconto breve dentro
+    un'antologia: nessuna copertina propria, per sempre (punto 8-bis).
+  - Fernando Pessoa, «L'educazione dello stoico», p. 69 — «L'uomo ha solamente, di suo proprio,
+    l'onore o il silenzio», dalla confessione del Barone di Teive, già presente in archivio con
+    altre due citazioni dallo stesso libro: stessa edizione (Einaudi 2005, trad. Luciana
+    Stegagno Picchio), copertina riusata.
+  Introduzione di **silenzio** allungata con un quarto paragrafo su queste due voci.
+  `python3 tools/build.py`: prima verifica ha segnalato una **description duplicata** (il
+  contesto di Pessoa iniziava con la stessa frase di una citazione già pubblicata dallo stesso
+  libro) — riscritto prima del commit. Dopo la correzione: **Problemi totali: 0**, **Nessun
+  errore nei dati strutturati**. Archivio a 841 citazioni, silenzio pubblicata a 14.
