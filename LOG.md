@@ -3545,3 +3545,47 @@
   offrire con questo criterio di lettura; un salto ulteriore di copertura richiederebbe o nuove
   citazioni in `data/citazioni.json` (fuori dal perimetro di questo lotto) o una raccolta nuova
   su un tema non ancora coperto.
+
+- 2026-09-09 16:59 UTC — **le raccolte magre, metodo ribaltato: dal tema all'autore, non più
+  dall'autore al tema.** Il giro del 9 settembre aveva riletto 89 candidate già scartate senza
+  trovarne una nuova: l'archivio attuale è saturo per quel criterio. Otto raccolte da far
+  crescere (fiori 8, musica 9, pace 9, cibo 10, silenzio 12, arte 13, montagna 13, casa 14),
+  bersaglio 15 ciascuna senza forzare. Primo lotto: **fiori**, la più urgente (8 = soglia minima
+  di pubblicazione). Fonti consultate, per candidato: Wikisource (Il piccolo principe, trad.
+  Franco Perini 2016; Le Metamorfosi, trad. Anguillara 1561), emilydickinson.it (trad. Giuseppe
+  Ierolli, indice Johnson), Wikiquote + Project Gutenberg (Stray Birds/Uccelli migranti, edizione
+  1918 già in archivio) — ognuna incrociata con almeno una seconda fonte prima di accettare.
+  **4 citazioni aggiunte, fiori 8 → 12:**
+  - Antoine de Saint-Exupéry, «Il piccolo principe», cap. VIII — «Non si deve mai dare ascolto a
+    un fiore. Ci si deve limitare a rimirarli e annusarli»: il piccolo principe ripensa alla rosa
+    lasciata sul proprio pianeta, capendo di essersi lasciato ingannare dalle sue parole invece
+    che dai suoi gesti. Copertina riusata dall'opera già in archivio.
+  - Emily Dickinson, «Poesie», J35/F11 — «Nessuno conosce questa piccola rosa…», versi scritti
+    nel 1858 per accompagnare in dono una rosa colta lungo il cammino. Copertina riusata
+    dall'edizione «Poesie» già in archivio (corretto in corsa: inizialmente lasciata vuota per
+    errore, poi sistemata seguendo la stessa regola 8-bis delle altre citazioni sotto lo stesso
+    titolo).
+  - Rabindranath Tagore, «Uccelli migranti», aforisma 102 — «Non v'indugiate a coglier fiori per
+    tenerli in serbo…», confermato sull'originale inglese «Stray Birds» di Tagore stesso
+    (Gutenberg #6524, stesso numero 102). Copertina riusata dall'opera già in archivio.
+  - Ovidio, «Le metamorfosi», libro III — «Fatto era il corpo del color del croco…», il verso
+    della trasformazione di Narciso in fiore. **Primo autore classico latino nuovo dell'archivio**
+    dopo Seneca/Marco Aurelio/Cicerone: aggiunta la scheda autore e il collegamento Wikidata
+    (Q7198, verificato su Wikipedia IT). Copertina non trovata (Open Library irraggiungibile da
+    qui): opera nuova, quindi aggiunta a `tools/copertine_titoli.json` per il recupero via
+    browser. Citazione messa anche in **natura** (33 chiavi), unica delle quattro che ci sta
+    davvero: è un mito eziologico su come è nato un fiore reale.
+  Introduzione di **fiori** allungata con un quarto paragrafo che nomina le quattro voci nuove.
+  **Scartati, non pubblicati:** Colette («Flore et Pomone», nessuna traduzione italiana
+  verificabile trovata), Katherine Mansfield («The Garden Party», la frase sulle rose citata su
+  più siti ma senza un'edizione italiana specifica da cui risalire alla wording esatta — fonti
+  discordanti), Rilke (l'epitaffio «Rosa, oh pura contraddizione» ha almeno quattro varianti di
+  traduzione in giro e non è comunque un'opera pubblicata con un luogo nel testo, solo
+  un'iscrizione funeraria), Proust (il passo dei biancospini in «Dalla parte di Swann» è famoso
+  ma troppo lungo e composito per isolarne una riga fedele senza il libro in mano), un aforisma
+  di Tagore sul fiore nascosto nell'erba (esiste solo su siti aggregatori, mai su Wikiquote né in
+  nessuna edizione — scartato per la stessa regola che vale per ogni altro autore), un haiku di
+  Bashō (le traduzioni italiane di haiku variano troppo tra loro per fidarsene senza il testo a
+  fronte). `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati
+  strutturati**. Archivio a 834 citazioni, 258 autori, fiori pubblicata sopra soglia con margine
+  (12, non più 8).

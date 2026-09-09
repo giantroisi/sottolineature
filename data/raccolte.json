@@ -766,7 +766,8 @@
       "William Shakespeare|Romeo e Giulietta|Di tutta la natura la terra",
       "Alessandro Baricco|Oceano mare|La natura ha una sua perfezione",
       "Virginia Woolf|La camera di Jacob|Troppo spesso le parole sono state",
-      "Chinua Achebe|The Role of a Writer in a New Nation|Fra gli Ibo c'è un proverbio,"
+      "Chinua Achebe|The Role of a Writer in a New Nation|Fra gli Ibo c'è un proverbio,",
+      "Ovidio|Le metamorfosi|Fatto era il corpo del color"
     ]
   },
   {
@@ -1356,7 +1357,8 @@
     "intro": [
       "«Che cosa c'è in un nome? Ciò che chiamiamo rosa, con un altro nome avrebbe lo stesso profumo»: la domanda di Giulietta a William Shakespeare regala alla rosa il ruolo di fiore più citato della letteratura occidentale, quello a cui si affida per parlare non di petali ma di essenza. Umberto Eco chiude «Il nome della rosa» allo stesso modo, con un verso latino — «Stat rosa pristina nomine, nomina nuda tenemus» — che dice l'opposto e lo stesso: della rosa antica resta solo il nome.",
       "È un fiore che torna spesso come immagine più che come pianta: nell'«Orlando furioso» di Ludovico Ariosto descrive la carnagione di una dama, «misto color di rose e di ligustri», e in «Storie di cronopios e di fama» di Julio Cortázar diventa il paradosso di un regalo — un orologio come «un piccolo inferno fiorito, una catena di rose». Cormac McCarthy, in «Meridiano di sangue», usa invece il fiorire come metafora del culmine di una vita, che per l'uomo coincide già con l'inizio del suo tramonto.",
-      "E poi ci sono i fiori come presenza reale, quasi un gesto quotidiano: la signora Dalloway di Virginia Woolf che apre il romanzo annunciando che i fiori per la festa «li avrebbe comprati lei», o Voltaire che nel «Candido» affida a un giardino — «bisogna coltivare il nostro giardino» — la morale di un intero romanzo filosofico. Mario Rigoni Stern, ne «Uomini, boschi e api», chiude il cerchio riportando i fiori alla loro forma più semplice: i ciliegi in primavera, e le api che ne raccolgono il nettare."
+      "E poi ci sono i fiori come presenza reale, quasi un gesto quotidiano: la signora Dalloway di Virginia Woolf che apre il romanzo annunciando che i fiori per la festa «li avrebbe comprati lei», o Voltaire che nel «Candido» affida a un giardino — «bisogna coltivare il nostro giardino» — la morale di un intero romanzo filosofico. Mario Rigoni Stern, ne «Uomini, boschi e api», chiude il cerchio riportando i fiori alla loro forma più semplice: i ciliegi in primavera, e le api che ne raccolgono il nettare.",
+      "Ci sono poi i fiori come lezione e come origine. Antoine de Saint-Exupéry fa dire al piccolo principe, ripensando alla propria rosa, che un fiore non va ascoltato ma guardato e respirato; Rabindranath Tagore, in «Uccelli migranti», ne fa un'immagine di ciò che è bello e passeggero, da non trattenere lungo il cammino. Emily Dickinson accompagna in dono una rosa colta per strada con una manciata di versi, ed Ovidio, nelle «Metamorfosi», racconta come sia nato il narciso: dal corpo del giovane innamorato del proprio riflesso, morto senza mai riuscire a possederlo."
     ],
     "quote_keys": [
       "Virginia Woolf|La signora Dalloway|La signora Dalloway disse che i",
@@ -1366,7 +1368,11 @@
       "Cormac McCarthy|Meridiano di sangue|Tutte le cose del mondo sbocciano,",
       "Julio Cortázar|Storie di cronopios e di fama|Pensa a questo: quando ti regalano",
       "Ludovico Ariosto|Orlando furioso|Di persona era tanto ben formata,",
-      "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il"
+      "Mario Rigoni Stern|Uomini, boschi e api|Vorrei che tutti potessero ascoltare il",
+      "Antoine de Saint-Exupéry|Il piccolo principe|Non si deve mai dare ascolto",
+      "Emily Dickinson|Poesie|Nessuno conosce questa piccola rosa —",
+      "Rabindranath Tagore|Uccelli migranti|Non v'indugiate a coglier fiori per",
+      "Ovidio|Le metamorfosi|Fatto era il corpo del color"
     ]
   }
 ]

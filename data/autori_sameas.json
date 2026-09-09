@@ -1026,5 +1026,9 @@
   "Émile Zola": {
     "wikipedia": "https://it.wikipedia.org/wiki/%C3%89mile_Zola",
     "wikidata": "https://www.wikidata.org/wiki/Q504"
+  },
+  "Ovidio": {
+    "wikipedia": "https://it.wikipedia.org/wiki/Publio_Ovidio_Nasone",
+    "wikidata": "https://www.wikidata.org/wiki/Q7198"
   }
 }
