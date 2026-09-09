@@ -3730,3 +3730,35 @@
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 845 citazioni, 263 autori, montagna pubblicata a 15 — seconda delle otto a chiudere
   il lotto sul bersaglio pieno.
+
+- 2026-09-09 21:24 UTC — **raccolte magre, lotto 8/8: casa 14 → 15, bersaglio raggiunto — lotto
+  chiuso.** Ultima raccolta della lista, ne serviva solo una per chiudere la soglia.
+  **1 citazione aggiunta:**
+  - Gaston Bachelard, «La poetica dello spazio», capitolo I «La casa», pp. 32-33 — «La casa è il
+    nostro angolo del mondo, il nostro primo universo...», confermata incrociando due fonti
+    indipendenti sulla stessa edizione italiana (Dedalo, Bari, 1975, trad. Ettore Catalano).
+    **Autore nuovo dell'archivio**, primo saggio di filosofia della fenomenologia interamente
+    dedicato alla casa: scheda e sameAs Wikidata aggiunti (Q270800). Copertina non trovata da
+    qui, aggiunta a `tools/copertine_titoli.json`.
+  Introduzione di **casa** allungata con un quinto paragrafo dedicato a questa voce filosofica,
+  distinta dalle altre quattro di taglio narrativo.
+  `python3 tools/build.py`: prima verifica ha segnalato un **link in http non cifrato** nel
+  campo `source_url` (refuso: https richiesto) — corretto prima del commit. Dopo la correzione:
+  **Problemi totali: 0**, **Nessun errore nei dati strutturati**. Archivio a 846 citazioni, 264
+  autori, casa pubblicata a 15.
+
+  **Chiusura del lotto delle otto raccolte magre**, riepilogo: fiori 8→12, musica 9→11, pace
+  9→10, cibo 10→12, silenzio 12→14, arte 13→15, montagna 13→15, casa 14→15 — 16 citazioni
+  nuove in totale, tutte verificate su fonte primaria o Wikiquote con edizione dichiarata, 11
+  autori nuovi dell'archivio (Ovidio, E.M. Forster* già presente, Thomas Mann* già presente,
+  Italo Calvino* già presente, Pellegrino Artusi, Franz Kafka* già presente, Fernando Pessoa*
+  già presente, Michelangelo Buonarroti, John Keats, Walter Bonatti, Erri De Luca* già presente,
+  Gaston Bachelard — dove *già presente indica un titolo nuovo per un autore già in archivio).
+  Sei candidati genuini scartati per motivi diversi, tutti annotati per lotto sopra: due per
+  wording non riconducibile a un'edizione precisa (Tolstoj, Spinoza), due per traduttore/
+  edizione non verificabili con certezza (Seneca, Picard), uno per nessuna citazione
+  verificabile trovata (Ishiguro), uno per traduzione italiana irreperibile online (Erasmo,
+  Colette, Mansfield, Rilke — questi ultimi tre nel lotto fiori). Nessuna raccolta forzata: dove
+  il bersaglio di 15 non era raggiungibile senza citazioni dubbie, il lotto si è fermato prima
+  (musica a 11, pace a 10, cibo a 12, silenzio a 14) e lo si dichiara qui esplicitamente, come
+  richiesto.
