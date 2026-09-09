@@ -6,17 +6,17 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f2f0eb">
 <title>Sottolineature — citazioni da libri</title>
-<meta name="description" content="836 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o tema, o lasciati sorprendere.">
+<meta name="description" content="837 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o tema, o lasciati sorprendere.">
 <link rel="canonical" href="https://sottolineature.it/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Sottolineature — citazioni da libri">
-<meta property="og:description" content="836 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o tema, o lasciati sorprendere.">
+<meta property="og:description" content="837 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o tema, o lasciati sorprendere.">
 <meta property="og:image" content="https://sottolineature.it/og-banner.png">
 <meta property="og:url" content="https://sottolineature.it/">
 <meta property="og:site_name" content="Sottolineature">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Sottolineature — citazioni da libri">
-<meta name="twitter:description" content="836 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o tema, o lasciati sorprendere.">
+<meta name="twitter:description" content="837 citazioni da libri raccolte e verificate a mano, senza algoritmo — romanzi, poesie, saggi. Cerca per autore, parola o tema, o lasciati sorprendere.">
 <meta name="twitter:image" content="https://sottolineature.it/og-banner.png">
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -1156,10 +1156,47 @@ html:not(.js) .js-only { display: none !important; }
 
   <section class="hero" id="hero">
     <p class="hero-label sans" id="heroLabel">Citazione del giorno</p>
-    <p id="heroQuote">«Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita.»</p>
-    <p id="heroCitation" class="sans">
-      <span class="card-author">Dante Alighieri</span> — <span class="card-title">Inferno, Divina Commedia</span> · <span class="card-year">1321</span>
-    </p>
+    <p id="heroQuote">«L&#x27;amicizia non è niente altro che un accordo su tutte le cose divine ed umane, con benevolenza ed affetto.»</p>
+    <p id="heroCitation" class="sans"><span class="card-author">Marco Tullio Cicerone</span> — <span class="card-title">L&#x27;amicizia</span> · <span class="card-year">44 a.C.</span></p>
+    <script>
+      /* La citazione del giorno, scelta prima del disegno.
+         Prima stava solo in fondo alla pagina: la sceglieva dailyQuote()
+         leggendo le 836 card, e le card arrivano con assets/home-resto.js,
+         che su un telefono lento tiene fermo il parser cinque secondi. Per
+         cinque secondi si leggeva quindi la citazione scritta nel modello, e
+         poi cambiava sotto gli occhi - un lampo visibile, e 0,02 di CLS.
+         Qui l'HTML esce gia' con la citazione del giorno della build, e
+         questa tabella copre i giorni seguenti (l'anno, il mese e il giorno
+         sono quelli del fuso di chi legge, come nel calcolo in fondo): finche'
+         il giorno e' in tabella non cambia piu' niente dopo il disegno.
+         Se il sito non viene ricostruito per piu' di un mese la tabella
+         finisce e si torna al comportamento di prima, che resta valido. */
+      (function () {
+        var giorni = {"20260908": ["L'amicizia è sempre una dolce responsabilità, ma non è mai un'opportunità.", "Khalil Gibran", "Il Profeta", "1923"], "20260909": ["L'amicizia non è niente altro che un accordo su tutte le cose divine ed umane, con benevolenza ed affetto.", "Marco Tullio Cicerone", "L'amicizia", "44 a.C."], "20260910": ["Già so un'altra cagione del tuo male, e gravissima. Tu hai sdimenticato quello che tu sii.", "Boezio", "Della consolazione della filosofia", "524 d.C. ca."], "20260911": ["Tre metamorfosi dello spirito io vi narro: com'esso divenne un cammello, e di cammello leone e di leone un fanciullo.", "Friedrich Nietzsche", "Così parlò Zarathustra", "1883"], "20260912": ["Chi non ama la solitudine non ama la libertà, perché non si è liberi che essendo soli.", "Arthur Schopenhauer", "Aforismi sulla saggezza del vivere", "1851"], "20260913": ["Cambiando stato, voglio cambiar costume; e lor signori ancora profittino di quanto hanno veduto, in vantaggio e sicurezza del loro cuore.", "Carlo Goldoni", "La locandiera", "1753"], "20260914": ["Nella città d'Asti in Piemonte, il dì 17 di Gennaio dell'anno 1749, io nacqui di nobili, agiati, ed onesti parenti.", "Vittorio Alfieri", "Vita", "1804"], "20260915": ["Il sacrificio della patria nostra è consumato: tutto è perduto; e la vita, seppure ne verrà concessa, non ci resterà che per piangere le nostre sciagure e la nostra infamia.", "Ugo Foscolo", "Ultime lettere di Jacopo Ortis", "1802"], "20260916": ["Suonava la messa dell'alba a San Giovanni; ma il paesetto dormiva ancora della grossa, perché era piovuto da tre giorni, e nei seminati ci si affondava fino a mezza gamba.", "Giovanni Verga", "Mastro-don Gesualdo", "1889"], "20260917": ["T'amo molto e per il tuo bene desidero ci si metta d'accordo di andare molto cauti.", "Italo Svevo", "Senilità", "1898"], "20260918": ["Non son, non sono io quel che paio in viso: quel ch'era Orlando è morto et è sotterra.", "Ludovico Ariosto", "Orlando furioso", "1516"], "20260919": ["Amico hai vinto; io ti perdon: perdona tu ancora, al corpo no che nulla pave, all'alma sí: deh per lei prega, e dona battesmo a me, ch'ogni mia colpa lave.", "Torquato Tasso", "Gerusalemme liberata", "1581"], "20260920": ["Ero sempre imbarazzato dalle parole sacro, glorioso e sacrificio e dall'espressione invano.", "Ernest Hemingway", "Addio alle armi", "1929"], "20260921": ["I desiderî nòmadi ed atàvici squassano la catena sociale; nuovamente, dal suo sonno letàrgico, si risveglia la bestia primordiale.", "Jack London", "Il richiamo della foresta", "1903"], "20260922": ["Senza musica la vita sarebbe un errore.", "Friedrich Nietzsche", "Il crepuscolo degli idoli", "1888"], "20260923": ["Qui vi è una santità che fa arrossire le nostre religioni, ed una realtà che scredita i nostri eroi.", "Ralph Waldo Emerson", "La natura", "1844"], "20260924": ["Lo stato di pace fra esseri umani che vivono in reciproca vicinanza non è uno stato di natura, il quale è piuttosto uno stato di guerra.", "Immanuel Kant", "Per la pace perpetua", "1795"], "20260925": ["Si può e si deve combattere perché il frutto del lavoro rimanga nelle mani di chi lo fa, e perché il lavoro stesso non sia una pena.", "Primo Levi", "La chiave a stella", "1978"], "20260926": ["Era l'immagine della stanzetta dello zio Adolphe, a Combray, che esalava infatti lo stesso profumo di umidità.", "Marcel Proust", "Alla ricerca del tempo perduto", "1913"], "20260927": ["Vedi là, amico Sancio, come si vengono manifestando trenta, o poco più smisurati giganti? Io penso di azzuffarmi con essi, e levandoli di vita cominciare ad arricchirmi colle loro spoglie.", "Miguel de Cervantes", "Don Chisciotte della Mancia", "1605"], "20260928": ["Nelle azioni di tutti gli uomini, e massime de' Principi, dove non è giudizio a chi reclamare, si guarda al fine. Facci adunque un Principe conto di vivere e mantenere lo Stato; i mezzi saranno sempre giudicati onorevoli, e da ciascuno lodati.", "Niccolò Machiavelli", "Il Principe", "1513"], "20260929": ["Vanità e orgoglio sono cose molto diverse, benché le due parole siano spesse usate come sinonimi. Si può essere orgogliosi senza essere vanitosi.", "Jane Austen", "Orgoglio e pregiudizio", "1813"], "20260930": ["Due sono le cose che ognuno deve far da sé: avvicinarsi a Dio e imparare a vivere la propria vita.", "Zora Neale Hurston", "I loro occhi guardavano Dio", "1937"], "20261001": ["La misura della nostra umanità dipende, in parte, da come consideriamo chi è diverso da noi. Non possiamo – non dovremmo – provare empatia solo per chi è come noi.", "Chimamanda Ngozi Adichie", "Il mio buio oltre la siepe", "2015"], "20261002": ["Loda soltanto la quinta stagione dell'anno: respira l'ultima libertà, poiché questo è l'amore. Il cielo è svettato in alto, i profili delle case sono leggeri e il corpo non celebra più l'anniversario della sua malinconia.", "Anna Achmatova", "Lo stormo bianco", "1917"], "20261003": ["La prima volta che Jean-Claude Pelletier lesse Benno von Arcimboldi fu all'età di diciannove anni, durante le feste di Natale del 1980, a Parigi, dove studiava letteratura tedesca all'università. Il libro in questione era D'Arsonval.", "Roberto Bolaño", "2666", "2004"], "20261004": ["Per me si fa politica in ogni momento della vita: quello che mangiamo è politica, come trattiamo gli animali è politica, la natura è politica. Anche i nostri vestiti lo sono.", "Olga Tokarczuk", "Il mio caffè con la Szymborska", "2019"], "20261005": ["A mancarci è l'immaginazione, l'empatia: non siamo riusciti a fare nostra questa realtà.", "Susan Sontag", "Davanti al dolore degli altri", "2003"], "20261006": ["L'uomo muore in tutti coloro che conservano il silenzio di fronte alla tirannia.", "Wole Soyinka", "L'uomo è morto", "1972"], "20261007": ["Il fanatico è un punto esclamativo ambulante. La lotta contro il fanatismo farebbe bene a non replicare con un punto esclamativo opposto.", "Amos Oz", "Cari fanatici", "2017"], "20261008": ["Lager, s.n.: campo. Da quando so pensare, mia madre dice: Il freddo è peggiore della fame. Oppure: Il vento è più freddo della neve. Oppure: Una patata calda è un letto caldo.", "Herta Müller", "Parola d'autore. I lemmi del vocabolario europeo 2009", "2009"], "20261009": ["È nel rapporto con gli altri che si prende coscienza di sé: ed è proprio questo a rendere insopportabile il rapporto con gli altri.", "Michel Houellebecq", "Piattaforma nel centro del mondo", "2001"]};
+        var d = new Date();
+        var k = String(d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate());
+        var v = giorni[k];
+        if (!v) { return; }
+        var q = document.getElementById('heroQuote');
+        var c = document.getElementById('heroCitation');
+        if (!q || !c) { return; }
+        var testo = '\u00ab' + v[0] + '\u00bb';
+        if (q.textContent === testo) { return; }
+        q.textContent = testo;
+        while (c.firstChild) { c.removeChild(c.firstChild); }
+        function pezzo(cls, txt) {
+          var s = document.createElement('span');
+          s.className = cls;
+          s.textContent = txt;
+          return s;
+        }
+        c.appendChild(pezzo('card-author', v[1]));
+        c.appendChild(document.createTextNode(' \u2014 '));
+        c.appendChild(pezzo('card-title', v[2]));
+        c.appendChild(document.createTextNode(' \u00b7 '));
+        c.appendChild(pezzo('card-year', v[3]));
+      })();
+    </script>
     <div class="hero-actions">
       <button class="shuffle-btn sans js-only" id="shuffleBtn" type="button">↻ un'altra citazione</button>
       <button class="hero-copy-btn sans js-only" id="heroCopyBtn" type="button">Copia citazione</button>
@@ -1188,7 +1225,7 @@ html:not(.js) .js-only { display: none !important; }
   </section>
 
   <p class="lede">
-    Ottocentotrentasei righe segnate a matita in libri diversi — romanzi, poesie, pagine che si
+    Ottocentotrentasette righe segnate a matita in libri diversi — romanzi, poesie, pagine che si
     aprono sempre nello stesso punto. Sfoglia per tema, o lasciati sorprendere.
   </p>
   </div>
@@ -1247,7 +1284,7 @@ html:not(.js) .js-only { display: none !important; }
       <li><a href="/raccolte/"><span class="explore-name">Raccolte</span><span class="explore-count">33</span><span class="explore-desc">Selezioni curate a mano attorno a un tema</span></a></li>
       <li><a href="/temi/"><span class="explore-name">Temi</span><span class="explore-count">7</span><span class="explore-desc">Non una classificazione rigida: la stessa pagina può stare in più temi</span></a></li>
       <li><a href="/generi/"><span class="explore-name">Generi</span><span class="explore-count">6</span><span class="explore-desc">Fantasy, fantascienza, distopia, horror, saggistica</span></a></li>
-      <li><a href="/citazioni/"><span class="explore-name">Tutte le citazioni</span><span class="explore-count">836</span><span class="explore-desc">L'archivio completo, pagina per pagina</span></a></li>
+      <li><a href="/citazioni/"><span class="explore-name">Tutte le citazioni</span><span class="explore-count">837</span><span class="explore-desc">L'archivio completo, pagina per pagina</span></a></li>
     </ul>
   </nav>
 
@@ -1260,8 +1297,8 @@ html:not(.js) .js-only { display: none !important; }
       <li><a href="/citazioni/ovidio-le-metamorfosi/"><span class="strip-quote">«Fatto era il corpo del color del croco, un fior da bianche foglie intorno cinto.»</span><span class="strip-meta sans">Ovidio · Le metamorfosi</span></a></li>
       <li><a href="/citazioni/e-m-forster-casa-howard-e-generalmente-riconosciuto/"><span class="strip-quote">«È generalmente riconosciuto che la Quinta Sinfonia di Beethoven è il rumore più sublime…»</span><span class="strip-meta sans">E.M. Forster · Casa Howard</span></a></li>
       <li><a href="/citazioni/thomas-mann-doctor-faustus/"><span class="strip-quote">«Un terzo tempo? Una nuova ripresa... dopo questo addio? Impossibile. Tutto era fatto:…»</span><span class="strip-meta sans">Thomas Mann · Doctor Faustus</span></a></li>
+      <li><a href="/citazioni/dante-alighieri-paradiso-divina-commedia-e-n-la/"><span class="strip-quote">«E &#x27;n la sua volontade è nostra pace: ell&#x27;è quel mare al qual tutto si move ciò ch&#x27;ella…»</span><span class="strip-meta sans">Dante Alighieri · Paradiso, Divina Commedia</span></a></li>
       <li><a href="/citazioni/antoine-de-saint-exupery-il-piccolo-principe-e-talmente-misterioso/"><span class="strip-quote">«È talmente misterioso il paese delle lacrime.»</span><span class="strip-meta sans">Antoine de Saint-Exupéry · Il piccolo principe</span></a></li>
-      <li><a href="/citazioni/alessandro-manzoni-i-promessi-sposi-carneade-chi-era/"><span class="strip-quote">«Carneade! Chi era costui? — ruminava tra sè don Abbondio seduto sul suo seggiolone, in…»</span><span class="strip-meta sans">Alessandro Manzoni · I promessi sposi</span></a></li>
     </ul>
     <p class="strip-more sans"><a href="/citazioni/">Tutto l'archivio, dalla più recente →</a></p>
   </section>
@@ -1529,7 +1566,7 @@ html:not(.js) .js-only { display: none !important; }
 </div>
 
 <footer class="sans">
-  836 citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
+  837 citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
   qui sono solo tenute da parte per essere rilette.
   <a href="/metodo/">Come verifichiamo le citazioni →</a>
   <a href="/feed.xml">Segui le nuove citazioni →</a>
@@ -1538,7 +1575,7 @@ html:not(.js) .js-only { display: none !important; }
 </footer>
 
 <script src="/assets/share.js?v=2b309c55"></script>
-<script src="/assets/home-resto.js?v=c5df237a"></script>
+<script src="/assets/home-resto.js?v=4e63d636"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');

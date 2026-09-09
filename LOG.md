@@ -3615,3 +3615,34 @@
   trovata online, né su Wikiquote né altrove: da riprovare solo con il libro in mano.
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 836 citazioni, musica pubblicata a 11 (sopra soglia, margine più ampio).
+
+- 2026-09-09 17:14 UTC — **raccolte magre, lotto 3/8: pace 9 → 10.** Il piu' difficile finora:
+  quattro candidati letti e verificati con cura, tre scartati per motivi diversi, uno solo
+  pubblicato — esattamente il caso in cui "fermarsi al numero vero" descritto dall'utente si
+  applica.
+  **1 citazione aggiunta:**
+  - Dante Alighieri, «Paradiso, Divina Commedia», canto III, vv. 85-87 — «E 'n la sua volontade
+    è nostra pace...», le parole di Piccarda Donati a Dante nel cielo della Luna, verificate su
+    Wikisource. Copertina riusata dall'opera già in archivio. Aggiunta anche una frase
+    nell'introduzione esistente (terzo paragrafo, sulla pace come disciplina interiore), non un
+    paragrafo nuovo: una sola citazione non giustificava una sezione a sé.
+  **Scartati con motivo:**
+  - Spinoza, «Trattato teologico-politico» — «La pace non è assenza di guerra: è una virtù...»
+    è genuina e ben nota (confermata su Wikiquote, edizione Einaudi 2007, trad. Antonio Droetto
+    ed Emilia Giancotti Boscherini, verificata anche sul catalogo Einaudi), ma il capitolo esatto
+    non è verificabile con sicurezza — due tentativi hanno restituito due numeri diversi (XI, poi
+    "non specificato"). Senza un luogo nel testo certo non si pubblica (punto 3 della lista di
+    chiusura).
+  - Erasmo da Rotterdam, «Querela Pacis» (trad. Carlo Carena, Einaudi 1990) — opera adattissima
+    al tema (la Pace parla in prima persona lamentandosi di essere respinta), ma l'unico testo
+    integrale trovato online è un'edizione amatoriale senza traduttore dichiarato e con omissioni
+    segnalate da puntini di sospensione: non la fonte da cui copiare una wording esatta.
+  - Tolstoj, «Guerra e pace» — nessun passo specificamente sulla pace (distinto dalla guerra)
+    trovato su Wikiquote: le citazioni disponibili vertono su guerra, libertà, storia.
+  - Marco Aurelio, «Colloqui con sé stesso», Libro IV §3 — la frase trovata ("In nessun luogo
+    l'uomo trova un rifugio più sereno...") è la prosecuzione diretta, nello stesso paragrafo, di
+    una citazione già pubblicata in archivio ("Vanno alcuni alla ricerca di luoghi..."): stesso
+    locus, stesso pensiero spezzato in due. Scartata per non duplicare in sostanza una voce già
+    presente.
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 837 citazioni, pace pubblicata a 10.
