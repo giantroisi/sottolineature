@@ -1034,5 +1034,13 @@
   "Pellegrino Artusi": {
     "wikipedia": "https://it.wikipedia.org/wiki/Pellegrino_Artusi",
     "wikidata": "https://www.wikidata.org/wiki/Q744848"
+  },
+  "Michelangelo Buonarroti": {
+    "wikipedia": "https://it.wikipedia.org/wiki/Michelangelo_Buonarroti",
+    "wikidata": "https://www.wikidata.org/wiki/Q5592"
+  },
+  "John Keats": {
+    "wikipedia": "https://it.wikipedia.org/wiki/John_Keats",
+    "wikidata": "https://www.wikidata.org/wiki/Q82083"
   }
 }

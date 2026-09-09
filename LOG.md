@@ -3694,3 +3694,20 @@
   contesto di Pessoa iniziava con la stessa frase di una citazione già pubblicata dallo stesso
   libro) — riscritto prima del commit. Dopo la correzione: **Problemi totali: 0**, **Nessun
   errore nei dati strutturati**. Archivio a 841 citazioni, silenzio pubblicata a 14.
+
+- 2026-09-09 17:37 UTC — **raccolte magre, lotto 6/8: arte 13 → 15, bersaglio raggiunto.**
+  Due autori nuovi, entrambi verificati su fonte primaria/Wikiquote, con scheda e sameAs
+  aggiunti.
+  - Michelangelo Buonarroti, «Rime», sonetto 151 (a Vittoria Colonna) — «Non ha l'ottimo artista
+    alcun concetto c'un marmo solo in sé non circonscriva...», l'incipit sull'idea che la
+    scultura esista già nel blocco grezzo, verificato su Wikisource. Poesia singola in una
+    raccolta di rime: nessuna copertina propria.
+  - John Keats, «Ode su un'urna greca», ultima strofa — «Bellezza e verità sono una cosa...»,
+    le parole che il poeta attribuisce all'urna stessa, verificate su Wikiquote (trad. Raffaello
+    Piccoli, Sansoni 1943). **Bug trovato e corretto prima del commit**: la citazione conteneva
+    già le sue virgolette interne («...»), e il template della pagina le raddoppiava («« all'inizio
+    del titolo); tolte le virgolette ridondanti (una virgola al loro posto), parole invariate.
+  Introduzione di **arte** allungata con un quarto paragrafo su queste due voci.
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 843 citazioni, 262 autori, arte pubblicata a 15 — prima delle otto a chiudere il
+  lotto sul bersaglio pieno.
