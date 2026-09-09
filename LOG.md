@@ -3589,3 +3589,29 @@
   fronte). `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati
   strutturati**. Archivio a 834 citazioni, 258 autori, fiori pubblicata sopra soglia con margine
   (12, non più 8).
+
+- 2026-09-09 17:07 UTC — **raccolte magre, lotto 2/8: musica 9 → 11.** Stesso metodo (dal tema
+  all'autore), stessa fonte di partenza: Wikiquote per l'edizione italiana e il locus esatto,
+  incrociato con almeno un secondo riscontro prima di accettare.
+  **2 citazioni aggiunte:**
+  - E.M. Forster, «Casa Howard», capitolo V — «È generalmente riconosciuto che la Quinta
+    Sinfonia di Beethoven è il rumore più sublime che abbia mai penetrato l'orecchio
+    dell'uomo…»: l'apertura del capitolo del concerto londinese, confermata su Wikiquote con
+    edizione (trad. Enrico La Stella, Newton Compton 1993, p. 37). Forster era già in archivio
+    con un'altra citazione dello stesso romanzo: seconda voce, stessa opera, copertina riusata.
+  - Thomas Mann, «Doctor Faustus», capitolo VIII — «Un terzo tempo? Una nuova ripresa... dopo
+    questo addio?…»: dalla lezione dell'organista Kretzschmar su perché Beethoven non scrisse un
+    terzo movimento per la sonata op. 111, confermata su Wikiquote (trad. Ervino Pocar,
+    Mondadori) e riscontrata sul capitolo VIII da fonti terze sul romanzo. **Primo titolo nuovo
+    di Mann in archivio** (gli altri due, «La montagna incantata» e «La morte a Venezia», restano
+    invariati): copertina non trovata da qui, aggiunta a `tools/copertine_titoli.json`.
+  Introduzione di **musica** allungata con un quarto paragrafo su queste due voci.
+  **Scartato con motivo:** Tolstoj, «La sonata a Kreutzer», capitolo XXIII — il monologo di
+  Pozdnyšev sulla musica come "cosa terribile" è autentico e ben noto (confermato su più fonti
+  secondarie indipendenti), ma nessuna ha restituito la stessa identica frase italiana parola per
+  parola, e Liber Liber (che ospita il testo) ha rifiutato l'accesso diretto: senza un'edizione
+  precisa da cui copiare la wording esatta, si scarta piuttosto che pubblicare una parafrasi.
+  Ishiguro, «Notturni. Cinque storie di musica e crepuscolo» — nessuna citazione verificabile
+  trovata online, né su Wikiquote né altrove: da riprovare solo con il libro in mano.
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 836 citazioni, musica pubblicata a 11 (sopra soglia, margine più ampio).

@@ -752,6 +752,13 @@
    "tipo": "libro",
    "orig": "Metamorphoses",
    "aOrig": "Ovid"
+  },
+  {
+   "a": "Thomas Mann",
+   "t": "Doctor Faustus",
+   "tipo": "libro",
+   "orig": "Doctor Faustus",
+   "aOrig": "Thomas Mann"
   }
  ],
  "bocciate_a_vista": {
