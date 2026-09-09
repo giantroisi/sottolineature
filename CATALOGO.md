@@ -665,48 +665,51 @@ c'è. La sfumatura si racconta nell'intro, dove nessun motore di ricerca deve sc
 
 ## 9-ter. Roadmap aperta
 
-Aggiornata al **2026-09-08**. Il punto 9-bis qui sopra e' la coda vecchia, chiusa: resta come
+Aggiornata al **2026-09-09**. Il punto 9-bis qui sopra e' la coda vecchia, chiusa: resta come
 storia. Questa e' quella viva. Ogni voce dice **chi la fa**, perche' con tre sessioni sul
 repository «lo fa qualcuno» vuol dire che non lo fa nessuno o che lo fanno in due insieme.
 
-Archivio al momento della scrittura: **830 citazioni, 1.244 URL, copertura raccolte 70%,
-63 opere senza copertina** (di cui 18 chiuse per sempre).
+Archivio al momento della scrittura: **830 citazioni, 1.248 URL** (sitemap divisa per tipo),
+**copertura raccolte 72%** (601 su 830), **63 opere senza copertina** (di cui 18 chiuse per
+sempre).
 
 ### Adesso
 
 | | cosa | chi | fatto quando |
 |---|---|---|---|
-| A1 | **Misurare la home dopo il commit `713e999b`.** 806 card su 830 sono state spostate in `assets/home-resto.js`, 787 KB caricati da uno script **sincrono**: l'HTML e' passato da 848 KB a 116 KB, ma il browser si ferma comunque su quel file prima di dipingere. Nessuno ha misurato l'effetto, e la home e' la pagina piu' visitata e quella da cui Google legge la struttura. Banco di prova gia' esistente: Playwright, throttling 1,6 Mbps / 150 ms / CPU 4x, PerformanceObserver per LCP, layout-shift e long task | sessione codice | quando LCP e CLS del prima e del dopo sono a confronto. Se il dopo e' peggio, la correzione e' `defer` sullo script e iniezione dopo il primo paint |
-| A2 | **Le raccolte tematiche.** La copertura e' al 70%, era 85% ad agosto. Il giro dell'8 settembre ha lavorato dove il criterio e' meccanico (incipit +27, frasi brevi +18) e ha lasciato indietro le tematiche: **+11 chiavi su 22 raccolte**, con guerra a +0 e 15 candidate in coda, natura 17 rimaste, donne 15, occhi-e-sguardo 12. Sono ~140 candidate vere, dove bisogna leggere la citazione e decidere | sessione contenuti | copertura all'80%. **Non oltre, se per andare oltre bisogna forzare**: ci sono citazioni che in nessuna delle 29 raccolte ci stanno |
+| A3 | **Il CLS della home e' peggiorato: 0,085 contro 0,013.** Due spostamenti misurati, a 518 ms e a 5315 ms, tutti e due muovono `#hero` e `.lede`. E' l'unica cosa tecnica rimasta aperta, e vale mezz'ora: trovare che cosa arriva dopo il primo paint e occupare il suo spazio prima. Banco di prova gia' pronto: Playwright con throttling 1,6 Mbps / 150 ms / CPU 4x e PerformanceObserver | sessione codice | quando il CLS della home e' di nuovo sotto 0,05 misurato con lo stesso banco |
 
-### Il dato che riordina tutto — arrivato in anticipo
+### Appena chiuso — 9 settembre
 
-**Aggiornamento dell'8 settembre, ore 08:19.** Mentre questa roadmap veniva scritta, una terza
-sessione stava gia' lavorando sull'indicizzazione, e nel codice che stava scrivendo c'e' la
-frase: *«delle ~107 indicizzate, quante sono hub e quante foglie?»*. Se il numero e' quello —
-**107 pagine indicizzate su 1.244 inviate** — allora il criterio deciso il 4 settembre e'
-scattato: non e' un dettaglio della coda, e' il problema numero uno, e passa davanti a tutto
-quello che c'e' scritto qui sotto. Il numero va confermato guardando Search Console, non dedotto
-da un commento nel codice.
+- **A1, la home dopo `713e999b`: misurata.** LCP e long task non peggiorano con lo script
+  sincrono: `defer` su `home-resto.js` e' stato provato e **scartato dai numeri**, non
+  dall'opinione. Resta il CLS, che e' A3 qui sopra.
+- **A2, le raccolte all'80%: chiusa perche' irraggiungibile.** Il giro del 9 settembre ha portato
+  filosofia da 14 a 24 e frasi-brevi da 170 a 171; tutte le altre candidate lette (89 su nove
+  raccolte) erano parola per parola le stesse gia' scartate nei giri precedenti. **Il tetto vero
+  di questo archivio e' 72%**, non 80: l'80% era un mio numero messo a occhio, e le prove di
+  Sonnet lo hanno smontato. Per far crescere le raccolte non basta piu' rileggere l'archivio:
+  servono **citazioni nuove scelte per tema**, non per autore. Rimandato a dopo i dati di
+  Search Console.
 
-La prima mossa di quella sessione e' gia' la mossa giusta: **dividere la sitemap per tipo di
-pagina** (`sitemap-citazioni.xml`, `sitemap-autori.xml`, `sitemap-opere.xml`, ...) con
-`sitemap.xml` come indice. In Search Console il rapporto Sitemap mostra «rilevate / indicizzate»
-per singolo file: con un file solo da 1.244 URL quel numero e' un totale muto, diviso per tipo
-dice **quali** pagine Google tiene e quali scarta. E' la differenza fra sapere che sono 107 e
-sapere che sono 107 hub e zero foglie, o il contrario.
+### Il dato che riordina tutto
 
-### Giovedi 10 settembre, 07:00 UTC — il promemoria programmato
+La sitemap e' ora **divisa per tipo** (`sitemap-citazioni.xml` 830, `sitemap-autori.xml` 257,
+`sitemap-indice-citazioni.xml` 28, `sitemap-raccolte.xml` 33, `sitemap-opere.xml` 79,
+`sitemap-temi-generi.xml` 13, `sitemap-pagine.xml` 8, con `sitemap.xml` come indice) e tutti i
+file sono stati inviati. In Search Console il rapporto Sitemap mostra «rilevate / indicizzate»
+per singolo file: fra **2-3 giorni** dira' se le ~107 pagine indicizzate su 1.248 sono hub o
+foglie. E' la differenza fra sapere che sono 107 e sapere **quali** 107.
 
-Il promemoria programmato parte da solo. I numeri li legge **l'utente**, o serve il suo browser:
-Search Console vuole il suo accesso. Tre cose, in ordine: quante pagine indicizzate contro le
-1.244 inviate; se c'e' un motivo di esclusione ricorrente (i problemi veri stanno li', non nel
-totale); quali chiavi portano le prime impressioni e su quali pagine.
-
-**Il criterio, deciso il 4 settembre e ancora valido:** se le pagine indicizzate sono poche
+**Il criterio, deciso il 4 settembre e ancora valido:** se le pagine indicizzate restano poche
 decine invece di centinaia, quello diventa il problema numero uno e **passa davanti a tutta
 questa roadmap** — nessuna delle voci qui sotto conterebbe piu' niente. Se invece
 l'indicizzazione procede, si riprende da qui riordinando sui dati appena letti.
+
+I numeri li legge **l'utente**, o serve il suo browser: Search Console vuole il suo accesso. Tre
+cose, in ordine: quante pagine indicizzate contro le 1.248 inviate, e da quale sitemap; se c'e'
+un motivo di esclusione ricorrente (i problemi veri stanno li', non nel totale); quali chiavi
+portano le prime impressioni e su quali pagine.
 
 ### Dopo, in ordine di quanto e' sicuro che valga la pena
 
