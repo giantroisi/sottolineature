@@ -1128,6 +1128,25 @@ html:not(.js) .js-only { display: none !important; }
 <script src="/assets/nav.js" defer></script>
 
 <div class="page" id="page" role="main">
+<script>
+  /* Il menu prende posto qui, non in fondo alla pagina.
+     Il trasloco vero e proprio (menu nella pagina, interruttore del tema
+     nel marchio) sta in fondo, in moveNav(): ma quello script viene dopo
+     assets/home-resto.js, che e' sincrono e su un telefono lento tiene
+     fermo il parser per cinque secondi. Il menu arrivava percio' a pagina
+     gia' disegnata e spingeva giu' la citazione del giorno di 49px: 0,05
+     di CLS, meta' del bilancio della home, misurato il 9 settembre 2026.
+     Qui il nodo si sposta prima del primo disegno e non sposta piu' niente.
+     Solo il menu: l'interruttore del tema aspetta il marchio, che a questo
+     punto della pagina non e' ancora stato letto, e comunque e' in
+     posizione assoluta - quando si sposta non muove nessun altro. */
+  (function () {
+    var nav = document.querySelector('.site-header .site-nav');
+    var page = document.getElementById('page');
+    if (!nav || !page) { return; }
+    if (window.matchMedia('(max-width: 700px)').matches) { page.appendChild(nav); }
+  })();
+</script>
 
   <div class="masthead-row">
   <div class="masthead">
