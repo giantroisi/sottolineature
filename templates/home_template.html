@@ -870,6 +870,20 @@ html:not(.js) .js-only { display: none !important; }
     .page > * { order: 8; }
     .masthead-row { display: contents; }
     .masthead-row .masthead { order: 1; margin-bottom: 0.7rem; }
+    /* Lo spazio della ricerca e dei filtri, tenuto libero prima che arrivino.
+       Sul telefono quei due blocchi si mostrano SOPRA la citazione del giorno
+       ma nell'HTML stanno SOTTO (li mette al loro posto la proprieta' order):
+       finche' il parser non li ha letti la citazione veniva disegnata 119px
+       piu' in alto e poi scendeva. Era il salto piu' grosso della home: 0,05
+       di CLS su 0,085 totali, misurato il 9 settembre 2026 con Playwright a
+       390x844, rete 1,6 Mbps e CPU rallentata quattro volte.
+       :has() smette di valere nell'istante in cui l'elemento arriva - stessa
+       passata di layout - quindi lo spazio non si somma mai due volte e non
+       serve nessun JavaScript a togliere la riserva al momento giusto.
+       Dove :has() non c'e' (Safari sotto la 15.4, Chrome sotto la 105) non
+       succede niente di male: si torna al salto di prima. */
+    .page:not(:has(.search-bar)) .masthead { margin-bottom: calc(0.7rem + 119px); }
+    .page:has(.search-bar):not(:has(.filter-block)) .masthead { margin-bottom: calc(0.7rem + 50px); }
     .search-sentinel { order: 2; }
     .search-bar { order: 3; margin-bottom: 0.85rem; }
     /* Su telefono la pagina comincia dal marchio grande, non dalla barra
@@ -1156,10 +1170,47 @@ html:not(.js) .js-only { display: none !important; }
 
   <section class="hero" id="hero">
     <p class="hero-label sans" id="heroLabel">Citazione del giorno</p>
-    <p id="heroQuote">«Nel mezzo del cammin di nostra vita mi ritrovai per una selva oscura, ché la diritta via era smarrita.»</p>
-    <p id="heroCitation" class="sans">
-      <span class="card-author">Dante Alighieri</span> — <span class="card-title">Inferno, Divina Commedia</span> · <span class="card-year">1321</span>
-    </p>
+    <p id="heroQuote">«{{HERO_QUOTE}}»</p>
+    <p id="heroCitation" class="sans"><span class="card-author">{{HERO_AUTHOR}}</span> — <span class="card-title">{{HERO_TITLE}}</span> · <span class="card-year">{{HERO_YEAR}}</span></p>
+    <script>
+      /* La citazione del giorno, scelta prima del disegno.
+         Prima stava solo in fondo alla pagina: la sceglieva dailyQuote()
+         leggendo le 836 card, e le card arrivano con assets/home-resto.js,
+         che su un telefono lento tiene fermo il parser cinque secondi. Per
+         cinque secondi si leggeva quindi la citazione scritta nel modello, e
+         poi cambiava sotto gli occhi - un lampo visibile, e 0,02 di CLS.
+         Qui l'HTML esce gia' con la citazione del giorno della build, e
+         questa tabella copre i giorni seguenti (l'anno, il mese e il giorno
+         sono quelli del fuso di chi legge, come nel calcolo in fondo): finche'
+         il giorno e' in tabella non cambia piu' niente dopo il disegno.
+         Se il sito non viene ricostruito per piu' di un mese la tabella
+         finisce e si torna al comportamento di prima, che resta valido. */
+      (function () {
+        var giorni = {{HERO_GIORNI}};
+        var d = new Date();
+        var k = String(d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate());
+        var v = giorni[k];
+        if (!v) { return; }
+        var q = document.getElementById('heroQuote');
+        var c = document.getElementById('heroCitation');
+        if (!q || !c) { return; }
+        var testo = '\u00ab' + v[0] + '\u00bb';
+        if (q.textContent === testo) { return; }
+        q.textContent = testo;
+        while (c.firstChild) { c.removeChild(c.firstChild); }
+        function pezzo(cls, txt) {
+          var s = document.createElement('span');
+          s.className = cls;
+          s.textContent = txt;
+          return s;
+        }
+        c.appendChild(pezzo('card-author', v[1]));
+        c.appendChild(document.createTextNode(' \u2014 '));
+        c.appendChild(pezzo('card-title', v[2]));
+        c.appendChild(document.createTextNode(' \u00b7 '));
+        c.appendChild(pezzo('card-year', v[3]));
+      })();
+    </script>
     <div class="hero-actions">
       <button class="shuffle-btn sans js-only" id="shuffleBtn" type="button">↻ un'altra citazione</button>
       <button class="hero-copy-btn sans js-only" id="heroCopyBtn" type="button">Copia citazione</button>

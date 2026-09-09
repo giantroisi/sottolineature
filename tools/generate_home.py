@@ -11,6 +11,7 @@ Il contesto (card-context) NON viene pubblicato qui: resta esclusivo di
 /citazioni/<slug>/, per non far competere la home con le pagine citazione
 sullo stesso testo (Fase 2 di SEO.md).
 """
+import datetime
 import html
 import re
 import json
@@ -97,6 +98,36 @@ def render_card(q, slug):
     )
 
 
+GIORNI_AVANTI = 30
+
+
+def _indice_del_giorno(chiave, quante):
+    """Lo stesso conto che fa la home nel browser (dailyQuote): una somma
+    moltiplicativa sulle cifre della data, modulo il numero di citazioni.
+    Qui serve per scrivere nell'HTML la citazione giusta gia' pronta, cosi'
+    non cambia sotto gli occhi cinque secondi dopo. Se questo conto e quello
+    del browser si separassero, l'unico effetto sarebbe tornare al lampo di
+    prima: nessuna pagina si rompe."""
+    h = 0
+    for ch in str(chiave):
+        h = (h * 31 + ord(ch)) % 2147483647
+    return h % quante if quante else 0
+
+
+def tabella_del_giorno(quotes, oggi=None):
+    """La citazione del giorno per oggi e per i trenta giorni seguenti.
+    Il giorno prima c'e' perche' chi legge da un fuso indietro rispetto a
+    questa macchina sta ancora a ieri."""
+    oggi = oggi or datetime.date.today()
+    tab = {}
+    for delta in range(-1, GIORNI_AVANTI + 1):
+        d = oggi + datetime.timedelta(days=delta)
+        chiave = d.year * 10000 + d.month * 100 + d.day
+        q = quotes[_indice_del_giorno(chiave, len(quotes))]
+        tab[str(chiave)] = [q['quote'], q['author'], q['title'], q.get('year') or '']
+    return tab
+
+
 def write_resto(cards_html):
     """Scrive assets/home-resto.js: le card oltre le prime CARDS_IN_HTML.
 
@@ -140,6 +171,16 @@ def main():
     write_resto('\n'.join(rendered[CARDS_IN_HTML:]))
     count_words = italian_number_words(len(quotes))
     page = template.replace('{{CARDS}}', cards_html.rstrip('\n'))
+    giorni = tabella_del_giorno(quotes)
+    oggi = datetime.date.today()
+    chiave_oggi = str(oggi.year * 10000 + oggi.month * 100 + oggi.day)
+    hero = giorni[chiave_oggi]
+    page = page.replace('{{HERO_QUOTE}}', html.escape(hero[0]))
+    page = page.replace('{{HERO_AUTHOR}}', html.escape(hero[1]))
+    page = page.replace('{{HERO_TITLE}}', html.escape(hero[2]))
+    page = page.replace('{{HERO_YEAR}}', html.escape(hero[3]))
+    page = page.replace('{{HERO_GIORNI}}',
+                        json.dumps(giorni, ensure_ascii=False).replace('</', '<\\/'))
     page = page.replace('{{COUNT}}', str(len(quotes)))
     page = page.replace('{{COUNT_WORDS}}', count_words[0].upper() + count_words[1:])
 
