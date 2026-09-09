@@ -1399,6 +1399,30 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   chiaro e scuro. Prezzo: cornice piu' bassa (1248px contro 1432), il testo piu' lungo del sito
   la riempie comunque restringendosi come su ogni altro formato.
 
+- **Il CLS della home era 0,085, adesso e' 0 — 2026-09-09.** Tre cause, trovate misurando e non
+  guardando: (a) il **menu** veniva traslocato nella pagina da `moveNav()`, che sta in fondo,
+  dopo `assets/home-resto.js` — script sincrono da 790 KB che su un telefono lento tiene fermo il
+  parser cinque secondi: il menu arrivava a pagina disegnata e spingeva giu' la citazione di
+  49px. Ora un piccolo script sposta il nodo subito dopo l'apertura di `#page`, prima del primo
+  disegno. (b) **Ricerca e filtri** sul telefono si mostrano *sopra* la citazione del giorno ma
+  nell'HTML stanno *sotto* (li mette al loro posto `order`): finche' il parser non li leggeva, la
+  citazione veniva disegnata 119px piu' in alto e poi scendeva. Lo spazio ora e' riservato da due
+  regole `:has()` sul marchio, che **smettono di valere nella stessa passata di layout in cui
+  l'elemento arriva** — nessun JavaScript deve azzeccare il momento giusto per togliere la
+  riserva. (c) La **citazione del giorno** la sceglieva solo il browser leggendo le 836 card, che
+  arrivano con `home-resto.js`: per cinque secondi si leggeva quella scritta nel modello e poi
+  cambiava sotto gli occhi. Ora la sceglie la build e una tabella dei trenta giorni seguenti
+  (9 KB nell'HTML) la tiene giusta anche senza ricostruire il sito.
+  **Due lezioni che restano.** La prima: quando l'ordine visivo e l'ordine dell'HTML non
+  coincidono, il browser disegna secondo l'HTML e poi corregge — e ogni correzione e' un salto;
+  `:has()` e' il modo di riservare lo spazio senza affidarsi a un tempo. La seconda: misurare
+  **una variante alla volta**. La tabella della citazione del giorno, da sola, ha *peggiorato* il
+  CLS (0,062 fisso invece di 0,023-0,077 a caso), perche' lo script in piu' faceva fermare il
+  parser proprio prima della ricerca; sembrava un peggioramento e invece era il salto (b) che
+  finalmente si mostrava tutte le volte. Banco: Playwright 390x844, 1,6 Mbps / 150 ms / CPU 4x,
+  cinque-sette giri per variante, mediana e caso peggiore — con un giro solo si conclude il
+  contrario del vero.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.

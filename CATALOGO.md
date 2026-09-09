@@ -675,22 +675,25 @@ sempre).
 
 ### Adesso
 
-| | cosa | chi | fatto quando |
-|---|---|---|---|
-| A3 | **Il CLS della home e' peggiorato: 0,085 contro 0,013.** Due spostamenti misurati, a 518 ms e a 5315 ms, tutti e due muovono `#hero` e `.lede`. E' l'unica cosa tecnica rimasta aperta, e vale mezz'ora: trovare che cosa arriva dopo il primo paint e occupare il suo spazio prima. Banco di prova gia' pronto: Playwright con throttling 1,6 Mbps / 150 ms / CPU 4x e PerformanceObserver | sessione codice | quando il CLS della home e' di nuovo sotto 0,05 misurato con lo stesso banco |
+Niente. Le tre voci aperte alle 16 del 9 settembre sono chiuse tutte e tre nel corso della
+giornata (qui sotto). Quello che resta e' il dato di Search Console, che arriva da solo.
 
 ### Appena chiuso — 9 settembre
 
 - **A1, la home dopo `713e999b`: misurata.** LCP e long task non peggiorano con lo script
   sincrono: `defer` su `home-resto.js` e' stato provato e **scartato dai numeri**, non
-  dall'opinione. Resta il CLS, che e' A3 qui sopra.
+  dall'opinione.
 - **A2, le raccolte all'80%: chiusa perche' irraggiungibile.** Il giro del 9 settembre ha portato
   filosofia da 14 a 24 e frasi-brevi da 170 a 171; tutte le altre candidate lette (89 su nove
   raccolte) erano parola per parola le stesse gia' scartate nei giri precedenti. **Il tetto vero
   di questo archivio e' 72%**, non 80: l'80% era un mio numero messo a occhio, e le prove di
   Sonnet lo hanno smontato. Per far crescere le raccolte non basta piu' rileggere l'archivio:
-  servono **citazioni nuove scelte per tema**, non per autore. Rimandato a dopo i dati di
-  Search Console.
+  servono **citazioni nuove scelte per tema**, non per autore. E' il lavoro in corso adesso
+  (raccolte magre: fiori, musica, pace, cibo, silenzio, arte, montagna, casa).
+- **A3, il CLS della home: da 0,085 a 0.** Tre cause distinte — il menu traslocato a pagina
+  disegnata, lo spazio di ricerca e filtri non riservato, la citazione del giorno scelta solo dal
+  browser dopo 790 KB di script. Le prime due erano salti veri, la terza era anche un lampo
+  visibile a occhio nudo. Dettaglio e lezioni in `CLAUDE.md`, voce del 2026-09-09.
 
 ### Il dato che riordina tutto
 
