@@ -759,6 +759,20 @@
    "tipo": "libro",
    "orig": "Doctor Faustus",
    "aOrig": "Thomas Mann"
+  },
+  {
+   "a": "Italo Calvino",
+   "t": "Marcovaldo",
+   "tipo": "libro",
+   "orig": "Marcovaldo, ovvero Le stagioni in città",
+   "aOrig": "Italo Calvino"
+  },
+  {
+   "a": "Pellegrino Artusi",
+   "t": "La scienza in cucina e l'arte di mangiar bene",
+   "tipo": "libro",
+   "orig": "La scienza in cucina e l'arte di mangiar bene",
+   "aOrig": "Pellegrino Artusi"
   }
  ],
  "bocciate_a_vista": {

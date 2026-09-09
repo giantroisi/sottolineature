@@ -3646,3 +3646,26 @@
     presente.
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 837 citazioni, pace pubblicata a 10.
+
+- 2026-09-09 17:20 UTC — **raccolte magre, lotto 4/8: cibo 10 → 12.** Fonti consultate:
+  Wikiquote per Calvino (con edizione e pagina), Wikisource per Artusi (testo primario,
+  pubblico dominio, nessun traduttore necessario).
+  **2 citazioni aggiunte:**
+  - Italo Calvino, «Marcovaldo», racconto «La pietanziera», p. 43 — «E per tre sere di seguito
+    a cena Marcovaldo trovò salciccia e rape...», confermata su Wikiquote (Einaudi). **Primo
+    titolo nuovo di Calvino in archivio** (aveva già 7 citazioni da altre quattro opere).
+  - Pellegrino Artusi, «La scienza in cucina e l'arte di mangiar bene», prefazione «L'autore a
+    chi legge» — «Due sono le funzioni principali della vita: la nutrizione e la propagazione
+    della specie», riga d'apertura verificata sul testo integrale su Wikisource. **Autore nuovo
+    dell'archivio**: aggiunta la scheda (nato Forlimpopoli 1820, morto Firenze 1911, ex
+    commerciante di seta, il libro autopubblicato dopo il rifiuto di tutti gli editori) e il
+    collegamento Wikidata (Q744848, verificato su Wikipedia IT).
+  Introduzione di **cibo** allungata con un quarto paragrafo su queste due voci. Copertine di
+  entrambe non trovate (Open Library irraggiungibile da qui): aggiunte a
+  `tools/copertine_titoli.json`.
+  **Scartato con motivo:** la madeleine di Proust — il passo più famoso della letteratura sul
+  cibo, ma nessuna fonte ha restituito la wording esatta dell'edizione Newton Compton/Pinto già
+  usata per le altre quattro citazioni Proust in archivio (solo parafrasi e citazioni da
+  edizioni non identificate): senza la certezza della traduzione giusta, si scarta.
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 839 citazioni, 260 autori, cibo pubblicata a 12.
