@@ -1423,6 +1423,18 @@ per chi naviga con un lettore di schermo. **È un limite scelto, non una dimenti
   cinque-sette giri per variante, mediana e caso peggiore — con un giro solo si conclude il
   contrario del vero.
 
+- **Search Console, primo dato vero sull'indicizzazione — 2026-09-10.** 107 pagine indicizzate su
+  1.120, e delle 1.013 escluse **1.012 per un solo motivo: «Rilevata, ma attualmente non
+  indicizzata»**. Nessun blocco robots, nessun errore server, nessun `noindex` sbagliato, nessun
+  404: la parte tecnica e' a posto. Le prime venti indicizzate sono 14 foglie, 5 hub e la home —
+  **nessun tipo di pagina e' escluso**, quindi non e' un problema di architettura ne' di
+  collegamenti interni. E' quota di scansione: un dominio di tre settimane che nessuno cita non
+  se la merita ancora. **La lezione che vale per il futuro:** su un sito nuovo, «rilevata ma non
+  indicizzata» in massa non e' un bug da cercare nel codice, e la tentazione giusta da resistere
+  e' pubblicare altre pagine — con mille indirizzi gia' in coda, ogni URL nuovo divide la stessa
+  quota. Si migliora quello che c'e', si aspetta, e i link li porta chi ha un nome, non il
+  generatore. Primi 7 clic dalla ricerca nella stessa settimana: prima erano zero.
+
 ### Idee scartate (per memoria, non riproporre senza nuovo contenuto)
 - Tag "Giallo/Poliziesco" e "Avventura": solo 1-2 titoli a testa sul sito, troppo pochi per un filtro utile
 - Centrare il logo dell'immagine condivisa sul baricentro dell'inchiostro invece che sull'ingombro: provato e bocciato, spostava il logo troppo a sinistra. Su questo lockup l'occhio legge i bordi, non la massa. La soluzione giusta al "non sembra centrato" è stata invece allargare l'URL sotto, che fa da base stabile.

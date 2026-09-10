@@ -695,24 +695,35 @@ giornata (qui sotto). Quello che resta e' il dato di Search Console, che arriva 
   browser dopo 790 KB di script. Le prime due erano salti veri, la terza era anche un lampo
   visibile a occhio nudo. Dettaglio e lezioni in `CLAUDE.md`, voce del 2026-09-09.
 
-### Il dato che riordina tutto
+### Il dato, letto il 10 settembre — e non era quello che temevamo
 
-La sitemap e' ora **divisa per tipo** (`sitemap-citazioni.xml` 830, `sitemap-autori.xml` 257,
-`sitemap-indice-citazioni.xml` 28, `sitemap-raccolte.xml` 33, `sitemap-opere.xml` 79,
-`sitemap-temi-generi.xml` 13, `sitemap-pagine.xml` 8, con `sitemap.xml` come indice) e tutti i
-file sono stati inviati. In Search Console il rapporto Sitemap mostra «rilevate / indicizzate»
-per singolo file: fra **2-3 giorni** dira' se le ~107 pagine indicizzate su 1.248 sono hub o
-foglie. E' la differenza fra sapere che sono 107 e sapere **quali** 107.
+Letto insieme all'utente su Search Console (screenshot di Safari, sessione del 10 settembre).
 
-**Il criterio, deciso il 4 settembre e ancora valido:** se le pagine indicizzate restano poche
-decine invece di centinaia, quello diventa il problema numero uno e **passa davanti a tutta
-questa roadmap** — nessuna delle voci qui sotto conterebbe piu' niente. Se invece
-l'indicizzazione procede, si riprende da qui riordinando sui dati appena letti.
+**I numeri.** 107 pagine indicizzate, 1.013 no. Delle 1.013, **1.012 hanno un solo motivo:
+«Rilevata, ma attualmente non indicizzata»**; l'altra e' una pagina con reindirizzamento, cioe'
+uno dei nostri. Zero pagine bloccate da robots.txt, zero errori di server, zero `noindex`
+sbagliati, zero canonical in conflitto, zero 404. **Sul piano tecnico non c'e' niente di rotto.**
+Le sette sitemap risultano tutte «Riuscita», con pagine rilevate identiche a quelle pubblicate
+(8, 13, 28, 33, 79, 257, 830) e ultima lettura del 9 settembre. Primi **7 clic** dalla ricerca
+(29 agosto - 6 settembre): fino a una settimana fa erano zero.
 
-I numeri li legge **l'utente**, o serve il suo browser: Search Console vuole il suo accesso. Tre
-cose, in ordine: quante pagine indicizzate contro le 1.248 inviate, e da quale sitemap; se c'e'
-un motivo di esclusione ricorrente (i problemi veri stanno li', non nel totale); quali chiavi
-portano le prime impressioni e su quali pagine.
+**La terza risposta.** La domanda era «le 107 sono hub o foglie?». Le prime venti pagine
+indicizzate, ordinate per ultima scansione, sono **14 foglie, 5 hub e la home** — autori, opere,
+temi e citazioni mescolati. Nessun tipo di pagina e' escluso: se Google avesse tenuto solo gli
+hub avremmo avuto un problema di architettura, se solo le foglie un problema di collegamenti
+interni. **Non e' ne' l'uno ne' l'altro.** «Rilevata ma non indicizzata» su mille pagine di un
+dominio di tre settimane vuol dire una cosa sola: Google ha visto gli indirizzi — la sitemap ha
+funzionato — e non ha ancora speso il tempo per scaricarli. La quota di scansione la concede in
+proporzione alla fiducia nel dominio, e la fiducia in un dominio che nessuno cita e' vicina a
+zero. La riga «rilevata ma non indicizzata» e' gia' in **discesa**.
+
+**Cosa ne consegue, e sono tre cose scomode.** (1) Nessuna riga di codice sposta quel numero:
+la parte tecnica e' finita. (2) Quello che lo sposta e' che il dominio smetta di essere
+sconosciuto — **link veri da siti veri**, che sono dell'utente e non di una sessione. (3)
+**Aggiungere pagine ora lavora contro**: con 1.012 indirizzi in coda di scansione, ogni URL
+nuovo divide la stessa quota fra piu' pagine. Il lavoro sui contenuti che ha senso adesso e'
+quello che **migliora le pagine che ci sono senza aggiungerne** — a partire dai 171 contesti
+sotto le 30 parole gia' misurati da Sonnet il 3 settembre.
 
 ### Dopo, in ordine di quanto e' sicuro che valga la pena
 
