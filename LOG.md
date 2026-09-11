@@ -3762,3 +3762,17 @@
   il bersaglio di 15 non era raggiungibile senza citazioni dubbie, il lotto si è fermato prima
   (musica a 11, pace a 10, cibo a 12, silenzio a 14) e lo si dichiara qui esplicitamente, come
   richiesto.
+
+- 2026-09-11 UTC — **correzione di un dato, non un lotto: il locus di Szymborska.** Su
+  «Nulla è in regalo!» il campo `source_locus` valeva **«1998»**, che è l'anno dell'edizione
+  italiana già scritto in `source_edition` («in «25 poesie», Mondadori, 1998»), non un luogo nel
+  testo. L'errore è venuto a galla generando il blocco «Come si cita questa frase»: la riga usciva
+  «… Mondadori, 1998, 1998». Il campo è stato **svuotato**, non riempito con un valore plausibile:
+  le altre tre citazioni di Szymborska in archivio hanno loci veri e verificati («La cipolla,
+  p. 9», «Il silenzio delle piante, p. 33», «incipit della poesia»), e mettere qui «incipit della
+  poesia» a memoria sarebbe stato inventare. **Da recuperare**: la pagina della poesia
+  nell'edizione «25 poesie» (Mondadori, 1998, trad. Pietro Marchesani), oppure la conferma che il
+  testo citato sono i primi versi — allora il locus diventa «incipit della poesia», come per
+  «Amore a prima vista». Fonte da guardare: la pagina Wikiquote già in `source_url`.
+  Le citazioni senza locus passano da 3 a 4 su 846.
+
