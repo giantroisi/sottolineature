@@ -695,6 +695,22 @@ giornata (qui sotto). Quello che resta e' il dato di Search Console, che arriva 
   browser dopo 790 KB di script. Le prime due erano salti veri, la terza era anche un lampo
   visibile a occhio nudo. Dettaglio e lezioni in `CLAUDE.md`, voce del 2026-09-09.
 
+### Fatto l'11 settembre — «Come si cita questa frase»
+
+Dal brief `SEO-CITA-QUESTA-FRASE.md`. Ogni pagina citazione ha ora un `<details>` con la riga
+bibliografica gia' scritta - autore, frase, titolo, traduttore, edizione, anno, luogo nel testo,
+link - e un pulsante che la copia: **846 righe su 846**. Il testo sta nell'HTML, non lo costruisce
+il JavaScript, quindi si legge e si seleziona anche senza script. Nel JSON-LD il campo `citation`
+del nodo `Quotation` porta ora la riga intera invece del solo locus.
+
+E' l'unico tipo di lavoro sui contenuti che ha senso adesso: **migliora le pagine che ci sono
+senza aggiungerne**, e risponde alla domanda con cui la gente arriva davvero (un verso digitato
+per sapere da dove viene), che gli aggregatori che occupano quelle SERP non soddisfano mai.
+
+Ha fatto emergere anche un dato sbagliato in archivio - il `source_locus` di Szymborska valeva
+«1998», cioe' l'anno dell'edizione - corretto svuotando il campo e annotato in `LOG.md`: la
+pagina vera resta da recuperare.
+
 ### Il dato, letto il 10 settembre — e non era quello che temevamo
 
 Letto insieme all'utente su Search Console (screenshot di Safari, sessione del 10 settembre).
