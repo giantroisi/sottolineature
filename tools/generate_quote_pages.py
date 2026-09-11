@@ -314,6 +314,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     <p class="quote-note-print sans" id="quoteNotePrint" hidden></p>
     <p class="quote-note-hint">Resta su questo dispositivo. La ritrovi in <a href="/le-mie-sottolineature/">Le mie sottolineature</a>.</p>
   </div>
+  {cita_html}
   {tags_html}
   <p class="segnala sans"><a class="segnala-errore" href="{segnala_href}">Segnala un errore in questa citazione</a></p>
   {related_html}
@@ -336,31 +337,37 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       try {{ localStorage.setItem('sottolineature-theme', next); }} catch (e) {{}}
       render();
     }});
-    var copyBtn = document.getElementById('copyBtn');
-    copyBtn.addEventListener('click', function () {{
-      var text = {copy_js_string};
-      var original = copyBtn.textContent;
-      function feedback() {{ copyBtn.textContent = 'Copiato'; setTimeout(function () {{ copyBtn.textContent = original; }}, 1400); }}
-      if (navigator.clipboard && navigator.clipboard.writeText) {{
-        navigator.clipboard.writeText(text).then(feedback, feedback);
-      }} else {{ feedback(); }}
-    }});
-
-    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
-    var quoteText = document.getElementById('quoteText');
-    function copyQuote(feedbackEl) {{
-      var text = {copy_js_string};
-      var el = feedbackEl || copyBtn;
+    // Una sola funzione di copia per tutta la pagina: il pulsante «Copia
+    // citazione», il clic sul testo della frase e il pulsante del riferimento
+    // bibliografico passano di qui. Erano due funzioni quasi identiche, e con
+    // «Come si cita questa frase» sarebbero diventate tre.
+    function copiaTesto(text, el) {{
       var original = el.textContent;
       function done() {{ el.textContent = 'Copiato'; setTimeout(function () {{ el.textContent = original; }}, 1400); }}
       if (navigator.clipboard && navigator.clipboard.writeText) {{
         navigator.clipboard.writeText(text).then(done, done);
       }} else {{ done(); }}
     }}
-    quoteText.addEventListener('click', function () {{ copyQuote(); }});
+    var copyBtn = document.getElementById('copyBtn');
+    copyBtn.addEventListener('click', function () {{ copiaTesto({copy_js_string}, copyBtn); }});
+
+    // Clic (o Invio/Spazio) sul testo della citazione: copia, come in home.
+    var quoteText = document.getElementById('quoteText');
+    quoteText.addEventListener('click', function () {{ copiaTesto({copy_js_string}, copyBtn); }});
     quoteText.addEventListener('keydown', function (e) {{
-      if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); copyQuote(); }}
+      if (e.key === 'Enter' || e.key === ' ') {{ e.preventDefault(); copiaTesto({copy_js_string}, copyBtn); }}
     }});
+
+    // Il riferimento bibliografico. Il pulsante esiste solo dove il blocco
+    // e' stato generato, e il testo lo legge dalla pagina invece di
+    // portarselo dietro una seconda volta in JavaScript.
+    var citaBtn = document.getElementById('citaBtn');
+    if (citaBtn) {{
+      citaBtn.addEventListener('click', function () {{
+        var riga = document.querySelector('.cita-testo');
+        if (riga) {{ copiaTesto(riga.textContent, citaBtn); }}
+      }});
+    }}
 
     // Condividi: la scelta chiaro/scuro riguarda solo l'immagine generata,
     // non il tema con cui si sta leggendo la pagina.
@@ -634,6 +641,76 @@ def titolo_esplicativo(q):
     return '\u00ab' + incipit + '\u00bb: la frase di ' + q['author'] + ' in \u00ab' + q['title'] + '\u00bb'
 
 
+def traduttore_gia_nellaedizione(q):
+    """Vero quando l'edizione nomina gia' il traduttore.
+
+    Su 79 citazioni il campo edizione contiene gia' il traduttore ("trad.
+    Renato Giani, Fratelli Bocca, 1915"): ripeterlo darebbe «trad. di Renato
+    Giani, trad. Renato Giani, Fratelli Bocca». Il confronto e' per parole e
+    non per sottostringa, perche' i separatori differiscono fra i due campi.
+    """
+    if not q.get('source_translator'):
+        return True
+    edizione = strip_accenti((q.get('source_edition') or '').lower())
+    nomi = [w for w in re.split(r'[^\w]+', strip_accenti(q['source_translator'].lower())) if len(w) > 2]
+    return bool(nomi) and all(n in edizione for n in nomi)
+
+
+def riga_di_citazione(q):
+    """La riga bibliografica pronta da incollare, o '' se non si puo' comporre.
+
+    Nasce dal brief `SEO-CITA-QUESTA-FRASE.md` dell'11 settembre 2026: le
+    query vere di questo sito non sono «frasi di X», sono versi digitati per
+    sapere da dove vengono, e gli aggregatori che occupano quelle SERP il
+    capitolo non lo dicono mai. Il dato qui c'e' per quasi tutte le citazioni:
+    questa funzione lo mette in una forma che si copia e si incolla.
+
+    Forma:
+        <Autore>, «<citazione>», <Titolo>[, trad. di <Traduttore>]
+        [, <edizione>], <anno>, <locus>. Testo: <source_url>
+
+    Il nome resta come sta nel dato, mai invertito in «Manzoni, A.»:
+    l'archivio contiene Sant'Agostino, Marco Aurelio, Omero, J.R.R. Tolkien.
+    Ogni campo mancante sparisce con il suo separatore - mai una virgola
+    doppia, mai uno spazio prima del punto - e se mancano insieme locus,
+    edizione e link la riga non si genera affatto: meglio niente che una
+    citazione che non serve a citare.
+    """
+    if not (q.get('source_locus') or q.get('source_edition') or q.get('source_url')):
+        return ''
+    testo = (q.get('quote') or '').strip()
+    if not testo:
+        return ''
+    frase = testo if testo.startswith('\u00ab') else '\u00ab' + testo + '\u00bb'
+    parti = [q['author'], frase, q['title']]
+    if q.get('source_translator') and not traduttore_gia_nellaedizione(q):
+        parti.append('trad. di ' + q['source_translator'])
+    edizione = q.get('source_edition') or ''
+    if edizione:
+        parti.append(edizione)
+    # L'anno della prima pubblicazione si stampa solo se l'edizione non porta
+    # gia' una data propria. Senza questo controllo I promessi sposi uscivano
+    # «edizione definitiva, 1840, 1827, capitolo VIII»: due anni in fila, che
+    # nessuno scriverebbe mai a mano. Riguarda 458 edizioni su 551, e l'esempio
+    # del brief e' scritto proprio cosi', senza la data ripetuta.
+    if q.get('year') and not re.search(r'\b(1[0-9]{3}|20[0-9]{2})\b', edizione):
+        parti.append(q['year'])
+    # Il locus salta quando l'edizione lo contiene gia' parola per parola: su
+    # Szymborska «Nulla e' in regalo!» il campo locus vale «1998», che e'
+    # l'anno gia' scritto nell'edizione, e la riga finiva «Mondadori, 1998,
+    # 1998». (Quel dato andrebbe corretto a monte: un anno non e' un luogo nel
+    # testo. Qui ci si limita a non ripeterlo.)
+    locus = (q.get('source_locus') or '').strip()
+    if locus and locus not in edizione:
+        parti.append(locus)
+    riga = ', '.join(p.strip() for p in parti if p and p.strip())
+    if not riga.endswith('.'):
+        riga += '.'
+    if q.get('source_url'):
+        riga += ' Testo: ' + q['source_url']
+    return riga
+
+
 def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=None,
                 sibling_slugs=None):
     quote_esc = html.escape(q['quote'])
@@ -674,6 +751,21 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
             link_label = 'Approfondisci'
         source_link = (' <a href="' + html.escape(source_url, quote=True) + '">' + link_label + ' →</a>') if source_url else ''
         source_html = '<p class="card-source sans"><span class="source-label">Dove si trova</span>' + ', '.join(source_parts) + '.' + source_link + '</p>'
+    # «Come si cita questa frase»: il riferimento gia' scritto, dentro un
+    # <details> chiuso. Non e' un pannello che si costruisce col JavaScript -
+    # il testo sta nell'HTML, si legge e si seleziona anche senza; il pulsante
+    # che lo copia e' l'unica parte `js-only` e usa la stessa funzione di
+    # «Copia citazione», non una seconda scritta per l'occasione.
+    cita_testo = riga_di_citazione(q)
+    cita_html = ''
+    if cita_testo:
+        cita_html = (
+            '<details class="cita-frase sans">\n'
+            '    <summary>Come si cita questa frase</summary>\n'
+            '    <p class="cita-testo">' + html.escape(cita_testo) + '</p>\n'
+            '    <button type="button" class="js-only cita-copia" id="citaBtn">Copia il riferimento</button>\n'
+            '  </details>'
+        )
     year_html = (' · <span class="card-year">' + html.escape(q['year']) + '</span>') if q['year'] else ''
     cover_src = q['cover'] if q['cover'].startswith(('http', '/')) else '/' + q['cover']
     cover_alt = html.escape('Copertina di "' + q['title'] + '" di ' + q['author'])
@@ -821,7 +913,10 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
                 'creator': {'@id': author_id},
                 'isPartOf': {'@id': book_id},
                 'url': canonical,
-                **({'citation': q['source_locus']} if q.get('source_locus') else {}),
+                # `citation` portava il solo locus ("capitolo XXV"), che fuori
+                # dalla pagina non dice niente: adesso porta la riga
+                # bibliografica intera, la stessa che il lettore copia.
+                **({'citation': cita_testo or q['source_locus']} if (cita_testo or q.get('source_locus')) else {}),
                 **({'sameAs': q['source_url']} if q.get('source_url') else {}),
                 **({'spokenByCharacter': {'@type': 'Person', 'name': q['speaker']}}
                    if q.get('speaker') else {}),
@@ -874,6 +969,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         year_html=year_html,
         context_html=context_html,
         source_html=source_html,
+        cita_html=cita_html,
         opera_link_html=opera_link_html,
         raccolta_link_html=raccolta_link_html,
         cover_html=cover_html,

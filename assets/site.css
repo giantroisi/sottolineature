@@ -375,6 +375,37 @@ footer.sans a { color: var(--ink-faint); }
 .page-quote .actions .is-primary { border-color: var(--accent); color: var(--accent); }
 .page-quote .actions .is-primary:hover { background: var(--accent); color: var(--paper); }
 
+/* «Come si cita questa frase»: il riferimento bibliografico gia' scritto.
+   Sta dentro un <details> chiuso perche' serve a pochi - chi copia una frase
+   per un compito, una tesi, un articolo - ma a quei pochi serve intero. Il
+   testo e' nell'HTML, non costruito dal JavaScript: senza script il
+   triangolino del browser lo apre lo stesso e si seleziona a mano. */
+.page-quote .cita-frase {
+  max-width: 40rem; margin: 0 0 2.5rem; font-size: 0.86rem; color: var(--ink-soft);
+}
+.page-quote .cita-frase > summary {
+  cursor: pointer; padding: 0.4rem 0; font-size: 0.82rem; color: var(--ink-faint);
+}
+.page-quote .cita-frase > summary:hover { color: var(--gold); }
+.page-quote .cita-frase[open] > summary { color: var(--ink-soft); }
+.page-quote .cita-testo {
+  margin: 0.5rem 0 0.8rem; padding: 0.9rem 1.1rem;
+  border-left: 2px solid var(--rule); background: var(--paper-raised);
+  line-height: 1.65; overflow-wrap: anywhere;
+}
+.page-quote .cita-copia {
+  border: 1px solid var(--rule); border-radius: 999px; padding: 0.5rem 1.05rem;
+  font: inherit; font-size: 0.8rem; line-height: 1; color: var(--ink-soft);
+  background: none; cursor: pointer;
+  transition: border-color 0.18s, color 0.18s, background 0.18s;
+}
+.page-quote .cita-copia:hover {
+  border-color: var(--accent); color: var(--accent); background: var(--paper-raised);
+}
+@media (max-width: 860px) {
+  .page-quote .cita-copia { display: inline-flex; align-items: center; min-height: 44px; }
+}
+
 .page-quote .tags { gap: 0.5rem; margin: 0 0 3rem; }
 .page-quote .tags a {
   border: 1px solid var(--rule); border-radius: 999px; padding: 0.32rem 0.8rem;
@@ -647,7 +678,8 @@ footer.sans a { color: var(--ink-faint); }
      che nessuno aveva mai guardato il foglio. E "Segnala un errore" e'
      un mailto: su un foglio e' una riga sottolineata che non porta da
      nessuna parte. */
-  .mine-tools, .mine-print-hint, .segnala, .footer-servizi { display: none !important; }
+  .mine-tools, .mine-print-hint, .segnala, .footer-servizi,
+  .cita-copia { display: none !important; }
   /* la data non e' decorazione: chi consegna una selezione di citazioni deve
      poter dire quando l'ha presa, perche' l'archivio cambia */
   .print-only { display: block !important; }
