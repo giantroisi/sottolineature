@@ -3798,3 +3798,16 @@
   (Garcia Marquez, Balzac, Kertesz, Zarathustra, Achmatova) non venivano spediti affatto. Ora si
   ricontrollano in mezzo minuto con `python3 tools/controlla_link_esterni.py --rivedi`.
 
+- 2026-09-13 UTC — **tolto il link della citazione di Kundera** (decisione dell'utente). Puntava a
+  `asfalto.archphoto.it`, che ha il certificato TLS scaduto: chi ci cliccava vedeva l'avviso di
+  sicurezza del browser prima della pagina — una fonte che spaventa il lettore vale meno di nessuna
+  fonte. La citazione resta verificabile senza: traduttore (Giuseppe Dierna), edizione (Adelphi) e
+  luogo nel testo («Parte sesta, la definizione del kitsch») sono tutti al loro posto, ed e'
+  esattamente il caso previsto dal punto 2 di `CATALOGO.md` — il link risparmia la biblioteca, non
+  fa la prova. Se un giorno si trova una fonte in linea stabile per quel passo, si rimette.
+  Il link di **Pessoa** (`arquivopessoa.net`, connessione rifiutata) resta invece dov'e': si
+  aspetta, perche' potrebbe essere il sito giu' per un momento, e quella citazione non ha ne'
+  edizione ne' traduttore — senza il link non sarebbe piu' verificabile. Si ricontrolla con
+  `python3 tools/controlla_link_esterni.py --rivedi`; se resta muto, va tolta la citazione o
+  trovata un'altra fonte.
+
