@@ -54,6 +54,38 @@ def write_vercel_json(redirects):
         # corrisponde, quindi l'host va valutato prima dei path specifici.
         "redirects": HOST_REDIRECTS + slug_redirects,
         "headers": [
+            # Intestazioni di sicurezza su tutte le pagine. Mancavano su tutte e
+            # 1.779 le risorse (crawl Screaming Frog dell'11 settembre 2026), ed
+            # e' l'unico blocco del rapporto che si chiude scrivendo cinque righe.
+            # La CSP ammette lo script e lo stile in linea perche' il sito ne e'
+            # fatto (il tema si applica prima del primo disegno, e non c'e' un
+            # server che possa generare un nonce a ogni richiesta): non e' la
+            # difesa piu' stretta possibile, ma chiude tutto il resto - niente
+            # risorse da domini terzi, niente plugin, niente incorniciamento
+            # della pagina dentro un altro sito. `data:` e `blob:` servono alle
+            # immagini da condividere, che nascono da un canvas.
+            {
+                "source": "/(.*)",
+                "headers": [
+                    {"key": "Content-Security-Policy", "value": (
+                        "default-src 'self'; "
+                        "script-src 'self' 'unsafe-inline'; "
+                        "style-src 'self' 'unsafe-inline'; "
+                        "img-src 'self' data: blob:; "
+                        "font-src 'self'; "
+                        "connect-src 'self'; "
+                        "form-action 'self'; "
+                        "base-uri 'self'; "
+                        "object-src 'none'; "
+                        "frame-ancestors 'none'"
+                    )},
+                    {"key": "X-Content-Type-Options", "value": "nosniff"},
+                    {"key": "Referrer-Policy", "value": "strict-origin-when-cross-origin"},
+                    {"key": "X-Frame-Options", "value": "SAMEORIGIN"},
+                    {"key": "Permissions-Policy",
+                     "value": "camera=(), microphone=(), geolocation=()"},
+                ],
+            },
             {
                 "source": "/assets/(.*)",
                 "headers": [
