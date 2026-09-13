@@ -192,6 +192,16 @@ def generate_citazioni_index(entries):
         title_tag = 'Tutte le citazioni' + ('' if page_num == 1 else ' — pagina ' + str(page_num)) + ' | Sottolineature'
         description = ('Tutte le ' + str(total) + ' citazioni raccolte su Sottolineature' +
                         ('.' if page_num == 1 else ', pagina ' + str(page_num) + ' di ' + str(num_pages) + '.'))
+        # Ventinove pagine con la stessa descrizione cambiata solo di numero
+        # dicono a un motore di ricerca che sono la stessa cosa. Gli autori
+        # della pagina, che sono diversi su ognuna, la rendono unica e utile -
+        # e la portano sopra i 70 caratteri (crawl dell'11 settembre 2026).
+        autori_pagina = []
+        for _s, _q in page_entries:
+            if _q['author'] not in autori_pagina:
+                autori_pagina.append(_q['author'])
+        if autori_pagina:
+            description += ' Da ' + autori_pagina[0] + ' a ' + autori_pagina[-1] + '.'
 
         item_list = {
             '@type': 'ItemList',
@@ -219,7 +229,11 @@ def generate_citazioni_index(entries):
             eyebrow='Archivio',
             h1='Tutte le citazioni' if page_num == 1 else 'Tutte le citazioni — pagina ' + str(page_num),
             count_line=str(total) + ' citazioni, pagina ' + str(page_num) + ' di ' + str(num_pages),
-            body_html=items_html + pagination_html,
+            # L'intestazione dell'elenco: le 29 pagine dell'indice non avevano
+            # nessun H2, e dice quale fetta di archivio si sta guardando.
+            body_html=('<h2 class="lista-h2 sans">Righe ' + str(i * PAGE_SIZE + 1) + '-' +
+                       str(i * PAGE_SIZE + len(page_entries)) + ' di ' + str(total) + '</h2>' +
+                       items_html + pagination_html),
         )
         urls.append(href)
 

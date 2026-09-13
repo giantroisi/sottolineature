@@ -88,6 +88,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <h1>{h1}</h1>
   <p class="count sans">{count} citazion{count_suffix} scelte a mano</p>
   <div class="hub-intro">{intro_html}</div>
+  {h2_lista}
   {cards_html}
   </div>
   <footer class="sans">
@@ -195,6 +196,10 @@ def render_raccolta(r, items):
         count=count,
         count_suffix=count_suffix,
         intro_html=intro_html,
+        # Le 34 raccolte non avevano nessun H2: il titolo, l'introduzione e
+        # poi le schede, senza un'intestazione che dicesse dove comincia
+        # l'elenco. «Righe» e non «citazioni», che sta gia' nell'H1.
+        h2_lista='<h2 class="lista-h2 sans">Le righe di questa raccolta</h2>',
         cards_html=cards_html,
     )
 

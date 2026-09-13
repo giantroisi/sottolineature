@@ -113,6 +113,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
   {intro_html}
   {opere_html}
   {nav_html}
+  {h2_lista}
   {cards_html}
   </div>
   <footer class="sans">
@@ -156,21 +157,50 @@ def card_html(slug, q):
 MIN_INDEXABLE_QUOTES = 3
 
 
-def author_opere_html(author, opere):
-    """Blocco 'Opere di {Autore}' sulla pagina hub autore: chiude il cerchio
-    autore -> opera, che finora si percorreva solo nell'altro verso (dalla
-    pagina opera all'autore, e dalla pagina citazione all'opera). Riusa la
-    classe .related gia' definita per le correlate di fondo pagina citazione
-    - stesso blocco titolo+elenco di link, nessuna CSS nuova. Vuoto (nessun
-    blocco) per gli autori senza nessuna opera in data/opere.json."""
-    author_opere = [op for op in opere if op['author'] == author]
-    if not author_opere:
+def author_opere_html(author, opere, items=None):
+    """Blocco «I libri di {Autore} in archivio» sulla pagina hub autore.
+
+    Prima elencava solo le opere con una scheda in `data/opere.json`, cioe'
+    quelle citate sei volte o piu': per **191 autori su 263** il blocco non
+    usciva affatto, e quelle pagine restavano senza un solo H2 e sotto le
+    duecento parole (crawl Screaming Frog dell'11 settembre 2026 - «Content:
+    Low Content Pages», 210 pagine). Ora elenca **tutti i libri da cui
+    l'autore e' citato**, con l'anno e quante righe ce ne sono.
+
+    I link non si inventano: il titolo porta alla pagina opera se la scheda
+    esiste, alla citazione se quella e' l'unica riga da quel libro, altrimenti
+    resta testo semplice - la riga la si raggiunge comunque dall'elenco qui
+    sotto. Riusa la classe .related delle correlate: stesso blocco
+    titolo+elenco, nessuna CSS nuova.
+    """
+    schede = {op['title']: op['slug'] for op in opere if op['author'] == author}
+    if not items:
         return ''
-    items = ''.join(
-        '<li><a href="/opere/' + op['slug'] + '/">' + html.escape(op['title']) + '</a></li>'
-        for op in author_opere
-    )
-    return '<div class="related sans"><h2>Opere di ' + html.escape(author) + '</h2><ul>' + items + '</ul></div>'
+    ordine = []
+    dati = {}
+    for s_, q_ in items:
+        t = q_['title']
+        if t not in dati:
+            dati[t] = {'anno': q_.get('year') or '', 'n': 0, 'slug': s_}
+            ordine.append(t)
+        dati[t]['n'] += 1
+    righe = []
+    for t in ordine:
+        d = dati[t]
+        etichetta = html.escape(t)
+        if t in schede:
+            voce = '<a href="/opere/' + schede[t] + '/">' + etichetta + '</a>'
+        elif d['n'] == 1:
+            voce = '<a href="/citazioni/' + d['slug'] + '/">' + etichetta + '</a>'
+        else:
+            voce = etichetta
+        coda = []
+        if d['anno']:
+            coda.append(html.escape(d['anno']))
+        coda.append(str(d['n']) + (' citazione' if d['n'] == 1 else ' citazioni'))
+        righe.append('<li>' + voce + ' <span class="voce-meta">\u00b7 ' + ' \u00b7 '.join(coda) + '</span></li>')
+    return ('<div class="related sans"><h2>I libri di ' + html.escape(author) +
+            ' in archivio</h2><ul>' + ''.join(righe) + '</ul></div>')
 
 
 def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragraphs=None, opere_html=''):
@@ -258,7 +288,20 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
             }
     jsonld = grafo_con_breadcrumb(collection_page, canonical, SITE_URL, foglia=label)
 
+    # L'intestazione dell'elenco. Mancava del tutto: 191 pagine autore, 8 temi e
+    # 7 generi non avevano nessun H2, cioe' nessuna struttura sotto il titolo.
+    # Dice «righe» dove l'H1 dice «citazioni» - stessa cosa detta con la parola
+    # che il sito usa da sempre - cosi' non e' la ripetizione dell'H1.
+    if kind == 'tema':
+        h2_lista = 'Le righe ' + prep + sep + label.lower()
+    elif kind == 'genere':
+        h2_lista = 'Le righe di ' + label.lower()
+    else:
+        h2_lista = 'Le righe di ' + label
+    h2_lista_html = '<h2 class="lista-h2 sans">' + html.escape(h2_lista) + '</h2>'
+
     return HUB_TEMPLATE.format(
+        h2_lista=h2_lista_html,
         title_tag=html.escape(title_tag),
         description=html.escape(description),
         robots_meta=robots_meta,
@@ -364,7 +407,7 @@ def main(opere=None):
     for author, items in by_author.items():
         aslug = author_slugs[author]
         intro = hub_intros.get('autori', {}).get(author)
-        opere_html = author_opere_html(author, opere)
+        opere_html = author_opere_html(author, opere, items)
         page, indexable = render_hub('autore', aslug, author, items, [], '', intro, opere_html)
         with open(os.path.join(autori_dir, aslug + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)

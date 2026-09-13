@@ -85,7 +85,9 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <h1>{h1}</h1>
   <p class="count sans">{author}{year_html} · {count} citazion{count_suffix} in archivio</p>
   <p class="opera-scheda">{scheda}</p>
+  {h2_lista}
   {cards_html}
+  {altre_html}
   </div>
   <footer class="sans">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
@@ -149,7 +151,7 @@ def build_opera_map(entries, opere):
     return by_slug_lookup
 
 
-def render_opera(op, items):
+def render_opera(op, items, opere_autore=None):
     count = len(items)
     count_suffix = 'i' if count != 1 else 'e'
     cards_html = '\n  '.join(card_html(s, q) for s, q in items)
@@ -164,6 +166,40 @@ def render_opera(op, items):
         ' da «' + op['title'] + '» di ' + op['author'] +
         (' (' + op['year'] + ')' if op.get('year') else '') + '.'
     )
+    # La descrizione si fermava a «2 citazioni verificate da «Candido» di
+    # Voltaire (1759).»: 55 caratteri, meta' di quello che un risultato di
+    # ricerca mostra (28 pagine opera sotto i 70 caratteri nel crawl dell'11
+    # settembre 2026). La coda la fornisce la scheda, che e' scritta a mano e
+    # parla di quel libro soltanto: se ne prende la prima frase, tagliata a
+    # parola intera, senza aggiungere una sillaba inventata.
+    if len(description) < 100 and op.get('scheda'):
+        prima = op['scheda'].split('. ')[0].strip()
+        if len(prima) > 115:
+            prima = prima[:115].rsplit(' ', 1)[0].rstrip(',;:') + '\u2026'
+        if prima:
+            description = description + ' ' + prima + ('' if prima.endswith('\u2026') else '.')
+
+    # L'elenco delle citazioni non aveva un'intestazione: 80 pagine opera senza
+    # nessun H2. Dice «righe» dove l'H1 dice «citazioni», per non ripeterlo.
+    h2_lista_html = ('<h2 class="lista-h2 sans">Le righe da \u00ab' +
+                     html.escape(op['title']) + '\u00bb</h2>')
+
+    # Dall'opera si tornava all'autore solo dalla briciola in cima: qui le altre
+    # opere sue diventano link veri, che e' anche il modo in cui un motore di
+    # ricerca scopre le pagine profonde.
+    altre = [o for o in (opere_autore or []) if o['slug'] != op['slug']]
+    altre_html = ''
+    if altre:
+        voci = ''.join(
+            '<li><a href="/opere/' + o['slug'] + '/">' + html.escape(o['title']) + '</a>' +
+            (' <span class="voce-meta">\u00b7 ' + html.escape(o['year']) + '</span>' if o.get('year') else '') +
+            '</li>'
+            for o in altre
+        )
+        altre_html = ('<div class="related sans"><h2>Altre opere di ' + author_esc +
+                      '</h2><ul>' + voci + '</ul></div>')
+    altre_html += ('<p class="torna-autore sans"><a href="/autori/' + author_slug +
+                   '/">Tutte le citazioni di ' + author_esc + ' \u2192</a></p>')
     canonical = SITE_URL + '/opere/' + op['slug'] + '/'
     # Nei risultati di ricerca si leggono si' e no 64 caratteri: con un titolo
     # lungo il marchio in coda spariva comunque, e con «Canto notturno di un
@@ -246,6 +282,8 @@ def render_opera(op, items):
         count=count,
         count_suffix=count_suffix,
         scheda=html.escape(op['scheda']),
+        h2_lista=h2_lista_html,
+        altre_html=altre_html,
         cards_html=cards_html,
     )
 
@@ -269,7 +307,7 @@ def main(entries):
         if not items:
             print('ATTENZIONE: nessuna citazione trovata per opera', op['slug'], '- pagina non generata')
             continue
-        page = render_opera(op, items)
+        page = render_opera(op, items, [o for o in opere if o['author'] == op['author']])
         with open(os.path.join(OUT_DIR, op['slug'] + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
         opera_status[op['slug']] = len(items)
