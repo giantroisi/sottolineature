@@ -3776,3 +3776,25 @@
   «Amore a prima vista». Fonte da guardare: la pagina Wikiquote già in `source_url`.
   Le citazioni senza locus passano da 3 a 4 su 846.
 
+- 2026-09-13 UTC — **i 189 link esterni «4xx» del crawl non erano link rotti.** Screaming Frog
+  (crawl dell'11 settembre) segnalava 189 errori 4xx sui link in uscita, cioe' sulle fonti delle
+  citazioni. Controllati tutti e 406 gli indirizzi distinti uno per uno, una richiesta alla volta
+  con mezzo secondo di pausa e uno user-agent dichiarato (`tools/controlla_link_esterni.py`):
+  **395 rispondono 200, zero rispondono 404.** La spiegazione piu' probabile e' la velocita' del
+  crawl: 397 dei nostri link puntano a it.wikiquote.org e 109 a it.wikisource.org, e Wikimedia
+  limita chi chiede centinaia di pagine in pochi secondi — la risposta di limitazione e' anch'essa
+  un 4xx, e finisce in quel conteggio. Non e' un difetto dell'archivio.
+  **Quello che invece era vero, ed e' stato corretto:** 10 citazioni (6 da «Romeo e Giulietta»,
+  4 da «Il ritratto di Dorian Gray») puntavano a `www.liberliber.it`, che redirige a
+  `liberliber.it` — indirizzi aggiornati alla forma finale, un passaggio in meno per chi clicca.
+  **Quello che resta da decidere, e non l'ho toccato:** il link della citazione di Kundera
+  (asfalto.archphoto.it) ha il **certificato scaduto**, quindi al lettore compare l'avviso di
+  sicurezza del browser prima della pagina: la citazione ha traduttore, edizione e luogo nel testo,
+  quindi reggerebbe anche senza. Il link di Pessoa (arquivopessoa.net) rifiuta la connessione, e
+  quella citazione non ha ne' edizione ne' traduttore: e' l'unica dove la fonte e' tutto.
+  Quattro indirizzi rispondono 403 a un programma (cliffsnotes, escholarship, nastywomenwriters,
+  scritturacreativa): e' blocco anti-bot, da un browser si aprono.
+  Corretto anche un difetto dello strumento: cinque indirizzi con lettere accentate o in cirillico
+  (Garcia Marquez, Balzac, Kertesz, Zarathustra, Achmatova) non venivano spediti affatto. Ora si
+  ricontrollano in mezzo minuto con `python3 tools/controlla_link_esterni.py --rivedi`.
+

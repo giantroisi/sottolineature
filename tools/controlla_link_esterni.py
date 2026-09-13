@@ -47,10 +47,35 @@ def carica():
     return d if isinstance(d, list) else d['citazioni']
 
 
+def in_uri(url):
+    """Da IRI a URI: percent-encoding di quello che non e' ASCII.
+
+    Cinque indirizzi su 406 (Garc\u00eda M\u00e1rquez, Balzac, Kert\u00e9sz, «Cos\u00ec parl\u00f2
+    Zarathustra», Achmatova in cirillico) facevano fallire il controllo con un
+    UnicodeEncodeError: non erano link rotti, era questo script che non sapeva
+    spedirli. `%` resta fra i caratteri sicuri per non ricodificare due volte
+    quello che e' gia' codificato.
+    """
+    p = urllib.parse.urlsplit(url)
+    host = p.netloc
+    if any(ord(c) > 127 for c in host):
+        try:
+            host = host.encode('idna').decode('ascii')
+        except Exception:
+            pass
+    return urllib.parse.urlunsplit((
+        p.scheme,
+        host,
+        urllib.parse.quote(p.path, safe="/%:@!$&'()*+,;=~-._"),
+        urllib.parse.quote(p.query, safe="=&%:@!$'()*+,;/?~-._"),
+        urllib.parse.quote(p.fragment, safe="%"),
+    ))
+
+
 def chiedi(url, metodo='HEAD'):
     """Ritorna (stato, url_finale, nota). Lo stato e' un numero HTTP, oppure 0
     quando non si e' arrivati a parlare col server."""
-    req = urllib.request.Request(url, method=metodo, headers={
+    req = urllib.request.Request(in_uri(url), method=metodo, headers={
         'User-Agent': UA,
         'Accept': 'text/html,application/xhtml+xml,*/*;q=0.8',
         'Accept-Language': 'it,en;q=0.8',
@@ -72,6 +97,16 @@ def chiedi(url, metodo='HEAD'):
 
 
 def main():
+    # `--rivedi` ricontrolla solo gli indirizzi che l'ultima volta non hanno
+    # risposto 200 e riscrive il referto con quelli: mezzo minuto invece di
+    # dieci, quando si vuole solo sapere se una fonte che era muta e' tornata.
+    solo_rivedi = '--rivedi' in sys.argv
+    precedenti = {}
+    if solo_rivedi:
+        if not os.path.exists(USCITA):
+            raise SystemExit('non c\'e\' un referto precedente da rivedere: lancia lo script senza --rivedi')
+        with open(USCITA, encoding='utf-8') as f:
+            precedenti = json.load(f)
     quotes = carica()
     per_url = defaultdict(list)
     for q in quotes:
@@ -79,6 +114,10 @@ def main():
         if u:
             per_url[u].append({'author': q['author'], 'title': q['title'],
                                'quote': q['quote'][:70]})
+    if solo_rivedi:
+        da_fare = {u for u, e in precedenti.items() if e.get('stato') != 200}
+        per_url = {u: v for u, v in per_url.items() if u in da_fare}
+        print('modalita\' --rivedi:', len(per_url), 'indirizzi da ricontrollare')
     per_dominio = defaultdict(list)
     for u in per_url:
         per_dominio[urllib.parse.urlparse(u).netloc].append(u)
@@ -104,6 +143,10 @@ def main():
             sys.stdout.flush()
             time.sleep(PAUSA)
 
+    if solo_rivedi:
+        uniti = dict(precedenti)
+        uniti.update(esiti)
+        esiti = uniti
     os.makedirs(os.path.dirname(USCITA), exist_ok=True)
     with open(USCITA, 'w', encoding='utf-8') as f:
         json.dump(esiti, f, ensure_ascii=False, indent=1, sort_keys=True)
