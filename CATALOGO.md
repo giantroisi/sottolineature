@@ -711,6 +711,38 @@ Ha fatto emergere anche un dato sbagliato in archivio - il `source_locus` di Szy
 «1998», cioe' l'anno dell'edizione - corretto svuotando il campo e annotato in `LOG.md`: la
 pagina vera resta da recuperare.
 
+### Fatto il 13 settembre — il crawl di Screaming Frog, e cosa ne e' uscito
+
+L'utente ha passato un crawl completo del sito (2.188 risorse). Il rapporto
+elencava 25 voci: la meta' erano soglie generiche gia' valutate e respinte con i
+numeri (title oltre 60 caratteri, H1 oltre 70: misurati il 4 settembre su 749
+pagine, il formato attuale vince), una era un falso allarme (le «503 immagini
+senza alt» sono `alt=""` voluto su immagini decorative - la piuma
+dell'intestazione, il logo, le miniature delle correlate: e' esattamente cio' che
+la scheda «How To Fix» dello stesso strumento raccomanda), e tre erano vere.
+
+**Chiuse.** Le intestazioni di sicurezza, che mancavano su tutte e 1.779 le
+risorse (CSP, X-Content-Type-Options, Referrer-Policy, X-Frame-Options,
+Permissions-Policy, scritte in `write_vercel_json` perche' `vercel.json` e'
+generato). Le 350 pagine senza nessun H2. Le 57 descrizioni sotto i 70 caratteri.
+E, nello stesso giro, il blocco dei libri dell'autore esteso da 72 a 263 pagine e
+il percorso opera -> autore -> altre opere: pagine sotto le 200 parole da 210 a
+62, senza aggiungere un solo URL - che dopo il dato del 10 settembre e' la
+condizione a cui deve rispondere ogni lavoro sui contenuti.
+
+**Aperta, e serve l'utente.** I **189 link esterni che rispondono 4xx**: sono
+`source_url` di citazioni, cioe' fonti morte, ed e' un problema di correttezza,
+che qui viene prima di tutto. Wikimedia e Open Library sono irraggiungibili da
+entrambe le shell: la lista va esportata da Screaming Frog (Response Codes →
+External → Client Error 4xx) e letta da li'.
+
+**Da chiarire.** Una quarta schermata mostrava errori gravi - title, canonical e
+meta description fuori dal `<head>` su 170 pagine, 37 URL con uno spazio - che su
+questo sito non esistono: verificate tutte e 1.274 le pagine applicando la regola
+HTML5 (il primo elemento non ammesso chiude il `<head>`), zero casi. Quel crawl
+aveva 1.359 URL contro 2.188 e nella foto non si vedeva l'indirizzo: prima di
+cercare un guasto va detto di che sito e'.
+
 ### Il dato, letto il 10 settembre — e non era quello che temevamo
 
 Letto insieme all'utente su Search Console (screenshot di Safari, sessione del 10 settembre).
