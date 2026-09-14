@@ -188,8 +188,17 @@ def ritratto_html(author, foto):
     fotografo = (foto.get('fotografo') or '').strip()
     licenza = (foto.get('licenza') or '').strip()
     codice = (foto.get('licenza_codice') or '').lower()
+    # «Immagine» e non «Foto»: meta' di questi ritratti sono dipinti, incisioni,
+    # busti - il ritratto di Dante e' di Botticelli, e scrivere «foto di Sandro
+    # Botticelli» sarebbe falso. Una parola sola che vale per tutti e due i casi
+    # e' piu' esatta di due parole giuste a meta'.
     if fotografo:
-        pezzi.append('Foto di ' + html.escape(fotografo))
+        pezzi.append('Immagine: ' + html.escape(fotografo))
+    # Commons scrive il nome della licenza in inglese anche quando il resto
+    # arriva in italiano: «Public domain» tradotto e' semplicemente piu'
+    # leggibile per chi legge questo sito.
+    if licenza.lower() in ('public domain', 'pubblico dominio'):
+        licenza = 'pubblico dominio'
     if licenza:
         if foto.get('licenza_url'):
             pezzi.append('<a href="' + html.escape(foto['licenza_url'], quote=True) +

@@ -47,6 +47,47 @@ def apri(percorso):
     return tmp, tmp
 
 
+def https(url):
+    """Commons restituisce l'indirizzo della licenza in `http://`, e il
+    controllo dei link del sito - giustamente - segnala i link non cifrati.
+    creativecommons.org serve gli stessi documenti in `https://`: e' la stessa
+    pagina, non un indirizzo diverso."""
+    if url.startswith('http://creativecommons.org/') or url.startswith('http://www.gnu.org/'):
+        return 'https://' + url[len('http://'):]
+    return url
+
+
+LATO_MAX = 450          # la pagina la mostra a 152px: 450 basta anche sugli schermi a 3x
+QUALITA = 80
+
+
+def pubblica(sorgente, nome):
+    """Scrive in assets/autori/ la copia che il sito serve davvero.
+
+    Le immagini che arrivano da Commons pesano in media 215 KB e arrivano a 1,6
+    MB: 59 MB in tutto, per ritratti che in pagina sono larghi 152px. Qui si
+    riducono a 450px di lato lungo e si riscrivono in JPEG - il PNG di una
+    fotografia pesa il triplo senza dare niente. E' un ridimensionamento, non un
+    ritaglio: l'immagine resta quella, e l'impronta del file originale scaricato
+    da Commons resta scritta nel dato come prova di provenienza.
+
+    Se Pillow non c'e', il file si copia com'e': meglio una pagina pesante che
+    una pagina senza ritratto.
+    """
+    base = os.path.splitext(nome)[0]
+    try:
+        from PIL import Image
+    except ImportError:
+        shutil.copyfile(sorgente, os.path.join(DEST_IMG, nome))
+        return nome, None, None
+    with Image.open(sorgente) as im:
+        im = im.convert('RGB')
+        im.thumbnail((LATO_MAX, LATO_MAX), Image.LANCZOS)
+        fuori = base + '.jpg'
+        im.save(os.path.join(DEST_IMG, fuori), 'JPEG', quality=QUALITA, optimize=True, progressive=True)
+        return fuori, im.width, im.height
+
+
 def main():
     if len(sys.argv) < 2:
         raise SystemExit(__doc__)
@@ -70,7 +111,12 @@ def main():
             continue
         # CC BY e CC BY-SA obbligano a nominare l'autore della fotografia; il
         # pubblico dominio no, e li' il campo puo' restare vuoto senza colpa.
-        if lic.startswith('cc-by') and not r.get('fotografo'):
+        # Il nome di chi ha scattato sta di solito nel campo `Artist` di Commons,
+        # ma non sempre: sulla foto del busto di Marco Aurelio al Louvre sta in
+        # `Credit` («Marie-Lan Nguyen (2011)»). Si guardano tutti e due prima di
+        # rinunciare - rinunciare vuol dire non pubblicare la foto.
+        fotografo = (r.get('fotografo') or '').strip() or (r.get('credito') or '').strip()
+        if lic.startswith('cc-by') and not fotografo:
             fuori.append((r['autore'], 'licenza ' + lic + ' senza nome del fotografo'))
             continue
         sorgente = os.path.join(cartella, 'foto', r['file'])
@@ -83,17 +129,18 @@ def main():
         if sha != r.get('sha256'):
             fuori.append((r['autore'], 'impronta diversa da quella dichiarata'))
             continue
-        shutil.copyfile(sorgente, os.path.join(DEST_IMG, r['file']))
+        nome_pubblicato, larghezza, altezza = pubblica(sorgente, r['file'])
         dati[r['autore']] = {
-            'file': '/assets/autori/' + r['file'],
-            'sha256': sha,
+            'file': '/assets/autori/' + nome_pubblicato,
+            'sha256_commons': sha,
             'licenza': r.get('licenza_nome') or r.get('licenza_codice'),
             'licenza_codice': lic,
-            'licenza_url': r.get('licenza_url', ''),
-            'fotografo': r.get('fotografo', ''),
+            'licenza_url': https(r.get('licenza_url', '')),
+            'fotografo': fotografo,
             'pagina_commons': r['pagina_commons'],
-            'larghezza': r.get('larghezza'),
-            'altezza': r.get('altezza'),
+            'file_commons': r.get('file_commons', ''),
+            'larghezza': larghezza,
+            'altezza': altezza,
         }
         dentro.append(r['autore'])
 
