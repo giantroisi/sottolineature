@@ -237,6 +237,42 @@ h1 { font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 0 0 0.75re
    correlate: una piccola etichetta, non un secondo titolo che compete con
    l'H1. Serviva perche' 350 pagine non avevano nessun H2, cioe' nessuna
    struttura sotto il titolo (crawl Screaming Frog dell'11 settembre 2026). */
+/* Il ritratto dell'autore, con il suo credito. Sta a destra e il testo gli gira
+   intorno: e' un'illustrazione della pagina, non il suo soggetto - il soggetto
+   restano le righe. Il credito e' minuto ma leggibile e cliccabile, perche' CC
+   BY e CC BY-SA obbligano a nominare chi ha scattato e a rimandare alla
+   licenza: e' parte della foto, non una nota di servizio da nascondere. */
+.ritratto {
+  float: right;
+  width: 9.5rem;
+  margin: 0 0 1.2rem 1.6rem;
+}
+.ritratto img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 3px;
+  background: var(--paper-raised);
+  box-shadow: 0 1px 4px var(--shadow);
+}
+.ritratto-credito {
+  font-size: 0.62rem;
+  line-height: 1.45;
+  color: var(--ink-faint);
+  margin: 0.45rem 0 0;
+}
+.ritratto-credito a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--rule); }
+.ritratto-credito a:hover { color: var(--gold); border-color: var(--gold); }
+/* l'elenco dei libri e quello delle righe cominciano sempre sotto il ritratto,
+   anche quando l'introduzione e' corta */
+.related, .lista-h2 { clear: both; }
+@media (max-width: 480px) {
+  .ritratto { width: 7.5rem; margin-left: 1.1rem; }
+}
+@media print {
+  .ritratto { float: none; width: 6rem; margin: 0 0 1rem; }
+}
+
 .lista-h2 {
   font-size: 0.72rem;
   letter-spacing: 0.12em;

@@ -110,6 +110,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
   <p class="eyebrow sans">{eyebrow}</p>
   <h1>{h1}</h1>
   <p class="count sans">{count} citazion{count_suffix}</p>
+  {ritratto_html}
   {intro_html}
   {opere_html}
   {nav_html}
@@ -155,6 +156,61 @@ def card_html(slug, q):
 
 
 MIN_INDEXABLE_QUOTES = 3
+
+
+FOTO_PATH = os.path.join(ROOT, 'data', 'autori_foto.json')
+
+
+def load_foto():
+    """Le foto degli autori, con la loro licenza. Il file lo scrive
+    `tools/importa_foto_autori.py` dopo aver verificato impronta e licenza di
+    ogni immagine; se non c'e', le pagine escono come prima, senza ritratto."""
+    try:
+        with open(FOTO_PATH, encoding='utf-8') as f:
+            return json.load(f)
+    except (IOError, ValueError):
+        return {}
+
+
+def ritratto_html(author, foto):
+    """Il ritratto con il suo credito.
+
+    Il credito non e' decorazione: CC BY e CC BY-SA obbligano a nominare chi ha
+    scattato e a dire sotto quale licenza, con il rinvio al file originale. Per
+    il pubblico dominio l'obbligo non c'e', ma il rinvio si mette lo stesso -
+    chi legge deve poter risalire alla fonte dell'immagine come risale a quella
+    della citazione. Larghezza e altezza sono nell'attributo perche' la pagina
+    non salti mentre l'immagine arriva.
+    """
+    if not foto:
+        return ''
+    pezzi = []
+    fotografo = (foto.get('fotografo') or '').strip()
+    licenza = (foto.get('licenza') or '').strip()
+    codice = (foto.get('licenza_codice') or '').lower()
+    if fotografo:
+        pezzi.append('Foto di ' + html.escape(fotografo))
+    if licenza:
+        if foto.get('licenza_url'):
+            pezzi.append('<a href="' + html.escape(foto['licenza_url'], quote=True) +
+                         '" rel="license nofollow">' + html.escape(licenza) + '</a>')
+        else:
+            pezzi.append(html.escape(licenza))
+    elif codice.startswith('pd'):
+        pezzi.append('pubblico dominio')
+    if foto.get('pagina_commons'):
+        pezzi.append('<a href="' + html.escape(foto['pagina_commons'], quote=True) +
+                     '" rel="nofollow">Wikimedia Commons</a>')
+    dimensioni = ''
+    if foto.get('larghezza') and foto.get('altezza'):
+        dimensioni = ' width="' + str(foto['larghezza']) + '" height="' + str(foto['altezza']) + '"'
+    return (
+        '<figure class="ritratto">'
+        '<img src="' + html.escape(foto['file'], quote=True) + '" alt="Ritratto di ' +
+        html.escape(author) + '"' + dimensioni + ' decoding="async">'
+        '<figcaption class="ritratto-credito sans">' + ' \u00b7 '.join(pezzi) + '</figcaption>'
+        '</figure>'
+    )
 
 
 def author_opere_html(author, opere, items=None):
@@ -203,7 +259,7 @@ def author_opere_html(author, opere, items=None):
             ' in archivio</h2><ul>' + ''.join(righe) + '</ul></div>')
 
 
-def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragraphs=None, opere_html=''):
+def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragraphs=None, opere_html='', foto=None):
     count = len(items)
     count_suffix = 'i' if count != 1 else 'e'
     cards_html = '\n  '.join(card_html(s, q) for s, q in items)
@@ -285,6 +341,7 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
                 '@id': canonical + '#person',
                 'name': label,
                 'sameAs': [links[k] for k in ('wikipedia', 'wikidata') if links.get(k)],
+                **({'image': SITE_URL + foto['file']} if foto and foto.get('file') else {}),
             }
     jsonld = grafo_con_breadcrumb(collection_page, canonical, SITE_URL, foglia=label)
 
@@ -292,6 +349,8 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
     # 7 generi non avevano nessun H2, cioe' nessuna struttura sotto il titolo.
     # Dice «righe» dove l'H1 dice «citazioni» - stessa cosa detta con la parola
     # che il sito usa da sempre - cosi' non e' la ripetizione dell'H1.
+    ritratto = ritratto_html(label, foto) if kind == 'autore' else ''
+
     if kind == 'tema':
         h2_lista = 'Le righe ' + prep + sep + label.lower()
     elif kind == 'genere':
@@ -301,6 +360,7 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
     h2_lista_html = '<h2 class="lista-h2 sans">' + html.escape(h2_lista) + '</h2>'
 
     return HUB_TEMPLATE.format(
+        ritratto_html=ritratto,
         h2_lista=h2_lista_html,
         title_tag=html.escape(title_tag),
         description=html.escape(description),
@@ -359,6 +419,7 @@ def main(opere=None):
         print('slugs.json aggiornato (hub)')
 
     hub_intros = load_hub_intros()
+    foto_autori = load_foto()
 
     # --- Temi ---
     temi_dir = os.path.join(ROOT, 'temi')
@@ -408,7 +469,8 @@ def main(opere=None):
         aslug = author_slugs[author]
         intro = hub_intros.get('autori', {}).get(author)
         opere_html = author_opere_html(author, opere, items)
-        page, indexable = render_hub('autore', aslug, author, items, [], '', intro, opere_html)
+        page, indexable = render_hub('autore', aslug, author, items, [], '', intro, opere_html,
+                                     foto_autori.get(author))
         with open(os.path.join(autori_dir, aslug + '.html'), 'w', encoding='utf-8') as f:
             f.write(page)
         author_status[aslug] = indexable
