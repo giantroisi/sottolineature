@@ -695,6 +695,34 @@ giornata (qui sotto). Quello che resta e' il dato di Search Console, che arriva 
   browser dopo 790 KB di script. Le prime due erano salti veri, la terza era anche un lampo
   visibile a occhio nudo. Dettaglio e lezioni in `CLAUDE.md`, voce del 2026-09-09.
 
+### Fatto il 13-14 settembre — i ritratti degli autori
+
+245 pagine autore su 263 hanno il ritratto, con il credito sotto: chi ha fatto
+l'immagine, la licenza con il rinvio al suo testo, e il file su Commons. Raccolti
+dal browser dell'utente (Wikidata P18 → Wikimedia Commons), perche' Wikimedia e'
+irraggiungibile da entrambe le shell; verificati due volte, con l'impronta
+SHA-256 ricalcolata all'arrivo.
+
+**La regola, che non si deroga:** entra solo il file con licenza libera
+dichiarata (pubblico dominio, CC0, CC BY, CC BY-SA) e con un nome a cui
+attribuirla dove la licenza lo impone. Restano senza ritratto 18 autori: 4 senza
+immagine su Wikidata, 11 con `Restrictions: personality` dichiarato su Commons,
+1 senza licenza, 2 senza nome del fotografo. Dove non c'e' una foto pulita
+l'autore resta senza — un vuoto vale piu' di un credito sbagliato.
+
+**Da decidere (utente):** gli 11 con `Restrictions: personality`. Il marchio non
+limita la licenza, avverte che vanno rispettati i diritti d'immagine della
+persona: l'uso editoriale che ne faremmo e' quello che il marchio prevede.
+
+Le immagini sono ridimensionate a 450px (59 MB scaricati → 6,1 MB serviti, 24 KB
+di media) e non ritagliate: l'inquadratura la fa il CSS, il file resta l'opera di
+chi l'ha fatta. Dichiarate in `sitemap-autori.xml` con `<image:image>` e nel
+JSON-LD come `ImageObject` con `license`, `creditText` e `acquireLicensePage` -
+il corredo con cui Google segna un'immagine come utilizzabile con licenza.
+
+Strumenti nuovi: `tools/genera_raccoglitore_foto.py` (la paginetta che raccoglie)
+e `tools/importa_foto_autori.py` (che verifica, ridimensiona e scrive il dato).
+
 ### Fatto l'11 settembre — «Come si cita questa frase»
 
 Dal brief `SEO-CITA-QUESTA-FRASE.md`. Ogni pagina citazione ha ora un `<details>` con la riga
