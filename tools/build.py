@@ -40,6 +40,33 @@ HOST_REDIRECTS = [
 ]
 
 
+def carica_foto_autori():
+    """Le foto degli autori con la loro licenza, se ci sono."""
+    percorso = os.path.join(qp.ROOT, 'data', 'autori_foto.json')
+    try:
+        with open(percorso, encoding='utf-8') as f:
+            return json.load(f)
+    except (IOError, ValueError):
+        return {}
+
+
+def immagine_sitemap(slug, foto_per_autore, nome_per_slug):
+    """Il pezzo <image:image> da mettere nella voce di sitemap di un autore.
+
+    Un'immagine che sta solo dentro una pagina HTML Google la trova quando passa
+    di li'; dichiararla nella sitemap e' il modo esplicito di dire che esiste ed
+    e' nostra. Dei vecchi campi (titolo, didascalia, licenza) Google ha smesso di
+    tener conto nel 2022: resta <image:loc>, e il resto lo dicono l'attributo alt
+    e i dati strutturati della pagina.
+    """
+    nome = nome_per_slug.get(slug)
+    dati = foto_per_autore.get(nome) if nome else None
+    if not dati or not dati.get('file'):
+        return ''
+    return ('<image:image><image:loc>' + qp.SITE_URL + dati['file'] +
+            '</image:loc></image:image>')
+
+
 def write_vercel_json(redirects):
     path = os.path.join(qp.ROOT, 'vercel.json')
     slug_redirects = [
@@ -179,6 +206,8 @@ def main():
     indexable_temi = [c for c, ok in tema_status.items() if ok]
     indexable_generi = [g for g, ok in genere_status.items() if ok]
     indexable_autori = sorted(a for a, ok in author_status.items() if ok)
+    autori_foto = carica_foto_autori()
+    autori_slug_nome = {slug: nome for nome, slug in author_slugs.items()}
     hub_below_threshold = (
         [c for c, ok in tema_status.items() if not ok] +
         [g for g, ok in genere_status.items() if not ok] +
@@ -212,7 +241,10 @@ def main():
         ]),
         ('sitemap-citazioni.xml', citazioni_urls),
         ('sitemap-indice-citazioni.xml', [(href, '') for href in citazioni_index_urls]),
-        ('sitemap-autori.xml', [('/autori/' + a + '/', '') for a in indexable_autori]),
+        ('sitemap-autori.xml', [
+            ('/autori/' + a + '/', '', immagine_sitemap(a, autori_foto, autori_slug_nome))
+            for a in indexable_autori
+        ]),
         ('sitemap-opere.xml', [('/opere/' + o + '/', '') for o in op_status]),
         ('sitemap-raccolte.xml', [('/raccolte/' + r + '/', '') for r in rc_status]),
         ('sitemap-temi-generi.xml', (
@@ -220,14 +252,21 @@ def main():
             [('/generi/' + g + '/', '') for g in indexable_generi]
         )),
     ]
-    sitemap_urls = [u for _, urls in sitemap_groups for u in urls]
+    sitemap_urls = [(u[0], u[1]) for _, urls in sitemap_groups for u in urls]
 
     for filename, urls in sitemap_groups:
+        # Ogni voce e' (indirizzo, lastmod) oppure (indirizzo, lastmod, immagini):
+        # il terzo campo e' il pezzo <image:image> dei ritratti d'autore. Il
+        # namespace delle immagini si dichiara solo nei file che ne contengono.
+        urls = [u if len(u) == 3 else (u[0], u[1], '') for u in urls]
+        con_immagini = any(u[2] for u in urls)
         with open(os.path.join(qp.ROOT, filename), 'w', encoding='utf-8') as f:
             f.write('<?xml version="1.0" encoding="UTF-8"?>\n')
-            f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-            for href, lastmod in urls:
-                f.write('  <url><loc>' + qp.SITE_URL + href + '</loc>' + lastmod + '</url>\n')
+            f.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"' +
+                    (' xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'
+                     if con_immagini else '') + '>\n')
+            for href, lastmod, immagini in urls:
+                f.write('  <url><loc>' + qp.SITE_URL + href + '</loc>' + lastmod + immagini + '</url>\n')
             f.write('</urlset>\n')
 
     sitemap_path = os.path.join(qp.ROOT, 'sitemap.xml')

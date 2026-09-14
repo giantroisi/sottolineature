@@ -172,6 +172,50 @@ def load_foto():
         return {}
 
 
+def immagine_jsonld(author, foto, canonical):
+    """Il ritratto come `ImageObject`, non come indirizzo nudo.
+
+    Un'immagine entra in Google Immagini se il motore la trova (sitemap), capisce
+    che cosa raffigura (alt e didascalia) e sa a quali condizioni si puo' usare.
+    L'ultima parte e' quella che di solito manca, ed e' proprio quella che qui
+    abbiamo per intero: licenza, autore, e la pagina su Commons dove i termini
+    sono scritti per esteso. E' anche cio' che permette a Google di mostrare
+    l'immagine come «utilizzabile con licenza» invece che senza informazioni.
+
+    `license` punta al testo della licenza quando Commons lo dichiara; quando non
+    lo dichiara - accade per il pubblico dominio - punta alla pagina del file,
+    che e' il luogo dove quei termini sono affermati. Non si inventa un indirizzo
+    di licenza che nessuno ha scritto.
+    """
+    fotografo = (foto.get('fotografo') or '').strip()
+    licenza_url = (foto.get('licenza_url') or '').strip()
+    pagina = (foto.get('pagina_commons') or '').strip()
+    nodo = {
+        '@type': 'ImageObject',
+        '@id': canonical + '#ritratto',
+        'contentUrl': SITE_URL + foto['file'],
+        'url': SITE_URL + foto['file'],
+        'caption': 'Ritratto di ' + author,
+        'representativeOfPage': True,
+    }
+    if foto.get('larghezza') and foto.get('altezza'):
+        nodo['width'] = foto['larghezza']
+        nodo['height'] = foto['altezza']
+    if fotografo:
+        nodo['creator'] = {'@type': 'Person', 'name': fotografo}
+        nodo['creditText'] = fotografo
+    if foto.get('licenza'):
+        # la stessa forma che legge chi guarda la pagina: dato e testo non
+        # devono dire la stessa cosa in due lingue diverse
+        lic = foto['licenza']
+        nodo['copyrightNotice'] = 'pubblico dominio' if lic.lower() == 'public domain' else lic
+    if licenza_url or pagina:
+        nodo['license'] = licenza_url or pagina
+    if pagina:
+        nodo['acquireLicensePage'] = pagina
+    return nodo
+
+
 def ritratto_html(author, foto):
     """Il ritratto con il suo credito.
 
@@ -350,7 +394,7 @@ def render_hub(kind, slug, label, items, nav_links, current_href, intro_paragrap
                 '@id': canonical + '#person',
                 'name': label,
                 'sameAs': [links[k] for k in ('wikipedia', 'wikidata') if links.get(k)],
-                **({'image': SITE_URL + foto['file']} if foto and foto.get('file') else {}),
+                **({'image': immagine_jsonld(label, foto, canonical)} if foto and foto.get('file') else {}),
             }
     jsonld = grafo_con_breadcrumb(collection_page, canonical, SITE_URL, foglia=label)
 
