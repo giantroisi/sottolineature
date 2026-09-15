@@ -3902,3 +3902,22 @@
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 852 citazioni, cibo pubblicata a 14.
 
+- 2026-09-15 12:40 UTC — **raccolte magre, lotto 4/5: fiori 12 → 14.** Due poeti italiani già
+  in archivio, entrambi verificati direttamente su Wikisource (pubblico dominio).
+  - Giovanni Pascoli, «Canti di Castelvecchio», «Il gelsomino notturno», vv. 1-2 — «E s'aprono
+    i fiori notturni, nell'ora che penso ai miei cari»: i due versi d'apertura della poesia
+    scritta per la notte di nozze dell'amico Gabriele Briganti. Testo confermato parola per
+    parola su Wikisource. Seconda citazione dalla stessa opera già in archivio (l'altra, «La
+    Chioccetta per l'aia azzurra...», è sulle stelle non sui fiori): copertina riusata.
+  - Gabriele D'Annunzio, «Alcyone», «L'oleandro», vv. 1-4 — «Erigone, Aretusa, Berenice, quale
+    di voi accompagnò la notte d'estate...»: l'apertura della lirica che racconta il mito di
+    Dafne trasformata in oleandro, non in alloro come nella tradizione classica. Confermato su
+    Wikisource. Terza citazione da Alcyone già in archivio, copertina riusata.
+  Introduzione di **fiori** allungata con un quinto paragrafo su queste due voci.
+  **Scartati con motivo:** Sylvia Plath («Tulips», nessuna citazione presente su Wikiquote),
+  D.H. Lawrence («Genziane di Baviera», da «Poesie» Mondadori 1987 — testo trovato ma
+  attribuzione del traduttore incerta fra due fonti, una lo dà a Giuseppe Conte come curatore
+  e traduttore insieme, l'altra a Piero Nardi da un'edizione diversa del 1959).
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 854 citazioni, fiori pubblicata a 14.
+
