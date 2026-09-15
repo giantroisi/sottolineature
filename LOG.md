@@ -3921,3 +3921,29 @@
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 854 citazioni, fiori pubblicata a 14.
 
+- 2026-09-15 12:42 UTC — **raccolte magre, lotto 5/5: silenzio, chiuso a 14 (nessuna aggiunta)
+  — lotto delle cinque raccolte concluso.** Due candidati letti e scartati, nessuno verificabile
+  con certezza:
+  - Dostoevskij, «I fratelli Karamazov» — il bacio silenzioso di Cristo all'Inquisitore, uno dei
+    silenzi più celebri della letteratura. Il contenuto è autentico e ben noto, ma nessuna fonte
+    consultata ne riporta il testo italiano esatto attribuito a un'edizione con traduttore: le
+    due citazioni già in archivio da questo stesso titolo hanno anch'esse edizione e traduttore
+    vuoti, quindi non c'era nemmeno un'edizione già stabilita a cui appoggiarsi.
+  - Simone Weil, «L'ombra e la grazia» — nessun frammento sul silenzio trovato su Wikiquote fra
+    quelli disponibili.
+  `python3 tools/build.py`: non lanciato, nessuna modifica ai dati.
+
+  **Chiusura del lotto delle cinque raccolte magre (10-15 settembre)**, riepilogo: pace 10→13,
+  musica 11→13, cibo 12→14, fiori 12→14, silenzio 14→14 (invariata) — 9 citazioni nuove in
+  totale, tutte da autori già in archivio (nessun ritratto da recuperare, coerente con il
+  vincolo pratico dato oggi), tutte verificate su fonte primaria (Wikisource per i testi di
+  pubblico dominio) o su Wikiquote incrociato con almeno una seconda fonte per l'edizione.
+  Prima applicazione delle due regole nuove di oggi: lista di chiusura a tredici voci, mai
+  pubblicata un'immagine incerta — una sola citazione (Seneca, «De tranquillitate animi») ha
+  la copertina lasciata vuota di proposito, motivo annotato nel lotto 1; tutte le altre otto
+  riusano la copertina di un'opera già in archivio — e nessun autore nuovo aggiunto in tutto
+  il lotto, quindi nessuna riga «AUTORI NUOVI SENZA RITRATTO» necessaria. Un bug di formattazione (virgolette raddoppiate quando
+  la citazione stessa iniziava con «) trovato e corretto due volte (Keats il 9 settembre,
+  Manzoni oggi): vale la pena controllarlo ogni volta che una citazione comincia con una
+  virgolette propria nel testo originale.
+
