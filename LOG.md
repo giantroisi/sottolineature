@@ -3877,3 +3877,28 @@
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 850 citazioni, musica pubblicata a 13.
 
+- 2026-09-15 12:35 UTC — **raccolte magre, lotto 3/5: cibo 12 → 14.** Due citazioni da autori
+  già in archivio.
+  - Alessandro Manzoni, «I promessi sposi», capitolo XII — l'assalto al forno delle grucce
+    durante la carestia milanese, «Siam cristiani anche noi: dobbiamo mangiar pane anche
+    noi...». Verificata parola per parola su Wikisource (edizione 1840). Copertina riusata.
+    **Bug trovato e corretto prima del commit**: stesso problema delle virgolette raddoppiate
+    già visto con Keats il 9 settembre — la citazione iniziava con «Siam...», il template la
+    ravvolgeva di nuovo. Tolte le virgolette interne (parole invariate), e per lo slug già
+    frozen nel frattempo con un suffisso «-2» si è applicata la procedura di rinomina di
+    CLAUDE.md invece di lasciare il suffisso: mai pubblicata prima d'ora, nessun rischio per
+    URL già in giro.
+  - Elsa Morante, «L'isola di Arturo», parte prima, capitolo «Un sogno dell'Amalfitano», p. 65
+    — «Ma vivere senza nessun mestiere è la miglior cosa...», la filosofia del personaggio
+    Romeo l'Amalfitano su libertà dal lavoro e pane non guadagnato. Confermata su Wikiquote e
+    su un secondo sito che ne indica capitolo e pagina esatti. Seconda citazione dallo stesso
+    titolo già in archivio, copertina riusata.
+  Introduzione di **cibo** allungata con un quinto paragrafo su queste due voci.
+  **Scartati per assenza di citazione pertinente su Wikiquote:** García Márquez (cercata la
+  scena di Rebeca che mangia terra in «Cent'anni di solitudine», mai citata sulla pagina),
+  Silone («Fontamara», l'unica citazione sul cibo trovata è in realtà sulla gerarchia sociale,
+  non sul cibo in sé), Carlo Levi («Cristo si è fermato a Eboli», citazione trovata ma senza
+  capitolo indicato).
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 852 citazioni, cibo pubblicata a 14.
+
