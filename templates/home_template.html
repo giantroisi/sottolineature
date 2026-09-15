@@ -1288,6 +1288,7 @@ html:not(.js) .js-only { display: none !important; }
   </div>
     <p class="filter-count sans" id="filterCount" hidden></p>
     <p class="search-fix sans" id="searchFix" hidden></p>
+    <p class="vai-pagina sans" id="vaiPagina" hidden></p>
   </div>
 
   <nav class="explore sans" aria-label="Esplora l'archivio">
@@ -2070,8 +2071,45 @@ html:not(.js) .js-only { display: none !important; }
           fixEl.textContent = '';
         }
       }
+      mostraVaiPagina(term);
       chiudi(term, visibleCount);
       aggiornaEtichettaFiltri();
+    }
+
+    // Una sola pagina che corrisponde: quella si offre. Due o piu' (cercando
+    // «levi» ci sono Primo Levi e Carlo Levi) non si offre niente, perche'
+    // indovinare per conto di chi cerca e' peggio che lasciarlo scegliere.
+    function pagineChePortanoAltrove(term) {
+      if (!term || term.length < 3) { return []; }
+      return suggestionIndex.filter(function (item) {
+        if (!item.href) { return false; }
+        if (item.norm === term) { return true; }
+        var parole = item.norm.split(' ');
+        for (var i = 0; i < parole.length; i++) {
+          if (parole[i].indexOf(term) === 0) { return true; }
+        }
+        return false;
+      });
+    }
+
+    function mostraVaiPagina(term) {
+      var el = document.getElementById('vaiPagina');
+      if (!el) { return; }
+      var trovate = pagineChePortanoAltrove(term);
+      if (trovate.length !== 1) {
+        el.hidden = true;
+        el.textContent = '';
+        return;
+      }
+      var item = trovate[0];
+      el.hidden = false;
+      el.innerHTML = '';
+      var a = document.createElement('a');
+      a.href = item.href;
+      a.textContent = (item.type === 'autore'
+        ? 'Tutte le citazioni di ' + item.label
+        : 'La pagina di \u00ab' + item.label + '\u00bb') + ' \u2192';
+      el.appendChild(a);
     }
 
     function escapeHtml(t) {
@@ -2235,6 +2273,13 @@ html:not(.js) .js-only { display: none !important; }
 
     // Suggerimenti anticipatori: elenco unico di autori e opere, costruito
     // una sola volta dalle card già presenti in pagina.
+    // Le pagine a cui un nome puo' portare. Chi scrive «Calvino» nella barra
+    // quasi sempre vuole la pagina di Calvino - le sue righe tutte insieme, con
+    // la scheda, i suoi libri e il ritratto - non venti schede filtrate in mezzo
+    // alle altre.
+    var PAGINE_AUTORI = {{PAGINE_AUTORI}};
+    var PAGINE_OPERE = {{PAGINE_OPERE}};
+
     var suggestionIndex = (function () {
       var seen = {};
       var list = [];
@@ -2244,12 +2289,16 @@ html:not(.js) .js-only { display: none !important; }
         var authorKey = 'a:' + author.toLowerCase();
         if (!seen[authorKey]) {
           seen[authorKey] = true;
-          list.push({ label: author, type: 'autore', norm: normalize(author) });
+          var sa = PAGINE_AUTORI[author];
+          list.push({ label: author, type: 'autore', norm: normalize(author),
+                      href: sa ? '/autori/' + sa + '/' : '' });
         }
         var titleKey = 't:' + title.toLowerCase();
         if (!seen[titleKey]) {
           seen[titleKey] = true;
-          list.push({ label: title, type: 'opera', norm: normalize(title) });
+          var so = PAGINE_OPERE[author + '|' + title];
+          list.push({ label: title, type: 'opera', norm: normalize(title),
+                      href: so ? '/opere/' + so + '/' : '' });
         }
       });
       return list;
@@ -2282,6 +2331,13 @@ html:not(.js) .js-only { display: none !important; }
     }
 
     function chooseSuggestion(item) {
+      // Se quel nome ha una pagina sua, ci si va: e' la risposta che si stava
+      // cercando. Senza pagina - un'opera senza scheda - resta il filtro, che
+      // e' comunque meglio di niente.
+      if (item.href) {
+        window.location.href = item.href;
+        return;
+      }
       searchInput.value = item.label;
       updateClearButton();
       closeSuggestions();
@@ -2317,7 +2373,7 @@ html:not(.js) .js-only { display: none !important; }
         label.textContent = item.label;
         var type = document.createElement('span');
         type.className = 'search-suggestion-type';
-        type.textContent = item.type;
+        type.textContent = item.href ? item.type + ' \u2192' : item.type;
         li.appendChild(label);
         li.appendChild(type);
         li.addEventListener('mousedown', function (e) {
@@ -2337,6 +2393,18 @@ html:not(.js) .js-only { display: none !important; }
     });
 
     searchInput.addEventListener('keydown', function (e) {
+      // Invio su un nome che ha una pagina sola: ci si va. E' la scorciatoia
+      // che ci si aspetta da una barra di ricerca, e non toglie niente - se le
+      // pagine possibili sono zero o piu' d'una, l'Invio non fa nulla di
+      // speciale e resta il filtro.
+      if (e.key === 'Enter' && activeSuggestionIndex < 0) {
+        var trovate = pagineChePortanoAltrove(normalize(searchInput.value.trim()));
+        if (trovate.length === 1) {
+          e.preventDefault();
+          window.location.href = trovate[0].href;
+          return;
+        }
+      }
       if (suggestionsBox.hidden) { return; }
       if (e.key === 'ArrowDown') {
         e.preventDefault();

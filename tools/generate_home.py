@@ -171,6 +171,26 @@ def main():
     write_resto('\n'.join(rendered[CARDS_IN_HTML:]))
     count_words = italian_number_words(len(quotes))
     page = template.replace('{{CARDS}}', cards_html.rstrip('\n'))
+    # Le pagine a cui la ricerca puo' portare: chi scrive «Calvino» nella barra
+    # vuole quasi sempre la pagina di Calvino, non venti schede filtrate. Il
+    # nome che compare nelle card e' la chiave, lo slug della pagina il valore.
+    slugs_autori = slugs_data.get('authors', {})
+    autori_con_pagina = {}
+    for q in quotes:
+        sl = slugs_autori.get(q['author'])
+        if sl:
+            autori_con_pagina[q['author']] = sl
+    opere_con_pagina = {}
+    try:
+        with open(os.path.join(qp.ROOT, 'data', 'opere.json'), encoding='utf-8') as f:
+            for op in json.load(f):
+                for t in op.get('titles', [op['title']]):
+                    opere_con_pagina[op['author'] + '|' + t] = op['slug']
+    except (IOError, ValueError):
+        pass
+    page = page.replace('{{PAGINE_AUTORI}}', json.dumps(autori_con_pagina, ensure_ascii=False, sort_keys=True))
+    page = page.replace('{{PAGINE_OPERE}}', json.dumps(opere_con_pagina, ensure_ascii=False, sort_keys=True))
+
     giorni = tabella_del_giorno(quotes)
     oggi = datetime.date.today()
     chiave_oggi = str(oggi.year * 10000 + oggi.month * 100 + oggi.day)
