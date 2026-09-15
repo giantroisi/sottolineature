@@ -133,6 +133,11 @@
       "source": "/raccolte/viaggio-e-cammino/",
       "destination": "/raccolte/viaggio/",
       "permanent": true
+    },
+    {
+      "source": "/citazioni/fernando-pessoa-tabacaria/",
+      "destination": "/autori/fernando-pessoa/",
+      "permanent": true
     }
   ],
   "headers": [

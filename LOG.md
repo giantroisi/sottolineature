@@ -3811,3 +3811,16 @@
   `python3 tools/controlla_link_esterni.py --rivedi`; se resta muto, va tolta la citazione o
   trovata un'altra fonte.
 
+- 2026-09-15 UTC — **tolta la citazione di Pessoa da «Tabacaria»** (decisione dell'utente).
+  «Sono niente. Non saro' mai niente...», l'incipit di Tabacaria, era l'unica citazione
+  dell'archivio la cui verificabilita' stava tutta nel link: `arquivopessoa.net` rifiuta la
+  connessione da giorni, e il campo edizione e il campo traduttore erano **vuoti**. Su una poesia
+  portoghese quelle due righe italiane sono di un traduttore che non sappiamo nominare: per il
+  punto 2 di `CATALOGO.md` non sarebbe entrata oggi, e il sito morto ha solo reso visibile una
+  mancanza che c'era gia'. Tolta anche dalle raccolte **incipit** e **sogni**, e il vecchio
+  indirizzo `/citazioni/fernando-pessoa-tabacaria/` reindirizza alla pagina dell'autore, che resta
+  con le altre **quattro** citazioni di Pessoa - tutte con edizione, traduttore e pagina.
+  Archivio: 846 -> 845. Build pulita, nessuna pagina orfana.
+  Se un giorno si trova l'edizione italiana con il nome del traduttore, quella frase rientra: e'
+  bellissima, e il motivo per cui e' uscita non e' la frase.
+
