@@ -19,6 +19,7 @@ credito non si puo' scrivere, e senza credito la foto non si pubblica.
 import hashlib
 import json
 import os
+import re
 import shutil
 import sys
 import tarfile
@@ -105,6 +106,15 @@ def main():
         lic = (r.get('licenza_codice') or '').lower()
         if not lic.startswith(LICENZE_LIBERE):
             fuori.append((r['autore'], 'licenza non libera: ' + lic))
+            continue
+        # Il secondo controllo sulle restrizioni, che il raccoglitore ha gia'
+        # fatto: `personality` (i diritti della persona ritratta) si ammette,
+        # perche' l'uso editoriale con il credito e' quello che quel marchio
+        # prevede; marchi, insegne, valute e disegni industriali no.
+        voci = [v.strip().lower() for v in re.split(r'[|,;]+', r.get('restrizioni') or '') if v.strip()]
+        vietate = [v for v in voci if v != 'personality']
+        if vietate:
+            fuori.append((r['autore'], 'restrizioni dichiarate: ' + ', '.join(vietate)))
             continue
         if not r.get('pagina_commons'):
             fuori.append((r['autore'], 'manca l\'indirizzo del file su Commons'))

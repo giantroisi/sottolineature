@@ -60,6 +60,7 @@ serve, lo fa il foglio di stile del sito, che non tocca il file.</p>
 <p>
   <button id="prova">Prova con i primi 10</button>
   <button id="tutti" class="secondario">Tutti e __QUANTI__</button>
+  <button id="mancanti" class="secondario">Solo i __MANCANTI__ senza ritratto</button>
 </p>
 <div id="stato">Pronto.</div>
 <div id="esito"></div>
@@ -76,8 +77,19 @@ function licenzaAmmessa(m) {
   if (lic.indexOf('fair') === 0 || lic.indexOf('non-free') >= 0) return [false, 'non libera: ' + lic];
   const ok = lic === 'cc0' || lic.indexOf('pd') === 0 || lic.indexOf('cc-by') === 0;
   if (!ok) return [false, 'licenza non in elenco: ' + lic];
-  const restr = ((m.Restrictions && m.Restrictions.value) || '').trim();
-  if (restr) return [false, 'restrizioni dichiarate: ' + restr.replace(/<[^>]+>/g, ' ').slice(0, 60)];
+  // Il campo `Restrictions` di Commons non parla di copyright: avverte che
+  // sull'immagine gravano altri diritti. `personality` sono i diritti della
+  // persona ritratta - niente pubblicita', niente uso che faccia sembrare
+  // un'approvazione - e l'uso editoriale con il credito, che e' il nostro, e'
+  // esattamente quello che quel marchio prevede (decisione dell'utente del
+  // 2026-09-15). Tutte le altre restrizioni - marchi, insegne, valute, disegni
+  // industriali, costumi - restano un no.
+  const restr = ((m.Restrictions && m.Restrictions.value) || '').replace(/<[^>]+>/g, ' ').trim();
+  if (restr) {
+    const voci = restr.split(/[|,;]+/).map(v => v.trim().toLowerCase()).filter(Boolean);
+    const vietate = voci.filter(v => v !== 'personality');
+    if (vietate.length) return [false, 'restrizioni dichiarate: ' + vietate.join(', ').slice(0, 60)];
+  }
   return [true, lic];
 }
 
@@ -136,8 +148,7 @@ const stato = document.getElementById('stato');
 const esito = document.getElementById('esito');
 
 async function raccogli(elenco) {
-  document.getElementById('prova').disabled = true;
-  document.getElementById('tutti').disabled = true;
+  ['prova', 'tutti', 'mancanti'].forEach(id => { document.getElementById(id).disabled = true; });
   const righe = [];
   const file = [];
   try {
@@ -212,6 +223,7 @@ async function raccogli(elenco) {
         licenza_url: (m.LicenseUrl && m.LicenseUrl.value) || '',
         fotografo: testo(m.Artist && m.Artist.value) || '',
         credito: testo(m.Credit && m.Credit.value) || '',
+        restrizioni: ((m.Restrictions && m.Restrictions.value) || '').replace(/<[^>]+>/g, ' ').trim(),
         pagina_commons: ii.descriptionurl || '',
         file_commons: p.title || '',
         larghezza: ii.thumbwidth || ii.width, altezza: ii.thumbheight || ii.height,
@@ -236,12 +248,12 @@ async function raccogli(elenco) {
   } catch (e) {
     stato.innerHTML = '<span class="no">Errore: ' + e.message + '</span>';
   }
-  document.getElementById('prova').disabled = false;
-  document.getElementById('tutti').disabled = false;
+  ['prova', 'tutti', 'mancanti'].forEach(id => { document.getElementById(id).disabled = false; });
 }
 
 document.getElementById('prova').onclick = () => raccogli(AUTORI.slice(0, 10));
 document.getElementById('tutti').onclick = () => raccogli(AUTORI);
+document.getElementById('mancanti').onclick = () => raccogli(AUTORI.filter(a => !a.gia));
 </script>
 </body>
 </html>
@@ -268,8 +280,19 @@ def main():
         slug = slugs.get(a)
         if qid and slug:
             in_archivio.append({'autore': a, 'slug': slug, 'qid': qid})
+    # chi il ritratto ce l'ha gia' si segna, cosi' un secondo giro puo' chiedere
+    # solo quelli che mancano invece di riscaricare tutto
+    try:
+        with open(os.path.join(ROOT, 'data', 'autori_foto.json'), encoding='utf-8') as f:
+            gia_fatti = set(json.load(f))
+    except (IOError, ValueError):
+        gia_fatti = set()
+    for voce in in_archivio:
+        voce['gia'] = voce['autore'] in gia_fatti
+    mancanti = sum(1 for v in in_archivio if not v['gia'])
     pagina = PAGINA.replace('__ELENCO__', json.dumps(in_archivio, ensure_ascii=False))
     pagina = pagina.replace('__QUANTI__', str(len(in_archivio)))
+    pagina = pagina.replace('__MANCANTI__', str(mancanti))
     os.makedirs(os.path.dirname(USCITA), exist_ok=True)
     with open(USCITA, 'w', encoding='utf-8') as f:
         f.write(pagina)
