@@ -3824,3 +3824,33 @@
   Se un giorno si trova l'edizione italiana con il nome del traduttore, quella frase rientra: e'
   bellissima, e il motivo per cui e' uscita non e' la frase.
 
+- 2026-09-15 12:23 UTC — **raccolte magre, lotto 1/5: pace 10 → 13.** Nuove regole in vigore da
+  oggi (CATALOGO.md §8: lista di chiusura a tredici voci, ritratto autore compreso; CLAUDE.md
+  principio 3: nessuna copertina di un'altra edizione, meglio il vuoto). Metodo confermato dal
+  10-14 settembre: dal tema all'autore, con preferenza netta per autori già in archivio (Seneca,
+  Hesse, Gibran — tutti e tre già hanno il ritratto, nessun giro immagini necessario).
+  **3 citazioni aggiunte:**
+  - Seneca, «De tranquillitate animi», 15, 5 — «È dunque meglio accettare con calma il
+    comportamento comune...», dal dialogo all'amico Anneo Sereno sull'ansia e il disgusto della
+    vita. Confermato su Wikiquote incrociato con una seconda fonte per l'edizione (trad. Aldo
+    Marastoni, a cura di Giovanni Reale, «Tutte le opere», Bompiani 2000). **Copertina
+    volutamente vuota**: saggio filosofico breve, nessuna edizione propria affidabile
+    verificabile da qui (a differenza di «De brevitate vitae», già in archivio con una
+    copertina propria) — non si copia una copertina di un'altra opera per riempire il campo.
+  - Hermann Hesse, «Siddhartha», capitolo 11 «Om» — «Tutto insieme era il fiume del divenire,
+    era la musica della vita», il momento in cui Siddhartha impara ad ascoltare il fiume senza
+    legarsi a una sola delle sue voci. Seconda citazione dallo stesso titolo già in archivio:
+    stessa edizione (trad. Massimo Mila) e copertina riusata.
+  - Khalil Gibran, «Il Profeta», discorso «Della ragione e della passione» — «La vostra anima è
+    un campo di battaglia...», confermato sul testo originale inglese (Standard Ebooks) oltre
+    che su Wikiquote. Quarta citazione dallo stesso titolo già in archivio: stessa edizione
+    (Newton Compton, trad. Tommaso Pisanti) e copertina riusate.
+  Introduzione di **pace** allungata con un quarto paragrafo su queste tre voci.
+  **Scartato con motivo:** Tagore, «Gitanjali» — cercata una citazione sulla pace interiore,
+  Wikiquote non ne riporta nessuna specifica in quella sezione e il libro ha almeno quattro
+  edizioni italiane diverse in bibliografia, senza modo di sapere quale citare per una frase mai
+  vista sulla pagina.
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 848 citazioni, pace pubblicata a 13 — sotto il bersaglio di 15, per non forzare
+  oltre i candidati verificabili con certezza.
+
