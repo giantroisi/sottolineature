@@ -71,6 +71,18 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Aldous_Huxley_1947.png",
   "sha256_commons": "3f38761127c3b7b9cfc48f09a655442a38f8dfea8af24f686f12cc52f94d607b"
  },
+ "Alessandro Baricco": {
+  "altezza": 450,
+  "file": "/assets/autori/alessandro-baricco.jpg",
+  "file_commons": "File:Alessandro Baricco.jpg",
+  "fotografo": "Niccolò Caranti",
+  "larghezza": 337,
+  "licenza": "CC BY-SA 3.0",
+  "licenza_codice": "cc-by-sa-3.0",
+  "licenza_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Alessandro_Baricco.jpg",
+  "sha256_commons": "1a50c3f36975d4bbd82990a68ca63905327c9f4dd266ec00ae94c00f79b983d7"
+ },
  "Alessandro Manzoni": {
   "altezza": 450,
   "file": "/assets/autori/alessandro-manzoni.jpg",
@@ -647,6 +659,18 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Dorisa_Lesinga_(cropped).JPG",
   "sha256_commons": "f787b1b0d53b2a7b0a169a19daa37cdf6373456b3001056289a14f272ed73fe2"
  },
+ "Douglas Adams": {
+  "altezza": 290,
+  "file": "/assets/autori/douglas-adams.jpg",
+  "file_commons": "File:Douglas adams portrait.jpg",
+  "fotografo": "Michael Hughes",
+  "larghezza": 450,
+  "licenza": "CC BY-SA 2.0",
+  "licenza_codice": "cc-by-sa-2.0",
+  "licenza_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Douglas_adams_portrait.jpg",
+  "sha256_commons": "f78f7561759cef688139a51d7d9993ba1a8f2149ac5e8932fb7de7d116d50414"
+ },
  "E.M. Forster": {
   "altezza": 450,
   "file": "/assets/autori/e-m-forster.jpg",
@@ -706,6 +730,18 @@
   "licenza_url": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Elias_Canetti_2.jpg",
   "sha256_commons": "73404859c425f6ff45e9a8bb66f1cc43ab5fcfaa4151571e5e3d8af11a5c293f"
+ },
+ "Elie Wiesel": {
+  "altezza": 450,
+  "file": "/assets/autori/elie-wiesel.jpg",
+  "file_commons": "File:Elie Wiesel 2012 Shankbone.JPG",
+  "fotografo": "David Shankbone",
+  "larghezza": 360,
+  "licenza": "CC BY 3.0",
+  "licenza_codice": "cc-by-3.0",
+  "licenza_url": "https://creativecommons.org/licenses/by/3.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Elie_Wiesel_2012_Shankbone.JPG",
+  "sha256_commons": "11ea8379a5538d6f90ba7211e55915e5e7a0c6aacff28403ff79862997c14111"
  },
  "Elif Shafak": {
   "altezza": 450,
@@ -814,6 +850,18 @@
   "licenza_url": "",
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:ErnestHemingway.jpg",
   "sha256_commons": "0856bc46082026e0f7975ea2353b9b17b6758ca8b2430d669440ec64ba09ed91"
+ },
+ "Erri De Luca": {
+  "altezza": 450,
+  "file": "/assets/autori/erri-de-luca.jpg",
+  "file_commons": "File:Erri De Luca-Trento Film Festival.JPG",
+  "fotografo": "Niccolò Caranti",
+  "larghezza": 320,
+  "licenza": "CC BY-SA 3.0",
+  "licenza_codice": "cc-by-sa-3.0",
+  "licenza_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Erri_De_Luca-Trento_Film_Festival.JPG",
+  "sha256_commons": "513bbea2fe6726be2327cd3f4222be791624ef199cf9ed72fdb4bf9f3110ad9e"
  },
  "Eugenio Montale": {
   "altezza": 450,
@@ -994,6 +1042,18 @@
   "licenza_url": "https://creativecommons.org/licenses/by/2.0",
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:George_Orwell,_c._1940_(41928180381).jpg",
   "sha256_commons": "5548ec34cca1939e9b7212b7e03663fc76ad8e334bde9a132dca3537d2712e7e"
+ },
+ "George R.R. Martin": {
+  "altezza": 450,
+  "file": "/assets/autori/george-r-r-martin.jpg",
+  "file_commons": "File:Portrait photoshoot at Worldcon 75, Helsinki, before the Hugo Awards – George R. R. Martin (cropped).jpg",
+  "fotografo": "Henry Söderlund",
+  "larghezza": 335,
+  "licenza": "CC BY 4.0",
+  "licenza_codice": "cc-by-4.0",
+  "licenza_url": "https://creativecommons.org/licenses/by/4.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Portrait_photoshoot_at_Worldcon_75,_Helsinki,_before_the_Hugo_Awards_%E2%80%93_George_R._R._Martin_(cropped).jpg",
+  "sha256_commons": "4866fee16813e079b866c76af7966f772e10a674355bf86d71ddce74c087dc35"
  },
  "Giacomo Leopardi": {
   "altezza": 450,
@@ -1247,6 +1307,18 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Hermann_Hesse_2.jpg",
   "sha256_commons": "1cbad1d7e902c44b8f92a416004612efd7e0d8bf62a201b957a0055dc728572a"
  },
+ "Herta Müller": {
+  "altezza": 450,
+  "file": "/assets/autori/herta-muller.jpg",
+  "file_commons": "File:Herta Müller Brucknerhaus Linz 2025 BHO-4188.jpg",
+  "fotografo": "Bernhard Holub",
+  "larghezza": 338,
+  "licenza": "CC BY-SA 4.0",
+  "licenza_codice": "cc-by-sa-4.0",
+  "licenza_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Herta_M%C3%BCller_Brucknerhaus_Linz_2025_BHO-4188.jpg",
+  "sha256_commons": "c84a5f82ecafb33af41b06db9d3f0d3c7603c94fb9ae2854f7dae030913eee04"
+ },
  "Honoré de Balzac": {
   "altezza": 409,
   "file": "/assets/autori/honore-de-balzac.jpg",
@@ -1258,6 +1330,18 @@
   "licenza_url": "",
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Honor%C3%A9_de_Balzac_(1842)_detail.jpg",
   "sha256_commons": "995261e83dd1a6fd8a0d441d14ade6f6b792341860485c147b1ab09178de099a"
+ },
+ "Ian McEwan": {
+  "altezza": 450,
+  "file": "/assets/autori/ian-mcewan.jpg",
+  "file_commons": "File:IanMcEwan EIBF2025 i481.jpg",
+  "fotografo": "TimDuncan",
+  "larghezza": 450,
+  "licenza": "CC BY-SA 4.0",
+  "licenza_codice": "cc-by-sa-4.0",
+  "licenza_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:IanMcEwan_EIBF2025_i481.jpg",
+  "sha256_commons": "05371ce46a1f6b99c9c46f7ee972d5634198410e77f9344417eff5198a12a96a"
  },
  "Ignazio Silone": {
   "altezza": 353,
@@ -1318,6 +1402,18 @@
   "licenza_url": "",
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Isaac.Asimov01.jpg",
   "sha256_commons": "d505527d69927efc2864548b3331e9840a159217ec6a4879def0a02489e0dd08"
+ },
+ "Isabel Allende": {
+  "altezza": 450,
+  "file": "/assets/autori/isabel-allende.jpg",
+  "file_commons": "File:Isabel Allende Frankfurter Buchmesse 2015 (cropped).JPG",
+  "fotografo": "Lesekreis",
+  "larghezza": 337,
+  "licenza": "CC BY-SA 4.0",
+  "licenza_codice": "cc-by-sa-4.0",
+  "licenza_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Isabel_Allende_Frankfurter_Buchmesse_2015_(cropped).JPG",
+  "sha256_commons": "2aa16fecf0c4ffb9ea0411a79d870d42db1125bf165014a83b3d03809b36f34f"
  },
  "Italo Calvino": {
   "altezza": 438,
@@ -1727,6 +1823,18 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Luigi_Pirandello_1932.jpg",
   "sha256_commons": "5f8094846680458ec2c68d95ca41deaf8e05bbd7fe4b995cf4abdc896a72a45a"
  },
+ "Madeline Miller": {
+  "altezza": 450,
+  "file": "/assets/autori/madeline-miller.jpg",
+  "file_commons": "File:Madeline Miller - Kolkata 2013-02-03 4377 Cropped.JPG",
+  "fotografo": "Biswarup Ganguly",
+  "larghezza": 300,
+  "licenza": "CC BY 3.0",
+  "licenza_codice": "cc-by-3.0",
+  "licenza_url": "https://creativecommons.org/licenses/by/3.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Madeline_Miller_-_Kolkata_2013-02-03_4377_Cropped.JPG",
+  "sha256_commons": "ce6a583983a75b8b02ccc43a9145116cd8170a517dff80d966a11f0e7fc96f2d"
+ },
  "Marcel Proust": {
   "altezza": 450,
   "file": "/assets/autori/marcel-proust.jpg",
@@ -2110,6 +2218,18 @@
   "licenza_url": "https://creativecommons.org/licenses/by-sa/4.0",
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Homer_bust,_Farnese_collection_(Naples).jpg",
   "sha256_commons": "24d01a477600a2f570c8293b4d9a73a0ad0ec5f41c0030ee5e6d079532e9e099"
+ },
+ "Orhan Pamuk": {
+  "altezza": 450,
+  "file": "/assets/autori/orhan-pamuk.jpg",
+  "file_commons": "File:Orhan Pamuk 2009 Shankbone.jpg",
+  "fotografo": "David Shankbone",
+  "larghezza": 322,
+  "licenza": "CC BY 3.0",
+  "licenza_codice": "cc-by-3.0",
+  "licenza_url": "https://creativecommons.org/licenses/by/3.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Orhan_Pamuk_2009_Shankbone.jpg",
+  "sha256_commons": "b14be963fdf5158beea024836dbd58d75b766b02856b35be46d65fbc3223b3b3"
  },
  "Oscar Wilde": {
   "altezza": 450,
@@ -2579,6 +2699,18 @@
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Thomas_Stearns_Eliot_by_Lady_Ottoline_Morrell_(1934).jpg",
   "sha256_commons": "8ae9d7d6904102b3a74dec08ebea50fa3931f2aa48d15eb1a5909d2555e7dc74"
  },
+ "Ta-Nehisi Coates": {
+  "altezza": 450,
+  "file": "/assets/autori/ta-nehisi-coates.jpg",
+  "file_commons": "File:TaNehisi Coates BBF 2010 Shankbone.jpg",
+  "fotografo": "David Shankbone",
+  "larghezza": 360,
+  "licenza": "CC BY 3.0",
+  "licenza_codice": "cc-by-3.0",
+  "licenza_url": "https://creativecommons.org/licenses/by/3.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:TaNehisi_Coates_BBF_2010_Shankbone.jpg",
+  "sha256_commons": "a56dfb989e2337a15bc0e328ab870b0713b95c77cc017c6d4e639bcb19880463"
+ },
  "Terry Pratchett": {
   "altezza": 450,
   "file": "/assets/autori/terry-pratchett.jpg",
@@ -2902,6 +3034,18 @@
   "licenza_url": "",
   "pagina_commons": "https://commons.wikimedia.org/wiki/File:Yukio_Mishima,_1955_(cropped_850%C3%97950_px).jpg",
   "sha256_commons": "5f17ad30606e9003c0c1624654dcbe4b4725819012201eb7f96fd7a1e3a32bdd"
+ },
+ "Zadie Smith": {
+  "altezza": 450,
+  "file": "/assets/autori/zadie-smith.jpg",
+  "file_commons": "File:Zadie Smith NBCC 2011 Shankbone.jpg",
+  "fotografo": "David Shankbone",
+  "larghezza": 360,
+  "licenza": "CC BY 3.0",
+  "licenza_codice": "cc-by-3.0",
+  "licenza_url": "https://creativecommons.org/licenses/by/3.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Zadie_Smith_NBCC_2011_Shankbone.jpg",
+  "sha256_commons": "4c0e03c424a066d6a0c8f7b16b42abd01d4a66745fbbdc54120e69e45410565d"
  },
  "Zbigniew Herbert": {
   "altezza": 450,

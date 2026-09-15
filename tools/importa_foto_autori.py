@@ -97,7 +97,15 @@ def main():
         righe = json.load(f)
 
     os.makedirs(DEST_IMG, exist_ok=True)
-    dati = {}
+    # Si parte da quello che c'e' gia': un secondo giro chiede di solito solo i
+    # ritratti mancanti, e riscrivere il file da zero cancellerebbe i 245
+    # buoni per aggiungerne undici.
+    try:
+        with open(DEST_DATI, encoding='utf-8') as f:
+            dati = json.load(f)
+    except (IOError, ValueError):
+        dati = {}
+    prima = len(dati)
     dentro, fuori = [], []
     for r in righe:
         if not r.get('ok'):
@@ -157,7 +165,8 @@ def main():
     with open(DEST_DATI, 'w', encoding='utf-8') as f:
         json.dump(dati, f, ensure_ascii=False, indent=1, sort_keys=True)
 
-    print('foto entrate:', len(dentro))
+    print('foto entrate in questo giro:', len(dentro), '| totale in archivio:', len(dati),
+          '(prima erano ' + str(prima) + ')')
     print('scartate:    ', len(fuori))
     for a, m in fuori[:40]:
         print('   ', a, '—', m)
