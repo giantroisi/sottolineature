@@ -3854,3 +3854,26 @@
   Archivio a 848 citazioni, pace pubblicata a 13 — sotto il bersaglio di 15, per non forzare
   oltre i candidati verificabili con certezza.
 
+- 2026-09-15 12:29 UTC — **raccolte magre, lotto 2/5: musica 11 → 13.** Due autori già in
+  archivio, nessun ritratto da recuperare.
+  - Marcel Proust, «Alla ricerca del tempo perduto» (vol. V, «La prigioniera», p. 1904) — «Non è
+    possibile che una scultura, una musica...», sull'esperienza musicale come accesso a una
+    realtà spirituale, durante l'ascolto del settimino di Vinteuil. Confermato su Wikiquote:
+    stesso titolo-contenitore già in archivio (l'edizione Newton Compton 1990 ha traduttori
+    diversi per volume — Giovanna Parisse per questo, Paolo Pinto per gli altri tre già
+    pubblicati — annotato nell'edizione). Copertina riusata.
+  - Haruki Murakami, «1Q84», Libro 2 — sulla parabola della reputazione del compositore
+    Telemann, ammirato nel Settecento e poi liquidato con disprezzo. Confermato su Wikiquote
+    (Einaudi 2011, trad. Giorgio Amitrano), stessa edizione della citazione già in archivio.
+    Locus più largo del solito («Libro 2», non un capitolo preciso): Wikiquote non specifica
+    oltre, ma «libro» è un'unità di locus valida per il punto 8. Copertina riusata.
+  Introduzione di **musica** allungata con un quinto paragrafo su queste due voci.
+  **Scartati con motivo:** Kerouac («Sulla strada», nessuna citazione sul jazz su Wikiquote),
+  Huxley («Punto contro punto», nonostante la struttura musicale del romanzo nessuna citazione
+  pertinente trovata), Kundera («Il libro del riso e dell'oblio», la frase sulla "storia della
+  musica mortale" esiste ma due fonti la attribuiscono a due edizioni diverse — Adelphi/Mura già
+  in archivio, Bompiani/Vitale del 1980 — senza certezza su quale sia la wording esatta né un
+  capitolo preciso).
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 850 citazioni, musica pubblicata a 13.
+
