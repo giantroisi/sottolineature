@@ -542,10 +542,14 @@ def related_card(slug, q, meta_html):
         cover = ('<img class="related-cover" src="' + html.escape(q['cover'], quote=True) +
                  '" alt="" width="40" height="60" loading="lazy" referrerpolicy="no-referrer" '
                  'onerror="this.remove()">')
+    # Tre citazioni dell'archivio cominciano gia' con le caporali perche' sono
+    # un dialogo («\u00abUccidi il ragazzo\u00bb pens\u00f2 Jon...»): aggiungerne un secondo
+    # paio dava \u00ab\u00ab su 24 pagine. E' lo stesso controllo che l'H1 della pagina
+    # citazione fa dal 3 settembre; qui mancava.
     return (
         '<li class="related-card"><a href="/citazioni/' + slug + '/">' + cover +
-        '<span class="related-text"><span class="related-quote">«' +
-        html.escape(truncate_words(q['quote'], 70)[0]) + '»</span>' +
+        '<span class="related-text"><span class="related-quote">\u00ab' +
+        html.escape(annida(truncate_words(q['quote'], 70)[0])) + '\u00bb</span>' +
         '<span class="related-meta sans">' + meta_html + '</span></span></a></li>'
     )
 
@@ -606,6 +610,20 @@ def di_con_articolo(nome):
     return 'di ' + nome
 
 
+def annida(testo):
+    """Le caporali dentro le caporali diventano apici doppi alti.
+
+    Sei citazioni dell'archivio contengono gia' un dialogo («\u00abUccidi il ragazzo\u00bb
+    penso' Jon) o si chiudono con una battuta riportata («...come fa la luna.\u00bb»):
+    metterle dentro un secondo paio di caporali dava \u00ab\u00ab e \u00bb\u00bb - su 24 pagine prima
+    del 2026-09-15. In italiano il secondo livello di citazione sono gli apici
+    doppi alti, ed e' la regola che l'H1 applica dal 3 settembre: qui diventa una
+    funzione sola, perche' i posti dove si virgolettava erano cinque e la
+    correzione stava in uno.
+    """
+    return testo.replace('\u00ab', '\u201c').replace('\u00bb', '\u201d')
+
+
 def titolo_esplicativo(q):
     """H1 della pagina citazione: dice di che frase si tratta e da dove viene.
 
@@ -620,7 +638,7 @@ def titolo_esplicativo(q):
     # («Uccidi il ragazzo» penso' Jon) dentro le caporali dell'H1 darebbe
     # ««Uccidi il ragazzo»...». In italiano il secondo livello sono gli apici
     # doppi alti.
-    incipit = incipit.replace('\u00ab', '\u201c').replace('\u00bb', '\u201d')
+    incipit = annida(incipit)
     locus = strip_accenti((q.get('source_locus') or '').lower())
     apertura = ('incipit' in locus or 'prima frase' in locus or 'prime righe' in locus
                 or 'apertura' in locus)
@@ -633,12 +651,12 @@ def titolo_esplicativo(q):
     speaker = (q.get('speaker') or '').strip()
     if speaker:
         return ('\u00ab' + incipit + '\u00bb: la frase ' + di_con_articolo(speaker) + ' in \u00ab'
-                + q['title'] + '\u00bb di ' + q['author'])
+                + annida(q['title']) + '\u00bb di ' + q['author'])
     if apertura:
-        return '\u00ab' + incipit + '\u00bb: l\u2019incipit di \u00ab' + q['title'] + '\u00bb di ' + q['author']
+        return '\u00ab' + incipit + '\u00bb: l\u2019incipit di \u00ab' + annida(q['title']) + '\u00bb di ' + q['author']
     if verso:
-        return '\u00ab' + incipit + '\u00bb: il verso di ' + q['author'] + ' da \u00ab' + q['title'] + '\u00bb'
-    return '\u00ab' + incipit + '\u00bb: la frase di ' + q['author'] + ' in \u00ab' + q['title'] + '\u00bb'
+        return '\u00ab' + incipit + '\u00bb: il verso di ' + q['author'] + ' da \u00ab' + annida(q['title']) + '\u00bb'
+    return '\u00ab' + incipit + '\u00bb: la frase di ' + q['author'] + ' in \u00ab' + annida(q['title']) + '\u00bb'
 
 
 def traduttore_gia_nellaedizione(q):
@@ -681,7 +699,7 @@ def riga_di_citazione(q):
     testo = (q.get('quote') or '').strip()
     if not testo:
         return ''
-    frase = testo if testo.startswith('\u00ab') else '\u00ab' + testo + '\u00bb'
+    frase = '\u00ab' + annida(testo) + '\u00bb'
     parti = [q['author'], frase, q['title']]
     if q.get('source_translator') and not traduttore_gia_nellaedizione(q):
         parti.append('trad. di ' + q['source_translator'])
@@ -819,8 +837,9 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     tail = tail_full if 2 + TITLE_MIN_INCIPIT + len(tail_full) <= TITLE_MAX else tail_short
     room = max(min(TITLE_MAX_INCIPIT, TITLE_MAX - 2 - len(tail)), 26)
     title_incipit, _ = truncate_words(q['quote'], room)
-    title_tag = '«' + title_incipit + '»' + tail
-    og_title = '«' + (q['quote'] if len(q['quote']) <= 120 else q['quote'][:117].rsplit(' ', 1)[0] + '…') + '»'
+    title_tag = '«' + annida(title_incipit) + '»' + tail
+    og_title = '«' + annida(q['quote'] if len(q['quote']) <= 120
+                            else q['quote'][:117].rsplit(' ', 1)[0] + '…') + '»'
     canonical = SITE_URL + '/citazioni/' + slug + '/'
 
     oggetto = 'Errore in: ' + q['author'] + ', ' + q['title']
