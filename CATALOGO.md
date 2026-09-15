@@ -277,7 +277,7 @@ promette a chi legge.
 > `data/citazioni.json`, non `index.html`. La home è generata da `tools/generate_home.py` e non
 > pubblica il contesto, che resta esclusivo di `/citazioni/<slug>/`.
 
-### La lista di chiusura: una citazione e' finita quando ha tutte e dodici queste cose
+### La lista di chiusura: una citazione e' finita quando ha tutte e tredici queste cose
 
 Scritta il 2026-09-06 perche' prima bisognava incrociare il punto 2, il punto 8 e tre sotto-punti
 sparsi per sapere se si aveva finito. Si esegue **in quest'ordine**, una citazione per volta. Se
@@ -306,6 +306,9 @@ motivo in `LOG.md`. Non esiste lo stato «pubblicata in attesa di completare».
     non "dopo"**: per due settimane di agosto non e' stato fatto e le raccolte sono rimaste a 234
     citazioni su 749 mentre l'archivio raddoppiava. Le raccolte non si aggiornano da sole.
 11. **Pagina opera**, regole al punto 8-ter.
+11-bis. **Ritratto dell'autore**, regole al punto 8-quater — obbligatorio guardarlo quando
+    l'autore entra oggi per la prima volta; per un autore gia' in archivio non si fa niente,
+    ce l'ha gia' o si e' gia' stabilito che non si puo' avere.
 12. **Build e commit.** `python3 tools/build.py` (rigenera home, pagina citazione, hub, pagina
     opera, raccolte, immagini OG, sitemap e feed, e ricontrolla link e dati strutturati: deve
     chiudere con «Problemi totali: 0» e «Nessun errore nei dati strutturati»), riga in `LOG.md`,
@@ -420,6 +423,46 @@ apposta. Il build non la inventa.
    senza luogo nel testo.
 8. Riga in `LOG.md` con il formato in uso, commit, push, conferma del deploy.
 
+### 8-quater. Il ritratto dell'autore
+
+Vale quando **l'autore entra oggi per la prima volta**. Per chi c'e' gia': niente da fare, il
+ritratto ce l'ha (257 su 263 al 2026-09-15) oppure si e' gia' accertato che non si puo' avere, e i
+sei motivi sono scritti in `LOG.md`.
+
+**Come si prende.** Non a mano e non da una ricerca per immagini: Wikimedia e' irraggiungibile
+dalle shell, e una foto presa a caso e' esattamente il modo di sbagliare licenza. Si usano i due
+strumenti, in quest'ordine:
+
+    python3 tools/genera_raccoglitore_foto.py      # scrive archivio/raccogli-foto-autori.html
+    open archivio/raccogli-foto-autori.html        # pulsante «Solo i N senza ritratto»
+    python3 tools/importa_foto_autori.py ~/Downloads/foto-autori.tar
+
+Il primo chiede a Wikidata (proprieta' P18) e a Commons, filtra, scarica e calcola l'impronta
+SHA-256; il secondo **ricontrolla tutto una seconda volta**, ridimensiona a 450px, scrive in
+`assets/autori/` e aggiorna `data/autori_foto.json` **aggiungendo**, mai riscrivendo.
+
+**Che cosa entra, e non si deroga.** Solo un file con **licenza libera dichiarata** su Commons:
+pubblico dominio, CC0, CC BY, CC BY-SA. Per le CC serve anche il **nome di chi ha fatto
+l'immagine** (Commons lo mette in `Artist`, a volte in `Credit`: si guardano tutti e due), perche'
+senza quel nome il credito non si puo' scrivere e senza credito la foto non si pubblica.
+
+**Le restrizioni.** Il campo `Restrictions` di Commons non parla di copyright: avverte che sulla
+foto gravano altri diritti. `personality` - i diritti della persona ritratta - **si ammette**
+(decisione dell'utente del 2026-09-15): l'uso editoriale con il credito, che e' il nostro, e'
+quello che quel marchio prevede. Tutte le altre - marchi, insegne, valute, disegni industriali,
+costumi - sono un no.
+
+**Non si ritaglia.** Le immagini si ridimensionano soltanto: l'inquadratura la fa il foglio di
+stile, cosi' il file che serviamo resta l'opera di chi l'ha fatta. Nel dato resta l'impronta
+dell'originale scaricato da Commons, come prova di provenienza.
+
+**Quando non c'e'.** Se nessuna foto passa questi controlli, l'autore resta senza ritratto e il
+motivo si scrive in `LOG.md`. Un vuoto vale piu' di un credito sbagliato, e il credito sbagliato
+non e' un dettaglio estetico: e' un'informazione falsa su una pagina che promette informazioni
+verificate.
+
+---
+
 ## 9. Comando per Sonnet 5
 
 ```
@@ -431,7 +474,7 @@ Vincoli, in ordine di importanza:
 - Vale il perimetro del punto 1 di CATALOGO.md: entra solo ciò che è tracciabile a un'opera
   scritta e pubblicata, con il punto preciso del testo. Niente massime senza opera, niente frasi
   da film, niente aggregatori come fonte.
-- Ogni citazione deve chiudere tutte e dodici le voci della **lista di chiusura del punto 8**:
+- Ogni citazione deve chiudere tutte e tredici le voci della **lista di chiusura del punto 8**:
   testo verificato, autore/titolo/anno, luogo nel testo, traduttore ed edizione se tradotta, fonte
   online, contesto di 60-90 parole, speaker, tema, copertina (punto 8-bis: titolo originale, o
   nessuna copertina se il testo e' breve), **raccolte**, pagina opera, build e commit dell'HTML
