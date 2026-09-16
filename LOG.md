@@ -3947,3 +3947,37 @@
   Manzoni oggi): vale la pena controllarlo ogni volta che una citazione comincia con una
   virgolette propria nel testo originale.
 
+- 2026-09-16 16:30 UTC — **lotto narrativa sotto diritti, 1/3: J.K. Rowling, «Harry Potter e la
+  Pietra Filosofale» portato da 1 a 6 citazioni, pagina opera aperta.** Lotto di sola narrativa
+  (saggistica ferma al 18,4% dell'archivio, sopra il tetto del 15%): niente filosofi né classici
+  non narrativi finché la quota non rientra. Fonte: pagina Wikiquote di **J. K. Rowling**
+  (`it.wikiquote.org/wiki/J._K._Rowling`), che riporta il testo italiano con numero di pagina per
+  ciascuna citazione dei sette libri — verificata riga per riga in browser prima di scegliere le
+  cinque nuove, tutte dallo stesso titolo per puntare alla pagina opera come chiesto. Aggiunte:
+  - «Non serve a niente rifugiarsi nei sogni e dimenticarsi di vivere» (Silente, p. 204) — vita
+  - «Bisogna sempre chiamare le cose con il loro nome...» (Silente, p. 283) — verita
+  - «In fin dei conti, per una mente ben organizzata, la morte non è che una nuova, grande
+    avventura» (Silente, p. 283) — tempo
+  - «Essere stati amati tanto profondamente ci protegge per sempre...» (Silente, p. 284) — amore
+  - «Tu vali dodici Malfoy...» (Harry a Neville, p. 208) — coraggio
+
+  Le due citazioni di p. 283 sono due battute distinte dello stesso, lungo dialogo fra Silente e
+  Harry nell'infermeria di Hogwarts: `build.py` segnala giustamente lo stesso locus su due
+  citazioni della stessa opera, verificato a mano che sono davvero due frasi diverse sulla stessa
+  pagina (come già capitato altrove in archivio, es. «Il fu Mattia Pascal»), non un doppione.
+  Traduttore **Marina Astrologo** (Salani, 1998), confermato dalla stessa pagina Wikiquote sia per
+  l'incipit del libro sia per ogni citazione — completata anche la citazione già in archivio dallo
+  stesso titolo («Affrontare i nemici richiede notevole ardimento...», p. 290), che aveva edizione
+  e traduttore vuoti: non era un errore da correggere ma un dato mancante che oggi si poteva
+  chiudere con la stessa fonte, coerente col principio 3 di `CLAUDE.md` sul completare invece di
+  lasciare a metà quando possibile. Copertina riusata da quella già in archivio
+  (`/assets/covers/15155833.jpg`, opera già presente — nessuna ricerca su Open Library). Aggiunte
+  le chiavi pertinenti alle raccolte **sogni** e **morte** (`data/raccolte.json`), con una frase
+  in più nell'intro di ciascuna per ancorare la citazione nuova, e aperta la pagina opera
+  **`/opere/j-k-rowling-harry-potter-e-la-pietra-filosofale/`** in `data/opere.json` (scheda
+  originale di 71 parole) — il titolo passa così da sei citazioni sparse a un'unica opera con
+  pagina propria, come indicato: vale più delle sei prese singolarmente. Nessun autore nuovo,
+  nessun giro immagini necessario (ritratto già in archivio). `python3 tools/build.py`,
+  `check_links.py`, `controlla_jsonld.py`: **Problemi totali: 0**, **Nessun errore nei dati
+  strutturati**. Archivio a 859 citazioni, 80 pagine opera. Prossimo: Bukowski (lotto 2/3).
+
