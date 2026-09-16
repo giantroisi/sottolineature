@@ -3981,3 +3981,25 @@
   `check_links.py`, `controlla_jsonld.py`: **Problemi totali: 0**, **Nessun errore nei dati
   strutturati**. Archivio a 859 citazioni, 80 pagine opera. Prossimo: Bukowski (lotto 2/3).
 
+- 2026-09-16 18:40 UTC — **lotto narrativa sotto diritti, 2/3: Charles Bukowski da 4 a 7
+  citazioni.** Stessa fonte del lotto precedente su questo autore (già in archivio):
+  `it.wikiquote.org/wiki/Charles_Bukowski`, che riporta pagina per ogni citazione. Scelte tutte e
+  tre da titoli già presenti («Donne», «Factotum»), stesso traduttore già verificato in
+  archivio — **Simona Viciani**, Feltrinelli — invece di aprire un titolo nuovo che avrebbe
+  richiesto di rintracciare un altro traduttore da zero. Aggiunte:
+  - «Salve, Morte. Ma ho già vissuto quasi 60 anni...» («Donne», p. 287) — tempo
+  - «Io ero un solitario di natura, mi bastava vivere con una donna...» («Donne», p. 74) — solitudine
+  - «Per ogni Giovanna d'Arco c'è un Hitler...» («Factotum», p. 111) — verita
+
+  Scartate diverse candidate lette sulla stessa pagina Wikiquote: alcune per volgarità non
+  necessaria alla frase (es. p. 153 di «Donne»), altre — la maggioranza — perché appartengono a
+  «Il capitano è fuori a pranzo» (diario postumo con voce narrante diaristica, non un romanzo, e
+  comunque un titolo nuovo da verificare a parte) o a «Hollywood, Hollywood!» (stesso motivo).
+  Non forzato oltre le tre trovate pulite e brevi: **7 è il numero vero**, dentro il bersaglio
+  6-8 senza bisogno di spingere fino a 8. Copertine riusate da «Donne»
+  (`/assets/covers/47046.jpg`) e «Factotum» (`/assets/covers/4486742.jpg`), opere già in
+  archivio. Aggiunta una chiave alla raccolta **morte** (`data/raccolte.json`) per la citazione
+  di p. 287. Nessun autore nuovo. `python3 tools/build.py`, `check_links.py`,
+  `controlla_jsonld.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
+  Archivio a 862 citazioni. Prossimo: Camilleri (lotto 3/3).
+
