@@ -4003,3 +4003,44 @@
   `controlla_jsonld.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**.
   Archivio a 862 citazioni. Prossimo: Camilleri (lotto 3/3).
 
+- 2026-09-16 19:05 UTC — **lotto narrativa sotto diritti, 3/3: Andrea Camilleri da 4 a 7
+  citazioni — lotto delle tre narrativa chiuso.** Fonte: pagina Wikiquote di **Andrea Camilleri**
+  (`it.wikiquote.org/wiki/Andrea_Camilleri`). Nessun traduttore da verificare: Camilleri scrive
+  in italiano (siciliano compreso), non in traduzione. Aggiunte:
+  - «S'arrisbigliò malamente...» — incipit de «Il ladro di merendine» (1996, titolo già in
+    archivio): Montalbano si risveglia avvolto nelle lenzuola come una mummia dopo un'abbondante
+    cena di sarde a beccafico. Locus «incipit» (valido di per sé, non serve un numero di pagina
+    per l'apertura di un libro). Aggiunta anche alla raccolta **cibo**.
+  - «'Sta guerra è una gran rottura di cabasisi» disse Ciccio (p. 98) — «La pensione Eva» (titolo
+    già in archivio), stesso anno/edizione già usati per l'altra citazione di questo titolo.
+  - «Certo, c'è modo e modo di convincere una pirsuna ad agiri liberamenti di testa sua.» (p. 19)
+    — «Il cane di terracotta», **titolo nuovo** (secondo romanzo della serie, 1996): copertina
+    cercata su Open Library col titolo italiano (è l'originale, Camilleri non scrive in inglese),
+    trovata e guardata prima di accettarla — `cover_id` 1049118, edizione Sellerio 1996 che
+    corrisponde esattamente a quella citata da Wikiquote, copertina scaricata in
+    `assets/covers/1049118.jpg`.
+
+  Scartata **«Gli arancini di Montalbano»** («Gustare un piatto fatto come Dio comanda è uno dei
+  piaceri solitari più raffinati...», su cibo e solitudine, un fit quasi perfetto per due
+  raccolte) per mancanza di un luogo nel testo verificabile: Wikiquote la riporta con un rimando
+  a nota bibliografica generica, non un numero di pagina o capitolo, e nessuna fonte alternativa
+  consultata ne indica uno. Per REGOLA NUOVA 1 una citazione senza luogo nel testo si scarta,
+  punto: non si pubblica «quasi completa». Scartati anche diversi frammenti di «La forma
+  dell'acqua» (stessa pagina Wikiquote, nessuna delle citazioni riportate ha un numero di pagina)
+  e il lungo brano dei cannoli del dottor Pasquano ne «Il campo del vasaio», p. 51-52: troppo
+  esteso per essere citato per intero sotto diritti d'autore, e nessuno spezzone isolato ne
+  preservava il senso. Non forzato oltre le tre trovate pulite: **7 e' il numero vero**, dentro
+  il bersaglio 6-8. Nessun autore nuovo (Camilleri era già in archivio). `python3 tools/build.py`,
+  `check_links.py`, `controlla_jsonld.py`: **Problemi totali: 0**, **Nessun errore nei dati
+  strutturati**. Archivio a 865 citazioni.
+
+  **Chiusura del lotto «narrativa sotto diritti» (Rowling, Bukowski, Camilleri)**, riepilogo:
+  Rowling 3→6 (un solo titolo, «Harry Potter e la Pietra Filosofale», pagina opera aperta come
+  indicato — vale più di sei citazioni sparse), Bukowski 4→7, Camilleri 4→7 — 12 citazioni nuove
+  in totale, **zero autori nuovi** (tutti e tre già in archivio con ritratto, come da vincolo
+  pratico), **zero copertine nuove cercate da zero** tranne una («Il cane di terracotta», guardata
+  prima di accettarla). Applicato il tetto sulla saggistica del punto 1 di CATALOGO.md: lotto di
+  sola narrativa, filosofi e classici non narrativi rimasti fuori. Diverse citazioni scartate per
+  mancanza di un luogo nel testo verificabile (REGOLA NUOVA 1) o per traduttore/edizione non
+  tracciabile: dettagli per autore nei tre lotti sopra.
+
