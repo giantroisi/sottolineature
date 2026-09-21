@@ -4082,3 +4082,40 @@
   problemi: la citazione non compariva nella raccolta. Sistemata qui. `python3 tools/build.py`:
   **Problemi totali: 0**, **Nessun errore nei dati strutturati**; un secondo build non cambia
   nulla. Archivio a 870 citazioni.
+
+- 2026-09-21 16:55 UTC — **classici italiani da scuola, lotto 2/3: Giovanni Verga, «I Malavoglia»
+  da 1 a 6 citazioni** (pagina opera già presente in `data/opere.json`, ora con sei citazioni).
+  Fonte del testo: **it.wikisource.org, «I Malavoglia»**, trascrizione rivista al 100% dal
+  fac-simile dell'edizione **Fratelli Treves, Milano, 1907** (scansione Internet Archive), con i
+  numeri di pagina stampati: ogni frase è stata cercata nel testo con un controllo automatico.
+  **Limite dichiarato:** l'edizione letta è la Treves del 1907, non la prima del 1881 (non
+  disponibile in scansione trascritta); `year` resta 1881, `source_edition` dice cosa è stato
+  letto. Wikiquote (pagina «Giovanni Verga») è servito solo da indice per ritrovare i passi, mai
+  come fonte, e il confronto ha mostrato perché: due suoi testi non coincidono con il libro
+  («uscire» dove il libro ha «uscirne» nella frase del matrimonio; «Ad ogni uccello, suo nido è
+  bello» che nel cap. X è «ad ogni uccello il suo nido è bello»). Si è riportato il testo del
+  libro. Aggiunte:
+  - «Gli uomini son fatti come le dita della mano...» (cap. I, p. 2, padron 'Ntoni) — vita; raccolta **famiglia**
+  - «Il mare non ha paese nemmen lui, ed è di tutti quelli che lo stanno ad ascoltare...» (cap. XV, p. 340) — solitudine; raccolta **mare**
+  - «Il matrimonio è come una trappola di topi...» (cap. XV, p. 319, padron Fortunato) — amore
+  - «La ragazza cantava come uno stornello, perchè aveva diciotto anni...» (cap. IX, pp. 157-158, Mena) — vita; raccolta **musica**
+  - «Io non voglio vivere come un cane alla catena...» (cap. XI, p. 215, 'Ntoni) — liberta
+
+  Nella frase sul mare la citazione comincia dopo «perchè» (il periodo del libro prosegue con
+  «anzi ad Aci Trezza ha un modo tutto suo di brontolare...»): sono parole esatte, ma la «i»
+  iniziale è maiuscola e il punto finale è mio. Stessa cosa per «La ragazza», che nel libro
+  segue un «ma». Candidate lette e scartate: «Chi ha roba in mare non ha nulla» (cap. X, p. 179,
+  La Vespa: sei parole di proverbio senza il peso delle altre); «Uomo povero ha i giorni lunghi»
+  (cap. IV, p. 54: la forma cambia nel cap. XV, «lo sfortunato ha i giorni lunghi», e nel primo
+  caso parla il narratore, non un personaggio); «Certuni non sanno star soli neppure in
+  paradiso» (cap. XIII: voce del paese, nessun parlante identificabile); «Al giorno d'oggi per
+  conoscere un uomo bisogna mangiare sette salme di sale» (cap. X, p. 193: nessun parlante);
+  «Ad ogni uccello, suo nido è bello» (cap. XI, p. 215: è la battuta del nonno a cui risponde la
+  frase di 'Ntoni scelta, e due righe dello stesso scambio sarebbero state una ripetizione: ne
+  parla il contesto); «Almeno voleva sapere perché al mondo ci doveva essere della gente che se la
+  gode senza far nulla...» (cap. XII: 42 parole, l'unica lunga e già meno autonoma). Completata
+  anche la citazione già in archivio (l'incipit, p. 1), che aveva edizione e testo online
+  vuoti. Copertina: quella già in archivio per la stessa opera (`/assets/covers/5410364.jpg`).
+  Raccolte: famiglia, mare, musica, con una frase in più nell'introduzione di mare e di musica.
+  `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**; un
+  secondo build non cambia nulla. Archivio a 875 citazioni; l'indice paginato passa a 30 pagine.
