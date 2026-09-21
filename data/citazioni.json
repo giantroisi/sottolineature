@@ -12642,6 +12642,38 @@
     "source_url": "https://it.wikisource.org/wiki/Uno,_nessuno_e_centomila/Libro_terzo"
   },
   {
+    "quote": "Copernico, Copernico, don Eligio mio, ha rovinato l'umanità, irrimediabilmente.",
+    "author": "Luigi Pirandello",
+    "title": "Il fu Mattia Pascal",
+    "year": "1904",
+    "context": "Mattia Pascal, bibliotecario di un paese di provincia, sta scrivendo la propria storia e ne parla con don Eligio, il prete che passa le giornate a frugare negli scaffali della biblioteca. Al prete stupito che Copernico c'entri con il suo libro, risponde che da quando la Terra ha cominciato a girare l'uomo ha perso l'importanza che si dava: è quello che chiama, con ironia, il suo «solito ritornello».",
+    "cover": "/assets/covers/5749571.jpg",
+    "category": "verita",
+    "genre": "",
+    "added": "2026-09-21",
+    "source_edition": "Fratelli Treves, Milano, 1919",
+    "source_locus": "capitolo 2 «Premessa seconda (filosofica) a mo' di scusa», p. 7",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Il_fu_Mattia_Pascal/2",
+    "speaker": "Mattia Pascal"
+  },
+  {
+    "quote": "Il criterio direttivo delle nostre azioni, il filo per uscir da questo labirinto, il lume insomma, signor Meis, il lume deve venirci di là, dalla morte.",
+    "author": "Luigi Pirandello",
+    "title": "Il fu Mattia Pascal",
+    "year": "1904",
+    "context": "Mattia, che vive a Roma sotto il falso nome di Adriano Meis, ha preso una stanza in casa di Anselmo Paleari, un vecchio dalle idee bizzarre, appassionato di spiritismo. Paleari gli spiega perché la scienza, occupandosi soltanto della vita, sbagli: senza spiegarsi la morte, sostiene, non si può comprendere neppure la vita, e la luce per orientarsi deve venire da lì.",
+    "cover": "/assets/covers/5749571.jpg",
+    "category": "tempo",
+    "genre": "",
+    "added": "2026-09-21",
+    "source_edition": "Fratelli Treves, Milano, 1919",
+    "source_locus": "capitolo 10 «Acquasantiera e portacenere», p. 147",
+    "source_translator": "",
+    "source_url": "https://it.wikisource.org/wiki/Il_fu_Mattia_Pascal/10",
+    "speaker": "Anselmo Paleari"
+  },
+  {
     "quote": "Perfido e crudele ragazzo! Siete simile a un assassino, a un guardiano di schiavi, a un imperatore romano!",
     "author": "Charlotte Brontë",
     "title": "Jane Eyre",

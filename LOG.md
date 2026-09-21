@@ -4119,3 +4119,41 @@
   Raccolte: famiglia, mare, musica, con una frase in più nell'introduzione di mare e di musica.
   `python3 tools/build.py`: **Problemi totali: 0**, **Nessun errore nei dati strutturati**; un
   secondo build non cambia nulla. Archivio a 875 citazioni; l'indice paginato passa a 30 pagine.
+
+- 2026-09-21 17:10 UTC — **classici italiani da scuola, lotto 3/3: Luigi Pirandello, «Il fu
+  Mattia Pascal» da 4 a 6 citazioni** (pagina opera già presente, ora con sei citazioni). Fonte:
+  **it.wikisource.org, «Il fu Mattia Pascal»**, trascrizione rivista al 100% dell'edizione
+  **Fratelli Treves, Milano, 1919** (la stessa da cui derivano le quattro già in archivio),
+  numeri di pagina stampati, frasi cercate nel testo con controllo automatico. Come per Svevo e
+  Verga: non è la prima edizione (1904) e `source_edition` lo dice; `year` resta 1904. Aggiunte,
+  due invece di forzarne altre:
+  - «Copernico, Copernico, don Eligio mio, ha rovinato l'umanità, irrimediabilmente.» (cap. 2, p. 7, Mattia a don Eligio) — verita; raccolta **frasi-brevi**
+  - «Il criterio direttivo delle nostre azioni, il filo per uscir da questo labirinto, il lume insomma, signor Meis, il lume deve venirci di là, dalla morte.» (cap. 10, p. 147, Anselmo Paleari) — tempo; raccolta **morte**
+
+  Candidate lette e scartate, o lasciate di riserva perché il bersaglio (6) era già raggiunto:
+  «Assistendo alla vita degli altri e osservandola minuziosamente, ne vedevo gl'infiniti legami e,
+  al tempo stesso, vedevo le tante mie fila spezzate» (cap. 8: buona, di riserva, il tema
+  solitudine è già coperto dall'ombra del cap. 15); «Non avrei mai supposto che dovesse costarmi
+  tanto stento e destarmi tanta smania la scelta d'un nome e d'un cognome» (cap. 7: di riserva);
+  «La mia fortuna consisteva appunto in questo: nell'essermi liberato della moglie, della
+  suocera, dei debiti...» (cap. 9: dice quello che la già presente «Ah! tornavo a esser vivo»
+  dice meglio); l'immagine dello strappo nel cielo di carta del teatrino (cap. 12) e la
+  «lanterninosofia» (cap. 13): scartate perché lunghe e non autonome, il senso sta nello scambio
+  intero; «Maledetto sia Copernico!» da sola: quattro parole senza senso fuori dal dialogo. Nella
+  frase su Copernico il libro prosegue con «Ormai noi tutti ci siamo a poco a poco adattati alla
+  nuova concezione dell'infinita nostra piccolezza...», un periodo che continua con un punto e
+  virgola: tagliarlo avrebbe cambiato la punteggiatura, si è tenuta la sola frase intera.
+  Copertina: quella già in archivio per la stessa opera (`/assets/covers/5749571.jpg`). Le quattro
+  citazioni già presenti non sono state toccate. `python3 tools/build.py`: **Problemi totali: 0**,
+  **Nessun errore nei dati strutturati**; un secondo build non cambia nulla. Archivio a 877
+  citazioni.
+
+  **Chiusura del lotto «classici italiani da scuola» (Svevo, Verga, Pirandello)**, riepilogo:
+  Svevo 1→6 sul solo titolo «La coscienza di Zeno», Verga 1→6 su «I Malavoglia», Pirandello 4→6
+  su «Il fu Mattia Pascal»: 12 citazioni nuove, tre pagine opera con sei citazioni, tutte da
+  autori già in archivio con ritratto, nessuna copertina nuova (tutte della stessa opera), nessun
+  traduttore. Il testo di ogni frase è stato ritrovato parola per parola su Wikisource; il
+  controllo automatico ha già fermato un mio errore (una frase data per contigua a un'altra).
+  Solo narrativa, la saggistica non è cresciuta. Non fatto: confronto con le prime edizioni
+  (1923, 1881, 1904), non disponibili in scansione trascritta — è scritto in ogni `source_edition`.
+  Nessun push, come richiesto.
