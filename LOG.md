@@ -4044,3 +4044,41 @@
   mancanza di un luogo nel testo verificabile (REGOLA NUOVA 1) o per traduttore/edizione non
   tracciabile: dettagli per autore nei tre lotti sopra.
 
+
+- 2026-09-21 16:34 UTC — **classici italiani da scuola, lotto 1/3: Italo Svevo, «La coscienza di
+  Zeno» da 1 a 6 citazioni** (pagina opera già presente in `data/opere.json`, ora con sei
+  citazioni). Fonte del testo: **it.wikisource.org, «La coscienza di Zeno (1930)»**, trascrizione
+  rivista al 100% dal fac-simile della **seconda edizione, Giuseppe Morreale Editore, Milano,
+  1930** (scansione della Biblioteca Braidense), con i numeri di pagina dell'edizione: ogni frase
+  è stata cercata nel testo, parola per parola, con un controllo automatico, non ricordata a
+  memoria né presa da Wikiquote. **Limite dichiarato:** l'edizione verificata è la seconda, non la
+  prima (Cappelli, Bologna, 1923) — di quest'ultima non c'è una scansione trascritta e nessuna
+  fonte consultata permette il confronto; `year` resta 1923 (prima pubblicazione dell'opera) e
+  `source_edition` dice quale edizione è stata letta. L'ortografia è quella del 1930 («nè»,
+  «perchè», «quì»), gli apostrofi tipografici sono normalizzati. Aggiunte:
+  - «Penso che la sigaretta abbia un gusto più intenso quand'è l'ultima...» (cap. 3 «Il fumo», p. 15) — tempo
+  - «Adesso che son quì, ad analizzarmi, sono colto da un dubbio...» (cap. 3, p. 14) — verita
+  - «La vita somiglia un poco alla malattia...» (cap. 8 «Psico-analisi», pp. 534-535) — vita
+  - «La salute non analizza se stessa...» (cap. 6 «La moglie e l'amante», p. 198) — verita
+  - «La vita non è nè brutta nè bella, ma è originale!» (cap. 7, p. 405, detta da Zeno a Guido) — vita, `speaker` Zeno Cosini
+
+  Il controllo automatico ha fermato un errore mio: avevo dato per contigue due frasi sull'ultima
+  sigaretta, ma nel testo ce n'è una in mezzo («Anche le altre hanno un loro gusto speciale, ma
+  meno intenso»); la citazione riporta ora le tre frasi. Candidate lette e scartate: «Perciò, per
+  provare, accendo un'ultima sigaretta...» (ripete il motivo già coperto, senza aggiungere);
+  «Dolore e amore, poi, la vita insomma, non può essere considerata quale una malattia perchè
+  duole» (attaccata a quella già scelta, stessa pagina, stesso pensiero); «Forse fu tale dubbio
+  che mi legò al mio vizio perchè è un modo comodo di vivere quello di credersi grande di una
+  grandezza latente» (la migliore ma non autonoma: rimanda a «tale dubbio»; tenuta la frase che
+  lo precede); «Si arriva all'assassinio per amore o per odio; alla propaganda dell'assassinio
+  solo per malvagità» (fuori dal suo contesto perde il senso). Completata anche la citazione già
+  in archivio dello stesso titolo («La vita attuale è inquinata alle radici», p. 535), che aveva
+  edizione, luogo e collegamento vuoti. Copertina: quella già in archivio per la stessa opera
+  (`/assets/covers/419797.jpg`). Raccolte: **frasi-brevi** (Z5) e **morte** (Z3); le altre
+  quattro non hanno una raccolta in cui stiano davvero (nessun fumo, nessuna malattia fra le
+  33). **Correzione a un lotto precedente:** nella raccolta **cibo** la chiave della citazione
+  di Camilleri («S'arrisbigliò malamente...», lotto del 16 settembre) era stata scritta con una
+  parola in meno e il build la segnalava come «chiavi non trovate» senza contarla fra i
+  problemi: la citazione non compariva nella raccolta. Sistemata qui. `python3 tools/build.py`:
+  **Problemi totali: 0**, **Nessun errore nei dati strutturati**; un secondo build non cambia
+  nulla. Archivio a 870 citazioni.
