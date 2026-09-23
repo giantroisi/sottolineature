@@ -877,6 +877,35 @@ Dal 2026-09-08 sul repository lavorano **tre sessioni**. La divisione regge finc
 
 ---
 
+## 9-quater. La routine oraria
+
+Dal **23 settembre 2026** una sessione programmata si apre ogni ora, allo scoccare del minuto 59,
+e aggiunge **da una a tre citazioni**. Non e' un secondo curatore: e' la stessa procedura del §8,
+eseguita in piccolo e senza saltare niente. Le regole che la tengono stretta:
+
+- **Solo autori e opere gia' in archivio.** Cosi' il ritratto dell'autore e la copertina
+  dell'opera esistono gia' e la pagina nasce completa, come vuole il principio 3 di `CLAUDE.md`.
+  Autori e opere nuove restano un lavoro da fare insieme, quando c'e' il browser per i ritratti e
+  le copertine: la routine li annota in `LOG.md` e li lascia li'.
+- **La prova e' il testo scaricato.** Vale solo una pagina che la sessione ha davvero aperto e in
+  cui la frase c'e'; `source_url` punta a quella. Da una sessione programmata `it.wikisource.org`
+  non e' scaricabile (risponde «cache-only»): serve `liberliber.it`, una scansione, un PDF di
+  biblioteca. Se nessuna fonte si apre, la citazione non entra.
+- **Un turno vuoto e' un esito accettabile**, ed e' il comportamento voluto quando non c'e' niente
+  di verificabile: meglio nessuna riga che una riga non riscontrata.
+- **Si ferma da sola** se l'albero di git non e' pulito (un'altra sessione sta lavorando), se il
+  build non chiude con «Problemi totali: 0», se il secondo build cambia qualcosa.
+- **Un commit per turno**, solo sui file toccati, mai `git add -A`, mai `git push`: il push resta
+  dell'utente.
+- **Ogni turno lascia un paragrafo in `LOG.md`**: cosa e' entrato, su quale fonte, cosa e' stato
+  scartato e perche'. Senza quella riga il turno non e' finito.
+
+Il turno si apre con `python3 tools/prossimo_lotto.py`, che dice da dove ripartire: quota di
+saggistica rispetto al tetto, opere a una o due citazioni dalla pagina propria, autori fermi a
+3-5 righe, raccolte piu' sottili, autori senza ritratto.
+
+---
+
 ## 10. Lavoro in autonomia — parametri
 
 Quando l'utente autorizza un agente a procedere da solo, valgono questi parametri. Sono scritti

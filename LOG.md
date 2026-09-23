@@ -4157,3 +4157,23 @@
   Solo narrativa, la saggistica non è cresciuta. Non fatto: confronto con le prime edizioni
   (1923, 1881, 1904), non disponibili in scansione trascritta — è scritto in ogni `source_edition`.
   Nessun push, come richiesto.
+
+### 2026-09-23 — una routine oraria che aggiunge citazioni
+
+Attivata una sessione programmata che parte ogni ora al minuto 59 e aggiunge da una a tre
+citazioni seguendo il §8 del CATALOGO. Il nuovo §9-quater la descrive per intero; qui basta il
+perche' dei due vincoli piu' stretti. **Solo autori e opere gia' in archivio**: una sessione
+programmata non ha il browser con cui si raccolgono i ritratti da Wikimedia ne' la rete per le
+copertine di Open Library, e una pagina autore senza ritratto o un'opera senza copertina
+violerebbero il principio 3 di `CLAUDE.md` (si pubblica solo cio' che e' completo). **La prova e'
+il testo scaricato**: da una sessione programmata `it.wikisource.org` risponde «cache-only» e non
+si apre, quindi non puo' fare da riscontro; valgono `liberliber.it`, le scansioni e i PDF di
+biblioteca, e `source_url` deve puntare alla pagina effettivamente aperta. Se nessuna fonte si
+apre la citazione non entra e il turno si chiude vuoto: e' il comportamento voluto, non un guasto.
+La routine si ferma da sola se l'albero non e' pulito (un'altra sessione al lavoro), se il build
+non chiude con «Problemi totali: 0» o se il secondo build cambia qualcosa; non fa mai `git add -A`
+e non fa mai push. Aggiunto `tools/prossimo_lotto.py`, che apre ogni turno: stampa quota di
+saggistica, opere a una o due citazioni dalla pagina propria, autori fermi a 3-5 righe, raccolte
+sottili e autori senza ritratto. Oggi dice: 877 citazioni, saggistica al 17,9% (tetto 15%, quindi
+solo narrativa e poesia), 16 opere gia' con pagina propria, 6 autori senza ritratto.
+
