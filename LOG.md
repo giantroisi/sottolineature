@@ -4177,3 +4177,164 @@ saggistica, opere a una o due citazioni dalla pagina propria, autori fermi a 3-5
 sottili e autori senza ritratto. Oggi dice: 877 citazioni, saggistica al 17,9% (tetto 15%, quindi
 solo narrativa e poesia), 16 opere gia' con pagina propria, 6 autori senza ritratto.
 
+
+### 2026-09-24 — il lotto Tasso in sospeso: testo verificato, immagini OG impossibili da qui
+
+Trovato all'apertura del turno un lotto non committato e non registrato, fermo dal 23 settembre
+alle 16:10: **due citazioni dalla «Gerusalemme liberata» di Torquato Tasso**, che portano quel
+titolo da 4 a 6 citazioni (quindi pagina opera propria) e l'archivio da 877 a 879.
+
+**Verifica del testo, rifatta da zero in questo turno.** Entrambe le frasi sono state riscontrate
+aprendo davvero la pagina indicata in `source_url`, che ha restituito l'ottava intera:
+
+- «Sai che là corre il mondo ove piú versi di sue dolcezze il lusinghier Parnaso, e che 'l vero,
+  condito in molli versi, i piú schivi allettando ha persuaso.» — Canto I, ottava 3, primi quattro
+  versi, su <https://kalliope.org/en/text/tasso2018062201>. Corrispondenza carattere per carattere,
+  accenti e apostrofi compresi («piú», «sí», «'l»).
+- «Magnanima menzogna, or quand'è il vero sí bello che si possa a te preporre?» — Canto II,
+  ottava 22, versi 3-4, su <https://kalliope.org/en/text/tasso2018062202>. Idem.
+
+Kalliope.org si apre da una sessione programmata, al contrario di `it.wikisource.org` (§9-quater).
+Contesti di 73 parole entrambi, `speaker` vuoto perché in tutti e due i casi parla il narratore,
+copertina `/assets/covers/5954727.jpg` già in uso per le altre quattro citazioni della stessa
+opera, chiavi inserite nelle raccolte (voce 10 della lista di chiusura: fatta).
+
+**Perché il turno non si è chiuso: i font.** `python3 tools/build.py` finisce con «ERRORE: build
+non valido — Immagine OG mancante» per i due slug nuovi. `tools/generate_og_images.py` richiede
+`/System/Library/Fonts/Supplemental/Iowan Old Style.ttc` e `Arial.ttf`, cioè font macOS, e lo dice
+da sé («font di sistema non disponibili qui, immagini OG saltate»): la shell di una sessione
+programmata è una VM Linux che monta solo la cartella del progetto, i font del Mac non ci sono e
+non sono scaricabili. Le 877 immagini in `assets/og/` sono tracciate in git e ogni pagina citazione
+le richiama, quindi pubblicare senza le due nuove violerebbe il principio 3 di `CLAUDE.md`.
+**Non è un guasto risolvibile da qui.** Su decisione dell'utente il lotto resta in attesa: il build
+va lanciato una volta sul Mac, dove i font ci sono, e lì le due PNG nascono e il build chiude a
+«Problemi totali: 0». Il commit lo fa l'utente, il push resta suo come sempre.
+
+**Da decidere** (non toccato, è materia del CATALOGO): il §9-quater dà per scontato che una
+sessione programmata possa chiudere il build, e non è vero finché le immagini OG dipendono da font
+macOS. Le vie sono tre — render delle OG con un font libero (Palatino/URW Palladio è già il
+secondo anello della catena di fallback dichiarata in `assets/site.css`, quindi il cambio sarebbe
+coerente col sito), oppure un font imbarcato nel repo, oppure la rinuncia esplicita: la routine
+oraria prepara i dati e il build finale resta un gesto dell'utente sul Mac.
+
+**Falso allarme da correggere.** Il turno delle 17:59 si era fermato segnalando fra l'altro un
+`.git/index.lock` «rimasto da una sessione morta». Non lo era: git lo crea a ogni `git status` per
+aggiornare l'indice e poi non riesce a cancellarlo, perché nella cartella montata la delete è
+negata («unable to unlink … Operation not permitted»). Ricompare con mtime nuovo dopo ogni comando
+git ed è innocuo: **non va contato fra i segni di un'altra sessione al lavoro**, altrimenti ogni
+turno futuro si blocca su niente. Quello che aveva davvero fermato il turno era l'albero sporco,
+cioè proprio questo lotto Tasso.
+
+Archivio dopo il turno: **879 citazioni** nei dati, ancora non committate. Nessuna citazione nuova
+aggiunta in questo turno: il lavoro è stato la verifica del lotto in sospeso. Nessuna candidata
+letta e scartata. Nessun push.
+
+### 2026-09-24 (nota di servizio) — da dove viene il lotto Tasso, e un ripristino
+
+Il lotto Tasso descritto qui sopra nasce dal turno programmato delle **16:00 UTC del 23
+settembre**, la prima esecuzione della routine oraria: sessione interrotta prima di poter
+scrivere in `LOG.md`, ripresa il 24 e chiusa adesso. Ecco perché il turno del 24 lo ha
+trovato in albero come lavoro «non committato e non registrato»: non era un'altra
+sessione al lavoro, era questa.
+
+Alla ripresa, non sapendo che il turno del 24 aveva già verificato e documentato il lotto,
+questa sessione ha riportato `data/citazioni.json` e `data/raccolte.json` a HEAD (877
+citazioni) e rilanciato il build, per lasciare l'albero pulito come prescrive il §9-quater
+quando un controllo non passa. Letto poi il paragrafo del 24, le due citazioni sono state
+**rimesse identiche**: stesso testo carattere per carattere, stessi contesti (73 parole
+ciascuno), stessi `source_locus` e `source_url`, stesse tre raccolte
+(`libri-e-scrittura`, `arte`, `frasi-brevi`), stesso `cover`. Gli slug erano già congelati
+in `tools/slugs.json` e sono stati riusati: **nessun URL è cambiato**, nessun redirect
+aggiunto. Archivio di nuovo a **879 citazioni**, non committate.
+
+Il build si comporta come descritto sopra: «Problemi totali: 0» e «Nessun errore nei dati
+strutturati», poi «ERRORE: build non valido» per le due immagini OG che da una VM Linux
+non si possono generare. Nessun commit, nessun push: resta il gesto dell'utente sul Mac.
+
+Confermata anche l'osservazione sul lock: nella cartella montata la delete è negata, git
+ricrea `.git/index.lock` a ogni comando e non riesce a rimuoverlo. Va tolto a mano prima di
+ogni `git`, e **non va letto come il segno di un'altra sessione al lavoro**. Da questa
+sessione è stato necessario chiedere il permesso di cancellazione sulla cartella per
+sbloccare git: chi scrive il §9-quater lo tenga presente, altrimenti ogni turno futuro si
+ferma al primo `git status`.
+
+**Poscritto tecnico, stesso turno: la cartella montata non dà letture affidabili.** Rilanciando
+`tools/build.py` per il controllo di idempotenza sono usciti numeri che non stanno insieme: la
+stessa directory contata a pochi secondi di distanza ha dato 800, poi 798, poi 503 file in
+`assets/covers/`; un build ha letto 877 citazioni mentre `data/citazioni.json` ne conteneva 879 e
+`python3 -c "json.load(...)"` sullo stesso file, subito dopo, ne contava 879. I due file
+`citazioni/torquato-tasso-gerusalemme-liberata-{sai-che-la,magnanima-menzogna-or}.html` sono
+risultati assenti a un `ls` e presenti (mtime 04:46) a quello successivo. È il mount della
+sessione remota che serve elenchi di directory parziali e, a tratti, versioni vecchie dei file:
+non è il repository ad essere danneggiato. **Conseguenza pratica: da una sessione programmata i
+controlli di `build.py` che si basano su `os.listdir` — immagini OG mancanti, file orfani, conteggi
+di copertine — non fanno fede, e il loro «Problemi totali: 0» può essere un falso via libera.**
+Per questo il turno si è fermato senza commit anche dopo aver verificato il testo: l'unico esito
+di cui ci si può fidare è quello del build lanciato sul Mac. I file HTML, le sitemap e il feed
+attualmente nell'albero sono il prodotto di letture parziali e vanno semplicemente rigenerati da
+lì; i dati (`data/citazioni.json`, `data/raccolte.json`) sono stati riletti e sono integri, con
+le due citazioni complete di tutti i campi e le tre chiavi nelle raccolte.
+
+### 2026-09-24 08:59 UTC — turno vuoto: il lotto Tasso è ancora in attesa del Mac
+
+Turno programmato aperto alle 08:59 UTC. **Nessuna citazione aggiunta**, e la scelta è
+deliberata, non un intoppo.
+
+Stato trovato: albero sporco con 288 file tracciati modificati e due pagine nuove non
+tracciate (`citazioni/torquato-tasso-gerusalemme-liberata-{sai-che-la,magnanima-menzogna-or}.html`).
+Non è un'altra sessione al lavoro: è il **lotto Tasso** descritto nei due paragrafi
+precedenti, verificato e documentato, rimasto senza commit. Verificato in lettura diretta
+che i dati sono integri e invariati rispetto a quanto registrato: `data/citazioni.json`
+contiene **879** citazioni contro le 877 di HEAD, le sei voci di *Gerusalemme liberata*
+hanno tutte i tredici campi (`quote`, `author`, `title`, `year`, `context`, `cover`,
+`category`, `genre`, `added`, `source_edition`, `source_translator`, `source_locus`,
+`source_url`), e `data/raccolte.json` porta le chiavi Tasso nelle tre raccolte previste.
+Niente è stato toccato: nessun `checkout`, nessun `build`, nessun commit.
+
+Perché non si è aggiunto nulla. Il poscritto tecnico del turno precedente vale ancora:
+da una sessione programmata la cartella montata serve elenchi di directory parziali e a
+tratti versioni vecchie dei file, quindi i controlli di `tools/build.py` che passano da
+`os.listdir` — immagini OG, file orfani, conteggio copertine — non fanno fede e il loro
+«Problemi totali: 0» può essere un falso via libera. Senza un build di cui fidarsi non
+esiste il controllo di chiusura, e senza quello il §9-quater vieta il commit. Aggiungere
+oggi una seconda tornata di citazioni significherebbe impilare un lotto non verificabile
+sopra uno già in sospeso, allungando il lavoro di riconciliazione che aspetta l'utente
+sul Mac. Meglio un turno vuoto.
+
+Non è stato nemmeno rilanciato `tools/build.py`: rigenererebbe HTML, sitemap e feed a
+partire dalle stesse letture parziali, peggiorando un albero che va comunque ricostruito
+sul Mac. Nessuna candidata nuova letta, nessuna scartata: la verifica del testo non è
+stata aperta, perché non c'era modo di chiudere il turno.
+
+**Resta all'utente, sul Mac:** `python3 tools/build.py` (deve dare «Problemi totali: 0»,
+«Nessun errore nei dati strutturati» e generare le due immagini OG), un secondo build a
+vuoto per l'idempotenza, poi il commit del lotto Tasso — dati, `LOG.md` e pagine
+rigenerate — e il push. Finché quel gesto manca, ogni turno programmato trova l'albero
+sporco e si fermerà qui.
+
+Archivio dopo il turno: **879 citazioni** nei dati, ancora non committate (877 in HEAD).
+Nessun commit, nessun push.
+
+### 2026-09-24 09:59 UTC — turno vuoto: albero sporco e `index.lock` rimasto
+
+Turno fermato al primo controllo, come prescrive la routine. `git status -sb` dà `main`
+avanti di 4 rispetto a `origin/main` con 288 file tracciati modificati: `data/citazioni.json`
+(879 voci contro le 877 di HEAD), `data/raccolte.json`, `LOG.md` e le pagine HTML del lotto
+*Gerusalemme liberata*, più le due pagine citazione non tracciate («Magnanima menzogna, or
+quand'è il vero…» e «Sai che là corre il mondo…»). È lo stesso lotto Tasso descritto nelle
+tre note precedenti: testo verificato, ma in attesa del build sul Mac. Con l'albero in
+questo stato la regola è esplicita — non si tocca niente e non si aggiunge niente.
+
+Rilevato inoltre `.git/index.lock` (vuoto, 09:00 UTC), residuo del turno programmato
+precedente. Non è stato rimosso: la rimozione spetta all'utente, che è l'unico a poter
+escludere che una sessione sia ancora viva. Finché quel file resta, ogni operazione di
+scrittura su indice git fallirebbe comunque.
+
+Nessuna candidata letta, nessuna scartata, nessun `build`, nessun `checkout`, nessun commit.
+L'unica scrittura di questo turno è questo paragrafo. Archivio: **879 citazioni** nei dati,
+877 in HEAD.
+
+**Resta all'utente, sul Mac:** rimuovere `.git/index.lock` se nessuna sessione è attiva,
+poi `python3 tools/build.py` («Problemi totali: 0», «Nessun errore nei dati strutturati»,
+due immagini OG generate), un secondo build a vuoto per l'idempotenza, il commit del lotto
+Tasso e il push. Finché quel gesto manca, ogni turno orario si fermerà qui.
