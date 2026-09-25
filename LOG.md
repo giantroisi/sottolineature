@@ -4856,3 +4856,39 @@ mancante), 0 title e 0 description duplicati. Il secondo giro non ha modificato 
 «fonti duplicate su citazioni diverse» segnalate sono preesistenti e non riguardano questo lotto.
 
 Archivio: **885 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-25, 15:50 UTC — turni non eseguiti, e la routine sospesa per quattro ore
+
+Trascrizione delle voci raccolte in `claude/turni-non-eseguiti.md` (i documenti del progetto), come
+quel documento chiedeva: erano finite li' perche' in quei turni `LOG.md` non era raggiungibile.
+
+- **Turno automatico ~10:25 UTC — NON ESEGUITO.** Nessun accesso al computer: gli strumenti
+  `remote-devices` non erano nella sessione, `$HOME/mnt/` non esisteva. Fermato subito. Zero
+  citazioni, zero commit, nessun file toccato, build non eseguito.
+- **Esecuzione manuale ~10:26 UTC — NON ESEGUITO.** Stessa causa. Era il primo tentativo col
+  prompt nuovo, quindi non ha potuto collaudare niente: permesso di cancellazione,
+  `git --no-optional-locks status`, font, `prossimo_lotto.py`, `build.py` sono rimasti tutti
+  non verificati (lo sono poi stati dal turno delle 10:59, riuscito).
+- Nessuna candidata pre-verificata in quei due tentativi, deliberatamente: senza
+  `data/citazioni.json` non si controllano i doppioni, senza `LOG.md` non si sa cosa e' gia' stato
+  scartato, senza `prossimo_lotto.py` non si conosce la quota di saggistica.
+
+**Il buco vero delle quattro ore.** Dopo il commit `76a24c73` delle 11:10 non e' successo piu'
+niente fino alle 15:47: `LOG.md` e `data/citazioni.json` sono fermi alle 11:09 e alle 11:06. Non
+sono turni vuoti — **i turni non sono proprio partiti**. La routine oraria
+(`trig_01HugpSCjYnqri1dSB9e6fmH`) risulta **disabilitata dalle 11:59:26 UTC con
+`suspension_reason: device_absent`**: al primo scatto col Mac irraggiungibile il pianificatore l'ha
+sospesa, e la sospensione **non si e' riattivata da sola** quando il computer e' tornato
+raggiungibile. Stessa sorte, nello stesso quarto d'ora, per altre due routine dell'utente:
+«Dietro il testo» (sospesa alle 11:57) e «omake.it» (alle 12:05).
+
+E' un modo di fallire peggiore del turno vuoto, perche' e' silenzioso: nessun avviso, nessuna riga
+da nessuna parte, e il progetto sembra semplicemente fermo. Va tenuto d'occhio: **ogni volta che il
+Mac resta spento o scollegato all'ora dello scatto, la routine si spegne e va riaccesa a mano.**
+La routine di Sottolineature e' stata riabilitata adesso; le altre due restano da decidere.
+
+**Aggiunta al prompt della routine**: se in una sessione gli strumenti `remote-devices` non ci sono
+affatto, il turno si chiude subito e l'esito si annota nei documenti del progetto invece che in
+`LOG.md`, che in quel caso non e' scrivibile.
+
+Archivio, invariato dalle 11:10: **885 citazioni**, un commit (`76a24c73`) ancora da spingere.
