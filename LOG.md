@@ -4738,3 +4738,39 @@ citazione nuova aggiunta da questa VM `tools/generate_og_images.py` tornera' a c
 uscite possibili restano quelle del turno delle 08:00 e la scelta e' dell'utente.
 
 Archivio: **883 citazioni, dati e HEAD allineati.**
+
+## 2026-09-25 — font delle immagini OG: risolti con una copia locale ignorata da git
+
+Scelta dell'utente fra le tre uscite del turno delle 08:00: **imbarcare i font**. Fatto cosi':
+
+`tools/generate_og_images.py` ora cerca ogni font prima in **`assets/fonts/`** dentro il
+repository, e solo se non lo trova ricade su `/System/Library/Fonts/Supplemental/`. I font sono
+tre, non due: al serif *Iowan Old Style* (indice 2, il corsivo) e ad *Arial* si aggiunge
+***Georgia***, che era cablata a meta' file per il segno di virgoletta e che nessun controllo
+verificava — bastava lei a far morire il build su una macchina senza font di sistema.
+`fonts_available()` adesso li controlla tutti e tre e, quando manca qualcosa, il messaggio dice
+quale file manca e dove copiarlo.
+
+**`assets/fonts/` e' in `.gitignore`, ed e' una scelta voluta, non una dimenticanza.** Iowan Old
+Style, Arial e Georgia arrivano con macOS sotto licenze che non ne permettono la ridistribuzione:
+in un repository pubblico che viene anche pubblicato in rete non possono entrare. La cartella
+montata pero' e' la stessa che vede la VM Linux, quindi una copia locale non tracciata basta:
+stessa tipografia delle 883 immagini gia' fatte, nessuna ridistribuzione.
+
+**Passo a mano ancora da fare, una volta sola, sul Mac**, dalla cartella del repository:
+
+```
+cp "/System/Library/Fonts/Supplemental/Iowan Old Style.ttc" \
+   "/System/Library/Fonts/Supplemental/Arial.ttf" \
+   "/System/Library/Fonts/Supplemental/Georgia.ttf" assets/fonts/
+```
+
+Fatto quello, i turni orari potranno generare le PNG da soli e chiudersi senza intervento.
+
+Build lanciato tre volte dopo la modifica: **exit 0, «Problemi totali: 0», «Nessun errore nei dati
+strutturati», 883/883 citazioni con blocco fonte**, e nessun file cambiato al secondo e al terzo
+giro. Le immagini OG restano saltate con avviso finche' i font non sono al loro posto, come prima.
+
+Rimosso anche `LOTTO-PRONTO-2026-09-25.patch`, superato dal commit `3ee30e3d`.
+
+Archivio: **883 citazioni, dati e HEAD allineati.**

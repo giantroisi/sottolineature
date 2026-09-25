@@ -30,9 +30,26 @@ COL_GOLD = '#9c7a3c'
 COL_INK = '#211f1b'
 COL_INK_SOFT = '#5b564d'
 
-FONT_SERIF = '/System/Library/Fonts/Supplemental/Iowan Old Style.ttc'
+# I font della composizione. Si cercano prima in assets/fonts/ dentro il
+# repository (cartella ignorata da git: i tre file sono licenziati con macOS e
+# non vanno ridistribuiti, ma da li' sono raggiungibili anche da una VM Linux
+# che monta la cartella), poi fra i font di sistema di macOS. L'ordine conta:
+# la copia locale vince, cosi' ogni macchina disegna con lo stesso carattere.
+FONT_DIR = os.path.join(qp.ROOT, 'assets', 'fonts')
+SYS_DIR = '/System/Library/Fonts/Supplemental'
+
+
+def _font_path(name):
+    local = os.path.join(FONT_DIR, name)
+    if os.path.exists(local):
+        return local
+    return os.path.join(SYS_DIR, name)
+
+
+FONT_SERIF = _font_path('Iowan Old Style.ttc')
 FONT_SERIF_ITALIC_INDEX = 2
-FONT_SANS = '/System/Library/Fonts/Supplemental/Arial.ttf'
+FONT_SANS = _font_path('Arial.ttf')
+FONT_MARK = _font_path('Georgia.ttf')
 
 
 def serif_italic(size):
@@ -133,7 +150,7 @@ def render_og_image(quote, author, title, year, out_path):
     group_top = area_top + ((area_bottom - area_top) - group_height) / 2
 
     # virgolette
-    mark_font = ImageFont.truetype('/System/Library/Fonts/Supplemental/Georgia.ttf', mark_size)
+    mark_font = ImageFont.truetype(FONT_MARK, mark_size)
     draw.text((cx, group_top), '“', font=mark_font, fill=COL_GOLD, anchor='ma')
 
     # testo citazione
@@ -159,12 +176,12 @@ def render_og_image(quote, author, title, year, out_path):
 
 
 def fonts_available():
-    """I font sono quelli di sistema di macOS. Su un'altra macchina non ci sono,
-    e prima il build moriva con un OSError incomprensibile a meta' esecuzione.
-    Meglio saltare le immagini con un avviso: verranno prodotte al primo build
-    fatto dove i font ci sono, e soprattutto restano tutte con lo stesso
-    carattere invece di mescolarne due a seconda di chi ha lanciato il build."""
-    return os.path.exists(FONT_SERIF) and os.path.exists(FONT_SANS)
+    """I tre font servono tutti e tre. Si prendono da assets/fonts/ se ci sono,
+    altrimenti dai font di sistema di macOS. Se mancano, il build moriva con un
+    OSError incomprensibile a meta' esecuzione: meglio saltare le immagini con
+    un avviso, cosi' restano tutte con lo stesso carattere invece di
+    mescolarne due a seconda di chi ha lanciato il build."""
+    return all(os.path.exists(f) for f in (FONT_SERIF, FONT_SANS, FONT_MARK))
 
 
 def generate(entries):
@@ -172,7 +189,10 @@ def generate(entries):
     Ritorna (generated, skipped, stray) per il rapporto di build.py."""
     if not fonts_available():
         print('ATTENZIONE: font di sistema non disponibili qui, immagini OG saltate.')
-        print('   Servono', FONT_SERIF, 'e', FONT_SANS, '(macOS).')
+        for f in (FONT_SERIF, FONT_SANS, FONT_MARK):
+            if not os.path.exists(f):
+                print('   manca:', f)
+        print('   Copiali in assets/fonts/ dentro il repository (cartella ignorata da git).')
         return 0, 0, []
 
     os.makedirs(OUT_DIR, exist_ok=True)
