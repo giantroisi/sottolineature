@@ -4583,3 +4583,127 @@ Nota per i turni futuri: in questa VM `rm` non e' permesso dentro le cartelle mo
 comando git che aggiorna l'indice vi lascia un `.git/index.lock` che git stesso non riesce poi a
 rimuovere («Operation not permitted»). I lock spuri accumulati si chiamano `.git/index.lock.stale-*`
 e vanno cancellati dal Mac: sono file vuoti, non contengono niente.
+
+## 2026-09-25 08:15 UTC — Pascoli «Lavandare» e Dante, porta dell'Inferno (2 citazioni, non committate)
+
+Turno orario. `prossimo_lotto.py` all'apertura: 881 citazioni, saggistica al 17,8% (sopra il tetto
+del 15%, quindi solo narrativa e poesia), nessuna delle opere a 5/6 raggiungibile — Tolkien, Gibran
+e Proust sono tutte e tre tradotte e non ho una fonte aperta con traduttore accertabile. Ripiego
+sulla seconda priorita', gli autori fermi a 3-5 righe: presi **Giovanni Pascoli** (5 → 6) e **Dante
+Alighieri** (5 → 6), entrambi in italiano e di pubblico dominio, entrambi su opere gia' in archivio.
+
+**1. Giovanni Pascoli, *Myricae* (1891), «Lavandare», vv. 7-10.** «Il vento soffia e nevica la
+frasca, / e tu non torni ancora al tuo paese! / quando partisti, come son rimasta! / come l'aratro
+in mezzo alla maggese.» Tema *amore*, genere poesia, copertina gia' in archivio per Myricae
+(`/assets/covers/5793601.jpg`), contesto 77 parole.
+Verificato su **due scansioni indipendenti** aperte con WebFetch:
+`archive.org/stream/myricaep00pascuoft` (Giusti, Livorno 1903, sesta edizione, p. 69 — e' il
+`source_url` dichiarato) e `archive.org/stream/myricae00pascgoog` (Giusti 1905, settima edizione,
+p. 71). Le due trascrizioni OCR coincidono parola per parola. Unica divergenza, la maiuscola
+iniziale: il 1903 rende «11 vento» (OCR tipico di «Il»), il 1905 «il vento» — ma quella strofa e'
+in corsivo nel 1905 e la stessa riga vi compare con «tomi» per «torni», cioe' OCR inaffidabile su
+quel blocco; ho tenuto «Il», che e' anche la forma delle edizioni correnti.
+
+**2. Dante Alighieri, *Inferno, Divina Commedia* (1321), canto III, v. 9.** «Lasciate ogne speranza,
+voi ch'intrate.» Tema *vita*, genere poesia, copertina gia' in archivio per l'Inferno
+(`/assets/covers/11621024.jpg`), contesto 74 parole, `speaker` lasciato vuoto: l'iscrizione parla
+in prima persona per bocca della porta, non di un personaggio (punto 6-quater). Verificato su due
+file di Project Gutenberg aperti e concordanti alla lettera, compresa la grafia «ogne»,
+«ch'intrate», «etterne», «sapïenza»: `gutenberg.org/files/1009/1009-h/1009-h.htm` (Inferno, e' il
+`source_url`) e `gutenberg.org/cache/epub/1000/pg1000.txt` (Commedia completa).
+
+**Raccolte (voce 10), fatte subito:** Pascoli in *tristezza* e in *casa* (entrambe fra le piu'
+sottili); Dante in *frasi-brevi*.
+
+**Candidate lette e scartate.**
+- *Arano* di Pascoli (stessa sezione, p. 68/69): scartata per fedelta' del testo. Le due scansioni
+  concordano su «che il passero» e «paziente», ma entrambe rendono «mattinal» come «mattinai»,
+  prova che l'OCR perde i segni diacritici proprio dove le edizioni critiche stampano «che'» e
+  «pazi:ente». Senza una terza fonte non-OCR non pubblico una grafia che potrei star sbagliando.
+- *Temporale*, *Il tuono*, *L'assiuolo* (Myricae, sez. In campagna, pp. 127-159): WebFetch tronca
+  il file djvu.txt intorno a p. 94 e restituisce solo l'indice per quelle pagine. Nessun testo
+  letto, nessuna pubblicazione.
+- Inferno XXVI, il discorso di Ulisse («Considerate la vostra semenza»): stessa ragione, il file
+  Gutenberg dell'Inferno si interrompe al canto XV nella porzione scaricata.
+- Boccaccio, *Decameron* VI 9 (Guido Cavalcanti): il mirror Liber Liber su
+  `linux.studenti.polito.it` risponde ROBOTS_DISALLOWED (robots.txt in timeout), come
+  `liberliber.eu` e `letteraturaitaliana.net`. `it.wikisource.org` resta non scaricabile da qui.
+
+**Build.** `python3 tools/build.py`: «Problemi totali: 0» e «Nessun errore nei dati strutturati»,
+883 citazioni con blocco fonte su 883, sitemap e feed rigenerati, 383 file tracciati toccati. Esce
+comunque con 1 per la causa gia' nota del 24 e del 25: **«Immagine OG mancante»** per i due slug
+nuovi, perche' `tools/generate_og_images.py` cerca `Iowan Old Style.ttc` e `Arial.ttf` nei font di
+sistema di macOS, che in questa VM Linux non esistono. Secondo build a vuoto: nessun file cambia,
+l'albero e' idempotente.
+
+**Nessun commit, e questa volta neanche il ripristino.** Due impedimenti distinti, tutti e due della
+VM, non del lotto:
+1. `.git/index.lock` (0 byte, 07:04) era gia' li' all'apertura del turno, quindi ogni comando git
+   che tocca l'indice fallisce con «Unable to create index.lock: File exists». Aggirabile con
+   `GIT_INDEX_FILE`, ma —
+2. dentro le cartelle montate `unlink` non e' permesso, e `git checkout -- .` deve rimuovere il file
+   vecchio prima di riscriverlo: fallisce su **ogni** file con «unable to unlink old ... Operation
+   not permitted». Il ripristino previsto dal punto 5 della routine qui non e' eseguibile, e per lo
+   stesso motivo non lo sarebbe l'aggiornamento di `refs/heads/main` di un commit.
+Le modifiche restano quindi nell'albero di lavoro, verificate e complete tranne le due PNG OG.
+
+**Da fare sul Mac, dove i font ci sono** (una sola sequenza, dalla cartella del repository):
+
+```
+rm -f .git/index.lock
+python3 tools/build.py        # deve chiudere a 0, nascono le due PNG in assets/og/
+python3 tools/build.py        # secondo giro a vuoto
+git add -u
+git add assets/og/giovanni-pascoli-myricae-il-vento-soffia.png \
+        assets/og/dante-alighieri-inferno-divina-commedia-lasciate-ogne-speranza.png \
+        citazioni/giovanni-pascoli-myricae-il-vento-soffia.html \
+        citazioni/dante-alighieri-inferno-divina-commedia-lasciate-ogne-speranza.html
+git commit -m "Pascoli e Dante: Lavandare e la porta dell'Inferno, 2 citazioni"
+git push
+```
+
+`LOTTO-PRONTO-2026-09-25.patch` in radice (non tracciato) e' solo una copia di scorta del diff di
+`data/`: se l'albero di lavoro resta com'e', e' inutile e si puo' cancellare dal Mac.
+
+**Nota strutturale, da decidere.** Finche' le immagini OG dipendono da due font di macOS, nessun
+turno orario potra' mai chiudersi da qui: il lotto e' corretto e il build passa i suoi controlli
+di contenuto, ma il principio 3 blocca la pubblicazione per l'immagine mancante. Tre uscite
+possibili, tutte e tre da scegliere a mano: imbarcare i due font nel repository, dare a
+`generate_og_images.py` un fallback esplicito (cambierebbe pero' la tipografia rispetto alle 881
+immagini gia' fatte), oppure accettare che il turno orario committi dati e HTML e che le PNG
+nascano al primo build lanciato sul Mac.
+
+Archivio dopo il turno: **883 citazioni nei dati, 881 in HEAD.**
+
+## 2026-09-25, turno delle 10:00 UTC — nessuna aggiunta, albero gia' occupato
+
+All'apertura del turno `git status -sb` mostra 383 file tracciati modificati (dati, HTML,
+sitemap, feed) piu' due HTML non tracciati: e' il lotto del turno delle 08:00, verificato e
+completo, che quella sessione non ha potuto ne' committare ne' ripristinare. `data/citazioni.json`
+sta a **883 citazioni**, HEAD (`3bd2ac80`, Ariosto) a **881**: le due in sospeso sono Pascoli,
+*Myricae*, «Il vento soffia e nevica la frasca» e Dante, *Inferno*, «Lasciate ogne speranza, voi
+ch'intrate».
+
+Per la regola del punto 1 della routine, con l'albero sporco non si aggiunge niente: **nessuna
+citazione nuova, nessun candidato letto, nessun commit**. Aggiungere un secondo lotto sopra il primo
+renderebbe solo piu' ingarbugliato il commit che l'utente dovra' fare a mano sul Mac.
+
+I due impedimenti sono quelli gia' descritti alle 08:00 e sono tutti e due della VM, non dei dati:
+
+1. `.git/index.lock`, 0 byte, fermo dalle 07:04 di stamattina (ora e' 10:00): ogni comando git che
+   tocca l'indice fallisce. Aggirabile in lettura con `GIT_INDEX_FILE`, e la routine vieta di
+   cancellarlo di mia iniziativa.
+2. Dentro le cartelle montate `unlink` non e' permesso, quindi ne' `git checkout --` ne'
+   l'aggiornamento di `refs/heads/main` possono andare a buon fine.
+
+E anche se git funzionasse, resterebbe il terzo blocco: `tools/generate_og_images.py` cerca
+`Iowan Old Style.ttc` e `Arial.ttf` fra i font di sistema di macOS, che su questa VM Linux non ci
+sono, e senza le due PNG il principio 3 del CLAUDE.md vieta comunque la pubblicazione.
+
+**La sequenza da eseguire sul Mac resta quella scritta alle 08:00** (`rm -f .git/index.lock`, due
+giri di `python3 tools/build.py`, `git add -u` piu' i quattro file nuovi, commit, push). Finche'
+non viene eseguita, ogni turno orario si aprira' su un albero sporco e si chiudera' a vuoto come
+questo: **la decisione strutturale sui font delle immagini OG e' il vero nodo da sciogliere**, ed e'
+descritta con le sue tre uscite possibili nella nota del turno delle 08:00.
+
+Archivio dopo il turno, invariato: **883 citazioni nei dati, 881 in HEAD.**

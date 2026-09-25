@@ -13348,5 +13348,37 @@
     "source_locus": "«L'oleandro», vv. 1-4",
     "source_url": "https://it.wikisource.org/wiki/Alcyone/L'oleandro",
     "speaker": ""
+  },
+  {
+    "quote": "Il vento soffia e nevica la frasca, e tu non torni ancora al tuo paese! quando partisti, come son rimasta! come l'aratro in mezzo alla maggese.",
+    "author": "Giovanni Pascoli",
+    "title": "Myricae",
+    "year": "1891",
+    "context": "Siamo nella sezione «L'ultima passeggiata», un giro per la campagna di Romagna sul finire dell'autunno. La poesia si apre su un campo mezzo grigio e mezzo nero, con un aratro lasciato lì senza buoi, e prosegue col rumore cadenzato delle donne che lavano i panni nella gora, fra tonfi spessi e lunghe cantilene. Questi ultimi versi non sono più la voce del poeta: sono una di quelle cantilene, il canto popolare che le lavandaie intonano mentre lavorano.",
+    "cover": "/assets/covers/5793601.jpg",
+    "category": "amore",
+    "genre": "poesia",
+    "added": "2026-09-25",
+    "source_edition": "Myricae, sesta edizione, Raffaello Giusti, Livorno, 1903",
+    "source_translator": "",
+    "source_locus": "sez. L'ultima passeggiata, «Lavandare», vv. 7-10, p. 69",
+    "source_url": "https://archive.org/stream/myricaep00pascuoft/myricaep00pascuoft_djvu.txt",
+    "speaker": ""
+  },
+  {
+    "quote": "Lasciate ogne speranza, voi ch'intrate.",
+    "author": "Dante Alighieri",
+    "title": "Inferno, Divina Commedia",
+    "year": "1321",
+    "context": "È l'ultima riga dell'iscrizione scolpita sulla porta dell'Inferno, davanti alla quale Dante e Virgilio arrivano all'inizio del terzo canto. Nei versi che la precedono è la porta stessa a parlare in prima persona: dichiara di essere stata voluta dalla giustizia divina, dalla potenza, dalla sapienza e dall'amore di Dio, e di essere fatta per durare in eterno. Dante si spaventa a leggerla, e Virgilio gli risponde che qui bisogna lasciare da parte ogni viltà.",
+    "cover": "/assets/covers/11621024.jpg",
+    "category": "vita",
+    "genre": "poesia",
+    "added": "2026-09-25",
+    "source_edition": "",
+    "source_translator": "",
+    "source_locus": "Inferno, canto III, v. 9",
+    "source_url": "https://www.gutenberg.org/files/1009/1009-h/1009-h.htm",
+    "speaker": ""
   }
 ]
