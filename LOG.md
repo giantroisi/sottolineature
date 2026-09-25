@@ -4707,3 +4707,34 @@ questo: **la decisione strutturale sui font delle immagini OG e' il vero nodo da
 descritta con le sue tre uscite possibili nella nota del turno delle 08:00.
 
 Archivio dopo il turno, invariato: **883 citazioni nei dati, 881 in HEAD.**
+
+## 2026-09-25, verifica post-commit del turno delle 10:00
+
+L'utente ha eseguito la sequenza sul Mac. Verificato da qui:
+
+- **Commit `3ee30e3d`**, «Pascoli e Dante: Lavandare e la porta dell'Inferno, 2 citazioni»,
+  25/09 12:10 +0200. `HEAD` e `origin/main` puntano allo stesso oggetto: **push fatto**.
+- **Dati e HEAD allineati a 883 citazioni** (prima erano 883 nei dati contro 881 in HEAD).
+- Le due PNG OG esistono e sono tracciate: `assets/og/giovanni-pascoli-myricae-il-vento-soffia.png`
+  (43 KB) e `assets/og/dante-alighieri-inferno-divina-commedia-lasciate-ogne-speranza.png` (25 KB),
+  generate dal build sul Mac, dove i font ci sono. In HEAD ci sono anche le due pagine citazione.
+- **Build ripetuto due volte da qui: exit 0, «Problemi totali: 0», «Nessun errore nei dati
+  strutturati», nessun file tracciato modificato.** L'albero e' idempotente e pulito.
+- Unico residuo non tracciato: `LOTTO-PRONTO-2026-09-25.patch`, ormai inutile.
+
+**Causa vera del lock, trovata adesso.** `.git/index.lock` non lo lasciava una sessione morta: lo
+lascia **ogni `git status` lanciato da questa VM**. Git crea `index.lock`, riscrive l'indice, poi
+prova a sostituire il vecchio file: dentro la cartella montata `unlink` non e' permesso, la
+sostituzione fallisce e il lock resta li' a 0 byte. Riprodotto in diretta alle 10:11 con
+`warning: unable to unlink '.../.git/index.lock': Operation not permitted`.
+
+**Rimedio, verificato:** `git --no-optional-locks status` non tocca l'indice e **non lascia nessun
+lock**. Da usare al posto di `git status` in tutti i controlli dei turni orari. Il lock creato oggi
+e' stato rimosso dopo che l'utente ha concesso il permesso di cancellazione per questa sessione.
+
+**Resta aperta la questione dei font.** Le due PNG di oggi sono nate sul Mac, non qui: alla prima
+citazione nuova aggiunta da questa VM `tools/generate_og_images.py` tornera' a cercare
+`Iowan Old Style.ttc` e `Arial.ttf` e il principio 3 bloccera' di nuovo la pubblicazione. Le tre
+uscite possibili restano quelle del turno delle 08:00 e la scelta e' dell'utente.
+
+Archivio: **883 citazioni, dati e HEAD allineati.**
