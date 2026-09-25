@@ -10317,6 +10317,37 @@
     "source_url": "https://it.wikisource.org/wiki/Orlando_furioso_(1928)/Canto_34"
   },
   {
+    "quote": "Oh gran bontà de' cavallieri antiqui! Eran rivali, eran di fé diversi, e si sentian degli aspri colpi iniqui per tutta la persona anco dolersi; e pur per selve oscure e calli obliqui insieme van senza sospetto aversi.",
+    "author": "Ludovico Ariosto",
+    "title": "Orlando furioso",
+    "year": "1516",
+    "context": "Siamo all'inizio del poema, sulle tracce di Angelica in fuga. Rinaldo e Ferraù si sono appena affrontati per lei, cristiano contro saraceno, poi hanno interrotto il duello e sono saliti sullo stesso cavallo per inseguirla insieme. Qui il narratore ferma il racconto e commenta di persona: è una delle sue intrusioni più celebri, e l'ironia con cui guarda al codice cavalleresco non toglie nulla all'ammirazione.",
+    "cover": "/assets/covers/6532951.jpg",
+    "category": "coraggio",
+    "genre": "poesia",
+    "added": "2026-09-24",
+    "source_edition": "Letteratura italiana Einaudi (testo di riferimento a cura di E. Sanguineti e M. Turchi, Garzanti, Milano 1964)",
+    "source_locus": "Canto I, ottava 22",
+    "source_translator": "",
+    "source_url": "https://moodle2.units.it/pluginfile.php/441200/mod_resource/content/1/ARIOSTO-ORLANDO%20FURIOSO.pdf"
+  },
+  {
+    "quote": "La verginella è simile alla rosa, ch'in bel giardin su la nativa spina mentre sola e sicura si riposa, né gregge né pastor se le avvicina; l'aura soave e l'alba rugiadosa, l'acqua, la terra al suo favor s'inchina:",
+    "author": "Ludovico Ariosto",
+    "title": "Orlando furioso",
+    "year": "1516",
+    "context": "Angelica, rifugiata nel bosco, sente una voce lamentarsi al di là di un cespuglio: è Sacripante, re di Circassia, che la crede perduta e la piange senza sapere che lei lo ascolta. Nel suo lamento chiama a testimone un'immagine che il Rinascimento eredita dai classici, la rosa intatta nel giardino chiuso, e Ariosto la affida a un personaggio tutt'altro che disinteressato. La cornice, insomma, conta quanto i versi.",
+    "cover": "/assets/covers/6532951.jpg",
+    "category": "amore",
+    "genre": "poesia",
+    "added": "2026-09-24",
+    "source_edition": "Letteratura italiana Einaudi (testo di riferimento a cura di E. Sanguineti e M. Turchi, Garzanti, Milano 1964)",
+    "source_locus": "Canto I, ottava 42",
+    "source_translator": "",
+    "source_url": "https://moodle2.units.it/pluginfile.php/441200/mod_resource/content/1/ARIOSTO-ORLANDO%20FURIOSO.pdf",
+    "speaker": "Sacripante"
+  },
+  {
     "quote": "Ali ha ciascuno al core ed ali al piede, né del suo ratto andar però s'accorge: ma, quando il sol gli aridi campi fiede con raggi assai ferventi, e in alto sorge, ecco apparir Gierusalem si vede, ecco additar Gierusalem si scorge; ecco da mille voci unitamente Gerusalemme salutar si sente.",
     "author": "Torquato Tasso",
     "title": "Gerusalemme liberata",

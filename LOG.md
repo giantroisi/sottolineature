@@ -4338,3 +4338,248 @@ L'unica scrittura di questo turno è questo paragrafo. Archivio: **879 citazioni
 poi `python3 tools/build.py` («Problemi totali: 0», «Nessun errore nei dati strutturati»,
 due immagini OG generate), un secondo build a vuoto per l'idempotenza, il commit del lotto
 Tasso e il push. Finché quel gesto manca, ogni turno orario si fermerà qui.
+
+### 2026-09-24 12:00 UTC — turno vuoto: albero sporco (lotto Ariosto non committato)
+
+Turno fermato al primo controllo, come prescrive la routine. Buona notizia rispetto ai tre
+turni precedenti: il lotto *Gerusalemme liberata* è stato costruito, committato e spinto
+dall'utente — `9a875bc2` «Tasso: Gerusalemme liberata da 4 a 6 citazioni, pagina opera»
+(2026-09-24 10:19 UTC) — e `main` è ora allineato a `origin/main` (0 avanti, 0 indietro).
+Il blocco descritto nelle note precedenti è quindi risolto.
+
+L'albero però è di nuovo sporco, per un lotto diverso e più recente: 255 file tracciati
+modificati — `data/citazioni.json` (881 voci contro le 879 di HEAD), `data/raccolte.json`,
+`tools/slugs.json`, `feed.xml`, le sitemap e le pagine HTML rigenerate — più due pagine
+citazione non tracciate, `citazioni/ludovico-ariosto-orlando-furioso-la-verginella-e.html`
+e `citazioni/ludovico-ariosto-orlando-furioso-oh-gran-bonta.html`. Le due citazioni in più
+sono di Ludovico Ariosto, *Orlando furioso* («Oh gran bontà de' cavallieri antiqui!…» e
+«La verginella è simile alla rosa…»), entrambe con `added` 2026-09-24. I file portano
+mtime 10:28–10:29 UTC: una sessione ha aggiunto il lotto e ha lanciato il build, ma si è
+interrotta prima di chiudere — in `LOG.md` non c'è nessun paragrafo per quel turno e non
+c'è nessun commit. Con l'albero in questo stato la regola è esplicita: non si tocca niente
+e non si aggiunge niente. Non ho verificato né giudicato quelle due frasi: non sono mie e
+non spetta a me committarle.
+
+Sul `.git/index.lock`: all'apertura del turno non c'era. È comparso vuoto alle 12:00:04 UTC,
+creato da un `git status --porcelain LOG.md` di questo stesso turno; git ha poi tentato di
+rimuoverlo e ha fallito con «Operation not permitted», perché la cartella montata non
+consente la cancellazione di file. È questa, con ogni probabilità, l'origine dei lock
+«residui» segnalati nei turni scorsi: non una sessione morta, ma git che non riesce a
+ripulire il proprio lock dentro il mount. Non l'ho rimosso, come prescrive la routine.
+Finché resta, ogni operazione git in scrittura (`add`, `commit`, `checkout`) fallirà.
+
+Nessuna candidata letta, nessuna scartata, nessun `build`, nessun `checkout`, nessun commit.
+L'unica scrittura di questo turno è questo paragrafo.
+Archivio: **881 citazioni** nei dati, 879 in HEAD.
+
+**Resta all'utente, sul Mac:** rimuovere `.git/index.lock` (nessuna sessione lo sta usando),
+poi decidere sul lotto Ariosto — verificarlo e committarlo, oppure `git checkout --` per
+scartarlo. Utile anche valutare se abilitare la cancellazione dei file nella cartella
+condivisa, altrimenti ogni turno programmato rischia di lasciarsi dietro un `index.lock`
+che blocca il turno successivo.
+
+### 2026-09-24 14:00 UTC — turno vuoto: stato identico a quello delle 12:00
+
+Nessuna variazione dal turno precedente, verificata voce per voce: `main` allineato a
+`origin/main` (0 avanti, 0 indietro), ultimo commit `9a875bc2` «Tasso: Gerusalemme liberata
+da 4 a 6 citazioni, pagina opera» (2026-09-24 10:19 UTC); albero sporco con 258 voci in
+`git status --porcelain` (256 tracciate modificate + le due pagine citazione non tracciate
+di *Orlando furioso*); `data/citazioni.json` a 881 voci contro le 879 di HEAD, mtime
+10:28:28 UTC — invariato; `.git/index.lock` sempre presente, vuoto, mtime 12:00:04 UTC.
+
+Il lotto Ariosto non committato è quindi ancora lì e nessuno l'ha risolto nelle due ore
+passate. La regola vale come prima: albero sporco = non si tocca niente e non si aggiunge
+niente. Non ho letto candidate, non ho scartato nulla, non ho lanciato `build.py`, nessun
+`checkout`, nessun commit, nessun `add`. Non ho rimosso il lock. L'unica scrittura del turno
+è questo paragrafo.
+
+Archivio: **881 citazioni** nei dati, 879 in HEAD.
+
+**Resta all'utente, sul Mac** (invariato dal turno delle 12:00): rimuovere `.git/index.lock`
+a mano, poi decidere sul lotto Ariosto — verificare le due frasi e committarle, oppure
+`git checkout -- .` più cancellazione delle due pagine non tracciate per scartarlo. Finché
+questi due gesti mancano, ogni turno orario si chiuderà così, a vuoto: la sequenza di turni
+persi è iniziata alle 06:00 di oggi.
+
+### 2026-09-24 13:00 UTC — turno vuoto: albero ancora sporco (lotto Ariosto non committato)
+
+Situazione invariata rispetto al turno delle 12:00. `main` è allineato a `origin/main`
+(0 avanti, 0 indietro), ultimo commit `9a875bc2`. L'albero resta sporco per il lotto
+Ariosto non committato: 255 file tracciati modificati, `data/citazioni.json` a 881 voci
+contro le 879 di HEAD, più le due pagine citazione non tracciate
+(`…orlando-furioso-la-verginella-e.html` e `…-oh-gran-bonta.html`). I file portano ancora
+mtime 10:28 UTC: nessuno ci ha lavorato nell'ultima ora. Come prescrive la routine non ho
+toccato niente, non ho letto candidate, non ho lanciato il build e non ho committato.
+Non ho verificato quelle due frasi: non sono mie.
+
+Novità utile: **la cancellazione dei file nella cartella condivisa è ora abilitata** — ho
+chiesto e ottenuto il permesso in questo turno. Una prova (`touch`/`rm` di un file di
+servizio in `.git/`) prima falliva con «Operation not permitted», ora passa. Da qui in poi
+git può ripulire da solo i propri lock e i turni programmati non dovrebbero più lasciarne
+in giro. Resta però il lock vecchio, `.git/index.lock` (0 byte, 12:00:04 UTC, nessuna
+sessione lo usa): non l'ho rimosso perché la routine vieta di cancellarlo di mia iniziativa.
+Finché c'è, ogni `git add`/`commit`/`checkout` fallisce.
+
+Nessuna candidata letta, nessuna scartata, nessun build, nessun commit.
+Archivio: **881 citazioni** nei dati, 879 in HEAD.
+
+**Resta all'utente:** rimuovere `.git/index.lock`, poi decidere sul lotto Ariosto —
+verificarlo e committarlo, oppure `git checkout --` (e cancellare le due pagine non
+tracciate) per scartarlo. Finché l'albero non torna pulito ogni turno orario si ferma qui.
+
+### 2026-09-24 15:00 UTC — turno vuoto: albero ancora sporco, ma il lotto Ariosto e' stato verificato
+
+Quarto turno di fila fermato al primo controllo. Stato invariato: `main` allineato a
+`origin/main`, ultimo commit `9a875bc2` (Tasso, 2026-09-24 10:19 UTC); albero sporco con
+255 file tracciati modificati piu' le due pagine citazione non tracciate di *Orlando
+furioso*; `data/citazioni.json` a 881 voci contro le 879 di HEAD, mtime ancora 10:28:28 UTC
+— nessuno ci ha lavorato in cinque ore, quindi nessuna sessione concorrente. Il
+`.git/index.lock` e' sempre li' (0 byte, 12:00:04 UTC): non l'ho rimosso, come prescrive la
+routine, anche se la cancellazione nella cartella e' ormai abilitata e nessuno lo sta usando.
+
+Non ho toccato niente: nessun `add`, nessun `commit`, nessun `checkout`, nessun `build.py`,
+nessuna modifica ai dati. Ma visto che tre turni si erano gia' chiusi con la stessa nota, ho
+usato questo per fare l'unica cosa utile che non richiede di scrivere nel lotto di un altro:
+**verificare quelle due frasi in sola lettura**, cosi' che la decisione dell'utente non
+richieda altro lavoro istruttorio.
+
+**Esito: il lotto e' buono, con un solo rilievo.** Le due citazioni sono Ariosto, *Orlando
+furioso*, Canto I ottave 22 e 42, entrambe versi 1-6 contigui (nessuna frase cucita). Portano
+l'opera da 4 a 6 citazioni, cioe' esattamente la priorita' della routine: con questo lotto
+*Orlando furioso* guadagna la pagina propria. `genre` poesia, quindi fuori dal tetto della
+saggistica. `cover` `/assets/covers/6532951.jpg`: e' la stessa gia' usata dalle altre quattro
+citazioni dell'opera in HEAD, corretta. Nessun doppione in archivio. `context` di 65 e 64
+parole, dentro la forbice 45-88 del §6-ter, e non parafrasano la frase. La voce 10 della
+lista di chiusura e' fatta: le due citazioni sono state inserite in cinque raccolte
+(*bellezza*, *coraggio*, *donne*, *fiori*, *guerra*), con le chiavi nel formato giusto.
+`speaker: Sacripante` sull'ottava 42 e' corretto: quei versi stanno nel suo lamento.
+
+Fonti che ho davvero aperto. Il `source_url` dichiarato — il PDF di moodle2.units.it — si
+apre e contiene entrambe le ottave, quindi come prova regge; la lettura non me ne ha pero'
+restituito la trascrizione letterale (rifiuto per copyright) e le poche indicazioni di
+punteggiatura che ha dato sono risultate inattendibili, sbagliate su entrambe le ottave.
+Ho quindi ricontrollato altrove: la pagina «Classici online» della Freie Universitat Berlin
+conferma l'ottava 22 verso per verso, «fé» compreso, con il sesto verso chiuso dal punto —
+la nostra voce e' esatta; litterarum.it conferma l'ottava 42 e il locus. Non scaricabili:
+it.wikisource.org (cache-only, come sempre), liberliber.eu (robots), ludovicoariosto.org (403).
+
+**Il rilievo, unico e piccolo.** Nella voce «La verginella…» il taglio si chiude con
+«l'acqua, la terra al suo favor s'inchina.» — con il punto. Nelle edizioni che ho potuto
+aprire quel sesto verso e' chiuso dai due punti, perche' la similitudine continua nei versi
+7-8 («gioveni vaghi e donne inamorate…»). E' esattamente il caso vietato dalla routine
+(«niente tagli che cambiano la punteggiatura»): va corretto in «s'inchina:» — oppure il
+taglio va arretrato al quarto verso, che chiude con il punto e virgola — prima di pubblicare.
+Poiche' il PDF dichiarato non mi ha dato la trascrizione letterale, la correzione va
+confermata su quell'edizione. Nota collaterale, non un difetto: «avvicina» e «inamorate»
+variano fra le edizioni (1516/1532), e in questi casi vale l'edizione dichiarata nel campo
+`source_edition`, non le altre.
+
+Seconda osservazione, minore, sul `context` dell'ottava 42: dice «Ragionando fra se' se
+prenderla», ma all'ottava 42 Sacripante sta ancora lamentandosi; il proposito di prenderla
+con la forza matura piu' avanti nel canto. La frase andrebbe alleggerita.
+
+Nessuna candidata nuova letta, nessuna scartata, nessun build, nessun commit: non ho aggiunto
+niente di mio e non ho committato il lotto di un altro. L'unica scrittura del turno e' questo
+paragrafo. Archivio: **881 citazioni** nei dati, 879 in HEAD.
+
+**Resta all'utente, sul Mac** — ora con tutto il necessario per chiudere in pochi gesti:
+1. `rm -f .git/index.lock` (nessuno lo usa).
+2. Correggere in `data/citazioni.json` la chiusura della voce «La verginella…»: «s'inchina.»
+   → «s'inchina:», e sfoltire «Ragionando fra se' se prenderla» nel suo `context`.
+3. `python3 tools/build.py` (deve dare «Problemi totali: 0»), poi un secondo build a vuoto.
+4. `git add` dei file toccati, commit «Ariosto: Orlando furioso da 4 a 6 citazioni, pagina
+   opera», e push.
+In alternativa, se il lotto non si vuole: `git checkout -- .` e cancellazione delle due
+pagine non tracciate. Finche' l'albero non torna pulito ogni turno orario si chiudera' a
+vuoto: la sequenza di turni persi e' cominciata alle 06:00 di oggi.
+
+## 2026-09-24, turno delle 16:00 UTC — chiuso a vuoto, albero ancora bloccato
+
+Niente aggiunte: `git status` mostra ancora il lotto Ariosto non committato (231 file
+tracciati modificati, `data/citazioni.json` a 881 voci contro 879 in HEAD, le due pagine
+`citazioni/ludovico-ariosto-orlando-furioso-{la-verginella,oh-gran-bonta}.html` non tracciate)
+e `.git/index.lock` fermo dalle 12:00:04. Per la routine l'albero sporco vale come «un'altra
+sessione sta lavorando»: non ho toccato dati, non ho fatto build ne' commit. Nessuna candidata
+nuova letta o scartata. Archivio: 881 citazioni nei dati, 879 in HEAD.
+
+Da fare resta quanto elencato nel paragrafo del turno delle 15:00 (correzione di «s'inchina.»
+→ «s'inchina:», alleggerimento del `context` dell'ottava 42, build, commit, push), oppure lo
+scarto del lotto con `git checkout -- .`. Turni persi finora: dalle 06:00 alle 16:00.
+
+## 2026-09-24, turno delle 17:00 UTC — chiuso a vuoto, albero ancora bloccato
+
+Situazione invariata rispetto alle 15:00 e alle 16:00: 231 file tracciati modificati, il lotto
+Ariosto (`data/citazioni.json` a 881 voci contro 879 in HEAD, `data/raccolte.json`, le due
+pagine `citazioni/ludovico-ariosto-orlando-furioso-{la-verginella,oh-gran-bonta}.html` non
+tracciate) resta non committato, e `.git/index.lock` e' fermo dalle 12:00:04. Per la routine
+l'albero sporco equivale a «un'altra sessione sta lavorando»: nessuna citazione aggiunta,
+nessuna candidata letta o scartata, nessun build, nessun commit. L'unica scrittura del turno e'
+questo paragrafo. Archivio: 881 citazioni nei dati, 879 in HEAD.
+
+Da fare resta quanto elencato al turno delle 15:00 (rimozione di `.git/index.lock`, correzione
+«s'inchina.» → «s'inchina:», alleggerimento del `context` dell'ottava 42, build doppio, commit
+«Ariosto: Orlando furioso da 4 a 6 citazioni, pagina opera», push), oppure lo scarto del lotto
+con `git checkout -- .` e la cancellazione delle due pagine non tracciate. Turni persi finora:
+dalle 06:00 alle 17:00 di oggi.
+
+## 2026-09-25, turno delle 06:15 UTC — lotto Ariosto corretto e verificato, resta solo il build sul Mac
+
+Ripreso su richiesta dell'utente. Rimosso l'ostacolo formale: `.git/index.lock`, fermo dalle
+12:00:04 del 24 e appartenente a una sessione morta, e' stato spostato in
+`.git/index.lock.stale-20260924` (in questa VM `rm` non e' permesso dentro le cartelle montate).
+
+**Verifica del testo.** Riaperto il `source_url` dichiarato, il PDF di
+`moodle2.units.it/pluginfile.php/441200/.../ARIOSTO-ORLANDO FURIOSO.pdf` (edizione Letteratura
+italiana Einaudi, testo Sanguineti-Turchi). La prima richiesta di trascrizione e' stata rifiutata
+dal lettore per un presunto vincolo di copyright su un testo del 1516, e una seconda richiesta
+posta come domanda secca sulla punteggiatura ha dato risposte fra loro incoerenti; solo alla terza,
+chiedendo la copia letterale dei singoli versi con la cornice di pubblico dominio esplicitata, il
+PDF ha restituito una trascrizione stabile: ottava 42, verso 6 «l'acqua, la terra al suo favor
+s'inchina:» (due punti), ottava 22, verso 6 «insieme van senza sospetto aversi.» (punto). Tentate
+e fallite due fonti di riscontro: `liberliber.eu` risponde ROBOTS_DISALLOWED, l'equivalente su
+`liberliber.it` da' 404. `it.wikisource.org` resta non scaricabile da qui.
+
+**Correzioni applicate** alle due voci non committate del lotto Ariosto:
+1. «La verginella…»: la chiusura «s'inchina.» e' diventata «s'inchina:», come nel testo. La
+   modifica tocca l'ultimo carattere e non le prime sei parole, quindi la chiave di
+   `tools/slugs.json` e lo slug restano invariati (nessuna pagina orfana nel rapporto di build).
+2. Riscritto il `context` della stessa voce: spariva l'imprecisione «Ragionando fra se' se
+   prenderla» (all'ottava 42 Sacripante sta ancora lamentandosi, il proposito matura piu' avanti
+   nel canto), sostituita dal rimando all'immagine classica della rosa dentro il lamento. 68 parole,
+   dentro la forbice del §6-ter.
+Raccolte (voce 10) gia' a posto: entrambe le citazioni figurano in `data/raccolte.json`.
+
+**Build.** `python3 tools/build.py` chiude con «Problemi totali: 0» e «Nessun errore nei dati
+strutturati», ma esce comunque con 1: «Immagine OG mancante» per i due slug nuovi. La causa e'
+quella gia' annotata il 24: `tools/generate_og_images.py` usa i font di sistema di macOS
+(`Iowan Old Style.ttc`, `Arial.ttf`) e in questa VM Linux non ci sono, quindi salta la generazione
+di proposito — la sua docstring dice esplicitamente che e' meglio saltarle che mescolare due
+caratteri. Un secondo build non cambia nessun file: l'albero e' idempotente.
+
+**Nessun commit**, per il principio 3 di `CLAUDE.md`: le due pagine sarebbero pubblicate senza la
+loro immagine OG. Tutto il resto del lotto e' pronto e rigenerato (258 file toccati). Basta un
+`python3 tools/build.py` lanciato sul Mac, dove i font ci sono: nascono le due PNG, il build chiude
+a 0, e restano solo `git add` dei file toccati, il commit «Ariosto: Orlando furioso da 4 a 6
+citazioni, pagina opera» e il push.
+
+Nessuna citazione nuova cercata in questo turno: il lavoro e' stato tutto sul lotto fermo.
+Archivio: 881 citazioni nei dati, 879 in HEAD.
+
+**Scelta dell'utente (25/09):** il lotto si chiude a mano sul Mac. Sequenza esatta, dal Terminale
+di macOS nella cartella del repository:
+
+```
+rm -f .git/index.lock .git/index.lock.stale-*
+python3 tools/build.py        # deve dare «Problemi totali: 0» e nessun ERRORE
+python3 tools/build.py        # secondo giro a vuoto: git status non deve cambiare
+git add -u
+git add citazioni/ludovico-ariosto-orlando-furioso-la-verginella-e.html \
+        citazioni/ludovico-ariosto-orlando-furioso-oh-gran-bonta.html
+git commit -m "Ariosto: Orlando furioso da 4 a 6 citazioni, pagina opera"
+git push
+```
+
+Nota per i turni futuri: in questa VM `rm` non e' permesso dentro le cartelle montate, e ogni
+comando git che aggiorna l'indice vi lascia un `.git/index.lock` che git stesso non riesce poi a
+rimuovere («Operation not permitted»). I lock spuri accumulati si chiamano `.git/index.lock.stale-*`
+e vanno cancellati dal Mac: sono file vuoti, non contengono niente.
