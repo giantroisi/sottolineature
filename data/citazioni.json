@@ -13380,5 +13380,37 @@
     "source_locus": "Inferno, canto III, v. 9",
     "source_url": "https://www.gutenberg.org/files/1009/1009-h/1009-h.htm",
     "speaker": ""
+  },
+  {
+    "quote": "Dopo aver marciato sette giorni attraverso boscaglie, chi va a Bauci non riesce a vederla ed è arrivato.",
+    "author": "Italo Calvino",
+    "title": "Le città invisibili",
+    "year": "1972",
+    "context": "Nel libro il veneziano Marco Polo racconta all'imperatore Kublai Khan le città attraversate nei suoi viaggi: cinquantacinque ritratti immaginari, ognuno lungo una pagina. Bauci appartiene alla serie «Le città e gli occhi», quelle costruite attorno a un modo di guardare: regge su trampoli sottilissimi che si perdono sopra le nubi, e da terra si vedono solo le gambe di legno. Questa riga apre il capitoletto, prima che il racconto salga in cima ai trampoli a cercare gli abitanti.",
+    "cover": "/assets/covers/963147.jpg",
+    "category": "verita",
+    "genre": "",
+    "added": "2026-09-25",
+    "source_edition": "Einaudi, 1972",
+    "source_translator": "",
+    "source_locus": "«Le città e gli occhi.3» — Bauci, capitolo V",
+    "source_url": "https://lezionididisegno.wordpress.com/wp-content/uploads/2012/10/testi_citta.pdf",
+    "speaker": ""
+  },
+  {
+    "quote": "Sui marciapiedi, avviluppati in tersi sacchi di plastica, i resti della Leonia d'ieri aspettano il carro dello spazzaturaio.",
+    "author": "Italo Calvino",
+    "title": "Le città invisibili",
+    "year": "1972",
+    "context": "Nelle «Città invisibili» Marco Polo descrive a Kublai Khan cinquantacinque città immaginarie, ognuna costruita attorno a un'idea sola. Leonia apre la serie «Le città continue» ed è la città del ricambio quotidiano: ogni mattina i suoi abitanti si svegliano fra lenzuola fresche, saponette appena sgusciate dall'involucro, barattoli ancora intonsi. Questa riga viene subito dopo quel risveglio e sposta lo sguardo dalle case al marciapiede, dove comincia il conto che il capitoletto tiene per tutta la pagina.",
+    "cover": "/assets/covers/963147.jpg",
+    "category": "tempo",
+    "genre": "",
+    "added": "2026-09-25",
+    "source_edition": "Einaudi, 1972",
+    "source_translator": "",
+    "source_locus": "«Le città continue.1» — Leonia, capitolo VII",
+    "source_url": "https://eddyburg.it/archivio/leonia-la-citta-seppellita-dai-rifiuti/",
+    "speaker": ""
   }
 ]

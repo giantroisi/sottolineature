@@ -4801,3 +4801,58 @@ un lotto, con il comando di copia in caso contrario; `[ahead N]` dichiarato norm
 turno si ferma credendolo un'anomalia; `assets/og/` aggiunta ai file da committare.
 
 Archivio: **883 citazioni, dati e HEAD allineati.**
+
+## 2026-09-25 11:10 UTC — Calvino, «Le città invisibili» da 4 a 6 citazioni (turno orario)
+
+**Aggiunte 2 citazioni** (archivio 883 → **885**), entrambe da *Le città invisibili* di Italo
+Calvino, Einaudi 1972. L'opera era a 4/6 nella lista di `prossimo_lotto.py`: con questo lotto
+arriva a **6** e la sua pagina in `/opere/` (che già esisteva dal canone scolastico della Fase 4)
+passa da scheda con quattro righe a pagina piena.
+
+- **Bauci** — «Dopo aver marciato sette giorni attraverso boscaglie, chi va a Bauci non riesce a
+  vederla ed è arrivato.» Locus «Le città e gli occhi.3» — Bauci, capitolo V. Tema *verità*.
+  Verificata sul PDF con il testo dei capitoletti già usato per Ottavia ed Ersilia
+  (`lezionididisegno.wordpress.com/wp-content/uploads/2012/10/testi_citta.pdf`), aperto e letto
+  frase per frase; riscontro indipendente su `gocciadolio.wordpress.com`, che riporta lo stesso
+  brano con la stessa punteggiatura.
+- **Leonia** — «Sui marciapiedi, avviluppati in tersi sacchi di plastica, i resti della Leonia
+  d'ieri aspettano il carro dello spazzaturaio.» Locus «Le città continue.1» — Leonia, capitolo
+  VII. Tema *tempo*. `source_url` su `eddyburg.it`, che riporta il brano con il riferimento
+  all'edizione Einaudi 1972, p. 119; riscontro sullo stesso PDF didattico, dove la frase compare
+  identica.
+- Numero di serie e capitolo di entrambe le città confermati sull'indice di
+  `it.wikipedia.org/wiki/Le_città_invisibili`: Bauci è la terza delle «città e gli occhi»
+  (capitolo V), Leonia la prima delle «città continue» (capitolo VII).
+- Contesti di 78 e 76 parole, dentro la forbice del §6-ter; copertina `963147.jpg` copiata dalle
+  altre citazioni della stessa opera; `speaker` vuoto (le descrizioni delle città sono voce
+  narrante, dedurlo sarebbe inventarlo); nessun genere, come le quattro già in archivio.
+- **Raccolte** (voce 10): Bauci in *Viaggio e cammino* (37 → 38) e in *Occhi e sguardo* (27 → 28),
+  Leonia in *Il cambiamento* (25 → 26).
+
+**Candidate lette e scartate in questo turno.** La frase più nota di Bauci — «Tre ipotesi si danno
+sugli abitanti di Bauci… contemplando affascinati la propria assenza» — è stata verificata alla
+lettera sulla stessa fonte ed è ottima, ma conta 57 parole contro il tetto prudenziale di 40 del
+punto 4 per gli autori sotto copyright: scartata per lunghezza, non per dubbi sul testo. Scartata
+anche la prima frase di Leonia («La città di Leonia rifà se stessa tutti i giorni…»), 56 parole,
+per lo stesso motivo; il suo contenuto è finito nel contesto invece che fra virgolette. Non
+toccate le altre opere a 5/6 di `prossimo_lotto.py` (Tolkien, Gibran, Proust): sono tutte tradotte
+e ogni citazione in più richiede di accertare traduttore, edizione e pagina di una traduzione
+precisa, lavoro che non entra in un turno.
+
+**Difetto dello script, da lasciare all'utente** (`tools/generate_og_images.py`, riga ~205):
+la condizione di rigenerazione confronta la mtime di ogni PNG con quella di `data/citazioni.json`,
+quindi **qualunque** modifica ai dati fa rigenerare tutte le 885 immagini, non solo quelle nuove.
+Sulla VM questo è un problema pratico, non estetico: le PNG rifatte qui differiscono da quelle
+nate sul Mac per circa il 3% dei pixel (rasterizzazione FreeType diversa, già misurato il
+2026-09-25), quindi un turno orario produrrebbe un commit con 885 immagini modificate a ogni giro.
+Aggirato così: dopo il build le 883 PNG preesistenti sono state riportate alla versione committata
+con `git checkout --`, tenendo solo le 2 nuove. Il `checkout` aggiorna anche la mtime, quindi il
+secondo build le ha saltate tutte e non ha cambiato nessun file. Una soluzione stabile sarebbe
+confrontare un hash del contenuto della singola citazione invece della mtime del file dati.
+
+**Build:** `python3 tools/build.py` due volte, exit 0, «**Problemi totali: 0**», «Nessun errore nei
+dati strutturati», 885/885 citazioni con blocco fonte, 885 immagini OG attese e presenti (nessuna
+mancante), 0 title e 0 description duplicati. Il secondo giro non ha modificato alcun file. Le 12
+«fonti duplicate su citazioni diverse» segnalate sono preesistenti e non riguardano questo lotto.
+
+Archivio: **885 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
