@@ -4774,3 +4774,30 @@ giro. Le immagini OG restano saltate con avviso finche' i font non sono al loro 
 Rimosso anche `LOTTO-PRONTO-2026-09-25.patch`, superato dal commit `3ee30e3d`.
 
 Archivio: **883 citazioni, dati e HEAD allineati.**
+
+## 2026-09-25 — font in funzione dalla VM, e prompt del task orario aggiornato
+
+**I font funzionano.** L'utente ha copiato i tre file in `assets/fonts/`. Caricati da qui senza
+toccare il sistema: Iowan Old Style *Italic* (indice 2, la faccia giusta), Arial Regular, Georgia
+Regular; `fonts_available()` torna vero.
+
+**Prova sul campo.** Rigenerata da questa VM l'immagine della citazione di Pascoli «Il vento soffia»
+e confrontata con quella nata sul Mac. Stessa composizione, stessi a capo, stesse posizioni, stesso
+carattere — a occhio sono la stessa immagine. I byte pero' non coincidono: **3,05% dei pixel
+differisce**, tutto dentro il riquadro del testo, perche' le due build di FreeType rasterizzano i
+glifi con hinting e antialiasing leggermente diversi. E' una differenza sotto la soglia del
+visibile, non un cambio di tipografia, ma va saputa: le PNG non sono riproducibili bit per bit fra
+Mac e VM, e un confronto per hash darebbe falsi allarmi.
+
+**Push.** `origin/main` e' fermo a `3ee30e3d`: i due commit di oggi (`7a03d028` il registro,
+`fd042bc3` i font) **non sono ancora spinti**.
+
+**Prompt del task orario riscritto** (`trig_01HugpSCjYnqri1dSB9e6fmH`). Cambia solo la meccanica,
+le regole editoriali sono intatte: nome del mount corretto (`$HOME/mnt/sottolineature`, non
+`Claude--sottolineature`); `git --no-optional-locks status` al posto di `git status` ovunque, con
+la spiegazione del lock; richiesta del permesso di cancellazione a inizio turno, senza il quale
+`git commit` e `git checkout --` non riescono; controllo che i tre font ci siano prima di iniziare
+un lotto, con il comando di copia in caso contrario; `[ahead N]` dichiarato normale, cosi' nessun
+turno si ferma credendolo un'anomalia; `assets/og/` aggiunta ai file da committare.
+
+Archivio: **883 citazioni, dati e HEAD allineati.**
