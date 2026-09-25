@@ -4892,3 +4892,67 @@ affatto, il turno si chiude subito e l'esito si annota nei documenti del progett
 `LOG.md`, che in quel caso non e' scrivibile.
 
 Archivio, invariato dalle 11:10: **885 citazioni**, un commit (`76a24c73`) ancora da spingere.
+
+## 2026-09-25 16:00 UTC — D'Annunzio, «Alcyone» da 2 a 4 citazioni (turno orario)
+
+**Aggiunte 2 citazioni** (archivio 885 → **887**), entrambe da *Alcyone* di Gabriele D'Annunzio
+(Treves 1903). Scelta obbligata dal doppio vincolo del turno: la saggistica è al 17,7% contro il
+tetto del 15%, quindi solo narrativa o poesia; e le tre opere a 5/6 in `prossimo_lotto.py`
+(Tolkien, Gibran, Proust) sono tutte tradotte — lo stesso muro già annotato alle 11:10. D'Annunzio
+era fra gli autori fermi a 5 righe, è di pubblico dominio (morto nel 1938) e le sue due citazioni
+di *Alcyone* già in archivio davano copertina e dati pronti: **da 5 a 7 citazioni d'autore**, esce
+dalla lista. *Alcyone* resta a 4/6, non guadagna ancora la pagina propria.
+
+- **«Settembre, andiamo. È tempo di migrare.»** — locus «I pastori», v. 1. Tema *tempo*, genere
+  poesia. `source_url` su **`viv-it.org`** (VIVIT, portale dell'Accademia della Crusca), aperto e
+  letto: riporta la poesia integrale. Riscontro indipendente su
+  `libriantichionline.com/divagazioni/gabriele_dannunzio_pastori_alcyone`, che accompagna il testo
+  alla riproduzione della prima edizione **Milano, Treves 1903** e conferma il verso con la stessa
+  punteggiatura. La collocazione («parte conclusiva della raccolta», settembre, «malinconia
+  dell'autunno» dopo le liriche estive) è presa dalla scheda VIVIT stessa, non dedotta.
+- **«Laudata sii pel tuo viso di perla, o Sera, e pe' tuoi grandi umidi occhi ove si tace l'acqua
+  del cielo!»** — locus «La sera fiesolana», chiusa della strofa I. Tema *vita*, genere poesia.
+  `source_url` su **`treccani.it`** («Una poesia al giorno»), che riporta il testo integrale e la
+  data di composizione, 1899. Riscontro indipendente sul PDF universitario
+  `homes.di.unimi.it/~pasteris/progettoMM/avvisi/temi/Sera_fiesolana.pdf`, che nel titolo data il
+  componimento al **17 giugno 1899** e conferma la lezione **«pel tuo viso di perla»** (non «per
+  il», variante che circola in rete).
+- **Locus senza numeri di verso per la seconda**, deliberatamente: il verso 4 («silenzioso e ancor
+  s'attarda a l'opra lenta») è spezzato in due in parte delle edizioni, quindi una numerazione
+  «vv. 15-17» sarebbe vera solo per alcune stampe. «Chiusa della strofa I» individua il passo in
+  modo univoco in qualunque edizione.
+- Contesti di 82 e 80 parole, dentro la forbice del §6-ter; copertina `14866041.jpg` copiata dalle
+  due citazioni di *Alcyone* già in archivio; `speaker` vuoto (è la voce del poeta in entrambe);
+  `source_edition` «1903» come le altre due.
+- **Raccolte** (voce 10): «Settembre, andiamo» in *Viaggio e cammino* (38 → 39) e in *Frasi brevi*
+  (175 → 176, criterio del punto: la frase regge da sola); «Laudata sii» in *La bellezza* (22 → 23)
+  e in *Occhi e sguardo* (28 → 29), entrambe fra le più sottili fra quelle pertinenti.
+
+**Candidate lette e scartate in questo turno.** L'ultimo verso de «I pastori» — «Ah perché non son
+io co' miei pastori?» — è verificato alla lettera sulle stesse due fonti e sarebbe ottimo, ma è la
+chiusa della poesia e pubblicarlo insieme al primo verso significherebbe mettere in archivio
+apertura e finale dello stesso testo breve nello stesso turno: rimandato, non scartato per dubbi
+sul testo. Scartata la strofa intera de «La sera fiesolana» fino a «senza vederla» (14 versi):
+lunghezza fuori misura per una card, e il taglio a metà strofa avrebbe alterato la punteggiatura.
+Non toccate Tolkien, Gibran e Proust per la ragione detta sopra.
+
+**Verifica delle fonti.** `it.wikisource.org` continua a rispondere «cache-only» e non è
+scaricabile da qui: le due citazioni di *Alcyone* già in archivio hanno `source_url` su Wikisource
+(eredità dei lotti di agosto), le due nuove no, e questo è il comportamento giusto d'ora in avanti.
+`it.wikipedia.org` è risultata anch'essa cache-only in questo turno (tentato l'indice di *Alcyone*,
+respinto): l'informazione sulla collocazione è stata presa dalla scheda VIVIT.
+
+**PNG rigenerate in blocco, di nuovo.** Confermato il difetto di `generate_og_images.py` già
+annotato alle 11:10: il build ha rifatto tutte le 887 immagini perché confronta la mtime con quella
+di `data/citazioni.json`. Le 885 preesistenti sono state riportate alla versione committata con
+`git checkout --` (lista presa da `git --no-optional-locks status --porcelain assets/og/`),
+tenendo solo le 2 nuove.
+
+**Build:** `python3 tools/build.py` tre volte, exit 0, «**Problemi totali: 0**», «Nessun errore nei
+dati strutturati», 887/887 citazioni con blocco fonte, 887 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati. Controllo di idempotenza fatto per hash e non a occhio:
+md5 di tutti i 2242 file html/json/xml/js/png prima e dopo un build ulteriore, **diff vuoto**. Le 12
+«fonti duplicate» e il 73% di citazioni in raccolta sono debiti preesistenti, non di questo lotto
+(entrambe le nuove sono in due raccolte ciascuna). Nessun lock residuo in `.git` prima o dopo.
+
+Archivio: **887 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
