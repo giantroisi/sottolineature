@@ -4956,3 +4956,79 @@ md5 di tutti i 2242 file html/json/xml/js/png prima e dopo un build ulteriore, *
 (entrambe le nuove sono in due raccolte ciascuna). Nessun lock residuo in `.git` prima o dopo.
 
 Archivio: **887 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-25 17:00 UTC — Petrarca, «Canzoniere» da 2 a 4 citazioni (turno orario)
+
+Due citazioni nuove dal *Canzoniere*, entrambe testo originale italiano di pubblico dominio: niente
+traduttore, niente edizione forzata. **Petrarca passa da 4 a 6 citazioni d'autore** ed esce dalla
+lista degli autori fermi a 3-5 di `prossimo_lotto.py`; il *Canzoniere* passa da 2 a 4 citazioni (la
+pagina opera esiste gia' dalla Fase 4, il build ci ha agganciato le due nuove da solo). Scelta
+obbligata dai soliti due vincoli: la saggistica e' al 17,7% contro il tetto del 15%, quindi solo
+narrativa o poesia; e le tre opere a 5/6 (Tolkien, Gibran, Proust) restano tutte tradotte — il muro
+gia' annotato alle 11:10 e alle 16:00.
+
+- **«Solo et pensoso i più deserti campi vo mesurando a passi tardi et lenti, et gli occhi porto
+  per fuggire intenti ove vestigio human l'arena stampi.»** — locus «sonetto XXXV, vv. 1-4», tema
+  *solitudine*, genere poesia. `source_url` su **`letteraturaitalia.it`** (antologia «Canzoniere di
+  Petrarca: dieci sonetti», aperta e letta: riporta la quartina integrale e numera il sonetto XXXV).
+  Riscontri indipendenti concordanti carattere per carattere su **`atuttarte.it`** (quartina
+  intera), su **`libriantichionline.com`** (primi due versi piu' conferma esplicita della lezione
+  «l'arena») e su **`lib.ru`** (Canzoniere integrale). **Variante annotata:**
+  `fareletteratura.it` stampa «ove vestigio human **la rena** stampi»; tre fonti su quattro danno
+  «l'arena», che e' la lezione adottata — la divergenza e' registrata qui e non nascosta.
+  L'accento e' «più» in tutte e quattro le fonti aperte (l'edizione critica di Contini stampa
+  «piú»: non e' stata aperta da qui, quindi si e' seguita la lezione delle fonti effettivamente
+  lette).
+- **«S'amor non è, che dunque è quel ch'io sento?»** — locus «sonetto CXXXII, v. 1», tema *amore*,
+  genere poesia. `source_url` su **`lieder.net`**, che riporta il testo del sonetto, lo colloca
+  nelle «Rime in vita di Madonna Laura» col numero 132 e dichiara il testo controllato su una fonte
+  primaria. Riscontri indipendenti su **`skuola.net`** (stesso verso, stessa punteggiatura, numero
+  CXXXII) e su **`leighfermor.wordpress.com`** (il verso nel titolo dell'analisi, identico).
+  Fonte non di grado editoriale, ma l'autore e' di pubblico dominio dal Trecento: vale la regola
+  delle due fonti indipendenti concordanti del CLAUDE.md, non l'asticella alzata per i testi sotto
+  diritti.
+- Contesti di 77 e 73 parole, dentro la forbice 60-90 del §6-ter; copertina `7130072.jpg` copiata
+  dalle due citazioni di *Canzoniere* gia' in archivio; `speaker` vuoto in entrambe (e' la voce del
+  poeta); `source_edition` e `source_translator` vuoti, come nelle altre due voci del *Canzoniere*.
+- **Raccolte** (voce 10): «Solo et pensoso» in *Silenzio* (14 → 15, la piu' sottile fra quelle
+  pertinenti: la raccolta tratta il silenzio come scelta, e il sonetto e' proprio di un amore mai
+  detto) e in *Viaggio e cammino* (39 → 40, il camminare misurando il terreno); «S'amor non è» in
+  *Frasi brevi* (176 → 177, un verso che regge da solo e si chiude col punto interrogativo).
+  *Pace*, *musica*, *cibo*, *fiori*, *montagna*, *infanzia* e *arte* sono piu' sottili ma nessuna
+  delle due citazioni ci sta senza forzatura: non sono state usate.
+
+**Candidate lette e scartate in questo turno.** Sonetto LXI («Benedetto sia 'l giorno...») e
+CCCLXV («I' vo piangendo i miei passati tempi»): entrambi presenti su `letteraturaitalia.it`, ma il
+secondo tentativo di farmi riportare le quartine alla lettera e' stato respinto dal recupero pagina,
+e senza il testo esatto sotto gli occhi non si pubblica — rimandati, non scartati per dubbi sul
+testo. Sonetto CXXXII in versione quartina intera: scartata a favore del solo primo verso, perche'
+i vv. 3-4 hanno oscillazioni ortografiche fra le edizioni («effecto»/«effetto», «bona»/«buona») che
+non si sono potute risolvere su una fonte aperta. Non toccati Tolkien, Gibran e Proust per il
+vincolo della traduzione.
+
+**Verifica delle fonti.** `it.wikisource.org` resta «cache-only» e non e' scaricabile.
+`it.wikiquote.org` si e' comportata in modo incoerente nello stesso turno: la pagina Khalil Gibran
+si e' aperta (servita da cache), quella Francesco Petrarca ha risposto «cache-only». Respinti anche
+`letteraturaitaliana.net`, `bibliotecaitaliana.it`, `risorse.lattes.app` e il PDF LiberLiber
+ospitato su `41console.edu.it` (robots.txt non raggiungibile o certificato non valido), e
+`journals.openedition.org` (filtro anti-bot). Annotato per i turni futuri: **`letteraturaitalia.it`
+funziona ed e' una buona fonte per i classici italiani in antologia**.
+
+**PNG rigenerate in blocco, di nuovo.** Terza conferma del difetto di `generate_og_images.py`: il
+build ha rifatto tutte le 889 immagini perche' confronta la mtime con quella di
+`data/citazioni.json`. Le 883 preesistenti sono state riportate alla versione committata con
+`git checkout --` (lista presa da `git --no-optional-locks status --porcelain assets/og/`, filtrata
+sui soli `^ M ` — attenzione: senza il filtro l'elenco include anche i file nuovi non tracciati e
+`git checkout` fallisce in blocco), tenendo solo le 2 nuove. La PNG di «Solo et pensoso» e' stata
+guardata davvero, non solo misurata: 1200×630, testo in Iowan Old Style, attribuzione e firma al
+posto giusto.
+
+**Build:** `python3 tools/build.py` quattro volte, exit 0, «**Problemi totali: 0**», «Nessun errore
+nei dati strutturati», 889/889 citazioni con blocco fonte, 889 immagini OG attese e presenti,
+nessuna mancante, 0 title e 0 description duplicati. Idempotenza verificata per hash: md5 di tutti
+i 2246 file html/json/xml/js/png prima e dopo un build ulteriore, **diff vuoto**. Le 12 «fonti
+duplicate» e il 73% di citazioni in raccolta restano debiti preesistenti (entrambe le nuove sono in
+almeno una raccolta). Nessun lock residuo in `.git` prima o dopo. `claude/turni-non-eseguiti.md`
+era gia' vuoto: niente da trascrivere.
+
+Archivio: **889 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
