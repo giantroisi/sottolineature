@@ -5159,3 +5159,100 @@ Gatsby* (6, 290), *Cent'anni di solitudine* (6, 170), *Piccole donne* (6, 160), 
 possa fare senza verificare una riga nuova.
 
 Archivio: **891 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-26 07:05 UTC — Deledda, «Elias Portolu»: una citazione, da 4 a 5 righe per l'autrice (turno orario)
+
+**Aggiunta, una sola.** *Elias Portolu* di Grazia Deledda (1900), cap. I, Elias che parla fra se'
+nel cortile dopo la prima sera in casa: «Come sono debole! Non sono più un uomo, io: non sarò più
+buono a nulla.» Tema *solitudine*, nessun genere, `speaker` **Elias Portolu** (il discorso interno
+e' esplicito nel testo), copertina gia' in archivio per quell'opera (`/assets/covers/3806171.jpg`),
+contesto di 85 parole. Deledda passa da 4 a 5 citazioni, *Elias Portolu* da 1 a 2: nessuna pagina
+opera si apre con questo lotto e non era l'obiettivo — `prossimo_lotto.py` non incrocia
+`data/opere.json`, e il controllo fatto a mano dice che **nessuna delle opere a 4-5 citazioni
+elencate dallo script e' insieme priva di pagina e presente in `data/keywords.json`**: la voce
+«opere a una citazione dalla pagina propria» di questo turno era vuota di fatto, quindi si e'
+passati alla voce successiva (autori fermi a 3-5 righe).
+
+**Fonte, e perche' proprio questa.** Scansione integrale dell'edizione *Fratelli Treves, Milano,
+1920 (terzo migliaio)* su Internet Archive, item pubblico `eliasportoluroma00deleuoft`, testo OCR
+aperto a
+`https://archive.org/stream/eliasportoluroma00deleuoft/eliasportoluroma00deleuoft_djvu.txt`
+(metadati confermati su `archive.org/metadata/...`: Milan, Treves, 1920, italiano, accesso
+pubblico). Deledda e' morta nel 1936: l'opera e' di pubblico dominio e una fonte di grado
+editoriale basta da sola. La frase e' stata chiesta **due volte con domande diverse** alla stessa
+pagina e le due trascrizioni coincidono carattere per carattere, comprese le sillabe spezzate
+dall'impaginazione ottocentesca («Non sono più un / uomo, io: non sarò più buono a nulla.») e gli
+artefatti OCR del contorno («sempUce» per «semplice», «essi I» per «essi!»), che sono la prova
+migliore che si tratta di trascrizione e non di ricostruzione. Le spaziature doppie dell'OCR sono
+state normalizzate; nessuna parola, accento o segno di punteggiatura e' stato toccato.
+
+**Candidate lette e scartate in questo turno.**
+1. *Canne al vento* (Deledda), la frase piu' famosa dell'autrice («siamo canne, e la sorte e' il
+   vento»): **nessuna fonte apribile**. `liberliber.eu` (dove sta il PDF del Progetto Manuzio)
+   risponde `ROBOTS_DISALLOWED` con robots.txt in ConnectTimeout; lo stesso PDF sotto
+   `liberliber.it` da' 404; gli item Internet Archive del romanzo sono o in prestito
+   (`cannealvento0000dele`) o a 401 (`isbn_9781466350977`); `classicitaliani.it` non risolve.
+   Rimandata, non scartata nel merito.
+2. «Invece è una novena, questa vita, una novena ed anche corta.» (zia Annedda, *Elias Portolu*):
+   frase bellissima, **scartata per collocazione incerta**. Comparsa in due letture della stessa
+   pagina con confini di periodo diversi (una volta preceduta da «questa vita terrena non debba
+   finir mai;», una volta data come periodo autonomo) e una terza lettura non l'ha ritrovata: senza
+   certezza su dove comincia il periodo non si pubblica. Da riprendere quando si avra' una fonte
+   paginata dell'opera.
+3. Il monologo interno completo di Elias nel cortile: fuori misura per una card, e pieno di refusi
+   OCR nelle righe centrali.
+
+**Nota sulle fonti, per i turni futuri (importante).** Oltre a `it.wikisource.org`, gia' noto come
+cache-only, in questo turno sono risultati **non scaricabili anche `it.m.wikisource.org` e
+`commons.wikimedia.org`**, con lo stesso errore «This domain is cache-only». In pratica **tutto il
+dominio Wikimedia e' fuori uso per la verifica**, `it.wikiquote.org` incluso con ogni probabilita':
+i 415 `source_url` di Wikiquote e i 125 di Wikisource gia' in archivio restano, ma **non si puo'
+piu' verificare niente di nuovo li' sopra**. Le fonti che funzionano davvero da questa VM, provate
+oggi: `archive.org` (sia `/stream/<id>/<id>_djvu.txt` per gli item pubblici, sia
+`/metadata/<id>` e `/advancedsearch.php?...&output=json` per trovarli), `liberliber.it` (solo le
+pagine-scheda, non i file), `bepi1949.altervista.org`, `gutenberg.org`. **`archive.org` e' oggi la
+strada piu' produttiva**: la ricerca avanzata per `creator` e `date:[1900 TO 1929]` restituisce le
+scansioni di pubblico dominio con il testo OCR apribile.
+
+**Cautela sul metodo di trascrizione.** Il fetch non restituisce il testo grezzo ma il riassunto di
+un modello piccolo, che in questo turno ha sbagliato almeno due volte: ha risposto a una richiesta
+di frase con «zio Portolu» restituendo un periodo che quelle parole non le contiene, e a una
+richiesta di paragrafo restituendo un paragrafo diverso da quello chiesto. **Una sola lettura non
+e' una verifica**: da qui in avanti, per ogni frase presa da un `djvu.txt`, si fanno almeno due
+letture della stessa pagina con domande formulate in modo diverso e si pubblica solo se coincidono.
+Annotato anche che il modello rifiuta le richieste di trascrizione lunga («non posso trascrivere
+120 righe di testo protetto»): conviene chiedere una frase o un paragrafo per volta, dicendo
+esplicitamente che l'opera e' di pubblico dominio.
+
+**Raccolte.** La citazione e' entrata in *La tristezza* (`raccolte.json`, da 30 a 31 chiavi): e' il
+giudizio che un uomo da' su di se' dopo il carcere, ed e' la stessa famiglia tematica delle voci
+gia' presenti li' (Pavese, Leopardi, Tamaro). Le raccolte piu' sottili — *pace* 13, *musica* 14,
+*infanzia*, *silenzio*, *montagna*, *cibo*, *fiori* 15, *arte* 16 — non c'entrano con questa frase
+e non sono state forzate.
+
+**Build.** `python3 tools/build.py` due volte, exit 0, «**Problemi totali: 0**», «Nessun errore nei
+dati strutturati», 892/892 citazioni con blocco fonte, 892 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati. Il secondo build ha rigenerato 0 immagini e non ha
+cambiato file. Controlli del §10 sull'archivio intero: 0 citazioni duplicate (anche normalizzando),
+0 contesti duplicati, il `source_url` nuovo non esisteva in archivio, 4 citazioni senza locus
+(debito preesistente, nessuna e' quella di oggi). Restano i debiti noti: 13 «fonti duplicate» e 73%
+di citazioni in raccolta.
+
+**PNG rigenerate in blocco, quinta conferma.** Il solito difetto di `generate_og_images.py` (mtime
+confrontata con quella di `data/citazioni.json`): 892 immagini rifatte, 883 riportate alla versione
+committata con `git checkout --` dalla lista `^ M ` di `git --no-optional-locks status --porcelain
+assets/og/`, tenuta solo la nuova. La PNG nuova e' stata **guardata davvero**: 1200x630, Iowan Old
+Style, frase esatta su due righe, attribuzione «GRAZIA DELEDDA / Elias Portolu · 1900», firma
+`SOTTOLINEATURE.IT` al posto giusto.
+
+**Stato del repository.** Albero pulito all'inizio del turno, `main [ahead 5]`, nessun lock in
+`.git` prima ne' dopo; permesso di cancellazione chiesto e concesso a inizio turno. I font sono
+presenti in `assets/fonts/`. `claude/turni-non-eseguiti.md` era vuoto: niente da trascrivere.
+
+**Resta aperto, invariato dal turno precedente:** cinque opere hanno gia' 6+ citazioni **e** volume
+di ricerca in `data/keywords.json` ma non hanno la pagina opera — *Alice nel paese delle
+meraviglie* (8 citazioni, 770 ricerche/mese), *Il grande Gatsby* (6, 290), *Cent'anni di
+solitudine* (6, 170), *Piccole donne* (6, 160), *Jane Eyre* (6, 120). Costa solo la `scheda` del
+§8-ter.
+
+Archivio: **892 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
