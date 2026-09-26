@@ -5032,3 +5032,130 @@ almeno una raccolta). Nessun lock residuo in `.git` prima o dopo. `claude/turni-
 era gia' vuoto: niente da trascrivere.
 
 Archivio: **889 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-25 19:05 UTC — turno interrotto a meta': bridge caduto, niente commit
+
+*(Voce trascritta da `claude/turni-non-eseguiti.md` il 2026-09-26, come prevede il punto 7 della
+routine: in quel turno `LOG.md` non era scrivibile.)*
+
+Turno orario avviato alle 18:59 UTC. Il repository era raggiungibile e l'albero pulito (`main`,
+`[ahead 4]`, nessun lock in `.git`, i tre font presenti in `assets/fonts/`); il permesso di
+cancellazione era stato chiesto e concesso. **Dopo la lettura di `CLAUDE.md`, `CATALOGO.md`,
+`LOG.md` e dell'archivio, e dopo la verifica delle fonti, il bridge verso il computer e' caduto**
+(`device_bash`: «The device this session is bound to is not connected to the bridge», quattro
+tentativi a distanza di ~45 e ~90 secondi). Nessun file toccato: niente commit, archivio fermo a
+889 citazioni.
+
+**Stato letto prima della caduta.** `prossimo_lotto.py`: 889 citazioni, 263 autori, 19 opere con
+pagina possibile; saggistica 157 = 17,7% contro il tetto del 15% -> solo narrativa o poesia; opere
+a 5/6 ancora Tolkien, Gibran e Proust, tutte e tre tradotte (il muro gia' annotato alle 11:10,
+16:00 e 17:00). Autori senza ritratto: 6.
+
+**Lotto scelto e non pubblicato: due citazioni da *Alcyone*** (4 -> 6), entrambe verificate su
+fonti aperte in quel turno e **rimaste da inserire**: «Ah perché non son io co' miei pastori?»
+(«I pastori», verso conclusivo) su `viv-it.org` con riscontro su `atuttascuola.it`; e «Non ho più
+nome né sorte tra gli uomini; ma il mio nome è Meriggio. In tutto io vivo tacito come la Morte.»
+(«Meriggio», strofa conclusiva) su `sololibri.net` e `poesieracconti.it`, con `ccdc.it` concorde
+sulla prima frase e la variante «nè/né» annotata (adottata «né», due fonti su tre). **Restano
+valide e pronte per un turno futuro**, con un avvertimento: **`data/keywords.json` non contiene
+*Alcyone***, quindi per il §8-ter portarla a 6 citazioni **non apre una pagina opera** — il
+guadagno sarebbe solo di profondita' sull'autore, che pero' e' gia' a 7 righe. Il turno del
+2026-09-26 ha preferito per questo un altro lotto.
+
+## 2026-09-26 06:37 UTC — Goldoni, «La locandiera» da 2 a 4 citazioni (turno orario, ripreso dopo la caduta del bridge)
+
+Due citazioni nuove da *La locandiera*, testo teatrale italiano originale di pubblico dominio:
+niente traduttore, niente edizione forzata. **Goldoni passa da 4 a 6 citazioni d'autore** ed esce
+dalla lista degli autori fermi a 3-5 di `prossimo_lotto.py`; *La locandiera* passa da 2 a 4. Il
+lotto alimenta anche la fascia di secolo che il §5 del CATALOGO indica come direttrice principale
+di crescita (dal XV al XVIII secolo, quasi assente). Vincoli rispettati: saggistica al 17,7% contro
+il tetto del 15%, quindi solo narrativa o poesia; le tre opere a 5/6 (Tolkien, Gibran, Proust)
+restano tutte tradotte.
+
+- **«A maritarmi non ci penso nemmeno; non ho bisogno di nessuno; vivo onestamente, e godo la mia
+  libertà.»** — locus «atto I, scena IX», `speaker` *Mirandolina*, tema *liberta*. `source_url` su
+  **`bepi1949.altervista.org`** (De Bibliotheca, *La locandiera* atto I, aperta e letta: riporta
+  per intero il monologo della scena nona). **Due riscontri indipendenti concordanti carattere per
+  carattere**: `goldoni.letteraturaoperaomnia.org` (testo dell'opera) e `lingq.com` (scheda
+  dell'Atto Primo scena IX). Nessuna divergenza fra le tre fonti su questa frase.
+- **«Lodo chi sa fingere. Ma chi sa fingere in una cosa, saprà fingere nell'altre ancora.»** —
+  locus «atto II, scena VI», `speaker` *Mirandolina*, tema *verita* (l'inganno e' proprio il
+  soggetto della frase, non un ripiego del raccoglitore). `source_url` su
+  **`bepi1949.altervista.org`** (atto II). Riscontro indipendente concordante su
+  `goldoni.letteraturaoperaomnia.org`, che riporta la battuta intera identica e conferma scena,
+  personaggio e destinatario. **Citata la frase per intero dal «Lodo»**, non dal «Ma»: tagliarla
+  al «Ma» avrebbe cambiato l'attacco del periodo.
+- **Situazione della scena II.6 verificata sulla stessa fonte** prima di scrivere il contesto: si
+  e' in camera del Cavaliere durante il pranzo, il Marchese di Forlipopoli si vanta del proprio
+  vino di Cipro e il Cavaliere lo loda per cortesia pur trovandolo cattivo. Il contesto non lo ha
+  dedotto: lo ha letto.
+- Contesti di 84 e 79 parole, dentro la forbice 60-90 del §6-ter, nessuno dei due anticipa il
+  finale; copertina `2274635.jpg` copiata dalle due citazioni di *La locandiera* gia' in archivio;
+  `source_edition` e `source_translator` vuoti (la trascrizione consultata non dichiara
+  un'edizione: meglio vuoto che inventato).
+- **Raccolte** (voce 10): «A maritarmi non ci penso nemmeno» in *Donne* (31 -> 32) — una donna del
+  Settecento che rivendica indipendenza economica e personale e' esattamente il filo della
+  raccolta, e Goldoni non vi compariva; «Lodo chi sa fingere» in *Frasi brevi* (177 -> 178), 15
+  parole, una massima che regge da sola. **Non** messa in *Frasi brevi* la prima (18 parole: la
+  raccolta ha mediana 9 e una sola voce sopra le 15, non e' il suo posto). Fra le raccolte piu'
+  sottili — *pace* 13, *musica* 14, *infanzia* 15, *silenzio* 15, *montagna* 15, *cibo* 15,
+  *fiori* 15, *arte* 16 — nessuna e' pertinente a queste due frasi: non sono state forzate.
+
+**Candidate lette e scartate in questo turno.** *Alcyone* di D'Annunzio, il lotto gia' preparato e
+verificato nel turno interrotto delle 19:05: rimandato, non per dubbi sul testo, ma perche'
+`data/keywords.json` non contiene *Alcyone* e quindi, per il §8-ter, portarla da 4 a 6 citazioni
+**non apre nessuna pagina opera**; D'Annunzio e' inoltre gia' a 7 citazioni. Le due frasi restano
+verificate e riutilizzabili (vedi la voce qui sopra). *La bottega del caffè*: cercata una seconda
+citazione per distribuire il lotto su due opere, ma l'unica candidata trovata — «Si principia con i
+giuochetti, e poi si termina colla bassetta» — e' data su `goldoni.letteraturaoperaomnia.org` una
+volta come atto I scena II e una volta come scena VI, e «bassetta» (un gioco di carte settecentesco)
+non si capisce senza nota: scartata per collocazione incerta. Scartato anche il monologo di
+Mirandolina in versione integrale (fuori misura per una card) e «Mi piace l'arrosto, e del fumo non
+so che farne.», bella ma non autosufficiente senza spiegare il gioco arrosto/fumo.
+
+**Verifica delle fonti.** `it.wikisource.org` resta «cache-only» e non e' scaricabile. Respinto
+`intratext.com` (robots.txt non raggiungibile, ConnectTimeout). Il PDF universitario
+`lingue.unich.it/sites/st07/files/goldoni_testi.pdf` si apre ed e' di grado editoriale, **ma e'
+un'antologia di estratti**: non contiene ne' la scena nona ne' la sesta, quindi non e' stato usato
+come riscontro — annotato perche' non venga riprovato per queste due frasi.
+`goldoni.letteraturaoperaomnia.org` ha il testo integrale de *La locandiera*, mentre de *La bottega
+del caffè* si ferma a meta' dell'atto II. **Annotato per i turni futuri:
+`bepi1949.altervista.org` (De Bibliotheca) e `goldoni.letteraturaoperaomnia.org` sono due fonti
+aperte e affidabili per il teatro italiano di pubblico dominio**, ed entrambe rispondono in https.
+
+**Errore intercettato dal build, e vale la pena ricordarlo.** Il primo build ha chiuso con
+«Problemi totali: 2»: `check_links.py` segnala i **link in http non cifrato**, e i due
+`source_url` erano stati scritti in `http://` (la forma in cui li restituisce la ricerca). Le due
+pagine si aprono identiche in `https://` — verificato aprendole di nuovo in https prima di
+correggere — e dopo la correzione il build chiude a 0. Da qui in avanti: scrivere sempre i
+`source_url` in https e controllare che la versione https si apra davvero.
+
+**PNG rigenerate in blocco, di nuovo.** Quarta conferma del difetto di `generate_og_images.py`:
+confronta la mtime con quella di `data/citazioni.json`, quindi ogni modifica ai dati rifa' tutte le
+immagini (891). Le 883 preesistenti sono state riportate alla versione committata con
+`git checkout --` (lista da `git --no-optional-locks status --porcelain assets/og/` filtrata sui
+soli `^ M `), tenendo solo le 2 nuove. **Nota operativa nuova:** dopo la caduta e il ripristino del
+bridge il permesso di cancellazione concesso a inizio sessione **non era piu' attivo** e
+`git checkout --` e' fallito in blocco con «unable to unlink old ... Operation not permitted»;
+e' bastato richiederlo. Le due PNG nuove sono state **guardate davvero**: 1200x630, testo in Iowan
+Old Style, frase esatta, attribuzione «CARLO GOLDONI / La locandiera · 1753» e firma al posto
+giusto.
+
+**Build:** `python3 tools/build.py` quattro volte, exit 0, «**Problemi totali: 0**», «Nessun errore
+nei dati strutturati», 891/891 citazioni con blocco fonte, 891 immagini OG attese e presenti,
+nessuna mancante, 0 title e 0 description duplicati. Idempotenza verificata per hash e non a
+occhio: md5 di tutti i 2250 file html/json/xml/js/png prima e dopo un build ulteriore, **diff
+vuoto**. Controlli del §10 rifatti sull'archivio intero: 0 citazioni duplicate, 0 contesti
+duplicati, i due `source_url` nuovi non esistevano in archivio. Le 12 «fonti duplicate» e il 73% di
+citazioni in raccolta restano debiti preesistenti. Nessun lock residuo in `.git` prima o dopo.
+`claude/turni-non-eseguiti.md` conteneva la voce del 25/09 alle 19:05: trascritta qui sopra e
+l'elenco e' stato svuotato.
+
+**Da segnalare all'utente (non risolto qui, non e' lavoro da routine oraria).** Cinque opere hanno
+gia' 6 o piu' citazioni **e** volume di ricerca in `data/keywords.json`, ma non hanno ancora una
+pagina opera: *Alice nel paese delle meraviglie* (8 citazioni, 770 ricerche/mese), *Il grande
+Gatsby* (6, 290), *Cent'anni di solitudine* (6, 170), *Piccole donne* (6, 160), *Jane Eyre*
+(6, 120). Aprire quelle voci costa solo la `scheda` del §8-ter: e' la cosa a maggior ritorno che si
+possa fare senza verificare una riga nuova.
+
+Archivio: **891 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.

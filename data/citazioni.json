@@ -13476,5 +13476,37 @@
     "source_locus": "sonetto CXXXII, v. 1",
     "source_url": "https://www.lieder.net/lieder/get_text.html?TextId=25931",
     "speaker": ""
+  },
+  {
+    "quote": "A maritarmi non ci penso nemmeno; non ho bisogno di nessuno; vivo onestamente, e godo la mia libertà.",
+    "author": "Carlo Goldoni",
+    "title": "La locandiera",
+    "year": "1753",
+    "context": "In una locanda di Firenze la padrona resta sola in scena e fa i conti con i suoi corteggiatori: un marchese che le offre un titolo senza denaro, un conte che le offre denaro senza titolo, e un cavaliere appena arrivato che dichiara di non poter sopportare le donne. È Mirandolina, e in questo monologo dice a se stessa quello che davanti a loro non ammette mai: le piace essere servita e adorata, ma la locanda le basta e non intende appartenere a nessuno.",
+    "cover": "/assets/covers/2274635.jpg",
+    "category": "liberta",
+    "genre": "",
+    "added": "2026-09-26",
+    "source_edition": "",
+    "source_translator": "",
+    "source_locus": "atto I, scena IX",
+    "source_url": "https://bepi1949.altervista.org/biblio2/locandiera/atto-1.htm",
+    "speaker": "Mirandolina"
+  },
+  {
+    "quote": "Lodo chi sa fingere. Ma chi sa fingere in una cosa, saprà fingere nell'altre ancora.",
+    "author": "Carlo Goldoni",
+    "title": "La locandiera",
+    "year": "1753",
+    "context": "Siamo nella camera del cavaliere di Ripafratta, durante il pranzo che la padrona della locanda gli ha cucinato di sua mano. Il marchese di Forlipopoli è entrato a vantarsi del proprio vino di Cipro, e il cavaliere lo ha lodato per cortesia pur trovandolo cattivo. È Mirandolina a rispondere così: quel vino lei non lo loda, e nel dirlo avverte l'ospite che chi finge una volta finge sempre — mentre sta conducendo, su di lui, la sua stessa finzione.",
+    "cover": "/assets/covers/2274635.jpg",
+    "category": "verita",
+    "genre": "",
+    "added": "2026-09-26",
+    "source_edition": "",
+    "source_translator": "",
+    "source_locus": "atto II, scena VI",
+    "source_url": "https://bepi1949.altervista.org/biblio2/locandiera/atto-2.htm",
+    "speaker": "Mirandolina"
   }
 ]
