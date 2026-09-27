@@ -5420,3 +5420,123 @@ niente da riportare.
 *Piccole donne* (6, 160), *Jane Eyre* (6, 120). Costa solo la `scheda` del §8-ter.
 
 Archivio: **895 citazioni**, 263 autori, 81 pagine opera, 33 raccolte.
+
+## 2026-09-27 ~15:45 UTC — Boccaccio, «Decameron»: la peste dell'Introduzione, e due fonti nuove che funzionano
+
+**Aggiunta, una sola.** Giovanni Boccaccio, *Decameron* (1353), Introduzione alla Prima giornata,
+§ 48: «Quanti valorosi uomini, quante belle donne, quanti leggiadri giovani, li quali non che
+altri, ma Galieno, Ipocrate o Esculapio avrieno giudicati sanissimi, la mattina desinarono co' lor
+parenti, compagni e amici, che poi la sera vegnente appresso nell'altro mondo cenaron con li lor
+passati!» Tema *tempo*, nessun genere, copertina gia' in archivio per l'opera
+(`/assets/covers/6073528.jpg`), contesto di 82 parole, nessuno `speaker`: e' la voce del narratore,
+non di un personaggio (§6-quater). 44 parole, sopra il tetto delle ~40: il periodo e' uno solo e
+non si puo' accorciare senza cambiarne la punteggiatura, ed e' testo di pubblico dominio — la
+ragione richiesta dal §10.
+
+**Fonti, due indipendenti, quattro letture concordanti.**
+1. **Decameron Web, Brown University** — `cds.library.brown.edu/projects/Decameron/texts/
+   DecShowText.php?myID=d01intro&lang=it`, che e' il `source_url` dichiarato. Tre letture con
+   domande formulate in modo diverso (una aperta, due puntuali sulla grafia) sulle due copie
+   servite dallo stesso progetto: `webhelper.brown.edu/decameron/...` (dove il vecchio indirizzo
+   `brown.edu/Departments/Italian_Studies/dweb/...` rimanda con un 302) e `cds.library.brown.edu`,
+   che invece si apre diretta ed e' per questo il link pubblicato.
+2. **Il PDF di Liber Liber** ospitato su `altritaliani.net/wp-content/uploads/
+   www.liberliber.it_mediateca_libri_b_boccaccio_decameron_pdf_boccaccio_decameron.pdf`, che
+   dichiara l'edizione: *a cura di Vittore Branca, correzioni di Natalino Sapegno (Utet, Torino
+   1956), Le Monnier, Firenze 1951-1952*.
+Le quattro letture coincidono carattere per carattere, compresi i punti dove le edizioni
+divergono: «Ipocrate» e non «Ipocras», «quanti leggiadri giovani» e non «quanti giovani
+leggiadri», «avrieno», «co' lor parenti», «cenaron con li lor passati», e il punto esclamativo
+finale. Il `source_edition` dichiara l'edizione Branca digitalizzata da Decameron Web.
+
+**Due host nuovi, da ricordare.** Il 26/09 il mirror Liber Liber su `linux.studenti.polito.it`,
+`liberliber.eu` e `letteraturaitaliana.net` rispondevano tutti ROBOTS_DISALLOWED e la novella VI 9
+era rimasta non verificabile. **Decameron Web di Brown si apre**, novella per novella
+(`myID=nov0609`, `nov0401`, `nov1010`, `d01intro`, `d04intro`), e **il PDF di Liber Liber su
+altritaliani.net si apre**. In compenso: `it.wikisource.org` resta «cache-only» (riprovato oggi,
+stesso esito), `liberliber.it/opere/download/?op=...` restituisce solo la pagina di download e non
+il testo, e il PDF dell'**Ente Nazionale Giovanni Boccaccio** (edizione critica Fiorilla 2025,
+`enteboccaccio.it/files/original/1124/...`) e' ROBOTS_DISALLOWED per timeout del robots.txt —
+peccato, sarebbe la fonte migliore.
+
+**Candidate lette e scartate, tre, tutte per la punteggiatura finale.** Il testo delle parole era
+confermato in ogni caso: cio' che non si e' riusciti a fissare e' il segno che chiude il periodo,
+e il §10 dice che nel dubbio si scarta.
+1. *Decameron* VI 9, la risposta di Guido Cavalcanti fra le arche di San Giovanni («Signori, voi
+   mi potete dire a casa vostra ciò che vi piace»). Due letture concordi sul testo, ma nel Branca
+   la battuta **non porta punteggiatura propria**: il periodo si chiude con le virgolette seguite
+   da un punto e virgola. Pubblicarla vorrebbe dire o lasciarla senza segno finale — unica in
+   archivio — o aggiungere un punto che la fonte non ha. E' lo stesso motivo per cui il 27/09 si
+   era lasciato il sonetto XC di Petrarca. **Resta pronta** se si decide una regola per le
+   citazioni che nella fonte non chiudono con un punto.
+2. *Decameron* IV 1, il discorso di Ghismunda sulla nobilta' («La vertú primieramente noi, che
+   tutti nascemmo e nasciamo iguali, ne distinse; e quegli che di lei maggior parte avevano e
+   adoperavano nobili furon detti, e il rimanente rimase non nobile»). **Le parole sono confermate
+   da due fonti indipendenti** — Decameron Web e il PDF `filmod.unina.it/Dec.pdf` dell'Universita'
+   di Napoli, che dichiara «testo Branca 1992» — ma le letture si contraddicono sul segno dopo
+   «non nobile» (punto per l'una, punto e virgola per l'altra) e una lettura ha perfino sbagliato
+   il confine del periodo. Scartata, non per dubbi sul testo.
+3. *Decameron* X 10, il commento di Dioneo alla novella di Griselda («Che si potrà dir qui? se non
+   che anche nelle povere case piovono dal cielo de' divini spiriti, come nelle reali di quegli
+   che sarien piú degni di guardar porci che d'avere sopra uomini signoria»). Due letture in
+   contraddizione aperta sul segno finale — punto in una, punto interrogativo nell'altra — e la
+   seconda ha risposto a una domanda sugli ultimi dodici caratteri con dodici caratteri presi dal
+   mezzo della frase. Scartata.
+
+**Sul metodo, quarta conferma e un limite.** Le domande puntuali sulla grafia continuano a essere
+il modo piu' affidabile di far leggere una pagina («Ipocrate o Ipocras?», «quanti leggiadri
+giovani o quanti giovani leggiadri?»): su quelle le letture coincidono sempre. **Sul confine di
+fine periodo, invece, il modello sbaglia con regolarita'**, e su tre candidate su quattro e' stato
+questo a bloccare la pubblicazione. Regola operativa per i turni futuri: **preferire i periodi
+nella voce del narratore**, che chiudono con un punto o un punto esclamativo isolato, ed evitare
+il discorso diretto, dove il segno finale sta dentro o fuori le virgolette a seconda
+dell'edizione e le letture divergono.
+
+**Pagina opera.** *Decameron* aveva gia' la sua pagina (6+ citazioni non era la condizione: la
+voce esiste in `data/opere.json` dal principio) e il build ci ha agganciato da solo la citazione
+nuova. Nessuna modifica a `data/opere.json`. Boccaccio passa da 3 a 4 citazioni, tutte dal
+*Decameron*.
+
+**Anno.** Le tre citazioni preesistenti del *Decameron* portano due anni diversi — 1353 su due,
+1349 su una — mentre `data/opere.json` dichiara «1349-1353». La nuova e' stata messa a **1353**,
+cioe' la forma maggioritaria; **il disallineamento della citazione del falcone (1349) resta un
+debito aperto**, da sistemare con una correzione mirata e non di sfuggita in un lotto.
+
+**Raccolte** (voce 10). La citazione e' entrata in *La morte* (43→44). Valutate e **non** usate,
+benche' fra le piu' sottili: *Cibo* (15) — «desinarono» e «cenaron» sono li' come unita' di misura
+del tempo, non come cibo, e chi sfoglia quella raccolta non cerca la peste; *Amicizia* (25) —
+«compagni e amici» e' un inciso, non il tema della frase.
+
+**Build.** `python3 tools/build.py` tre volte, exit 0, «**Problemi totali: 0**», «Nessun errore nei
+dati strutturati», 896/896 citazioni con blocco fonte, 896 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati, 0 hub sotto soglia. Il terzo build ha rigenerato 0
+immagini e **non ha cambiato nessun file** (`git --no-optional-locks status` identico prima e
+dopo). Controlli del §10: 0 citazioni duplicate anche normalizzando accenti e punteggiatura, 0
+contesti duplicati, `source_url` nuovo mai usato prima. Restano i debiti noti: 13 «fonti
+duplicate», 4 citazioni senza locus, 73% di citazioni in raccolta.
+
+**PNG rigenerate in blocco, ottava conferma.** 896 rifatte al primo build, **883 riportate alla
+versione committata** con `git checkout --` dalla lista `^ M ` di
+`git --no-optional-locks status --porcelain assets/og/`, tenuta solo la nuova. La PNG nuova e'
+stata **guardata davvero**: 1200x630, Iowan Old Style, frase esatta su cinque righe, attribuzione
+«GIOVANNI BOCCACCIO / Decameron · 1353», firma `SOTTOLINEATURE.IT` al posto giusto. Oltre alle
+pagine HTML il build ha toccato anche `assets/home-resto.js` (una riga: il markup della card
+nuova) e `404.html` (contatore e ultima citazione): sono file generati, vanno nel commit.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 8]`, nessun lock in `.git`
+prima ne' dopo, font presenti in `assets/fonts/`, permesso di cancellazione richiesto e concesso a
+inizio turno (decade a ogni riconnessione del bridge, come il 25, il 26 e il 27/09).
+`claude/turni-non-eseguiti.md` conteneva solo l'intestazione: niente da trascrivere.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle
+meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*. Costa
+solo la `scheda` del §8-ter. **Nota per chi apre il prossimo turno:** delle quindici opere a 4-5
+citazioni che `prossimo_lotto.py` segnala, le tre a 5 (*Il Signore degli Anelli*, *Il Profeta*,
+*Alla ricerca del tempo perduto*) sono tutte tradotte e sotto copyright, quindi chiedono la
+fonte di grado editoriale del §3 della routine; le due di pubblico dominio italiano (*Alcyone*,
+*La locandiera*) **non hanno la voce in `data/opere.json`**, quindi arrivare a 6 non farebbe
+nascere nessuna pagina senza prima scrivere la `scheda`, che il §10 mette fra le cose da chiedere
+all'utente.
+
+Archivio: **896 citazioni**, 263 autori, 81 pagine opera, 33 raccolte.
