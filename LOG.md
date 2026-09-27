@@ -5540,3 +5540,106 @@ nascere nessuna pagina senza prima scrivere la `scheda`, che il §10 mette fra l
 all'utente.
 
 Archivio: **896 citazioni**, 263 autori, 81 pagine opera, 33 raccolte.
+
+---
+
+## 2026-09-27 ~16:10 UTC — Deledda, «Elias Portolu»: il paesaggio della novena di San Francesco, e l'autrice arriva a 6 righe
+
+**Aggiunta, una sola.** Grazia Deledda, *Elias Portolu* (1900), cap. II: «L'orizzonte stendevasi
+ampio e puro, il vento odoroso passava ondulando le verdissime brughiere: ineffabile sogno di
+pace, di solitudine selvaggia, di silenzio immenso appena rotto da qualche richiamo lontano di
+cuculo, e dalle voci sfumate dei viandanti.» Tema *solitudine* (§3-bis: «il silenzio» sta
+esplicitamente nella definizione del tema, ed e' la parola della frase), nessun genere — come le
+altre due citazioni dell'opera —, copertina gia' in archivio per l'opera
+(`/assets/covers/3806171.jpg`), contesto di 80 parole, nessuno `speaker`: e' voce del narratore.
+37 parole, sotto il tetto delle ~40, e comunque testo di pubblico dominio (Deledda morta nel 1936).
+
+**Fonti, due indipendenti e due edizioni diverse.**
+1. **Trascrizione Liber Liber** (colophon: da «Grazia Deledda. I grandi romanzi», a cura di Marta
+   Savini, Newton Compton, Roma, 1993; revisione di Stefano D'Urso, 2a ed. elettronica 1998),
+   aperta nel PDF ospitato su `www.rodoni.ch/busoni/bibliotechina/autoriinrete/deleELIAS.pdf`. E'
+   il `source_url` dichiarato. Il PDF contiene i capitoli I-III, quindi il cap. II per intero.
+2. **Scansione Fratelli Treves, Milano, 1920** su archive.org
+   (`archive.org/stream/eliasportoluroma00deleuoft/eliasportoluroma00deleuoft_djvu.txt`), gia' usata
+   il 26/09 per l'altra citazione dell'opera. Qui serve **solo come riscontro**, non come
+   `source_url`, per non duplicare una fonte gia' in archivio (§7).
+
+Le due trascrizioni integrali coincidono **carattere per carattere**, punteggiatura compresa: due
+punti dopo «brughiere», nessuna virgola fra «silenzio immenso» e «appena rotto», periodo chiuso su
+«viandanti.». Il capitolo (II) e' confermato dalla trascrizione Liber Liber e, indirettamente,
+dall'indice di Wikisource (`Elias_Portolu/II`), che pero' resta non scaricabile da qui e non e'
+stata usata come prova.
+
+**Il limite del metodo, nona conferma.** Le domande puntuali «quale segno c'e' dopo X?» rivolte
+alla scansione archive.org hanno dato **risposte in contraddizione con la trascrizione integrale
+della stessa pagina** (ha risposto «virgola» dopo «brughiere» e «virgola» prima di «appena rotto»,
+salvo poi trascrivere due punti e nessuna virgola). Le stesse domande sul PDF Liber Liber sono
+risultate coerenti con la propria trascrizione. Regola operativa che ne esce: **quando la risposta
+puntuale e la trascrizione integrale della stessa fonte divergono, vale il confronto fra due
+trascrizioni integrali indipendenti**, non la risposta puntuale — che sul confine di periodo e
+sulla punteggiatura forte resta inaffidabile, come gia' annotato il 25 e il 27/09.
+
+**Errore di lettura corretto in corsa.** Alla prima passata il viaggio del cap. II era stato preso
+per il trasferimento all'ovile: un controllo mirato sulla fonte ha chiarito che e' invece la
+**salita a cavallo alla chiesa campestre di San Francesco, sulle montagne di Lula, per la novena**,
+una domenica dei primi di maggio, con zia Annedda in groppa alla stessa cavalla di Elias. Il
+contesto e' stato riscritto su questo. Vale la pena ricordarlo: il contesto va verificato sulla
+fonte come il testo, non dedotto dalla trama.
+
+**Candidate lette e scartate.**
+- «Zia Annedda era nata ed invecchiata la', in quel cantuccio pieno d'aria pura, e forse per questo
+  era rimasta sempre semplice e pura come una creatura di sette anni.» (cap. I) — **verificata e
+  concordante su entrambe le fonti**, ma scartata per questo turno: le uniche due fonti aperte per
+  l'opera sono gia' impegnate, e darle come `source_url` una delle due avrebbe creato la
+  quattordicesima fonte duplicata. Resta pronta per il turno in cui si trovi una terza
+  trascrizione accessibile di *Elias Portolu*.
+- «Era un mattino bellissimo.» (cap. II) — troppo breve, non dice niente da sola.
+- Sei periodi paesaggistici del cap. II (valle dell'Isalle, ginestre, lentischi, le miniere che
+  profanano il paesaggio): tutti descrittivi puri, nessuno regge da solo fuori dal contesto.
+- Capitoli dal IV in poi: **non verificabili da qui**. Il PDF Liber Liber si ferma al cap. III e la
+  scansione archive.org al cap. II — entrambi troncati dal recupero, non dall'edizione. Chi
+  riprende Deledda sappia che il materiale aperto copre solo i primi capitoli.
+- *Canne al vento*: nessuna trascrizione integrale aperta. `liberliber.it` e `liberliber.eu` hanno
+  risposto `robots.txt fetch failed: ConnectTimeout`, il mirror del Politecnico di Torino lo stesso,
+  Wikisource resta non scaricabile, e la copia archive.org (`cannealvento0000dele`) e' in prestito
+  senza testo pieno. **L'unica via rimasta e' `intratext.com`, non ancora provata.**
+
+**Raccolte** (voce 10). La citazione e' entrata in *Pace* (13->14), *Silenzio* (15->16) e *Natura*
+(35->36). Valutata e **non** usata *Montagna* (15), pur essendo fra le piu' sottili: il viaggio sale
+verso le montagne di Lula, ma la frase parla di orizzonte, vento e brughiere e non nomina la
+montagna — chi apre quella raccolta cerca altro.
+
+**Pagina opera.** *Elias Portolu* non ha voce in `data/opere.json` (nessuna opera di Deledda ce
+l'ha) e con 3 citazioni resta sotto la soglia di 6: niente da fare, e niente da chiedere. Deledda
+passa da 5 a **6 citazioni**, su quattro opere. Ritratto dell'autrice gia' in archivio (non e' fra
+i sei autori scoperti).
+
+**Build.** `python3 tools/build.py` tre volte, «**Problemi totali: 0**», «Nessun errore nei dati
+strutturati», 897/897 citazioni con blocco fonte, 897 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati, 0 hub sotto soglia. Il terzo build ha rigenerato 0
+immagini e **non ha cambiato nessun file** (`git --no-optional-locks status` identico prima e
+dopo). Controlli del §10: 0 doppioni normalizzando accenti e punteggiatura, 0 contesti duplicati,
+`source_url` mai usato prima. Debiti noti invariati: 13 fonti duplicate, 4 citazioni senza locus,
+73% di citazioni in raccolta.
+
+**PNG rigenerate in blocco, nona conferma.** 897 rifatte al primo build, **883 riportate alla
+versione committata** con `git checkout --` dalla lista `^ M ` di
+`git --no-optional-locks status --porcelain assets/og/`, tenuta solo la nuova. La PNG nuova e'
+stata **guardata davvero**: 1200x630, Iowan Old Style, la frase esatta su quattro righe,
+attribuzione «GRAZIA DELEDDA / Elias Portolu · 1900», firma `SOTTOLINEATURE.IT` al posto giusto.
+Oltre alle pagine HTML il build ha toccato `assets/home-resto.js` e `404.html` (file generati, nel
+commit) e ha ruotato il blocco «Altre citazioni su Solitudine» su diverse pagine citazione: e' il
+normale effetto di una citazione nuova nel tema.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 9]`, nessun lock in `.git`
+prima ne' dopo, font presenti in `assets/fonts/`, permesso di cancellazione richiesto e concesso a
+inizio turno (decade a ogni riconnessione del bridge). `claude/turni-non-eseguiti.md` conteneva
+solo l'intestazione: niente da trascrivere.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle
+meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*. Costa
+solo la `scheda` del §8-ter. Resta aperto anche il disallineamento dell'anno sulla citazione del
+falcone nel *Decameron* (1349 contro 1353).
+
+Archivio: **897 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
