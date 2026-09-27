@@ -13539,5 +13539,35 @@
     "source_locus": "L'Infinito, vv. 1-3",
     "source_translator": "",
     "source_url": "https://www.gutenberg.org/cache/epub/55236/pg55236-images.html"
+  },
+  {
+    "quote": "Zephiro torna, e 'l bel tempo rimena, e i fiori et l'erbe, sua dolce famiglia, et garrir Progne et pianger Philomena, et primavera candida et vermiglia.",
+    "author": "Francesco Petrarca",
+    "title": "Canzoniere",
+    "year": "1374",
+    "context": "Il sonetto appartiene alle rime scritte dopo la morte di Laura, e questa è la sua prima quartina: quattro versi di primavera piena, con il vento di ponente, i fiori, le rondini e gli usignoli chiamati con i loro nomi mitologici, Progne e Filomena. Petrarca lascia scorrere l'elenco senza incrinature, e solo nelle terzine la voce di chi guarda rientrerà nel quadro, cambiando il senso di tutto ciò che è stato appena nominato.",
+    "cover": "/assets/covers/7130072.jpg",
+    "category": "vita",
+    "genre": "poesia",
+    "added": "2026-09-27",
+    "source_edition": "Canzoniere, testo critico di Gianfranco Contini, Einaudi, Torino 1964",
+    "source_locus": "sonetto CCCX, vv. 1-4",
+    "source_translator": "",
+    "source_url": "https://www.palumboeditore.it/portals/0/webooks/lsi/v1/LSI_V1_On_LINE_T63.pdf"
+  },
+  {
+    "quote": "Era il giorno ch'al sol si scoloraro per la pietà del suo factore i rai, quando i' fui preso, et non me ne guardai, ché i be' vostr'occhi, donna, mi legaro.",
+    "author": "Francesco Petrarca",
+    "title": "Canzoniere",
+    "year": "1374",
+    "context": "È l'attacco del terzo sonetto del Canzoniere, quello che fissa la data dell'innamoramento: il giorno in cui il sole si oscurò per la morte di Cristo, cioè il Venerdì Santo. Petrarca racconta di essere stato colto disarmato, senza difendersi, perché in quel giorno di lutto nessuno pensava a proteggersi dall'amore. La donna a cui si rivolge è Laura, che nella finzione del libro lo lega per sempre con un solo sguardo.",
+    "cover": "/assets/covers/7130072.jpg",
+    "category": "amore",
+    "genre": "poesia",
+    "added": "2026-09-27",
+    "source_edition": "Canzoniere, testo critico di Gianfranco Contini, Einaudi, Torino 1964",
+    "source_locus": "sonetto III, vv. 1-4",
+    "source_translator": "",
+    "source_url": "https://www.palumboeditore.it/portals/0/webooks/lsi/v1/lsi_v1_on_line_t55.pdf"
   }
 ]

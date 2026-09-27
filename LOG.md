@@ -5327,3 +5327,96 @@ font presenti, permesso di cancellazione richiesto e concesso (era decaduto con 
 bridge, come gia' successo il 25/09). `claude/turni-non-eseguiti.md` vuoto.
 
 Archivio: **893 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-27 ~14:50 UTC — Petrarca, «Canzoniere» da 4 a 6 citazioni: la pagina opera si riempie
+
+**Aggiunte, due.** Entrambe dal *Canzoniere* di Francesco Petrarca (1374), genere *poesia*,
+copertina gia' in archivio per quell'opera (`/assets/covers/7130072.jpg`), nessuno `speaker` (voce
+del poeta, §6-quater), versi appiattiti su una riga secondo il §6-quinquies.
+
+1. **Sonetto CCCX, vv. 1-4** — «Zephiro torna, e 'l bel tempo rimena, e i fiori et l'erbe, sua
+   dolce famiglia, et garrir Progne et pianger Philomena, et primavera candida et vermiglia.»
+   Tema *vita*, contesto di 73 parole. La quartina chiude con un punto: e' il motivo per cui e'
+   stata scelta questa e non la prima quartina di *Erano i capei d'oro* (XC), che chiude con un
+   punto e virgola e appiattita su una riga sembrerebbe troncata a meta'.
+2. **Sonetto III, vv. 1-4** — «Era il giorno ch'al sol si scoloraro per la pieta' del suo factore
+   i rai, quando i' fui preso, et non me ne guardai, che' i be' vostr'occhi, donna, mi legaro.»
+   (nel file gli accenti sono quelli giusti: «pietà», «ché»). Tema *amore*, contesto di 71 parole.
+
+**Fonti.** Due PDF dei materiali on line di **G. B. Palumbo Editore** per il manuale *Letteratura
+storia immaginario* (Luperini, Cataldi, Marchiani, Marchese): testo **T63** per il CCCX
+(`https://www.palumboeditore.it/portals/0/webooks/lsi/v1/LSI_V1_On_LINE_T63.pdf`) e testo **T55**
+per il III (`.../lsi_v1_on_line_t55.pdf`). Entrambi dichiarano l'edizione di riferimento:
+*Canzoniere*, testo critico di **G. Contini, Einaudi, Torino 1964** — la stessa grafia delle quattro
+citazioni del Canzoniere gia' in archivio («et», «ò», «Solo et pensoso»), quindi il lotto resta
+coerente con se stesso. Fonte di grado editoriale, URL distinti fra loro e mai usati prima in
+archivio.
+
+**Metodo di verifica.** Per ogni PDF **due letture con domande formulate in modo diverso**: prima
+la quartina alla lettera, poi domande puntuali sulla grafia («Zephiro o Zefiro?», «Philomena o
+Filomena?», «factore o fattore?», «et o e?», quale segno chiude quale verso). Le due letture
+coincidono carattere per carattere. Una sola sbavatura: nella seconda lettura del T55 il modello ha
+etichettato come «primo verso» quello che e' il terzo — errore di numerazione, non di testo; per
+sicurezza il testo e' stato **riscontrato su una seconda fonte indipendente**, `sololibri.net`
+(testata registrata), per entrambi i sonetti, con esito identico. Le domande puntuali sulla grafia
+si confermano il modo piu' affidabile di far leggere una pagina: chiedere il dato, non il testo.
+
+**Pagina opera.** *Canzoniere* aveva gia' la sua voce in `data/opere.json` con la `scheda` scritta,
+ma non la pagina: il build la genera solo a **6 citazioni** (`SOGLIA_OPERA` in
+`prossimo_lotto.py`). Con questo turno la soglia e' raggiunta e
+`/opere/francesco-petrarca-canzoniere/` nasce piena, con tutte e sei le citazioni. **Nessuna
+modifica a `data/opere.json`**: la voce c'era gia'. Petrarca passa da 6 a 8 citazioni in tutto
+(quattro del Canzoniere piu' *Lettera ai posteri* e *Rime estravaganti*).
+
+**Raccolte** (voce 10 della lista di chiusura). Il CCCX e' entrato in *Fiori* (15→16, una delle
+otto raccolte piu' sottili) e in *Natura* (34→35): «e i fiori et l'erbe» e' letterale, non forzato.
+Il III e' entrato in *Occhi e sguardo* (29→30), per «ché i be' vostr'occhi, donna, mi legaro». Non
+e' stata toccata *Incipit memorabili*: sono attacchi di singoli componimenti dentro una raccolta, e
+mettercene due nello stesso turno l'avrebbe diluita. *Animali* scartata per il CCCX: Progne e
+Filomena sono rondine e usignolo, ma con i nomi mitologici nessun lettore li cerca li'.
+
+**Candidate lette e scartate.**
+1. *Erano i capei d'oro a l'aura sparsi* (XC), vv. 1-4, verificata su Treccani («Una poesia al
+   giorno», testo a cura di Gigi Cavalli) e trovata corretta: **scartata solo per la punteggiatura**
+   di chiusura (punto e virgola), non per dubbi sul testo. Resta pronta se un giorno si decide come
+   trattare le quartine che non chiudono con un punto.
+2. Edizione Mestica su `archive.org` (`lerimedifrancesc00petruoft`): non aperta. Il djvu.txt
+   dell'intero Canzoniere e' troppo lungo perche' il fetch lo restituisca intero, e il 26/09
+   archive.org aveva gia' risposto 429. Inutile spendere richieste li' quando esiste un PDF
+   editoriale che dichiara l'edizione critica.
+3. `intratext.com` (Canzoniere in edizione digitale): **ROBOTS_DISALLOWED**, non apribile da qui.
+   Annotato perche' non vale la pena ritentarlo nei turni futuri.
+4. La ricerca su `gutenberg.org/ebooks/search/` e' anch'essa **disallowed da robots.txt**: le
+   pagine `/cache/epub/<id>/...` restano apribili, ma l'ID va trovato con WebSearch. Anche questo
+   per i turni futuri.
+
+**Saggistica.** `prossimo_lotto.py` la dava al 17,6% (tetto 15%): il lotto e' tutto poesia, la
+quota scende meccanicamente.
+
+**Build.** `python3 tools/build.py` tre volte, exit 0, «**Problemi totali: 0**», «Nessun errore nei
+dati strutturati», 895/895 citazioni con blocco fonte, 895 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati. L'ultimo build ha rigenerato 0 immagini e **non ha
+cambiato nessun file** (`git --no-optional-locks status` identico prima e dopo). Controlli del §10:
+0 citazioni duplicate anche normalizzando, 0 contesti duplicati, i due `source_url` nuovi mai usati
+prima, nessuna citazione priva di locus fra quelle di oggi. Restano i debiti noti: 13 «fonti
+duplicate» e 73% di citazioni in raccolta.
+
+**PNG rigenerate in blocco, settima conferma.** Solito difetto di `generate_og_images.py`: 895
+rifatte al primo build, **883 riportate alla versione committata** con `git checkout --` dalla lista
+`^ M ` di `git --no-optional-locks status --porcelain assets/og/`, tenute solo le due nuove. Dopo il
+ripristino un altro build non le ha rigenerate (il `checkout` aggiorna la mtime). Le due PNG nuove
+sono state **guardate davvero**: 1200x630, Iowan Old Style, frase esatta su tre righe,
+attribuzione «FRANCESCO PETRARCA / Canzoniere · 1374», firma `SOTTOLINEATURE.IT` al posto giusto.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 7]`, nessun lock in `.git`
+prima ne' dopo, font presenti in `assets/fonts/`, permesso di cancellazione richiesto e concesso a
+inizio turno (decade a ogni riconnessione del bridge, come il 25 e il 27/09).
+`claude/turni-non-eseguiti.md` conteneva solo l'intestazione e la nota delle voci gia' trascritte:
+niente da riportare.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle meraviglie*
+(8 citazioni, 770 ricerche/mese), *Il grande Gatsby* (6, 290), *Cent'anni di solitudine* (6, 170),
+*Piccole donne* (6, 160), *Jane Eyre* (6, 120). Costa solo la `scheda` del §8-ter.
+
+Archivio: **895 citazioni**, 263 autori, 81 pagine opera, 33 raccolte.
