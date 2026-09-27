@@ -411,6 +411,17 @@ apposta. Il build non la inventa.
    e il dato finisce anche in `spokenByCharacter` dei dati strutturati. È la forma in cui la gente
    cerca davvero una battuta: prima il personaggio, poi l'autore.
 
+6-quinquies. **Citazioni in versi: una riga sola, inizio di verso in minuscola.** Il sito appiattisce
+   i versi su una riga — nessuna citazione in archivio contiene un a capo o una barra — e l'inizio di
+   verso si scrive **in minuscola**, con la maiuscola solo dove la richiede la punteggiatura, come
+   gia' fanno «A Silvia», «A Zacinto», «Alla sera» e «A se stesso». Le edizioni ottocentesche e
+   diverse trascrizioni online (Project Gutenberg, il sito di Casa Leopardi) mettono la maiuscola a
+   ogni verso: appiattita su una riga quella maiuscola sembra un refuso, mentre il verso resta
+   riconoscibile come verso grazie al `source_locus` («vv. 1-3»). E' l'**unica** normalizzazione
+   ammessa rispetto alla fonte: parole, accenti, apostrofi e punteggiatura restano intoccati, e in
+   `LOG.md` si annota che la fonte citata stampa la maiuscola, quando e' cosi'. Deciso dall'utente
+   il 2026-09-27, davanti al caso de «L'infinito».
+
 6-bis. **Guardare se la citazione appartiene a una raccolta esistente**, e in quel caso aggiungere
    la sua chiave in `quote_keys` dentro `data/raccolte.json`. Dieci secondi per citazione. È il
    passaggio che per due settimane non è esistito, ed è il motivo per cui il 2026-09-03 le

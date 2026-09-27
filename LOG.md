@@ -5256,3 +5256,74 @@ solitudine* (6, 170), *Piccole donne* (6, 160), *Jane Eyre* (6, 120). Costa solo
 §8-ter.
 
 Archivio: **892 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-27 ~10:30 UTC — Leopardi, «L'infinito» da 1 a 2 citazioni, e una regola nuova sui versi
+
+**Aggiunta, una sola.** *L'infinito* di Giacomo Leopardi (1819), vv. 1-3: «Sempre caro mi fu
+quest'ermo colle, e questa siepe, che da tanta parte dell'ultimo orizzonte il guardo esclude.»
+Tema *solitudine* («ermo colle» e' letteralmente il colle solitario, ed e' uno dei tre umori piu'
+magri del §10), genere *poesia*, nessuno `speaker` (voce del poeta, §6-quater), copertina gia' in
+archivio per quell'opera (`/assets/covers/8974564.jpg`), contesto di 68 parole. Leopardi passa da 4
+a 5 citazioni, *L'infinito* da 1 a 2. Entrata in due raccolte: *Incipit memorabili* (65→66: la
+raccolta accoglie gia' gli attacchi in versi, Pascoli «X Agosto» e il «Canto notturno» dello stesso
+Leopardi) e *Natura* (33→34).
+
+**Fonte.** `https://www.gutenberg.org/cache/epub/55236/pg55236-images.html`, *I Canti*, Project
+Gutenberg eBook 55236. Testo **non OCR** — trascrizione rivista da volontari — e quindi molto piu'
+affidabile dei `djvu.txt` usati nei turni scorsi. Letta **due volte con domande diverse**: i tre
+versi coincidono carattere per carattere, e l'ancora HTML della poesia (`id="XII"`) e' confermata.
+Riscontri indipendenti sulla *sola* ortografia: il sito di Casa Leopardi (`giacomoleopardi.it`) e un
+PDF scolastico (`catalfamo.edu.it`) — vedi qui sotto.
+
+**Regola nuova, decisa dall'utente: §6-quinquies del CATALOGO.** Aprendo questo lotto e' saltato
+fuori un bivio che il CATALOGO non copriva. Il sito appiattisce i versi su una riga sola (nessuna
+citazione in archivio contiene un a capo o una barra), ma le fonti si dividono: **Project Gutenberg
+e Casa Leopardi mettono la maiuscola a ogni inizio di verso** («…colle, E questa siepe, che da tanta
+parte Dell'ultimo orizzonte…»), le edizioni moderne e scolastiche la minuscola. Le quattro citazioni
+in versi gia' pubblicate — «A Silvia», «A Zacinto», «Alla sera», «A se stesso» — sono tutte in
+minuscola. Chiesto all'utente, che ha scelto **minuscola, come le altre**: e' ora scritto in
+`CATALOGO.md` come punto **6-quinquies**, ed e' l'unica normalizzazione ammessa rispetto alla fonte
+(parole, accenti, apostrofi e punteggiatura restano intoccati). Qui il caso concreto: la fonte
+citata stampa «E questa siepe» e «Dell'ultimo», il sito pubblica «e questa siepe» e «dell'ultimo».
+**Questo sblocca l'intero filone della poesia di pubblico dominio**, che finora si era fermato ogni
+volta su questo dubbio.
+
+**Candidate lette e scartate in questo turno.**
+1. *In morte del fratello Giovanni* di Foscolo (avrebbe portato l'autore da 4 a 5): **nessuna fonte
+   apribile di grado editoriale**. `deisepolcripoesi00foscuoft` va in Read timeout due volte,
+   `opereediteepostu03fosc` contiene solo prose, e `poesievarie00foscuoft` e' stato **rifiutato dal
+   proxy con HTTP 429** (limite di frequenza su archive.org), con l'istruzione di non ritentare
+   quella pagina. L'unico item con il testo dei sonetti e' `sonettiugofoscolo`, ma e' un caricamento
+   anonimo del 2000 senza editore: non e' «edizione originale» e non vale da solo. Da riprendere.
+2. Il *Canto notturno* (stesso file Gutenberg, poesia XXIII): il passo con «solitudine immensa» non
+   e' stato raggiunto, il fetch tronca il file prima. Riprovabile puntando direttamente all'ancora.
+3. *Vita* di Vittorio Alfieri, item `vitadivittorioal00alfi_0` (Sonzogno, Milano, 1878): la frase
+   piu' promettente — quella sul nascere nella classe dei nobili — e' tornata come «Il nascere della
+   classe dei nobili… senza la taccia d'invidioso e di vile… per poter poi», mentre il testo noto
+   suona «Il nascere io nella classe de' nobili… senza taccia d'invidioso o di vile… per potere
+   poi». **Tre divergenze in una frase sola: scartata**, §10 «nel dubbio si scarta». Non ritentata
+   per non spendere altre richieste su un host gia' limitato.
+
+**Sul metodo, terza conferma.** Il modello che legge le pagine ha sbagliato ancora: ha risposto a
+una richiesta di paragrafo con un paragrafo diverso, e ha *rifiutato* due volte di riportare tre
+versi di Leopardi adducendo il diritto d'autore su un'opera del 1819. **Aggirare il rifiuto
+chiedendo il dato e non il testo funziona**: invece di «trascrivi i versi», chiedere «il secondo
+verso comincia con la E maiuscola o minuscola?» ha avuto risposta subito, sia da Casa Leopardi sia
+dal PDF scolastico. Utile per verificare l'ortografia senza farsi trascrivere la poesia.
+
+**Build.** `python3 tools/build.py` due volte, exit 0, «**Problemi totali: 0**», «Nessun errore nei
+dati strutturati», 893/893 citazioni con blocco fonte, 893 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati. Il secondo build ha rigenerato 0 immagini e non ha
+cambiato file. Controlli del §10: 0 citazioni duplicate, 0 contesti duplicati, `source_url` nuovo
+mai usato prima, 4 citazioni senza locus (debito preesistente). Restano 13 «fonti duplicate» e 73%
+di citazioni in raccolta.
+
+**PNG rigenerate in blocco, sesta conferma.** 893 rifatte, 883 riportate alla versione committata
+con `git checkout --`, tenuta solo la nuova. Guardata davvero: 1200x630, frase esatta su due righe,
+attribuzione «GIACOMO LEOPARDI / L'infinito · 1819», firma al posto giusto.
+
+**Stato.** Albero pulito a inizio turno, `main [ahead 6]`, nessun lock in `.git` prima ne' dopo,
+font presenti, permesso di cancellazione richiesto e concesso (era decaduto con la riconnessione del
+bridge, come gia' successo il 25/09). `claude/turni-non-eseguiti.md` vuoto.
+
+Archivio: **893 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
