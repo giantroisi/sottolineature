@@ -5120,7 +5120,7 @@
     "quote": "Ricordandomi del falcon che mi domandate e della sua bontà, degno cibo da voi il reputai: e questa mattina arrostito l'avete avuto in sul tagliere.",
     "author": "Giovanni Boccaccio",
     "title": "Decameron",
-    "year": "1349",
+    "year": "1353",
     "context": "Sono le parole con cui Federigo degli Alberighi, impoverito da anni di generosità verso la donna amata, confessa a monna Giovanna di averle servito a pranzo l'unico bene che gli restava, il suo amato falcone, non sapendo che era venuta a chiedergli in dono proprio quello per guarire il figlio malato.",
     "cover": "/assets/covers/6073528.jpg",
     "category": "amore",
@@ -13599,5 +13599,37 @@
     "source_locus": "cap. II",
     "source_translator": "",
     "source_url": "https://www.rodoni.ch/busoni/bibliotechina/autoriinrete/deleELIAS.pdf"
+  },
+  {
+    "quote": "La virtú primieramente noi, che tutti nascemmo e nasciamo iguali, ne distinse; e quegli che di lei maggior parte avevano e adoperavano nobili furon detti, e il rimanente rimase non nobile.",
+    "author": "Giovanni Boccaccio",
+    "title": "Decameron",
+    "year": "1353",
+    "context": "Tancredi, principe di Salerno, ha scoperto la figlia Ghismonda, vedova e tornata a vivere nella casa paterna, con Guiscardo, un valletto di corte di nascita umilissima, e la chiama a renderne conto. Lei non risponde da «dolente femina»: rivendica la scelta fatta e ribalta l'accusa sul padre, sostenendo che la nobiltà non sta nel sangue ma in quello che ciascuno fa della propria vita. È il centro del suo discorso, il punto in cui smette di difendersi.",
+    "cover": "/assets/covers/6073528.jpg",
+    "category": "liberta",
+    "genre": "",
+    "added": "2026-09-28",
+    "source_edition": "edizione a cura di Vittore Branca, testo digitalizzato da Decameron Web (Brown University)",
+    "source_locus": "Giornata IV, novella I, § 40",
+    "source_translator": "",
+    "source_url": "https://cds.library.brown.edu/projects/Decameron/texts/DecShowText.php?myID=nov0401&lang=it",
+    "speaker": "Ghismonda"
+  },
+  {
+    "quote": "Ricciardo è gentile uomo e ricco giovane; noi non possiamo aver di lui altro che buon parentado: se egli si vorrà a buon concio da me partire, e' gli converrà che primieramente la sposi; sí ch'egli si troverà aver messo l'usignuolo nella gabbia sua e non nell'altrui.",
+    "author": "Giovanni Boccaccio",
+    "title": "Decameron",
+    "year": "1353",
+    "context": "Messer Lizio da Valbona, vecchio cavaliere di Romagna, ha ceduto alle insistenze della figlia Caterina, che dice di non dormire per il caldo, e le ha fatto preparare un lettuccio sul verone del giardino. All'alba scosta la sargia e la trova addormentata abbracciata a Ricciardo Manardi, il giovane di buona famiglia che frequenta la casa. Corre a svegliare la moglie, che vorrebbe gridare: lui la zittisce e fa il conto a mente.",
+    "cover": "/assets/covers/6073528.jpg",
+    "category": "vita",
+    "genre": "",
+    "added": "2026-09-28",
+    "source_edition": "edizione a cura di Vittore Branca, testo digitalizzato da Decameron Web (Brown University)",
+    "source_locus": "Giornata V, novella IV, § 38",
+    "source_translator": "",
+    "source_url": "https://cds.library.brown.edu/projects/Decameron/texts/DecShowText.php?myID=nov0504&lang=it",
+    "speaker": "messer Lizio da Valbona"
   }
 ]

@@ -5643,3 +5643,101 @@ solo la `scheda` del §8-ter. Resta aperto anche il disallineamento dell'anno su
 falcone nel *Decameron* (1349 contro 1353).
 
 Archivio: **897 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+---
+
+## 2026-09-28 ~19:05 UTC — Boccaccio, «Decameron»: Ghismonda sulla nobiltà e messer Lizio sull'usignuolo, da 4 a 6 citazioni
+
+**Aggiunte, due.** Entrambe dal *Decameron*, entrambe sull'edizione Branca digitalizzata da
+**Decameron Web (Brown University)**, che il turno del 27/09 aveva gia' verificato scaricabile.
+Copertina gia' in archivio per l'opera (`/assets/covers/6073528.jpg`), nessun genere, anno 1353
+come le altre.
+
+1. **IV, 1, § 40** — «La virtú primieramente noi, che tutti nascemmo e nasciamo iguali, ne
+   distinse; e quegli che di lei maggior parte avevano e adoperavano nobili furon detti, e il
+   rimanente rimase non nobile.» Tema *liberta* (§3-bis: «ingiustizia», «regole» — la frase smonta
+   la nobilta' di sangue), `speaker` **Ghismonda**, contesto di 77 parole.
+   `source_url`: `cds.library.brown.edu/.../DecShowText.php?myID=nov0401&lang=it`.
+2. **V, 4, § 38** — «Ricciardo è gentile uomo e ricco giovane; noi non possiamo aver di lui altro
+   che buon parentado: se egli si vorrà a buon concio da me partire, e' gli converrà che
+   primieramente la sposi; sí ch'egli si troverà aver messo l'usignuolo nella gabbia sua e non
+   nell'altrui.» Tema *vita* (non *amore*: il soggetto della frase e' il calcolo sociale di un
+   padre, non il sentimento), `speaker` **messer Lizio da Valbona**, contesto di 72 parole.
+   `source_url`: `...myID=nov0504&lang=it`. Nessun `source_url` duplicato: le fonti duplicate
+   restano 13.
+
+**Verifica, due trascrizioni integrali indipendenti per ciascuna.** Oltre a Decameron Web e'
+stato aperto il PDF **`www.filmod.unina.it/Dec.pdf`** dell'Universita' di Napoli Federico II,
+che contiene *proprio* Dec. IV 1, V 4 e V 9 nel testo Branca 1992. Le due trascrizioni coincidono
+carattere per carattere su entrambi i passi, punteggiatura compresa (punto e virgola dopo
+«distinse», due punti dopo «parentado», punto e virgola dopo «sposi»).
+
+**Due divergenze risolte, e come.** Entrambe confermano la regola del 27/09: la risposta puntuale
+e' inaffidabile, la trascrizione integrale lo e' meno, ma quando divergono decide il confronto fra
+fonti.
+- *IV 1:* Brown ha reso «La virtú» con accento **acuto**, Napoli con il grave, pur dichiarando la
+  stessa edizione e pur scrivendo «vertú» acuto nel periodo immediatamente precedente. Una domanda
+  mirata a Brown sulle prime quattro parole ha confermato l'acuto, coerente con «cosí», «piú»,
+  «vertú» resi acuti su tutta la pagina. **Pubblicato «virtú» acuto**, come gia' fanno in archivio
+  Tasso («piú», «sí») e Leopardi («beltá»).
+- *V 4:* la prima trascrizione integrale di Brown ha scritto «usignolo», Napoli «usignuolo». La
+  domanda mirata a Brown su quella sola parola ha risposto «usignuolo». **Pubblicato «usignuolo»**,
+  due fonti su due.
+
+**Correzione di un dato gia' pubblicato.** La citazione del falcone (V, 9) portava `year` **1349**
+mentre le altre quattro del *Decameron* portano **1353**: era il disallineamento segnalato come
+aperto il 26 e il 27/09. Portato a **1353** (`data/opere.json` continua a dichiarare, giustamente,
+l'arco di composizione «1349-1353»). La sua immagine OG e' stata **cancellata e rigenerata** perche'
+l'anno e' disegnato dentro l'immagine, ed e' stata guardata: ora dice «Decameron · 1353».
+
+**Candidate lette e scartate.**
+- **I, 3, § 16, i tre anelli** — «E cosí vi dico, signor mio, delle tre leggi alli tre popoli date
+  da Dio padre...». Verificata su Brown, ma il riscontro su una seconda fonte editoriale
+  (`sanoma.it`, Bruno Mondadori 2025) **non concorda**: «ciascun» contro «ciascuno», «ne pende la
+  quistion» contro «la quistione», «cosí» acuto contro «così» grave. Sono due edizioni diverse, non
+  un errore di lettura, e il passo e' lungo 280 caratteri — sopra la soglia entro cui il recupero
+  restituisce il testo in modo affidabile. **Resta pronta** per il turno in cui si apra una seconda
+  trascrizione dichiaratamente Branca della I giornata.
+- `classicitaliani.it`, `edscuola.it` e il mirror Liber Liber del Politecnico di Torino: tutti
+  `robots.txt fetch failed`. `it.wikisource.org` resta non scaricabile. **Nuova nota di metodo:** il
+  recupero delle pagine ha rifiutato piu' volte di trascrivere passi lunghi («vincolo di 125
+  caratteri»), pur avendo poi restituito periodi di 190 e 264 caratteri su richiesta mirata. Per il
+  *Decameron* conviene quindi chiedere **un periodo per volta**, non un paragrafo intero.
+
+**Raccolte** (voce 10). Ghismonda in *Donne* (32->33). Messer Lizio in *Figli* (23->24) e
+*Famiglia* (36->37). Valutata e **non** usata *Animali* (21) per la seconda: l'usignuolo c'e', ma
+come metafora, e chi apre quella raccolta cerca altro — stessa regola applicata a *Montagna* il
+27/09.
+
+**Pagina opera.** *Decameron* ha gia' la sua voce in `data/opere.json` e la sua pagina: il build ci
+ha agganciato da solo le due citazioni nuove, e l'opera passa da 4 a **6 citazioni**. Boccaccio
+passa da 4 a 6 righe. Ritratto dell'autore gia' in archivio.
+
+**Build.** `python3 tools/build.py` quattro volte, «**Problemi totali: 0**», «Nessun errore nei dati
+strutturati», 899/899 citazioni con blocco fonte, 899 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati, 0 hub sotto soglia. L'ultimo build ha rigenerato 0
+immagini e **non ha cambiato nessun file** (`git --no-optional-locks status` identico prima e dopo).
+Controlli: 0 doppioni normalizzando accenti e punteggiatura, chiavi di `quote_keys` verificate
+contro `quote_key()` di `generate_quote_pages.py` (sono le **prime sei** parole, non sette: al primo
+tentativo erano sbagliate e le raccolte non le avrebbero trovate). Debiti noti invariati: 13 fonti
+duplicate, 73% di citazioni in raccolta.
+
+**PNG rigenerate in blocco, decima conferma.** 899 rifatte al primo build, **883 riportate alla
+versione committata** con `git checkout --`; tenute le 2 nuove e, di proposito, la sola PNG del
+falcone, il cui contenuto e' davvero cambiato. Entrambe le nuove sono state **guardate**: 1200x630,
+Iowan Old Style, testo esatto, attribuzione «GIOVANNI BOCCACCIO / Decameron · 1353», firma al posto
+giusto.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 10]`, nessun lock in `.git`
+prima ne' dopo, font presenti in `assets/fonts/`, permesso di cancellazione richiesto e concesso a
+inizio turno (decade a ogni riconnessione del bridge, come dal 25/09).
+`claude/turni-non-eseguiti.md` conteneva solo l'intestazione: niente da trascrivere.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle
+meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*. Costa solo
+la `scheda` del §8-ter. Restano senza voce in `data/opere.json` anche *Alcyone* e *La locandiera*,
+le due opere di pubblico dominio italiano a 4 citazioni: portarle a 6 non farebbe nascere nessuna
+pagina senza prima la `scheda`.
+
+Archivio: **899 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
