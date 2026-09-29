@@ -5935,3 +5935,118 @@ inizio turno. `claude/turni-non-eseguiti.md` conteneva solo l'intestazione: nien
 meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*.
 
 Archivio: **903 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-29 ~12:20 UTC — Goldoni, «La locandiera» da 4 a 6 citazioni: la negazione di Mirandolina e la professione di fede del cavaliere
+
+**Lotto scelto.** `prossimo_lotto.py` segna la saggistica al **17,4%** (157 su 903), sopra il tetto
+del 15%: solo narrativa o poesia. Della prima priorita' — le opere a una o due citazioni dalla
+soglia di 6 — restano fuori, per il motivo gia' annotato il 29/09 alle 06:45, tutte quelle tradotte
+e in copyright sulla traduzione (*Il Signore degli Anelli*, *Il Profeta*, *Alla ricerca del tempo
+perduto*, *Foglie d'erba*, *Diario* di Anne Frank, *Il buio oltre la siepe*, *Il Maestro e
+Margherita*), e per il tetto della saggistica Marco Aurelio, Sant'Agostino, Epitteto e Boezio.
+Chiusa *Alcyone* stamattina, l'unica opera di pubblico dominio in lingua italiana rimasta a 4/6 era
+**La locandiera**: scelta quella, che arriva cosi' a **6 citazioni**. Goldoni passa da 6 a 8 righe.
+
+**Due citazioni aggiunte**, copertina `/assets/covers/2274635.jpg` gia' in uso per l'opera, genere
+vuoto come sulle altre quattro, `speaker` compilato su entrambe perche' il testo teatrale dice chi
+parla.
+
+1. **Mirandolina, atto III, scena VI** — «Io innamorata di un cameriere? Mi fa un bel complimento,
+   signore; non sono di sì cattivo gusto io.» Tema *liberta* (la battuta mette di mezzo la
+   differenza di condizione), contesto di 80 parole. `source_url`: il PDF di **Palumbo Editore**
+   (*La gelosia del Cavaliere*, scheda antologica su web-book),
+   `https://www.palumboeditore.it/portals/0/webooks/lcd/v2/T10_ON_LINE_v2.pdf`, che dichiara come
+   edizione di riferimento *C. Goldoni, Teatro, a cura di M. Pieri, Einaudi, Torino 1991*.
+2. **Il cavaliere di Ripafratta, atto I, scena IV** — «Non le ho mai amate, non le ho mai stimate, e
+   ho sempre creduto che sia la donna per l'uomo una infermità insopportabile.» Tema *amore*,
+   contesto di 79 parole. `source_url`: il PDF **Sanoma** *I testi della Locandiera* (atto I, scene
+   I-IX), `https://sanoma.it/hubfs/Se%20tu%20segui%20tua%20stella/Goldoni%20(1)%20(1).pdf?hsLang=it`,
+   che dichiara come edizione di riferimento *C. Goldoni, La locandiera, a cura di G. Davico Bonino,
+   Einaudi, Torino 1965*.
+
+**Verifica. Due fonti nuove di grado editoriale, da tenere per i turni futuri su Goldoni:** il
+**web-book di Palumbo Editore** (atto III, scena 6 per intero, su edizione Einaudi/Pieri 1991) e il
+**PDF di Sanoma** (atto I, scene I-IX, su edizione Einaudi/Davico Bonino 1965). Entrambi si aprono
+e si leggono per intero.
+- *Io innamorata di un cameriere*: **tre trascrizioni indipendenti concordano carattere per
+  carattere** — Palumbo, `bepi1949.altervista.org/biblio2/locandiera/atto-3.htm` (De Bibliotheca) e
+  il corso di italiano di `lingq.com` (atto III, scena VI). Nessuna divergenza, nemmeno di virgole.
+  Il taglio si chiude sul punto della prima frase della battuta, che prosegue con «Quando volessi
+  amare, non getterei il mio tempo sì malamente»: e' un confine di periodo vero, non una cucitura.
+- *Non le ho mai amate*: **due trascrizioni indipendenti concordano carattere per carattere** —
+  Sanoma e `bepi1949` atto-1. Anche qui il periodo e' intero, preceduto da «…abbia che dir con
+  nessuno.» e chiuso su «insopportabile.».
+- Le due `source_url` sono **nuove**, mai usate in archivio: fonti duplicate ferme a **13**.
+
+**Candidate lette e scartate, tutte per divergenza fra le fonti.**
+- **«Voglio burlarmi di tante caricature di amanti spasimati; e voglio usar tutta l'arte per
+  vincere, abbattere e conquassare quei cuori barbari e duri…»** (Mirandolina, atto I, scena IX),
+  la battuta piu' famosa della commedia: **cinque fonti, quattro letture diverse**. Sanoma stampa
+  «caricature **d'**amanti»; `bepi1949` e il blog di Luca Pirola su Medium «caricature **di**
+  amanti … duri **che** son nemici»; `lingq` «duri**,** che son nemici»; `teatropertutti.it`
+  «spasimati**:** … **questi** cuori … duri**,**». Non c'e' una lettura maggioritaria pulita:
+  scartata.
+- **«Un uomo che stamattina non poteva vedere le donne, oggi chiede amore e pietà? Non gli abbado,
+  non può essere, non gli credo.»** (Mirandolina, chiusa della scena VI): `bepi1949` e `lingq`
+  concordano fra loro, ma **Palumbo (Einaudi/Pieri) stampa «Un uomo, che stamattina non poteva
+  veder le donne, oggi chiede amore, e pietà?»** — tre virgole e una parola di differenza. Le due
+  fonti concordi sono probabilmente lo stesso testo digitale: non sono indipendenti davvero.
+  Scartata, ed e' un peccato perche' e' la chiusa della scena.
+- **«Questa è la prima volta ch'io provo che cosa sia amore.»** (il cavaliere, atto III, scena VI):
+  `bepi1949` e `lingq` senza virgola, **Palumbo con la virgola** («ch'io provo, che cosa sia
+  amore.»). Stessa situazione della precedente: scartata.
+- **`culturaesvago.com`**: e' un **adattamento** dichiarato, non il testo («Lo confesso. Sono
+  geloso. E la prima volta ch'io provo amore.»). Non e' una fonte utilizzabile per questa commedia.
+- Non scaricabili da qui, robots.txt in timeout: **`intratext.com`**, il **PDF di Liber Liber**
+  (`liberliber.eu`), **`letteratura-italiana.com`**, **`softwareparadiso.it`**, **`dankalia.com`**.
+  La scheda di `liberliber.it` si apre e dichiara l'edizione di riferimento (a cura di Giovanni
+  Antonucci, Newton, 1993) ma non serve il testo. `goldoni.letteraturaoperaomnia.org` si apre ma
+  **si ferma all'atto II, scena 12**. `it.wikisource.org` resta non scaricabile, come dal 25/09.
+
+**Raccolte** (voce 10). *Non le ho mai amate* in **Donne** (33->34): il soggetto della frase sono
+le donne e il posto che l'uomo assegna loro, che e' esattamente il tema della raccolta. Per *Io
+innamorata di un cameriere* **nessuna raccolta pertinente**: valutate e non usate *Donne* (la frase
+parla del gusto di chi la pronuncia e della condizione del cameriere, non delle donne), *Lavoro*
+(il cameriere e' un mestiere, ma il mestiere non e' il soggetto) e *Frasi brevi* (18 parole, non e'
+una frase breve). Resta fuori da tutte, come il 27% dell'archivio.
+
+**Pagina opera: non si apre, e non per distrazione.** *La locandiera* arriva a 6 citazioni ma
+**non compare in `data/keywords.json`** (controllato: zero occorrenze), e il §8-ter chiede il volume
+di ricerca come condizione per aprire una voce in `data/opere.json`. Stessa situazione di *Alcyone*
+stamattina. Resta il conteggio di **80 pagine opera**. Ritratto di Goldoni gia' in archivio.
+
+**Una correzione fatta durante il turno.** Il primo inserimento aveva `speaker` = «Cavaliere di
+Ripafratta», e l'H1 generato diceva *«la frase di Cavaliere di Ripafratta»*. Il template sa
+declinare gli `speaker` che cominciano con l'articolo («la frase **del** capitano Nemo»): cambiato
+in **«il cavaliere di Ripafratta»**, e l'H1 legge ora *«la frase del cavaliere di Ripafratta»*.
+Vale come promemoria: un `speaker` con titolo nobiliare o militare si scrive con l'articolo.
+
+**Build.** `python3 tools/build.py` quattro volte (due prima e due dopo la correzione dello
+`speaker`), «**Problemi totali: 0**», «Nessun errore nei dati strutturati», 905/905 citazioni con
+blocco fonte, 905 immagini OG attese e presenti, nessuna mancante, 0 title e 0 description
+duplicati, 0 hub sotto soglia. L'ultimo build ha rigenerato **0** immagini e **non ha cambiato
+nessun file** (`git --no-optional-locks status --porcelain` identico prima e dopo). Controlli fatti
+nello script d'inserimento: 0 doppioni normalizzando accenti e punteggiatura, 0 quasi-doppioni
+sulle prime otto parole, 0 contesti duplicati, `source_url` mai usati prima. Chiavi di `quote_keys`
+calcolate con `quote_key()` (prime **sei** parole). L'avviso «stesso locus su piu citazioni della
+stessa opera» non riguarda questo lotto: le due nuove stanno in atto III scena VI e atto I scena
+IV, e in archivio non c'era nessun'altra citazione con quei due luoghi.
+
+**PNG rigenerate in blocco, tredicesima conferma.** 884 rifatte al primo build e di nuovo dopo la
+correzione dello `speaker`, **882 riportate ogni volta alla versione committata** con
+`git checkout --` dalla lista `^ M ` di `git --no-optional-locks status --porcelain assets/og/`;
+tenute solo le 2 nuove, che sono state **guardate davvero**: 1200x630, Iowan Old Style, il testo
+esatto (compresi «sì» e «infermità»), attribuzioni «CARLO GOLDONI / La locandiera · 1753» su
+entrambe, firma `SOTTOLINEATURE.IT` al posto giusto. Le due PNG hanno la stessa dimensione in byte
+prima e dopo la rigenerazione (39279 e 43369): la correzione dello `speaker` non tocca l'immagine.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 13]`, **nessun lock in `.git`**
+prima ne' dopo, font presenti in `assets/fonts/`. Permesso di cancellazione chiesto e ottenuto a
+inizio turno. `claude/turni-non-eseguiti.md` conteneva solo l'intestazione: niente da trascrivere.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle
+meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*. Restano
+senza voce anche *Alcyone* e *La locandiera*, entrambe a 6 citazioni ma senza volume di ricerca.
+
+Archivio: **905 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
