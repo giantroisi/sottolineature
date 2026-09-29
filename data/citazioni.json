@@ -13631,5 +13631,37 @@
     "source_translator": "",
     "source_url": "https://cds.library.brown.edu/projects/Decameron/texts/DecShowText.php?myID=nov0504&lang=it",
     "speaker": "messer Lizio da Valbona"
+  },
+  {
+    "quote": "O natura, o natura, perchè non rendi poi quel che prometti allor? perchè di tanto inganni i figli tuoi?",
+    "author": "Giacomo Leopardi",
+    "title": "A Silvia",
+    "year": "1828",
+    "context": "Silvia è la ragazza che Leopardi sentiva cantare al lavoro nelle stanze di casa, identificata dai commentatori con Teresa Fattorini, figlia del cocchiere di famiglia, morta di tisi a ventun anni. Qui, a metà del canto, il poeta smette di rivolgersi a lei e si volta contro la natura per chiamarla in giudizio: la giovinezza aveva promesso molto a entrambi, e né la vita di lei né la sua hanno avuto ciò che attendevano.",
+    "cover": "/assets/covers/8974564.jpg",
+    "category": "tempo",
+    "genre": "poesia",
+    "added": "2026-09-29",
+    "source_edition": "",
+    "source_translator": "",
+    "source_locus": "vv. 36-39",
+    "source_url": "https://www.giacomoleopardi.it/en/canti-en/xxi-a-silvia/",
+    "speaker": ""
+  },
+  {
+    "quote": "Nasce l'uomo a fatica, ed è rischio di morte il nascimento.",
+    "author": "Giacomo Leopardi",
+    "title": "Canto notturno di un pastore errante dell'Asia",
+    "year": "1829",
+    "context": "Nel canto un pastore dell'Asia centrale, sveglio di notte con il gregge, rivolge alla luna domande a cui nessuno risponde. Dopo aver confrontato la propria fatica con il moto sempre uguale dell'astro, allarga lo sguardo dalla giornata di un uomo all'intera esistenza umana e ne ripercorre le tappe partendo dal primo istante. Leopardi, che non lasciò mai l'Italia, trovò lo spunto del pastore asiatico in una pagina francese su un viaggio in Asia centrale.",
+    "cover": "/assets/covers/10730009.jpg",
+    "category": "vita",
+    "genre": "poesia",
+    "added": "2026-09-29",
+    "source_edition": "",
+    "source_translator": "",
+    "source_locus": "vv. 39-40",
+    "source_url": "https://www.giacomoleopardi.it/en/canti-en/xxiii-canto-notturno-di-un-pastore-errante-dellasia/",
+    "speaker": ""
   }
 ]

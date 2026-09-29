@@ -5741,3 +5741,101 @@ le due opere di pubblico dominio italiano a 4 citazioni: portarle a 6 non farebb
 pagina senza prima la `scheda`.
 
 Archivio: **899 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+---
+
+## 2026-09-29 ~06:45 UTC — Leopardi: «A Silvia» e il «Canto notturno», l'autore da 5 a 7 citazioni
+
+**Aggiunte, due.** Entrambe di **Giacomo Leopardi**, su due opere gia' in archivio, entrambe
+verificate sul sito di **Casa Leopardi** (Recanati), fonte di grado editoriale mai usata prima in
+archivio (nessun `source_url` duplicato: le fonti duplicate restano 13). Copertine copiate dalle
+citazioni gia' presenti delle stesse opere, genere `poesia`, nessun `speaker` (§6-quater: la voce
+e' quella del poeta; per il *Canto notturno* il pastore non si deduce dal titolo).
+
+1. **«A Silvia», vv. 36-39** — «O natura, o natura, perchè non rendi poi quel che prometti allor?
+   perchè di tanto inganni i figli tuoi?» Tema *tempo* (la giovinezza promessa e non mantenuta,
+   non *verita*: l'inganno qui e' quello delle speranze, non della conoscenza), contesto di 74
+   parole. `source_url`:
+   `https://www.giacomoleopardi.it/en/canti-en/xxi-a-silvia/`.
+2. **«Canto notturno di un pastore errante dell'Asia», vv. 39-40** — «Nasce l'uomo a fatica, ed è
+   rischio di morte il nascimento.» Tema *vita*, contesto di 74 parole. `source_url`:
+   `https://www.giacomoleopardi.it/en/canti-en/xxiii-canto-notturno-di-un-pastore-errante-dellasia/`.
+
+**Verifica, e una divergenza risolta.** Per *A Silvia* quattro trascrizioni aperte davvero:
+Casa Leopardi, `perlaretorica.it` (che numera i versi: 36-39), `libriantichionline.com` e
+`studenti.it`. Concordano carattere per carattere su virgole, sui due punti interrogativi e sulla
+posizione delle pause — **ma non sull'accento di «perche»**: Casa Leopardi stampa «Perchè» grave,
+le altre tre modernizzano in «perché» acuto. **Pubblicato «perchè» grave**, cioe' la grafia della
+fonte piu' autorevole e quella d'epoca, coerente con l'altra citazione di *A Silvia* gia' in
+archivio, che conserva «beltá» e «gioventú», e con i due precedenti di archivio (Verga,
+*I Malavoglia*; Voltaire, *Candido*). La scelta e' annotata qui apposta: se un domani si preferisse
+uniformare alla grafia moderna, e' una decisione di norma editoriale, non la correzione di un
+refuso.
+Per il *Canto notturno* tre fonti aperte e concordi: Casa Leopardi, `atuttascuola.it` e
+`studenti.it`; `atuttarte.it` ha dato la numerazione (v. 39 apre la terza strofa).
+**§6-quinquies applicato a entrambe:** Casa Leopardi stampa la maiuscola a ogni inizio di verso
+(«Perchè», «Quel», «Inganni», «Ed»), qui abbassata perche' il sito appiattisce i versi su una riga.
+Parole, accenti, apostrofi e punteggiatura restano intoccati.
+
+**`source_edition` lasciato vuoto** su entrambe: la pagina di Casa Leopardi non dichiara l'edizione
+di riferimento, e le opere non sono tradotte (§8, voce 4, non si applica). Meglio il campo vuoto di
+un'edizione affermata e non verificata. Resta la piccola incoerenza con le altre citazioni delle
+stesse opere, che dichiarano «Canti, edizione Napoli 1835» o «1828»: non e' un dato falso, e'
+un dato in piu' che qui non si e' potuto accertare sulla fonte aperta.
+
+**Candidate lette e scartate.**
+- **Project Gutenberg, eBook 55236** (*I Canti*), la fonte usata il 27/09 per *L'infinito*: il
+  recupero della pagina **si ferma a meta' del canto XIX** («Al conte Carlo Pepoli») e non arriva
+  ne' a *A Silvia* (XXI) ne' al *Canto notturno* (XXIII). Non e' un blocco del dominio, e' la
+  dimensione della pagina: per i Canti oltre il XIX serve un'altra fonte. **Nota di metodo** per i
+  turni futuri.
+- **`cinquepassi.org`** e la prima richiesta a **Casa Leopardi** su *A Silvia*: il recupero ha
+  rifiutato di trascrivere i versi dicendoli «protetti da copyright». Leopardi e' morto nel 1837:
+  riformulando la domanda e dichiarando il pubblico dominio, Casa Leopardi ha risposto. **Seconda
+  nota di metodo:** un rifiuto per copyright su un autore ottocentesco non e' un motivo per
+  scartare la fonte, e' un motivo per riformulare.
+- `it.wikisource.org` resta non scaricabile, come dal 25/09.
+- Prima priorita' di `prossimo_lotto.py` **non perseguibile oggi**: le tre opere a 5/6 con pagina
+  propria (*Il Signore degli Anelli*, *Il Profeta*, *Alla ricerca del tempo perduto*) sono tutte
+  tradotte e in copyright sulla traduzione, e chiuderle avrebbe richiesto traduttore ed edizione
+  accertati. Scelta quindi la seconda priorita' — un autore fermo a 3-5 righe — preferendo un
+  classico italiano di pubblico dominio.
+
+**Raccolte** (voce 10). *A Silvia* in **Tristezza** (31->32) e in **Natura** (36->37): la natura
+qui non e' una metafora, e' il soggetto grammaticale della frase e l'interlocutore accusato, quindi
+chi apre quella raccolta trova cio' che cerca — al contrario dell'usignuolo del 28/09. Il *Canto
+notturno* in **La morte** (44->45). Valutata e **non** usata *Filosofia* per nessuna delle due: la
+sua introduzione la riserva esplicitamente alle «opere di filosofia in senso proprio, non pensieri
+di chi la filosofia l'ha solo vissuta» altrove. Valutata e non usata *Figli* per la seconda: la
+frase riguarda il nascere, non il legame fra genitori e figli.
+
+**Pagina opera.** Nessuna delle due opere ha voce in `data/opere.json` e nessuna la guadagna:
+restano rispettivamente a 2 e 2 citazioni. **Leopardi passa da 5 a 7 righe.** Ritratto dell'autore
+gia' in archivio.
+
+**Build.** `python3 tools/build.py` tre volte, «**Problemi totali: 0**», «Nessun errore nei dati
+strutturati», 901/901 citazioni con blocco fonte, 901 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati, 0 hub sotto soglia. Il terzo build ha rigenerato 0
+immagini e **non ha cambiato nessun file** (`git --no-optional-locks status` identico prima e
+dopo). Controlli: 0 doppioni normalizzando accenti e punteggiatura, 0 contesti duplicati,
+`source_url` mai usati prima, chiavi di `quote_keys` calcolate con `quote_key()` (prime **sei**
+parole). Debiti noti invariati: 13 fonti duplicate, 73% di citazioni in raccolta.
+
+**PNG rigenerate in blocco, undicesima conferma.** 884 rifatte al primo build, **882 riportate alla
+versione committata** con `git checkout --` dalla lista `^ M ` di
+`git --no-optional-locks status --porcelain assets/og/`; tenute solo le 2 nuove, che sono state
+**guardate davvero**: 1200x630, Iowan Old Style, il testo esatto (compreso «perchè» grave),
+attribuzioni «GIACOMO LEOPARDI / A Silvia · 1828» e «GIACOMO LEOPARDI / Canto notturno di un
+pastore errante dell'Asia · 1829», firma `SOTTOLINEATURE.IT` al posto giusto.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 11]`, nessun lock in `.git`
+prima ne' dopo, font presenti in `assets/fonts/`. Permesso di cancellazione **chiesto due volte**:
+il bridge e' caduto a meta' turno e il permesso e' decaduto con lui, come gia' notato il 25/09.
+`claude/turni-non-eseguiti.md` conteneva solo l'intestazione: niente da trascrivere.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle
+meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*. Restano
+senza voce in `data/opere.json` anche *Alcyone* e *La locandiera*, a 4 citazioni ciascuna.
+
+Archivio: **901 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
