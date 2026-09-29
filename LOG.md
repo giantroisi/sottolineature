@@ -5839,3 +5839,99 @@ meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Ja
 senza voce in `data/opere.json` anche *Alcyone* e *La locandiera*, a 4 citazioni ciascuna.
 
 Archivio: **901 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-29 ~07:15 UTC — D'Annunzio, «Alcyone» da 4 a 6 citazioni: la chiusa di «Meriggio» e l'incipit de «Le stirpi canore»
+
+**Lotto scelto.** `prossimo_lotto.py` segna la saggistica al **17,4%** (157 su 901), sopra il tetto
+del 15%: solo narrativa o poesia. Della prima priorita' — le opere a una o due citazioni dalla
+soglia di 6 — restano fuori per il motivo gia' annotato il 29/09 alle 06:45 tutte quelle tradotte e
+in copyright sulla traduzione (*Il Signore degli Anelli*, *Il Profeta*, *Alla ricerca del tempo
+perduto*, *Foglie d'erba*, *Diario* di Anne Frank, *Il buio oltre la siepe*, *Il Maestro e
+Margherita*), e per il tetto della saggistica Marco Aurelio, Sant'Agostino, Epitteto e Boezio. Fra
+le opere di pubblico dominio in lingua italiana a 4/6 restavano **Alcyone** e **La locandiera**:
+scelta *Alcyone*, che arriva cosi' a **6 citazioni**.
+
+**Due citazioni aggiunte**, entrambe `poesia`, copertina `/assets/covers/14866041.jpg` gia' in uso
+per l'opera, nessuno `speaker` (§6-quater: e' la voce del poeta).
+
+1. **«Meriggio», chiusa della lirica** — «Non ho più nome né sorte tra gli uomini; ma il mio nome è
+   Meriggio. In tutto io vivo tacito come la Morte. E la mia vita è divina.» Tema *vita*, contesto
+   di 83 parole. `source_url`: `https://ccdc.it/documento/meriggio-di-gabriele-dannunzio/`.
+2. **«Le stirpi canore», vv. 1-6** — «I miei carmi son prole delle foreste, altri dell'onde, altri
+   delle arene, altri del Sole, altri del vento Argeste.» Tema *verita*, contesto di 86 parole.
+   `source_url`: il PDF di *Alcyone* del **Centro Studi Dannunziani** di Pescara,
+   `https://www.centrostudidannunziani.it/files/download/io%20leggo%20da%20casa/libro%20Alcyone.pdf`.
+
+**Verifica. Una fonte nuova che vale la pena tenere:** il **PDF integrale di *Alcyone*** pubblicato
+dal Centro Studi Dannunziani di Pescara (prefazione di Edoardo Tiboni, Fondazione Tiboni, settembre
+2010) **si apre e si legge per intero** — indice delle liriche compreso. E' la fonte migliore
+trovata finora per questa raccolta e va usata per prima nei turni futuri su D'Annunzio.
+- *Meriggio*: il passo e' stato fatto trascrivere alla lettera dal PDF (dall'occorrenza di «Non ho
+  più nome» fino alla fine della lirica) e confrontato con due pagine indipendenti che riportano la
+  lirica con apparato critico: **`ccdc.it`** (Cooperativa Cattolico-democratica di Cultura, testo
+  integrale con lettura di Arnaldo Di Benedetto) e **`atuttascuola.it`**. Le tre trascrizioni
+  concordano carattere per carattere. Pubblicato `ccdc.it` come `source_url` perche' il PDF e' gia'
+  usato dall'altra citazione del lotto e il punto 8, controllo 7, vieta la stessa fonte su due
+  citazioni diverse.
+- *Le stirpi canore*: quattro fonti aperte. Il PDF del Centro Studi da' l'incipit «I MIEI carmi son
+  prole delle foreste, ...» (maiuscoletto tipografico d'incipit); **`atuttascuola.it/le-stirpi-canore/`**
+  e **`quadriepoesie.wordpress.com`** danno «le radici terrene»; il **Grande Dizionario della Lingua
+  Italiana** (`gdli.it`, voce *carmi*, rimando «d'annunzio, ii-624») conferma la **divisione dei
+  versi**, «i miei carmi son prole / delle foreste,», da cui il `source_locus` **vv. 1-6**.
+- **§6-quinquies applicato a entrambe.** Versi appiattiti su una riga. Il PDF stampa l'incipit in
+  maiuscoletto («I MIEI»), qui reso «I miei»: e' l'unica normalizzazione, parole, accenti,
+  apostrofi e punteggiatura restano intoccati. Nella chiusa di *Meriggio* l'ultimo verso («E la mia
+  vita è divina.») e' separato dai precedenti da uno stacco di strofa: **e' contiguo**, non e' una
+  frase cucita da due periodi lontani, e senza di esso il passo perderebbe il suo punto d'arrivo.
+- `source_edition` lasciato a **«1903»** su entrambe, come gia' sulle quattro citazioni di *Alcyone*
+  in archivio: e' l'anno della prima edizione, non un dato nuovo affermato senza prova.
+
+**Candidate lette e scartate.**
+- **`atuttascuola.it/alcyone-39/`** per *Le stirpi canore*: stampa «come **la** radici terrene»,
+  refuso evidente smentito dalle altre tre fonti. Non usata come `source_url`.
+- **`la-poesia.it`**: `robots.txt` in timeout, pagina non scaricabile.
+- **`poesie.reportonline.it`**: testo giusto ma con spazi spuri prima della punteggiatura
+  («i firmamenti ,» «i cristalli .»). Scartata come fonte.
+- Versi 7-12 de *Le stirpi canore* («Le mie parole sono profonde come le radici terrene...»):
+  **non pubblicati** perche' le fonti divergono sulla punteggiatura dopo «confusi» (virgola,
+  punto e virgola o niente) e perche' il taglio si sarebbe chiuso su una virgola.
+- `it.wikisource.org` resta non scaricabile, come dal 25/09.
+
+**Raccolte** (voce 10). *Meriggio* in **Natura** (37->38): qui la natura non e' uno sfondo, e' cio'
+in cui l'io si dissolve — fiume, monte, selva, nube sono predicati nominali della frase. *Le stirpi
+canore* in **Libri e scrittura** (53->54) e in **Arte** (16->17, raccolta sottile): la frase dice
+da dove vengono i versi, ed e' una dichiarazione di poetica. Valutata e **non** usata *Musica* (la
+piu' sottile, 14) per la seconda: «carmi» sono poesie, non musica, e l'introduzione della raccolta
+chiede che la musica sia «il soggetto vero della citazione». Valutata e non usata *Mare* per la
+seconda: le onde sono uno dei cinque termini di un elenco, non il soggetto.
+
+**Pagina opera: non si apre, e non per distrazione.** *Alcyone* arriva a 6 citazioni ma **non
+compare in `data/keywords.json`** (controllato: zero occorrenze), e il §8-ter chiede il volume di
+ricerca come condizione per aprire una voce in `data/opere.json`. Stessa cosa per *La locandiera*.
+Resta quindi il conteggio di 80 pagine opera. **D'Annunzio passa da 7 a 9 righe.** Ritratto
+dell'autore gia' in archivio.
+
+**Build.** `python3 tools/build.py` tre volte, «**Problemi totali: 0**», «Nessun errore nei dati
+strutturati», 903/903 citazioni con blocco fonte, 903 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati, 0 hub sotto soglia. Il terzo build ha rigenerato **0**
+immagini e **non ha cambiato nessun file** (`git --no-optional-locks status --porcelain` identico
+prima e dopo). Controlli fatti nello script d'inserimento: 0 doppioni normalizzando accenti e
+punteggiatura, 0 quasi-doppioni sulle prime otto parole, 0 contesti duplicati, `source_url` mai
+usati prima (fonti duplicate ferme a **13**, invariate). Chiavi di `quote_keys` calcolate con
+`quote_key()` (prime **sei** parole).
+
+**PNG rigenerate in blocco, dodicesima conferma.** 884 rifatte al primo build, **882 riportate alla
+versione committata** con `git checkout --` dalla lista `^ M ` di
+`git --no-optional-locks status --porcelain assets/og/`; tenute solo le 2 nuove, che sono state
+**guardate davvero**: 1200x630, Iowan Old Style, il testo esatto, attribuzioni «GABRIELE D'ANNUNZIO
+/ Alcyone · 1903» su entrambe, firma `SOTTOLINEATURE.IT` al posto giusto.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 12]`, **nessun lock in `.git`**
+prima ne' dopo, font presenti in `assets/fonts/`. Permesso di cancellazione chiesto e ottenuto a
+inizio turno. `claude/turni-non-eseguiti.md` conteneva solo l'intestazione: niente da trascrivere.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle
+meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*.
+
+Archivio: **903 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
