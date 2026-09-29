@@ -6050,3 +6050,124 @@ meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Ja
 senza voce anche *Alcyone* e *La locandiera*, entrambe a 6 citazioni ma senza volume di ricerca.
 
 Archivio: **905 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-29 ~17:00 UTC — Foscolo, «Ultime lettere di Jacopo Ortis» da 1 a 3 citazioni: l'esilio rifiutato e l'uomo della sola ragione
+
+**Perche' Foscolo.** `prossimo_lotto.py` dava la saggistica al 17,3% (tetto 15%), quindi solo
+narrativa o poesia. Le tre opere a 5 citazioni — *Il Signore degli Anelli*, *Il Profeta*, *Alla
+ricerca del tempo perduto* — sono tutte tradotte e con traduzione ancora sotto copyright: per
+arrivare a 6 servirebbe una fonte che pubblichi il testo **italiano** alla lettera, e nessuna si e'
+aperta (vedi scartate). Dagli autori fermi a 3-5 righe e' uscito **Ugo Foscolo (4)**, italiano,
+pubblico dominio, con l'*Ortis* fermo a **1 sola citazione** e il testo integrale davvero
+scaricabile. Foscolo passa da 4 a 6 citazioni, l'*Ortis* da 1 a 3.
+
+**Le due citazioni aggiunte.**
+- **«Merita poi questa vita di essere conservata con la viltà, e con l'esilio?»** — Parte prima,
+  lettera del 13 ottobre 1797, tema *coraggio*. Verificata sul **testo integrale Liber Liber
+  ospitato dall'Universita' di Napoli Federico II**
+  (`docenti.unina.it/webdocenti-be/allegati/materiale-didattico/34484176`, edizione di riferimento
+  dichiarata nel colophon: *Ultime lettere di Jacopo Ortis*, ed. integrale a cura di Cesare
+  Milanese, Tascabili Economici Newton, Roma, 1993), da cui ho fatto trascrivere **l'intera lettera
+  del 13 Ottobre**, non il solo frammento. Ricontrollata su
+  `libriantichionline.com/.../foscolo_ultime_lettere_di_jacopo_ortis_13_ottobre_1797`, che riporta
+  l'intestazione completa «Da' Colli Euganei, 13 Ottobre 1797» e la frase con **la stessa
+  punteggiatura**, virgola prima di «e con l'esilio» compresa. `source_url` = la pagina unina.
+- **«Cos'è l'uomo se tu lo abbandoni alla sola ragione fredda, calcolatrice? scellerato, e
+  scellerato bassamente.»** — Parte prima, lettera del 1 novembre 1797, tema *verita*. Trascritta
+  per intero dalla stessa lettera sul testo Liber Liber/unina, poi ricontrollata su **due pagine
+  indipendenti**: `libriantichionline.com/.../foscolo_ultime_lettere_di_jacopo_ortis_1_novembre_1797`
+  (intestazione «Da' Colli Euganei, 1 Novembre 1797») e il saggio di Giovanni Ghiselli su
+  `giovannighiselli.blogspot.com`. Tutte e tre stampano **«scellerato» in minuscola** dopo il punto
+  interrogativo: e' il dettaglio che poteva far saltare la citazione e invece regge. `source_url` =
+  la pagina libriantichionline della lettera del 1 novembre, cosi' le due citazioni non condividono
+  la stessa fonte (punto 7 dei controlli).
+
+Nessun `speaker` su nessuna delle due: il romanzo e' tutto in prima persona nelle lettere di
+Jacopo, e la citazione gia' in archivio dell'11 ottobre 1797 segue la stessa scelta.
+
+**Candidate lette e scartate.**
+- **«O illusioni! e chi non ha patria, come può dire lascierò qua o là le mie ceneri?»** — la frase
+  regge, ma la **data della lettera non e' risultata stabile**: alla prima interrogazione del testo
+  la fonte l'ha collocata al 20 Novembre, alla seconda al 12 Novembre. Senza un `source_locus`
+  certo non si pubblica (voce 3 della lista di chiusura). Da riprendere con una trascrizione della
+  lettera intera, come fatto per le altre due.
+- **Terza citazione dall'*Ortis***: scartata di proposito. Le due prese sono gia' molto vicine di
+  tono a quella dell'11 ottobre 1797 gia' in archivio; una terza sulla patria avrebbe reso l'opera
+  monocorde.
+- **Proust, *Alla ricerca del tempo perduto* (5/6, con volume di ricerca)**: cercato il testo
+  **italiano** di una frase celebre («i veri paradisi sono i paradisi che abbiamo perduto») con
+  traduttore ed edizione accertabili — nessuna fonte di grado editoriale aperta lo riporta. Le
+  cinque citazioni gia' in archivio vengono tutte da Wikiquote, che da solo non basta. Rimandata.
+- **Tolkien, *Il Signore degli Anelli* (5/6)** e **Gibran, *Il Profeta* (5/6)**: stesso muro, testo
+  italiano sotto copyright di traduzione. Non tentate oltre la prima ricerca.
+- **Deledda, *Elias Portolu* (3 citazioni)**: candidata seria, testo scaricabile (il PDF
+  `rodoni.ch` gia' usato il 27/09), ma l'opera **non compare in `data/keywords.json`**, quindi
+  anche arrivando a 6 non aprirebbe la pagina opera (§8-ter). Lasciata per un turno in cui la
+  priorita' sia diversa.
+
+**Fonti che non si aprono, da qui** (aggiornamento all'elenco): `it.wikisource.org` resta
+cache-only; **`it.wikiquote.org` oggi ha risposto cache-only** su `/wiki/Ugo_Foscolo` pur avendo
+risposto poco prima su `/wiki/Khalil_Gibran` — comportamento intermittente, non darlo per
+acquisito. Non scaricabili: `classicitaliani.it`, `interbooks.eu`, `aforismicitazioni.it`,
+`writingshome.com` (robots.txt in timeout), `archive.org/stream/..._djvu.txt` (read timeout).
+**Funziona bene**: `docenti.unina.it` per gli allegati didattici in PDF (testi Liber Liber
+completi, con colophon ed edizione di riferimento) e `libriantichionline.com`, che dell'*Ortis* ha
+**una pagina per ogni lettera con la data completa nell'intestazione** — utilissimo proprio per il
+`source_locus`.
+
+**Raccolte** (voce 10). *Merita poi questa vita* in **Frasi brevi** (178->179): 13 parole, sotto il
+tetto di fatto della raccolta (il massimo in archivio era 15). Per *Cos'è l'uomo* **nessuna
+raccolta**: 16 parole, troppe per *Frasi brevi*; valutata e scartata **Filosofia**, la cui
+introduzione dice esplicitamente «opere di filosofia in senso proprio, non pensieri di chi la
+filosofia l'ha solo vissuta nei romanzi»; valutate e scartate anche **Guerra** e **Casa** per
+*Merita poi questa vita* — la frase nasce da Campoformio e parla di esilio, ma il soggetto e' la
+dignita' della vita, non la guerra ne' la casa perduta. Archivio in raccolta: 664/907 = 73%.
+
+**Un errore fatto e corretto dentro il turno.** La chiave di `quote_keys` l'avevo scritta con
+**sette** parole («…di essere conservata») invece di sei: `quote_key()` prende le prime **sei**
+(`' '.join(q['quote'].split()[:6])`). Il build l'ha segnalato subito — «ATTENZIONE: chiavi non
+trovate per raccolta frasi-brevi» — e il conteggio delle citazioni in raccolta era rimasto fermo a
+663. Corretta in «Ugo Foscolo|Ultime lettere di Jacopo Ortis|Merita poi questa vita di essere» e
+risalito a 664. Promemoria: quell'avviso sta **in cima** al rapporto di build, non in fondo, e
+guardando solo la coda non si vede.
+
+**Pagina opera: non si apre.** L'*Ortis* arriva a 3 citazioni, sotto la soglia di 6, e non compare
+in `data/keywords.json` (controllato: zero occorrenze per «Ortis»; «Foscolo» c'e', il titolo no).
+Restano **80 pagine opera**. Ritratto di Foscolo gia' in archivio, copertina dell'opera ripresa
+dalla citazione gia' presente (`/assets/covers/14107070.jpg`), come vuole il §8-bis.
+
+**Build.** `python3 tools/build.py` quattro volte, «**Problemi totali: 0**», «Nessun errore nei
+dati strutturati», 907/907 citazioni con blocco fonte, 907 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati, 0 hub sotto soglia, 13 fonti duplicate (invariate: i
+due `source_url` nuovi non erano mai stati usati). L'ultimo build ha rigenerato **0** immagini e
+**non ha cambiato nessun file** (`git --no-optional-locks status --porcelain` identico prima e
+dopo). Controlli fatti nello script d'inserimento prima di scrivere: 0 doppioni normalizzando
+accenti e punteggiatura, 0 quasi-doppioni sulle prime otto parole, 0 contesti duplicati,
+`source_url` mai usati prima, i due `source_url` diversi fra loro. Contesti di **82** e **88**
+parole (§6-ter: 60-90). L'avviso «stesso locus su piu citazioni della stessa opera» non riguarda
+questo lotto: le due lettere sono il 13 ottobre e il 1 novembre 1797, e l'unica altra citazione
+dall'*Ortis* sta all'11 ottobre 1797.
+
+**PNG rigenerate in blocco, quattordicesima conferma.** 884 rifatte al primo build, **882
+riportate alla versione committata** con `git checkout --` dalla lista `^ M ` di
+`git --no-optional-locks status --porcelain assets/og/`; tenute solo le 2 nuove, che sono state
+**guardate davvero**: 1200x630, Iowan Old Style, testo esatto (compresi «viltà», «Cos'è» e
+«scellerato» minuscolo), attribuzione «UGO FOSCOLO / Ultime lettere di Jacopo Ortis · 1802» su
+entrambe, firma `SOTTOLINEATURE.IT` al posto giusto. 33109 e 38764 byte.
+
+**Un difetto dell'ambiente, non degli script.** `python3 tools/build.py > /tmp/build2.txt` fallisce
+con «Permission denied» sulla VM (in `/tmp` non si scrive), **ma un file `/tmp/build2.txt` vecchio
+di una sessione precedente esiste ancora**: il `grep` successivo legge quello e restituisce numeri
+di un'altra giornata (901 citazioni invece di 907). Preso per buono sarebbe stato un falso
+positivo. Redirigere sempre in `$HOME`, mai in `/tmp`.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 14]`, **nessun lock in `.git`**
+prima ne' dopo, font presenti in `assets/fonts/`. Permesso di cancellazione chiesto e ottenuto a
+inizio turno. `claude/turni-non-eseguiti.md` conteneva solo l'intestazione: niente da trascrivere.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle
+meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*. Restano
+senza voce anche *Alcyone* e *La locandiera*, entrambe a 6 citazioni ma senza volume di ricerca.
+
+Archivio: **907 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
