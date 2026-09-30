@@ -6171,3 +6171,87 @@ meraviglie*, *Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Ja
 senza voce anche *Alcyone* e *La locandiera*, entrambe a 6 citazioni ma senza volume di ricerca.
 
 Archivio: **907 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+## 2026-09-30, 16:10 UTC — Alfieri, *Saul*: «Vinto re non piange»
+
+**Aggiunta una citazione sola.** `Vinto re non piange.` di **Vittorio Alfieri**, dal *Saul* (1789),
+**atto V, scena IV**, `speaker` Saul, tema **coraggio**, nessun genere, nessuna copertina (il campo
+`cover` e' vuoto anche sull'altra citazione dal *Saul* gia' in archivio: la tragedia non ha
+un'edizione con copertina in archivio e il segnaposto e' la risposta giusta, §8-bis). Alfieri passa
+da **4 a 5 citazioni** — era fra gli autori fermi a 3-5 segnalati da `prossimo_lotto.py`; il *Saul*
+passa da 1 a 2 e resta ben sotto la soglia di 6, nessuna pagina opera si apre.
+
+**Fonte.** `https://moodle2.units.it/pluginfile.php/358270/mod_folder/content/0/ALFIERI-SAUL.pdf?forcedownload=1`
+— PDF dell'e-text Liber Liber del *Saul* ospitato dal Moodle dell'**Universita' di Trieste**,
+**aperto davvero** con WebFetch (`it.wikisource.org`, che e' la fonte delle due citazioni alfieriane
+gia' in archivio, da una sessione programmata resta non scaricabile). Il colophon dichiara l'edizione
+di riferimento: *«Saul ; Filippo : tragedie»*, Biblioteca universale, Sonzogno, Milano, 1926 —
+riportata in `source_edition`. Testo di pubblico dominio (Alfieri, 1803), quindi non si applica
+l'asticella piu' alta prevista per gli autori sotto copyright; **controfirma comunque presa** su una
+seconda pagina indipendente (`poesie.reportonline.it`, «Delirio e morte di Saul»), che riporta la
+stessa frase.
+
+**Perche' la citazione e' esattamente quattro parole, e non di piu'.** Le due fonti **divergono sulla
+punteggiatura della battuta precedente**: l'e-text Sonzogno/Liber Liber legge «Non far ch'io pianga.
+Vinto re non piange.», `poesie.reportonline.it` legge «Oh figlia! . . . Or, taci: non far, ch'io
+pianga. Vinto re non piange.». Varianti d'edizione, non errori — ma il punto 1 della lista di
+chiusura chiede il testo esatto, e l'unico segmento **identico carattere per carattere in entrambe**
+e' «Vinto re non piange.». Tagliata li', senza inventare una punteggiatura di compromesso. Il
+`source_locus` «atto V, scena IV» e' confermato dal titolo della pagina corrispondente su Wikisource
+(*Saul/Atto quinto/Scena IV*), letto nei risultati di ricerca: il PDF, interrogato due volte, aveva
+risposto una volta «scena V» e una volta «scena IV», e senza la controprova non si sarebbe pubblicato.
+
+**Contesto** (82 parole, §6-ter): Abner porta a Saul la notizia della battaglia perduta e dei figli
+caduti; al re resta accanto solo Micol, che lui ordina di far fuggire facendola riconoscere come
+moglie di David e non come figlia sua. Niente sul finale della tragedia, come vuole il punto 6.
+
+**Candidate lette e scartate.**
+- *Il mestiere di vivere* di **Pavese** (autore a 4, PD dal 2021): scartato **a monte** perche' in
+  archivio e' taggato `saggistica`, e `prossimo_lotto.py` da' la saggistica al **17,3%** contro un
+  tetto del 15% — questo turno poteva prendere solo narrativa o poesia.
+- *La bella estate* e *La luna e i falo'* di **Pavese**: su `liberliber.it` le pagine d'opera
+  mostrano **solo l'incipit** piu' i link di download, e l'endpoint `liberliber.it/opere/download/?op=…`
+  restituisce una pagina di rimando a `liberliber.eu`, non il testo. L'incipit disponibile e'
+  **gia' in archivio** per entrambe. Nessuna frase nuova verificabile: lasciate li'.
+- **Alfieri, *Saul*, atto II scena III** (David a Saul): il PDF ha restituito «Nella reggia del mio
+  **pieno** signore / A me disdice ogni arme…» — lettura sospetta (quasi certamente un guasto di OCR
+  o una svista del riassuntore), e comunque quattro versi che da soli non stanno in piedi. Scartata.
+- **Alfieri, *Saul*, atto II scena I** (Saul sulla propria vecchiaia): a due interrogazioni il PDF ha
+  restituito frammenti diversi e ricuciti fra loro («Quand'io con fermo / Braccio…», «Ahi lasso me!»),
+  senza un periodo chiuso di cui fidarsi. Scartata: non si pubblica un testo che la fonte non ha
+  consegnato intero.
+- Non toccate le opere a 5/6 citazioni (**Tolkien**, *Il Signore degli Anelli*; **Gibran**, *Il
+  Profeta*; **Proust**, *Alla ricerca del tempo perduto*), che con una riga avrebbero guadagnato la
+  pagina propria: sono tutte **tradotte**, e il punto 4 della lista di chiusura chiede traduttore,
+  edizione e pagina di **quella** traduzione su una fonte davvero aperta. Restano il lavoro piu'
+  utile del prossimo turno, ma con una fonte editoriale italiana in mano.
+
+**Raccolte** (voce 10). *Vinto re non piange* in **Guerra** (18->19) — battaglia perduta, i figli
+caduti, la dignita' del re sconfitto: la raccolta e' fra le piu' sottili e la frase le appartiene
+davvero — e in **Frasi brevi** (179->180): quattro parole, il testo piu' corto della raccolta.
+Archivio in raccolta: 665/908 = 73%.
+
+**Build.** `python3 tools/build.py` due volte, «**Problemi totali: 0**», «Nessun errore nei dati
+strutturati», 908/908 citazioni con blocco fonte, 908 immagini OG attese e presenti, nessuna
+mancante, 0 title e 0 description duplicati, 0 hub sotto soglia, 13 fonti duplicate (invariate).
+Il secondo build ha rigenerato **0** immagini e **non ha cambiato nessun file** (`git
+--no-optional-locks status --porcelain` identico prima e dopo). Controlli fatti prima di scrivere:
+nessun doppione normalizzando accenti e punteggiatura, nessun contesto identico, `source_url` mai
+usato prima, locus non gia' presente sul *Saul* (l'altra citazione sta all'atto I, scena IV).
+
+**PNG rigenerate in blocco, quindicesima conferma.** 883 rifatte al primo build, **882 riportate
+alla versione committata** con `git checkout --` dalla lista `^ M ` di `git --no-optional-locks
+status --porcelain assets/og/`; tenuta solo la nuova, **guardata davvero**: 1200x630, 19364 byte,
+Iowan Old Style, testo esatto «Vinto re non piange.», attribuzione «VITTORIO ALFIERI / Saul · 1789»,
+firma `SOTTOLINEATURE.IT` al posto giusto.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 15]`, **nessun lock in `.git`**
+prima ne' dopo, font presenti in `assets/fonts/`. Permesso di cancellazione chiesto e ottenuto a
+inizio turno. `claude/turni-non-eseguiti.md` conteneva solo l'intestazione: niente da trascrivere.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle meraviglie*,
+*Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*. Restano senza voce anche
+*Alcyone* e *La locandiera*, entrambe a 6 citazioni ma senza volume di ricerca.
+
+Archivio: **908 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
