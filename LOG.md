@@ -6255,3 +6255,125 @@ inizio turno. `claude/turni-non-eseguiti.md` conteneva solo l'intestazione: nien
 *Alcyone* e *La locandiera*, entrambe a 6 citazioni ma senza volume di ricerca.
 
 Archivio: **908 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+---
+
+## 2026-10-01, ~06:45 UTC — Pavese: La luna e i falo' da 1 a 3 citazioni, autore da 4 a 6
+
+Turno orario partito il 30/09 alle 15:59 UTC e ripreso il 01/10 dopo una lunga interruzione del
+bridge verso il Mac (il server `remote-devices` e' caduto due volte durante il turno). La data in
+`added` e' quella dell'inserimento effettivo, **2026-10-01**.
+
+**Che cosa e' stato aggiunto.** Due citazioni dal **capitolo I** de *La luna e i falo'* di **Cesare
+Pavese** (1950), opera e autore gia' in archivio, copertina `/assets/covers/8019310.jpg` copiata
+dalla citazione esistente come vuole il punto 8-bis. L'opera passa da 1 a 3 citazioni, l'autore da
+4 a 6: era il secondo bersaglio di `prossimo_lotto.py` (autori fermi a 3-5 righe). Nessuna delle
+opere a 4-5 citazioni e' stata toccata, per il motivo spiegato in fondo.
+
+1. «**Un paese vuol dire non essere soli, sapere che nella gente, nelle piante, nella terra c'e'
+   qualcosa di tuo, che anche quando non ci sei resta ad aspettarti.**» — tema `solitudine`.
+2. «**Ho girato abbastanza il mondo da sapere che tutte le carni sono buone e si equivalgono, ma e'
+   per questo che uno si stanca e cerca di mettere radici, di farsi terra e paese, perche' la sua
+   carne valga e duri qualcosa di piu' che un comune giro di stagione.**» — tema `vita`.
+
+**Perche' Pavese si poteva prendere.** Morto il 27/08/1950, **di pubblico dominio in Italia dal
+1&deg; gennaio 2021**: vale l'asticella ordinaria, non quella piu' alta degli autori sotto
+copyright. *Il mestiere di vivere* resta comunque fuori portata perche' in archivio e' taggato
+`saggistica` e `prossimo_lotto.py` da' la saggistica al 17,3% contro un tetto del 15%.
+
+**Verifica della prima frase: quattro pagine indipendenti, tutte aperte con WebFetch.**
+`library.weschool.com` (la lezione sul primo capitolo, usata come `source_url`),
+`skuola.net`, `gianfrancofranchi.com` e un blog su `substack.com` riportano **la stessa identica
+lettura**, virgola per virgola. **Una quinta pagina, `illibraio.it`, e' l'eccezione**: legge «nella
+terra, c'e' qualcosa di tuo», con una virgola in piu' dopo «terra». E' una testata riconosciuta e
+sarebbe stata la fonte di grado piu' alto, ma quattro pagine contro una fissano il testo senza
+quella virgola, e il punto 5 vuole che `source_url` sia una pagina in cui la frase sta **come
+pubblicata**: percio' la fonte dichiarata e' `weschool`, non `illibraio`.
+
+**Verifica della seconda frase: due pagine indipendenti.** Il PDF della **prova d'italiano
+dell'Esame di Stato 2001** (tipologia A, analisi del testo) ospitato dal **Liceo "E. De Amicis" di
+Cuneo** — interrogato due volte, stessa trascrizione integrale tutte e due le volte, usato come
+`source_url` — e un e-text completo del romanzo su `jimcontent.com`. `weschool` conferma la prima
+meta' della frase ma la tronca con i puntini, quindi vale come riscontro parziale, non come seconda
+fonte piena. **Unica divergenza fra le due fonti piene: il diacritico di «piu'»**, acuto nell'e-text
+(«piú», uso tipografico Einaudi) e grave nel PDF d'esame («più»). Pubblicata la forma con l'accento
+grave, che e' quella del PDF indicato in `source_url` e l'ortografia usata da tutto il resto
+dell'archivio. Non e' una variante testuale: e' una convenzione di stampa.
+
+**Contesti** (76 e 68 parole, dentro la forbice 60-90 del §6-ter). Nessuno dei due ripete il
+contesto gia' pubblicato per «Un paese ci vuole…», nessuno dei due parafrasa la frase e nessuno dei
+due dice come va a finire il romanzo: si fermano a chi parla (Anguilla), da dove torna e che cosa
+sta cercando di spiegarsi in quelle pagine. `speaker` lasciato vuoto: parla il narratore, e il
+§6-quater vuole il campo vuoto in quel caso.
+
+**Candidate lette e scartate.**
+- **Gibran, *Il Profeta*** (opera a 5/6, con una riga avrebbe avuto la pagina propria): su
+  `it.wikiquote.org` — pagina **aperta davvero**, quindi il problema non e' l'accesso — le citazioni
+  da *Il profeta* **non hanno l'apparato bibliografico** che il punto 4 della lista di chiusura
+  chiede per le opere tradotte. «La vostra sofferenza e' il rompersi del guscio…» e' li' senza
+  traduttore, editore ne' pagina; la citazione sulla mela («E quando addentate una mela…») ha
+  **una nota, ma rimanda a un libro di dietetica** (Villarini-Allegro, *Prevenire i tumori mangiando
+  con gusto*, Sperling & Kupfer 2010, p. 239), non a un'edizione de *Il profeta*: inservibile.
+  Scartate entrambe.
+- **Alfieri, *Mirra*** (autore a 5, ipotesi iniziale del turno): il testo e' **verificabile** — il
+  PDF su `web.seducoahuila.gob.mx` e la pagina `alfieri.letteraturaoperaomnia.org` concordano, e
+  quest'ultima restituisce alla lettera la citazione gia' in archivio (atto I, scena I), il che la
+  qualifica come fonte. Ma le battute di *Mirra* sono **verso spezzato e pieno di puntini di
+  sospensione** («Quand'io... tel... chiesi,... darmi... allora,... Euricléa, dovevi il ferro...»):
+  nessun periodo chiuso e autosufficiente da pubblicare. Lasciata li'.
+- **Pavese, *Verra' la morte e avra' i tuoi occhi***, secondo verso dalla stessa poesia: non
+  verificato. `italian-poetry.org`, la fonte piu' seria fra quelle trovate, risponde
+  `ROBOTS_DISALLOWED`; restavano solo blog. Non si e' insistito: la frase non si pubblica senza
+  fonte aperta.
+- **Le opere a 5/6 citazioni tradotte** (Tolkien, Proust) restano intoccate per il motivo gia'
+  scritto il 30/09: serve un'edizione italiana con traduttore e pagina su una fonte apribile.
+
+**Raccolte** (voce 10). Tutte e due in **Casa** (16->18), la quarta raccolta piu' sottile: sono le
+due frasi del romanzo che dicono che cos'e' un paese quando ci si torna. *Ho girato abbastanza il
+mondo* apparterrebbe anche a **Viaggio e cammino**, ma quella raccolta e' gia' a 40 e il punto
+chiede di preferire le sottili. Archivio in raccolta: 667/910 = 73%.
+
+**Build.** `python3 tools/build.py` tre volte: «**Problemi totali: 0**», «Nessun errore nei dati
+strutturati», 910/910 citazioni con blocco fonte, 910 immagini OG attese e presenti, **nessuna
+mancante**, 0 title e 0 description duplicati, 0 hub sotto soglia, 14 fonti duplicate. L'ultimo
+build ha rigenerato **0** immagini e **non ha cambiato nessun file** (`git --no-optional-locks
+status --porcelain` identico prima e dopo). Controlli fatti prima di scrivere: nessun doppione
+normalizzando accenti e punteggiatura, nessun contesto identico, `source_url` mai usati prima.
+
+**Avviso «stesso locus» del build, verificato a mano.** Le tre citazioni de *La luna e i falo'*
+portano tutte `capitolo I`. **E' corretto**: stanno davvero tutte nel primo capitolo, come le tre
+di *Romeo e Giulietta* all'atto II scena II gia' in archivio. Nessuna correzione.
+
+**PNG rigenerate in blocco, sedicesima conferma.** 882 rifatte al build, **882 riportate alla
+versione committata** con `git checkout --` (a lotti di 200 con `xargs -n 200`, dalla lista `^ M `
+di `git --no-optional-locks status --porcelain assets/og/`); tenute solo le due nuove,
+**guardate davvero**: 1200x630 entrambe, 48693 e 59295 byte, Iowan Old Style, testo esatto,
+attribuzione «CESARE PAVESE / La luna e i falò · 1950», firma `SOTTOLINEATURE.IT` al posto giusto.
+
+**Il permesso di cancellazione e' decaduto a meta' turno.** Chiesto e ottenuto all'inizio, e'
+andato perso quando il server `remote-devices` si e' disconnesso e riconnesso: il primo
+`git checkout --` e' fallito con 882 «unable to unlink old … Operation not permitted». **E' bastato
+richiederlo** e il comando e' andato a buon fine. Da ricordare: dopo una caduta del bridge il
+permesso va richiesto di nuovo, non e' un difetto di git. In alternativa, senza permesso,
+`git cat-file blob HEAD:<path> > <path>` riscrive il file **senza unlink** e avrebbe funzionato lo
+stesso.
+
+**Discrepanza su `[ahead N]`, annotata e non risolta.** Alla prima lettura del turno
+`git --no-optional-locks status -sb` ha detto `[ahead 15]`, mentre `LOG.md` conteneva gia' il
+paragrafo del turno Alfieri e `git log` mostrava il commit `f8e3123d` in testa: alla rilettura,
+dopo la riconnessione del bridge, diceva `[ahead 16]`. Albero pulito e nessun lock in entrambi i
+casi, 908 citazioni e nessuna aggiunta con `added` successivo al 30/09: **nessuna sessione
+parallela**, quasi certamente una lettura stantia dell'indice attraverso il mount. Non ha
+conseguenze, ma se si ripete vale la pena guardarci.
+
+**Stato del repository.** Albero pulito a inizio turno, `main [ahead 16]` prima del commit di oggi,
+nessun lock in `.git` prima ne' dopo, font presenti in `assets/fonts/` (`Iowan Old Style.ttc`,
+`Arial.ttf`, `Georgia.ttf`). `claude/turni-non-eseguiti.md` conteneva solo l'intestazione e la nota
+sulle voci gia' trascritte: niente da riportare.
+
+**Resta aperto, invariato:** cinque opere hanno gia' 6+ citazioni **e** volume di ricerca in
+`data/keywords.json` ma non hanno la voce in `data/opere.json` — *Alice nel paese delle meraviglie*,
+*Il grande Gatsby*, *Cent'anni di solitudine*, *Piccole donne*, *Jane Eyre*. Restano senza voce anche
+*Alcyone* e *La locandiera*, entrambe a 6 citazioni ma senza volume di ricerca.
+
+Archivio: **910 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
