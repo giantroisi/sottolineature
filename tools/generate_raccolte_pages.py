@@ -21,6 +21,7 @@ from labels import grafo_con_breadcrumb  # noqa: E402
 RACCOLTE_PATH = os.path.join(ROOT, 'data', 'raccolte.json')
 OUT_DIR = os.path.join(ROOT, 'raccolte')
 MIN_QUOTES = 8
+PAGE_SIZE = 30
 
 PAGE_TEMPLATE = """<!DOCTYPE html>
 <html lang="it">
@@ -47,6 +48,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
+{link_rel_extra}
 <script type="application/ld+json">{jsonld}</script>
 <script>
   try {{
@@ -80,19 +82,19 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </header>
 <script src="/assets/nav.js" defer></script>
 <div class="page">
-<div class="page-main" role="main">
+<main class="page-main">
   <nav class="breadcrumb sans" aria-label="Percorso">
-    <a href="/">Sottolineature</a> › <a href="/raccolte/">Raccolte</a> › <span aria-current="page">{title}</span>
+    {breadcrumb_html}
   </nav>
   <p class="eyebrow sans">Una raccolta</p>
   <h1>{h1}</h1>
-  <p class="count sans">{count} citazion{count_suffix} scelte a mano</p>
+  <p class="count sans">{count_line}</p>
   <div class="hub-intro">{intro_html}</div>
   {h2_lista}
   {cards_html}
-  </div>
+  </main>
   <footer class="sans">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>. <a href="/note-legali/" style="color:var(--ink-faint)">Note legali</a>. <a href="/affiliazioni/" style="color:var(--ink-faint)">Affiliazioni</a>.</span>
   </footer>
 </div>
 <script>
@@ -150,29 +152,69 @@ def build_raccolta_map(entries, raccolte):
     return by_key
 
 
-def render_raccolta(r, items):
-    count = len(items)
-    count_suffix = 'i' if count != 1 else 'e'
-    cards_html = '\n  '.join(card_html(s, q) for s, q in items)
+def raccolta_href(slug, page_num):
+    return '/raccolte/' + slug + '/' if page_num == 1 else '/raccolte/' + slug + '/' + str(page_num) + '/'
+
+
+def pagination_link(slug, page_num, current):
+    cls = ' class="is-current" aria-current="page"' if page_num == current else ''
+    return '<a href="' + raccolta_href(slug, page_num) + '"' + cls + '>' + str(page_num) + '</a>'
+
+
+def build_pagination_html(slug, page_num, num_pages):
+    """Pagina 1 collega tutte le parti; le successive usano una finestra corta."""
+    if num_pages <= 1:
+        return ''
+    parts = []
+    if page_num > 1:
+        parts.append('<a href="' + raccolta_href(slug, page_num - 1) + '">← Pagina precedente</a>')
+    if page_num == 1:
+        parts.extend(pagination_link(slug, p, page_num) for p in range(1, num_pages + 1))
+    else:
+        shown = sorted({1, 2, num_pages - 1, num_pages, page_num - 1, page_num, page_num + 1} &
+                       set(range(1, num_pages + 1)))
+        last = None
+        for p in shown:
+            if last is not None and p - last > 1:
+                parts.append('<span class="pagination-ellipsis" aria-hidden="true">…</span>')
+            parts.append(pagination_link(slug, p, page_num))
+            last = p
+    if page_num < num_pages:
+        parts.append('<a href="' + raccolta_href(slug, page_num + 1) + '">Pagina successiva →</a>')
+    return '<nav class="hub-nav sans" aria-label="Paginazione della raccolta">' + ''.join(parts) + '</nav>'
+
+
+def render_raccolta(r, page_items, total, page_num, num_pages):
+    count_suffix = 'i' if total != 1 else 'e'
+    cards_html = '\n  '.join(card_html(s, q) for s, q in page_items)
     title_esc = html.escape(r['title'])
     h1 = r['h1']
     intro_html = ''.join('<p>' + html.escape(p) + '</p>' for p in r['intro'])
     # 155 caratteri: oltre, Google taglia e la coda non la legge nessuno
     description = (
-        str(count) + ' citazion' + count_suffix + ' scelt' + ('a' if count == 1 else 'e') +
+        str(total) + ' citazion' + count_suffix + ' scelt' + ('a' if total == 1 else 'e') +
         ' a mano — ' + r['intro'][0]
     )
+    if page_num > 1:
+        authors = []
+        for _, q in page_items:
+            if q['author'] not in authors:
+                authors.append(q['author'])
+        description = (r['title'] + ', pagina ' + str(page_num) + ' di ' + str(num_pages) +
+                       ': citazioni da ' + authors[0] + ' a ' + authors[-1] + '.')
     if len(description) > 155:
         description = description[:154].rsplit(' ', 1)[0] + '…'
-    canonical = SITE_URL + '/raccolte/' + r['slug'] + '/'
-    title_tag = h1 + ' | Sottolineature'
+    href = raccolta_href(r['slug'], page_num)
+    canonical = SITE_URL + href
+    title_tag = h1 + ('' if page_num == 1 else ' — pagina ' + str(page_num)) + ' | Sottolineature'
     og_image = SITE_URL + '/og-banner.png'
 
     item_list = {
         '@type': 'ItemList',
         'itemListElement': [
-            {'@type': 'ListItem', 'position': i + 1, 'url': SITE_URL + '/citazioni/' + s + '/'}
-            for i, (s, _) in enumerate(items)
+            {'@type': 'ListItem', 'position': (page_num - 1) * PAGE_SIZE + i + 1,
+             'url': SITE_URL + '/citazioni/' + s + '/'}
+            for i, (s, _) in enumerate(page_items)
         ],
     }
     jsonld = grafo_con_breadcrumb({
@@ -183,24 +225,47 @@ def render_raccolta(r, items):
         'description': description,
         'isPartOf': {'@type': 'WebSite', '@id': SITE_URL + '/#website'},
         'mainEntity': item_list,
-    }, canonical, SITE_URL, foglia=r['title'])
+    }, canonical, SITE_URL, foglia=r['title'], pagina=page_num if page_num > 1 else None)
+
+    link_rel_extra = ''
+    if page_num > 1:
+        link_rel_extra += '<link rel="prev" href="' + SITE_URL + raccolta_href(r['slug'], page_num - 1) + '">\n'
+    if page_num < num_pages:
+        link_rel_extra += '<link rel="next" href="' + SITE_URL + raccolta_href(r['slug'], page_num + 1) + '">\n'
+
+    if page_num == 1:
+        intro_for_page = intro_html
+        breadcrumb_html = ('<a href="/">Sottolineature</a> › <a href="/raccolte/">Raccolte</a> '
+                           '› <span aria-current="page">' + title_esc + '</span>')
+    else:
+        intro_for_page = ('<p>Continua la selezione <a href="/raccolte/' + r['slug'] + '/">' +
+                          title_esc + '</a>, curata a mano.</p>')
+        breadcrumb_html = ('<a href="/">Sottolineature</a> › <a href="/raccolte/">Raccolte</a> '
+                           '› <a href="/raccolte/' + r['slug'] + '/">' + title_esc + '</a> '
+                           '› <span aria-current="page">Pagina ' + str(page_num) + '</span>')
+
+    start = (page_num - 1) * PAGE_SIZE + 1
+    end = start + len(page_items) - 1
+    pagination_html = build_pagination_html(r['slug'], page_num, num_pages)
 
     return PAGE_TEMPLATE.format(
         title_tag=html.escape(title_tag),
         description=html.escape(description),
         canonical=canonical,
+        link_rel_extra=link_rel_extra,
         og_image=og_image,
         jsonld=jsonld,
-        title=title_esc,
-        h1=html.escape(h1),
-        count=count,
-        count_suffix=count_suffix,
-        intro_html=intro_html,
+        breadcrumb_html=breadcrumb_html,
+        h1=html.escape(h1 + ('' if page_num == 1 else ' — pagina ' + str(page_num))),
+        count_line=(str(total) + ' citazion' + count_suffix + ' scelte a mano · pagina ' +
+                    str(page_num) + ' di ' + str(num_pages)),
+        intro_html=intro_for_page,
         # Le 34 raccolte non avevano nessun H2: il titolo, l'introduzione e
         # poi le schede, senza un'intestazione che dicesse dove comincia
         # l'elenco. «Righe» e non «citazioni», che sta gia' nell'H1.
-        h2_lista='<h2 class="lista-h2 sans">Le righe di questa raccolta</h2>',
-        cards_html=cards_html,
+        h2_lista=('<h2 class="lista-h2 sans">Righe ' + str(start) + '–' + str(end) +
+                  ' di ' + str(total) + '</h2>'),
+        cards_html=cards_html + pagination_html,
     )
 
 
@@ -210,9 +275,8 @@ def main(entries):
     by_key = {quote_key(q): (s, q) for s, q in entries}
 
     os.makedirs(OUT_DIR, exist_ok=True)
-    existing = set(os.listdir(OUT_DIR)) if os.path.isdir(OUT_DIR) else set()
-
     raccolta_status = {}
+    generated_files = set()
     for r in raccolte:
         items = [by_key[k] for k in r['quote_keys'] if k in by_key]
         missing = [k for k in r['quote_keys'] if k not in by_key]
@@ -221,28 +285,45 @@ def main(entries):
         if len(items) < MIN_QUOTES:
             print('ATTENZIONE: raccolta', r['slug'], 'sotto la soglia di', MIN_QUOTES, 'citazioni - non pubblicata')
             continue
-        page = render_raccolta(r, items)
-        with open(os.path.join(OUT_DIR, r['slug'] + '.html'), 'w', encoding='utf-8') as f:
-            f.write(page)
+        chunks = [items[i:i + PAGE_SIZE] for i in range(0, len(items), PAGE_SIZE)]
+        for page_num, page_items in enumerate(chunks, 1):
+            page = render_raccolta(r, page_items, len(items), page_num, len(chunks))
+            relpath = (r['slug'] + '.html' if page_num == 1 else
+                       os.path.join(r['slug'], str(page_num), 'index.html'))
+            output_path = os.path.join(OUT_DIR, relpath)
+            os.makedirs(os.path.dirname(output_path), exist_ok=True)
+            with open(output_path, 'w', encoding='utf-8') as f:
+                f.write(page)
+            generated_files.add(relpath)
         raccolta_status[r['slug']] = len(items)
 
-    generated_files = set(slug + '.html' for slug in raccolta_status)
     # index.html della cartella e' l'indice, lo scrive generate_index_pages:
     # non e' una pagina orfana
-    stale = existing - generated_files - {'index.html'}
     removed = []
-    for fname in stale:
-        if not fname.endswith('.html'):
-            continue
-        try:
-            os.remove(os.path.join(OUT_DIR, fname))
-            removed.append(fname)
-        except OSError as err:
-            print('Attenzione: non ho potuto rimuovere', fname, '-', err)
+    for dirpath, dirnames, filenames in os.walk(OUT_DIR, topdown=False):
+        for fname in filenames:
+            if not fname.endswith('.html'):
+                continue
+            path = os.path.join(dirpath, fname)
+            relpath = os.path.relpath(path, OUT_DIR)
+            if relpath == 'index.html' or relpath in generated_files:
+                continue
+            try:
+                os.remove(path)
+                removed.append(relpath)
+            except OSError as err:
+                print('Attenzione: non ho potuto rimuovere', relpath, '-', err)
+        for dirname in dirnames:
+            path = os.path.join(dirpath, dirname)
+            try:
+                os.rmdir(path)
+            except OSError:
+                pass
     if removed:
         print('Rimosse pagine raccolta obsolete:', len(removed))
 
-    print('Pagine raccolta generate:', len(raccolta_status), '/', len(raccolte))
+    print('Raccolte generate:', len(raccolta_status), '/', len(raccolte),
+          'in', len(generated_files), 'pagine')
     return raccolta_status
 
 

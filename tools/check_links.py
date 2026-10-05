@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
-"""Controllo di integrita' del sito generato: link interni, canonical, title e
-descrizioni duplicate, pagine orfane, coerenza con la sitemap.
+"""Controllo strutturale del sito generato.
+
+Verifica link interni, metadati, landmark, gerarchia dei titoli, immagini,
+breadcrumb/dati strutturati attesi, pagine orfane e coerenza bidirezionale con
+la sitemap. Eseguito direttamente (``python3 tools/check_links.py``) esce con
+codice 1 sugli errori reali; ``build.py`` lo richiama in modalita' diagnostica,
+cosi' un controllo euristico non rende fragile la generazione del sito.
 
 Nasce dopo il 2026-08-30, quando si e' scoperto che 35 link su 353 puntavano a
 una 404: un errore in un generatore si moltiplica per centinaia di pagine e non
@@ -14,16 +19,28 @@ import json
 import os
 import re
 import sys
+import xml.etree.ElementTree as ET
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {'.git', '.vercel', '.netlify', 'node_modules', 'archivio', 'tools',
              'templates', '__pycache__', '.claude', 'assets'}
 
 HREF = re.compile(r'(?:href|src)="([^"]+)"')
+ANCHOR_HREF = re.compile(r'<a\b[^>]*href="([^"]+)"', re.I)
 TITLE = re.compile(r'<title>(.*?)</title>', re.S)
 DESC = re.compile(r'<meta name="description" content="(.*?)"', re.S)
 CANON = re.compile(r'<link rel="canonical" href="([^"]+)"')
 ROBOTS = re.compile(r'<meta name="robots" content="([^"]+)"')
+H1 = re.compile(r'<h1\b', re.I)
+MAIN = re.compile(r'<main\b', re.I)
+ROLE_MAIN = re.compile(r'\brole=["\']main["\']', re.I)
+HEADING = re.compile(r'<h([1-6])\b', re.I)
+IMAGE = re.compile(r'<img\b([^>]*)>', re.I | re.S)
+JSONLD = re.compile(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', re.I | re.S)
+VISIBLE_BREADCRUMB = re.compile(r'<nav\b[^>]*class=["\'][^"\']*\bbreadcrumb\b', re.I)
+
+SITE_URL = 'https://sottolineature.it'
+SITEMAP_NS = 'http://www.sitemaps.org/schemas/sitemap/0.9'
 
 # Autori che scrivono/scrivevano in italiano: per le loro opere il "traduttore"
 # non esiste per definizione, quindi non vanno contati fra le citazioni senza
@@ -107,10 +124,198 @@ def resolve(link, base_dir=None):
     return None
 
 
+def validate_sitemaps(noindex):
+    """Controlla l'indice e, soprattutto, tutte le sitemap figlie.
+
+    Il vecchio controllo leggeva soltanto i ``<loc>`` di sitemap.xml: quindi
+    verificava che esistessero i sette file XML, ma non una sola delle oltre
+    mille pagine dichiarate al loro interno. Questo controllo segue l'indice,
+    rifiuta host o percorsi non canonici, apre ogni figlia e verifica che ogni
+    URL esista, non sia ``noindex`` e non compaia in due sitemap diverse.
+    """
+    index_path = os.path.join(ROOT, 'sitemap.xml')
+    report = {'children': 0, 'urls': 0, 'errors': [], 'seen_urls': set()}
+    if not os.path.isfile(index_path):
+        return report
+
+    ns = '{' + SITEMAP_NS + '}'
+    try:
+        index_root = ET.parse(index_path).getroot()
+    except (ET.ParseError, OSError) as err:
+        report['errors'].append(('sitemap.xml', 'XML non valido: ' + str(err)))
+        return report
+
+    if index_root.tag != ns + 'sitemapindex':
+        report['errors'].append(('sitemap.xml', 'radice diversa da <sitemapindex>'))
+        return report
+
+    child_locs = []
+    for sitemap in index_root.findall(ns + 'sitemap'):
+        loc = sitemap.find(ns + 'loc')
+        if loc is None or not (loc.text or '').strip():
+            report['errors'].append(('sitemap.xml', '<sitemap> senza <loc>'))
+            continue
+        child_locs.append(loc.text.strip())
+
+    if not child_locs:
+        report['errors'].append(('sitemap.xml', 'nessuna sitemap figlia dichiarata'))
+        return report
+
+    duplicate_children = [loc for loc, count in collections.Counter(child_locs).items()
+                          if count > 1]
+    for loc in duplicate_children:
+        report['errors'].append(('sitemap.xml', 'sitemap figlia duplicata: ' + loc))
+
+    seen_urls = {}
+    for child_loc in child_locs:
+        prefix = SITE_URL + '/'
+        if not child_loc.startswith(prefix):
+            report['errors'].append(('sitemap.xml', 'host non canonico nella figlia: ' + child_loc))
+            continue
+        relative = child_loc[len(prefix):]
+        if not relative or '?' in relative or '#' in relative:
+            report['errors'].append(('sitemap.xml', 'percorso figlia non valido: ' + child_loc))
+            continue
+        child_path = os.path.abspath(os.path.join(ROOT, relative))
+        try:
+            inside_root = os.path.commonpath((ROOT, child_path)) == ROOT
+        except ValueError:
+            inside_root = False
+        if not inside_root or not os.path.isfile(child_path):
+            report['errors'].append(('sitemap.xml', 'file figlio inesistente: ' + child_loc))
+            continue
+
+        try:
+            child_root = ET.parse(child_path).getroot()
+        except (ET.ParseError, OSError) as err:
+            report['errors'].append((relative, 'XML non valido: ' + str(err)))
+            continue
+        report['children'] += 1
+        if child_root.tag != ns + 'urlset':
+            report['errors'].append((relative, 'radice diversa da <urlset>'))
+            continue
+
+        url_nodes = child_root.findall(ns + 'url')
+        if not url_nodes:
+            report['errors'].append((relative, 'nessun URL dichiarato'))
+        for url_node in url_nodes:
+            loc = url_node.find(ns + 'loc')
+            if loc is None or not (loc.text or '').strip():
+                report['errors'].append((relative, '<url> senza <loc>'))
+                continue
+            absolute = loc.text.strip()
+            report['urls'] += 1
+            if absolute == SITE_URL + '/':
+                url = '/'
+            elif absolute.startswith(prefix):
+                url = absolute[len(SITE_URL):]
+            else:
+                report['errors'].append((relative, 'URL con host non canonico: ' + absolute))
+                continue
+            if '?' in url or '#' in url:
+                report['errors'].append((relative, 'URL non canonico con query o frammento: ' + absolute))
+                continue
+            if not url.endswith('/'):
+                report['errors'].append((relative, 'URL senza slash finale: ' + absolute))
+                continue
+            if resolve(url) is None:
+                report['errors'].append((relative, 'URL inesistente: ' + absolute))
+            if url in noindex:
+                report['errors'].append((relative, 'URL con noindex: ' + absolute))
+            if absolute in seen_urls:
+                report['errors'].append((relative, 'URL duplicato anche in ' + seen_urls[absolute] + ': ' + absolute))
+            else:
+                seen_urls[absolute] = relative
+                report['seen_urls'].add(url)
+
+    return report
+
+
+def jsonld_types(html):
+    """Restituisce i tipi Schema.org presenti, ignorando l'ordine del grafo."""
+    found = set()
+
+    def walk(node):
+        if isinstance(node, dict):
+            value = node.get('@type')
+            if isinstance(value, str):
+                found.add(value)
+            elif isinstance(value, list):
+                found.update(v for v in value if isinstance(v, str))
+            for child in node.values():
+                walk(child)
+        elif isinstance(node, list):
+            for child in node:
+                walk(child)
+
+    for raw in JSONLD.findall(html):
+        try:
+            walk(json.loads(raw))
+        except (TypeError, ValueError):
+            # controlla_jsonld.py stampa il dettaglio dell'errore di sintassi;
+            # qui evitiamo un doppio referto meno preciso.
+            pass
+    return found
+
+
+def expected_jsonld_types(url):
+    """Contratto minimo per tipo di pagina, non una whitelist esaustiva."""
+    if url == '/':
+        return {'WebSite'}
+    if url == '/404/':
+        return {'WebPage'}
+    if url == '/metodo/':
+        return {'AboutPage', 'BreadcrumbList'}
+    if url in {'/privacy/', '/note-legali/', '/affiliazioni/'}:
+        return {'WebPage', 'BreadcrumbList'}
+    if url == '/le-mie-sottolineature/':
+        # Raccolta privata nel browser: deliberatamente fuori dall'indice e
+        # senza entita' pubblica da dichiarare ai motori.
+        return set()
+    parts = [p for p in url.split('/') if p]
+    if (parts and parts[0] == 'citazioni' and len(parts) == 2 and
+            not parts[1].startswith('pagina-') and not parts[1].isdigit()):
+        return {'WebPage', 'Quotation', 'BreadcrumbList'}
+    if parts and parts[0] in {'citazioni', 'autori', 'opere', 'raccolte', 'temi', 'generi'}:
+        return {'CollectionPage', 'BreadcrumbList'}
+    return set()
+
+
+def expects_visible_breadcrumb(url):
+    """Le pagine di dettaglio che nel design hanno una briciola visibile."""
+    parts = [p for p in url.split('/') if p]
+    return (len(parts) == 2 and parts[0] == 'opere') or (
+        len(parts) >= 2 and parts[0] == 'raccolte') or (
+        len(parts) == 2 and parts[0] == 'citazioni' and
+        not parts[1].startswith('pagina-') and not parts[1].isdigit()
+    )
+
+
+def internal_url_style_problem(link):
+    """Ritorna il motivo se un href interno espone una forma non canonica."""
+    if not link.startswith('/') or link.startswith('//'):
+        return None
+    path = link.split('#')[0].split('?')[0]
+    if not path:
+        return None
+    if path.endswith('/index.html') or path == '/index.html':
+        return 'usa index.html invece dell’URL pulito'
+    if path.endswith('.html'):
+        return 'espone l’estensione .html'
+    if '//' in path:
+        return 'contiene una doppia slash'
+    basename = path.rsplit('/', 1)[-1]
+    if not path.endswith('/') and '.' not in basename:
+        return 'pagina senza slash finale'
+    return None
+
+
 def main():
     pages = sorted(html_files())
     titles, descs, canons = collections.defaultdict(list), collections.defaultdict(list), {}
     broken, relative, insecure = [], [], []
+    bad_url_style = []
+    structure = collections.defaultdict(list)
     linked = set()
     noindex = set()
 
@@ -123,15 +328,57 @@ def main():
         m = ROBOTS.search(html)
         if m and 'noindex' in m.group(1):
             noindex.add(url)
-        m = TITLE.search(html)
-        if m:
-            titles[m.group(1).strip()].append(url)
-        m = DESC.search(html)
-        if m:
-            descs[m.group(1).strip()].append(url)
-        m = CANON.search(html)
-        if m:
-            canons[url] = m.group(1)
+        page_titles = TITLE.findall(html)
+        page_descs = DESC.findall(html)
+        page_canons = CANON.findall(html)
+        if len(page_titles) != 1:
+            structure['title assente o multiplo'].append((url, str(len(page_titles))))
+        else:
+            titles[page_titles[0].strip()].append(url)
+        if len(page_descs) != 1:
+            structure['meta description assente o multipla'].append((url, str(len(page_descs))))
+        else:
+            descs[page_descs[0].strip()].append(url)
+        if len(page_canons) != 1:
+            structure['canonical assente o multiplo'].append((url, str(len(page_canons))))
+        else:
+            canons[url] = page_canons[0]
+
+        h1_count = len(H1.findall(scan))
+        if h1_count != 1:
+            structure['numero di H1 diverso da uno'].append((url, str(h1_count)))
+        main_count = len(MAIN.findall(scan))
+        if main_count != 1:
+            detail = str(main_count)
+            if ROLE_MAIN.search(scan):
+                detail += ' (presente role="main", ma serve il tag semantico <main>)'
+            structure['numero di <main> diverso da uno'].append((url, detail))
+
+        headings = [int(level) for level in HEADING.findall(scan)]
+        for before, after in zip(headings, headings[1:]):
+            if after > before + 1:
+                structure['gerarchia heading con livello saltato'].append(
+                    (url, 'h%d seguito da h%d' % (before, after)))
+                break
+
+        for attrs in IMAGE.findall(scan):
+            if not re.search(r'\balt\s*=', attrs, re.I):
+                src = re.search(r'\bsrc=["\']([^"\']+)', attrs, re.I)
+                structure['immagine senza attributo alt'].append(
+                    (url, src.group(1) if src else '<src assente>'))
+
+        present_types = jsonld_types(html)
+        missing_types = expected_jsonld_types(url) - present_types
+        if missing_types:
+            structure['tipo JSON-LD atteso assente'].append(
+                (url, ', '.join(sorted(missing_types))))
+        if expects_visible_breadcrumb(url) and not VISIBLE_BREADCRUMB.search(scan):
+            structure['breadcrumb visibile atteso assente'].append((url, 'nav.breadcrumb'))
+
+        for link in ANCHOR_HREF.findall(scan):
+            reason = internal_url_style_problem(link)
+            if reason:
+                bad_url_style.append((url, link, reason))
         for link in HREF.findall(scan):
             if link.startswith('http://'):
                 insecure.append((url, link))
@@ -162,6 +409,20 @@ def main():
         print('\nLINK IN HTTP (non cifrati):', len(insecure))
         for src, link in insecure[:10]:
             print('  ', src, '->', link)
+    if bad_url_style:
+        problems += len(bad_url_style)
+        print('\nURL INTERNI NON CANONICI:', len(bad_url_style))
+        for src, link, reason in bad_url_style[:15]:
+            print('  ', src, '->', link, '(' + reason + ')')
+
+    if structure:
+        structural_count = sum(len(items) for items in structure.values())
+        problems += structural_count
+        print('\nERRORI STRUTTURALI:', structural_count)
+        for label, items in structure.items():
+            print('  ', label + ':', len(items))
+            for url, detail in items[:8]:
+                print('     ', url, '->', detail)
 
     dup_t = {t: u for t, u in titles.items() if len(u) > 1}
     dup_d = {d: u for d, u in descs.items() if len(u) > 1}
@@ -195,22 +456,28 @@ def main():
         for u in orphans[:15]:
             print('  ', u)
 
-    sitemap = os.path.join(ROOT, 'sitemap.xml')
-    if os.path.isfile(sitemap):
-        with open(sitemap, encoding='utf-8') as f:
-            urls = re.findall(r'<loc>https://sottolineature\.it([^<]*)</loc>', f.read())
-        missing = [u for u in urls if resolve(u) in (None,)]
-        in_sitemap_noindex = [u for u in urls if u in noindex]
-        if missing:
-            problems += len(missing)
-            print('\nURL IN SITEMAP CHE NON ESISTONO:', len(missing))
-            for u in missing[:10]:
-                print('  ', u)
-        if in_sitemap_noindex:
-            problems += len(in_sitemap_noindex)
-            print('\nURL IN SITEMAP MA CON noindex:', len(in_sitemap_noindex))
-            for u in in_sitemap_noindex[:10]:
-                print('  ', u)
+    sitemap_report = validate_sitemaps(noindex)
+    if sitemap_report['children'] or sitemap_report['urls']:
+        print('Sitemap esaminate:', sitemap_report['children'], 'file figli,',
+              sitemap_report['urls'], 'URL')
+    if sitemap_report['errors']:
+        problems += len(sitemap_report['errors'])
+        print('\nERRORI NELLE SITEMAP:', len(sitemap_report['errors']))
+        for source, message in sitemap_report['errors'][:20]:
+            print('  ', source, '->', message)
+
+    # Il controllo precedente andava in una sola direzione (URL dichiarato ->
+    # file esistente). Anche una pagina indicizzabile dimenticata dalla sitemap
+    # e' un errore: esiste, ma il canale con cui segnaliamo gli URL ai motori
+    # non la include. La 404 e la raccolta personale sono esclusioni volute.
+    sitemap_exempt = {'/404/', '/le-mie-sottolineature/'}
+    expected_in_sitemap = {as_url(p) for p in pages} - noindex - sitemap_exempt
+    missing_from_sitemap = sorted(expected_in_sitemap - sitemap_report['seen_urls'])
+    if missing_from_sitemap:
+        problems += len(missing_from_sitemap)
+        print('\nPAGINE INDICIZZABILI ASSENTI DALLA SITEMAP:', len(missing_from_sitemap))
+        for url in missing_from_sitemap[:20]:
+            print('  ', url)
 
     # --- tassonomia: tema e genere si scrivono a mano in data/citazioni.json, e
     #     niente controllava che fossero valori esistenti. Il 2026-08-30 sono

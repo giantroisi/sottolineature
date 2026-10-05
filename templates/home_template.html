@@ -1023,6 +1023,12 @@ html:not(.js) .js-only { display: none !important; }
          griglia; ora sono un blocco solo sotto la barra. --- */
   .filter-block { margin: 0 0 2rem; }
   .filter-count { font-size: 0.78rem; color: var(--ink-faint); margin: 0.9rem 0 0; }
+  .reset-results {
+    all: unset; cursor: pointer; margin-top: 0.75rem; padding-bottom: 2px;
+    font-size: 0.78rem; color: var(--accent); border-bottom: 1px solid var(--accent-soft);
+  }
+  .reset-results:hover { color: var(--gold); border-color: var(--gold); }
+  .reset-results:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   /* Su telefono i due elenchi di filtri occupavano 223 px su 812, il 27% dello
      schermo — e su un telefono corto un terzo — spingendo la citazione in
      evidenza sotto la piega. Prima erano una riga che scorreva in orizzontale:
@@ -1141,7 +1147,7 @@ html:not(.js) .js-only { display: none !important; }
 </header>
 <script src="/assets/nav.js" defer></script>
 
-<div class="page" id="page" role="main">
+<main class="page" id="page">
 <script>
   /* Il menu prende posto qui, non in fondo alla pagina.
      Il trasloco vero e proprio (menu nella pagina, interruttore del tema
@@ -1286,9 +1292,10 @@ html:not(.js) .js-only { display: none !important; }
     <a class="filter-btn" data-genre="poesia" href="/generi/poesia/">Poesia</a>
   </nav>
   </div>
-    <p class="filter-count sans" id="filterCount" hidden></p>
+    <p class="filter-count sans" id="filterCount" role="status" aria-live="polite" aria-atomic="true" hidden></p>
     <p class="search-fix sans" id="searchFix" hidden></p>
     <p class="vai-pagina sans" id="vaiPagina" hidden></p>
+    <button class="reset-results sans js-only" id="resetResults" type="button" hidden>Azzera ricerca e filtri</button>
   </div>
 
   <nav class="explore sans" aria-label="Esplora l'archivio">
@@ -1329,9 +1336,7 @@ html:not(.js) .js-only { display: none !important; }
 {{CARDS}}
   </div>
 
-
-
-</div>
+</main>
 
 <footer class="sans">
   {{COUNT}} citazioni raccolte a mano, senza algoritmo. Le parole restano di chi le ha scritte —
@@ -1340,6 +1345,8 @@ html:not(.js) .js-only { display: none !important; }
   <a href="/feed.xml">Segui le nuove citazioni →</a>
   <a href="mailto:sottolineature@outlook.it">Scrivici →</a>
   <a href="/privacy/">Privacy →</a>
+  <a href="/note-legali/">Note legali →</a>
+  <a href="/affiliazioni/">Affiliazioni →</a>
 </footer>
 
 <script src="/assets/share.js"></script>
@@ -2047,6 +2054,7 @@ html:not(.js) .js-only { display: none !important; }
       return 'Nessuna citazione trovata. Prova a cercare un altro autore, titolo o parola.';
     }
     var printSelectionBtn = document.getElementById('printSelectionBtn');
+    var resetResults = document.getElementById('resetResults');
     printSelectionBtn.addEventListener('click', function () { window.print(); });
 
     function applyFilters() {
@@ -2175,6 +2183,7 @@ html:not(.js) .js-only { display: none !important; }
       // modo risultati: vedi il commento nel foglio di stile
       var filtering = !!term || activeCategory !== 'tutte' || activeGenre !== 'tutti';
       document.getElementById('page').classList.toggle('is-filtering', filtering);
+      if (resetResults) { resetResults.hidden = !filtering; }
       var countEl = document.getElementById('filterCount');
       if (countEl) {
         // "0 citazioni" sopra l'invito a sottolineare suona come un errore:
@@ -2184,6 +2193,22 @@ html:not(.js) .js-only { display: none !important; }
         countEl.hidden = !filtering || raccoltaVuota;
         countEl.textContent = visibleCount === 1 ? '1 citazione' : visibleCount + ' citazioni';
       }
+    }
+
+    if (resetResults) {
+      resetResults.addEventListener('click', function () {
+        searchInput.value = '';
+        activeCategory = 'tutte';
+        activeGenre = 'tutti';
+        Array.prototype.forEach.call(document.querySelectorAll('.filter-btn'), function (button) {
+          button.classList.toggle('active',
+            button.getAttribute('data-filter') === 'tutte' || button.getAttribute('data-genre') === 'tutti');
+        });
+        updateClearButton();
+        closeSuggestions();
+        applyFilters();
+        searchInput.focus();
+      });
     }
 
     // --- filtri richiudibili su telefono ---------------------------------

@@ -53,9 +53,49 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-08-28.
+Aggiornata: 2026-10-05.
 
 ### Fatto
+- **Programma Affiliazione Amazon Italia — Fase 1 (2026-10-05).** Pubblicate le pagine
+  `/affiliazioni/` e `/note-legali/`, aggiornata la Privacy e aggiunti i collegamenti nel footer
+  di ogni template. Il componente per una futura edizione affiliata e' centralizzato e resta
+  spento con `data/affiliazioni.json` privo di Tracking ID: richiede edizione verificata, URL
+  `amazon.it` con il tag configurato, avviso vicino al link e
+  `rel="sponsored nofollow noopener"`; non gestisce prezzi, immagini o testi Amazon. Il build
+  blocca sia un link attivo con ID vuoto sia l'attivazione senza la dichiarazione obbligatoria.
+  Verifica del repository: 1.363 HTML, 1.361 URL nelle sitemap, zero problemi strutturali e
+  JSON-LD, zero link Amazon attivi; controllo browser a 375 px in chiaro/scuro senza overflow e
+  console pulita. Per rispettare «pubblica soltanto la Fase 1», il deploy
+  `dpl_B1Lp4brgxs6fKQdeVPiBXLJrKt2S` e' stato costruito dalla baseline pubblica (`origin/main`,
+  883 citazioni) con il solo lotto affiliazioni: 1.314 HTML e 1.312 URL, senza includere i lavori
+  locali ancora sospesi.
+  **Fase 2 bloccata correttamente:** servono il Partner/Tracking ID e gli URL delle singole
+  edizioni verificati con gli strumenti ufficiali Amazon; nessun dato personale o fiscale e'
+  stato inventato o pubblicato. **Verifica host post-deploy:** `www.sottolineature.it` e
+  `sottolineature.vercel.app` continuano a rispondere 200 invece di redirigere all'apice,
+  nonostante le regole nel repository; serve una modifica separata della configurazione domini
+  Vercel, non fatta in questo lotto.
+- **Raccolte lunghe paginate (2026-10-05).** Le 33 raccolte editoriali restano curate a mano, ma
+  quelle oltre 30 citazioni sono ora divise in pagine autonome: 49 URL complessivi, canonical
+  proprio, `rel=prev/next`, breadcrumb visibile e JSON-LD con posizioni continue. La prima pagina
+  collega tutte le parti per non nascondere nulla; le successive hanno navigazione compatta.
+  `sitemap-raccolte.xml` include tutti i 49 URL. Verifica completa: 1.361 pagine, 1.359 URL in
+  sitemap, zero problemi strutturali e JSON-LD; prova browser a 375 px senza overflow e con
+  passaggio pagina 2 → 3 funzionante.
+- **Validazione strutturale consolidata (2026-10-05).** `tools/check_links.py` ora controlla in
+  un solo passaggio anche presenza singola di title/meta description/canonical, canonical coerente,
+  esattamente un `<h1>` e un `<main>`, gerarchia degli heading, tipi JSON-LD minimi per tipo di
+  pagina, breadcrumb dove previsto, URL interni puliti, immagini con `alt` e appartenenza
+  bidirezionale alla sitemap. Il build lo esegue e ne stampa l'esito senza trasformare un controllo
+  euristico in un blocco fragile; il comando diretto resta severo e termina con codice 1 sugli
+  errori. Contratto ed eccezioni sono in `VALIDAZIONE.md`; `tools/check_mobile_overflow.js` copre
+  il controllo runtime che l'analisi statica non può fare. Nello stesso lotto tutti i 1.345 HTML
+  sono passati da `role="main"` al tag semantico `<main>`: verifica corrente 1.345/1.345 con un
+  solo main e un solo H1, 1.343 URL in sette sitemap, zero problemi e JSON-LD valido. La home ha
+  inoltre conteggio risultati annunciato ai lettori di schermo e comando esplicito per azzerare
+  ricerca e filtri, provato su mobile. **Divisione ulteriore della home non fatta:** a 912 citazioni
+  contraddirebbe la soglia già decisa qui (riaprire solo intorno a 1.500 righe o LCP > 1,5 s) e
+  farebbe sparire dal DOM i collegamenti che oggi tengono raggiungibile l'archivio.
 - Citazioni in crescita continua, non un traguardo fisso — il conteggio esatto è sempre in `data/citazioni.json`/`LOG.md`, non tenerlo aggiornato qui a ogni lotto. 245 copertine recuperate + tile placeholder per le mancanti, **contesto su 254/256 citazioni al momento della chiusura del cantiere contesto** — cifra storica, non aggiornata a ogni lotto successivo. Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
 - **216 contesti aggiunti in una sola giornata (2026-08-28), in autonomia**, su richiesta esplicita dell'utente ("puoi procedere senza i miei ok? l'importante è che segui la costituzione") — dettagli completi in LOG.md, in più lotti, ripresi anche dopo un'interruzione per limite settimanale di ricerca web esaurito e poi ripristinato. Restano solo 2 citazioni senza contesto, entrambe scartate per la stessa ragione — nessuna fonte (incluso Wikiquote) attribuisce un parlante o capitolo preciso: Dostoevskij (Delitto e castigo), Sciascia (Il giorno della civetta). Lezione operativa: quando lo stesso autore/titolo compare più volte sul sito, un contesto scritto per una citazione può finire applicato per errore anche alle altre con lo stesso titolo se lo script di inserimento non controlla i duplicati — sempre bene un controllo automatico post-inserimento (nessun contesto identico su citazioni diverse) prima di pubblicare
 - **Corretta un'attribuzione errata già pubblicata**: la citazione di Naguib Mahfouz sulla "parola d'amore pronunciata freddamente" era attribuita a "Il palazzo del desiderio" (1957), ma appartiene in realtà a "Vicolo del mortaio" (Midaq Alley, 1947) — confermato da una fonte con dettagli narrativi specifici (Hamida, Abbas, l'arruolamento nell'esercito inglese) che nessuna fonte collegava invece a Il palazzo del desiderio. Corretti titolo, anno, copertina e aggiunto il contesto

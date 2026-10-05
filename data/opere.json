@@ -10,6 +10,16 @@
     "scheda": "Una società senza guerre, senza malattie e senza dolore, dove nessuno è costretto a niente perché a tutti piace quello che devono fare: la stabilità si ottiene con il condizionamento, il consumo e una droga senza effetti collaterali. È la distopia opposta a quella di Orwell — qui il controllo non passa dalla paura ma dal piacere — e per molti è la più somigliante."
   },
   {
+    "slug": "alessandro-baricco-novecento",
+    "author": "Alessandro Baricco",
+    "title": "Novecento",
+    "titles": [
+      "Novecento"
+    ],
+    "year": "1994",
+    "scheda": "Monologo teatrale pubblicato da Feltrinelli nel 1994: Tim Tooney racconta la vita di Danny Boodmann T.D. Lemon Novecento, pianista nato sul piroscafo Virginian e mai sceso a terra. Fra traversate oceaniche, emigranti e sfide musicali, la nave resta il solo mondo che sappia abitare. Giuseppe Tornatore ne trasse nel 1998 il film La leggenda del pianista sull'oceano."
+  },
+  {
     "slug": "alessandro-manzoni-i-promessi-sposi",
     "author": "Alessandro Manzoni",
     "title": "I promessi sposi",
@@ -138,6 +148,16 @@
     ],
     "year": "1979",
     "scheda": "Nato come radiodramma per la BBC prima di diventare libro, racconta di un inglese qualunque salvato dalla demolizione della Terra pochi istanti prima che avvenga, per far posto a una superstrada iperspaziale. È il libro che ha insegnato alla fantascienza a essere comica senza smettere di essere fantascienza, e che ha reso il numero quarantadue una battuta universale."
+  },
+  {
+    "slug": "donna-tartt-dio-di-illusioni",
+    "author": "Donna Tartt",
+    "title": "Dio di illusioni",
+    "titles": [
+      "Dio di illusioni"
+    ],
+    "year": "1992",
+    "scheda": "Romanzo d'esordio di Donna Tartt, pubblicato nel 1992. Richard Papen entra in un ristretto corso di greco antico in un college del Vermont e viene attratto dal carisma del professore Julian Morrow e dai suoi cinque allievi privilegiati. Fin dalle prime pagine il lettore sa che uno di loro è morto: il romanzo ricostruisce come studio dei classici, fascinazione e appartenenza conducano il gruppo verso la violenza."
   },
   {
     "slug": "emily-bronte-cime-tempestose",
@@ -490,6 +510,16 @@
     ],
     "year": "1865",
     "scheda": "Nato da una storia improvvisata durante una gita in barca sul Tamigi per intrattenere tre bambine, fra cui Alice Liddell, che poi chiese di metterla per iscritto. Carroll, che di mestiere insegnava matematica a Oxford, costruisce un mondo dove la logica non è assente ma capovolta: le regole ci sono, e sono tutte sbagliate. È il libro che ha inventato il nonsense come genere letterario serio."
+  },
+  {
+    "slug": "lewis-carroll-attraverso-lo-specchio",
+    "author": "Lewis Carroll",
+    "title": "Attraverso lo specchio",
+    "titles": [
+      "Attraverso lo specchio"
+    ],
+    "year": "1871",
+    "scheda": "Nel seguito di Alice nel paese delle meraviglie, pubblicato nel 1871, Alice attraversa lo specchio del salotto e trova un mondo disposto come una scacchiera, dove deve avanzare da pedone fino a diventare regina. Carroll costruisce l'avventura con inversioni, giochi di parole e paradossi logici; qui compaiono la Regina Rossa, Humpty Dumpty, i gemelli Tweedledum e Tweedledee e il poema Jabberwocky."
   },
   {
     "slug": "louisa-may-alcott-piccole-donne",

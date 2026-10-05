@@ -15,6 +15,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from generate_quote_pages import ROOT, SAMEAS, SITE_URL, data_pubblicazione, slugify  # noqa: E402
+from affiliate import render_amazon_link  # noqa: E402
 
 OPERE_PATH = os.path.join(ROOT, 'data', 'opere.json')
 OUT_DIR = os.path.join(ROOT, 'opere')
@@ -77,7 +78,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 </header>
 <script src="/assets/nav.js" defer></script>
 <div class="page">
-<div class="page-main" role="main">
+<main class="page-main">
   <nav class="breadcrumb sans" aria-label="Percorso">
     <a href="/">Sottolineature</a> › <a href="/autori/{author_slug}/">{author}</a> › <span aria-current="page">{title}</span>
   </nav>
@@ -85,12 +86,13 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <h1>{h1}</h1>
   <p class="count sans">{author}{year_html} · {count} citazion{count_suffix} in archivio</p>
   <p class="opera-scheda">{scheda}</p>
+{affiliate_html}
   {h2_lista}
   {cards_html}
   {altre_html}
-  </div>
+  </main>
   <footer class="sans">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>. <a href="/note-legali/" style="color:var(--ink-faint)">Note legali</a>. <a href="/affiliazioni/" style="color:var(--ink-faint)">Affiliazioni</a>.</span>
   </footer>
 </div>
 <script>
@@ -282,6 +284,7 @@ def render_opera(op, items, opere_autore=None):
         count=count,
         count_suffix=count_suffix,
         scheda=html.escape(op['scheda']),
+        affiliate_html=render_amazon_link(op),
         h2_lista=h2_lista_html,
         altre_html=altre_html,
         cards_html=cards_html,

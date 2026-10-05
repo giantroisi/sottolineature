@@ -6377,3 +6377,143 @@ sulle voci gia' trascritte: niente da riportare.
 *Alcyone* e *La locandiera*, entrambe a 6 citazioni ma senza volume di ricerca.
 
 Archivio: **910 citazioni**, 263 autori, 80 pagine opera, 33 raccolte.
+
+---
+
+## 2026-10-04, 23:51 CEST — SEO tecnico: sitemap figlie e tre pagine opera da GSC
+
+**Ambito e cautela.** Ripreso il lavoro dalla fotografia GSC del 4 ottobre senza toccare
+produzione, DNS, Vercel remoto o Search Console. La working tree conteneva gia' 281 percorsi
+modificati/non tracciati: sono stati trattati come lavoro dell'utente. Prima della build il
+repository e' stato copiato in una directory temporanea; la rigenerazione isolata e il confronto
+byte per byte hanno mostrato soltanto gli output collegati a questa tranche. La stessa build nel
+progetto non ha rigenerato nessuna immagine OG e non ha introdotto cambiamenti estranei.
+
+**Validatore sitemap corretto.** `tools/check_links.py` prima leggeva solo i sette `<loc>`
+dell'indice `sitemap.xml`: confermava l'esistenza dei file figli, non delle URL dichiarate al loro
+interno. Ora apre l'indice con un parser XML, segue tutte le sitemap figlie e verifica per ogni URL
+host canonico, slash finale, assenza di query/frammenti, esistenza del file, assenza di `noindex` e
+duplicati fra sitemap. Verifica corrente: **7 sitemap figlie, 1.343 URL, zero errori**. Aggiunti
+anche test mirati temporanei: un caso valido passa; un URL inesistente e un host non canonico
+vengono entrambi intercettati.
+
+**Tre pagine opera aperte.** Aggiunte a `data/opere.json` e generate le pagine per
+*Novecento* di Alessandro Baricco, *Dio di illusioni* di Donna Tartt e *Attraverso lo specchio* di
+Lewis Carroll. Tutte e tre hanno **due citazioni reali in archivio** e impressioni GSC su query
+organiche; ciascuna ha una scheda originale di 57-67 parole. Fatti verificati sulle pagine
+editoriali Feltrinelli e Rizzoli e, per Carroll, sulla cronologia della Library of Congress e sul
+catalogo della British Library. Le sei pagine citazione ora rimandano alla pagina opera e riusano
+lo stesso `Book @id`; aggiornati anche i tre hub autore, l'indice opere, la home, la 404 e
+`sitemap-opere.xml`. Le pagine opera passano da **80 a 83**.
+
+**Due candidate lasciate fuori.** *Casa di bambola* e *L'opera da tre soldi* hanno una sola
+citazione ciascuna. Aprire adesso una pagina dedicata produrrebbe quasi un duplicato della pagina
+citazione, contro la regola editoriale del progetto; restano candidate da rivalutare quando
+arrivera' almeno una seconda citazione verificata.
+
+**Verifiche.** Build completa con 912 citazioni correnti: **1.345 pagine esaminate**, **1.343 URL
+indicizzabili**, 0 link rotti, 0 title/description duplicati fra citazioni, 0 H1 mancanti, 912/912
+blocchi fonte, 912/912 immagini OG presenti. `tools/controlla_jsonld.py`: 1.344 blocchi JSON-LD,
+**nessun errore**. Controlli mirati sulle tre nuove pagine: canonical coerente, due card, `Book
+@id` condiviso e link di ritorno dalle sei citazioni. Nessuna modifica massiva a title o meta
+description: i title generati sono gia' espliciti e lunghi 52, 52 e 60 caratteri.
+
+**Resta aperto.** Portare a due citazioni verificate *Casa di bambola* e *L'opera da tre soldi*
+prima di aprire le rispettive pagine; valutare separatamente le altre opere ad alta domanda gia'
+segnalate nel log, senza automatizzare la creazione di pagine sottili. Il problema degli host
+alternativi che rispondono 200 resta un tema di pubblicazione: non e' stato toccato senza
+autorizzazione.
+
+Archivio corrente: **912 citazioni**, 263 autori, 83 pagine opera, 33 raccolte.
+
+## 2026-10-05 — validatore strutturale e landmark semantici
+
+- 2026-10-04 22:16 UTC — added 0 quotes (total now 912) — letti integralmente `CLAUDE.md` e
+  `SEO.md` prima di proseguire. Annullata la divisione progressiva della home appena impostata:
+  con 912 citazioni e senza una nuova misura oltre soglia contraddiceva la decisione costituzionale
+  di riaprirla solo verso 1.500 righe o con LCP > 1,5 s. Conservati i 912 collegamenti nel DOM e
+  tutte le funzioni esistenti.
+
+**Fatto.** Esteso `tools/check_links.py` in validatore strutturale unico: title, description,
+canonical, H1, `<main>`, gerarchia heading, breadcrumb atteso, tipo JSON-LD minimo, forma degli URL,
+link, orfani, sitemap in entrambe le direzioni e immagini con `alt`. Integrato nel rapporto di
+`build.py` in modalita' diagnostica; esecuzione diretta severa. Aggiunti `VALIDAZIONE.md` con
+eccezioni e falsi positivi evitati e `tools/check_mobile_overflow.js` per il controllo runtime.
+
+**Semantica e ricerca.** Sostituito `role="main"` con un vero `<main>` nei sei generatori, nella
+home, in Metodo e Privacy; la 404 e la raccolta personale ereditano la correzione dai generatori.
+Il conteggio dei risultati della home ora e' una regione `aria-live`; aggiunto «Azzera ricerca e
+filtri», visibile solo quando serve.
+
+**Verifiche.** Build completa: 1.345 pagine, 1.343 URL in sette sitemap, zero problemi nel
+validatore, zero errori JSON-LD, 1.345/1.345 pagine con esattamente un `<main>` e un `<h1>`.
+Browser a 375 px: home, citazione, autore, raccolta e opera senza overflow orizzontale; ricerca
+«amor nullo amato» restituisce una citazione e l'azzeramento ripristina tutte le 912. Controllo
+anche a 390x844, console senza errori. Nessun push, deploy o modifica remota.
+
+## 2026-10-05 — paginazione delle raccolte lunghe
+
+- 2026-10-04 22:21 UTC — added 0 quotes (total now 912) — paginate le raccolte oltre 30
+  citazioni, senza cambiare testi, attribuzioni o appartenenze editoriali.
+
+**Fatto.** `tools/generate_raccolte_pages.py` divide le liste in blocchi da 30 e genera 49 pagine
+per le 33 raccolte. Ogni parte ha title, description, canonical e H1 distinti, breadcrumb
+gerarchico, `rel=prev/next`, posizione globale delle citazioni nell'`ItemList` JSON-LD e
+navigazione accessibile. La prima parte collega tutte le pagine; quelle successive usano una
+finestra compatta. La pulizia degli output obsoleti ora copre anche le sottocartelle vuote.
+
+**Sitemap e validazione.** `tools/build.py` inserisce tutte le 49 parti in
+`sitemap-raccolte.xml`; `tools/check_links.py` richiede il breadcrumb anche nelle pagine
+successive. Build completa: **1.361 pagine esaminate**, **1.359 URL** nelle sette sitemap, zero
+problemi strutturali e nessun errore JSON-LD. Restano soltanto i 38 avvisi editoriali gia' noti
+per edizioni tradotte senza traduttore, non corretti senza una fonte verificata.
+
+**Prova browser.** A 375×812 la pagina 2 di *Frasi brevi* mostra 30 schede, un solo H1 e un solo
+`<main>`, breadcrumb fino a «Pagina 2», pagina corrente annunciata, canonical e relazioni
+precedente/successiva corrette; nessun overflow orizzontale. Il collegamento «Pagina successiva»
+porta davvero alla pagina 3, ancora con 30 schede e senza errori in console. Nessun push, deploy o
+modifica remota.
+
+## 2026-10-05 — Programma Affiliazione Amazon Italia, Fase 1
+
+- 2026-10-05 15:36 UTC — added 0 quotes (total now 912) — predisposta e verificata soltanto la
+  Fase 1: nessun Tracking ID, nessun collegamento affiliato e nessun contenuto Amazon attivo.
+
+**Trasparenza pubblica.** Create `/affiliazioni/` e `/note-legali/`; la prima dichiara che
+eventuali collegamenti futuri non influenzeranno selezione, fonti o giudizio editoriale, la
+seconda distingue citazioni e diritti di terzi, commento originale, dati bibliografici e futuri
+collegamenti commerciali. Privacy aggiornata per spiegare il passaggio verso Amazon e il divieto
+di introdurre widget, immagini remote, script o tracciamento senza una valutazione separata.
+Footer aggiornato su ogni template e pagina statica.
+
+**Componente dormiente.** `data/affiliazioni.json` contiene il Tracking ID centrale vuoto;
+`tools/affiliate.py` non produce HTML senza quel valore e richiede insieme URL HTTPS `amazon.it`
+con tag corrispondente ed edizione marcata come verificata. Il markup futuro usa testo
+contestuale, avviso vicino e `rel="sponsored nofollow noopener"`, senza prezzi, copertine,
+recensioni, descrizioni o marchi Amazon. Il build blocca link attivi con ID vuoto e blocchera'
+l'attivazione finche' la frase obbligatoria della Fase 2 non sara' stata pubblicata.
+
+**Verifiche.** Test unitari del componente superati; build completa su 1.363 HTML e 1.361 URL in
+sette sitemap; zero problemi strutturali e zero errori JSON-LD; tutti i footer collegano
+Affiliazioni; canonical e sitemap delle due nuove pagine corretti; zero link `amazon.it` e zero
+schede affiliate nell'output. Browser a 375x812: Affiliazioni e Note legali senza overflow,
+un solo H1 e un solo main, bersaglio tema 46x46 px, tema scuro coerente, console pulita.
+
+**Da fare soltanto dopo autorizzazione.** Inserire il Partner/Tracking ID, pubblicare la frase
+obbligatoria, verificare con gli strumenti ufficiali Amazon un primo gruppo ridotto di edizioni e
+attivare solo quelle. Mancano quindi il Partner ID e gli URL ufficiali delle edizioni; nessun nome,
+indirizzo, dato fiscale o identita' personale e' stato inventato.
+
+**Pubblicazione.** Deploy Vercel di produzione `dpl_B1Lp4brgxs6fKQdeVPiBXLJrKt2S`, alias
+`https://sottolineature.it`, stato READY. Per non pubblicare insieme i lotti editoriali e SEO
+locali ancora sospesi, il rilascio e' stato costruito da una copia pulita di `origin/main` con il
+solo lotto Fase 1: 883 citazioni, 1.314 HTML e 1.312 URL nelle sitemap. Verifica live su
+`/affiliazioni/`, `/note-legali/` e `/privacy/`: canonical e JSON-LD corretti, navigazione dal
+footer funzionante, zero link Amazon e zero schede affiliate, mobile 375x812 senza overflow,
+console pulita. La sitemap pubblica contiene entrambe le nuove pagine.
+
+**Problema esterno ancora aperto.** Dopo il deploy, sia `www.sottolineature.it` sia
+`sottolineature.vercel.app` continuano a restituire HTTP 200 invece di redirigere all'host
+canonico. Le regole sono gia' in `vercel.json`, quindi la correzione richiede un intervento
+separato nella configurazione domini Vercel; non e' stata fatta senza ampliare il perimetro del
+lotto.

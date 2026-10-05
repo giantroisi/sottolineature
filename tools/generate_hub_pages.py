@@ -105,7 +105,7 @@ HUB_TEMPLATE = """<!DOCTYPE html>
 </header>
 <script src="/assets/nav.js" defer></script>
 <div class="page">
-<div class="page-main" role="main">
+<main class="page-main">
   <a class="back-link sans" href="/">← Tutte le citazioni</a>
   <p class="eyebrow sans">{eyebrow}</p>
   <h1>{h1}</h1>
@@ -116,9 +116,9 @@ HUB_TEMPLATE = """<!DOCTYPE html>
   {nav_html}
   {h2_lista}
   {cards_html}
-  </div>
+  </main>
   <footer class="sans">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>. <a href="/note-legali/" style="color:var(--ink-faint)">Note legali</a>. <a href="/affiliazioni/" style="color:var(--ink-faint)">Affiliazioni</a>.</span>
   </footer>
 </div>
 <script>

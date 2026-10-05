@@ -122,7 +122,7 @@ PAGE = '''<!DOCTYPE html>
 <script src="/assets/nav.js" defer></script>
 <script src="/assets/share.js" defer></script>
 <div class="page">
-<div class="page-main" role="main">
+<main class="page-main">
   <p class="eyebrow sans">La tua raccolta</p>
   <h1>Le mie sottolineature</h1>
   <p class="mine-count sans" id="mineCount"></p>
@@ -147,10 +147,10 @@ PAGE = '''<!DOCTYPE html>
     Le trovi tutte in un unico documento, con fonti e note: dalla finestra di stampa puoi anche
     salvarlo in PDF e tenertelo.
   </p>
-  </div>
+  </main>
   <p class="print-only sans" id="minePrintDate"></p>
   <footer class="sans" data-url="sottolineature.it">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> &mdash; citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> &mdash; citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>. <a href="/note-legali/" style="color:var(--ink-faint)">Note legali</a>. <a href="/affiliazioni/" style="color:var(--ink-faint)">Affiliazioni</a>.</span>
   </footer>
 </div>
 <script>

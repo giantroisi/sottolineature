@@ -33,7 +33,7 @@ SEZIONI = {
 }
 
 
-def grafo_con_breadcrumb(collection_page, canonical, site_url, foglia=None):
+def grafo_con_breadcrumb(collection_page, canonical, site_url, foglia=None, pagina=None):
     """Avvolge una CollectionPage e il suo BreadcrumbList in un @graph.
 
     Le pagine citazione e opera avevano gia' il breadcrumb; hub, raccolte e
@@ -51,8 +51,8 @@ def grafo_con_breadcrumb(collection_page, canonical, site_url, foglia=None):
     `foglia` serve solo a dare all'ultimo elemento il nome vero al posto
     dello slug.
     """
-    pagina = dict(collection_page)
-    pagina.pop('@context', None)
+    collection_node = dict(collection_page)
+    collection_node.pop('@context', None)
     parti = [x for x in canonical[len(site_url):].split('/') if x]
     voci = [{'@type': 'ListItem', 'position': 1,
              'name': 'Sottolineature', 'item': site_url + '/'}]
@@ -63,12 +63,16 @@ def grafo_con_breadcrumb(collection_page, canonical, site_url, foglia=None):
                      'item': site_url + '/' + sezione + '/'})
         if len(parti) > 1:
             nome = foglia or ('Pagina ' + parti[1] if parti[1].isdigit() else parti[1])
+            item = canonical if pagina is None else site_url + '/' + sezione + '/' + parti[1] + '/'
             voci.append({'@type': 'ListItem', 'position': 3,
-                         'name': nome, 'item': canonical})
+                         'name': nome, 'item': item})
+        if pagina is not None:
+            voci.append({'@type': 'ListItem', 'position': 4,
+                         'name': 'Pagina ' + str(pagina), 'item': canonical})
     return json.dumps({
         '@context': 'https://schema.org',
         '@graph': [
-            pagina,
+            collection_node,
             {'@type': 'BreadcrumbList', '@id': canonical + '#breadcrumb',
              'itemListElement': voci},
         ],
