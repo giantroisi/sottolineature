@@ -4739,6 +4739,72 @@ uscite possibili restano quelle del turno delle 08:00 e la scelta e' dell'utente
 
 Archivio: **883 citazioni, dati e HEAD allineati.**
 
+## 2026-10-05, 20:44 UTC — repository salvato, Fase 1 Amazon e host canonici pubblicati
+
+**Stato iniziale ricostruito prima di modificare.** Il checkout locale era `main` a `6acad293`,
+**17 commit avanti e 0 indietro** rispetto a `origin/main` (`4a95185b`), con 1.363 file tracciati
+modificati e 24 non tracciati: **1.387 file** in totale, nessuna cancellazione e nessuna modifica
+in stage. I dati locali contenevano 912 citazioni, contro le 883 pubblicate. Fra i file non
+tracciati c'erano i quattro elementi centrali della preparazione Amazon (`affiliazioni.html`,
+`note-legali.html`, `data/affiliazioni.json`, `tools/affiliate.py`). Nessun reset, clean, checkout
+distruttivo o ripristino di massa e' stato eseguito.
+
+**Strategia Git.** Tutto lo stato locale e' stato consolidato e salvato prima di intervenire sulla
+produzione: ramo remoto `codex/sicurezza-lavoro-locale-2026-10-05`, commit `6907fde8` per sorgenti,
+dati e Fase 1, seguito da `b1cd4461` per i 1.367 artefatti rigenerati. Due build complete consecutive
+su quel ramo: 912 citazioni, 1.363 pagine, 1.361 URL in sitemap, zero problemi, zero errori JSON-LD,
+zero link affiliati. La produzione e' stata invece preparata in una worktree nuova da
+`origin/main`, mantenendo byte per byte i dataset editoriali da 883 citazioni: in questo modo le
+29 citazioni successive sono al sicuro sul remoto ma non sono state pubblicate in anticipo.
+
+**Fase 1 Amazon.** Il commit di produzione `fcb98560` («Pubblica trasparenza affiliazioni e
+protezioni Amazon») aggiunge `/affiliazioni/`, completa Privacy e Note legali, rende visibile
+«Affiliazioni» nel footer, introduce la configurazione centrale `data/affiliazioni.json` e il
+componente riutilizzabile `tools/affiliate.py`. Il Tracking ID resta la stringa vuota. Il componente
+non rende nulla senza ID, edizione verificata e URL Amazon HTTPS con tag corrispondente; quando
+attivo usera' testo contestuale, avviso vicino e `rel="sponsored nofollow noopener"`. Il build
+fallisce se trova schede affiliate con ID vuoto o se un futuro ID viene attivato senza la frase
+obbligatoria. Nessun prezzo, immagine, marchio, descrizione, widget o script Amazon e' presente.
+La frase obbligatoria della Fase 2 non e' stata pubblicata, come richiesto, perche' manca ancora il
+Partner/Tracking ID.
+
+**Causa e correzione del `www`.** Il codice conteneva gia' una regola host in `vercel.json`, ma il
+dominio Vercel aveva `redirect: null`: la configurazione di dominio prevaleva e serviva una seconda
+copia. Su quella copia gli asset JavaScript non inizializzavano `window.Sottolineature`, quindi la
+lettura di `SHARE_FORMATS` interrompeva l'avvio prima di montare `home-resto.js`: restavano le sole
+24 card iniziali e la pagina arrivava a 3.902 px di larghezza su un viewport da 1.280 px. Impostato
+un redirect di dominio **HTTP 308** da `www.sottolineature.it` all'apice; lo stesso controllo ha
+scoperto che anche `sottolineature.vercel.app` rispondeva 200, quindi e' stato configurato allo
+stesso modo. Entrambi preservano percorso e query.
+
+**Verifiche prima del deploy.** Due build complete consecutive sulla worktree di produzione:
+883 citazioni (24 nell'HTML + 859 in `assets/home-resto.js`), 1.314 pagine, 1.312 URL unici in sette
+sitemap, 0 problemi strutturali/link, 0 errori JSON-LD, 0 title o description duplicati, 0 H1
+mancanti, 883/883 immagini OG presenti e 0 affiliazioni attive. Controllo aggiuntivo su tutte le
+1.314 pagine: un solo landmark principale, canonical e Open Graph sull'apice, nessun URL `www`;
+`/affiliazioni/` presente nella sitemap. Il warning storico sulle 38 edizioni tradotte senza
+traduttore resta invariato e non e' stato nascosto.
+
+**Responsive e JavaScript.** Home, Affiliazioni, Privacy, Note legali e una pagina citazione sono
+state provate in browser a **390x844** e **1440x900**: `scrollWidth == clientWidth` in tutti i dieci
+casi, un solo landmark principale, footer raggiungibile, zero schede affiliate e console pulita.
+La home monta tutte le **883** card in entrambi i viewport.
+
+**Deploy e verifica pubblica.** `origin/main` aggiornato in fast-forward a `fcb98560`, poi deploy
+Vercel di produzione `dpl_ENWMBxjWbQvzqCvMCofbCHsbgzvV`. Verificati:
+
+- `https://www.sottolineature.it/` -> 308 `https://sottolineature.it/`;
+- percorso interno `www` con query -> stesso percorso e query sull'apice;
+- `https://sottolineature.vercel.app/privacy/?prova=alias` -> 308
+  `https://sottolineature.it/privacy/?prova=alias`;
+- `https://sottolineature.it/` -> 200, 883 card, nessun overflow ed errori console;
+- `https://sottolineature.it/affiliazioni/` -> 200, canonical corretto e voce presente in
+  `sitemap-pagine.xml`;
+- nessun `href`/`src` Amazon, nessuna `.affiliate-card` e nessuna risorsa Amazon attiva.
+
+**Fuori dal deploy:** esclusivamente le 29 citazioni e i relativi nuovi output presenti nel ramo di
+sicurezza, in attesa di un lotto editoriale dedicato; nessun elemento della Fase 1 e' rimasto fuori.
+
 ## 2026-09-25 — font delle immagini OG: risolti con una copia locale ignorata da git
 
 Scelta dell'utente fra le tre uscite del turno delle 08:00: **imbarcare i font**. Fatto cosi':

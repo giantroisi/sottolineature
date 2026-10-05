@@ -53,9 +53,25 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-08-28.
+Aggiornata: 2026-10-05.
 
 ### Fatto
+- **Messa in sicurezza Git e produzione, 2026-10-05.** Lo stato locale trovato con 17 commit non
+  sincronizzati e 1.387 file modificati/non tracciati e' stato preservato integralmente nel ramo
+  remoto `codex/sicurezza-lavoro-locale-2026-10-05` (commit di consolidamento `6907fde8` e
+  artefatti riproducibili `b1cd4461`). `origin/main` ha ricevuto separatamente il solo lotto
+  pubblicabile basato sulle 883 citazioni gia' online (`fcb98560`), senza anticipare le 29
+  citazioni successive conservate nel ramo di sicurezza.
+- **Fase 1 affiliazioni pronta e pubblicata, 2026-10-05.** Aggiunte `/affiliazioni/`, Note legali,
+  aggiornamento Privacy, link nel footer, configurazione centrale e componente riutilizzabile.
+  `amazon_it_tracking_id` e' vuoto: il build impone zero schede affiliate e nessun link, prezzo,
+  immagine, widget o script Amazon e blocchera' l'attivazione senza la dichiarazione obbligatoria.
+  La Fase 2 resta sospesa fino alla comunicazione del Partner/Tracking ID e alla verifica puntuale
+  delle singole edizioni.
+- **Host canonico risolto, 2026-10-05.** I domini Vercel `www.sottolineature.it` e
+  `sottolineature.vercel.app` reindirizzano con HTTP 308 a `https://sottolineature.it`, conservando
+  percorso e parametri. Verificati in produzione home e percorsi interni: nessuno dei due serve
+  piu' una seconda copia.
 - Citazioni in crescita continua, non un traguardo fisso — il conteggio esatto è sempre in `data/citazioni.json`/`LOG.md`, non tenerlo aggiornato qui a ogni lotto. 245 copertine recuperate + tile placeholder per le mancanti, **contesto su 254/256 citazioni al momento della chiusura del cantiere contesto** — cifra storica, non aggiornata a ogni lotto successivo. Nota: il numero di copertine era rimasto non aggiornato per diversi lotti passati (indicava ancora "34", risalente a uno stato molto più piccolo del sito) — corretto qui al valore reale contato dal file
 - **216 contesti aggiunti in una sola giornata (2026-08-28), in autonomia**, su richiesta esplicita dell'utente ("puoi procedere senza i miei ok? l'importante è che segui la costituzione") — dettagli completi in LOG.md, in più lotti, ripresi anche dopo un'interruzione per limite settimanale di ricerca web esaurito e poi ripristinato. Restano solo 2 citazioni senza contesto, entrambe scartate per la stessa ragione — nessuna fonte (incluso Wikiquote) attribuisce un parlante o capitolo preciso: Dostoevskij (Delitto e castigo), Sciascia (Il giorno della civetta). Lezione operativa: quando lo stesso autore/titolo compare più volte sul sito, un contesto scritto per una citazione può finire applicato per errore anche alle altre con lo stesso titolo se lo script di inserimento non controlla i duplicati — sempre bene un controllo automatico post-inserimento (nessun contesto identico su citazioni diverse) prima di pubblicare
 - **Corretta un'attribuzione errata già pubblicata**: la citazione di Naguib Mahfouz sulla "parola d'amore pronunciata freddamente" era attribuita a "Il palazzo del desiderio" (1957), ma appartiene in realtà a "Vicolo del mortaio" (Midaq Alley, 1947) — confermato da una fonte con dettagli narrativi specifici (Hamida, Abbas, l'arruolamento nell'esercito inglese) che nessuna fonte collegava invece a Il palazzo del desiderio. Corretti titolo, anno, copertina e aggiunto il contesto
@@ -409,9 +425,11 @@ figlia; le 256 pagine citazione non hanno `<h1>`. 150 autori su 193 hanno una so
       Nota: `cleanUrls` + `trailingSlash` servono `citazioni/foo.html` su `/citazioni/foo/` e
       rimandano i vecchi indirizzi con un 308 permanente **senza rinominare nessun file** — la
       migrazione tocca solo i link interni, non la struttura del repo.
-- [ ] **Host canonico:** 301 da `www` all'apice e da `sottolineature.vercel.app` a
-      `sottolineature.it`. Se il redirect fra domini non è praticabile, minimo accettabile
-      `X-Robots-Tag: noindex` sul dominio `.vercel.app`. Oggi il sito esiste per intero su due host.
+- [x] **Host canonico `www`, completato il 2026-10-05:** redirect permanente 308 da `www`
+      all'apice configurato sul dominio Vercel, con percorso e query preservati.
+- [x] **Alias di progetto `sottolineature.vercel.app`, completato il 2026-10-05:** era pubblico
+      con HTTP 200; ora reindirizza con 308 all'apice conservando percorso e query. I deployment
+      URL specifici restano protetti e non vanno confusi con questo alias stabile.
 - [ ] **Link interni** — da correggere **nei generatori in `tools/`, mai a mano sui file generati**:
       `../index.html` → `/` (sono 512 occorrenze), `index.html#slug` → `/#slug`,
       `metodo.html` → `/metodo/`, `../autori/x.html` → `/autori/x/`, e così per temi e generi.
