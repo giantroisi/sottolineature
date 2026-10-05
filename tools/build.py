@@ -22,6 +22,7 @@ import generate_og_images as og  # noqa: E402
 import generate_index_pages as ip  # noqa: E402
 import generate_feed as feed  # noqa: E402
 import generate_404 as nf  # noqa: E402
+import affiliate  # noqa: E402
 
 
 HOST_REDIRECTS = [
@@ -236,6 +237,7 @@ def main():
     sitemap_groups = [
         ('sitemap-pagine.xml', [
             ('/', ''), ('/metodo/', ''), ('/privacy/', ''),
+            ('/note-legali/', ''), ('/affiliazioni/', ''),
             ('/autori/', ''), ('/temi/', ''), ('/generi/', ''),
             ('/opere/', ''), ('/raccolte/', ''),
         ]),
@@ -336,6 +338,21 @@ def main():
     print()
     fingerprints, stamped = stamp_assets()
 
+    tracking_id = affiliate.load_tracking_id()
+    affiliate_cards = 0
+    for dirpath, dirnames, filenames in os.walk(qp.ROOT):
+        dirnames[:] = [d for d in dirnames if d not in {'.git', 'archivio', 'node_modules', 'tools', 'templates'}]
+        for filename in filenames:
+            if filename.endswith('.html'):
+                with open(os.path.join(dirpath, filename), encoding='utf-8') as page_file:
+                    affiliate_cards += page_file.read().count('class="affiliate-card sans"')
+    if not tracking_id and affiliate_cards:
+        raise SystemExit('ERRORE: presenti link affiliati con Tracking ID vuoto.')
+    if tracking_id:
+        with open(os.path.join(qp.ROOT, 'affiliazioni.html'), encoding='utf-8') as disclosure_file:
+            if affiliate.AMAZON_DISCLOSURE not in disclosure_file.read():
+                raise SystemExit('ERRORE: Tracking ID attivo senza la dichiarazione Amazon obbligatoria.')
+
     # Controllo di integrita' del sito appena generato. Non blocca il build:
     # stampa cosa ha trovato, cosi' chi lancia il comando lo vede subito
     # invece di scoprirlo mesi dopo da un utente.
@@ -366,6 +383,8 @@ def main():
     print('Citazioni con blocco fonte:', quotes_with_source, '/', len(qp_entries), '| fonti duplicate su citazioni diverse:', len(dup_sources))
     print('Immagini OG generate:', og_generated, '| gia aggiornate:', og_skipped, '| totale attese:', len(qp_entries))
     print('Copertine locali (assets/covers/):', covers_local, '| ancora remote (Open Library):', covers_remote)
+    print('Link affiliati attivi:', affiliate_cards,
+          '(Tracking ID ' + ('configurato' if tracking_id else 'non configurato') + ')')
 
     # Copertura delle raccolte. E' il passaggio della lista di chiusura (punto 10)
     # che salta piu' spesso: e' l'unico che non rompe niente se lo si dimentica —

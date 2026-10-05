@@ -193,6 +193,22 @@ h1 { font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 0 0 0.75re
 .opera-link a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
 .opera-link a:hover { color: var(--gold); border-color: var(--gold); }
 
+/* Pagine di trasparenza e note legali. */
+.legal-page h1 { margin-bottom: 1.75rem; }
+.legal-page h2 { margin: 2.6rem 0 0.85rem; font-size: 1.25rem; font-weight: 400; font-style: italic; }
+.legal-page p, .legal-page li { font-size: 1.02rem; line-height: 1.68; color: var(--ink-soft); }
+.legal-page p { margin: 0 0 1.1rem; }
+.legal-page ul { margin: 0 0 1.1rem; padding-left: 1.3rem; }
+.legal-page li { margin: 0 0 0.6rem; }
+.legal-page a { color: var(--accent); text-underline-offset: 0.18em; }
+.legal-page strong { color: var(--ink); }
+.legal-status { padding: 1rem 1.2rem; background: var(--paper-raised); border-left: 2px solid var(--gold); }
+
+/* Componente dormiente per le future edizioni affiliate. */
+.affiliate-card { margin: 1.75rem 0 0; padding: 1rem 1.1rem; border: 1px solid var(--rule); border-left: 3px solid var(--gold); border-radius: 4px; background: var(--paper-raised); }
+.affiliate-link { color: var(--accent); font-size: 0.95rem; font-weight: 600; text-underline-offset: 0.2em; }
+.affiliate-note { margin: 0.55rem 0 0; color: var(--ink-faint); font-size: 0.78rem; line-height: 1.5; }
+
 .actions { margin-top: 2rem; display: flex; gap: 1.4rem; flex-wrap: wrap; }
 .actions a, .actions button {
   all: unset;
@@ -746,7 +762,7 @@ footer.sans a { color: var(--ink-faint); }
      che nessuno aveva mai guardato il foglio. E "Segnala un errore" e'
      un mailto: su un foglio e' una riga sottolineata che non porta da
      nessuna parte. */
-  .mine-tools, .mine-print-hint, .segnala, .footer-servizi,
+  .mine-tools, .mine-print-hint, .segnala, .footer-servizi, .affiliate-card,
   .cita-copia { display: none !important; }
   /* la data non e' decorazione: chi consegna una selezione di citazioni deve
      poter dire quando l'ha presa, perche' l'archivio cambia */

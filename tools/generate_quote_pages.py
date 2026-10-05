@@ -15,6 +15,7 @@ import urllib.parse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
+from affiliate import render_amazon_link  # noqa: E402
 
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -263,7 +264,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <figure class="card" data-category="{category}"{genre_attr}>
     <blockquote class="card-quote-block"{blockquote_cite}>
       <p class="card-quote">{quote_open}<span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">{h1_quote}</span>{quote_close}</p>
-      {full_quote_html}
+{full_quote_html}
     </blockquote>
     <div class="card-body">
       <figcaption class="card-citation sans">— <a href="/autori/{author_slug}/" class="card-author">{author}</a>, <cite class="card-title">{title}</cite>{year_html}</figcaption>
@@ -283,6 +284,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     {context_html}
     {source_html}
   </div>
+{affiliate_html}
   <div class="actions sans">
     <button type="button" class="js-only" id="copyBtn">Copia citazione</button>
     <button type="button" class="js-only" id="shareBtn" aria-expanded="false" aria-controls="shareChoice">Condividi</button>
@@ -320,7 +322,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   {related_html}
   </div>
   <footer class="sans" data-url="sottolineature.it/citazioni/{slug}/">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>. <a href="/note-legali/" style="color:var(--ink-faint)">Note legali</a>. <a href="/affiliazioni/" style="color:var(--ink-faint)">Affiliazioni</a>.</span>
   </footer>
 </div>
 <script src="/assets/share.js"></script>
@@ -806,7 +808,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     gia_virgolettata = q['quote'].strip().startswith('\u00ab')
     h1_text, was_truncated = truncate_words(q['quote'], 200)
     h1_quote = html.escape(h1_text)
-    full_quote_html = ('<p class="card-quote-full">' + quote_esc + '</p>') if was_truncated else ''
+    full_quote_html = ('      <p class="card-quote-full">' + quote_esc + '</p>') if was_truncated else ''
     h1_esplicativo = html.escape(titolo_esplicativo(q))
     # <blockquote cite> vuole l'URL del documento da cui la citazione proviene:
     # e' quello che il campo source_url contiene gia'.
@@ -988,6 +990,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         year_html=year_html,
         context_html=context_html,
         source_html=source_html,
+        affiliate_html=render_amazon_link(q),
         cita_html=cita_html,
         opera_link_html=opera_link_html,
         raccolta_link_html=raccolta_link_html,

@@ -150,7 +150,7 @@ PAGE = '''<!DOCTYPE html>
   </div>
   <p class="print-only sans" id="minePrintDate"></p>
   <footer class="sans" data-url="sottolineature.it">
-    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> &mdash; citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>.</span>
+    Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> &mdash; citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>. <a href="/note-legali/" style="color:var(--ink-faint)">Note legali</a>. <a href="/affiliazioni/" style="color:var(--ink-faint)">Affiliazioni</a>.</span>
   </footer>
 </div>
 <script>
