@@ -264,7 +264,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <figure class="card" data-category="{category}"{genre_attr}>
     <blockquote class="card-quote-block"{blockquote_cite}>
       <p class="card-quote">{quote_open}<span id="quoteText" class="quote-text" role="button" tabindex="0" title="Clic per copiare la citazione">{h1_quote}</span>{quote_close}</p>
-      {full_quote_html}
+{full_quote_html}
     </blockquote>
     <div class="card-body">
       <figcaption class="card-citation sans">— <a href="/autori/{author_slug}/" class="card-author">{author}</a>, <cite class="card-title">{title}</cite>{year_html}</figcaption>
@@ -808,7 +808,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
     gia_virgolettata = q['quote'].strip().startswith('\u00ab')
     h1_text, was_truncated = truncate_words(q['quote'], 200)
     h1_quote = html.escape(h1_text)
-    full_quote_html = ('<p class="card-quote-full">' + quote_esc + '</p>') if was_truncated else ''
+    full_quote_html = ('      <p class="card-quote-full">' + quote_esc + '</p>') if was_truncated else ''
     h1_esplicativo = html.escape(titolo_esplicativo(q))
     # <blockquote cite> vuole l'URL del documento da cui la citazione proviene:
     # e' quello che il campo source_url contiene gia'.
