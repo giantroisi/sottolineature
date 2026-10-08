@@ -74,8 +74,14 @@ Aggiornata: 2026-10-08.
   (132 casi) senza overflow o errori console; home 883, tema scuro e pulsanti 48 px.
   Ricollegato Chrome dopo il cambio della connessione e sostituita una scheda di
   prodotto temporanea chiusa, senza modificare le schede dell'utente. Pulsante,
-  footer, stili, fonti editoriali e ramo di sicurezza intatti. Pubblicazione e
-  verifica live da completare.
+  footer, stili, fonti editoriali e ramo di sicurezza intatti. Pubblicato `d3db2f9f`,
+  deploy `dpl_4h9YwaWr1oisHuyQCwJen2gSuDC4` Ready (10 s). Confrontate 411 pagine
+  HTTPS, tutte le 407 affiliate incluse: 660 pulsanti identici agli artefatti,
+  canonical/Open Graph/main/H1/footer/JSON-LD validi e zero risorse Amazon incorporate.
+  132 casi browser live senza overflow o errori console; home 883. Affiliazioni in
+  sitemap; www home e percorso interno HTTP 308 con query preservata. Nessun log
+  runtime disponibile sul sito statico, verifiche HTTP/browser dirette completate.
+  Tutti i venti titoli coperti, nessuna opera richiesta esclusa dal deploy.
 - **Dieci edizioni della lista di quindici opere, 2026-10-08.** Cinque gia' attive
   (Pirandello, Aleramo, Sapienza, Wilde e Garcia Marquez), senza duplicazioni.
   Aggiunte Allende, Ende, Rushdie, Silone, Martin, Ginzburg, Huxley, Conan Doyle,
