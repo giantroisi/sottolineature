@@ -56,6 +56,19 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Undici edizioni della lista di venti opere, 2026-10-08.** Nove titoli erano gia'
+  collegati; aggiunti Conrad, Remarque, Pamuk, Sapienza, Sciascia, Cognetti, Hornby,
+  Murakami, Gita al faro di Woolf, Morte a Venezia di Mann e Il richiamo della foresta
+  di London. Prime verificato su tutte le undici edizioni cartacee in italiano; undici
+  URL con `sottolineature-21` passati nel Controllo link ufficiale Amazon. Per 1Q84
+  scelti tutti e tre i libri in due volumi indivisibili, non il primo risultato parziale.
+  Distinti i crediti di Remarque, che Amazon unisceva in un unico nome, con riscontro nel
+  catalogo IBS dello stesso ISBN. Non dedotti traduttori assenti dalla byline di Mann/London.
+  Nessuna citazione, fonte, pagina o immagine nuova: 42 opere selettive, 121 pagine citazione,
+  25 pagine opera, 42 link nelle pagine autore, 27 raccolte, 336 pulsanti (prima 280).
+  Build, 12 test e controlli SEO/link/JSON-LD superati; 31 pagine provate a 390x844 e
+  1280x900 senza overflow o errori console. Pulsante, footer, icona tema e metadati SEO
+  preservati; zero risorse Amazon incorporate. Pubblicazione e verifica live da completare.
 - **Sei ulteriori edizioni e icona tema mobile, 2026-10-08.** Dei dieci titoli richiesti,
   Le citta' invisibili, Il piccolo principe, Orgoglio e pregiudizio e Delitto e castigo erano
   gia' collegati: nessuna duplicazione. Aggiunti Gerusalemme liberata, I Malavoglia,

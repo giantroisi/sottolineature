@@ -23,7 +23,7 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 31)
+        self.assertEqual(len(editions), 42)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
         self.assertEqual([item['author'] for item in exceptions], ['Primo Levi'])
@@ -93,7 +93,7 @@ class AffiliateTests(unittest.TestCase):
 
     def test_new_editions_were_checked_with_official_amazon_tool(self):
         additions = self.config['edizioni'][5:]
-        self.assertEqual(len(additions), 26)
+        self.assertEqual(len(additions), 37)
         self.assertTrue(all(item['link_checker_verified_on'] == '2026-10-08'
                             for item in additions))
 
@@ -104,6 +104,22 @@ class AffiliateTests(unittest.TestCase):
         self.assertEqual(affiliate.collection_edition_record(
             [('lee', unrelated), ('orwell', selected)], self.config
         ), selected)
+
+    def test_1q84_link_uses_complete_three_book_edition(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Haruki Murakami', 'title': '1Q84'}, self.config)
+        self.assertEqual(edition['asin'], '8806222902')
+        self.assertIn('Libri 1 2 e 3', edition['amazon_title'])
+        self.assertNotIn('8806226223', edition['amazon_url'])
+
+    def test_remarque_contributors_are_distinct_people_and_roles(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Erich Maria Remarque',
+             'title': 'Niente di nuovo sul fronte occidentale'}, self.config)
+        self.assertIn({'name': 'Stefano Jacini', 'role': 'Traduttore'},
+                      edition['contributors'])
+        self.assertIn({'name': 'Wolfgango Della Croce', 'role': 'Curatore'},
+                      edition['contributors'])
 
 
 if __name__ == '__main__':

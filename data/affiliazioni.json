@@ -678,6 +678,182 @@
       "edition_note": "Guanda, 2019; primo volume dei Canti, contenente L'infinito, non edizione autonoma della poesia",
       "verified_on": "2026-10-08",
       "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Joseph Conrad",
+      "title": "Cuore di tenebra",
+      "asin": "8807900165",
+      "amazon_title": "Cuore di tenebra",
+      "contributors": [
+        {"name": "Joseph Conrad", "role": "Autore"},
+        {"name": "E. Capriolo", "role": "Traduttore"}
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900165/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2013; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Erich Maria Remarque",
+      "title": "Niente di nuovo sul fronte occidentale",
+      "asin": "8854511676",
+      "amazon_title": "Niente di nuovo sul fronte occidentale",
+      "contributors": [
+        {"name": "Erich Maria Remarque", "role": "Autore"},
+        {"name": "Wolfgango Della Croce", "role": "Curatore"},
+        {"name": "Stefano Jacini", "role": "Traduttore"}
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8854511676/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Neri Pozza, 2016; testo italiano; i due nomi uniti nella byline Amazon sono distinti secondo il catalogo bibliografico",
+      "bibliographic_source_url": "https://www.ibs.it/niente-di-nuovo-sul-fronte-libro-erich-maria-remarque/e/9788854511675",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Orhan Pamuk",
+      "title": "Il mio nome è rosso",
+      "asin": "880622221X",
+      "amazon_title": "Il mio nome è Rosso",
+      "contributors": [
+        {"name": "Orhan Pamuk", "role": "Autore"},
+        {"name": "M. Bertolini", "role": "Traduttore"},
+        {"name": "S. Gezgin Hanife", "role": "Traduttore"}
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/880622221X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; testo italiano; crediti come riportati nella scheda Amazon",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Goliarda Sapienza",
+      "title": "L'arte della gioia",
+      "asin": "8806219677",
+      "amazon_title": "L'arte della gioia",
+      "contributors": [{"name": "Goliarda Sapienza", "role": "Autore"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806219677/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Leonardo Sciascia",
+      "title": "A ciascuno il suo",
+      "asin": "884591514X",
+      "amazon_title": "A ciascuno il suo",
+      "contributors": [{"name": "Leonardo Sciascia", "role": "Autore"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/884591514X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Adelphi, 2000; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Paolo Cognetti",
+      "title": "Le otto montagne",
+      "asin": "880623983X",
+      "amazon_title": "Le otto montagne",
+      "contributors": [{"name": "Paolo Cognetti", "role": "Autore"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/880623983X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2018; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Nick Hornby",
+      "title": "Alta fedeltà",
+      "asin": "8823514576",
+      "amazon_title": "Alta fedeltà",
+      "contributors": [
+        {"name": "Nick Hornby", "role": "Autore"},
+        {"name": "Laura Noulian", "role": "Traduttore"}
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8823514576/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Guanda, 2016; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Haruki Murakami",
+      "title": "1Q84",
+      "asin": "8806222902",
+      "amazon_title": "1Q84. Libri 1 2 e 3 [Due volumi indivisibili]",
+      "contributors": [
+        {"name": "Haruki Murakami", "role": "Autore"},
+        {"name": "G. Amitrano", "role": "Traduttore"}
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806222902/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; testo italiano completo in due volumi indivisibili, libri 1, 2 e 3; scartato il primo risultato limitato ai libri 1 e 2",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Virginia Woolf",
+      "title": "Gita al faro",
+      "asin": "8806239228",
+      "amazon_title": "Gita al faro",
+      "contributors": [
+        {"name": "Virginia Woolf", "role": "Autore"},
+        {"name": "Hisham Matar", "role": "Presentazione"},
+        {"name": "Anna Nadotti", "role": "Traduttore"}
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806239228/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2018; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Thomas Mann",
+      "title": "La morte a Venezia",
+      "asin": "8806225669",
+      "amazon_title": "Morte a Venezia",
+      "contributors": [{"name": "Thomas Mann", "role": "Autore"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806225669/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2015; testo italiano; la byline Amazon non indica il traduttore, non dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Jack London",
+      "title": "Il richiamo della foresta",
+      "asin": "8806230816",
+      "amazon_title": "Il richiamo della foresta",
+      "contributors": [{"name": "Jack London", "role": "Autore"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806230816/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2016; testo italiano; la byline Amazon non indica il traduttore, non dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
     }
   ]
 }
