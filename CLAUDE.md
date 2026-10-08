@@ -56,6 +56,25 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Dicitura interna su tutti i pulsanti affiliati, 2026-10-08.** Il componente
+  condiviso rende Acquista su Amazon e, subito sotto nello stesso pulsante,
+  link affiliato; aggiunto aria-label esplicito. CSS condiviso: etichetta 0,75rem
+  con minimo 11 px (12 px misurati), due righe, colore scuro su fondo dorato,
+  contrasto minimo 11,71:1 normale e 10,52:1 hover, target circa 60 px.
+  Applicata ai 745 pulsanti su 457 pagine citazione/opera/autore/raccolta; vale
+  anche per future edizioni attraverso il medesimo generatore. Nessuna etichetta
+  su link esterni normali. Footer Amazon generale preservato in 1.314 HTML.
+  Configurazione, URL, Tracking ID, tag, target e rel invariati. Confronto di tutti
+  gli HTML: stessi link, canonical e JSON-LD; sitemap byte-identiche. Il diff HTML
+  contiene soltanto markup/aria-label del pulsante e impronta CSS per evitare cache
+  obsolete; dati editoriali e altri asset intatti. Build 1.314 HTML/1.312 URL,
+  zero problemi link/JSON-LD; 27 test superati, inclusi tutti i pulsanti generati
+  e tutte le 119 edizioni selezionate. 14 pagine a 390x844 e 1280x900 in chiaro e
+  scuro (56 casi), nessun overflow/errori console, home 883; incluse citazioni
+  singole e multiple della stessa opera, autore con piu' pulsanti e raccolte.
+  Warning storici invariati: 38 traduttori, 12 loci condivisi, raccolte 73%.
+  Pubblicazione e verifica live da completare; ramo di sicurezza, approfondimento
+  D'Annunzio e 29 citazioni non pubblicate preservati.
 - **Dodici titoli Roy–Sciascia, 2026-10-08.** Sei gia' attivi (Roy, Bulgakov,
   Oz, Una stanza tutta per se', Lispector, Sciascia), senza duplicazioni.
   Aggiunti Rilke, 2666, Pavese, La Terra Santa, Montedidio e I fratelli Cuordileone:

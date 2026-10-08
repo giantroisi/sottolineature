@@ -4,6 +4,8 @@ import json
 import os
 import sys
 import unittest
+import re
+from pathlib import Path
 
 
 TOOLS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -51,6 +53,8 @@ class AffiliateTests(unittest.TestCase):
         record = {'author': 'George Orwell', 'title': '1984'}
         rendered = affiliate.render_amazon_link(record, self.config)
         self.assertIn('<span>Acquista su Amazon</span>', rendered)
+        self.assertIn('<span class="affiliate-button-disclosure">link affiliato</span>', rendered)
+        self.assertIn('aria-label="Acquista su Amazon — link affiliato"', rendered)
         self.assertIn('rel="sponsored nofollow noopener"', rendered)
         self.assertNotIn('(link affiliato)', rendered)
         self.assertNotIn('potremmo ricevere una commissione', rendered)
@@ -66,6 +70,34 @@ class AffiliateTests(unittest.TestCase):
         self.assertEqual(affiliate.render_amazon_link(
             {'author': 'Albert Camus', 'title': 'Lo straniero'}, self.config
         ), '')
+
+    def test_all_selected_editions_have_one_visible_and_accessible_button_disclosure(self):
+        for edition in self.config['edizioni']:
+            with self.subTest(author=edition['author'], title=edition['title']):
+                rendered = affiliate.render_amazon_button(edition, self.config)
+                self.assertEqual(rendered.count('class="affiliate-button-disclosure"'), 1)
+                self.assertIn('>link affiliato</span>', rendered)
+                self.assertIn('aria-label="Acquista su Amazon — link affiliato"', rendered)
+                self.assertIn('href="' + edition['amazon_url'] + '"', rendered)
+                self.assertIn('target="_blank" rel="sponsored nofollow noopener"', rendered)
+
+    def test_generated_buttons_have_disclosure_only_inside_affiliate_links(self):
+        button_count = 0
+        for path in Path(ROOT).rglob('*.html'):
+            if 'templates' in path.parts or any(part.startswith('.') for part in path.relative_to(ROOT).parts):
+                continue
+            source = path.read_text(encoding='utf-8')
+            anchors = re.findall(r'<a\b[^>]*>.*?</a>', source, re.DOTALL)
+            for anchor in anchors:
+                if 'class="affiliate-link"' in anchor:
+                    button_count += 1
+                    self.assertEqual(anchor.count('class="affiliate-button-disclosure"'), 1, str(path))
+                    self.assertIn('aria-label="Acquista su Amazon — link affiliato"', anchor, str(path))
+                else:
+                    self.assertNotIn('class="affiliate-button-disclosure"', anchor, str(path))
+            self.assertEqual(source.count('class="affiliate-button-disclosure"'),
+                             sum('class="affiliate-link"' in a for a in anchors), str(path))
+        self.assertGreater(button_count, 0)
 
     def test_url_rejects_extra_query_and_asin_mismatch(self):
         with self.assertRaises(ValueError):
