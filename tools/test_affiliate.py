@@ -23,7 +23,7 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 102)
+        self.assertEqual(len(editions), 113)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
         self.assertEqual([item['author'] for item in exceptions],
@@ -94,7 +94,7 @@ class AffiliateTests(unittest.TestCase):
 
     def test_new_editions_were_checked_with_official_amazon_tool(self):
         additions = self.config['edizioni'][5:]
-        self.assertEqual(len(additions), 97)
+        self.assertEqual(len(additions), 108)
         self.assertTrue(all(item['link_checker_verified_on'] == '2026-10-08'
                             for item in additions))
 
@@ -172,6 +172,24 @@ class AffiliateTests(unittest.TestCase):
         self.assertNotIn({'name': 'Stefano Bartezzaghi', 'role': 'Traduttore'},
                          edition['contributors'])
         self.assertTrue(edition['bibliographic_source_url'].startswith('https://www.salani.it/'))
+
+    def test_carroll_novels_have_distinct_correct_editions(self):
+        first = affiliate.edition_for_record(
+            {'author': 'Lewis Carroll', 'title': 'Alice nel paese delle meraviglie'}, self.config)
+        second = affiliate.edition_for_record(
+            {'author': 'Lewis Carroll', 'title': 'Attraverso lo specchio'}, self.config)
+        self.assertEqual(first['asin'], '885801393X')
+        self.assertEqual(second['asin'], 'B0CWFCC7L6')
+
+    def test_sartre_title_maps_to_verified_porta_chiusa(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Jean-Paul Sartre', 'title': 'A porte chiuse'}, self.config)
+        self.assertEqual(edition['asin'], '884527523X')
+        self.assertIn('Porta chiusa', edition['amazon_title'])
+
+    def test_unverified_herbert_has_no_purchase_link(self):
+        self.assertEqual(affiliate.render_amazon_link(
+            {'author': 'Zbigniew Herbert', 'title': 'Un barbaro nel giardino'}, self.config), '')
 
     def test_poe_poem_and_detective_story_have_distinct_editions(self):
         poem = affiliate.edition_for_record(

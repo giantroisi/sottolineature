@@ -56,6 +56,25 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Undici edizioni della lista di dodici opere, 2026-10-08.** Aggiunti La montagna
+  incantata, Manuale del guerriero della luce, Alice nel paese delle meraviglie,
+  Uno psicologo nei lager, I tre moschettieri, Novecento, Dio di illusioni,
+  Don Chisciotte della Mancia, A porte chiuse, Attraverso lo specchio e Il libro
+  dell'inquietudine. Tutte cartacee italiane Prime; undici URL confermati dal
+  Controllo link ufficiale Amazon. Carroll: distinti i due romanzi. Sartre:
+  il dramma richiesto e' presente come Porta chiusa nel volume Le mosche. Porta
+  chiusa; scartate le offerte vecchie non Prime. Credito Frankl Avanti omesso
+  per ambiguita', senza inventare il ruolo. Herbert non collegato: nessuna
+  edizione italiana Amazon verificabile trovata, nessun link generico o fittizio.
+  Totale 113 opere selettive, 267 pagine citazione, 43 pagine opera, 113 link
+  autore, 31 raccolte e 721 pulsanti (prima 660). Build completo: 1.314 HTML,
+  1.312 URL in sitemap, zero problemi link/JSON-LD; 23 test superati, comprese
+  regressioni Carroll, Sartre e assenza di link Herbert. 42 pagine a 390x844 e
+  1280x900 (84 casi), nessun overflow o errore console; home 883 schede, tema
+  scuro e pulsanti 48 px verificati. Un percorso di raccolta inesistente usato
+  inizialmente nel test e' stato corretto, nessuna modifica al sito necessaria.
+  Pulsante, disclosure, fonti, CSS/JS e ramo di sicurezza preservati.
+  Pubblicazione e verifica live da completare.
 - **Diciotto edizioni della nuova lista di venti opere, 2026-10-08.** La coscienza di
   Zeno e Cuore di tenebra gia' attive, senza duplicazioni. Aggiunti Herbert, Asimov,
   Adams, Harry Potter 1, Il pendolo di Foucault, Cronaca di una morte annunciata,
@@ -1012,6 +1031,12 @@ partire da una keyword senza il contenuto che la giustifica.
 - Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
+
+- **Affiliazione Herbert, 2026-10-08:** Un barbaro nel giardino resta senza link.
+  La ricerca Amazon per autore/titolo e per solo titolo non ha restituito
+  l'opera italiana; il risultato Barbari nel giardino e' un altro libro.
+  Serve una scheda Amazon dell'edizione italiana identificata con certezza;
+  non sostituire con altri titoli di Herbert o un link di ricerca.
 
 **Prossimo lavoro, in quest'ordine (concordato con l'utente il 2026-08-30).**
 
