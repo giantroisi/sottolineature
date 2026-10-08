@@ -1134,6 +1134,508 @@
       "edition_note": "Einaudi, 2021; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
       "verified_on": "2026-10-08",
       "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Elsa Morante",
+      "title": "La Storia",
+      "asin": "8806219642",
+      "amazon_title": "La storia",
+      "contributors": [
+        {
+          "name": "Elsa Morante",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806219642/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Marcel Proust",
+      "title": "Alla ricerca del tempo perduto",
+      "asin": "8806234897",
+      "amazon_title": "Alla ricerca del tempo perduto",
+      "contributors": [
+        {
+          "name": "Marcel Proust",
+          "role": "Autore"
+        },
+        {
+          "name": "Mariolina Bongiovanni Bertini",
+          "role": "Curatore"
+        },
+        {
+          "name": "Natalia Ginzburg",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Franco Fortini",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Nicoletta Neri",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Mario Bonfantini",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Elena Giolitti",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Paolo Serini",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Giorgio Caproni",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Franco Calamandrei",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Erich Auerbach",
+          "role": "Contributo"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806234897/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2017; tutti i sette romanzi, confermati dal catalogo dell'editore; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08",
+      "bibliographic_source_url": "https://www.einaudi.it/catalogo-libri/narrativa-straniera/narrativa-francese/alla-ricerca-del-tempo-perduto-marcel-proust/"
+    },
+    {
+      "author": "Vladimir Nabokov",
+      "title": "Lolita",
+      "asin": "884591254X",
+      "amazon_title": "Lolita",
+      "contributors": [
+        {
+          "name": "Vladimir Nabokov",
+          "role": "Autore"
+        },
+        {
+          "name": "Giulia Arborio Mella",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/884591254X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Adelphi, 1996; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Ray Bradbury",
+      "title": "Fahrenheit 451",
+      "asin": "8804783494",
+      "amazon_title": "Fahrenheit 451. Nuova ediz.",
+      "contributors": [
+        {
+          "name": "Ray Bradbury",
+          "role": "Autore"
+        },
+        {
+          "name": "Giorgio Monicelli",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804783494/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2023; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "George Orwell",
+      "title": "La fattoria degli animali",
+      "asin": "8807903792",
+      "amazon_title": "Fattoria degli animali",
+      "contributors": [
+        {
+          "name": "George Orwell",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807903792/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2021; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Louisa May Alcott",
+      "title": "Piccole donne",
+      "asin": "8831002473",
+      "amazon_title": "Piccole donne e Piccole donne crescono",
+      "contributors": [
+        {
+          "name": "Louisa May Alcott",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina rigida",
+      "amazon_url": "https://www.amazon.it/dp/8831002473/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Salani, 2020; entrambe le parti, necessarie per coprire anche le citazioni della parte seconda; scartato il volume con la sola prima parte; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Edgar Allan Poe",
+      "title": "Il corvo",
+      "asin": "8807901323",
+      "amazon_title": "Il corvo e altre poesie",
+      "contributors": [
+        {
+          "name": "Edgar Allan Poe",
+          "role": "Autore"
+        },
+        {
+          "name": "R. Montanari",
+          "role": "Curatore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807901323/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2014; raccolta che contiene il componimento richiesto; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Jack Kerouac",
+      "title": "Sulla strada",
+      "asin": "8804814691",
+      "amazon_title": "Sulla strada",
+      "contributors": [
+        {
+          "name": "Jack Kerouac",
+          "role": "Autore"
+        },
+        {
+          "name": "Marisa Caramella",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804814691/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2026; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Amin Maalouf",
+      "title": "Il manoscritto di Samarcanda",
+      "asin": "8830408743",
+      "amazon_title": "Il manoscritto di Samarcanda",
+      "contributors": [
+        {
+          "name": "Amin Maalouf",
+          "role": "Autore"
+        },
+        {
+          "name": "E. Fubini",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8830408743/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": false,
+      "edition_note": "Longanesi, 1989; offerta usata in italiano, non Prime; scartate offerte Prime in francese/spagnolo e altra edizione italiana non disponibile; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08",
+      "prime_exception_reason": "Risultati Prime in altre lingue; il cartaceo italiano verificato Longanesi e' disponibile solo usato senza Prime, l'altro cartaceo italiano e' non disponibile."
+    },
+    {
+      "author": "Terry Pratchett",
+      "title": "Il tristo mietitore",
+      "asin": "8850272464",
+      "amazon_title": "Il ciclo di Morte. Morty l'apprendista-Il tristo mietitore-All'anima della musica-La notte di Babbo Maiale",
+      "contributors": [
+        {
+          "name": "Terry Pratchett",
+          "role": "Autore"
+        },
+        {
+          "name": "Alessandro Zabini",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Valentina Daniele",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8850272464/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "TEA, 2025; omnibus Prime contenente Il tristo mietitore, preferito al volume singolo Salani senza Prime; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Eugenio Montale",
+      "title": "Ossi di seppia",
+      "asin": "880477925X",
+      "amazon_title": "Ossi di seppia",
+      "contributors": [
+        {
+          "name": "Eugenio Montale",
+          "role": "Autore"
+        },
+        {
+          "name": "Pietro Cataldi",
+          "role": "Curatore"
+        },
+        {
+          "name": "Floriana D'Amely",
+          "role": "Curatore"
+        },
+        {
+          "name": "Pier Vincenzo Mengaldo",
+          "role": "Collaboratore"
+        },
+        {
+          "name": "Sergio Solmi",
+          "role": "Collaboratore"
+        },
+        {
+          "name": "Giuseppe Montesano",
+          "role": "Prefazione"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/880477925X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2024; crediti espansi sulla scheda Amazon; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Jorge Luis Borges",
+      "title": "Finzioni",
+      "asin": "8845929647",
+      "amazon_title": "Finzioni",
+      "contributors": [
+        {
+          "name": "Jorge Luis Borges",
+          "role": "Autore"
+        },
+        {
+          "name": "Antonio Melis",
+          "role": "Curatore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8845929647/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Adelphi, 2015; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Edgar Allan Poe",
+      "title": "I delitti della Rue Morgue",
+      "asin": "8811605210",
+      "amazon_title": "I delitti della Rue Morgue",
+      "contributors": [
+        {
+          "name": "Edgar Allan Poe",
+          "role": "Autore"
+        },
+        {
+          "name": "Gabriele Baldini",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Luciana Pozzi",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8811605210/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Garzanti, 2019; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Ursula K. Le Guin",
+      "title": "La mano sinistra delle tenebre",
+      "asin": "8804732059",
+      "amazon_title": "La mano sinistra del buio",
+      "contributors": [
+        {
+          "name": "Ursula K. Le Guin",
+          "role": "Autore"
+        },
+        {
+          "name": "Chiara Reali",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804732059/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2021; nuova traduzione di Chiara Reali della stessa opera; il titolo storico e la fonte delle frasi restano invariati; non dedotto il ruolo indicato da Amazon con l'etichetta ambigua Dopo; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Robert Louis Stevenson",
+      "title": "Lo strano caso del dottor Jekyll e del signor Hyde",
+      "asin": "8811021774",
+      "amazon_title": "Lo strano caso del dottor Jekyll e del signor Hyde. Ediz. Integrale Garzanti",
+      "contributors": [
+        {
+          "name": "Robert Louis Stevenson",
+          "role": "Autore"
+        },
+        {
+          "name": "Laura Ferruta",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8811021774/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Garzanti, 2026; edizione integrale; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Niccolò Ammaniti",
+      "title": "Io non ho paura",
+      "asin": "8806207695",
+      "amazon_title": "Io non ho paura",
+      "contributors": [
+        {
+          "name": "Niccolò Ammaniti",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806207695/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2011; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Ralph Ellison",
+      "title": "Uomo invisibile",
+      "asin": "8860447070",
+      "amazon_title": "Uomo invisibile",
+      "contributors": [
+        {
+          "name": "Ralph Ellison",
+          "role": "Autore"
+        },
+        {
+          "name": "Francesco Pacifico",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8860447070/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Fandango Libri, 2021; non confondere con L'uomo invisibile di H.G. Wells; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Elif Shafak",
+      "title": "Le quaranta porte",
+      "asin": "8817049956",
+      "amazon_title": "Le quaranta porte",
+      "contributors": [
+        {
+          "name": "Elif Shafak",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8817049956/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Rizzoli, 2011; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Charles Dickens",
+      "title": "Racconto di due città",
+      "asin": "8817058289",
+      "amazon_title": "Le due città",
+      "contributors": [
+        {
+          "name": "Charles Dickens",
+          "role": "Autore"
+        },
+        {
+          "name": "Beatrice Boffito Serra",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8817058289/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Rizzoli, 2012; titolo italiano alternativo della stessa opera; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "William Shakespeare",
+      "title": "Romeo e Giulietta",
+      "asin": "8807901374",
+      "amazon_title": "Romeo e Giulietta",
+      "contributors": [
+        {
+          "name": "William Shakespeare",
+          "role": "Autore"
+        },
+        {
+          "name": "A. Lombardo",
+          "role": "Curatore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807901374/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2014; testo italiano; nessun traduttore dedotto dalla fonte delle citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
     }
   ]
 }

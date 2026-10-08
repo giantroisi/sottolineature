@@ -56,6 +56,19 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Venti ulteriori edizioni Amazon, 2026-10-08.** Tutti nuovi i titoli richiesti da
+  La Storia a Romeo e Giulietta: 19 cartacei italiani Prime e un'eccezione motivata
+  per Il manoscritto di Samarcanda (Longanesi usato, senza Prime; offerte Prime in
+  altre lingue scartate). Venti URL confermati dal Controllo link ufficiale Amazon.
+  Proust completo di sette romanzi verificato sul catalogo Einaudi; Alcott con entrambe
+  le parti, Pratchett nell'omnibus Ciclo di Morte Prime. Le Guin come La mano sinistra
+  del buio e Dickens come Le due citta', senza alterare titoli/fonti delle citazioni.
+  Distinti Ellison/Wells e i due testi di Poe. Totale: 74 opere, 184 pagine citazione,
+  32 pagine opera, 74 link autore, 31 raccolte, 505 pulsanti (prima 385), nessuna risorsa
+  Amazon incorporata. Build completo e 16 test superati; 53 pagine a 390x844 e
+  1280x900 senza overflow o errori console; home 883, tema scuro e target 48 px verificati.
+  Stili, footer, pulsante, fonti editoriali e ramo di sicurezza preservati. Pubblicazione
+  e controllo live da completare; nessun titolo richiesto escluso.
 - **Dodici edizioni della successiva lista di venti opere, 2026-10-08.** Otto titoli
   erano gia' attivi; aggiunte opere di Roy, Saramago, Bulgakov, Lispector, Oz, Pasolini,
   Arendt, Mishima, Hardy, Malaparte, Sinclair Lewis e Rigoni Stern. Tutte cartacee in
