@@ -56,6 +56,22 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Dieci edizioni della lista di quindici opere, 2026-10-08.** Cinque gia' attive
+  (Pirandello, Aleramo, Sapienza, Wilde e Garcia Marquez), senza duplicazioni.
+  Aggiunte Allende, Ende, Rushdie, Silone, Martin, Ginzburg, Huxley, Conan Doyle,
+  Fitzgerald e Golding: nove cartacee italiane Prime; Rushdie Mondadori usato senza
+  Prime come eccezione motivata, anche la variante rigida italiana non e' Prime.
+  Dieci URL confermati dal Controllo link ufficiale Amazon. Allende nuova edizione
+  Prime invece della precedente usata; Ende TEA italiano invece del primo risultato
+  dichiarato spagnolo; Martin primo romanzo completo Un gioco di troni (Libro 1).
+  Totale 84 opere selettive, 206 pagine citazione, 36 pagine opera, 84 link autore,
+  31 raccolte, 563 pulsanti (prima 505), nessuna risorsa Amazon incorporata.
+  Build completo, 18 test con due nuove regressioni bibliografiche, link/SEO/JSON-LD
+  superati. 42 pagine a 390x844 e 1280x900 (84 casi) senza overflow o errori console;
+  home 883, tema scuro e pulsanti 48 px verificati. Il controllo del tema usa il ruolo
+  DOM button: l'albero nativo lo descrive come checkbox per aria-pressed, nessun
+  difetto del sito. Pulsante, footer, stili, fonti editoriali e ramo di sicurezza intatti.
+  Pubblicazione e verifica live da completare.
 - **Venti ulteriori edizioni Amazon, 2026-10-08.** Tutti nuovi i titoli richiesti da
   La Storia a Romeo e Giulietta: 19 cartacei italiani Prime e un'eccezione motivata
   per Il manoscritto di Samarcanda (Longanesi usato, senza Prime; offerte Prime in

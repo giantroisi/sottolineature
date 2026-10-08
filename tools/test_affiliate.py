@@ -23,10 +23,11 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 74)
+        self.assertEqual(len(editions), 84)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
-        self.assertEqual([item['author'] for item in exceptions], ['Primo Levi', 'Amin Maalouf'])
+        self.assertEqual([item['author'] for item in exceptions],
+                         ['Primo Levi', 'Amin Maalouf', 'Salman Rushdie'])
         self.assertTrue(all(item['prime_exception_reason'] for item in exceptions))
 
     def test_every_selected_work_has_citations_and_inherits_one_url(self):
@@ -93,7 +94,7 @@ class AffiliateTests(unittest.TestCase):
 
     def test_new_editions_were_checked_with_official_amazon_tool(self):
         additions = self.config['edizioni'][5:]
-        self.assertEqual(len(additions), 69)
+        self.assertEqual(len(additions), 79)
         self.assertTrue(all(item['link_checker_verified_on'] == '2026-10-08'
                             for item in additions))
 
@@ -140,6 +141,19 @@ class AffiliateTests(unittest.TestCase):
         self.assertEqual(edition['asin'], '8860447070')
         self.assertIsNone(affiliate.edition_for_record(
             {'author': 'H.G. Wells', 'title': "L'uomo invisibile"}, self.config))
+
+    def test_martin_edition_is_complete_first_novel_not_another_volume(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'George R.R. Martin', 'title': 'Il Trono di Spade'}, self.config)
+        self.assertEqual(edition['asin'], '8804750782')
+        self.assertIn('Un gioco di troni (Libro 1)', edition['amazon_title'])
+        self.assertIn('romanzo completo', edition['edition_note'])
+
+    def test_ende_edition_uses_verified_italian_variant(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Michael Ende', 'title': 'La storia infinita'}, self.config)
+        self.assertEqual(edition['asin'], '8850273983')
+        self.assertNotIn('8830451517', edition['amazon_url'])
 
     def test_poe_poem_and_detective_story_have_distinct_editions(self):
         poem = affiliate.edition_for_record(
