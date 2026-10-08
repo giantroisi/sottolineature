@@ -67,8 +67,13 @@ Aggiornata: 2026-10-08.
   32 pagine opera, 74 link autore, 31 raccolte, 505 pulsanti (prima 385), nessuna risorsa
   Amazon incorporata. Build completo e 16 test superati; 53 pagine a 390x844 e
   1280x900 senza overflow o errori console; home 883, tema scuro e target 48 px verificati.
-  Stili, footer, pulsante, fonti editoriali e ramo di sicurezza preservati. Pubblicazione
-  e controllo live da completare; nessun titolo richiesto escluso.
+  Stili, footer, pulsante, fonti editoriali e ramo di sicurezza preservati. Pubblicato
+  `20afce07`, deploy `dpl_EmdhyfAYM6FMxyp2EMyMo7ZyiNfs` Ready (13 s). Confrontate
+  317 pagine HTTPS, tutte le 313 affiliate incluse: 505 pulsanti identici agli artefatti,
+  canonical/Open Graph/footer/JSON-LD validi e zero risorse Amazon incorporate.
+  106 casi browser live senza overflow o errori console; home 883. Affiliazioni in
+  sitemap, www HTTP 308 con query preservata. Nessun log runtime disponibile per
+  il sito statico, controlli HTTP/browser diretti completati. Nessun titolo escluso.
 - **Dodici edizioni della successiva lista di venti opere, 2026-10-08.** Otto titoli
   erano gia' attivi; aggiunte opere di Roy, Saramago, Bulgakov, Lispector, Oz, Pasolini,
   Arendt, Mishima, Hardy, Malaparte, Sinclair Lewis e Rigoni Stern. Tutte cartacee in
