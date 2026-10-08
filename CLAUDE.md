@@ -56,6 +56,26 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Diciotto edizioni della nuova lista di venti opere, 2026-10-08.** La coscienza di
+  Zeno e Cuore di tenebra gia' attive, senza duplicazioni. Aggiunti Herbert, Asimov,
+  Adams, Harry Potter 1, Il pendolo di Foucault, Cronaca di una morte annunciata,
+  Morrison, Buzzati, Vonnegut, Il piacere, Le intermittenze della morte, McCarthy,
+  Ondaatje, Barnes, Ernaux, La ragazza di fuoco, Atwood e Tabucchi. Tutte le diciotto
+  edizioni cartacee italiane Prime; diciotto URL confermati dal Controllo link Amazon.
+  Fondazione nel ciclo completo, Adams nel singolo romanzo, Collins nel secondo libro
+  cartaceo; esclusi adattamenti e libri di analisi. Harry Potter anniversario verificato
+  sul catalogo Salani: Bartezzaghi e' revisore della traduzione secondo la biografia
+  editoriale GeMS, non un traduttore come nella byline generica Amazon. Fonti delle
+  citazioni preservate. Crediti Morrison limitati ai ruoli espliciti, senza deduzioni.
+  Totale 102 opere selettive, 243 pagine citazione, 41 opere, 102 link autore,
+  31 raccolte, 660 pulsanti (prima 563), nessuna risorsa Amazon incorporata.
+  Build completo: 1.314 HTML/1.312 URL; link/SEO/JSON-LD corretti e 20 test superati,
+  comprese due nuove regressioni Asimov/Rowling. 66 pagine a 390x844 e 1280x900
+  (132 casi) senza overflow o errori console; home 883, tema scuro e pulsanti 48 px.
+  Ricollegato Chrome dopo il cambio della connessione e sostituita una scheda di
+  prodotto temporanea chiusa, senza modificare le schede dell'utente. Pulsante,
+  footer, stili, fonti editoriali e ramo di sicurezza intatti. Pubblicazione e
+  verifica live da completare.
 - **Dieci edizioni della lista di quindici opere, 2026-10-08.** Cinque gia' attive
   (Pirandello, Aleramo, Sapienza, Wilde e Garcia Marquez), senza duplicazioni.
   Aggiunte Allende, Ende, Rushdie, Silone, Martin, Ginzburg, Huxley, Conan Doyle,

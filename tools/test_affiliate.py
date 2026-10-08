@@ -23,7 +23,7 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 84)
+        self.assertEqual(len(editions), 102)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
         self.assertEqual([item['author'] for item in exceptions],
@@ -94,7 +94,7 @@ class AffiliateTests(unittest.TestCase):
 
     def test_new_editions_were_checked_with_official_amazon_tool(self):
         additions = self.config['edizioni'][5:]
-        self.assertEqual(len(additions), 79)
+        self.assertEqual(len(additions), 97)
         self.assertTrue(all(item['link_checker_verified_on'] == '2026-10-08'
                             for item in additions))
 
@@ -154,6 +154,24 @@ class AffiliateTests(unittest.TestCase):
             {'author': 'Michael Ende', 'title': 'La storia infinita'}, self.config)
         self.assertEqual(edition['asin'], '8850273983')
         self.assertNotIn('8830451517', edition['amazon_url'])
+
+    def test_foundation_edition_includes_first_novel(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Isaac Asimov', 'title': 'Fondazione'}, self.config)
+        self.assertEqual(edition['asin'], '8804729198')
+        self.assertIn('ciclo completo', edition['amazon_title'])
+        self.assertNotIn('8804730390', edition['amazon_url'])
+
+    def test_potter_translation_revision_is_not_a_translator_credit(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'J.K. Rowling', 'title': 'Harry Potter e la Pietra Filosofale'},
+            self.config)
+        self.assertEqual(edition['asin'], '8831017322')
+        self.assertIn({'name': 'Stefano Bartezzaghi', 'role': 'Revisione della traduzione'},
+                      edition['contributors'])
+        self.assertNotIn({'name': 'Stefano Bartezzaghi', 'role': 'Traduttore'},
+                         edition['contributors'])
+        self.assertTrue(edition['bibliographic_source_url'].startswith('https://www.salani.it/'))
 
     def test_poe_poem_and_detective_story_have_distinct_editions(self):
         poem = affiliate.edition_for_record(
