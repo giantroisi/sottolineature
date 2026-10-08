@@ -19,7 +19,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_PATH = os.path.join(ROOT, 'data', 'affiliazioni.json')
 ASIN_RE = re.compile(r'^[A-Z0-9]{10}$')
 AMAZON_PATH_RE = re.compile(r'^/dp/([A-Z0-9]{10})/?$')
-MAX_ACTIVE_WORKS = 5
+# Cinque opere iniziali e venti ulteriori titoli approvati esplicitamente.
+MAX_ACTIVE_WORKS = 25
 
 LINK_TEXT = 'Acquista su Amazon'
 AMAZON_DISCLOSURE = 'In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei'
@@ -70,7 +71,7 @@ def validated_editions(config=None):
     if not tracking_id:
         return {}
     if len(raw_editions) > MAX_ACTIVE_WORKS:
-        raise ValueError(f'Il progetto pilota consente al massimo {MAX_ACTIVE_WORKS} opere affiliate.')
+        raise ValueError(f'Il lotto approvato consente al massimo {MAX_ACTIVE_WORKS} opere affiliate.')
 
     editions = {}
     for index, raw in enumerate(raw_editions, start=1):

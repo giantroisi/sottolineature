@@ -20,10 +20,10 @@ class AffiliateTests(unittest.TestCase):
         with open(os.path.join(ROOT, 'data', 'citazioni.json'), encoding='utf-8') as source:
             cls.quotes = json.load(source)
 
-    def test_real_config_is_small_verified_prime_pilot(self):
+    def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 5)
+        self.assertEqual(len(editions), 25)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         self.assertTrue(all(item['prime_verified'] is True for item in editions.values()))
 
@@ -61,7 +61,7 @@ class AffiliateTests(unittest.TestCase):
 
     def test_unselected_work_has_no_link(self):
         self.assertEqual(affiliate.render_amazon_link(
-            {'author': 'Harper Lee', 'title': 'Il buio oltre la siepe'}, self.config
+            {'author': 'Albert Camus', 'title': 'Lo straniero'}, self.config
         ), '')
 
     def test_url_rejects_extra_query_and_asin_mismatch(self):
@@ -76,14 +76,27 @@ class AffiliateTests(unittest.TestCase):
                 'sottolineature-21', '880625829X'
             )
 
-    def test_sixth_active_work_is_rejected(self):
+    def test_work_beyond_approved_limit_is_rejected(self):
         config = dict(self.config)
         config['edizioni'] = list(self.config['edizioni']) + [dict(self.config['edizioni'][0])]
-        with self.assertRaises(ValueError):
+        with self.assertRaisesRegex(ValueError, 'lotto approvato'):
             affiliate.validated_editions(config)
 
+    def test_inferno_work_alias_inherits_verified_cantica_not_another_volume(self):
+        record = {'author': 'Dante Alighieri', 'title': 'Inferno',
+                  'titles': ['Inferno, Divina Commedia']}
+        edition = affiliate.edition_for_record(record, self.config)
+        self.assertEqual(edition['asin'], '8804671653')
+        self.assertIn('Inferno', edition['amazon_title'])
+
+    def test_new_editions_were_checked_with_official_amazon_tool(self):
+        additions = self.config['edizioni'][5:]
+        self.assertEqual(len(additions), 20)
+        self.assertTrue(all(item['link_checker_verified_on'] == '2026-10-08'
+                            for item in additions))
+
     def test_collection_never_recommends_a_work_absent_from_its_quotes(self):
-        unrelated = {'author': 'Harper Lee', 'title': 'Il buio oltre la siepe'}
+        unrelated = {'author': 'Albert Camus', 'title': 'Lo straniero'}
         self.assertIsNone(affiliate.collection_edition_record([('lee', unrelated)], self.config))
         selected = {'author': 'George Orwell', 'title': '1984'}
         self.assertEqual(affiliate.collection_edition_record(

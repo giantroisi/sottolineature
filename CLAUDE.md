@@ -56,6 +56,21 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Estensione Amazon a venti opere approvate, 2026-10-08.** Aggiunti tutti i venti titoli
+  indicati dall'utente, senza nuove pagine o modifiche editoriali alle citazioni. Ogni edizione
+  cartacea e' stata controllata sulla propria scheda Amazon: lingua italiana, autore,
+  formato, ISBN/ASIN e badge Prime; tutti i venti URL puliti sono passati nel Controllo link
+  ufficiale Amazon con Tracking ID `sottolineature-21`. Crediti incompleti di Bronte/Kafka
+  integrati con il catalogo dell'editore. Le edizioni acquistabili e le fonti delle frasi
+  restano distinte; la pagina Affiliazioni lo esplicita. Il limite approvato sale da 5 a 25:
+  73 pagine citazione (due pulsanti ciascuna), 16 pagine opera, 25 link accanto ai titoli
+  nelle pagine autore e una scheda in 24 delle 33 raccolte; 211 pulsanti complessivi,
+  contro i 38 iniziali. Nessun prezzo, risorsa remota, banner o script Amazon; aspetto del
+  tasto invariato e dichiarazione nei 1.314 footer. Build completo e 10 test superati,
+  zero errori link/JSON-LD; 28 pagine controllate a 390x844 e 1280x900 senza overflow
+  o errori console. Home con 883 schede; ricerca su Manzoni 7 risultati, stato vuoto e reset
+  a 883 verificati. Restano invariati i warning editoriali storici (38 traduttori mancanti,
+  12 loci condivisi, copertura raccolte 73%). Pubblicazione e verifica live da registrare.
 - **Aspetto finale del pulsante Amazon, 2026-10-08.** Su successiva istruzione esplicita
   dell'utente, verificato anche l'esempio di dietroiltesto.it, il tasto torna al solo carrello e
   «Acquista su Amazon», senza la seconda riga «link affiliato». La dichiarazione completa resta

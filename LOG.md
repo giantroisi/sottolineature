@@ -4753,6 +4753,8 @@ uscite possibili restano quelle del turno delle 08:00 e la scelta e' dell'utente
 
 Archivio: **883 citazioni, dati e HEAD allineati.**
 
+- 2026-10-08 13:30 UTC — added 0 quotes (total now 883) — Amazon: estensione ai 20 titoli esplicitamente approvati (da Il piccolo principe a Inferno); schede cartacee italiane e badge Prime verificati singolarmente, 20/20 URL validati dal Controllo link ufficiale Amazon con sottolineature-21. Fonti delle citazioni immutate; traduzioni commerciali diverse annotate nei dati e distinzione esplicitata in Affiliazioni. Totale 25 opere, 73 pagine citazione, 16 pagine opera, 25 link nei titoli autore, 24 raccolte e 211 pulsanti (prima 38); nessun prezzo, script, widget o immagine Amazon. Build e 10 test OK, link/JSON-LD senza errori, 28 pagine mobile 390x844 e desktop 1280x900 senza overflow o errori console, home 883 e ricerca/reset verificati. Ramo locale di sicurezza e 29 citazioni non pubblicate intatti; pubblicazione live da completare.
+
 - 2026-10-08 12:53 UTC — **pilota Amazon pubblicato e interfaccia estesa su richiesta dell'utente**,
   nessuna citazione aggiunta (totale 883). Pubblicato `c4727c1e` su main, deploy pronto
   `dpl_BxYP5QCzXoJurMmSBWpyvbd6DpwP`; verificate tutte le 14 pagine affiliate iniziali,

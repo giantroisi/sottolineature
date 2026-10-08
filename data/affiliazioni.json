@@ -65,6 +65,488 @@
       "prime_verified": true,
       "edition_note": "Feltrinelli, 2026; edizione curata da Daniela Brogi",
       "verified_on": "2026-10-08"
+    },
+    {
+      "author": "Antoine de Saint-Exupéry",
+      "title": "Il piccolo principe",
+      "asin": "8858012836",
+      "amazon_title": "Il Piccolo Principe",
+      "contributors": [
+        {
+          "name": "Antoine de Saint-Exupéry",
+          "role": "Autore"
+        },
+        {
+          "name": "Yasmina Mélaouah",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina rigida",
+      "amazon_url": "https://www.amazon.it/dp/8858012836/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Gribaudo, 2015; traduzione di Yasmina Mélaouah",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Gabriel García Márquez",
+      "title": "Cent'anni di solitudine",
+      "asin": "8804734949",
+      "amazon_title": "Cent'anni di solitudine",
+      "contributors": [
+        {
+          "name": "Gabriel García Márquez",
+          "role": "Autore"
+        },
+        {
+          "name": "Ilide Carmignani",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804734949/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2021; traduzione di Ilide Carmignani. Edizione proposta distinta dalla traduzione Cicogna usata per le citazioni",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Jane Austen",
+      "title": "Orgoglio e pregiudizio",
+      "asin": "8804671408",
+      "amazon_title": "Orgoglio e pregiudizio. Oscar classici",
+      "contributors": [
+        {
+          "name": "Jane Austen",
+          "role": "Autore"
+        },
+        {
+          "name": "W. Somerset Maugham",
+          "role": "Collaboratore"
+        },
+        {
+          "name": "Isobel Armstrong",
+          "role": "Presentazione"
+        },
+        {
+          "name": "Giulio Caprin",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804671408/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2016; traduzione di Giulio Caprin; crediti completi espansi nella scheda Amazon",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Fëdor Dostoevskij",
+      "title": "Delitto e castigo",
+      "asin": "8806220454",
+      "amazon_title": "Delitto e castigo",
+      "contributors": [
+        {
+          "name": "Fëdor Dostoevskij",
+          "role": "Autore"
+        },
+        {
+          "name": "Emanuela Guercetti",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806220454/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; traduzione di Emanuela Guercetti. Edizione proposta distinta dalla fonte storica Verdinois",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Lev Tolstoj",
+      "title": "Anna Karenina",
+      "asin": "880467220X",
+      "amazon_title": "Anna Karenina",
+      "contributors": [
+        {
+          "name": "Lev Tolstoj",
+          "role": "Autore"
+        },
+        {
+          "name": "Igor Sibaldi",
+          "role": "Presentazione"
+        },
+        {
+          "name": "Annelisa Alleva",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/880467220X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2016; traduzione di Annelisa Alleva. Edizione proposta distinta dalla fonte storica Ginzburg; verificato il cartaceo e non i crediti dell'ebook raggruppato",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Emily Brontë",
+      "title": "Cime tempestose",
+      "asin": "8807900122",
+      "amazon_title": "Cime tempestose",
+      "contributors": [
+        {
+          "name": "Emily Brontë",
+          "role": "Autore"
+        },
+        {
+          "name": "Laura Noulian",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900122/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli; ISBN 9788807900129. Traduzione Noulian confermata dall'editore; la scheda Amazon abbrevia il nome dell'autrice",
+      "bibliographic_source": "https://www.feltrinellieditore.it/opera/opera/cime-tempestose-1/",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Franz Kafka",
+      "title": "La metamorfosi",
+      "asin": "8807900734",
+      "amazon_title": "La metamorfosi",
+      "contributors": [
+        {
+          "name": "Franz Kafka",
+          "role": "Autore"
+        },
+        {
+          "name": "Andreina Lavagetto",
+          "role": "Curatrice"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900734/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2013; ISBN 9788807900730, 304 pagine; curatela di Andreina Lavagetto confermata dal catalogo dell'editore",
+      "bibliographic_source": "https://www.feltrinellieditore.it/media/filer_public/12/a7/12a7f0be-febf-40dc-953e-0f4be9fa69b2/ue_classici_2021_ridotta.pdf",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Italo Calvino",
+      "title": "Le città invisibili",
+      "asin": "8804772115",
+      "amazon_title": "Le città invisibili",
+      "contributors": [
+        {
+          "name": "Italo Calvino",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804772115/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2022; testo originale italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Fëdor Dostoevskij",
+      "title": "L'idiota",
+      "asin": "8806220624",
+      "amazon_title": "L'idiota",
+      "contributors": [
+        {
+          "name": "Fëdor Dostoevskij",
+          "role": "Autore"
+        },
+        {
+          "name": "Alfredo Polledro",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806220624/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; traduzione di Alfredo Polledro",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Herman Melville",
+      "title": "Moby Dick",
+      "asin": "8845910954",
+      "amazon_title": "Moby Dick o la balena",
+      "contributors": [
+        {
+          "name": "Herman Melville",
+          "role": "Autore"
+        },
+        {
+          "name": "Cesare Pavese",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8845910954/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Adelphi, 1994; traduzione di Cesare Pavese",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Alessandro Manzoni",
+      "title": "I promessi sposi",
+      "asin": "8858307909",
+      "amazon_title": "I promessi sposi. Ediz. integrale. Con audiolibro. Con e-book. Con espansione online",
+      "contributors": [
+        {
+          "name": "Alessandro Manzoni",
+          "role": "Autore"
+        },
+        {
+          "name": "Corrado Bologna",
+          "role": "a cura di"
+        },
+        {
+          "name": "Paola Rocchi",
+          "role": "a cura di"
+        }
+      ],
+      "format": "Rilegatura flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8858307909/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Loescher, 2019; edizione integrale (Unabridged), 1056 pagine; a cura di Corrado Bologna e Paola Rocchi",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Italo Svevo",
+      "title": "La coscienza di Zeno",
+      "asin": "8807900491",
+      "amazon_title": "La coscienza di Zeno",
+      "contributors": [
+        {
+          "name": "Italo Svevo",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900491/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli; testo originale italiano; ISBN 9788807900495; la scheda Amazon abbrevia il nome dell'autore",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Virginia Woolf",
+      "title": "Una stanza tutta per sé",
+      "asin": "8807900602",
+      "amazon_title": "Una stanza tutta per sé",
+      "contributors": [
+        {
+          "name": "Virginia Woolf",
+          "role": "Autore"
+        },
+        {
+          "name": "L. Bacchi Wilcock",
+          "role": "Traduttore"
+        },
+        {
+          "name": "J. R. Wilcock",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900602/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2013; traduzione di L. Bacchi Wilcock e J. R. Wilcock",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Lev Tolstoj",
+      "title": "Guerra e pace",
+      "asin": "8806241214",
+      "amazon_title": "Guerra e pace [Due volumi indivisibili]",
+      "contributors": [
+        {
+          "name": "Lev Tolstoj",
+          "role": "Autore"
+        },
+        {
+          "name": "Leone Ginzburg",
+          "role": "Prefazione"
+        },
+        {
+          "name": "Emanuela Guercetti",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806241214/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2019; due volumi indivisibili, 1560 pagine; traduzione di Emanuela Guercetti",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Franz Kafka",
+      "title": "Il processo",
+      "asin": "8807900963",
+      "amazon_title": "Il processo",
+      "contributors": [
+        {
+          "name": "Franz Kafka",
+          "role": "Autore"
+        },
+        {
+          "name": "A. Raja",
+          "role": "a cura di"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900963/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2014; edizione a cura di A. Raja",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Hermann Hesse",
+      "title": "Demian",
+      "asin": "8804788801",
+      "amazon_title": "Demian",
+      "contributors": [
+        {
+          "name": "Hermann Hesse",
+          "role": "Autore"
+        },
+        {
+          "name": "Matteo Galli",
+          "role": "Prefazione"
+        },
+        {
+          "name": "Ervino Pocar",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804788801/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2024; traduzione di Ervino Pocar",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Virginia Woolf",
+      "title": "La signora Dalloway",
+      "asin": "8807900599",
+      "amazon_title": "La signora Dalloway",
+      "contributors": [
+        {
+          "name": "Virginia Woolf",
+          "role": "Autore"
+        },
+        {
+          "name": "N. Fusini",
+          "role": "a cura di"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900599/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2013; edizione a cura di N. Fusini",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Harper Lee",
+      "title": "Il buio oltre la siepe",
+      "asin": "8807950782",
+      "amazon_title": "Il buio oltre la siepe",
+      "contributors": [
+        {
+          "name": "Harper Lee",
+          "role": "Autore"
+        },
+        {
+          "name": "Vincenzo Mantovani",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807950782/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2026; traduzione di Vincenzo Mantovani. Edizione proposta distinta dalla traduzione D'Agostino Schanzer citata nell'archivio",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Pablo Neruda",
+      "title": "Cento sonetti d'amore",
+      "asin": "8836806147",
+      "amazon_title": "Cento sonetti d'amore. Testo spagnolo a fronte",
+      "contributors": [
+        {
+          "name": "Pablo Neruda",
+          "role": "Autore"
+        },
+        {
+          "name": "Giuseppe Bellini",
+          "role": "a cura di"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8836806147/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Passigli, 2000; edizione italiana con testo spagnolo a fronte, a cura di Giuseppe Bellini",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Dante Alighieri",
+      "title": "Inferno, Divina Commedia",
+      "asin": "8804671653",
+      "amazon_title": "La Divina Commedia. Inferno: 4",
+      "contributors": [
+        {
+          "name": "Dante Alighieri",
+          "role": "Autore"
+        },
+        {
+          "name": "Anna Maria Chiavacci Leonardi",
+          "role": "Commento"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804671653/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2016; cantica Inferno con commento di Anna Maria Chiavacci Leonardi; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
     }
   ]
 }
