@@ -74,7 +74,13 @@ Aggiornata: 2026-10-08.
   scuro e pulsanti 48 px verificati. Un percorso di raccolta inesistente usato
   inizialmente nel test e' stato corretto, nessuna modifica al sito necessaria.
   Pulsante, disclosure, fonti, CSS/JS e ramo di sicurezza preservati.
-  Pubblicazione e verifica live da completare.
+  Pubblicato `c0d31298`, deploy `dpl_8PRCsjJmKRpYo7rXshnCGq4M2Ytv` Ready (10 s).
+  Confrontate 446 pagine HTTPS, tutte le 442 affiliate incluse: 721 pulsanti
+  identici agli artefatti, canonical/Open Graph/main/H1/footer/JSON-LD validi,
+  nessuna risorsa Amazon incorporata. 84 casi browser live senza overflow o
+  errori console; home 883. Affiliazioni in sitemap; www home e percorso interno
+  HTTP 308 con query preservata. Nessun log runtime del sito statico disponibile,
+  verifiche dirette HTTP/browser completate. Herbert rimane fuori dal deploy.
 - **Diciotto edizioni della nuova lista di venti opere, 2026-10-08.** La coscienza di
   Zeno e Cuore di tenebra gia' attive, senza duplicazioni. Aggiunti Herbert, Asimov,
   Adams, Harry Potter 1, Il pendolo di Foucault, Cronaca di una morte annunciata,
