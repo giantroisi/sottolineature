@@ -56,6 +56,26 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Dodici titoli Roy–Sciascia, 2026-10-08.** Sei gia' attivi (Roy, Bulgakov,
+  Oz, Una stanza tutta per se', Lispector, Sciascia), senza duplicazioni.
+  Aggiunti Rilke, 2666, Pavese, La Terra Santa, Montedidio e I fratelli Cuordileone:
+  tutti cartacei italiani, cinque con simbolo Prime. Lindgren Salani 2020 nuovo
+  senza simbolo Prime e' l'eccezione autorizzata: non trovata altra edizione
+  italiana cartacea Prime nelle ricerche con autore/titolo e solo titolo.
+  Sei URL con sottolineature-21 confermati dal Controllo link ufficiale Amazon.
+  2666 e' completo delle cinque parti; La Terra Santa e' nel volume Testamento
+  seguito da La Terra Santa, mostrato con il titolo commerciale completo.
+  Crediti e formati verificati; fonti e traduzioni delle citazioni non alterate.
+  Totale 119 opere selettive, 276 pagine citazione, 43 opere, 119 link autore,
+  107 autori con pulsanti, 31 raccolte, 745 pulsanti (prima 721). Nessuna nuova
+  pagina o link duplicato; questa aggiunta non cambia le scelte delle raccolte.
+  Build completo: 1.314 HTML, 1.312 URL in sitemap, zero problemi link/JSON-LD;
+  25 test superati, incluse regressioni Bolaño e Merini. 27 pagine a 390x844 e
+  1280x900 (54 casi), zero overflow/errori console; home 883 schede, tema scuro
+  e target dei pulsanti 48 px verificati. Warning storici invariati (38 traduttori,
+  12 loci condivisi, raccolte 73%). Pulsante, disclosure, CSS/JS e dati editoriali
+  preservati. Pubblicazione e verifiche live da completare; ramo di sicurezza,
+  approfondimento D'Annunzio e 29 citazioni non pubblicate intatti.
 - **Undici edizioni della lista di dodici opere, 2026-10-08.** Aggiunti La montagna
   incantata, Manuale del guerriero della luce, Alice nel paese delle meraviglie,
   Uno psicologo nei lager, I tre moschettieri, Novecento, Dio di illusioni,

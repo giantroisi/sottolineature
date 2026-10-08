@@ -23,11 +23,11 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 113)
+        self.assertEqual(len(editions), 119)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
         self.assertEqual([item['author'] for item in exceptions],
-                         ['Primo Levi', 'Amin Maalouf', 'Salman Rushdie'])
+                         ['Primo Levi', 'Amin Maalouf', 'Salman Rushdie', 'Astrid Lindgren'])
         self.assertTrue(all(item['prime_exception_reason'] for item in exceptions))
 
     def test_every_selected_work_has_citations_and_inherits_one_url(self):
@@ -94,7 +94,7 @@ class AffiliateTests(unittest.TestCase):
 
     def test_new_editions_were_checked_with_official_amazon_tool(self):
         additions = self.config['edizioni'][5:]
-        self.assertEqual(len(additions), 108)
+        self.assertEqual(len(additions), 114)
         self.assertTrue(all(item['link_checker_verified_on'] == '2026-10-08'
                             for item in additions))
 
@@ -190,6 +190,21 @@ class AffiliateTests(unittest.TestCase):
     def test_unverified_herbert_has_no_purchase_link(self):
         self.assertEqual(affiliate.render_amazon_link(
             {'author': 'Zbigniew Herbert', 'title': 'Un barbaro nel giardino'}, self.config), '')
+
+    def test_bolano_edition_contains_both_parts_quoted_in_archive(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Roberto Bolaño', 'title': '2666'}, self.config)
+        self.assertEqual(edition['asin'], '8845924351')
+        self.assertIn('tutte le cinque parti', edition['edition_note'])
+        self.assertIn('La parte dei critici', edition['edition_note'])
+        self.assertIn('La parte di Arcimboldi', edition['edition_note'])
+
+    def test_merini_volume_includes_requested_collection(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Alda Merini', 'title': 'La Terra Santa'}, self.config)
+        self.assertEqual(edition['asin'], '8804787074')
+        self.assertEqual(edition['amazon_title'], 'Testamento seguito da La Terra Santa')
+        self.assertIn('comprende La Terra Santa', edition['edition_note'])
 
     def test_poe_poem_and_detective_story_have_distinct_editions(self):
         poem = affiliate.edition_for_record(
