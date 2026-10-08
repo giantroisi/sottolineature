@@ -73,8 +73,14 @@ Aggiornata: 2026-10-08.
   scuro (56 casi), nessun overflow/errori console, home 883; incluse citazioni
   singole e multiple della stessa opera, autore con piu' pulsanti e raccolte.
   Warning storici invariati: 38 traduttori, 12 loci condivisi, raccolte 73%.
-  Pubblicazione e verifica live da completare; ramo di sicurezza, approfondimento
-  D'Annunzio e 29 citazioni non pubblicate preservati.
+  Pubblicato `2f8ee376`, deploy `dpl_Dh3Eetpbb9WdNMaFystTpoJa2wYu` Ready (11 s).
+  Confrontate 461 pagine HTTPS, tutte le 457 affiliate incluse: 745 diciture e
+  aria-label corretti, link e footer identici agli artefatti verificati, zero
+  risorse Amazon incorporate. 56 casi browser live in chiaro/scuro senza overflow
+  o errori console; home 883. Affiliazioni in sitemap; www home e percorso interno
+  HTTP 308 con query conservata. Nessun log runtime disponibile sul sito statico,
+  verifiche HTTP/browser dirette completate; drains non esaminati in questo lotto.
+  Ramo di sicurezza, approfondimento D'Annunzio e 29 citazioni sospese intatti.
 - **Dodici titoli Roy–Sciascia, 2026-10-08.** Sei gia' attivi (Roy, Bulgakov,
   Oz, Una stanza tutta per se', Lispector, Sciascia), senza duplicazioni.
   Aggiunti Rilke, 2666, Pavese, La Terra Santa, Montedidio e I fratelli Cuordileone:
