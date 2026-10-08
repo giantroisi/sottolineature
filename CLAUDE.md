@@ -71,7 +71,13 @@ Aggiornata: 2026-10-08.
   home 883, tema scuro e pulsanti 48 px verificati. Il controllo del tema usa il ruolo
   DOM button: l'albero nativo lo descrive come checkbox per aria-pressed, nessun
   difetto del sito. Pulsante, footer, stili, fonti editoriali e ramo di sicurezza intatti.
-  Pubblicazione e verifica live da completare.
+  Pubblicato `888e4bd9`, deploy `dpl_9VswE1wqDYsJoJmJmfZMkPMDh5kd` Ready (10 s).
+  Confrontate 353 pagine HTTPS, tutte le 349 affiliate incluse: 563 pulsanti identici
+  agli artefatti, canonical/Open Graph/footer/JSON-LD corretti, zero risorse Amazon
+  incorporate. 84 casi browser live senza overflow o errori console, home 883.
+  Affiliazioni in sitemap; www home e percorso interno HTTP 308 con query preservata.
+  Nessun log runtime disponibile per il sito statico; verifiche HTTP/browser dirette
+  completate. Tutti i quindici titoli coperti; nessun titolo richiesto escluso.
 - **Venti ulteriori edizioni Amazon, 2026-10-08.** Tutti nuovi i titoli richiesti da
   La Storia a Romeo e Giulietta: 19 cartacei italiani Prime e un'eccezione motivata
   per Il manoscritto di Samarcanda (Longanesi usato, senza Prime; offerte Prime in
