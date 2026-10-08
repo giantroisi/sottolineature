@@ -139,6 +139,33 @@ def write_vercel_json(redirects):
     return path
 
 
+def sync_affiliate_footers():
+    """Una sola fonte per la dichiarazione su tutti i template e le pagine statiche."""
+    disclosure = affiliate.render_affiliate_footer()
+    skip = {'.git', 'node_modules', 'archivio', 'templates', 'tools', 'assets'}
+    total = 0
+    for dirpath, dirnames, filenames in os.walk(qp.ROOT):
+        dirnames[:] = [name for name in dirnames if name not in skip]
+        for filename in filenames:
+            if not filename.endswith('.html'):
+                continue
+            path = os.path.join(dirpath, filename)
+            with open(path, encoding='utf-8') as source:
+                before = source.read()
+            def replace_footer(match):
+                body = re.sub(r'\s*<p class="affiliate-disclosure">.*?</p>', '',
+                              match.group(2), flags=re.S)
+                return match.group(1) + body.rstrip() + ('\n' + disclosure if disclosure else '') + '\n</footer>'
+            after, count = re.subn(r'(<footer\b[^>]*>)(.*?)</footer>', replace_footer, before, flags=re.S)
+            if count != 1:
+                raise SystemExit('ERRORE: footer mancante o duplicato in ' + path)
+            if after != before:
+                with open(path, 'w', encoding='utf-8') as target:
+                    target.write(after)
+            total += count
+    return total
+
+
 def stamp_assets():
     """Aggiunge ?v=<hash> ai riferimenti di site.css, share.js, nav.js e home-resto.js.
 
@@ -337,6 +364,7 @@ def main():
             dup_sources[key] = slugs
 
     print()
+    affiliate_footers = sync_affiliate_footers()
     fingerprints, stamped = stamp_assets()
 
     tracking_id = affiliate.load_tracking_id()
@@ -358,7 +386,7 @@ def main():
                     affiliate_remote_resources.append(os.path.relpath(
                         os.path.join(dirpath, filename), qp.ROOT
                     ))
-    if not tracking_id and affiliate_cards:
+    if not tracking_id and (affiliate_cards or affiliate_hrefs):
         raise SystemExit('ERRORE: presenti link affiliati con Tracking ID vuoto.')
     if tracking_id:
         with open(os.path.join(qp.ROOT, 'affiliazioni.html'), encoding='utf-8') as disclosure_file:
@@ -375,10 +403,23 @@ def main():
                 continue
             if any((work['author'], title) in affiliate_editions for title in work['titles']):
                 expected_work_slugs.append(work['slug'])
-        expected_cards = len(expected_quote_pages) + len(expected_work_slugs)
+        expected_author_links = len(affiliate_editions)
+        by_key = {rp.quote_key(quote): (slug, quote) for slug, quote in qp_entries}
+        expected_collection_slugs = [
+            collection['slug'] for collection in raccolte
+            if affiliate.collection_edition_record([by_key[key] for key in collection['quote_keys'] if key in by_key])
+        ]
+        expected_cards = len(expected_quote_pages) + len(expected_work_slugs) + len(expected_collection_slugs)
+        expected_links = 2 * len(expected_quote_pages) + len(expected_work_slugs) + expected_author_links + len(expected_collection_slugs)
         allowed_urls = {edition['amazon_url'] for edition in affiliate_editions.values()}
+        for slug in expected_quote_pages:
+            with open(os.path.join(qp.OUT_DIR, slug + '.html'), encoding='utf-8') as source:
+                page = source.read()
+            urls = re.findall(r'<a class="affiliate-link" href="([^"]+)"', page)
+            if len(urls) != 2 or len(set(urls)) != 1 or 'class="affiliate-top sans"' not in page:
+                raise SystemExit('ERRORE: pulsanti citazione discordanti o incompleti: ' + slug)
 
-        if affiliate_cards != expected_cards or len(affiliate_hrefs) != expected_cards:
+        if affiliate_cards != expected_cards or len(affiliate_hrefs) != expected_links:
             raise SystemExit(
                 'ERRORE: schede affiliate generate ' + str(affiliate_cards)
                 + ', attese ' + str(expected_cards) + '.'
@@ -421,12 +462,15 @@ def main():
     print('Citazioni con blocco fonte:', quotes_with_source, '/', len(qp_entries), '| fonti duplicate su citazioni diverse:', len(dup_sources))
     print('Immagini OG generate:', og_generated, '| gia aggiornate:', og_skipped, '| totale attese:', len(qp_entries))
     print('Copertine locali (assets/covers/):', covers_local, '| ancora remote (Open Library):', covers_remote)
-    print('Link affiliati attivi:', affiliate_cards,
+    print('Link affiliati attivi:', len(affiliate_hrefs),
           '(Tracking ID ' + ('configurato' if tracking_id else 'non configurato') + ')')
     if tracking_id:
         print('Opere affiliate:', len(affiliate_editions), '| pagine citazione:',
               len(expected_quote_pages), '| pagine opera:', len(expected_work_slugs),
               '| risorse Amazon incorporate: 0')
+        print('Link su pagine autore:', expected_author_links, '| raccolte con una scheda edizione:',
+              len(expected_collection_slugs), '/', len(raccolte))
+        print('Footer con dichiarazione centralizzata:', affiliate_footers)
 
     # Copertura delle raccolte. E' il passaggio della lista di chiusura (punto 10)
     # che salta piu' spesso: e' l'unico che non rompe niente se lo si dimentica —

@@ -56,6 +56,16 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Pulsanti Amazon su citazioni, autori e raccolte, 2026-10-08.** Dopo la pubblicazione del
+  pilota (`c4727c1e`, deploy `dpl_BxYP5QCzXoJurMmSBWpyvbd6DpwP`), su richiesta dell'utente
+  la frase lunga presso il link e' sostituita da «(link affiliato)» nel pulsante stesso.
+  La dichiarazione obbligatoria e' centralizzata nel footer di tutte le 1.314 pagine dal build,
+  senza aggiungerla a mano agli artefatti. Le schede edizione riportano titolo come sulla scheda
+  Amazon, autore, traduttore/curatore e formato verificati. Il pulsante compare anche sotto
+  l'attribuzione nelle 11 pagine citazione e accanto al libro nelle 5 pagine autore.
+  Una sola opera realmente presente e verificata e' proposta in 8 delle 33 raccolte: bellezza,
+  casa, donne, famiglia, figli, frasi brevi, ricordo e memoria, sogni. Le altre 25 restano senza
+  link finche' non si verifica un'edizione pertinente. Totale: 38 pulsanti sulle stesse 5 opere.
 - **Pilota affiliazioni Amazon attivato, 2026-10-08.** Tracking ID centrale
   `sottolineature-21`; cinque opere e cinque edizioni italiane verificate, tutte disponibili con
   Prime al momento del controllo. L'associazione e' per opera: il medesimo ASIN compare sulle 11

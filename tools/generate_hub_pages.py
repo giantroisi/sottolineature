@@ -15,6 +15,7 @@ from generate_quote_pages import (  # noqa: E402
     ROOT, SITE_URL, load_quotes, slugify, assign_slugs, load_slugs, save_slugs, load_redirects,
 )
 from generate_opera_pages import load_opere  # noqa: E402
+from affiliate import render_amazon_button  # noqa: E402
 from labels import CATEGORY_LABELS, GENRE_LABELS, grafo_con_breadcrumb  # noqa: E402
 
 HUB_INTROS_PATH = os.path.join(ROOT, 'data', 'hub_intros.json')
@@ -307,7 +308,13 @@ def author_opere_html(author, opere, items=None):
         if d['anno']:
             coda.append(html.escape(d['anno']))
         coda.append(str(d['n']) + (' citazione' if d['n'] == 1 else ' citazioni'))
-        righe.append('<li>' + voce + ' <span class="voce-meta">\u00b7 ' + ' \u00b7 '.join(coda) + '</span></li>')
+        button = render_amazon_button({'author': author, 'title': t})
+        if button:
+            righe.append('<li class="affiliate-book-row"><span class="affiliate-book-info">'
+                         + voce + ' <span class="voce-meta">\u00b7 ' + ' \u00b7 '.join(coda)
+                         + '</span></span>' + button + '</li>')
+        else:
+            righe.append('<li>' + voce + ' <span class="voce-meta">\u00b7 ' + ' \u00b7 '.join(coda) + '</span></li>')
     return ('<div class="related sans"><h2>I libri di ' + html.escape(author) +
             ' in archivio</h2><ul>' + ''.join(righe) + '</ul></div>')
 

@@ -22,7 +22,6 @@ AMAZON_PATH_RE = re.compile(r'^/dp/([A-Z0-9]{10})/?$')
 MAX_ACTIVE_WORKS = 5
 
 LINK_TEXT = 'Acquista su Amazon'
-LINK_NOTICE = 'Link affiliato: potremmo ricevere una commissione senza costi aggiuntivi per te'
 AMAZON_DISCLOSURE = 'In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei'
 
 
@@ -77,10 +76,13 @@ def validated_editions(config=None):
     for index, raw in enumerate(raw_editions, start=1):
         if not isinstance(raw, dict):
             raise ValueError(f'Edizione affiliata {index}: record non valido.')
-        required = ('author', 'title', 'asin', 'amazon_url')
+        required = ('author', 'title', 'asin', 'amazon_url', 'amazon_title', 'format')
         missing = [field for field in required if not str(raw.get(field, '')).strip()]
         if missing:
             raise ValueError(f'Edizione affiliata {index}: campi mancanti: {", ".join(missing)}.')
+        contributors = raw.get('contributors', [])
+        if not contributors or any(not person.get('name') or not person.get('role') for person in contributors):
+            raise ValueError(f'Edizione affiliata {index}: autore e collaboratori non verificati.')
         if raw.get('amazon_edition_verified') is not True:
             raise ValueError(f'Edizione affiliata {index}: verifica bibliografica non confermata.')
         if raw.get('prime_verified') is not True and not str(raw.get('prime_exception_reason', '')).strip():
@@ -104,11 +106,11 @@ def validated_editions(config=None):
     return editions
 
 
-def render_amazon_link(record, config=None):
-    """Rende il pulsante su un'opera verificata e su tutte le sue citazioni."""
+def edition_for_record(record, config=None):
+    """Trova l'edizione approvata, senza dedurre associazioni bibliografiche."""
     config = load_config() if config is None else config
     if not load_tracking_id(config):
-        return ''
+        return None
 
     author = str(record.get('author', '')).strip()
     titles = {str(record.get('title', '')).strip()}
@@ -119,9 +121,14 @@ def render_amazon_link(record, config=None):
         edition = editions.get((author, title))
         if edition:
             break
+    return edition
+
+
+def render_amazon_button(record, config=None):
+    """Stesso link e breve indicazione di affiliazione in entrambe le posizioni."""
+    edition = edition_for_record(record, config)
     if not edition:
         return ''
-
     url = edition['amazon_url']
     cart_icon = (
         '<svg class="affiliate-cart" aria-hidden="true" viewBox="0 0 24 24" '
@@ -131,10 +138,49 @@ def render_amazon_link(record, config=None):
         '<circle cx="18" cy="19" r="1.5" fill="currentColor"/></svg>'
     )
     return (
-        '<aside class="affiliate-card sans" aria-label="Collegamento affiliato">'
         '<a class="affiliate-link" href="' + html.escape(url, quote=True) + '" '
         'target="_blank" rel="sponsored nofollow noopener">' + cart_icon
-        + '<span>' + LINK_TEXT + '</span></a>'
-        '<p class="affiliate-note">' + LINK_NOTICE + '</p>'
-        '</aside>'
+        + '<span class="affiliate-link-label"><span>' + LINK_TEXT + '</span>'
+        '<span class="affiliate-link-disclosure">(link affiliato)</span></span></a>'
     )
+
+
+def render_amazon_link(record, config=None):
+    """Scheda bibliografica dell'edizione disponibile, prima del pulsante."""
+    edition = edition_for_record(record, config)
+    if not edition:
+        return ''
+    byline = ', '.join(html.escape(person['name']) + ' (' + html.escape(person['role']) + ')'
+                       for person in edition['contributors'])
+    return (
+        '<aside class="affiliate-card sans" aria-label="Edizione disponibile su Amazon">'
+        '<p class="affiliate-edition-title">' + html.escape(edition['amazon_title']) + '</p>'
+        '<p class="affiliate-edition-byline">di ' + byline + '</p>'
+        '<p class="affiliate-edition-format">Formato: ' + html.escape(edition['format']) + '</p>'
+        + render_amazon_button(record, config)
+        + '</aside>'
+    )
+
+
+def render_affiliate_footer(config=None):
+    """Dichiarazione centralizzata, pubblicata nel footer di ogni pagina."""
+    if not load_tracking_id(config):
+        return ''
+    return '<p class="affiliate-disclosure">' + AMAZON_DISCLOSURE + '.</p>'
+
+
+def collection_edition_record(items, config=None):
+    """Un solo classico presente nella raccolta; preferisce quello piu' rappresentato."""
+    editions = validated_editions(config)
+    counts = {}
+    representatives = {}
+    for _, quote in items:
+        key = (quote['author'], quote['title'])
+        if key in editions:
+            counts[key] = counts.get(key, 0) + 1
+            representatives[key] = quote
+    if not counts:
+        return None
+    # L'ordine dei dati centrali risolve i pari merito in modo riproducibile.
+    best = max((key for key in editions if key in counts), key=lambda key: counts[key])
+    return representatives[best]

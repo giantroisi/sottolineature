@@ -216,7 +216,17 @@ h1 { font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 0 0 0.75re
 .affiliate-link:hover { color: #17130a; background: linear-gradient(#ffe38a, #edbd32); }
 .affiliate-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 .affiliate-cart { flex: 0 0 auto; }
-.affiliate-note { margin: 0.65rem 0 0; color: var(--ink-faint); font-size: 0.78rem; line-height: 1.5; }
+.affiliate-link-label { display: flex; flex-direction: column; gap: 0.2rem; }
+.affiliate-link-disclosure { font-size: 0.75rem; font-weight: 400; }
+.affiliate-top { margin-top: 1rem; }
+.affiliate-edition-title { margin: 0 0 0.4rem; color: var(--ink); font-size: 1.1rem; font-weight: 600; line-height: 1.4; }
+.affiliate-edition-byline, .affiliate-edition-format { margin: 0 0 0.6rem; color: var(--ink-soft); font-size: 0.88rem; line-height: 1.6; }
+.affiliate-edition-format { margin-bottom: 1rem; }
+.affiliate-disclosure { margin: 1rem 0 0; line-height: 1.6; }
+.related li.affiliate-book-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.affiliate-book-info { flex: 1 1 16rem; min-width: 0; }
+.related a.affiliate-link { display: inline-flex; color: #17130a; border: 1px solid #8a6d1f; font-size: 1rem; font-style: normal; flex: 0 0 auto; }
+.related a.affiliate-link:hover { color: #17130a; border-color: #8a6d1f; }
 @media (max-width: 480px) {
   .affiliate-card { padding: 0.9rem; }
   .affiliate-link { width: 100%; }
@@ -775,7 +785,7 @@ footer.sans a { color: var(--ink-faint); }
      che nessuno aveva mai guardato il foglio. E "Segnala un errore" e'
      un mailto: su un foglio e' una riga sottolineata che non porta da
      nessuna parte. */
-  .mine-tools, .mine-print-hint, .segnala, .footer-servizi, .affiliate-card,
+  .mine-tools, .mine-print-hint, .segnala, .footer-servizi, .affiliate-card, .affiliate-top, .affiliate-disclosure,
   .cita-copia { display: none !important; }
   /* la data non e' decorazione: chi consegna una selezione di citazioni deve
      poter dire quando l'ha presa, perche' l'archivio cambia */

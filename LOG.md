@@ -4753,6 +4753,23 @@ uscite possibili restano quelle del turno delle 08:00 e la scelta e' dell'utente
 
 Archivio: **883 citazioni, dati e HEAD allineati.**
 
+- 2026-10-08 12:53 UTC — **pilota Amazon pubblicato e interfaccia estesa su richiesta dell'utente**,
+  nessuna citazione aggiunta (totale 883). Pubblicato `c4727c1e` su main, deploy pronto
+  `dpl_BxYP5QCzXoJurMmSBWpyvbd6DpwP`; verificate tutte le 14 pagine affiliate iniziali,
+  home con 883 schede, Affiliazioni in sitemap e redirect www HTTP 308 con percorso e query.
+  Lotto successivo: frase lunga rimossa dalle schede; breve «(link affiliato)» nel pulsante,
+  approvato dall'utente dopo il riscontro delle regole ufficiali Amazon; dichiarazione completa
+  nel footer di ogni pagina. Titolo commerciale, collaboratori e formato verificati sulle 5
+  schede Amazon: Karamazov / Zonghetti e 1984 / Gardini in copertina flessibile; Dorian Gray,
+  «Ediz. Integrale Garzanti», Amante, copertina flessibile; Casa di bambola / L. Chiavarelli,
+  copertina rigida; Una donna, Daniela Brogi curatrice, copertina flessibile.
+  Due pulsanti concordanti sulle 11 citazioni, 3 sulle pagine opera, 5 accanto ai titoli negli
+  archivi autore; un'edizione pertinente in 8 raccolte (bellezza, casa, donne, famiglia, figli,
+  frasi brevi, ricordo e memoria, sogni): 38 link totali. Escluse dall'attivazione le altre 25
+  raccolte, prive di una delle cinque edizioni verificate: non aggiunti suggerimenti estranei.
+  Build 0 problemi link/JSON-LD, 8 test passati; otto pagine campione su mobile 390x844 e
+  desktop 1280x900 senza overflow, pulsanti da 60 px, console pulita, tema chiaro/scuro verificato.
+
 ## 2026-10-05, 20:44 UTC — repository salvato, Fase 1 Amazon e host canonici pubblicati
 
 **Stato iniziale ricostruito prima di modificare.** Il checkout locale era `main` a `6acad293`,

@@ -17,6 +17,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from generate_quote_pages import ROOT, SITE_URL, quote_key  # noqa: E402
 from labels import grafo_con_breadcrumb  # noqa: E402
+from affiliate import collection_edition_record, render_amazon_link  # noqa: E402
 
 RACCOLTE_PATH = os.path.join(ROOT, 'data', 'raccolte.json')
 OUT_DIR = os.path.join(ROOT, 'raccolte')
@@ -90,6 +91,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <div class="hub-intro">{intro_html}</div>
   {h2_lista}
   {cards_html}
+{affiliate_html}
   </div>
   <footer class="sans">
     Da <a href="/" style="color:var(--ink-faint)">Sottolineature</a> — citazioni verificate a mano, senza algoritmo.<span class="footer-servizi"> <a href="/feed.xml" style="color:var(--ink-faint)">Segui le nuove citazioni</a>. <a href="mailto:sottolineature@outlook.it" style="color:var(--ink-faint)">Scrivici</a>. <a href="/privacy/" style="color:var(--ink-faint)">Privacy</a>. <a href="/note-legali/" style="color:var(--ink-faint)">Note legali</a>. <a href="/affiliazioni/" style="color:var(--ink-faint)">Affiliazioni</a>.</span>
@@ -152,6 +154,7 @@ def build_raccolta_map(entries, raccolte):
 
 def render_raccolta(r, items):
     count = len(items)
+    affiliate_record = collection_edition_record(items)
     count_suffix = 'i' if count != 1 else 'e'
     cards_html = '\n  '.join(card_html(s, q) for s, q in items)
     title_esc = html.escape(r['title'])
@@ -201,6 +204,7 @@ def render_raccolta(r, items):
         # l'elenco. «Righe» e non «citazioni», che sta gia' nell'H1.
         h2_lista='<h2 class="lista-h2 sans">Le righe di questa raccolta</h2>',
         cards_html=cards_html,
+        affiliate_html=render_amazon_link(affiliate_record) if affiliate_record else '',
     )
 
 

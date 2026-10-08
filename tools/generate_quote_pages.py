@@ -15,7 +15,7 @@ import urllib.parse
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
-from affiliate import render_amazon_link  # noqa: E402
+from affiliate import render_amazon_link, render_amazon_button  # noqa: E402
 
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -268,6 +268,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
     </blockquote>
     <div class="card-body">
       <figcaption class="card-citation sans">— <a href="/autori/{author_slug}/" class="card-author">{author}</a>, <cite class="card-title">{title}</cite>{year_html}</figcaption>
+{affiliate_top_html}
     </div>
     {cover_html}
   </figure>
@@ -991,6 +992,8 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         context_html=context_html,
         source_html=source_html,
         affiliate_html=render_amazon_link(q),
+        affiliate_top_html=('      <div class="affiliate-top sans">' + render_amazon_button(q) + '</div>')
+                           if render_amazon_button(q) else '',
         cita_html=cita_html,
         opera_link_html=opera_link_html,
         raccolta_link_html=raccolta_link_html,

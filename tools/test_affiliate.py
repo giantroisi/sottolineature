@@ -49,7 +49,11 @@ class AffiliateTests(unittest.TestCase):
         rendered = affiliate.render_amazon_link(record, self.config)
         self.assertIn('<span>Acquista su Amazon</span>', rendered)
         self.assertIn('rel="sponsored nofollow noopener"', rendered)
-        self.assertIn(affiliate.LINK_NOTICE, rendered)
+        self.assertIn('(link affiliato)', rendered)
+        self.assertNotIn('potremmo ricevere una commissione', rendered)
+        self.assertIn('1984', rendered)
+        self.assertIn('Nicola Gardini (Traduttore)', rendered)
+        self.assertIn('Formato: Copertina flessibile', rendered)
         self.assertIn('<svg class="affiliate-cart"', rendered)
         self.assertNotIn('<img', rendered)
         self.assertNotIn('Prime', rendered)
@@ -77,6 +81,14 @@ class AffiliateTests(unittest.TestCase):
         config['edizioni'] = list(self.config['edizioni']) + [dict(self.config['edizioni'][0])]
         with self.assertRaises(ValueError):
             affiliate.validated_editions(config)
+
+    def test_collection_never_recommends_a_work_absent_from_its_quotes(self):
+        unrelated = {'author': 'Harper Lee', 'title': 'Il buio oltre la siepe'}
+        self.assertIsNone(affiliate.collection_edition_record([('lee', unrelated)], self.config))
+        selected = {'author': 'George Orwell', 'title': '1984'}
+        self.assertEqual(affiliate.collection_edition_record(
+            [('lee', unrelated), ('orwell', selected)], self.config
+        ), selected)
 
 
 if __name__ == '__main__':
