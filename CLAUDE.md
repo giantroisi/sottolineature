@@ -56,6 +56,10 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Aspetto finale del pulsante Amazon, 2026-10-08.** Su successiva istruzione esplicita
+  dell'utente, verificato anche l'esempio di dietroiltesto.it, il tasto torna al solo carrello e
+  «Acquista su Amazon», senza la seconda riga «link affiliato». La dichiarazione completa resta
+  nel footer di ogni pagina. Si conservano le schede bibliografiche e tutte le posizioni richieste.
 - **Pulsanti Amazon su citazioni, autori e raccolte, 2026-10-08.** Dopo la pubblicazione del
   pilota (`c4727c1e`, deploy `dpl_BxYP5QCzXoJurMmSBWpyvbd6DpwP`), su richiesta dell'utente
   la frase lunga presso il link e' sostituita da «(link affiliato)» nel pulsante stesso.

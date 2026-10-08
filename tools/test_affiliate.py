@@ -49,7 +49,7 @@ class AffiliateTests(unittest.TestCase):
         rendered = affiliate.render_amazon_link(record, self.config)
         self.assertIn('<span>Acquista su Amazon</span>', rendered)
         self.assertIn('rel="sponsored nofollow noopener"', rendered)
-        self.assertIn('(link affiliato)', rendered)
+        self.assertNotIn('(link affiliato)', rendered)
         self.assertNotIn('potremmo ricevere una commissione', rendered)
         self.assertIn('1984', rendered)
         self.assertIn('Nicola Gardini (Traduttore)', rendered)

@@ -125,7 +125,7 @@ def edition_for_record(record, config=None):
 
 
 def render_amazon_button(record, config=None):
-    """Stesso link e breve indicazione di affiliazione in entrambe le posizioni."""
+    """Pulsante locale con il testo richiesto e la stessa destinazione ovunque."""
     edition = edition_for_record(record, config)
     if not edition:
         return ''
@@ -140,8 +140,7 @@ def render_amazon_button(record, config=None):
     return (
         '<a class="affiliate-link" href="' + html.escape(url, quote=True) + '" '
         'target="_blank" rel="sponsored nofollow noopener">' + cart_icon
-        + '<span class="affiliate-link-label"><span>' + LINK_TEXT + '</span>'
-        '<span class="affiliate-link-disclosure">(link affiliato)</span></span></a>'
+        + '<span>' + LINK_TEXT + '</span></a>'
     )
 
 

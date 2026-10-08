@@ -4770,6 +4770,13 @@ Archivio: **883 citazioni, dati e HEAD allineati.**
   Build 0 problemi link/JSON-LD, 8 test passati; otto pagine campione su mobile 390x844 e
   desktop 1280x900 senza overflow, pulsanti da 60 px, console pulita, tema chiaro/scuro verificato.
 
+- 2026-10-08 — **aspetto finale dei pulsanti richiesto dall'utente**. Dopo la pubblicazione del
+  lotto `724f8350`, l'utente chiede di eliminare anche la breve seconda riga «link affiliato» e di
+  riprodurre soltanto carrello e testo «Acquista su Amazon» del riferimento iniziale. Controllato
+  dietroiltesto.it, pagina album *Post Human: Survival Horror*: pulsanti senza seconda riga e
+  dichiarazione nel footer. Rimossa la seconda riga e mantenuta la dichiarazione completa in
+  tutte le pagine; invariati dati bibliografici, ASIN, tag e 38 posizioni del lotto precedente.
+
 ## 2026-10-05, 20:44 UTC — repository salvato, Fase 1 Amazon e host canonici pubblicati
 
 **Stato iniziale ricostruito prima di modificare.** Il checkout locale era `main` a `6acad293`,
