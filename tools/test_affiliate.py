@@ -23,9 +23,11 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 25)
+        self.assertEqual(len(editions), 31)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
-        self.assertTrue(all(item['prime_verified'] is True for item in editions.values()))
+        exceptions = [item for item in editions.values() if not item['prime_verified']]
+        self.assertEqual([item['author'] for item in exceptions], ['Primo Levi'])
+        self.assertTrue(all(item['prime_exception_reason'] for item in exceptions))
 
     def test_every_selected_work_has_citations_and_inherits_one_url(self):
         editions = affiliate.validated_editions(self.config)
@@ -91,7 +93,7 @@ class AffiliateTests(unittest.TestCase):
 
     def test_new_editions_were_checked_with_official_amazon_tool(self):
         additions = self.config['edizioni'][5:]
-        self.assertEqual(len(additions), 20)
+        self.assertEqual(len(additions), 26)
         self.assertTrue(all(item['link_checker_verified_on'] == '2026-10-08'
                             for item in additions))
 

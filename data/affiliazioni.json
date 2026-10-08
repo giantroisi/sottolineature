@@ -547,6 +547,137 @@
       "edition_note": "Mondadori, 2016; cantica Inferno con commento di Anna Maria Chiavacci Leonardi; testo italiano",
       "verified_on": "2026-10-08",
       "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Torquato Tasso",
+      "title": "Gerusalemme liberata",
+      "asin": "8817029092",
+      "amazon_title": "La Gerusalemme liberata",
+      "contributors": [
+        {
+          "name": "Torquato Tasso",
+          "role": "Autore"
+        },
+        {
+          "name": "Franco Tomasi",
+          "role": "a cura di"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8817029092/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Rizzoli, 2009; edizione a cura di Franco Tomasi",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Giovanni Verga",
+      "title": "I Malavoglia",
+      "asin": "8806220667",
+      "amazon_title": "I Malavoglia",
+      "contributors": [
+        {
+          "name": "Giovanni Verga",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806220667/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Luigi Pirandello",
+      "title": "Uno, nessuno e centomila",
+      "asin": "8804811803",
+      "amazon_title": "Uno, nessuno e centomila",
+      "contributors": [
+        {
+          "name": "Luigi Pirandello",
+          "role": "Autore"
+        },
+        {
+          "name": "Marziano Guglielminetti",
+          "role": "a cura di"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8804811803/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2026; a cura di Marziano Guglielminetti",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Primo Levi",
+      "title": "Se questo è un uomo",
+      "asin": "8806219359",
+      "amazon_title": "Se questo è un uomo",
+      "contributors": [
+        {
+          "name": "Primo Levi",
+          "role": "Autore"
+        },
+        {
+          "name": "Cesare Segre",
+          "role": "Dopo"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806219359/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": false,
+      "prime_exception_reason": "Eccezione autorizzata in mancanza di edizione pertinente Prime: le copie italiane Einaudi controllate sono senza badge Prime; il risultato Prime B0HKMBFWR8 è in francese e in preordine, quindi scartato.",
+      "edition_note": "Einaudi, 2014; testo italiano; offerta cartacea usata senza Prime al momento della verifica",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Niccolò Machiavelli",
+      "title": "Il Principe",
+      "asin": "8806221957",
+      "amazon_title": "Il principe",
+      "contributors": [
+        {
+          "name": "Niccolò Machiavelli",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806221957/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; testo italiano",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Giacomo Leopardi",
+      "title": "L'infinito",
+      "asin": "8823524717",
+      "amazon_title": "Canti (Vol. 1)",
+      "contributors": [
+        {
+          "name": "Giacomo Leopardi",
+          "role": "Autore"
+        },
+        {
+          "name": "Luigi Blasucci",
+          "role": "a cura di"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8823524717/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Guanda, 2019; primo volume dei Canti, contenente L'infinito, non edizione autonoma della poesia",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
     }
   ]
 }

@@ -1097,6 +1097,30 @@ html:not(.js) .js-only { display: none !important; }
   .strip-more { margin: 1rem 0 0; font-size: 0.82rem; }
   .strip-more a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
   .strip-more a:hover { color: var(--gold); border-color: var(--gold); }
+/* Icone vettoriali locali: niente glifi/emoji diversi fra i telefoni. */
+.site-header .theme-toggle.theme-toggle,
+.masthead .theme-toggle.theme-toggle { font-size: 0; width: 44px; height: 44px; box-sizing: border-box; }
+.theme-toggle::before {
+  content: ""; display: block; width: 20px; height: 20px; flex: 0 0 20px;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+:root[data-theme="dark"] .theme-toggle::before {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4' fill='none' stroke='black' stroke-width='1.8'/%3E%3Cpath d='M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='4' fill='none' stroke='black' stroke-width='1.8'/%3E%3Cpath d='M12 2v2m0 16v2M2 12h2m16 0h2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+}
+@media (max-width: 640px) {
+  .site-header .site-header-inner { position: relative; }
+  .site-header .brand { padding-right: 3.5rem; }
+  .site-header .site-nav.site-nav { margin-top: 0; }
+  .site-header .theme-toggle.theme-toggle {
+    position: absolute; top: 0.15rem; right: 1.1rem; left: auto; margin: 0;
+  }
+}
+@media (forced-colors: active) {
+  .theme-toggle::before { background: ButtonText; }
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://sottolineature.it/#website","url":"https://sottolineature.it/","name":"Sottolineature","description":"Citazioni da libri raccolte e verificate a mano, senza algoritmo.","potentialAction":{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://sottolineature.it/?q={search_term_string}"},"query-input":"required name=search_term_string"}}</script>
 <script>

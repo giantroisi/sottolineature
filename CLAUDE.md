@@ -56,6 +56,22 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Sei ulteriori edizioni e icona tema mobile, 2026-10-08.** Dei dieci titoli richiesti,
+  Le citta' invisibili, Il piccolo principe, Orgoglio e pregiudizio e Delitto e castigo erano
+  gia' collegati: nessuna duplicazione. Aggiunti Gerusalemme liberata, I Malavoglia,
+  Uno, nessuno e centomila, Se questo e' un uomo, Il Principe e L'infinito. Cinque edizioni
+  cartacee italiane con badge Prime; per Levi eccezione motivata senza Prime, dopo aver
+  scartato l'offerta Prime in francese/in preordine. L'infinito rimanda ai Canti, volume 1
+  curato da Blasucci (Guanda 2019), che contiene il componimento, non a un libro autonomo.
+  Tutti i sei URL superano il Controllo link ufficiale Amazon. Configurazione a 31 opere:
+  100 pagine citazione, 22 pagine opera, 31 link autore, 27 raccolte, 280 pulsanti complessivi.
+  Luna/sole ora vettoriali locali da 20 px, tasto 44x44 px e stato accessibile aggiornato;
+  corretto anche il margine mobile che sovrapponeva il tasto a Temi sui telefoni stretti.
+  Build completo, 10 test, link e JSON-LD superati; 30 casi browser (10 template a
+  320/375/390 px) senza overflow o sovrapposizioni, 10 template desktop a 1280x900 e sei
+  nuove pagine citazione a 390x844 verificati. Tema scuro persistente dopo ricarica.
+  Citazioni/fonti, pulsante Amazon e disclosure nel footer invariati; nessun prezzo o
+  risorsa Amazon incorporata. Pubblicazione e controllo live da completare.
 - **Estensione Amazon a venti opere approvate, 2026-10-08.** Aggiunti tutti i venti titoli
   indicati dall'utente, senza nuove pagine o modifiche editoriali alle citazioni. Ogni edizione
   cartacea e' stata controllata sulla propria scheda Amazon: lingua italiana, autore,

@@ -52,6 +52,12 @@
     return document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
   }
   function allineaBarra() {
+    var toggle = document.getElementById('themeToggle');
+    if (toggle) {
+      var dark = temaCorrente() === 'dark';
+      toggle.setAttribute('aria-label', dark ? 'Attiva tema chiaro' : 'Attiva tema scuro');
+      toggle.setAttribute('aria-pressed', String(dark));
+    }
     var metas = document.querySelectorAll('meta[name="theme-color"]');
     if (!metas.length) { return; }
     var c = COLORE[temaCorrente()];

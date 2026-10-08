@@ -19,8 +19,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_PATH = os.path.join(ROOT, 'data', 'affiliazioni.json')
 ASIN_RE = re.compile(r'^[A-Z0-9]{10}$')
 AMAZON_PATH_RE = re.compile(r'^/dp/([A-Z0-9]{10})/?$')
-# Cinque opere iniziali e venti ulteriori titoli approvati esplicitamente.
-MAX_ACTIVE_WORKS = 25
+# Opere approvate esplicitamente: 5 iniziali, 20 nel secondo lotto, 6 nel terzo.
+MAX_ACTIVE_WORKS = 31
 
 LINK_TEXT = 'Acquista su Amazon'
 AMAZON_DISCLOSURE = 'In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei'
