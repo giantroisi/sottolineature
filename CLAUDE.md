@@ -74,8 +74,15 @@ Aggiornata: 2026-10-08.
   1280x900 (54 casi), zero overflow/errori console; home 883 schede, tema scuro
   e target dei pulsanti 48 px verificati. Warning storici invariati (38 traduttori,
   12 loci condivisi, raccolte 73%). Pulsante, disclosure, CSS/JS e dati editoriali
-  preservati. Pubblicazione e verifiche live da completare; ramo di sicurezza,
-  approfondimento D'Annunzio e 29 citazioni non pubblicate intatti.
+  preservati. Pubblicato `9dbac851`, deploy `dpl_4HNGzTeiv9b25d9mdt7hrtmGgwdw`
+  Ready (11 s). Confrontate 461 pagine HTTPS, tutte le 457 affiliate incluse:
+  745 pulsanti identici agli artefatti, canonical/Open Graph/main/H1/footer/
+  JSON-LD corretti e zero risorse Amazon incorporate. 54 casi browser live
+  senza overflow/errori console, home 883. Affiliazioni in sitemap; www home
+  e percorso interno HTTP 308 con query conservata. Nessun log runtime
+  disponibile sul sito statico; completate verifiche dirette HTTP/browser.
+  Tutti i dodici titoli richiesti coperti, nessuno escluso da questo lotto;
+  ramo di sicurezza, approfondimento D'Annunzio e 29 citazioni sospese intatti.
 - **Undici edizioni della lista di dodici opere, 2026-10-08.** Aggiunti La montagna
   incantata, Manuale del guerriero della luce, Alice nel paese delle meraviglie,
   Uno psicologo nei lager, I tre moschettieri, Novecento, Dio di illusioni,
