@@ -56,6 +56,17 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Dodici edizioni della successiva lista di venti opere, 2026-10-08.** Otto titoli
+  erano gia' attivi; aggiunte opere di Roy, Saramago, Bulgakov, Lispector, Oz, Pasolini,
+  Arendt, Mishima, Hardy, Malaparte, Sinclair Lewis e Rigoni Stern. Tutte cartacee in
+  italiano con Prime; dodici URL passati nel Controllo link ufficiale Amazon. Scelta
+  cartacea dalle schede Kindle per Oz, Mishima e Kaputt; crediti Lewis espansi e distinti.
+  Nessuna citazione, fonte, immagine o pagina nuova: 54 opere selettive, 138 pagine
+  citazione, 26 pagine opera, 54 link autore, 29 raccolte e 385 pulsanti (prima 336).
+  Build completo, 12 test e controlli link/JSON-LD superati; 31 pagine a 390x844 e
+  1280x900 senza overflow o errori console; home 883. Stili, tracking, pulsante e footer
+  preservati. Chrome inizialmente chiuso, riaperto e controlli completati. Pubblicazione
+  e verifica live da completare; nessun titolo richiesto escluso dal lotto.
 - **Undici edizioni della lista di venti opere, 2026-10-08.** Nove titoli erano gia'
   collegati; aggiunti Conrad, Remarque, Pamuk, Sapienza, Sciascia, Cognetti, Hornby,
   Murakami, Gita al faro di Woolf, Morte a Venezia di Mann e Il richiamo della foresta

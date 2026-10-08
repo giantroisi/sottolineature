@@ -854,6 +854,286 @@
       "edition_note": "Einaudi, 2016; testo italiano; la byline Amazon non indica il traduttore, non dedotto dalla fonte delle citazioni",
       "verified_on": "2026-10-08",
       "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Arundhati Roy",
+      "title": "Il dio delle piccole cose",
+      "asin": "8850259956",
+      "amazon_title": "Il dio delle piccole cose. Nuova ediz.",
+      "contributors": [
+        {
+          "name": "Arundhati Roy",
+          "role": "Autore"
+        },
+        {
+          "name": "Chiara Gabutti",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8850259956/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "TEA, 2021; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "José Saramago",
+      "title": "Cecità",
+      "asin": "8807950766",
+      "amazon_title": "Cecità",
+      "contributors": [
+        {
+          "name": "José Saramago",
+          "role": "Autore"
+        },
+        {
+          "name": "Rita Desti",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807950766/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2026; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Michail Bulgakov",
+      "title": "Il Maestro e Margherita",
+      "asin": "8806219405",
+      "amazon_title": "Il Maestro e Margherita",
+      "contributors": [
+        {
+          "name": "Michail Bulgakov",
+          "role": "Autore"
+        },
+        {
+          "name": "Vera Dridso",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806219405/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Clarice Lispector",
+      "title": "La passione secondo G.H.",
+      "asin": "8807891948",
+      "amazon_title": "La passione secondo G.H.",
+      "contributors": [
+        {
+          "name": "Clarice Lispector",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807891948/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2019; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Amos Oz",
+      "title": "Una storia di amore e di tenebra",
+      "asin": "8807899876",
+      "amazon_title": "Una storia di amore e di tenebra. Ediz. 70° anniversario",
+      "contributors": [
+        {
+          "name": "Amos Oz",
+          "role": "Autore"
+        },
+        {
+          "name": "Elena Loewenthal",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807899876/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2025; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Pier Paolo Pasolini",
+      "title": "Scritti corsari",
+      "asin": "881168837X",
+      "amazon_title": "Scritti corsari",
+      "contributors": [
+        {
+          "name": "Pier Paolo Pasolini",
+          "role": "Autore"
+        },
+        {
+          "name": "Alfonso Berardinelli",
+          "role": "Prefazione"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/881168837X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Garzanti, 2015; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Hannah Arendt",
+      "title": "Le origini del totalitarismo",
+      "asin": "880620064X",
+      "amazon_title": "Le origini del totalitarismo",
+      "contributors": [
+        {
+          "name": "Hannah Arendt",
+          "role": "Autore"
+        },
+        {
+          "name": "Amerigo Guadagnin",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/880620064X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2009; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Yukio Mishima",
+      "title": "Il tempio dell'alba",
+      "asin": "8807894882",
+      "amazon_title": "Tempio dell’alba",
+      "contributors": [
+        {
+          "name": "Yukio Mishima",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807894882/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2021; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Thomas Hardy",
+      "title": "Tess dei d'Urberville",
+      "asin": "8807902419",
+      "amazon_title": "Tess dei d'Urberville",
+      "contributors": [
+        {
+          "name": "Thomas Hardy",
+          "role": "Autore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807902419/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2022; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Curzio Malaparte",
+      "title": "Kaputt",
+      "asin": "8845928675",
+      "amazon_title": "Kaputt: 451",
+      "contributors": [
+        {
+          "name": "Curzio Malaparte",
+          "role": "Autore"
+        },
+        {
+          "name": "G. Pinotti",
+          "role": "Curatore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8845928675/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Adelphi, 2014; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Sinclair Lewis",
+      "title": "Qui non può succedere",
+      "asin": "8832966743",
+      "amazon_title": "Qui non può succedere",
+      "contributors": [
+        {
+          "name": "Sinclair Lewis",
+          "role": "Autore"
+        },
+        {
+          "name": "Aimone Enrico Gronchi",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Albertine Cerutti",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Davide Martirani",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Giulia Frare",
+          "role": "Traduttore"
+        },
+        {
+          "name": "Paolo Lucca",
+          "role": "Traduttore"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8832966743/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Chiarelettere, 2024; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Mario Rigoni Stern",
+      "title": "Uomini, boschi e api",
+      "asin": "8806250698",
+      "amazon_title": "Uomini, boschi e api",
+      "contributors": [
+        {
+          "name": "Mario Rigoni Stern",
+          "role": "Autore"
+        },
+        {
+          "name": "Erri De Luca",
+          "role": "Presentazione"
+        }
+      ],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806250698/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2021; testo italiano; crediti come nella byline Amazon, senza dedurre collaboratori non indicati",
+      "verified_on": "2026-10-08",
+      "link_checker_verified_on": "2026-10-08"
     }
   ]
 }
