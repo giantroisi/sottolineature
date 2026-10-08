@@ -7,6 +7,7 @@ Uso: python3 tools/build.py
 """
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -339,19 +340,56 @@ def main():
     fingerprints, stamped = stamp_assets()
 
     tracking_id = affiliate.load_tracking_id()
+    affiliate_editions = affiliate.validated_editions()
     affiliate_cards = 0
+    affiliate_hrefs = []
+    affiliate_remote_resources = []
     for dirpath, dirnames, filenames in os.walk(qp.ROOT):
         dirnames[:] = [d for d in dirnames if d not in {'.git', 'archivio', 'node_modules', 'tools', 'templates'}]
         for filename in filenames:
             if filename.endswith('.html'):
                 with open(os.path.join(dirpath, filename), encoding='utf-8') as page_file:
-                    affiliate_cards += page_file.read().count('class="affiliate-card sans"')
+                    page = page_file.read()
+                affiliate_cards += page.count('class="affiliate-card sans"')
+                affiliate_hrefs.extend(re.findall(
+                    r'<a class="affiliate-link" href="([^"]+)"[^>]*>', page
+                ))
+                if re.search(r'<(?:img|script)\b[^>]+(?:src|href)="https://[^\"]*amazon\.', page, re.I):
+                    affiliate_remote_resources.append(os.path.relpath(
+                        os.path.join(dirpath, filename), qp.ROOT
+                    ))
     if not tracking_id and affiliate_cards:
         raise SystemExit('ERRORE: presenti link affiliati con Tracking ID vuoto.')
     if tracking_id:
         with open(os.path.join(qp.ROOT, 'affiliazioni.html'), encoding='utf-8') as disclosure_file:
             if affiliate.AMAZON_DISCLOSURE not in disclosure_file.read():
                 raise SystemExit('ERRORE: Tracking ID attivo senza la dichiarazione Amazon obbligatoria.')
+
+        expected_quote_pages = [
+            slug for slug, quote in qp_entries
+            if (quote['author'], quote['title']) in affiliate_editions
+        ]
+        expected_work_slugs = []
+        for work in opere:
+            if work['slug'] not in op_status:
+                continue
+            if any((work['author'], title) in affiliate_editions for title in work['titles']):
+                expected_work_slugs.append(work['slug'])
+        expected_cards = len(expected_quote_pages) + len(expected_work_slugs)
+        allowed_urls = {edition['amazon_url'] for edition in affiliate_editions.values()}
+
+        if affiliate_cards != expected_cards or len(affiliate_hrefs) != expected_cards:
+            raise SystemExit(
+                'ERRORE: schede affiliate generate ' + str(affiliate_cards)
+                + ', attese ' + str(expected_cards) + '.'
+            )
+        unexpected_urls = sorted(set(affiliate_hrefs) - allowed_urls)
+        if unexpected_urls:
+            raise SystemExit('ERRORE: URL affiliati non presenti nella configurazione: '
+                             + ', '.join(unexpected_urls))
+        if affiliate_remote_resources:
+            raise SystemExit('ERRORE: risorse Amazon remote incorporate in: '
+                             + ', '.join(affiliate_remote_resources))
 
     # Controllo di integrita' del sito appena generato. Non blocca il build:
     # stampa cosa ha trovato, cosi' chi lancia il comando lo vede subito
@@ -385,6 +423,10 @@ def main():
     print('Copertine locali (assets/covers/):', covers_local, '| ancora remote (Open Library):', covers_remote)
     print('Link affiliati attivi:', affiliate_cards,
           '(Tracking ID ' + ('configurato' if tracking_id else 'non configurato') + ')')
+    if tracking_id:
+        print('Opere affiliate:', len(affiliate_editions), '| pagine citazione:',
+              len(expected_quote_pages), '| pagine opera:', len(expected_work_slugs),
+              '| risorse Amazon incorporate: 0')
 
     # Copertura delle raccolte. E' il passaggio della lista di chiusura (punto 10)
     # che salta piu' spesso: e' l'unico che non rompe niente se lo si dimentica —

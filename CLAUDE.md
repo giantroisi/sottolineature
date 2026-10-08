@@ -53,9 +53,17 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-10-05.
+Aggiornata: 2026-10-08.
 
 ### Fatto
+- **Pilota affiliazioni Amazon attivato, 2026-10-08.** Tracking ID centrale
+  `sottolineature-21`; cinque opere e cinque edizioni italiane verificate, tutte disponibili con
+  Prime al momento del controllo. L'associazione e' per opera: il medesimo ASIN compare sulle 11
+  pagine citazione pertinenti e sulle 3 pagine opera esistenti, per 14 pulsanti totali. Il build
+  impedisce piu' di cinque opere, ASIN/URL discordanti, parametri estranei, edizioni non verificate,
+  assenza di Prime senza eccezione motivata e risorse Amazon incorporate. Nessun prezzo, copertina,
+  marchio, widget o script Amazon. Harper Lee / *Il buio oltre la siepe* resta escluso: non e' stata
+  confermata la corrispondenza della traduzione dell'edizione disponibile con la fonte editoriale.
 - **Messa in sicurezza Git e produzione, 2026-10-05.** Lo stato locale trovato con 17 commit non
   sincronizzati e 1.387 file modificati/non tracciati e' stato preservato integralmente nel ramo
   remoto `codex/sicurezza-lavoro-locale-2026-10-05` (commit di consolidamento `6907fde8` e

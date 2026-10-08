@@ -1,5 +1,19 @@
 # Log
 
+- 2026-10-08 UTC — **attivato il primo lotto Amazon Affiliati, cinque opere / cinque ASIN**
+  (nessuna citazione aggiunta o modificata). Inserito centralmente il Tracking ID
+  `sottolineature-21` e verificata manualmente su Amazon.it la disponibilita' in italiano e con
+  Prime di: *I fratelli Karamazov* (880625829X), *1984* (8804796650), *Il ritratto di Dorian Gray*
+  (8811023246), *Casa di bambola* (8822791207), *Una donna* (8807951258). La selezione e' per opera,
+  non per singola citazione: 11 pagine citazione ereditano l'ASIN corretto (2 + 1 + 6 + 1 + 1),
+  insieme alle 3 pagine opera gia' presenti, per 14 pulsanti totali. Il pulsante “Acquista su
+  Amazon” usa un'icona SVG locale, avviso vicino, `rel="sponsored nofollow noopener"` e layout
+  responsive; nessun prezzo, copertina, marchio Prime, widget, script o risorsa remota Amazon.
+  Pubblicata la dichiarazione obbligatoria e aggiornate Affiliazioni, Privacy e Note legali.
+  Escluso *Il buio oltre la siepe*: la traduzione dell'edizione disponibile non e' stata collegata
+  con certezza alla fonte della citazione. Aggiunti 7 test unitari e controlli bloccanti nel build;
+  build completa su 883 citazioni, link 0 problemi, JSON-LD 0 errori.
+
 - 2026-09-03 UTC — **campo `speaker` e misura vera dei contesti brevi** (nessuna citazione aggiunta
   o tolta). Aggiunto a `data/citazioni.json` il campo facoltativo **`speaker`**: chi pronuncia la
   frase. Quando c'è, l'H1 della pagina diventa *«Se vogliamo che tutto rimanga com'è…»: la frase di

@@ -1,3 +1,55 @@
 {
-  "amazon_it_tracking_id": ""
+  "amazon_it_tracking_id": "sottolineature-21",
+  "edizioni": [
+    {
+      "author": "Fëdor Dostoevskij",
+      "title": "I fratelli Karamazov",
+      "asin": "880625829X",
+      "amazon_url": "https://www.amazon.it/dp/880625829X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2023; traduzione di Claudia Zonghetti",
+      "verified_on": "2026-10-08"
+    },
+    {
+      "author": "George Orwell",
+      "title": "1984",
+      "asin": "8804796650",
+      "amazon_url": "https://www.amazon.it/dp/8804796650/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Mondadori, 2024; traduzione di Nicola Gardini",
+      "verified_on": "2026-10-08"
+    },
+    {
+      "author": "Oscar Wilde",
+      "title": "Il ritratto di Dorian Gray",
+      "asin": "8811023246",
+      "amazon_url": "https://www.amazon.it/dp/8811023246/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Garzanti, 2026; traduzione di Marco Amante",
+      "verified_on": "2026-10-08"
+    },
+    {
+      "author": "Henrik Ibsen",
+      "title": "Casa di bambola",
+      "asin": "8822791207",
+      "amazon_url": "https://www.amazon.it/dp/8822791207/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Newton Compton Editori; traduzione di Lucio Chiavarelli; copertina rigida",
+      "verified_on": "2026-10-08"
+    },
+    {
+      "author": "Sibilla Aleramo",
+      "title": "Una donna",
+      "asin": "8807951258",
+      "amazon_url": "https://www.amazon.it/dp/8807951258/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2026; edizione curata da Daniela Brogi",
+      "verified_on": "2026-10-08"
+    }
+  ]
 }

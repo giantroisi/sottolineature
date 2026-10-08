@@ -204,10 +204,23 @@ h1 { font-weight: 400; font-size: clamp(1.8rem, 4vw, 2.4rem); margin: 0 0 0.75re
 .legal-page strong { color: var(--ink); }
 .legal-status { padding: 1rem 1.2rem; background: var(--paper-raised); border-left: 2px solid var(--gold); }
 
-/* Componente dormiente per le future edizioni affiliate. */
+/* Collegamento affiliato: pulsante locale, senza asset, widget o script Amazon. */
 .affiliate-card { margin: 1.75rem 0 0; padding: 1rem 1.1rem; border: 1px solid var(--rule); border-left: 3px solid var(--gold); border-radius: 4px; background: var(--paper-raised); }
-.affiliate-link { color: var(--accent); font-size: 0.95rem; font-weight: 600; text-underline-offset: 0.2em; }
-.affiliate-note { margin: 0.55rem 0 0; color: var(--ink-faint); font-size: 0.78rem; line-height: 1.5; }
+.affiliate-link {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.7rem;
+  min-height: 48px; padding: 0.65rem 1.25rem; border: 1px solid #8a6d1f;
+  border-radius: 7px; color: #17130a; background: linear-gradient(#ffe8a0, #f3c94f);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.78), 0 1px 2px rgba(33, 31, 27, 0.16);
+  font-size: 1rem; font-weight: 500; line-height: 1.2; text-decoration: none;
+}
+.affiliate-link:hover { color: #17130a; background: linear-gradient(#ffe38a, #edbd32); }
+.affiliate-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.affiliate-cart { flex: 0 0 auto; }
+.affiliate-note { margin: 0.65rem 0 0; color: var(--ink-faint); font-size: 0.78rem; line-height: 1.5; }
+@media (max-width: 480px) {
+  .affiliate-card { padding: 0.9rem; }
+  .affiliate-link { width: 100%; }
+}
 
 .actions { margin-top: 2rem; display: flex; gap: 1.4rem; flex-wrap: wrap; }
 .actions a, .actions button {
