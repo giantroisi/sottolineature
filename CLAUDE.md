@@ -70,7 +70,13 @@ Aggiornata: 2026-10-08.
   zero errori link/JSON-LD; 28 pagine controllate a 390x844 e 1280x900 senza overflow
   o errori console. Home con 883 schede; ricerca su Manzoni 7 risultati, stato vuoto e reset
   a 883 verificati. Restano invariati i warning editoriali storici (38 traduttori mancanti,
-  12 loci condivisi, copertura raccolte 73%). Pubblicazione e verifica live da registrare.
+  12 loci condivisi, copertura raccolte 73%). Pubblicato `26a58175`, deploy
+  `dpl_DpnE13B855bid37HcjVuq4qRJCyh` Ready: 137 URL confrontati via HTTPS, comprese
+  tutte le 133 pagine affiliate; 211 pulsanti identici al commit, canonical e footer corretti,
+  zero risorse Amazon incorporate. Le stesse 28 pagine sono state provate anche live a entrambe
+  le dimensioni senza overflow o errori console; home 883, Affiliazioni presente in sitemap,
+  www con HTTP 308 su home e percorso interno (query preservata). Nessun log runtime disponibile
+  per il sito statico; verifica console e HTTP effettuata direttamente.
 - **Aspetto finale del pulsante Amazon, 2026-10-08.** Su successiva istruzione esplicita
   dell'utente, verificato anche l'esempio di dietroiltesto.it, il tasto torna al solo carrello e
   «Acquista su Amazon», senza la seconda riga «link affiliato». La dichiarazione completa resta
