@@ -4777,6 +4777,19 @@ Archivio: **883 citazioni, dati e HEAD allineati.**
   dichiarazione nel footer. Rimossa la seconda riga e mantenuta la dichiarazione completa in
   tutte le pagine; invariati dati bibliografici, ASIN, tag e 38 posizioni del lotto precedente.
 
+- 2026-10-08 13:03 UTC — **verifica finale in produzione del lotto Amazon**. Commit funzionali
+  `c4727c1e`, `724f8350`, `0cbed817` pubblicati in sequenza su main dal worktree isolato.
+  Deploy finale `dpl_9xHV94ZCQFG9WSyHuVzWTTNSbDvD` pronto; 27 pagine affiliate e 38 pulsanti
+  confrontati con il repository via HTTPS: URL/ASIN e `rel` corretti, nessuna seconda riga nel
+  pulsante, dichiarazione nel footer. Verificate live home, citazione Karamazov, autore
+  Dostoevskij e raccolta Frasi brevi a 390x844 e 1280x900: zero overflow, 883 schede in home e
+  canonical corretti. Nessun errore Sottolineature nei log browser; escluse dal referto le voci
+  storiche generate sulle schede Amazon. Tutti i 5 URL verificati con Controllo link ufficiale
+  Amazon: esito positivo per il Tracking ID. Cartella principale intatta sul ramo di sicurezza
+  `1f92d14a`: le 29 citazioni locali successive e le modifiche non autorizzate per questo deploy
+  rimangono preservate fuori dalla produzione. Otto test unitari passati, build 0 problemi link
+  e JSON-LD; nessuna immagine, widget, prezzo o script Amazon incorporato.
+
 ## 2026-10-05, 20:44 UTC — repository salvato, Fase 1 Amazon e host canonici pubblicati
 
 **Stato iniziale ricostruito prima di modificare.** Il checkout locale era `main` a `6acad293`,

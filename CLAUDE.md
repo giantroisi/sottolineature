@@ -60,6 +60,9 @@ Aggiornata: 2026-10-08.
   dell'utente, verificato anche l'esempio di dietroiltesto.it, il tasto torna al solo carrello e
   «Acquista su Amazon», senza la seconda riga «link affiliato». La dichiarazione completa resta
   nel footer di ogni pagina. Si conservano le schede bibliografiche e tutte le posizioni richieste.
+  Pubblicato `0cbed817`, deploy `dpl_9xHV94ZCQFG9WSyHuVzWTTNSbDvD`: tutte le 27 pagine con
+  link confrontate via HTTP con il commit, 38 pulsanti e 5 ASIN corretti. Home confermata con
+  883 schede; citazione, autore e raccolta verificate live a 390x844 e 1280x900 senza overflow.
 - **Pulsanti Amazon su citazioni, autori e raccolte, 2026-10-08.** Dopo la pubblicazione del
   pilota (`c4727c1e`, deploy `dpl_BxYP5QCzXoJurMmSBWpyvbd6DpwP`), su richiesta dell'utente
   la frase lunga presso il link e' sostituita da «(link affiliato)» nel pulsante stesso.
