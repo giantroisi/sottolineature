@@ -68,7 +68,13 @@ Aggiornata: 2026-10-08.
   25 pagine opera, 42 link nelle pagine autore, 27 raccolte, 336 pulsanti (prima 280).
   Build, 12 test e controlli SEO/link/JSON-LD superati; 31 pagine provate a 390x844 e
   1280x900 senza overflow o errori console. Pulsante, footer, icona tema e metadati SEO
-  preservati; zero risorse Amazon incorporate. Pubblicazione e verifica live da completare.
+  preservati; zero risorse Amazon incorporate. Pubblicato `e1dda80a`, deploy
+  `dpl_9mAe1emeaGFzrgs9Lr5Upg8EZqS6` Ready (10 s). Confrontate 213 pagine HTTPS,
+  comprese tutte le 209 affiliate: 336 pulsanti identici al commit, canonical/footer e
+  JSON-LD corretti. 62 casi browser live a 390x844 e 1280x900 senza overflow o errori
+  console; home 883 schede e cambio tema funzionante. Affiliazioni in sitemap, redirect
+  www HTTP 308 con query conservata. Nessun log runtime disponibile per il sito statico;
+  controlli HTTP e console effettuati direttamente. Nessun titolo richiesto escluso.
 - **Sei ulteriori edizioni e icona tema mobile, 2026-10-08.** Dei dieci titoli richiesti,
   Le citta' invisibili, Il piccolo principe, Orgoglio e pregiudizio e Delitto e castigo erano
   gia' collegati: nessuna duplicazione. Aggiunti Gerusalemme liberata, I Malavoglia,
