@@ -65,8 +65,14 @@ Aggiornata: 2026-10-08.
   citazione, 26 pagine opera, 54 link autore, 29 raccolte e 385 pulsanti (prima 336).
   Build completo, 12 test e controlli link/JSON-LD superati; 31 pagine a 390x844 e
   1280x900 senza overflow o errori console; home 883. Stili, tracking, pulsante e footer
-  preservati. Chrome inizialmente chiuso, riaperto e controlli completati. Pubblicazione
-  e verifica live da completare; nessun titolo richiesto escluso dal lotto.
+  preservati. Chrome inizialmente chiuso, riaperto e controlli completati. Pubblicato
+  `9db00201`, deploy `dpl_EYnACoweH64DRWS8MSe9GFtqZyDC` Ready in 14 s: 245 pagine
+  HTTPS confrontate, tutte le 241 affiliate incluse e 385 pulsanti corretti. 62 casi
+  browser live senza overflow o errori console; home 883 e tema persistente verificati.
+  Canonical/Open Graph/footer/JSON-LD validi, zero risorse Amazon incorporate,
+  Affiliazioni in sitemap, www HTTP 308 con query conservata. Nessun log runtime
+  disponibile per il sito statico; verifiche HTTP e browser dirette completate.
+  Nessun titolo richiesto escluso dal lotto; ramo di sicurezza intatto.
 - **Undici edizioni della lista di venti opere, 2026-10-08.** Nove titoli erano gia'
   collegati; aggiunti Conrad, Remarque, Pamuk, Sapienza, Sciascia, Cognetti, Hornby,
   Murakami, Gita al faro di Woolf, Morte a Venezia di Mann e Il richiamo della foresta
