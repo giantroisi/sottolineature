@@ -71,7 +71,12 @@ Aggiornata: 2026-10-08.
   320/375/390 px) senza overflow o sovrapposizioni, 10 template desktop a 1280x900 e sei
   nuove pagine citazione a 390x844 verificati. Tema scuro persistente dopo ricarica.
   Citazioni/fonti, pulsante Amazon e disclosure nel footer invariati; nessun prezzo o
-  risorsa Amazon incorporata. Pubblicazione e controllo live da completare.
+  risorsa Amazon incorporata. Pubblicato `fa8cb081`, deploy
+  `dpl_FeE6wn6pZC8kgRmRYdSycJHjsUni` Ready. Confrontate 179 pagine HTTPS (tutte le 175
+  affiliate): 280 pulsanti identici al commit, canonical/footer/JSON-LD corretti e CSS/JS
+  live identici. 36 casi live a 320/390 px e desktop senza overflow, overlap o errori
+  console; tema persistente, home 883, stato ricerca vuoto e ripristino a 883 verificati.
+  Affiliazioni in sitemap; www home e percorso interno HTTP 308 con query preservata.
 - **Estensione Amazon a venti opere approvate, 2026-10-08.** Aggiunti tutti i venti titoli
   indicati dall'utente, senza nuove pagine o modifiche editoriali alle citazioni. Ogni edizione
   cartacea e' stata controllata sulla propria scheda Amazon: lingua italiana, autore,
