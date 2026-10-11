@@ -75,7 +75,22 @@ Aggiornata: 2026-10-12.
   Browser su 14 pagine a 390x844 e 1280x900, chiaro/scuro (56 casi), zero
   overflow/errori console; immagini reali caricate, una sola variante visibile.
   Warning storici invariati: 38 traduttori, 12 loci condivisi, raccolte 73%.
-  Pubblicazione e verifiche live da completare. Checkout produzione separato:
+  Pubblicato 9127b2a7, deploy dpl_AyG3Gss5EiyE3vBeahHLAoQ7zSoe Ready (16 s).
+  Browser live: stessi 56 casi superati, home con 883 schede. Nel controllo
+  HTTP emersa una collisione preesistente: /citazioni/michela-murgia-accabadora/
+  e' ancora un redirect 308 storico a Chiru', ma lo slug e' stato riutilizzato
+  per il nuovo incipit Fillus de anima. Immagini effettivamente visibili su
+  882 citazioni; i due PNG Accabadora esistono ma non sulla pagina corretta.
+  Non tolto il redirect della vecchia correzione: occorre una decisione per
+  assegnare un URL distinto all'incipit, e una guardia contro futuri riusi.
+  Verifica HTTPS conclusa: 1.067 pagine (882 citazioni e tutte le affiliate),
+  745 pulsanti identici, 1.766 PNG confrontati byte per byte (232.718.149 byte),
+  CSS/sitemap identiche agli artefatti; www home e percorso interno 308 con
+  query conservata. Timeout transitorio risolto con retry limitati, TLS mai
+  disabilitato. Collisione Accabadora registrata, non confusa con test superato.
+  Query Vercel limitata a un'ora: nessun log errore restituito; drains non
+  esaminati. Screenshot mobile live salvato; nessuna promessa di indicizzazione.
+  Checkout produzione separato:
   29 citazioni e profili D'Annunzio/Allende locali esclusi. Nessuna promessa di
   indicizzazione Google e nessuna richiesta di accesso/invio Search Console.
 - **Ripristino della sola CTA Amazon, 2026-10-12.** Su richiesta esplicita,
@@ -1136,6 +1151,12 @@ partire da una keyword senza il contenuto che la giustifica.
 - Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
+- **Collisione URL Accabadora / Chiru' (trovata 2026-10-12):** il redirect
+  storico della correzione va conservato; l'incipit verificato di Accabadora
+  necessita di un indirizzo distinto e aggiornamento selettivo dei rimandi
+  e sitemap. Nessun testo da correggere o nuova citazione da inventare.
+  Chiedere autorizzazione al cambio URL, poi impedire in generazione il riuso
+  delle sorgenti di redirect. Non rimuovere o invertire il redirect esistente.
 
 - **Affiliazione Herbert, 2026-10-08:** Un barbaro nel giardino resta senza link.
   La ricerca Amazon per autore/titolo e per solo titolo non ha restituito
