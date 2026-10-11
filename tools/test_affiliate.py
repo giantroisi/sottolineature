@@ -53,8 +53,8 @@ class AffiliateTests(unittest.TestCase):
         record = {'author': 'George Orwell', 'title': '1984'}
         rendered = affiliate.render_amazon_link(record, self.config)
         self.assertIn('<span>Acquista su Amazon</span>', rendered)
-        self.assertIn('<span class="affiliate-button-disclosure">link affiliato</span>', rendered)
-        self.assertIn('aria-label="Acquista su Amazon — link affiliato"', rendered)
+        self.assertNotIn('affiliate-button-disclosure', rendered)
+        self.assertNotIn('link affiliato', rendered)
         self.assertIn('rel="sponsored nofollow noopener"', rendered)
         self.assertNotIn('(link affiliato)', rendered)
         self.assertNotIn('potremmo ricevere una commissione', rendered)
@@ -71,17 +71,17 @@ class AffiliateTests(unittest.TestCase):
             {'author': 'Albert Camus', 'title': 'Lo straniero'}, self.config
         ), '')
 
-    def test_all_selected_editions_have_one_visible_and_accessible_button_disclosure(self):
+    def test_all_selected_editions_have_only_cta_and_preserve_link_attributes(self):
         for edition in self.config['edizioni']:
             with self.subTest(author=edition['author'], title=edition['title']):
                 rendered = affiliate.render_amazon_button(edition, self.config)
-                self.assertEqual(rendered.count('class="affiliate-button-disclosure"'), 1)
-                self.assertIn('>link affiliato</span>', rendered)
-                self.assertIn('aria-label="Acquista su Amazon — link affiliato"', rendered)
+                self.assertEqual(rendered.count('<span>Acquista su Amazon</span>'), 1)
+                self.assertNotIn('affiliate-button-text', rendered)
+                self.assertNotIn('link affiliato', rendered)
                 self.assertIn('href="' + edition['amazon_url'] + '"', rendered)
                 self.assertIn('target="_blank" rel="sponsored nofollow noopener"', rendered)
 
-    def test_generated_buttons_have_disclosure_only_inside_affiliate_links(self):
+    def test_generated_buttons_have_only_cta_and_one_footer_disclosure_per_page(self):
         button_count = 0
         for path in Path(ROOT).rglob('*.html'):
             if 'templates' in path.parts or any(part.startswith('.') for part in path.relative_to(ROOT).parts):
@@ -91,12 +91,16 @@ class AffiliateTests(unittest.TestCase):
             for anchor in anchors:
                 if 'class="affiliate-link"' in anchor:
                     button_count += 1
-                    self.assertEqual(anchor.count('class="affiliate-button-disclosure"'), 1, str(path))
-                    self.assertIn('aria-label="Acquista su Amazon — link affiliato"', anchor, str(path))
-                else:
-                    self.assertNotIn('class="affiliate-button-disclosure"', anchor, str(path))
-            self.assertEqual(source.count('class="affiliate-button-disclosure"'),
-                             sum('class="affiliate-link"' in a for a in anchors), str(path))
+                    self.assertEqual(anchor.count('<span>Acquista su Amazon</span>'), 1, str(path))
+                    self.assertNotIn('link affiliato', anchor, str(path))
+            self.assertNotIn('affiliate-button-disclosure', source, str(path))
+            self.assertNotIn('affiliate-button-text', source, str(path))
+            disclosure = 'In qualità di Affiliato Amazon io ricevo un guadagno dagli acquisti idonei.'
+            self.assertEqual(source.count(disclosure), 1, str(path))
+            self.assertEqual(source.count('class="affiliate-disclosure"'), 1, str(path))
+            footer = re.search(r'<footer\b.*?</footer>', source, re.DOTALL)
+            self.assertIsNotNone(footer, str(path))
+            self.assertIn(disclosure, footer.group(), str(path))
         self.assertGreater(button_count, 0)
 
     def test_url_rejects_extra_query_and_asin_mismatch(self):

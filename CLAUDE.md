@@ -53,9 +53,25 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-10-08.
+Aggiornata: 2026-10-12.
 
 ### Fatto
+- **Ripristino della sola CTA Amazon, 2026-10-12.** Su richiesta esplicita,
+  tolti sottotitolo link affiliato, wrapper su due righe e aria-label aggiuntivo
+  dal componente condiviso; nome accessibile nativo Acquista su Amazon.
+  Rimossi i due stili dedicati. Tutti i 745 pulsanti su 457 pagine tornano
+  alla CTA originale, con carrello locale, target 48 px e focus visibile.
+  Dichiarazione centralizzata una sola volta nel footer di ognuno dei 1.314
+  HTML; eliminata la ripetizione nel corpo della pagina Affiliazioni, conservate
+  spiegazioni e collegamenti. URL/tag/Tracking ID/target/rel byte-invariati;
+  canonical, Open Graph, JSON-LD, configurazione e sitemap identici al confronto
+  prima/dopo. Rigenerato soltanto il normale calendario della citazione del giorno.
+  Build completo 1.314 HTML/1.312 URL, zero problemi link/JSON-LD; 27 test
+  superati, incluse tutte le 119 edizioni e tutti i footer/pulsanti generati.
+  14 pagine a 390x844 e 1280x900 in chiaro/scuro (56 casi), nessun overflow
+  o errore console, home 883. Warning storici invariati: 38 traduttori,
+  12 loci condivisi, raccolte 73%. Pubblicazione e verifica live da completare.
+  Ramo di sicurezza, schede D'Annunzio/Allende e 29 citazioni locali esclusi.
 - **Dicitura interna su tutti i pulsanti affiliati, 2026-10-08.** Il componente
   condiviso rende Acquista su Amazon e, subito sotto nello stesso pulsante,
   link affiliato; aggiunto aria-label esplicito. CSS condiviso: etichetta 0,75rem

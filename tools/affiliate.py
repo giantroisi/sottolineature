@@ -140,10 +140,8 @@ def render_amazon_button(record, config=None):
     )
     return (
         '<a class="affiliate-link" href="' + html.escape(url, quote=True) + '" '
-        'target="_blank" rel="sponsored nofollow noopener" '
-        'aria-label="' + LINK_TEXT + ' — link affiliato">' + cart_icon
-        + '<span class="affiliate-button-text"><span>' + LINK_TEXT + '</span>'
-        + '<span class="affiliate-button-disclosure">link affiliato</span></span></a>'
+        'target="_blank" rel="sponsored nofollow noopener">' + cart_icon
+        + '<span>' + LINK_TEXT + '</span></a>'
     )
 
 
