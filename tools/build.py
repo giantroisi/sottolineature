@@ -24,6 +24,7 @@ import generate_index_pages as ip  # noqa: E402
 import generate_feed as feed  # noqa: E402
 import generate_404 as nf  # noqa: E402
 import affiliate  # noqa: E402
+import social_images
 
 
 HOST_REDIRECTS = [
@@ -213,6 +214,7 @@ def main():
     # Basta assegnare gli slug in anteprima, senza serializzare nulla: qp.main()
     # rifa' l'assegnazione (idempotente) e scrive slugs.json se necessario.
     preview_entries, _ = qp.assign_slugs(qp.load_quotes(), qp.load_slugs(), qp.load_redirects())
+    social_images.generate(preview_entries)
     opere = op.load_opere()
     raccolte = rp.load_raccolte()
     opera_map = op.build_opera_map(preview_entries, opere)
@@ -260,7 +262,8 @@ def main():
     citazioni_urls = []
     for slug, q in qp_entries:
         lastmod = ('<lastmod>' + q['added'] + '</lastmod>') if q.get('added') else ''
-        citazioni_urls.append(('/citazioni/' + slug + '/', lastmod))
+        citazioni_urls.append(('/citazioni/' + slug + '/', lastmod,
+                               social_images.sitemap_images(slug, qp.SITE_URL)))
 
     sitemap_groups = [
         ('sitemap-pagine.xml', [

@@ -16,6 +16,7 @@ import urllib.parse
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
 from affiliate import render_amazon_link, render_amazon_button  # noqa: E402
+import social_images
 
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -210,7 +211,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
-<script type="application/ld+json">{jsonld}</script>
+{social_image_head}<script type="application/ld+json">{jsonld}</script>
 <script>
   try {{
     document.documentElement.className += ' js';
@@ -311,7 +312,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
       <button class="share-go" type="button" id="shareGo" aria-label="Condividi l&#x27;immagine">Condividi</button>
     </div>
   </div>
-  <div class="quote-note sans" id="quoteNote" hidden>
+{social_image_html}  <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>
     <textarea id="quoteNoteField" class="quote-note-field sans" rows="2" placeholder="Perché ti ha colpita? (facoltativo)"></textarea>
     <p class="quote-note-print sans" id="quoteNotePrint" hidden></p>
@@ -992,6 +993,8 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         context_html=context_html,
         source_html=source_html,
         affiliate_html=render_amazon_link(q),
+        social_image_head=social_images.render_head(slug),
+        social_image_html=social_images.render_figure(slug, q),
         affiliate_top_html=('      <div class="affiliate-top sans">' + render_amazon_button(q) + '</div>')
                            if render_amazon_button(q) else '',
         cita_html=cita_html,

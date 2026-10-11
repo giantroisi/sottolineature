@@ -56,6 +56,28 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-12.
 
 ### Fatto
+- **Immagini social su tutte le citazioni pubblicate (2026-10-12).** Esteso il
+  pilota Dante approvato alle 883 citazioni della baseline pubblica: 1.766 PNG
+  Post 1080x1350, una sola variante visibile secondo il tema del sito, dopo
+  i comandi di condivisione. Riutilizzato assets/share.js senza modificarlo;
+  pannello Condividi/Reels, testi e fonti, URL/canonical/OG/JSON-LD invariati.
+  Nomi descrittivi, alt completo, dimensioni, lazy loading, collegamento al
+  file reale e impronta cache; due image:loc in ogni voce di sitemap-citazioni.
+  Configurazione scope all seleziona soltanto l'archivio effettivo, anche nelle
+  future generazioni; renderer nativo, dipendenza/lock e manifest tracciati.
+  Verificati automaticamente testo e titolo integrali e limiti della cornice
+  per ogni variante. Totale PNG 232.718.149 byte, 44.848–216.679 byte ciascuno;
+  CSS dedicato solo alle citazioni e nessuna immagine social sulla home/hub.
+  Build idempotente: 1.314 HTML/1.312 URL, zero problemi link/JSON-LD, 36 test
+  superati. Confronto HTML: solo 883 pagine, identiche dopo rimozione della
+  nuova sezione e stylesheet. Tutti i link preesistenti, 745 pulsanti/119
+  edizioni Amazon, Tracking ID, metadati e altre sitemap byte-invariati.
+  Browser su 14 pagine a 390x844 e 1280x900, chiaro/scuro (56 casi), zero
+  overflow/errori console; immagini reali caricate, una sola variante visibile.
+  Warning storici invariati: 38 traduttori, 12 loci condivisi, raccolte 73%.
+  Pubblicazione e verifiche live da completare. Checkout produzione separato:
+  29 citazioni e profili D'Annunzio/Allende locali esclusi. Nessuna promessa di
+  indicizzazione Google e nessuna richiesta di accesso/invio Search Console.
 - **Ripristino della sola CTA Amazon, 2026-10-12.** Su richiesta esplicita,
   tolti sottotitolo link affiliato, wrapper su due righe e aria-label aggiuntivo
   dal componente condiviso; nome accessibile nativo Acquista su Amazon.

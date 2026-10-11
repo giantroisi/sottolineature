@@ -1,0 +1,9 @@
+{
+  "name": "sottolineature-social-image-renderer",
+  "private": true,
+  "description": "Generazione locale delle immagini, non codice caricato dal sito",
+  "dependencies": {
+    "@napi-rs/canvas": "0.1.100"
+  }
+}
+

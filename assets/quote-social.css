@@ -1,0 +1,18 @@
+/* Una sola immagine visibile, scelta dal tema del sito (non da quello del dispositivo). */
+.quote-social { margin: 2.75rem 0; }
+.quote-social h2 { margin: 0 0 1rem; color: var(--ink-soft); font-size: 0.85rem;
+  font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+.quote-social figure { margin: 0; }
+.quote-social a { display: block; width: min(100%, 22rem); margin: 0 auto;
+  border-radius: 4px; overflow: hidden; }
+.quote-social a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.quote-social img { display: block; width: 100%; height: auto; }
+.quote-social figcaption { margin: 0.85rem 0 0; color: var(--ink-soft);
+  text-align: center; font-size: 0.8rem; line-height: 1.5; }
+.quote-social .quote-social-scuro { display: none; }
+:root[data-theme="dark"] .quote-social .quote-social-chiaro { display: none; }
+:root[data-theme="dark"] .quote-social .quote-social-scuro { display: block; }
+@media print {
+  .quote-social { display: none; }
+}
+
