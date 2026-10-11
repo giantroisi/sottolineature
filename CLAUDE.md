@@ -70,7 +70,16 @@ Aggiornata: 2026-10-12.
   superati, incluse tutte le 119 edizioni e tutti i footer/pulsanti generati.
   14 pagine a 390x844 e 1280x900 in chiaro/scuro (56 casi), nessun overflow
   o errore console, home 883. Warning storici invariati: 38 traduttori,
-  12 loci condivisi, raccolte 73%. Pubblicazione e verifica live da completare.
+  12 loci condivisi, raccolte 73%. Pubblicato `81bb87b1`, deploy
+  `dpl_6Nb3b8vts2MbgE9FNk2UJyGCB8c2` Ready (8 s). Confrontate tutte le
+  457 pagine affiliate piu' home e tre pagine legali: 461 pagine HTTPS,
+  745 pulsanti con la sola CTA, URL/attributi e metadati identici agli artefatti,
+  dichiarazione una volta in ogni footer e zero asset Amazon incorporati.
+  56 casi browser live senza overflow/errori console, nome accessibile uguale
+  alla CTA, target 48 px e home 883. Affiliazioni in sitemap; www home e
+  percorso interno HTTP 308 con query conservata. Nessun log di errore
+  restituito dalla query Vercel limitata a un'ora; verifiche HTTP/browser
+  dirette completate, drains non esaminati.
   Ramo di sicurezza, schede D'Annunzio/Allende e 29 citazioni locali esclusi.
 - **Dicitura interna su tutti i pulsanti affiliati, 2026-10-08.** Il componente
   condiviso rende Acquista su Amazon e, subito sotto nello stesso pulsante,
