@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/#webpage", "url": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/", "name": "«Ci stabilimmo a Santa Lucia, il…» — Hans Christian Andersen", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/#quotation", "text": "Ci stabilimmo a Santa Lucia, il mare era di fronte, il Vesuvio lampeggiava; erano splendide serate, notti di luna, era come se il cielo fosse stato alzato e le stelle si fossero allontanate.", "creator": {"@id": "https://sottolineature.it/autori/hans-christian-andersen/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/#book"}, "url": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/", "citation": "Hans Christian Andersen, «Ci stabilimmo a Santa Lucia, il mare era di fronte, il Vesuvio lampeggiava; erano splendide serate, notti di luna, era come se il cielo fosse stato alzato e le stelle si fossero allontanate.», L'improvvisatore, a cura di Bruno Berni, trad. Alda Castagnoli Manghi, Elliot, 2013, pp. 73-74. Testo: https://it.wikiquote.org/wiki/Hans_Christian_Andersen", "sameAs": "https://it.wikiquote.org/wiki/Hans_Christian_Andersen"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/#book", "name": "L'improvvisatore", "author": {"@id": "https://sottolineature.it/autori/hans-christian-andersen/#person"}, "datePublished": "1835", "translator": {"@type": "Person", "name": "Alda Castagnoli Manghi"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/hans-christian-andersen/#person", "name": "Hans Christian Andersen", "url": "https://sottolineature.it/autori/hans-christian-andersen/", "sameAs": ["https://it.wikipedia.org/wiki/Hans_Christian_Andersen", "https://www.wikidata.org/wiki/Q5673"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Hans Christian Andersen", "item": "https://sottolineature.it/autori/hans-christian-andersen/"}, {"@type": "ListItem", "position": 3, "name": "Ci stabilimmo a Santa Lucia, il mare…", "item": "https://sottolineature.it/citazioni/hans-christian-andersen-l-improvvisatore/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/hans-christian-andersen-l-improvvisatore-chiaro.png?v=465465679c7e"><img src="/assets/social/hans-christian-andersen-l-improvvisatore-chiaro.png?v=465465679c7e" alt="«Ci stabilimmo a Santa Lucia, il mare era di fronte, il Vesuvio lampeggiava; erano splendide serate, notti di luna, era come se il cielo fosse stato alzato e le stelle si fossero allontanate.» — Hans Christian Andersen, L&#x27;improvvisatore (1835). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/hans-christian-andersen-l-improvvisatore-scuro.png?v=a43f0e6a7b13"><img src="/assets/social/hans-christian-andersen-l-improvvisatore-scuro.png?v=a43f0e6a7b13" alt="«Ci stabilimmo a Santa Lucia, il mare era di fronte, il Vesuvio lampeggiava; erano splendide serate, notti di luna, era come se il cielo fosse stato alzato e le stelle si fossero allontanate.» — Hans Christian Andersen, L&#x27;improvvisatore (1835). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · pp. 73-74</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/hans-christian-andersen-l-improvvisatore-chiaro.png?v=cc6cb30f5df6"><img src="/assets/social/hans-christian-andersen-l-improvvisatore-chiaro.png?v=cc6cb30f5df6" alt="«Ci stabilimmo a Santa Lucia, il mare era di fronte, il Vesuvio lampeggiava; erano splendide serate, notti di luna, era come se il cielo fosse stato alzato e le stelle si fossero allontanate.» — Hans Christian Andersen, L&#x27;improvvisatore (1835). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/hans-christian-andersen-l-improvvisatore-scuro.png?v=84a6da7a47fa"><img src="/assets/social/hans-christian-andersen-l-improvvisatore-scuro.png?v=84a6da7a47fa" alt="«Ci stabilimmo a Santa Lucia, il mare era di fronte, il Vesuvio lampeggiava; erano splendide serate, notti di luna, era come se il cielo fosse stato alzato e le stelle si fossero allontanate.» — Hans Christian Andersen, L&#x27;improvvisatore (1835). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · pp. 73-74</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

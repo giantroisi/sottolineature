@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/orhan-pamuk-neve/#webpage", "url": "https://sottolineature.it/citazioni/orhan-pamuk-neve/", "name": "«Il silenzio della neve, pensava l'uomo…» — Orhan Pamuk, Neve", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/orhan-pamuk-neve/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/orhan-pamuk-neve/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/orhan-pamuk-neve/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/orhan-pamuk-neve/#quotation", "text": "Il silenzio della neve, pensava l'uomo seduto dietro l'autista del pullman.", "creator": {"@id": "https://sottolineature.it/autori/orhan-pamuk/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/orhan-pamuk-neve/#book"}, "url": "https://sottolineature.it/citazioni/orhan-pamuk-neve/", "citation": "Orhan Pamuk, «Il silenzio della neve, pensava l'uomo seduto dietro l'autista del pullman.», Neve, 2002, incipit."}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/orhan-pamuk-neve/#book", "name": "Neve", "author": {"@id": "https://sottolineature.it/autori/orhan-pamuk/#person"}, "datePublished": "2002"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/orhan-pamuk/#person", "name": "Orhan Pamuk", "url": "https://sottolineature.it/autori/orhan-pamuk/", "sameAs": ["https://it.wikipedia.org/wiki/Orhan_Pamuk", "https://www.wikidata.org/wiki/Q241248"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/orhan-pamuk-neve/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Orhan Pamuk", "item": "https://sottolineature.it/autori/orhan-pamuk/"}, {"@type": "ListItem", "position": 3, "name": "Il silenzio della neve, pensava l'uomo…", "item": "https://sottolineature.it/citazioni/orhan-pamuk-neve/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/orhan-pamuk-neve-chiaro.png?v=a032ac5c1060"><img src="/assets/social/orhan-pamuk-neve-chiaro.png?v=a032ac5c1060" alt="«Il silenzio della neve, pensava l&#x27;uomo seduto dietro l&#x27;autista del pullman.» — Orhan Pamuk, Neve (2002). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/orhan-pamuk-neve-scuro.png?v=f4672f2a82d1"><img src="/assets/social/orhan-pamuk-neve-scuro.png?v=f4672f2a82d1" alt="«Il silenzio della neve, pensava l&#x27;uomo seduto dietro l&#x27;autista del pullman.» — Orhan Pamuk, Neve (2002). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/orhan-pamuk-neve-chiaro.png?v=d7be42ffaf0a"><img src="/assets/social/orhan-pamuk-neve-chiaro.png?v=d7be42ffaf0a" alt="«Il silenzio della neve, pensava l&#x27;uomo seduto dietro l&#x27;autista del pullman.» — Orhan Pamuk, Neve (2002). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/orhan-pamuk-neve-scuro.png?v=848d4591ea21"><img src="/assets/social/orhan-pamuk-neve-scuro.png?v=848d4591ea21" alt="«Il silenzio della neve, pensava l&#x27;uomo seduto dietro l&#x27;autista del pullman.» — Orhan Pamuk, Neve (2002). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

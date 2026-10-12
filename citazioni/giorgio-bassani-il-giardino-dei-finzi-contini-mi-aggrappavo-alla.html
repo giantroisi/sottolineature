@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla/#webpage", "url": "https://sottolineature.it/citazioni/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla/", "name": "«Mi aggrappavo alla scrivanietta che il…» — Giorgio Bassani", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/giorgio-bassani-il-giardino-dei-finzi-contini/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla/#quotation", "text": "Mi aggrappavo alla scrivanietta che il professore Ermanno dal gennaio scorso aveva fatto collocare per me sotto la finestra di mezzo del salone del biliardo, come se, così facendo, mi fosse dato di arrestare l'inarrestabile progresso del tempo.", "creator": {"@id": "https://sottolineature.it/autori/giorgio-bassani/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/giorgio-bassani-il-giardino-dei-finzi-contini/#book"}, "url": "https://sottolineature.it/citazioni/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla/", "citation": "Giorgio Bassani, «Mi aggrappavo alla scrivanietta che il professore Ermanno dal gennaio scorso aveva fatto collocare per me sotto la finestra di mezzo del salone del biliardo, come se, così facendo, mi fosse dato di arrestare l'inarrestabile progresso del tempo.», Il giardino dei Finzi-Contini, Feltrinelli, Milano, 2012, parte III, cap. VI, p. 130. Testo: https://it.wikiquote.org/wiki/Giorgio_Bassani", "sameAs": "https://it.wikiquote.org/wiki/Giorgio_Bassani"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/giorgio-bassani-il-giardino-dei-finzi-contini/#book", "name": "Il giardino dei Finzi-Contini", "author": {"@id": "https://sottolineature.it/autori/giorgio-bassani/#person"}, "datePublished": "1962"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/giorgio-bassani/#person", "name": "Giorgio Bassani", "url": "https://sottolineature.it/autori/giorgio-bassani/", "sameAs": ["https://it.wikipedia.org/wiki/Giorgio_Bassani", "https://www.wikidata.org/wiki/Q318309"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Giorgio Bassani", "item": "https://sottolineature.it/autori/giorgio-bassani/"}, {"@type": "ListItem", "position": 3, "name": "Mi aggrappavo alla scrivanietta che il…", "item": "https://sottolineature.it/citazioni/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla-chiaro.png?v=1dca5720b9e5"><img src="/assets/social/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla-chiaro.png?v=1dca5720b9e5" alt="«Mi aggrappavo alla scrivanietta che il professore Ermanno dal gennaio scorso aveva fatto collocare per me sotto la finestra di mezzo del salone del biliardo, come se, così facendo, mi fosse dato di arrestare l&#x27;inarrestabile progresso del tempo.» — Giorgio Bassani, Il giardino dei Finzi-Contini (1962). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla-scuro.png?v=ab0f551e5eaa"><img src="/assets/social/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla-scuro.png?v=ab0f551e5eaa" alt="«Mi aggrappavo alla scrivanietta che il professore Ermanno dal gennaio scorso aveva fatto collocare per me sotto la finestra di mezzo del salone del biliardo, come se, così facendo, mi fosse dato di arrestare l&#x27;inarrestabile progresso del tempo.» — Giorgio Bassani, Il giardino dei Finzi-Contini (1962). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · parte III, cap. VI, p. 130</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla-chiaro.png?v=525e5d83f8fa"><img src="/assets/social/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla-chiaro.png?v=525e5d83f8fa" alt="«Mi aggrappavo alla scrivanietta che il professore Ermanno dal gennaio scorso aveva fatto collocare per me sotto la finestra di mezzo del salone del biliardo, come se, così facendo, mi fosse dato di arrestare l&#x27;inarrestabile progresso del tempo.» — Giorgio Bassani, Il giardino dei Finzi-Contini (1962). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla-scuro.png?v=fd19043ce0c2"><img src="/assets/social/giorgio-bassani-il-giardino-dei-finzi-contini-mi-aggrappavo-alla-scuro.png?v=fd19043ce0c2" alt="«Mi aggrappavo alla scrivanietta che il professore Ermanno dal gennaio scorso aveva fatto collocare per me sotto la finestra di mezzo del salone del biliardo, come se, così facendo, mi fosse dato di arrestare l&#x27;inarrestabile progresso del tempo.» — Giorgio Bassani, Il giardino dei Finzi-Contini (1962). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · parte III, cap. VI, p. 130</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

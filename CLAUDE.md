@@ -56,6 +56,32 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-12.
 
 ### Fatto
+- **Accabadora e immagini Storia (2026-10-12).** Autorizzata la correzione:
+  l'incipit Fillus de anima ha URL /citazioni/michela-murgia-accabadora-fillus-de-anima/;
+  conservato il redirect storico /citazioni/michela-murgia-accabadora/ a Chiru'.
+  Fonte/testo/contesto/attribuzione immutati, tutti i rimandi e la sitemap
+  rigenerati. Gli slug sorgenti di redirect sono ora riservati: nuove citazioni
+  usano l'incipit, una collisione congelata ferma la build senza rinomina silente.
+  Alias centralizzato riallinea sottolineature e copia le note al nuovo slug su
+  home, citazioni e Le mie, senza cancellare originali o sovrascrivere note nuove;
+  verificati idempotenza, storage indisponibile/corrotto e assenza di duplicati.
+  Immagini nelle 883 pagine pubbliche portate a Storia 1080x1920: 1.766 PNG,
+  273.044.981 byte totali (prima 232.718.149), 61.288–232.767 ciascuno. Una
+  variante visibile secondo il tema del sito, dimensioni HTML e sitemap coerenti;
+  stesso renderer share.js, margini Storia originali, testo/titolo completi e
+  dentro la cornice per tutte le varianti. Nessuna immagine social su home/hub,
+  caricamento lazy e cache versionata invariati; scelta Reels predefinita nel
+  pannello Condividi non cambiata. I quattro file generati obsoleti Accabadora
+  conservati nell'archivio locale ignorato da Git e nel commit precedente.
+  Build pubblica idempotente 1.314 HTML/1.312 URL, zero errori link/JSON-LD;
+  46 test superati. Browser locale su 18 pagine, 390x844/1280x900 chiaro/scuro
+  (72 casi), zero overflow/errori console, home 883, immagini 1080x1920 caricate.
+  Confronto integrale: solo grafica, migrazione note, URL Accabadora e finestra
+  correlate della nuova pagina; dati editoriali, 745 pulsanti/119 edizioni Amazon,
+  Tracking ID, CSS/nav/share.js e tutti i redirect byte-invariati. Pubblicazione
+  e verifica live da completare. Correzione riportata anche nel ramo locale,
+  con build 1.363 HTML/1.361 URL e 18 test: pilota Dante in Storia soltanto,
+  29 citazioni e profili Allende/D'Annunzio sospesi preservati e non pubblicati.
 - **Immagini social su tutte le citazioni pubblicate (2026-10-12).** Esteso il
   pilota Dante approvato alle 883 citazioni della baseline pubblica: 1.766 PNG
   Post 1080x1350, una sola variante visibile secondo il tema del sito, dopo
@@ -1151,12 +1177,9 @@ partire da una keyword senza il contenuto che la giustifica.
 - Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
-- **Collisione URL Accabadora / Chiru' (trovata 2026-10-12):** il redirect
-  storico della correzione va conservato; l'incipit verificato di Accabadora
-  necessita di un indirizzo distinto e aggiornamento selettivo dei rimandi
-  e sitemap. Nessun testo da correggere o nuova citazione da inventare.
-  Chiedere autorizzazione al cambio URL, poi impedire in generazione il riuso
-  delle sorgenti di redirect. Non rimuovere o invertire il redirect esistente.
+- **Accabadora / Storia:** correzione autorizzata e testata, pubblicazione e
+  verifica live ancora da completare. URL nuovo distinto e redirect storico
+  preservato; guardia anti-collisione e riallineamento delle note implementati.
 
 - **Affiliazione Herbert, 2026-10-08:** Un barbaro nel giardino resta senza link.
   La ricerca Amazon per autore/titolo e per solo titolo non ha restituito

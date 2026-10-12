@@ -2,6 +2,33 @@
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f2f0eb">
@@ -1617,7 +1644,7 @@ html:not(.js) .js-only { display: none !important; }
 </footer>
 
 <script src="/assets/share.js?v=2b309c55"></script>
-<script src="/assets/home-resto.js?v=feec8806"></script>
+<script src="/assets/home-resto.js?v=d0cfba3e"></script>
 <script>
   (function () {
     var toggle = document.getElementById('themeToggle');

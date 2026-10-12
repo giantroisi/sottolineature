@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/#webpage", "url": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/", "name": "«Non assomigliano veramente a torri, non a…» — Dino Buzzati", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/#quotation", "text": "Non assomigliano veramente a torri, non a castelli né a chiese in rovina, ma solo a se stesse, così come sono, con le frane bianche, le fessure, le cenge ghiaiose, gli spigoli senza fine a strapiombo piegati fuori nel vuoto.", "creator": {"@id": "https://sottolineature.it/autori/dino-buzzati/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/#book"}, "url": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/", "citation": "Dino Buzzati, «Non assomigliano veramente a torri, non a castelli né a chiese in rovina, ma solo a se stesse, così come sono, con le frane bianche, le fessure, le cenge ghiaiose, gli spigoli senza fine a strapiombo piegati fuori nel vuoto.», Bàrnabo delle montagne, 1933, descrizione delle Dolomiti."}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/#book", "name": "Bàrnabo delle montagne", "author": {"@id": "https://sottolineature.it/autori/dino-buzzati/#person"}, "datePublished": "1933"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/dino-buzzati/#person", "name": "Dino Buzzati", "url": "https://sottolineature.it/autori/dino-buzzati/", "sameAs": ["https://it.wikipedia.org/wiki/Dino_Buzzati", "https://www.wikidata.org/wiki/Q242095"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Dino Buzzati", "item": "https://sottolineature.it/autori/dino-buzzati/"}, {"@type": "ListItem", "position": 3, "name": "Non assomigliano veramente a torri, non…", "item": "https://sottolineature.it/citazioni/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente-chiaro.png?v=0306f61bcdaf"><img src="/assets/social/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente-chiaro.png?v=0306f61bcdaf" alt="«Non assomigliano veramente a torri, non a castelli né a chiese in rovina, ma solo a se stesse, così come sono, con le frane bianche, le fessure, le cenge ghiaiose, gli spigoli senza fine a strapiombo piegati fuori nel vuoto.» — Dino Buzzati, Bàrnabo delle montagne (1933). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente-scuro.png?v=a0f770eafdd7"><img src="/assets/social/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente-scuro.png?v=a0f770eafdd7" alt="«Non assomigliano veramente a torri, non a castelli né a chiese in rovina, ma solo a se stesse, così come sono, con le frane bianche, le fessure, le cenge ghiaiose, gli spigoli senza fine a strapiombo piegati fuori nel vuoto.» — Dino Buzzati, Bàrnabo delle montagne (1933). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · descrizione delle Dolomiti</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente-chiaro.png?v=e8a62d71cad9"><img src="/assets/social/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente-chiaro.png?v=e8a62d71cad9" alt="«Non assomigliano veramente a torri, non a castelli né a chiese in rovina, ma solo a se stesse, così come sono, con le frane bianche, le fessure, le cenge ghiaiose, gli spigoli senza fine a strapiombo piegati fuori nel vuoto.» — Dino Buzzati, Bàrnabo delle montagne (1933). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente-scuro.png?v=a6494a3233c4"><img src="/assets/social/dino-buzzati-barnabo-delle-montagne-non-assomigliano-veramente-scuro.png?v=a6494a3233c4" alt="«Non assomigliano veramente a torri, non a castelli né a chiese in rovina, ma solo a se stesse, così come sono, con le frane bianche, le fessure, le cenge ghiaiose, gli spigoli senza fine a strapiombo piegati fuori nel vuoto.» — Dino Buzzati, Bàrnabo delle montagne (1933). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · descrizione delle Dolomiti</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

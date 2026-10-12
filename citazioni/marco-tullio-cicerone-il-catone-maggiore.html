@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/#webpage", "url": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/", "name": "«L'avarizia in età avanzata è…» — Marco Tullio Cicerone", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/#quotation", "text": "L'avarizia in età avanzata è insensata: cosa c'è di più assurdo che accumulare provviste per il viaggio quando siamo prossimi alla meta?", "creator": {"@id": "https://sottolineature.it/autori/marco-tullio-cicerone/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/#book"}, "url": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/", "citation": "Marco Tullio Cicerone, «L'avarizia in età avanzata è insensata: cosa c'è di più assurdo che accumulare provviste per il viaggio quando siamo prossimi alla meta?», Il Catone Maggiore, trad. di Michele Battaglia, in «Elogio della vecchiaia» di Paolo Mantegazza, Franco Muzzio Editore, 1993, cap. VII. Testo: https://it.wikiquote.org/wiki/Marco_Tullio_Cicerone", "sameAs": "https://it.wikiquote.org/wiki/Marco_Tullio_Cicerone"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/#book", "name": "Il Catone Maggiore", "author": {"@id": "https://sottolineature.it/autori/marco-tullio-cicerone/#person"}, "temporalCoverage": "44 a.C.", "translator": {"@type": "Person", "name": "Michele Battaglia"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/marco-tullio-cicerone/#person", "name": "Marco Tullio Cicerone", "url": "https://sottolineature.it/autori/marco-tullio-cicerone/", "sameAs": ["https://it.wikipedia.org/wiki/Marco_Tullio_Cicerone", "https://www.wikidata.org/wiki/Q1541"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Marco Tullio Cicerone", "item": "https://sottolineature.it/autori/marco-tullio-cicerone/"}, {"@type": "ListItem", "position": 3, "name": "L'avarizia in età avanzata è insensata:…", "item": "https://sottolineature.it/citazioni/marco-tullio-cicerone-il-catone-maggiore/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/marco-tullio-cicerone-il-catone-maggiore-chiaro.png?v=638af6e9bc53"><img src="/assets/social/marco-tullio-cicerone-il-catone-maggiore-chiaro.png?v=638af6e9bc53" alt="«L&#x27;avarizia in età avanzata è insensata: cosa c&#x27;è di più assurdo che accumulare provviste per il viaggio quando siamo prossimi alla meta?» — Marco Tullio Cicerone, Il Catone Maggiore (44 a.C.). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/marco-tullio-cicerone-il-catone-maggiore-scuro.png?v=9f68eaa23a18"><img src="/assets/social/marco-tullio-cicerone-il-catone-maggiore-scuro.png?v=9f68eaa23a18" alt="«L&#x27;avarizia in età avanzata è insensata: cosa c&#x27;è di più assurdo che accumulare provviste per il viaggio quando siamo prossimi alla meta?» — Marco Tullio Cicerone, Il Catone Maggiore (44 a.C.). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · cap. VII</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/marco-tullio-cicerone-il-catone-maggiore-chiaro.png?v=b7c0031d47a8"><img src="/assets/social/marco-tullio-cicerone-il-catone-maggiore-chiaro.png?v=b7c0031d47a8" alt="«L&#x27;avarizia in età avanzata è insensata: cosa c&#x27;è di più assurdo che accumulare provviste per il viaggio quando siamo prossimi alla meta?» — Marco Tullio Cicerone, Il Catone Maggiore (44 a.C.). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/marco-tullio-cicerone-il-catone-maggiore-scuro.png?v=01eada94274f"><img src="/assets/social/marco-tullio-cicerone-il-catone-maggiore-scuro.png?v=01eada94274f" alt="«L&#x27;avarizia in età avanzata è insensata: cosa c&#x27;è di più assurdo che accumulare provviste per il viaggio quando siamo prossimi alla meta?» — Marco Tullio Cicerone, Il Catone Maggiore (44 a.C.). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · cap. VII</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

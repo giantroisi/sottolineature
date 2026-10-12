@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/charlotte-bronte-jane-eyre-si-suppone-che/#webpage", "url": "https://sottolineature.it/citazioni/charlotte-bronte-jane-eyre-si-suppone-che/", "name": "«Si suppone che le donne sieno…» — Charlotte Brontë, Jane Eyre", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/charlotte-bronte-jane-eyre-si-suppone-che/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/charlotte-bronte-jane-eyre/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/charlotte-bronte-jane-eyre-si-suppone-che/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/charlotte-bronte-jane-eyre-si-suppone-che/#quotation", "text": "Si suppone che le donne sieno generalmente calme; ma le donne sentono come gli uomini, hanno bisogno, come essi, d'esercitare le loro qualità.", "creator": {"@id": "https://sottolineature.it/autori/charlotte-bronte/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/charlotte-bronte-jane-eyre/#book"}, "url": "https://sottolineature.it/citazioni/charlotte-bronte-jane-eyre-si-suppone-che/", "citation": "Charlotte Brontë, «Si suppone che le donne sieno generalmente calme; ma le donne sentono come gli uomini, hanno bisogno, come essi, d'esercitare le loro qualità.», Jane Eyre, Fratelli Treves, Milano, 1904, capitolo XII (edizione Fratelli Treves, 1904). Testo: https://liberliber.it/autori/autori-b/charlotte-bronte/jane-eyre/", "sameAs": "https://liberliber.it/autori/autori-b/charlotte-bronte/jane-eyre/"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/charlotte-bronte-jane-eyre/#book", "name": "Jane Eyre", "author": {"@id": "https://sottolineature.it/autori/charlotte-bronte/#person"}, "datePublished": "1847"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/charlotte-bronte/#person", "name": "Charlotte Brontë", "url": "https://sottolineature.it/autori/charlotte-bronte/", "sameAs": ["https://it.wikipedia.org/wiki/Charlotte_Bront%C3%AB", "https://www.wikidata.org/wiki/Q127332"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/charlotte-bronte-jane-eyre-si-suppone-che/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Charlotte Brontë", "item": "https://sottolineature.it/autori/charlotte-bronte/"}, {"@type": "ListItem", "position": 3, "name": "Si suppone che le donne sieno…", "item": "https://sottolineature.it/citazioni/charlotte-bronte-jane-eyre-si-suppone-che/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/charlotte-bronte-jane-eyre-si-suppone-che-chiaro.png?v=1145d0d92799"><img src="/assets/social/charlotte-bronte-jane-eyre-si-suppone-che-chiaro.png?v=1145d0d92799" alt="«Si suppone che le donne sieno generalmente calme; ma le donne sentono come gli uomini, hanno bisogno, come essi, d&#x27;esercitare le loro qualità.» — Charlotte Brontë, Jane Eyre (1847). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/charlotte-bronte-jane-eyre-si-suppone-che-scuro.png?v=1871aacb68cc"><img src="/assets/social/charlotte-bronte-jane-eyre-si-suppone-che-scuro.png?v=1871aacb68cc" alt="«Si suppone che le donne sieno generalmente calme; ma le donne sentono come gli uomini, hanno bisogno, come essi, d&#x27;esercitare le loro qualità.» — Charlotte Brontë, Jane Eyre (1847). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo XII (edizione Fratelli Treves, 1904)</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/charlotte-bronte-jane-eyre-si-suppone-che-chiaro.png?v=993eba88b5af"><img src="/assets/social/charlotte-bronte-jane-eyre-si-suppone-che-chiaro.png?v=993eba88b5af" alt="«Si suppone che le donne sieno generalmente calme; ma le donne sentono come gli uomini, hanno bisogno, come essi, d&#x27;esercitare le loro qualità.» — Charlotte Brontë, Jane Eyre (1847). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/charlotte-bronte-jane-eyre-si-suppone-che-scuro.png?v=0cdf4793361a"><img src="/assets/social/charlotte-bronte-jane-eyre-si-suppone-che-scuro.png?v=0cdf4793361a" alt="«Si suppone che le donne sieno generalmente calme; ma le donne sentono come gli uomini, hanno bisogno, come essi, d&#x27;esercitare le loro qualità.» — Charlotte Brontë, Jane Eyre (1847). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo XII (edizione Fratelli Treves, 1904)</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

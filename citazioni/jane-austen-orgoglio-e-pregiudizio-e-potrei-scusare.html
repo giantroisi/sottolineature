@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare/#webpage", "url": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare/", "name": "«E potrei scusare facilmente il suo orgoglio, se…» — Jane Austen", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/jane-austen-orgoglio-e-pregiudizio/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare/#quotation", "text": "E potrei scusare facilmente il suo orgoglio, se non avesse ferito il mio.", "creator": {"@id": "https://sottolineature.it/autori/jane-austen/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/jane-austen-orgoglio-e-pregiudizio/#book"}, "url": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare/", "citation": "Jane Austen, «E potrei scusare facilmente il suo orgoglio, se non avesse ferito il mio.», Orgoglio e pregiudizio, trad. Itala Castellini e Natalia Rosi, 1945, capitolo 5. Testo: https://it.wikisource.org/wiki/Orgoglio_e_pregiudizio_(1945)/Capitolo_quinto", "sameAs": "https://it.wikisource.org/wiki/Orgoglio_e_pregiudizio_(1945)/Capitolo_quinto"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/jane-austen-orgoglio-e-pregiudizio/#book", "name": "Orgoglio e pregiudizio", "author": {"@id": "https://sottolineature.it/autori/jane-austen/#person"}, "datePublished": "1813", "translator": {"@type": "Person", "name": "Itala Castellini e Natalia Rosi"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/jane-austen/#person", "name": "Jane Austen", "url": "https://sottolineature.it/autori/jane-austen/", "sameAs": ["https://it.wikipedia.org/wiki/Jane_Austen", "https://www.wikidata.org/wiki/Q36322"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Jane Austen", "item": "https://sottolineature.it/autori/jane-austen/"}, {"@type": "ListItem", "position": 3, "name": "E potrei scusare facilmente il suo…", "item": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare-chiaro.png?v=b180318ce1ad"><img src="/assets/social/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare-chiaro.png?v=b180318ce1ad" alt="«E potrei scusare facilmente il suo orgoglio, se non avesse ferito il mio.» — Jane Austen, Orgoglio e pregiudizio (1813). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare-scuro.png?v=e383c93f79fb"><img src="/assets/social/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare-scuro.png?v=e383c93f79fb" alt="«E potrei scusare facilmente il suo orgoglio, se non avesse ferito il mio.» — Jane Austen, Orgoglio e pregiudizio (1813). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo 5</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare-chiaro.png?v=cd6ea6c9504f"><img src="/assets/social/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare-chiaro.png?v=cd6ea6c9504f" alt="«E potrei scusare facilmente il suo orgoglio, se non avesse ferito il mio.» — Jane Austen, Orgoglio e pregiudizio (1813). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare-scuro.png?v=001dff738218"><img src="/assets/social/jane-austen-orgoglio-e-pregiudizio-e-potrei-scusare-scuro.png?v=001dff738218" alt="«E potrei scusare facilmente il suo orgoglio, se non avesse ferito il mio.» — Jane Austen, Orgoglio e pregiudizio (1813). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo 5</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

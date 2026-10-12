@@ -24,6 +24,7 @@ class SocialImageTests(unittest.TestCase):
 
     def test_all_existing_quotes_are_selected(self):
         self.assertEqual(social_images.configuration()['scope'], 'all')
+        self.assertEqual(social_images.configuration()['format'], 'storia')
         self.assertEqual(set(social_images.selected_slugs()), {slug for slug, _ in self.entries})
         self.assertEqual(self.quote['quote'], "Amor, ch'a nullo amato amar perdona.")
 
@@ -44,7 +45,7 @@ class SocialImageTests(unittest.TestCase):
     def test_html_uses_real_img_sources_alt_dimensions_and_lazy_loading(self):
         markup = social_images.render_figure(SLUG, self.quote)
         self.assertEqual(markup.count('<img src="/assets/social/'), 2)
-        self.assertEqual(markup.count('width="1080" height="1350" loading="lazy" decoding="async"'), 2)
+        self.assertEqual(markup.count('width="1080" height="1920" loading="lazy" decoding="async"'), 2)
         self.assertIn('Dante Alighieri', markup)
         self.assertIn('Inferno, canto V, v. 103', markup)
         self.assertIn('versione chiara', markup)
@@ -56,11 +57,12 @@ class SocialImageTests(unittest.TestCase):
         for variant, color in [('chiaro', (242, 240, 235)), ('scuro', (22, 25, 26))]:
             path = social_images.ROOT / 'assets/social' / (SLUG + '-' + variant + '.png')
             with Image.open(path) as source:
-                self.assertEqual(source.size, (1080, 1350))
+                self.assertEqual(source.size, (1080, 1920))
                 image = source.convert('RGB')
             self.assertEqual(image.getpixel((0, 0)), color)
-            rows = [y for y in range(image.height) if image.getpixel((40, y)) != color]
-            self.assertLessEqual(abs((min(rows) + max(rows)) / 2 - image.height / 2), 1)
+            rows = [y for y in range(image.height) if image.getpixel((72, y)) != color]
+            # La Storia originale ha margini 224/236: centro della cornice a 954.
+            self.assertLessEqual(abs((min(rows) + max(rows)) / 2 - 954), 1)
             self.assertLess(path.stat().st_size, 200000)
 
     def test_image_sitemap_refers_to_every_quote_and_actual_assets(self):
@@ -85,7 +87,7 @@ class SocialImageTests(unittest.TestCase):
                 self.assertIn('<img src="' + url + '"', page, slug)
             for variant in social_images.VARIANTS:
                 with Image.open(social_images.ROOT / 'assets/social' / (slug + '-' + variant + '.png')) as image:
-                    self.assertEqual(image.size, (1080, 1350), slug)
+                    self.assertEqual(image.size, (1080, 1920), slug)
 
     def test_unchanged_inputs_do_not_regenerate_images(self):
         with mock.patch.object(social_images.subprocess, 'run') as renderer:

@@ -17,6 +17,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from labels import CATEGORY_LABELS, GENRE_LABELS  # noqa: E402
 from affiliate import render_amazon_link, render_amazon_button  # noqa: E402
 import social_images
+from quote_url_migrations import render_script as render_quote_migration
 
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -154,7 +155,11 @@ def assign_slugs(quotes, slugs_data, redirects):
     (non dovrebbe mai succedere in condizioni normali: gli slug esistenti non si
     toccano)."""
     quote_slugs = slugs_data.setdefault('quotes', {})
-    used = set(quote_slugs.values())
+    # Gli indirizzi delle vecchie correzioni restano riservati per sempre:
+    # riusarli creerebbe una pagina che in produzione porta a un altro testo.
+    reserved = {r['from'].strip('/').split('/')[-1] for r in redirects
+                if r['from'].startswith('/citazioni/') and r['from'].strip('/') != 'citazioni'}
+    used = set(quote_slugs.values()) | reserved
     entries = []
     changed = False
     for q in quotes:
@@ -163,13 +168,15 @@ def assign_slugs(quotes, slugs_data, redirects):
         key = quote_key(q)
         if key in quote_slugs:
             slug = quote_slugs[key]
+            if slug in reserved:
+                raise ValueError('Slug citazione riservato a un redirect storico: ' + slug)
         else:
             author_slug = slugify(q['author'])
             title_slug = slugify(q['title'])
             same_work_exists = any(
                 k.startswith(q['author'] + '|' + q['title'] + '|') for k in quote_slugs
             )
-            if same_work_exists:
+            if same_work_exists or author_slug + '-' + title_slug in reserved:
                 incipit_words = q['quote'].split()[:3]
                 slug = slugify(author_slug + '-' + title_slug + '-' + '-'.join(incipit_words))
             else:
@@ -211,7 +218,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css">
-{social_image_head}<script type="application/ld+json">{jsonld}</script>
+{social_image_head}{quote_url_migration}<script type="application/ld+json">{jsonld}</script>
 <script>
   try {{
     document.documentElement.className += ' js';
@@ -994,6 +1001,7 @@ def render_page(q, slug, same_author, same_theme, opera_map=None, raccolta_map=N
         source_html=source_html,
         affiliate_html=render_amazon_link(q),
         social_image_head=social_images.render_head(slug),
+        quote_url_migration=render_quote_migration(load_slugs().get('quote_aliases', {})),
         social_image_html=social_images.render_figure(slug, q),
         affiliate_top_html=('      <div class="affiliate-top sans">' + render_amazon_button(q) + '</div>')
                            if render_amazon_button(q) else '',

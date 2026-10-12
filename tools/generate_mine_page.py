@@ -21,6 +21,7 @@ PAGE = '''<!DOCTYPE html>
 <html lang="it">
 <head>
 <meta charset="UTF-8">
+__QUOTE_URL_MIGRATION__
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f2f0eb">
@@ -369,6 +370,7 @@ def main():
         index_by_slug[slug] = order[id(q)]
         legacy.setdefault(q['author'] + '|' + q['title'], []).append(slug)
     page = PAGE.replace('__SLUG_INDEX__', json.dumps(index_by_slug, ensure_ascii=False))
+    page = page.replace('__QUOTE_URL_MIGRATION__', qp.render_quote_migration(qp.load_slugs().get('quote_aliases', {})))
     page = page.replace('__LEGACY_MAP__', json.dumps(legacy, ensure_ascii=False))
     with open(OUT, 'w', encoding='utf-8') as f:
         f.write(page)

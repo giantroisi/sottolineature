@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/dante-alighieri-inferno-divina-commedia/#webpage", "url": "https://sottolineature.it/citazioni/dante-alighieri-inferno-divina-commedia/", "name": "«Amor, ch'a nullo amato amar perdona.» — Dante Alighieri", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/dante-alighieri-inferno-divina-commedia/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/dante-alighieri-inferno/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/dante-alighieri-inferno-divina-commedia/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/dante-alighieri-inferno-divina-commedia/#quotation", "text": "Amor, ch'a nullo amato amar perdona.", "creator": {"@id": "https://sottolineature.it/autori/dante-alighieri/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/dante-alighieri-inferno/#book"}, "url": "https://sottolineature.it/citazioni/dante-alighieri-inferno-divina-commedia/", "citation": "Dante Alighieri, «Amor, ch'a nullo amato amar perdona.», Inferno, Divina Commedia, 1321, Inferno, canto V, v. 103. Testo: https://it.wikisource.org/wiki/Divina_Commedia/Inferno/Canto_V", "sameAs": "https://it.wikisource.org/wiki/Divina_Commedia/Inferno/Canto_V", "spokenByCharacter": {"@type": "Person", "name": "Francesca da Rimini"}}, {"@type": "Book", "@id": "https://sottolineature.it/opere/dante-alighieri-inferno/#book", "name": "Inferno", "author": {"@id": "https://sottolineature.it/autori/dante-alighieri/#person"}, "datePublished": "1321"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/dante-alighieri/#person", "name": "Dante Alighieri", "url": "https://sottolineature.it/autori/dante-alighieri/", "sameAs": ["https://it.wikipedia.org/wiki/Dante_Alighieri", "https://www.wikidata.org/wiki/Q1067"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/dante-alighieri-inferno-divina-commedia/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Dante Alighieri", "item": "https://sottolineature.it/autori/dante-alighieri/"}, {"@type": "ListItem", "position": 3, "name": "Amor, ch'a nullo amato amar perdona.", "item": "https://sottolineature.it/citazioni/dante-alighieri-inferno-divina-commedia/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/dante-alighieri-inferno-divina-commedia-chiaro.png?v=0448b155f17d"><img src="/assets/social/dante-alighieri-inferno-divina-commedia-chiaro.png?v=0448b155f17d" alt="«Amor, ch&#x27;a nullo amato amar perdona.» — Dante Alighieri, Inferno, Divina Commedia (1321). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/dante-alighieri-inferno-divina-commedia-scuro.png?v=5ffa283c08fb"><img src="/assets/social/dante-alighieri-inferno-divina-commedia-scuro.png?v=5ffa283c08fb" alt="«Amor, ch&#x27;a nullo amato amar perdona.» — Dante Alighieri, Inferno, Divina Commedia (1321). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · Inferno, canto V, v. 103</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/dante-alighieri-inferno-divina-commedia-chiaro.png?v=5503c0d5a435"><img src="/assets/social/dante-alighieri-inferno-divina-commedia-chiaro.png?v=5503c0d5a435" alt="«Amor, ch&#x27;a nullo amato amar perdona.» — Dante Alighieri, Inferno, Divina Commedia (1321). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/dante-alighieri-inferno-divina-commedia-scuro.png?v=0deaa5c93a97"><img src="/assets/social/dante-alighieri-inferno-divina-commedia-scuro.png?v=0deaa5c93a97" alt="«Amor, ch&#x27;a nullo amato amar perdona.» — Dante Alighieri, Inferno, Divina Commedia (1321). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · Inferno, canto V, v. 103</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

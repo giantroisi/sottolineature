@@ -65,8 +65,10 @@ async function main() {
     for (const variant of ['chiaro', 'scuro']) {
       const { canvas: image, fmt } = sandbox.window.Sottolineature.disegna(
         item.quote, item.author, item.title, item.year, input.format, variant);
-      if (fmt.w !== 1080 || fmt.h !== 1350) throw new Error('Formato post inatteso');
-      if (image.socialText.some(t => t.left < 40 || t.right > 1040 || t.top < 40 || t.bottom > 1310)) {
+      const expectedHeight = {post: 1350, storia: 1920}[input.format];
+      if (fmt.w !== 1080 || fmt.h !== expectedHeight) throw new Error('Formato social inatteso');
+      if (image.socialText.some(t => t.left < fmt.inserto || t.right > fmt.w - fmt.inserto ||
+          t.top < fmt.marginTop || t.bottom > fmt.h - fmt.marginBottom)) {
         throw new Error('Testo fuori dalla cornice: ' + item.slug + '-' + variant);
       }
       const drawn = image.socialText.slice(2, -1).map(t => t.text).join(' ');

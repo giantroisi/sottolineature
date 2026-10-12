@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/#webpage", "url": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/", "name": "«Disperazione che incessante…» — Giuseppe Ungaretti, Il dolore", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/#quotation", "text": "Disperazione che incessante aumenta la vita non mi è più, arrestata in fondo alla gola, che una roccia di gridi.", "creator": {"@id": "https://sottolineature.it/autori/giuseppe-ungaretti/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/#book"}, "url": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/", "citation": "Giuseppe Ungaretti, «Disperazione che incessante aumenta la vita non mi è più, arrestata in fondo alla gola, che una roccia di gridi.», Il dolore, Vita d'un uomo, Mondadori, 1947, «Tutto ho perduto», vv. finali. Testo: https://it.wikiquote.org/wiki/Giuseppe_Ungaretti", "sameAs": "https://it.wikiquote.org/wiki/Giuseppe_Ungaretti"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/#book", "name": "Il dolore", "author": {"@id": "https://sottolineature.it/autori/giuseppe-ungaretti/#person"}, "datePublished": "1947"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/giuseppe-ungaretti/#person", "name": "Giuseppe Ungaretti", "url": "https://sottolineature.it/autori/giuseppe-ungaretti/", "sameAs": ["https://it.wikipedia.org/wiki/Giuseppe_Ungaretti", "https://www.wikidata.org/wiki/Q311802"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Giuseppe Ungaretti", "item": "https://sottolineature.it/autori/giuseppe-ungaretti/"}, {"@type": "ListItem", "position": 3, "name": "Disperazione che incessante aumenta la…", "item": "https://sottolineature.it/citazioni/giuseppe-ungaretti-il-dolore/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/giuseppe-ungaretti-il-dolore-chiaro.png?v=f0b355f7fbe0"><img src="/assets/social/giuseppe-ungaretti-il-dolore-chiaro.png?v=f0b355f7fbe0" alt="«Disperazione che incessante aumenta la vita non mi è più, arrestata in fondo alla gola, che una roccia di gridi.» — Giuseppe Ungaretti, Il dolore (1947). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/giuseppe-ungaretti-il-dolore-scuro.png?v=0bb908430ac4"><img src="/assets/social/giuseppe-ungaretti-il-dolore-scuro.png?v=0bb908430ac4" alt="«Disperazione che incessante aumenta la vita non mi è più, arrestata in fondo alla gola, che una roccia di gridi.» — Giuseppe Ungaretti, Il dolore (1947). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · «Tutto ho perduto», vv. finali</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/giuseppe-ungaretti-il-dolore-chiaro.png?v=eafcd252ef5c"><img src="/assets/social/giuseppe-ungaretti-il-dolore-chiaro.png?v=eafcd252ef5c" alt="«Disperazione che incessante aumenta la vita non mi è più, arrestata in fondo alla gola, che una roccia di gridi.» — Giuseppe Ungaretti, Il dolore (1947). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/giuseppe-ungaretti-il-dolore-scuro.png?v=271022dc68ed"><img src="/assets/social/giuseppe-ungaretti-il-dolore-scuro.png?v=271022dc68ed" alt="«Disperazione che incessante aumenta la vita non mi è più, arrestata in fondo alla gola, che una roccia di gridi.» — Giuseppe Ungaretti, Il dolore (1947). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · «Tutto ho perduto», vv. finali</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

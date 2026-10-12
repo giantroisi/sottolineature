@@ -11,12 +11,13 @@ ROOT = Path(__file__).resolve().parent.parent
 CONFIG = ROOT / 'data/social_images.json'
 MANIFEST = ROOT / 'assets/social/manifest.json'
 VARIANTS = ('chiaro', 'scuro')
+FORMATS = {'post': (1080, 1350), 'storia': (1080, 1920)}
 
 
 def configuration():
     data = json.loads(CONFIG.read_text(encoding='utf-8'))
-    if data['format'] != 'post':
-        raise ValueError('Le immagini della pagina usano il formato post 1080x1350')
+    if data['format'] not in FORMATS:
+        raise ValueError('Formato social non valido: usare post o storia')
     slugs = data['slugs']
     if data.get('scope', 'selected') not in ('selected', 'all'):
         raise ValueError('Ambito social non valido')
@@ -98,6 +99,7 @@ def render_figure(slug, quote):
     urls = image_urls(slug)
     if not urls:
         return ''
+    width, height = FORMATS[configuration()['format']]
     links = []
     for variant, url in zip(VARIANTS, urls):
         alt = ('«' + quote['quote'] + '» — ' + quote['author'] + ', ' + quote['title'] +
@@ -105,7 +107,8 @@ def render_figure(slug, quote):
                ('chiara' if variant == 'chiaro' else 'scura') + '.')
         links.append('<a class="quote-social-' + variant + '" href="' + url + '">'
                      '<img src="' + url + '" alt="' + html.escape(alt, quote=True) + '" '
-                     'width="1080" height="1350" loading="lazy" decoding="async"></a>')
+                     'width="' + str(width) + '" height="' + str(height) +
+                     '" loading="lazy" decoding="async"></a>')
     return ('  <section class="quote-social" aria-labelledby="quoteSocialHeading">\n'
             '    <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>\n'
             '    <figure>' + ''.join(links) + '<figcaption class="sans">'

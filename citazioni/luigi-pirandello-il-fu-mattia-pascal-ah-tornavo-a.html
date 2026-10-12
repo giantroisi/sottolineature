@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a/#webpage", "url": "https://sottolineature.it/citazioni/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a/", "name": "«Ah! tornavo a esser vivo, a esser io, io,…» — Luigi Pirandello", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/luigi-pirandello-il-fu-mattia-pascal/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a/#quotation", "text": "Ah! tornavo a esser vivo, a esser io, io, Mattia Pascal. Lo avrei gridato forte a tutti, ora: io, io, Mattia Pascal! Sono io! Non sono morto! Eccomi qua!", "creator": {"@id": "https://sottolineature.it/autori/luigi-pirandello/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/luigi-pirandello-il-fu-mattia-pascal/#book"}, "url": "https://sottolineature.it/citazioni/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a/", "citation": "Luigi Pirandello, «Ah! tornavo a esser vivo, a esser io, io, Mattia Pascal. Lo avrei gridato forte a tutti, ora: io, io, Mattia Pascal! Sono io! Non sono morto! Eccomi qua!», Il fu Mattia Pascal, edizione 1919 (pubblico dominio), capitolo XVII «Rincarnazione». Testo: https://it.wikisource.org/wiki/Il_fu_Mattia_Pascal/17", "sameAs": "https://it.wikisource.org/wiki/Il_fu_Mattia_Pascal/17"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/luigi-pirandello-il-fu-mattia-pascal/#book", "name": "Il fu Mattia Pascal", "author": {"@id": "https://sottolineature.it/autori/luigi-pirandello/#person"}, "datePublished": "1904"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/luigi-pirandello/#person", "name": "Luigi Pirandello", "url": "https://sottolineature.it/autori/luigi-pirandello/", "sameAs": ["https://it.wikipedia.org/wiki/Luigi_Pirandello", "https://www.wikidata.org/wiki/Q1403"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Luigi Pirandello", "item": "https://sottolineature.it/autori/luigi-pirandello/"}, {"@type": "ListItem", "position": 3, "name": "Ah! tornavo a esser vivo, a esser io,…", "item": "https://sottolineature.it/citazioni/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a-chiaro.png?v=34d8a0f252f8"><img src="/assets/social/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a-chiaro.png?v=34d8a0f252f8" alt="«Ah! tornavo a esser vivo, a esser io, io, Mattia Pascal. Lo avrei gridato forte a tutti, ora: io, io, Mattia Pascal! Sono io! Non sono morto! Eccomi qua!» — Luigi Pirandello, Il fu Mattia Pascal (1904). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a-scuro.png?v=04409d2da432"><img src="/assets/social/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a-scuro.png?v=04409d2da432" alt="«Ah! tornavo a esser vivo, a esser io, io, Mattia Pascal. Lo avrei gridato forte a tutti, ora: io, io, Mattia Pascal! Sono io! Non sono morto! Eccomi qua!» — Luigi Pirandello, Il fu Mattia Pascal (1904). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo XVII «Rincarnazione»</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a-chiaro.png?v=cfcb9220a49c"><img src="/assets/social/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a-chiaro.png?v=cfcb9220a49c" alt="«Ah! tornavo a esser vivo, a esser io, io, Mattia Pascal. Lo avrei gridato forte a tutti, ora: io, io, Mattia Pascal! Sono io! Non sono morto! Eccomi qua!» — Luigi Pirandello, Il fu Mattia Pascal (1904). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a-scuro.png?v=a0ff7a0f2221"><img src="/assets/social/luigi-pirandello-il-fu-mattia-pascal-ah-tornavo-a-scuro.png?v=a0ff7a0f2221" alt="«Ah! tornavo a esser vivo, a esser io, io, Mattia Pascal. Lo avrei gridato forte a tutti, ora: io, io, Mattia Pascal! Sono io! Non sono morto! Eccomi qua!» — Luigi Pirandello, Il fu Mattia Pascal (1904). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo XVII «Rincarnazione»</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

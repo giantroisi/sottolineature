@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/anne-frank-diario-la-natura-e/#webpage", "url": "https://sottolineature.it/citazioni/anne-frank-diario-la-natura-e/", "name": "«La natura è davvero l'unica cosa che non…» — Anne Frank, Diario", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/anne-frank-diario-la-natura-e/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/anne-frank-diario/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/anne-frank-diario-la-natura-e/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/anne-frank-diario-la-natura-e/#quotation", "text": "La natura è davvero l'unica cosa che non tollera surrogati.", "creator": {"@id": "https://sottolineature.it/autori/anne-frank/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/anne-frank-diario/#book"}, "url": "https://sottolineature.it/citazioni/anne-frank-diario-la-natura-e/", "citation": "Anne Frank, «La natura è davvero l'unica cosa che non tollera surrogati.», Diario, trad. di Arrigo Vita, XV ed., Mondadori, 1966, p. 221. Testo: https://it.wikiquote.org/wiki/Anna_Frank", "sameAs": "https://it.wikiquote.org/wiki/Anna_Frank"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/anne-frank-diario/#book", "name": "Diario", "author": {"@id": "https://sottolineature.it/autori/anne-frank/#person"}, "datePublished": "1947", "translator": {"@type": "Person", "name": "Arrigo Vita"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/anne-frank/#person", "name": "Anne Frank", "url": "https://sottolineature.it/autori/anne-frank/", "sameAs": ["https://it.wikipedia.org/wiki/Anna_Frank", "https://www.wikidata.org/wiki/Q4583"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/anne-frank-diario-la-natura-e/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Anne Frank", "item": "https://sottolineature.it/autori/anne-frank/"}, {"@type": "ListItem", "position": 3, "name": "La natura è davvero l'unica cosa che…", "item": "https://sottolineature.it/citazioni/anne-frank-diario-la-natura-e/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/anne-frank-diario-la-natura-e-chiaro.png?v=bcd9964b3d8b"><img src="/assets/social/anne-frank-diario-la-natura-e-chiaro.png?v=bcd9964b3d8b" alt="«La natura è davvero l&#x27;unica cosa che non tollera surrogati.» — Anne Frank, Diario (1947). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/anne-frank-diario-la-natura-e-scuro.png?v=45556d9e7009"><img src="/assets/social/anne-frank-diario-la-natura-e-scuro.png?v=45556d9e7009" alt="«La natura è davvero l&#x27;unica cosa che non tollera surrogati.» — Anne Frank, Diario (1947). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 221</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/anne-frank-diario-la-natura-e-chiaro.png?v=91e0b3de10d1"><img src="/assets/social/anne-frank-diario-la-natura-e-chiaro.png?v=91e0b3de10d1" alt="«La natura è davvero l&#x27;unica cosa che non tollera surrogati.» — Anne Frank, Diario (1947). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/anne-frank-diario-la-natura-e-scuro.png?v=2f218391b68a"><img src="/assets/social/anne-frank-diario-la-natura-e-scuro.png?v=2f218391b68a" alt="«La natura è davvero l&#x27;unica cosa che non tollera surrogati.» — Anne Frank, Diario (1947). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 221</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

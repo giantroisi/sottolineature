@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/#webpage", "url": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/", "name": "«Resistere. Nessun singolo istante di…» — David Foster Wallace", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/#quotation", "text": "Resistere. Nessun singolo istante di quel dolore era insopportabile. Eccolo qua un secondo: lo aveva sopportato. Insopportabile era il pensiero di tutti gli istanti in fila, uno dietro l'altro, splendenti.", "creator": {"@id": "https://sottolineature.it/autori/david-foster-wallace/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/#book"}, "url": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/", "citation": "David Foster Wallace, «Resistere. Nessun singolo istante di quel dolore era insopportabile. Eccolo qua un secondo: lo aveva sopportato. Insopportabile era il pensiero di tutti gli istanti in fila, uno dietro l'altro, splendenti.», Infinite Jest, trad. di Edoardo Nesi, 1996, riflessione sul dolore."}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/#book", "name": "Infinite Jest", "author": {"@id": "https://sottolineature.it/autori/david-foster-wallace/#person"}, "datePublished": "1996", "translator": {"@type": "Person", "name": "Edoardo Nesi"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/david-foster-wallace/#person", "name": "David Foster Wallace", "url": "https://sottolineature.it/autori/david-foster-wallace/", "sameAs": ["https://it.wikipedia.org/wiki/David_Foster_Wallace", "https://www.wikidata.org/wiki/Q313246"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "David Foster Wallace", "item": "https://sottolineature.it/autori/david-foster-wallace/"}, {"@type": "ListItem", "position": 3, "name": "Resistere. Nessun singolo istante di…", "item": "https://sottolineature.it/citazioni/david-foster-wallace-infinite-jest/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/david-foster-wallace-infinite-jest-chiaro.png?v=06c856e13244"><img src="/assets/social/david-foster-wallace-infinite-jest-chiaro.png?v=06c856e13244" alt="«Resistere. Nessun singolo istante di quel dolore era insopportabile. Eccolo qua un secondo: lo aveva sopportato. Insopportabile era il pensiero di tutti gli istanti in fila, uno dietro l&#x27;altro, splendenti.» — David Foster Wallace, Infinite Jest (1996). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/david-foster-wallace-infinite-jest-scuro.png?v=358eeadaca29"><img src="/assets/social/david-foster-wallace-infinite-jest-scuro.png?v=358eeadaca29" alt="«Resistere. Nessun singolo istante di quel dolore era insopportabile. Eccolo qua un secondo: lo aveva sopportato. Insopportabile era il pensiero di tutti gli istanti in fila, uno dietro l&#x27;altro, splendenti.» — David Foster Wallace, Infinite Jest (1996). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · riflessione sul dolore</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/david-foster-wallace-infinite-jest-chiaro.png?v=704d48875a87"><img src="/assets/social/david-foster-wallace-infinite-jest-chiaro.png?v=704d48875a87" alt="«Resistere. Nessun singolo istante di quel dolore era insopportabile. Eccolo qua un secondo: lo aveva sopportato. Insopportabile era il pensiero di tutti gli istanti in fila, uno dietro l&#x27;altro, splendenti.» — David Foster Wallace, Infinite Jest (1996). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/david-foster-wallace-infinite-jest-scuro.png?v=f0cfdeaba1a3"><img src="/assets/social/david-foster-wallace-infinite-jest-scuro.png?v=f0cfdeaba1a3" alt="«Resistere. Nessun singolo istante di quel dolore era insopportabile. Eccolo qua un secondo: lo aveva sopportato. Insopportabile era il pensiero di tutti gli istanti in fila, uno dietro l&#x27;altro, splendenti.» — David Foster Wallace, Infinite Jest (1996). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · riflessione sul dolore</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

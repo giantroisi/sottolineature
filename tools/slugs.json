@@ -267,6 +267,9 @@
     "Zora Neale Hurston": "zora-neale-hurston",
     "Émile Zola": "emile-zola"
   },
+  "quote_aliases": {
+    "michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"
+  },
   "quotes": {
     "Agatha Christie|Dieci piccoli indiani|C'era qualcosa di magico in un'isola:": "agatha-christie-dieci-piccoli-indiani",
     "Agatha Christie|La sagra del delitto|Nessuno avrebbe saputo raccontare deliberatamente una": "agatha-christie-la-sagra-del-delitto",
@@ -882,7 +885,7 @@
     "Michel de Montaigne|Saggi|C'è più da fare a interpretare": "michel-de-montaigne-saggi-c-e-piu-da",
     "Michel de Montaigne|Saggi|Per un figlio di buona famiglia": "michel-de-montaigne-saggi-per-un-figlio",
     "Michel de Montaigne|Saggi|Perché era lui, perché ero io.": "michel-de-montaigne-saggi",
-    "Michela Murgia|Accabadora|Fillus de anima. È così che": "michela-murgia-accabadora",
+    "Michela Murgia|Accabadora|Fillus de anima. È così che": "michela-murgia-accabadora-fillus-de-anima",
     "Michela Murgia|Chirù|Nessuno può sapere quanto rumore fa": "michela-murgia-chiru",
     "Michela Murgia|Noi siamo tempesta|E se a cambiare fossero le": "michela-murgia-noi-siamo-tempesta",
     "Michela Murgia|Noi siamo tempesta|Essere amici è questo: diventare il": "michela-murgia-noi-siamo-tempesta-essere-amici-e",

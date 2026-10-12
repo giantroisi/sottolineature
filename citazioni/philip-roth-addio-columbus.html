@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/#webpage", "url": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/", "name": "«La prima volta che la vidi,…» — Philip Roth, Addio, Columbus", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/#quotation", "text": "La prima volta che la vidi, Brenda mi pregò di tenerle gli occhiali. Poi avanzò fino all'orlo del trampolino e scrutò la piscina, strizzando gli occhi; ma fosse pur stata asciutta, ella non se ne sarebbe accorta, tanto era miope.", "creator": {"@id": "https://sottolineature.it/autori/philip-roth/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/#book"}, "url": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/", "citation": "Philip Roth, «La prima volta che la vidi, Brenda mi pregò di tenerle gli occhiali. Poi avanzò fino all'orlo del trampolino e scrutò la piscina, strizzando gli occhi; ma fosse pur stata asciutta, ella non se ne sarebbe accorta, tanto era miope.», Addio, Columbus, trad. Elsa Pelitti, Garzanti, 1968, incipit. Testo: https://it.wikiquote.org/wiki/Philip_Roth", "sameAs": "https://it.wikiquote.org/wiki/Philip_Roth"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/#book", "name": "Addio, Columbus", "author": {"@id": "https://sottolineature.it/autori/philip-roth/#person"}, "datePublished": "1959", "translator": {"@type": "Person", "name": "Elsa Pelitti"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/philip-roth/#person", "name": "Philip Roth", "url": "https://sottolineature.it/autori/philip-roth/", "sameAs": ["https://it.wikipedia.org/wiki/Philip_Roth", "https://www.wikidata.org/wiki/Q187019"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Philip Roth", "item": "https://sottolineature.it/autori/philip-roth/"}, {"@type": "ListItem", "position": 3, "name": "La prima volta che la vidi, Brenda mi…", "item": "https://sottolineature.it/citazioni/philip-roth-addio-columbus/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/philip-roth-addio-columbus-chiaro.png?v=6735205a56bf"><img src="/assets/social/philip-roth-addio-columbus-chiaro.png?v=6735205a56bf" alt="«La prima volta che la vidi, Brenda mi pregò di tenerle gli occhiali. Poi avanzò fino all&#x27;orlo del trampolino e scrutò la piscina, strizzando gli occhi; ma fosse pur stata asciutta, ella non se ne sarebbe accorta, tanto era miope.» — Philip Roth, Addio, Columbus (1959). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/philip-roth-addio-columbus-scuro.png?v=23c87c5b5877"><img src="/assets/social/philip-roth-addio-columbus-scuro.png?v=23c87c5b5877" alt="«La prima volta che la vidi, Brenda mi pregò di tenerle gli occhiali. Poi avanzò fino all&#x27;orlo del trampolino e scrutò la piscina, strizzando gli occhi; ma fosse pur stata asciutta, ella non se ne sarebbe accorta, tanto era miope.» — Philip Roth, Addio, Columbus (1959). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/philip-roth-addio-columbus-chiaro.png?v=c914e2ea5918"><img src="/assets/social/philip-roth-addio-columbus-chiaro.png?v=c914e2ea5918" alt="«La prima volta che la vidi, Brenda mi pregò di tenerle gli occhiali. Poi avanzò fino all&#x27;orlo del trampolino e scrutò la piscina, strizzando gli occhi; ma fosse pur stata asciutta, ella non se ne sarebbe accorta, tanto era miope.» — Philip Roth, Addio, Columbus (1959). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/philip-roth-addio-columbus-scuro.png?v=023a270c96de"><img src="/assets/social/philip-roth-addio-columbus-scuro.png?v=023a270c96de" alt="«La prima volta che la vidi, Brenda mi pregò di tenerle gli occhiali. Poi avanzò fino all&#x27;orlo del trampolino e scrutò la piscina, strizzando gli occhi; ma fosse pur stata asciutta, ella non se ne sarebbe accorta, tanto era miope.» — Philip Roth, Addio, Columbus (1959). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

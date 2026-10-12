@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio/#webpage", "url": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio/", "name": "«Vanità e orgoglio sono cose molto diverse,…» — Jane Austen", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/jane-austen-orgoglio-e-pregiudizio/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio/#quotation", "text": "Vanità e orgoglio sono cose molto diverse, benché le due parole siano spesse usate come sinonimi. Si può essere orgogliosi senza essere vanitosi.", "creator": {"@id": "https://sottolineature.it/autori/jane-austen/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/jane-austen-orgoglio-e-pregiudizio/#book"}, "url": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio/", "citation": "Jane Austen, «Vanità e orgoglio sono cose molto diverse, benché le due parole siano spesse usate come sinonimi. Si può essere orgogliosi senza essere vanitosi.», Orgoglio e pregiudizio, trad. di Giulio Caprin, Oscar Mondadori, 2014, p. 19. Testo: https://it.wikiquote.org/wiki/Jane_Austen", "sameAs": "https://it.wikiquote.org/wiki/Jane_Austen"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/jane-austen-orgoglio-e-pregiudizio/#book", "name": "Orgoglio e pregiudizio", "author": {"@id": "https://sottolineature.it/autori/jane-austen/#person"}, "datePublished": "1813", "translator": {"@type": "Person", "name": "Giulio Caprin"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/jane-austen/#person", "name": "Jane Austen", "url": "https://sottolineature.it/autori/jane-austen/", "sameAs": ["https://it.wikipedia.org/wiki/Jane_Austen", "https://www.wikidata.org/wiki/Q36322"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Jane Austen", "item": "https://sottolineature.it/autori/jane-austen/"}, {"@type": "ListItem", "position": 3, "name": "Vanità e orgoglio sono cose molto…", "item": "https://sottolineature.it/citazioni/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio-chiaro.png?v=a9843269f221"><img src="/assets/social/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio-chiaro.png?v=a9843269f221" alt="«Vanità e orgoglio sono cose molto diverse, benché le due parole siano spesse usate come sinonimi. Si può essere orgogliosi senza essere vanitosi.» — Jane Austen, Orgoglio e pregiudizio (1813). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio-scuro.png?v=cdeac6e20158"><img src="/assets/social/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio-scuro.png?v=cdeac6e20158" alt="«Vanità e orgoglio sono cose molto diverse, benché le due parole siano spesse usate come sinonimi. Si può essere orgogliosi senza essere vanitosi.» — Jane Austen, Orgoglio e pregiudizio (1813). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 19</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio-chiaro.png?v=634f7099d6d6"><img src="/assets/social/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio-chiaro.png?v=634f7099d6d6" alt="«Vanità e orgoglio sono cose molto diverse, benché le due parole siano spesse usate come sinonimi. Si può essere orgogliosi senza essere vanitosi.» — Jane Austen, Orgoglio e pregiudizio (1813). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio-scuro.png?v=324cfaf39ce9"><img src="/assets/social/jane-austen-orgoglio-e-pregiudizio-vanita-e-orgoglio-scuro.png?v=324cfaf39ce9" alt="«Vanità e orgoglio sono cose molto diverse, benché le due parole siano spesse usate come sinonimi. Si può essere orgogliosi senza essere vanitosi.» — Jane Austen, Orgoglio e pregiudizio (1813). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 19</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

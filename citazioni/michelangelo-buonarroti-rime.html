@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/#webpage", "url": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/", "name": "«Non ha l'ottimo artista alcun…» — Michelangelo Buonarroti, Rime", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/#quotation", "text": "Non ha l'ottimo artista alcun concetto c'un marmo solo in sé non circonscriva col suo superchio, e solo a quello arriva la man che ubbidisce all'intelletto.", "creator": {"@id": "https://sottolineature.it/autori/michelangelo-buonarroti/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/#book"}, "url": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/", "citation": "Michelangelo Buonarroti, «Non ha l'ottimo artista alcun concetto c'un marmo solo in sé non circonscriva col suo superchio, e solo a quello arriva la man che ubbidisce all'intelletto.», Rime, 1538-1544 ca., sonetto 151 (rime a Vittoria Colonna). Testo: https://it.wikisource.org/wiki/Rime_(Michelangelo)/151._Non_ha_l'ottimo_artista_alcun_concetto", "sameAs": "https://it.wikisource.org/wiki/Rime_(Michelangelo)/151._Non_ha_l'ottimo_artista_alcun_concetto"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/#book", "name": "Rime", "author": {"@id": "https://sottolineature.it/autori/michelangelo-buonarroti/#person"}, "temporalCoverage": "1538-1544 ca."}, {"@type": "Person", "@id": "https://sottolineature.it/autori/michelangelo-buonarroti/#person", "name": "Michelangelo Buonarroti", "url": "https://sottolineature.it/autori/michelangelo-buonarroti/", "sameAs": ["https://it.wikipedia.org/wiki/Michelangelo_Buonarroti", "https://www.wikidata.org/wiki/Q5592"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Michelangelo Buonarroti", "item": "https://sottolineature.it/autori/michelangelo-buonarroti/"}, {"@type": "ListItem", "position": 3, "name": "Non ha l'ottimo artista alcun concetto…", "item": "https://sottolineature.it/citazioni/michelangelo-buonarroti-rime/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/michelangelo-buonarroti-rime-chiaro.png?v=43d69098b446"><img src="/assets/social/michelangelo-buonarroti-rime-chiaro.png?v=43d69098b446" alt="«Non ha l&#x27;ottimo artista alcun concetto c&#x27;un marmo solo in sé non circonscriva col suo superchio, e solo a quello arriva la man che ubbidisce all&#x27;intelletto.» — Michelangelo Buonarroti, Rime (1538-1544 ca.). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/michelangelo-buonarroti-rime-scuro.png?v=37cb67c9d92b"><img src="/assets/social/michelangelo-buonarroti-rime-scuro.png?v=37cb67c9d92b" alt="«Non ha l&#x27;ottimo artista alcun concetto c&#x27;un marmo solo in sé non circonscriva col suo superchio, e solo a quello arriva la man che ubbidisce all&#x27;intelletto.» — Michelangelo Buonarroti, Rime (1538-1544 ca.). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · sonetto 151 (rime a Vittoria Colonna)</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/michelangelo-buonarroti-rime-chiaro.png?v=b6d85ccd14fb"><img src="/assets/social/michelangelo-buonarroti-rime-chiaro.png?v=b6d85ccd14fb" alt="«Non ha l&#x27;ottimo artista alcun concetto c&#x27;un marmo solo in sé non circonscriva col suo superchio, e solo a quello arriva la man che ubbidisce all&#x27;intelletto.» — Michelangelo Buonarroti, Rime (1538-1544 ca.). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/michelangelo-buonarroti-rime-scuro.png?v=d961f9ffaead"><img src="/assets/social/michelangelo-buonarroti-rime-scuro.png?v=d961f9ffaead" alt="«Non ha l&#x27;ottimo artista alcun concetto c&#x27;un marmo solo in sé non circonscriva col suo superchio, e solo a quello arriva la man che ubbidisce all&#x27;intelletto.» — Michelangelo Buonarroti, Rime (1538-1544 ca.). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · sonetto 151 (rime a Vittoria Colonna)</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/#webpage", "url": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/", "name": "«Era fatto; era finito. Sì,…» — Virginia Woolf, Gita al faro", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/#quotation", "text": "Era fatto; era finito. Sì, pensò, posando il pennello stremata, ho avuto la mia visione.", "creator": {"@id": "https://sottolineature.it/autori/virginia-woolf/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/#book"}, "url": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/", "citation": "Virginia Woolf, «Era fatto; era finito. Sì, pensò, posando il pennello stremata, ho avuto la mia visione.», Gita al faro, 1927, ultime righe del romanzo."}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/#book", "name": "Gita al faro", "author": {"@id": "https://sottolineature.it/autori/virginia-woolf/#person"}, "datePublished": "1927"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/virginia-woolf/#person", "name": "Virginia Woolf", "url": "https://sottolineature.it/autori/virginia-woolf/", "sameAs": ["https://it.wikipedia.org/wiki/Virginia_Woolf", "https://www.wikidata.org/wiki/Q40909"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Virginia Woolf", "item": "https://sottolineature.it/autori/virginia-woolf/"}, {"@type": "ListItem", "position": 3, "name": "Era fatto; era finito. Sì, pensò,…", "item": "https://sottolineature.it/citazioni/virginia-woolf-gita-al-faro/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/virginia-woolf-gita-al-faro-chiaro.png?v=93feb64b22ae"><img src="/assets/social/virginia-woolf-gita-al-faro-chiaro.png?v=93feb64b22ae" alt="«Era fatto; era finito. Sì, pensò, posando il pennello stremata, ho avuto la mia visione.» — Virginia Woolf, Gita al faro (1927). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/virginia-woolf-gita-al-faro-scuro.png?v=e60ced6114ec"><img src="/assets/social/virginia-woolf-gita-al-faro-scuro.png?v=e60ced6114ec" alt="«Era fatto; era finito. Sì, pensò, posando il pennello stremata, ho avuto la mia visione.» — Virginia Woolf, Gita al faro (1927). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · ultime righe del romanzo</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/virginia-woolf-gita-al-faro-chiaro.png?v=e500d47154b9"><img src="/assets/social/virginia-woolf-gita-al-faro-chiaro.png?v=e500d47154b9" alt="«Era fatto; era finito. Sì, pensò, posando il pennello stremata, ho avuto la mia visione.» — Virginia Woolf, Gita al faro (1927). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/virginia-woolf-gita-al-faro-scuro.png?v=c5a034961b51"><img src="/assets/social/virginia-woolf-gita-al-faro-scuro.png?v=c5a034961b51" alt="«Era fatto; era finito. Sì, pensò, posando il pennello stremata, ho avuto la mia visione.» — Virginia Woolf, Gita al faro (1927). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · ultime righe del romanzo</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

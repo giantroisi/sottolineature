@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#webpage", "url": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/", "name": "«Da un punto di vista strettamente pratico, si…» — Arundhati Roy", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#quotation", "text": "Da un punto di vista strettamente pratico, si potrebbe forse dire che tutto cominciò con l'arrivo di Sophie Mol ad Ayemenem. Forse è vero che tutto può cambiare in un giorno.", "creator": {"@id": "https://sottolineature.it/autori/arundhati-roy/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#book"}, "url": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/", "citation": "Arundhati Roy, «Da un punto di vista strettamente pratico, si potrebbe forse dire che tutto cominciò con l'arrivo di Sophie Mol ad Ayemenem. Forse è vero che tutto può cambiare in un giorno.», Il dio delle piccole cose, trad. di Chiara Gabutti, TEA, 2001, pp. 43-44. Testo: https://it.wikiquote.org/wiki/Arundhati_Roy", "sameAs": "https://it.wikiquote.org/wiki/Arundhati_Roy"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#book", "name": "Il dio delle piccole cose", "author": {"@id": "https://sottolineature.it/autori/arundhati-roy/#person"}, "datePublished": "1997", "translator": {"@type": "Person", "name": "Chiara Gabutti"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/arundhati-roy/#person", "name": "Arundhati Roy", "url": "https://sottolineature.it/autori/arundhati-roy/", "sameAs": ["https://it.wikipedia.org/wiki/Arundhati_Roy", "https://www.wikidata.org/wiki/Q212801"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Arundhati Roy", "item": "https://sottolineature.it/autori/arundhati-roy/"}, {"@type": "ListItem", "position": 3, "name": "Da un punto di vista strettamente…", "item": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto-chiaro.png?v=cb18d7b894f3"><img src="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto-chiaro.png?v=cb18d7b894f3" alt="«Da un punto di vista strettamente pratico, si potrebbe forse dire che tutto cominciò con l&#x27;arrivo di Sophie Mol ad Ayemenem. Forse è vero che tutto può cambiare in un giorno.» — Arundhati Roy, Il dio delle piccole cose (1997). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto-scuro.png?v=558c6ae75b6b"><img src="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto-scuro.png?v=558c6ae75b6b" alt="«Da un punto di vista strettamente pratico, si potrebbe forse dire che tutto cominciò con l&#x27;arrivo di Sophie Mol ad Ayemenem. Forse è vero che tutto può cambiare in un giorno.» — Arundhati Roy, Il dio delle piccole cose (1997). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · pp. 43-44</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto-chiaro.png?v=8ec3b9d5e40a"><img src="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto-chiaro.png?v=8ec3b9d5e40a" alt="«Da un punto di vista strettamente pratico, si potrebbe forse dire che tutto cominciò con l&#x27;arrivo di Sophie Mol ad Ayemenem. Forse è vero che tutto può cambiare in un giorno.» — Arundhati Roy, Il dio delle piccole cose (1997). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto-scuro.png?v=50116c72cc65"><img src="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-da-un-punto-scuro.png?v=50116c72cc65" alt="«Da un punto di vista strettamente pratico, si potrebbe forse dire che tutto cominciò con l&#x27;arrivo di Sophie Mol ad Ayemenem. Forse è vero che tutto può cambiare in un giorno.» — Arundhati Roy, Il dio delle piccole cose (1997). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · pp. 43-44</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

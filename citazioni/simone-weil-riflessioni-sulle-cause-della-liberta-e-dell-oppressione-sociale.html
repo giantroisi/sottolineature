@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/#webpage", "url": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/", "name": "«Le classi medie sono sedotte dalla rivoluzione…» — Simone Weil", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/#quotation", "text": "Le classi medie sono sedotte dalla rivoluzione unicamente quando essa è evocata, a fini demagogici, da apprendisti dittatori.", "creator": {"@id": "https://sottolineature.it/autori/simone-weil/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/#book"}, "url": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/", "citation": "Simone Weil, «Le classi medie sono sedotte dalla rivoluzione unicamente quando essa è evocata, a fini demagogici, da apprendisti dittatori.», Riflessioni sulle cause della libertà e dell'oppressione sociale, a cura di Giancarlo Gaeta, RCS Quotidiani, Milano, 2011, p. 13. Testo: https://it.wikiquote.org/wiki/Simone_Weil", "sameAs": "https://it.wikiquote.org/wiki/Simone_Weil"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/#book", "name": "Riflessioni sulle cause della libertà e dell'oppressione sociale", "author": {"@id": "https://sottolineature.it/autori/simone-weil/#person"}, "datePublished": "1934"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/simone-weil/#person", "name": "Simone Weil", "url": "https://sottolineature.it/autori/simone-weil/", "sameAs": ["https://it.wikipedia.org/wiki/Simone_Weil", "https://www.wikidata.org/wiki/Q157309"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Simone Weil", "item": "https://sottolineature.it/autori/simone-weil/"}, {"@type": "ListItem", "position": 3, "name": "Le classi medie sono sedotte dalla…", "item": "https://sottolineature.it/citazioni/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale-chiaro.png?v=a1cbf1729c1f"><img src="/assets/social/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale-chiaro.png?v=a1cbf1729c1f" alt="«Le classi medie sono sedotte dalla rivoluzione unicamente quando essa è evocata, a fini demagogici, da apprendisti dittatori.» — Simone Weil, Riflessioni sulle cause della libertà e dell&#x27;oppressione sociale (1934). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale-scuro.png?v=f6050af58e4b"><img src="/assets/social/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale-scuro.png?v=f6050af58e4b" alt="«Le classi medie sono sedotte dalla rivoluzione unicamente quando essa è evocata, a fini demagogici, da apprendisti dittatori.» — Simone Weil, Riflessioni sulle cause della libertà e dell&#x27;oppressione sociale (1934). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 13</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale-chiaro.png?v=4ff29cba65b7"><img src="/assets/social/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale-chiaro.png?v=4ff29cba65b7" alt="«Le classi medie sono sedotte dalla rivoluzione unicamente quando essa è evocata, a fini demagogici, da apprendisti dittatori.» — Simone Weil, Riflessioni sulle cause della libertà e dell&#x27;oppressione sociale (1934). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale-scuro.png?v=56ba96f79eed"><img src="/assets/social/simone-weil-riflessioni-sulle-cause-della-liberta-e-dell-oppressione-sociale-scuro.png?v=56ba96f79eed" alt="«Le classi medie sono sedotte dalla rivoluzione unicamente quando essa è evocata, a fini demagogici, da apprendisti dittatori.» — Simone Weil, Riflessioni sulle cause della libertà e dell&#x27;oppressione sociale (1934). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 13</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

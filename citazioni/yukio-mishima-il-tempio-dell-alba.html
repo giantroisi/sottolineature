@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/#webpage", "url": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/", "name": "«In fin dei conti, nella vita umana non vi…» — Yukio Mishima", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/#quotation", "text": "In fin dei conti, nella vita umana non vi sono misteri. Il mistero permane solo nell'arte, e il motivo di ciò è che il mistero è necessario all'arte.", "creator": {"@id": "https://sottolineature.it/autori/yukio-mishima/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/#book"}, "url": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/", "citation": "Yukio Mishima, «In fin dei conti, nella vita umana non vi sono misteri. Il mistero permane solo nell'arte, e il motivo di ciò è che il mistero è necessario all'arte.», Il tempio dell'alba, trad. Emanuele Ciccarella, I Meridiani Mondadori, 2006, p. 1172 (ed. Meridiani). Testo: https://it.wikiquote.org/wiki/Yukio_Mishima", "sameAs": "https://it.wikiquote.org/wiki/Yukio_Mishima"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/#book", "name": "Il tempio dell'alba", "author": {"@id": "https://sottolineature.it/autori/yukio-mishima/#person"}, "datePublished": "1970", "translator": {"@type": "Person", "name": "Emanuele Ciccarella"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/yukio-mishima/#person", "name": "Yukio Mishima", "url": "https://sottolineature.it/autori/yukio-mishima/", "sameAs": ["https://it.wikipedia.org/wiki/Yukio_Mishima", "https://www.wikidata.org/wiki/Q134456"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Yukio Mishima", "item": "https://sottolineature.it/autori/yukio-mishima/"}, {"@type": "ListItem", "position": 3, "name": "In fin dei conti, nella vita umana non…", "item": "https://sottolineature.it/citazioni/yukio-mishima-il-tempio-dell-alba/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/yukio-mishima-il-tempio-dell-alba-chiaro.png?v=1d528c0fbaae"><img src="/assets/social/yukio-mishima-il-tempio-dell-alba-chiaro.png?v=1d528c0fbaae" alt="«In fin dei conti, nella vita umana non vi sono misteri. Il mistero permane solo nell&#x27;arte, e il motivo di ciò è che il mistero è necessario all&#x27;arte.» — Yukio Mishima, Il tempio dell&#x27;alba (1970). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/yukio-mishima-il-tempio-dell-alba-scuro.png?v=76fb0ced09ea"><img src="/assets/social/yukio-mishima-il-tempio-dell-alba-scuro.png?v=76fb0ced09ea" alt="«In fin dei conti, nella vita umana non vi sono misteri. Il mistero permane solo nell&#x27;arte, e il motivo di ciò è che il mistero è necessario all&#x27;arte.» — Yukio Mishima, Il tempio dell&#x27;alba (1970). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 1172 (ed. Meridiani)</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/yukio-mishima-il-tempio-dell-alba-chiaro.png?v=e6f1ecd03900"><img src="/assets/social/yukio-mishima-il-tempio-dell-alba-chiaro.png?v=e6f1ecd03900" alt="«In fin dei conti, nella vita umana non vi sono misteri. Il mistero permane solo nell&#x27;arte, e il motivo di ciò è che il mistero è necessario all&#x27;arte.» — Yukio Mishima, Il tempio dell&#x27;alba (1970). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/yukio-mishima-il-tempio-dell-alba-scuro.png?v=9dc5233cf9e1"><img src="/assets/social/yukio-mishima-il-tempio-dell-alba-scuro.png?v=9dc5233cf9e1" alt="«In fin dei conti, nella vita umana non vi sono misteri. Il mistero permane solo nell&#x27;arte, e il motivo di ciò è che il mistero è necessario all&#x27;arte.» — Yukio Mishima, Il tempio dell&#x27;alba (1970). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 1172 (ed. Meridiani)</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/#webpage", "url": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/", "name": "«Il cognome di mio padre essendo Pirrip, e…» — Charles Dickens", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/#quotation", "text": "Il cognome di mio padre essendo Pirrip, e il mio nome di battesimo Philip, la mia lingua infantile non riusciva a cavare da entrambi alcunché di più lungo o di più esplicito che Pip.", "creator": {"@id": "https://sottolineature.it/autori/charles-dickens/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/#book"}, "url": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/", "citation": "Charles Dickens, «Il cognome di mio padre essendo Pirrip, e il mio nome di battesimo Philip, la mia lingua infantile non riusciva a cavare da entrambi alcunché di più lungo o di più esplicito che Pip.», Grandi speranze, citato in Fruttero & Lucentini, Íncipit, Mondadori, 1993, incipit. Testo: https://it.wikiquote.org/wiki/Charles_Dickens", "sameAs": "https://it.wikiquote.org/wiki/Charles_Dickens"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/#book", "name": "Grandi speranze", "author": {"@id": "https://sottolineature.it/autori/charles-dickens/#person"}, "datePublished": "1861"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/charles-dickens/#person", "name": "Charles Dickens", "url": "https://sottolineature.it/autori/charles-dickens/", "sameAs": ["https://it.wikipedia.org/wiki/Charles_Dickens", "https://www.wikidata.org/wiki/Q5686"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Charles Dickens", "item": "https://sottolineature.it/autori/charles-dickens/"}, {"@type": "ListItem", "position": 3, "name": "Il cognome di mio padre essendo Pirrip,…", "item": "https://sottolineature.it/citazioni/charles-dickens-grandi-speranze/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/charles-dickens-grandi-speranze-chiaro.png?v=e23853c267eb"><img src="/assets/social/charles-dickens-grandi-speranze-chiaro.png?v=e23853c267eb" alt="«Il cognome di mio padre essendo Pirrip, e il mio nome di battesimo Philip, la mia lingua infantile non riusciva a cavare da entrambi alcunché di più lungo o di più esplicito che Pip.» — Charles Dickens, Grandi speranze (1861). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/charles-dickens-grandi-speranze-scuro.png?v=404d5bb8e999"><img src="/assets/social/charles-dickens-grandi-speranze-scuro.png?v=404d5bb8e999" alt="«Il cognome di mio padre essendo Pirrip, e il mio nome di battesimo Philip, la mia lingua infantile non riusciva a cavare da entrambi alcunché di più lungo o di più esplicito che Pip.» — Charles Dickens, Grandi speranze (1861). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/charles-dickens-grandi-speranze-chiaro.png?v=1fd987c60dfb"><img src="/assets/social/charles-dickens-grandi-speranze-chiaro.png?v=1fd987c60dfb" alt="«Il cognome di mio padre essendo Pirrip, e il mio nome di battesimo Philip, la mia lingua infantile non riusciva a cavare da entrambi alcunché di più lungo o di più esplicito che Pip.» — Charles Dickens, Grandi speranze (1861). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/charles-dickens-grandi-speranze-scuro.png?v=f68ddc1d64a7"><img src="/assets/social/charles-dickens-grandi-speranze-scuro.png?v=f68ddc1d64a7" alt="«Il cognome di mio padre essendo Pirrip, e il mio nome di battesimo Philip, la mia lingua infantile non riusciva a cavare da entrambi alcunché di più lungo o di più esplicito che Pip.» — Charles Dickens, Grandi speranze (1861). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

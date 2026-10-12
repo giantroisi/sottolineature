@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche/#webpage", "url": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche/", "name": "«“Tu sei uno sciocco” diceva il Signore…» — William Golding", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/william-golding-il-signore-delle-mosche/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche/#quotation", "text": "«Tu sei uno sciocco» diceva il Signore delle Mosche «nient'altro che uno sciocco, un ignorante.»", "creator": {"@id": "https://sottolineature.it/autori/william-golding/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/william-golding-il-signore-delle-mosche/#book"}, "url": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche/", "citation": "William Golding, «“Tu sei uno sciocco” diceva il Signore delle Mosche “nient'altro che uno sciocco, un ignorante.”», Il signore delle mosche, trad. di Filippo Donini, Oscar Mondadori, 1954, p. 168 nell'edizione Oscar Mondadori."}, {"@type": "Book", "@id": "https://sottolineature.it/opere/william-golding-il-signore-delle-mosche/#book", "name": "Il signore delle mosche", "author": {"@id": "https://sottolineature.it/autori/william-golding/#person"}, "datePublished": "1954", "translator": {"@type": "Person", "name": "Filippo Donini"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/william-golding/#person", "name": "William Golding", "url": "https://sottolineature.it/autori/william-golding/", "sameAs": ["https://it.wikipedia.org/wiki/William_Golding", "https://www.wikidata.org/wiki/Q44183"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "William Golding", "item": "https://sottolineature.it/autori/william-golding/"}, {"@type": "ListItem", "position": 3, "name": "«Tu sei uno sciocco» diceva il Signore…", "item": "https://sottolineature.it/citazioni/william-golding-il-signore-delle-mosche/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/william-golding-il-signore-delle-mosche-chiaro.png?v=24b2568ba84e"><img src="/assets/social/william-golding-il-signore-delle-mosche-chiaro.png?v=24b2568ba84e" alt="««Tu sei uno sciocco» diceva il Signore delle Mosche «nient&#x27;altro che uno sciocco, un ignorante.»» — William Golding, Il signore delle mosche (1954). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/william-golding-il-signore-delle-mosche-scuro.png?v=f99f6a36b98c"><img src="/assets/social/william-golding-il-signore-delle-mosche-scuro.png?v=f99f6a36b98c" alt="««Tu sei uno sciocco» diceva il Signore delle Mosche «nient&#x27;altro che uno sciocco, un ignorante.»» — William Golding, Il signore delle mosche (1954). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 168 nell&#x27;edizione Oscar Mondadori</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/william-golding-il-signore-delle-mosche-chiaro.png?v=6bbb0c2e69fa"><img src="/assets/social/william-golding-il-signore-delle-mosche-chiaro.png?v=6bbb0c2e69fa" alt="««Tu sei uno sciocco» diceva il Signore delle Mosche «nient&#x27;altro che uno sciocco, un ignorante.»» — William Golding, Il signore delle mosche (1954). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/william-golding-il-signore-delle-mosche-scuro.png?v=b3b40f229d82"><img src="/assets/social/william-golding-il-signore-delle-mosche-scuro.png?v=b3b40f229d82" alt="««Tu sei uno sciocco» diceva il Signore delle Mosche «nient&#x27;altro che uno sciocco, un ignorante.»» — William Golding, Il signore delle mosche (1954). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 168 nell&#x27;edizione Oscar Mondadori</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

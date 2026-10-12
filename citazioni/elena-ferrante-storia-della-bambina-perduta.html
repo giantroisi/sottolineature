@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/#webpage", "url": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/", "name": "«Mi ero accorta da tempo che ognuno si…» — Elena Ferrante", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/#quotation", "text": "Mi ero accorta da tempo che ognuno si organizza la memoria come gli conviene, tuttora mi sorprendo a farlo anch'io.", "creator": {"@id": "https://sottolineature.it/autori/elena-ferrante/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/#book"}, "url": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/", "citation": "Elena Ferrante, «Mi ero accorta da tempo che ognuno si organizza la memoria come gli conviene, tuttora mi sorprendo a farlo anch'io.», Storia della bambina perduta, Edizioni e/o, 2014, p. 391. Testo: https://it.wikiquote.org/wiki/Elena_Ferrante", "sameAs": "https://it.wikiquote.org/wiki/Elena_Ferrante"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/#book", "name": "Storia della bambina perduta", "author": {"@id": "https://sottolineature.it/autori/elena-ferrante/#person"}, "datePublished": "2014"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/elena-ferrante/#person", "name": "Elena Ferrante", "url": "https://sottolineature.it/autori/elena-ferrante/", "sameAs": ["https://it.wikipedia.org/wiki/Elena_Ferrante", "https://www.wikidata.org/wiki/Q368127"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Elena Ferrante", "item": "https://sottolineature.it/autori/elena-ferrante/"}, {"@type": "ListItem", "position": 3, "name": "Mi ero accorta da tempo che ognuno si…", "item": "https://sottolineature.it/citazioni/elena-ferrante-storia-della-bambina-perduta/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/elena-ferrante-storia-della-bambina-perduta-chiaro.png?v=f34adac814a8"><img src="/assets/social/elena-ferrante-storia-della-bambina-perduta-chiaro.png?v=f34adac814a8" alt="«Mi ero accorta da tempo che ognuno si organizza la memoria come gli conviene, tuttora mi sorprendo a farlo anch&#x27;io.» — Elena Ferrante, Storia della bambina perduta (2014). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/elena-ferrante-storia-della-bambina-perduta-scuro.png?v=ef4402ad8c5d"><img src="/assets/social/elena-ferrante-storia-della-bambina-perduta-scuro.png?v=ef4402ad8c5d" alt="«Mi ero accorta da tempo che ognuno si organizza la memoria come gli conviene, tuttora mi sorprendo a farlo anch&#x27;io.» — Elena Ferrante, Storia della bambina perduta (2014). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 391</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/elena-ferrante-storia-della-bambina-perduta-chiaro.png?v=eefaa7f2c31b"><img src="/assets/social/elena-ferrante-storia-della-bambina-perduta-chiaro.png?v=eefaa7f2c31b" alt="«Mi ero accorta da tempo che ognuno si organizza la memoria come gli conviene, tuttora mi sorprendo a farlo anch&#x27;io.» — Elena Ferrante, Storia della bambina perduta (2014). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/elena-ferrante-storia-della-bambina-perduta-scuro.png?v=e059cc3674a6"><img src="/assets/social/elena-ferrante-storia-della-bambina-perduta-scuro.png?v=e059cc3674a6" alt="«Mi ero accorta da tempo che ognuno si organizza la memoria come gli conviene, tuttora mi sorprendo a farlo anch&#x27;io.» — Elena Ferrante, Storia della bambina perduta (2014). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 391</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

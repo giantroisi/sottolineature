@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/#webpage", "url": "https://sottolineature.it/citazioni/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/", "name": "«Chi non ama la solitudine non ama la…» — Arthur Schopenhauer", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/#quotation", "text": "Chi non ama la solitudine non ama la libertà, perché non si è liberi che essendo soli.", "creator": {"@id": "https://sottolineature.it/autori/arthur-schopenhauer/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/#book"}, "url": "https://sottolineature.it/citazioni/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/", "citation": "Arthur Schopenhauer, «Chi non ama la solitudine non ama la libertà, perché non si è liberi che essendo soli.», Aforismi sulla saggezza del vivere, trad. di Maria Teresa Giannelli, Mondadori, 1994, cap. V, §2, p. 69. Testo: https://it.wikiquote.org/wiki/Arthur_Schopenhauer", "sameAs": "https://it.wikiquote.org/wiki/Arthur_Schopenhauer"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/#book", "name": "Aforismi sulla saggezza del vivere", "author": {"@id": "https://sottolineature.it/autori/arthur-schopenhauer/#person"}, "datePublished": "1851", "translator": {"@type": "Person", "name": "Maria Teresa Giannelli"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/arthur-schopenhauer/#person", "name": "Arthur Schopenhauer", "url": "https://sottolineature.it/autori/arthur-schopenhauer/", "sameAs": ["https://it.wikipedia.org/wiki/Arthur_Schopenhauer", "https://www.wikidata.org/wiki/Q38193"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Arthur Schopenhauer", "item": "https://sottolineature.it/autori/arthur-schopenhauer/"}, {"@type": "ListItem", "position": 3, "name": "Chi non ama la solitudine non ama la…", "item": "https://sottolineature.it/citazioni/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere-chiaro.png?v=ee2622a0e55d"><img src="/assets/social/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere-chiaro.png?v=ee2622a0e55d" alt="«Chi non ama la solitudine non ama la libertà, perché non si è liberi che essendo soli.» — Arthur Schopenhauer, Aforismi sulla saggezza del vivere (1851). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere-scuro.png?v=61709fda84e2"><img src="/assets/social/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere-scuro.png?v=61709fda84e2" alt="«Chi non ama la solitudine non ama la libertà, perché non si è liberi che essendo soli.» — Arthur Schopenhauer, Aforismi sulla saggezza del vivere (1851). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · cap. V, §2, p. 69</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere-chiaro.png?v=8740eca9208b"><img src="/assets/social/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere-chiaro.png?v=8740eca9208b" alt="«Chi non ama la solitudine non ama la libertà, perché non si è liberi che essendo soli.» — Arthur Schopenhauer, Aforismi sulla saggezza del vivere (1851). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere-scuro.png?v=12321127f2b4"><img src="/assets/social/arthur-schopenhauer-aforismi-sulla-saggezza-del-vivere-scuro.png?v=12321127f2b4" alt="«Chi non ama la solitudine non ama la libertà, perché non si è liberi che essendo soli.» — Arthur Schopenhauer, Aforismi sulla saggezza del vivere (1851). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · cap. V, §2, p. 69</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

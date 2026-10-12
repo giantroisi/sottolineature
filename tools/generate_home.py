@@ -171,6 +171,7 @@ def main():
     write_resto('\n'.join(rendered[CARDS_IN_HTML:]))
     count_words = italian_number_words(len(quotes))
     page = template.replace('{{CARDS}}', cards_html.rstrip('\n'))
+    page = page.replace('{{QUOTE_URL_MIGRATION}}', qp.render_quote_migration(qp.load_slugs().get('quote_aliases', {})))
     # Le pagine a cui la ricerca puo' portare: chi scrive «Calvino» nella barra
     # vuole quasi sempre la pagina di Calvino, non venti schede filtrate. Il
     # nome che compare nelle card e' la chiave, lo slug della pagina il valore.

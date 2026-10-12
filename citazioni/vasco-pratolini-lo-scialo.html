@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/#webpage", "url": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/", "name": "«I fiorentini amano il vino.…» — Vasco Pratolini, Lo scialo", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/#quotation", "text": "I fiorentini amano il vino. Dante medesimo fu altissimo poeta e grande bevitore. Il vino sta ai fiorentini come il caffè ai napoletani, come sta la birra ai tedeschi, il tè agli inglesi e la coca-cola agli americani.", "creator": {"@id": "https://sottolineature.it/autori/vasco-pratolini/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/#book"}, "url": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/", "citation": "Vasco Pratolini, «I fiorentini amano il vino. Dante medesimo fu altissimo poeta e grande bevitore. Il vino sta ai fiorentini come il caffè ai napoletani, come sta la birra ai tedeschi, il tè agli inglesi e la coca-cola agli americani.», Lo scialo, 1960, libro I, parte III, cap. 1. Testo: https://it.wikiquote.org/wiki/Vasco_Pratolini", "sameAs": "https://it.wikiquote.org/wiki/Vasco_Pratolini"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/#book", "name": "Lo scialo", "author": {"@id": "https://sottolineature.it/autori/vasco-pratolini/#person"}, "datePublished": "1960"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/vasco-pratolini/#person", "name": "Vasco Pratolini", "url": "https://sottolineature.it/autori/vasco-pratolini/", "sameAs": ["https://it.wikipedia.org/wiki/Vasco_Pratolini", "https://www.wikidata.org/wiki/Q558295"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Vasco Pratolini", "item": "https://sottolineature.it/autori/vasco-pratolini/"}, {"@type": "ListItem", "position": 3, "name": "I fiorentini amano il vino. Dante…", "item": "https://sottolineature.it/citazioni/vasco-pratolini-lo-scialo/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/vasco-pratolini-lo-scialo-chiaro.png?v=920be7332f1d"><img src="/assets/social/vasco-pratolini-lo-scialo-chiaro.png?v=920be7332f1d" alt="«I fiorentini amano il vino. Dante medesimo fu altissimo poeta e grande bevitore. Il vino sta ai fiorentini come il caffè ai napoletani, come sta la birra ai tedeschi, il tè agli inglesi e la coca-cola agli americani.» — Vasco Pratolini, Lo scialo (1960). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/vasco-pratolini-lo-scialo-scuro.png?v=fd1b55d412a7"><img src="/assets/social/vasco-pratolini-lo-scialo-scuro.png?v=fd1b55d412a7" alt="«I fiorentini amano il vino. Dante medesimo fu altissimo poeta e grande bevitore. Il vino sta ai fiorentini come il caffè ai napoletani, come sta la birra ai tedeschi, il tè agli inglesi e la coca-cola agli americani.» — Vasco Pratolini, Lo scialo (1960). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · libro I, parte III, cap. 1</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/vasco-pratolini-lo-scialo-chiaro.png?v=929715c77065"><img src="/assets/social/vasco-pratolini-lo-scialo-chiaro.png?v=929715c77065" alt="«I fiorentini amano il vino. Dante medesimo fu altissimo poeta e grande bevitore. Il vino sta ai fiorentini come il caffè ai napoletani, come sta la birra ai tedeschi, il tè agli inglesi e la coca-cola agli americani.» — Vasco Pratolini, Lo scialo (1960). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/vasco-pratolini-lo-scialo-scuro.png?v=46ce8e3deaf4"><img src="/assets/social/vasco-pratolini-lo-scialo-scuro.png?v=46ce8e3deaf4" alt="«I fiorentini amano il vino. Dante medesimo fu altissimo poeta e grande bevitore. Il vino sta ai fiorentini come il caffè ai napoletani, come sta la birra ai tedeschi, il tè agli inglesi e la coca-cola agli americani.» — Vasco Pratolini, Lo scialo (1960). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · libro I, parte III, cap. 1</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

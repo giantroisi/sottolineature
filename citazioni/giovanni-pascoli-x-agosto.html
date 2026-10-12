@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/#webpage", "url": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/", "name": "«San Lorenzo, io lo so perché…» — Giovanni Pascoli, X Agosto", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/#quotation", "text": "San Lorenzo, io lo so perché tanto di stelle per l'aria tranquilla arde e cade, perché sì gran pianto nel concavo cielo sfavilla.", "creator": {"@id": "https://sottolineature.it/autori/giovanni-pascoli/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/#book"}, "url": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/", "citation": "Giovanni Pascoli, «San Lorenzo, io lo so perché tanto di stelle per l'aria tranquilla arde e cade, perché sì gran pianto nel concavo cielo sfavilla.», X Agosto, Myricae, sez. Elegie, 1896, incipit. Testo: https://it.wikisource.org/wiki/Myricae/Elegie/X_Agosto", "sameAs": "https://it.wikisource.org/wiki/Myricae/Elegie/X_Agosto"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/#book", "name": "X Agosto", "author": {"@id": "https://sottolineature.it/autori/giovanni-pascoli/#person"}, "datePublished": "1896"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/giovanni-pascoli/#person", "name": "Giovanni Pascoli", "url": "https://sottolineature.it/autori/giovanni-pascoli/", "sameAs": ["https://it.wikipedia.org/wiki/Giovanni_Pascoli", "https://www.wikidata.org/wiki/Q375998"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Giovanni Pascoli", "item": "https://sottolineature.it/autori/giovanni-pascoli/"}, {"@type": "ListItem", "position": 3, "name": "San Lorenzo, io lo so perché tanto di…", "item": "https://sottolineature.it/citazioni/giovanni-pascoli-x-agosto/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/giovanni-pascoli-x-agosto-chiaro.png?v=9153941dfc6d"><img src="/assets/social/giovanni-pascoli-x-agosto-chiaro.png?v=9153941dfc6d" alt="«San Lorenzo, io lo so perché tanto di stelle per l&#x27;aria tranquilla arde e cade, perché sì gran pianto nel concavo cielo sfavilla.» — Giovanni Pascoli, X Agosto (1896). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/giovanni-pascoli-x-agosto-scuro.png?v=d03c78721313"><img src="/assets/social/giovanni-pascoli-x-agosto-scuro.png?v=d03c78721313" alt="«San Lorenzo, io lo so perché tanto di stelle per l&#x27;aria tranquilla arde e cade, perché sì gran pianto nel concavo cielo sfavilla.» — Giovanni Pascoli, X Agosto (1896). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/giovanni-pascoli-x-agosto-chiaro.png?v=e78973555943"><img src="/assets/social/giovanni-pascoli-x-agosto-chiaro.png?v=e78973555943" alt="«San Lorenzo, io lo so perché tanto di stelle per l&#x27;aria tranquilla arde e cade, perché sì gran pianto nel concavo cielo sfavilla.» — Giovanni Pascoli, X Agosto (1896). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/giovanni-pascoli-x-agosto-scuro.png?v=0d1d0f2c6f9e"><img src="/assets/social/giovanni-pascoli-x-agosto-scuro.png?v=0d1d0f2c6f9e" alt="«San Lorenzo, io lo so perché tanto di stelle per l&#x27;aria tranquilla arde e cade, perché sì gran pianto nel concavo cielo sfavilla.» — Giovanni Pascoli, X Agosto (1896). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

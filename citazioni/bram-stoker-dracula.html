@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/bram-stoker-dracula/#webpage", "url": "https://sottolineature.it/citazioni/bram-stoker-dracula/", "name": "«Nessuno può sapere, se non dopo una…» — Bram Stoker, Dracula", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/bram-stoker-dracula/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/bram-stoker-dracula/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/bram-stoker-dracula/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/bram-stoker-dracula/#quotation", "text": "Nessuno può sapere, se non dopo una notte di patimenti, quanto dolce e prezioso al cuore e agli occhi possa essere il mattino.", "creator": {"@id": "https://sottolineature.it/autori/bram-stoker/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/bram-stoker-dracula/#book"}, "url": "https://sottolineature.it/citazioni/bram-stoker-dracula/", "citation": "Bram Stoker, «Nessuno può sapere, se non dopo una notte di patimenti, quanto dolce e prezioso al cuore e agli occhi possa essere il mattino.», Dracula, 1897, diario di Jonathan Harker.", "spokenByCharacter": {"@type": "Person", "name": "Jonathan Harker"}}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/bram-stoker-dracula/#book", "name": "Dracula", "author": {"@id": "https://sottolineature.it/autori/bram-stoker/#person"}, "datePublished": "1897"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/bram-stoker/#person", "name": "Bram Stoker", "url": "https://sottolineature.it/autori/bram-stoker/", "sameAs": ["https://it.wikipedia.org/wiki/Bram_Stoker", "https://www.wikidata.org/wiki/Q36184"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/bram-stoker-dracula/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Bram Stoker", "item": "https://sottolineature.it/autori/bram-stoker/"}, {"@type": "ListItem", "position": 3, "name": "Nessuno può sapere, se non dopo una…", "item": "https://sottolineature.it/citazioni/bram-stoker-dracula/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/bram-stoker-dracula-chiaro.png?v=8723aef34781"><img src="/assets/social/bram-stoker-dracula-chiaro.png?v=8723aef34781" alt="«Nessuno può sapere, se non dopo una notte di patimenti, quanto dolce e prezioso al cuore e agli occhi possa essere il mattino.» — Bram Stoker, Dracula (1897). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/bram-stoker-dracula-scuro.png?v=e14aeb976ca1"><img src="/assets/social/bram-stoker-dracula-scuro.png?v=e14aeb976ca1" alt="«Nessuno può sapere, se non dopo una notte di patimenti, quanto dolce e prezioso al cuore e agli occhi possa essere il mattino.» — Bram Stoker, Dracula (1897). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · diario di Jonathan Harker</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/bram-stoker-dracula-chiaro.png?v=c671638dbf7b"><img src="/assets/social/bram-stoker-dracula-chiaro.png?v=c671638dbf7b" alt="«Nessuno può sapere, se non dopo una notte di patimenti, quanto dolce e prezioso al cuore e agli occhi possa essere il mattino.» — Bram Stoker, Dracula (1897). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/bram-stoker-dracula-scuro.png?v=ccc2f73b0395"><img src="/assets/social/bram-stoker-dracula-scuro.png?v=ccc2f73b0395" alt="«Nessuno può sapere, se non dopo una notte di patimenti, quanto dolce e prezioso al cuore e agli occhi possa essere il mattino.» — Bram Stoker, Dracula (1897). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · diario di Jonathan Harker</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/#webpage", "url": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/", "name": "«Domandano tutti come si fa a…» — Alda Merini, Corpo d'amore", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/#quotation", "text": "Domandano tutti come si fa a scrivere un libro: si va vicino a Dio e gli si dice: feconda la mia mente, mettiti nel mio cuore e portami via dagli altri, rapiscimi. Così nascono i libri, così nascono i poeti.", "creator": {"@id": "https://sottolineature.it/autori/alda-merini/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/#book"}, "url": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/", "citation": "Alda Merini, «Domandano tutti come si fa a scrivere un libro: si va vicino a Dio e gli si dice: feconda la mia mente, mettiti nel mio cuore e portami via dagli altri, rapiscimi. Così nascono i libri, così nascono i poeti.», Corpo d'amore, Frassinelli, 2001, p. 81. Testo: https://it.wikiquote.org/wiki/Alda_Merini", "sameAs": "https://it.wikiquote.org/wiki/Alda_Merini"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/#book", "name": "Corpo d'amore", "author": {"@id": "https://sottolineature.it/autori/alda-merini/#person"}, "datePublished": "2001"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/alda-merini/#person", "name": "Alda Merini", "url": "https://sottolineature.it/autori/alda-merini/", "sameAs": ["https://it.wikipedia.org/wiki/Alda_Merini", "https://www.wikidata.org/wiki/Q241087"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Alda Merini", "item": "https://sottolineature.it/autori/alda-merini/"}, {"@type": "ListItem", "position": 3, "name": "Domandano tutti come si fa a scrivere…", "item": "https://sottolineature.it/citazioni/alda-merini-corpo-d-amore/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/alda-merini-corpo-d-amore-chiaro.png?v=a14ca85a9ef3"><img src="/assets/social/alda-merini-corpo-d-amore-chiaro.png?v=a14ca85a9ef3" alt="«Domandano tutti come si fa a scrivere un libro: si va vicino a Dio e gli si dice: feconda la mia mente, mettiti nel mio cuore e portami via dagli altri, rapiscimi. Così nascono i libri, così nascono i poeti.» — Alda Merini, Corpo d&#x27;amore (2001). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/alda-merini-corpo-d-amore-scuro.png?v=6331ef2f3faf"><img src="/assets/social/alda-merini-corpo-d-amore-scuro.png?v=6331ef2f3faf" alt="«Domandano tutti come si fa a scrivere un libro: si va vicino a Dio e gli si dice: feconda la mia mente, mettiti nel mio cuore e portami via dagli altri, rapiscimi. Così nascono i libri, così nascono i poeti.» — Alda Merini, Corpo d&#x27;amore (2001). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 81</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/alda-merini-corpo-d-amore-chiaro.png?v=93e1bb77a92c"><img src="/assets/social/alda-merini-corpo-d-amore-chiaro.png?v=93e1bb77a92c" alt="«Domandano tutti come si fa a scrivere un libro: si va vicino a Dio e gli si dice: feconda la mia mente, mettiti nel mio cuore e portami via dagli altri, rapiscimi. Così nascono i libri, così nascono i poeti.» — Alda Merini, Corpo d&#x27;amore (2001). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/alda-merini-corpo-d-amore-scuro.png?v=e7717900c55c"><img src="/assets/social/alda-merini-corpo-d-amore-scuro.png?v=e7717900c55c" alt="«Domandano tutti come si fa a scrivere un libro: si va vicino a Dio e gli si dice: feconda la mia mente, mettiti nel mio cuore e portami via dagli altri, rapiscimi. Così nascono i libri, così nascono i poeti.» — Alda Merini, Corpo d&#x27;amore (2001). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · p. 81</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

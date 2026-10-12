@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/#webpage", "url": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/", "name": "«Sotto l'aeroplano, le colline…» — Antoine de Saint-Exupéry", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/#quotation", "text": "Sotto l'aeroplano, le colline scavavano già il loro solco d'ombra nell'oro della sera. Le pianure si facevano luminose, ma di una inconsumabile luce: in quelle regioni esse non finiscono mai di restituire il loro oro.", "creator": {"@id": "https://sottolineature.it/autori/antoine-de-saint-exupery/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/#book"}, "url": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/", "citation": "Antoine de Saint-Exupéry, «Sotto l'aeroplano, le colline scavavano già il loro solco d'ombra nell'oro della sera. Le pianure si facevano luminose, ma di una inconsumabile luce: in quelle regioni esse non finiscono mai di restituire il loro oro.», Volo di notte, trad. Cesare Giardini, Oscar Mondadori, 2001, incipit. Testo: https://it.wikiquote.org/wiki/Antoine_de_Saint-Exup%C3%A9ry", "sameAs": "https://it.wikiquote.org/wiki/Antoine_de_Saint-Exup%C3%A9ry"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/#book", "name": "Volo di notte", "author": {"@id": "https://sottolineature.it/autori/antoine-de-saint-exupery/#person"}, "datePublished": "1931", "translator": {"@type": "Person", "name": "Cesare Giardini"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/antoine-de-saint-exupery/#person", "name": "Antoine de Saint-Exupéry", "url": "https://sottolineature.it/autori/antoine-de-saint-exupery/", "sameAs": ["https://it.wikipedia.org/wiki/Antoine_de_Saint-Exup%C3%A9ry", "https://www.wikidata.org/wiki/Q2908"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Antoine de Saint-Exupéry", "item": "https://sottolineature.it/autori/antoine-de-saint-exupery/"}, {"@type": "ListItem", "position": 3, "name": "Sotto l'aeroplano, le colline scavavano…", "item": "https://sottolineature.it/citazioni/antoine-de-saint-exupery-volo-di-notte/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/antoine-de-saint-exupery-volo-di-notte-chiaro.png?v=76800f8f2710"><img src="/assets/social/antoine-de-saint-exupery-volo-di-notte-chiaro.png?v=76800f8f2710" alt="«Sotto l&#x27;aeroplano, le colline scavavano già il loro solco d&#x27;ombra nell&#x27;oro della sera. Le pianure si facevano luminose, ma di una inconsumabile luce: in quelle regioni esse non finiscono mai di restituire il loro oro.» — Antoine de Saint-Exupéry, Volo di notte (1931). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/antoine-de-saint-exupery-volo-di-notte-scuro.png?v=89e49da4a14a"><img src="/assets/social/antoine-de-saint-exupery-volo-di-notte-scuro.png?v=89e49da4a14a" alt="«Sotto l&#x27;aeroplano, le colline scavavano già il loro solco d&#x27;ombra nell&#x27;oro della sera. Le pianure si facevano luminose, ma di una inconsumabile luce: in quelle regioni esse non finiscono mai di restituire il loro oro.» — Antoine de Saint-Exupéry, Volo di notte (1931). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/antoine-de-saint-exupery-volo-di-notte-chiaro.png?v=3874e7bd0f14"><img src="/assets/social/antoine-de-saint-exupery-volo-di-notte-chiaro.png?v=3874e7bd0f14" alt="«Sotto l&#x27;aeroplano, le colline scavavano già il loro solco d&#x27;ombra nell&#x27;oro della sera. Le pianure si facevano luminose, ma di una inconsumabile luce: in quelle regioni esse non finiscono mai di restituire il loro oro.» — Antoine de Saint-Exupéry, Volo di notte (1931). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/antoine-de-saint-exupery-volo-di-notte-scuro.png?v=e3e381b55326"><img src="/assets/social/antoine-de-saint-exupery-volo-di-notte-scuro.png?v=e3e381b55326" alt="«Sotto l&#x27;aeroplano, le colline scavavano già il loro solco d&#x27;ombra nell&#x27;oro della sera. Le pianure si facevano luminose, ma di una inconsumabile luce: in quelle regioni esse non finiscono mai di restituire il loro oro.» — Antoine de Saint-Exupéry, Volo di notte (1931). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · incipit</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

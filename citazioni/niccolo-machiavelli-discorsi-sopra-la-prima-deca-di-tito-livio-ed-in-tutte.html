@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/#webpage", "url": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/", "name": "«Ed in tutte le cose umane si vede…» — Niccolò Machiavelli", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/#quotation", "text": "Ed in tutte le cose umane si vede questo, chi le esaminerà bene: che non si può mai cancellare uno inconveniente, che non ne surga un altro.", "creator": {"@id": "https://sottolineature.it/autori/niccolo-machiavelli/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/#book"}, "url": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/", "citation": "Niccolò Machiavelli, «Ed in tutte le cose umane si vede questo, chi le esaminerà bene: che non si può mai cancellare uno inconveniente, che non ne surga un altro.», Discorsi sopra la prima deca di Tito Livio, a cura di Mario Martelli, in Tutte le opere, Sansoni, 1971, libro I, cap. VI. Testo: https://it.wikiquote.org/wiki/Niccol%C3%B2_Machiavelli", "sameAs": "https://it.wikiquote.org/wiki/Niccol%C3%B2_Machiavelli"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/#book", "name": "Discorsi sopra la prima deca di Tito Livio", "author": {"@id": "https://sottolineature.it/autori/niccolo-machiavelli/#person"}, "datePublished": "1531"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/niccolo-machiavelli/#person", "name": "Niccolò Machiavelli", "url": "https://sottolineature.it/autori/niccolo-machiavelli/", "sameAs": ["https://it.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli", "https://www.wikidata.org/wiki/Q1399"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Niccolò Machiavelli", "item": "https://sottolineature.it/autori/niccolo-machiavelli/"}, {"@type": "ListItem", "position": 3, "name": "Ed in tutte le cose umane si vede…", "item": "https://sottolineature.it/citazioni/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte-chiaro.png?v=740a160f92d9"><img src="/assets/social/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte-chiaro.png?v=740a160f92d9" alt="«Ed in tutte le cose umane si vede questo, chi le esaminerà bene: che non si può mai cancellare uno inconveniente, che non ne surga un altro.» — Niccolò Machiavelli, Discorsi sopra la prima deca di Tito Livio (1531). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte-scuro.png?v=4dc5fc771935"><img src="/assets/social/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte-scuro.png?v=4dc5fc771935" alt="«Ed in tutte le cose umane si vede questo, chi le esaminerà bene: che non si può mai cancellare uno inconveniente, che non ne surga un altro.» — Niccolò Machiavelli, Discorsi sopra la prima deca di Tito Livio (1531). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · libro I, cap. VI</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte-chiaro.png?v=54aafde0429b"><img src="/assets/social/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte-chiaro.png?v=54aafde0429b" alt="«Ed in tutte le cose umane si vede questo, chi le esaminerà bene: che non si può mai cancellare uno inconveniente, che non ne surga un altro.» — Niccolò Machiavelli, Discorsi sopra la prima deca di Tito Livio (1531). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte-scuro.png?v=26d8a8bca258"><img src="/assets/social/niccolo-machiavelli-discorsi-sopra-la-prima-deca-di-tito-livio-ed-in-tutte-scuro.png?v=26d8a8bca258" alt="«Ed in tutte le cose umane si vede questo, chi le esaminerà bene: che non si può mai cancellare uno inconveniente, che non ne surga un altro.» — Niccolò Machiavelli, Discorsi sopra la prima deca di Tito Livio (1531). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · libro I, cap. VI</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

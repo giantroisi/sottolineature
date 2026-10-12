@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/#webpage", "url": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/", "name": "«Ché la Bellezza, odimi bene, Fedro, la Bellezza…» — Thomas Mann", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/#quotation", "text": "Ché la Bellezza, odimi bene, Fedro, la Bellezza soltanto è divina e visibile a un tempo, ed è per questo che essa è la via al sensibile, è, piccolo Fedro, la via che mena l'artista allo spirito.", "creator": {"@id": "https://sottolineature.it/autori/thomas-mann/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/#book"}, "url": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/", "citation": "Thomas Mann, «Ché la Bellezza, odimi bene, Fedro, la Bellezza soltanto è divina e visibile a un tempo, ed è per questo che essa è la via al sensibile, è, piccolo Fedro, la via che mena l'artista allo spirito.», La morte a Venezia, 1912, monologo finale, rielaborazione del Fedro di Platone."}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/#book", "name": "La morte a Venezia", "author": {"@id": "https://sottolineature.it/autori/thomas-mann/#person"}, "datePublished": "1912"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/thomas-mann/#person", "name": "Thomas Mann", "url": "https://sottolineature.it/autori/thomas-mann/", "sameAs": ["https://it.wikipedia.org/wiki/Thomas_Mann", "https://www.wikidata.org/wiki/Q37030"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Thomas Mann", "item": "https://sottolineature.it/autori/thomas-mann/"}, {"@type": "ListItem", "position": 3, "name": "Ché la Bellezza, odimi bene, Fedro, la…", "item": "https://sottolineature.it/citazioni/thomas-mann-la-morte-a-venezia/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/thomas-mann-la-morte-a-venezia-chiaro.png?v=cafe2f6ea115"><img src="/assets/social/thomas-mann-la-morte-a-venezia-chiaro.png?v=cafe2f6ea115" alt="«Ché la Bellezza, odimi bene, Fedro, la Bellezza soltanto è divina e visibile a un tempo, ed è per questo che essa è la via al sensibile, è, piccolo Fedro, la via che mena l&#x27;artista allo spirito.» — Thomas Mann, La morte a Venezia (1912). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/thomas-mann-la-morte-a-venezia-scuro.png?v=edcc78e83be5"><img src="/assets/social/thomas-mann-la-morte-a-venezia-scuro.png?v=edcc78e83be5" alt="«Ché la Bellezza, odimi bene, Fedro, la Bellezza soltanto è divina e visibile a un tempo, ed è per questo che essa è la via al sensibile, è, piccolo Fedro, la via che mena l&#x27;artista allo spirito.» — Thomas Mann, La morte a Venezia (1912). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · monologo finale, rielaborazione del Fedro di Platone</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/thomas-mann-la-morte-a-venezia-chiaro.png?v=b6a05e8dccf8"><img src="/assets/social/thomas-mann-la-morte-a-venezia-chiaro.png?v=b6a05e8dccf8" alt="«Ché la Bellezza, odimi bene, Fedro, la Bellezza soltanto è divina e visibile a un tempo, ed è per questo che essa è la via al sensibile, è, piccolo Fedro, la via che mena l&#x27;artista allo spirito.» — Thomas Mann, La morte a Venezia (1912). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/thomas-mann-la-morte-a-venezia-scuro.png?v=2e76ff7ecd61"><img src="/assets/social/thomas-mann-la-morte-a-venezia-scuro.png?v=2e76ff7ecd61" alt="«Ché la Bellezza, odimi bene, Fedro, la Bellezza soltanto è divina e visibile a un tempo, ed è per questo che essa è la via al sensibile, è, piccolo Fedro, la via che mena l&#x27;artista allo spirito.» — Thomas Mann, La morte a Venezia (1912). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · monologo finale, rielaborazione del Fedro di Platone</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

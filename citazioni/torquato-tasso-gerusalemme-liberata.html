@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/torquato-tasso-gerusalemme-liberata/#webpage", "url": "https://sottolineature.it/citazioni/torquato-tasso-gerusalemme-liberata/", "name": "«Canto l'arme pietose, e 'l Capitano che 'l…» — Torquato Tasso", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/torquato-tasso-gerusalemme-liberata/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/torquato-tasso-gerusalemme-liberata/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/torquato-tasso-gerusalemme-liberata/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/torquato-tasso-gerusalemme-liberata/#quotation", "text": "Canto l'arme pietose, e 'l Capitano che 'l gran sepolcro liberò di Cristo.", "creator": {"@id": "https://sottolineature.it/autori/torquato-tasso/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/torquato-tasso-gerusalemme-liberata/#book"}, "url": "https://sottolineature.it/citazioni/torquato-tasso-gerusalemme-liberata/", "citation": "Torquato Tasso, «Canto l'arme pietose, e 'l Capitano che 'l gran sepolcro liberò di Cristo.», Gerusalemme liberata, 1581, Canto I, ottava 1 (proemio). Testo: https://it.wikisource.org/wiki/Gerusalemme_liberata/Canto_primo", "sameAs": "https://it.wikisource.org/wiki/Gerusalemme_liberata/Canto_primo"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/torquato-tasso-gerusalemme-liberata/#book", "name": "Gerusalemme liberata", "author": {"@id": "https://sottolineature.it/autori/torquato-tasso/#person"}, "datePublished": "1581"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/torquato-tasso/#person", "name": "Torquato Tasso", "url": "https://sottolineature.it/autori/torquato-tasso/", "sameAs": ["https://it.wikipedia.org/wiki/Torquato_Tasso", "https://www.wikidata.org/wiki/Q168962"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/torquato-tasso-gerusalemme-liberata/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Torquato Tasso", "item": "https://sottolineature.it/autori/torquato-tasso/"}, {"@type": "ListItem", "position": 3, "name": "Canto l'arme pietose, e 'l Capitano che…", "item": "https://sottolineature.it/citazioni/torquato-tasso-gerusalemme-liberata/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/torquato-tasso-gerusalemme-liberata-chiaro.png?v=7daa8e0f15b2"><img src="/assets/social/torquato-tasso-gerusalemme-liberata-chiaro.png?v=7daa8e0f15b2" alt="«Canto l&#x27;arme pietose, e &#x27;l Capitano che &#x27;l gran sepolcro liberò di Cristo.» — Torquato Tasso, Gerusalemme liberata (1581). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/torquato-tasso-gerusalemme-liberata-scuro.png?v=2fb9f0b14607"><img src="/assets/social/torquato-tasso-gerusalemme-liberata-scuro.png?v=2fb9f0b14607" alt="«Canto l&#x27;arme pietose, e &#x27;l Capitano che &#x27;l gran sepolcro liberò di Cristo.» — Torquato Tasso, Gerusalemme liberata (1581). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · Canto I, ottava 1 (proemio)</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/torquato-tasso-gerusalemme-liberata-chiaro.png?v=4d32a17b299b"><img src="/assets/social/torquato-tasso-gerusalemme-liberata-chiaro.png?v=4d32a17b299b" alt="«Canto l&#x27;arme pietose, e &#x27;l Capitano che &#x27;l gran sepolcro liberò di Cristo.» — Torquato Tasso, Gerusalemme liberata (1581). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/torquato-tasso-gerusalemme-liberata-scuro.png?v=52085ebe1513"><img src="/assets/social/torquato-tasso-gerusalemme-liberata-scuro.png?v=52085ebe1513" alt="«Canto l&#x27;arme pietose, e &#x27;l Capitano che &#x27;l gran sepolcro liberò di Cristo.» — Torquato Tasso, Gerusalemme liberata (1581). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · Canto I, ottava 1 (proemio)</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

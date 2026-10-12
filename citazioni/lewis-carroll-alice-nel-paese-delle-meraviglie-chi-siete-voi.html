@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi/#webpage", "url": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi/", "name": "«Chi siete voi? Davvero io non saprei dirlo…» — Lewis Carroll", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/lewis-carroll-alice-nel-paese-delle-meraviglie/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi/#quotation", "text": "Chi siete voi? Davvero io non saprei dirlo ora: so almeno chi ero quando mi levai questa mattina, ma d'allora in poi temo essere stata scambiata più volte.", "creator": {"@id": "https://sottolineature.it/autori/lewis-carroll/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/lewis-carroll-alice-nel-paese-delle-meraviglie/#book"}, "url": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi/", "citation": "Lewis Carroll, «Chi siete voi? Davvero io non saprei dirlo ora: so almeno chi ero quando mi levai questa mattina, ma d'allora in poi temo essere stata scambiata più volte.», Alice nel paese delle meraviglie, trad. Teodorico Pietrocòla-Rossetti, 1872, capitolo V. Testo: https://it.wikisource.org/wiki/Le_avventure_d%27Alice_nel_paese_delle_meraviglie/V", "sameAs": "https://it.wikisource.org/wiki/Le_avventure_d%27Alice_nel_paese_delle_meraviglie/V"}, {"@type": "Book", "@id": "https://sottolineature.it/opere/lewis-carroll-alice-nel-paese-delle-meraviglie/#book", "name": "Alice nel paese delle meraviglie", "author": {"@id": "https://sottolineature.it/autori/lewis-carroll/#person"}, "datePublished": "1865", "translator": {"@type": "Person", "name": "Teodorico Pietrocòla-Rossetti"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/lewis-carroll/#person", "name": "Lewis Carroll", "url": "https://sottolineature.it/autori/lewis-carroll/", "sameAs": ["https://it.wikipedia.org/wiki/Lewis_Carroll", "https://www.wikidata.org/wiki/Q38082"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Lewis Carroll", "item": "https://sottolineature.it/autori/lewis-carroll/"}, {"@type": "ListItem", "position": 3, "name": "Chi siete voi? Davvero io non saprei…", "item": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi-chiaro.png?v=980f727ad14e"><img src="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi-chiaro.png?v=980f727ad14e" alt="«Chi siete voi? Davvero io non saprei dirlo ora: so almeno chi ero quando mi levai questa mattina, ma d&#x27;allora in poi temo essere stata scambiata più volte.» — Lewis Carroll, Alice nel paese delle meraviglie (1865). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi-scuro.png?v=036b2efe1695"><img src="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi-scuro.png?v=036b2efe1695" alt="«Chi siete voi? Davvero io non saprei dirlo ora: so almeno chi ero quando mi levai questa mattina, ma d&#x27;allora in poi temo essere stata scambiata più volte.» — Lewis Carroll, Alice nel paese delle meraviglie (1865). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo V</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi-chiaro.png?v=7cd4896e274b"><img src="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi-chiaro.png?v=7cd4896e274b" alt="«Chi siete voi? Davvero io non saprei dirlo ora: so almeno chi ero quando mi levai questa mattina, ma d&#x27;allora in poi temo essere stata scambiata più volte.» — Lewis Carroll, Alice nel paese delle meraviglie (1865). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi-scuro.png?v=9beb4b72cd8b"><img src="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-chi-siete-voi-scuro.png?v=9beb4b72cd8b" alt="«Chi siete voi? Davvero io non saprei dirlo ora: so almeno chi ero quando mi levai questa mattina, ma d&#x27;allora in poi temo essere stata scambiata più volte.» — Lewis Carroll, Alice nel paese delle meraviglie (1865). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo V</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/#webpage", "url": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/", "name": "«Meglio morire che vivere meccanicamente una…» — D.H. Lawrence", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/#quotation", "text": "Meglio morire che vivere meccanicamente una vita che è una ripetizione delle ripetizioni.", "creator": {"@id": "https://sottolineature.it/autori/d-h-lawrence/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/#book"}, "url": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/", "citation": "D.H. Lawrence, «Meglio morire che vivere meccanicamente una vita che è una ripetizione delle ripetizioni.», Donne innamorate, 1920, capitolo XV, «Domenica sera». Testo: https://en.wikisource.org/wiki/Women_in_Love/Chapter_XV", "sameAs": "https://en.wikisource.org/wiki/Women_in_Love/Chapter_XV"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/#book", "name": "Donne innamorate", "author": {"@id": "https://sottolineature.it/autori/d-h-lawrence/#person"}, "datePublished": "1920"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/d-h-lawrence/#person", "name": "D.H. Lawrence", "url": "https://sottolineature.it/autori/d-h-lawrence/", "sameAs": ["https://it.wikipedia.org/wiki/David_Herbert_Lawrence", "https://www.wikidata.org/wiki/Q34970"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "D.H. Lawrence", "item": "https://sottolineature.it/autori/d-h-lawrence/"}, {"@type": "ListItem", "position": 3, "name": "Meglio morire che vivere meccanicamente…", "item": "https://sottolineature.it/citazioni/d-h-lawrence-donne-innamorate/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/d-h-lawrence-donne-innamorate-chiaro.png?v=dc0223f9ed37"><img src="/assets/social/d-h-lawrence-donne-innamorate-chiaro.png?v=dc0223f9ed37" alt="«Meglio morire che vivere meccanicamente una vita che è una ripetizione delle ripetizioni.» — D.H. Lawrence, Donne innamorate (1920). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/d-h-lawrence-donne-innamorate-scuro.png?v=d86c75d2988e"><img src="/assets/social/d-h-lawrence-donne-innamorate-scuro.png?v=d86c75d2988e" alt="«Meglio morire che vivere meccanicamente una vita che è una ripetizione delle ripetizioni.» — D.H. Lawrence, Donne innamorate (1920). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo XV, «Domenica sera»</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/d-h-lawrence-donne-innamorate-chiaro.png?v=97c619222e84"><img src="/assets/social/d-h-lawrence-donne-innamorate-chiaro.png?v=97c619222e84" alt="«Meglio morire che vivere meccanicamente una vita che è una ripetizione delle ripetizioni.» — D.H. Lawrence, Donne innamorate (1920). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/d-h-lawrence-donne-innamorate-scuro.png?v=c4dcf0d1e83b"><img src="/assets/social/d-h-lawrence-donne-innamorate-scuro.png?v=c4dcf0d1e83b" alt="«Meglio morire che vivere meccanicamente una vita che è una ripetizione delle ripetizioni.» — D.H. Lawrence, Donne innamorate (1920). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo XV, «Domenica sera»</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

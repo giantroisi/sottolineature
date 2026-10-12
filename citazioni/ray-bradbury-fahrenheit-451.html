@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/ray-bradbury-fahrenheit-451/#webpage", "url": "https://sottolineature.it/citazioni/ray-bradbury-fahrenheit-451/", "name": "«Ci deve essere qualcosa di…» — Ray Bradbury, Fahrenheit 451", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/ray-bradbury-fahrenheit-451/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/ray-bradbury-fahrenheit-451/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/ray-bradbury-fahrenheit-451/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/ray-bradbury-fahrenheit-451/#quotation", "text": "Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.", "creator": {"@id": "https://sottolineature.it/autori/ray-bradbury/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/ray-bradbury-fahrenheit-451/#book"}, "url": "https://sottolineature.it/citazioni/ray-bradbury-fahrenheit-451/", "citation": "Ray Bradbury, «Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.», Fahrenheit 451, 1953, scena della donna che brucia con i suoi libri.", "spokenByCharacter": {"@type": "Person", "name": "Faber"}}, {"@type": "Book", "@id": "https://sottolineature.it/opere/ray-bradbury-fahrenheit-451/#book", "name": "Fahrenheit 451", "author": {"@id": "https://sottolineature.it/autori/ray-bradbury/#person"}, "datePublished": "1953"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/ray-bradbury/#person", "name": "Ray Bradbury", "url": "https://sottolineature.it/autori/ray-bradbury/", "sameAs": ["https://it.wikipedia.org/wiki/Ray_Bradbury", "https://www.wikidata.org/wiki/Q40640"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/ray-bradbury-fahrenheit-451/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Ray Bradbury", "item": "https://sottolineature.it/autori/ray-bradbury/"}, {"@type": "ListItem", "position": 3, "name": "Ci deve essere qualcosa di speciale nei…", "item": "https://sottolineature.it/citazioni/ray-bradbury-fahrenheit-451/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/ray-bradbury-fahrenheit-451-chiaro.png?v=0ce6222dc4a1"><img src="/assets/social/ray-bradbury-fahrenheit-451-chiaro.png?v=0ce6222dc4a1" alt="«Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.» — Ray Bradbury, Fahrenheit 451 (1953). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/ray-bradbury-fahrenheit-451-scuro.png?v=bb51b32b8694"><img src="/assets/social/ray-bradbury-fahrenheit-451-scuro.png?v=bb51b32b8694" alt="«Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.» — Ray Bradbury, Fahrenheit 451 (1953). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · scena della donna che brucia con i suoi libri</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/ray-bradbury-fahrenheit-451-chiaro.png?v=0883ec287212"><img src="/assets/social/ray-bradbury-fahrenheit-451-chiaro.png?v=0883ec287212" alt="«Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.» — Ray Bradbury, Fahrenheit 451 (1953). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/ray-bradbury-fahrenheit-451-scuro.png?v=fd6becaadffb"><img src="/assets/social/ray-bradbury-fahrenheit-451-scuro.png?v=fd6becaadffb" alt="«Ci deve essere qualcosa di speciale nei libri, delle cose che non possiamo immaginare, per convincere una donna a restare in una casa che brucia.» — Ray Bradbury, Fahrenheit 451 (1953). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · scena della donna che brucia con i suoi libri</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

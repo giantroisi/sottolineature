@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/albert-camus-l-estate/#webpage", "url": "https://sottolineature.it/citazioni/albert-camus-l-estate/", "name": "«Nel bel mezzo dell'inverno, ho…» — Albert Camus, L'estate", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/albert-camus-l-estate/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/albert-camus-l-estate/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/albert-camus-l-estate/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/albert-camus-l-estate/#quotation", "text": "Nel bel mezzo dell'inverno, ho scoperto finalmente che dentro di me c'era un'estate invincibile.", "creator": {"@id": "https://sottolineature.it/autori/albert-camus/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/albert-camus-l-estate/#book"}, "url": "https://sottolineature.it/citazioni/albert-camus-l-estate/", "citation": "Albert Camus, «Nel bel mezzo dell'inverno, ho scoperto finalmente che dentro di me c'era un'estate invincibile.», L'estate, 1954, chiude il saggio «Ritorno a Tipasa»."}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/albert-camus-l-estate/#book", "name": "L'estate", "author": {"@id": "https://sottolineature.it/autori/albert-camus/#person"}, "datePublished": "1954"}, {"@type": "Person", "@id": "https://sottolineature.it/autori/albert-camus/#person", "name": "Albert Camus", "url": "https://sottolineature.it/autori/albert-camus/", "sameAs": ["https://it.wikipedia.org/wiki/Albert_Camus", "https://www.wikidata.org/wiki/Q34670"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/albert-camus-l-estate/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Albert Camus", "item": "https://sottolineature.it/autori/albert-camus/"}, {"@type": "ListItem", "position": 3, "name": "Nel bel mezzo dell'inverno, ho scoperto…", "item": "https://sottolineature.it/citazioni/albert-camus-l-estate/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/albert-camus-l-estate-chiaro.png?v=b2bd256e4354"><img src="/assets/social/albert-camus-l-estate-chiaro.png?v=b2bd256e4354" alt="«Nel bel mezzo dell&#x27;inverno, ho scoperto finalmente che dentro di me c&#x27;era un&#x27;estate invincibile.» — Albert Camus, L&#x27;estate (1954). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/albert-camus-l-estate-scuro.png?v=59fcc989dfb8"><img src="/assets/social/albert-camus-l-estate-scuro.png?v=59fcc989dfb8" alt="«Nel bel mezzo dell&#x27;inverno, ho scoperto finalmente che dentro di me c&#x27;era un&#x27;estate invincibile.» — Albert Camus, L&#x27;estate (1954). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · chiude il saggio «Ritorno a Tipasa»</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/albert-camus-l-estate-chiaro.png?v=4df7c183a779"><img src="/assets/social/albert-camus-l-estate-chiaro.png?v=4df7c183a779" alt="«Nel bel mezzo dell&#x27;inverno, ho scoperto finalmente che dentro di me c&#x27;era un&#x27;estate invincibile.» — Albert Camus, L&#x27;estate (1954). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/albert-camus-l-estate-scuro.png?v=a9649f46b446"><img src="/assets/social/albert-camus-l-estate-scuro.png?v=a9649f46b446" alt="«Nel bel mezzo dell&#x27;inverno, ho scoperto finalmente che dentro di me c&#x27;era un&#x27;estate invincibile.» — Albert Camus, L&#x27;estate (1954). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · chiude il saggio «Ritorno a Tipasa»</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

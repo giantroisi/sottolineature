@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il/#webpage", "url": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il/", "name": "«Che dice il Coccodrillo del Nilo che batte la…» — Lewis Carroll", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/opere/lewis-carroll-alice-nel-paese-delle-meraviglie/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il/#quotation", "text": "Che dice il Coccodrillo del Nilo che batte la coda iridata nell'ansa dall'humus profondo, nel tonfano, nella cascata, nel torbido fango del fondo e sopra la sponda assolata? «Trovato è il pasto agognato! Trovato! Trovato!»", "creator": {"@id": "https://sottolineature.it/autori/lewis-carroll/#person"}, "isPartOf": {"@id": "https://sottolineature.it/opere/lewis-carroll-alice-nel-paese-delle-meraviglie/#book"}, "url": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il/", "citation": "Lewis Carroll, «Che dice il Coccodrillo del Nilo che batte la coda iridata nell'ansa dall'humus profondo, nel tonfano, nella cascata, nel torbido fango del fondo e sopra la sponda assolata? “Trovato è il pasto agognato! Trovato! Trovato!”», Alice nel paese delle meraviglie, trad. Alessandra Schiaffoni, Edizioni Accademia, 1988, cap. II, p. 23. Testo: https://it.wikiquote.org/wiki/Lewis_Carroll", "sameAs": "https://it.wikiquote.org/wiki/Lewis_Carroll", "spokenByCharacter": {"@type": "Person", "name": "Alice"}}, {"@type": "Book", "@id": "https://sottolineature.it/opere/lewis-carroll-alice-nel-paese-delle-meraviglie/#book", "name": "Alice nel paese delle meraviglie", "author": {"@id": "https://sottolineature.it/autori/lewis-carroll/#person"}, "datePublished": "1865", "translator": {"@type": "Person", "name": "Alessandra Schiaffoni"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/lewis-carroll/#person", "name": "Lewis Carroll", "url": "https://sottolineature.it/autori/lewis-carroll/", "sameAs": ["https://it.wikipedia.org/wiki/Lewis_Carroll", "https://www.wikidata.org/wiki/Q38082"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Lewis Carroll", "item": "https://sottolineature.it/autori/lewis-carroll/"}, {"@type": "ListItem", "position": 3, "name": "Che dice il Coccodrillo del Nilo che…", "item": "https://sottolineature.it/citazioni/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il-chiaro.png?v=6d29e496c8e0"><img src="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il-chiaro.png?v=6d29e496c8e0" alt="«Che dice il Coccodrillo del Nilo che batte la coda iridata nell&#x27;ansa dall&#x27;humus profondo, nel tonfano, nella cascata, nel torbido fango del fondo e sopra la sponda assolata? «Trovato è il pasto agognato! Trovato! Trovato!»» — Lewis Carroll, Alice nel paese delle meraviglie (1865). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il-scuro.png?v=43d540cdb468"><img src="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il-scuro.png?v=43d540cdb468" alt="«Che dice il Coccodrillo del Nilo che batte la coda iridata nell&#x27;ansa dall&#x27;humus profondo, nel tonfano, nella cascata, nel torbido fango del fondo e sopra la sponda assolata? «Trovato è il pasto agognato! Trovato! Trovato!»» — Lewis Carroll, Alice nel paese delle meraviglie (1865). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · cap. II, p. 23</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il-chiaro.png?v=7f3cfc069d45"><img src="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il-chiaro.png?v=7f3cfc069d45" alt="«Che dice il Coccodrillo del Nilo che batte la coda iridata nell&#x27;ansa dall&#x27;humus profondo, nel tonfano, nella cascata, nel torbido fango del fondo e sopra la sponda assolata? «Trovato è il pasto agognato! Trovato! Trovato!»» — Lewis Carroll, Alice nel paese delle meraviglie (1865). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il-scuro.png?v=07ecd5673737"><img src="/assets/social/lewis-carroll-alice-nel-paese-delle-meraviglie-che-dice-il-scuro.png?v=07ecd5673737" alt="«Che dice il Coccodrillo del Nilo che batte la coda iridata nell&#x27;ansa dall&#x27;humus profondo, nel tonfano, nella cascata, nel torbido fango del fondo e sopra la sponda assolata? «Trovato è il pasto agognato! Trovato! Trovato!»» — Lewis Carroll, Alice nel paese delle meraviglie (1865). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · cap. II, p. 23</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#webpage", "url": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/", "name": "«Il gran segreto, Elisa, non sta…» — George Bernard Shaw", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#quotation", "text": "Il gran segreto, Elisa, non sta nell'aver cattive maniere o buone maniere, o una qualunque specie di maniere, ma di avere le stesse maniere per tutti.", "creator": {"@id": "https://sottolineature.it/autori/george-bernard-shaw/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#book"}, "url": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/", "citation": "George Bernard Shaw, «Il gran segreto, Elisa, non sta nell'aver cattive maniere o buone maniere, o una qualunque specie di maniere, ma di avere le stesse maniere per tutti.», Pigmalione, trad. Antonio Agresti, 1913 (rappr.), 1916, atto V. Testo: https://www.liberliber.eu/mediateca/libri/s/shaw/pigmalione/pdf/shaw_pigmalione.pdf", "sameAs": "https://www.liberliber.eu/mediateca/libri/s/shaw/pigmalione/pdf/shaw_pigmalione.pdf"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#book", "name": "Pigmalione", "author": {"@id": "https://sottolineature.it/autori/george-bernard-shaw/#person"}, "temporalCoverage": "1913 (rappr.), 1916", "translator": {"@type": "Person", "name": "Antonio Agresti"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/george-bernard-shaw/#person", "name": "George Bernard Shaw", "url": "https://sottolineature.it/autori/george-bernard-shaw/", "sameAs": ["https://it.wikipedia.org/wiki/George_Bernard_Shaw", "https://www.wikidata.org/wiki/Q19185"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "George Bernard Shaw", "item": "https://sottolineature.it/autori/george-bernard-shaw/"}, {"@type": "ListItem", "position": 3, "name": "Il gran segreto, Elisa, non sta…", "item": "https://sottolineature.it/citazioni/george-bernard-shaw-pigmalione/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/george-bernard-shaw-pigmalione-chiaro.png?v=0d028d2a2727"><img src="/assets/social/george-bernard-shaw-pigmalione-chiaro.png?v=0d028d2a2727" alt="«Il gran segreto, Elisa, non sta nell&#x27;aver cattive maniere o buone maniere, o una qualunque specie di maniere, ma di avere le stesse maniere per tutti.» — George Bernard Shaw, Pigmalione (1913 (rappr.), 1916). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/george-bernard-shaw-pigmalione-scuro.png?v=6c16fbbbc99a"><img src="/assets/social/george-bernard-shaw-pigmalione-scuro.png?v=6c16fbbbc99a" alt="«Il gran segreto, Elisa, non sta nell&#x27;aver cattive maniere o buone maniere, o una qualunque specie di maniere, ma di avere le stesse maniere per tutti.» — George Bernard Shaw, Pigmalione (1913 (rappr.), 1916). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · atto V</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/george-bernard-shaw-pigmalione-chiaro.png?v=dc45895a2fb0"><img src="/assets/social/george-bernard-shaw-pigmalione-chiaro.png?v=dc45895a2fb0" alt="«Il gran segreto, Elisa, non sta nell&#x27;aver cattive maniere o buone maniere, o una qualunque specie di maniere, ma di avere le stesse maniere per tutti.» — George Bernard Shaw, Pigmalione (1913 (rappr.), 1916). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/george-bernard-shaw-pigmalione-scuro.png?v=4c69c624c882"><img src="/assets/social/george-bernard-shaw-pigmalione-scuro.png?v=4c69c624c882" alt="«Il gran segreto, Elisa, non sta nell&#x27;aver cattive maniere o buone maniere, o una qualunque specie di maniere, ma di avere le stesse maniere per tutti.» — George Bernard Shaw, Pigmalione (1913 (rappr.), 1916). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · atto V</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

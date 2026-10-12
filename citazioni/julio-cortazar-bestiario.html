@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/#webpage", "url": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/", "name": "«Proprio fra il primo e il secondo…» — Julio Cortázar, Bestiario", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/#quotation", "text": "Proprio fra il primo e il secondo piano ho sentito che stavo per vomitare un coniglietto.", "creator": {"@id": "https://sottolineature.it/autori/julio-cortazar/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/#book"}, "url": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/", "citation": "Julio Cortázar, «Proprio fra il primo e il secondo piano ho sentito che stavo per vomitare un coniglietto.», Bestiario, trad. Flaviarosa Nicoletti Rossini e Vittoria Martinetto, Einaudi, 1951, inizio del racconto «Lettera a una signorina a Parigi»."}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/#book", "name": "Bestiario", "author": {"@id": "https://sottolineature.it/autori/julio-cortazar/#person"}, "datePublished": "1951", "translator": {"@type": "Person", "name": "Flaviarosa Nicoletti Rossini, Vittoria Martinetto"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/julio-cortazar/#person", "name": "Julio Cortázar", "url": "https://sottolineature.it/autori/julio-cortazar/", "sameAs": ["https://it.wikipedia.org/wiki/Julio_Cort%C3%A1zar", "https://www.wikidata.org/wiki/Q174210"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Julio Cortázar", "item": "https://sottolineature.it/autori/julio-cortazar/"}, {"@type": "ListItem", "position": 3, "name": "Proprio fra il primo e il secondo piano…", "item": "https://sottolineature.it/citazioni/julio-cortazar-bestiario/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/julio-cortazar-bestiario-chiaro.png?v=e4fa7c80679b"><img src="/assets/social/julio-cortazar-bestiario-chiaro.png?v=e4fa7c80679b" alt="«Proprio fra il primo e il secondo piano ho sentito che stavo per vomitare un coniglietto.» — Julio Cortázar, Bestiario (1951). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/julio-cortazar-bestiario-scuro.png?v=417ce95908e6"><img src="/assets/social/julio-cortazar-bestiario-scuro.png?v=417ce95908e6" alt="«Proprio fra il primo e il secondo piano ho sentito che stavo per vomitare un coniglietto.» — Julio Cortázar, Bestiario (1951). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · inizio del racconto «Lettera a una signorina a Parigi»</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/julio-cortazar-bestiario-chiaro.png?v=dcf2fc82b333"><img src="/assets/social/julio-cortazar-bestiario-chiaro.png?v=dcf2fc82b333" alt="«Proprio fra il primo e il secondo piano ho sentito che stavo per vomitare un coniglietto.» — Julio Cortázar, Bestiario (1951). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/julio-cortazar-bestiario-scuro.png?v=f5e1ee5d7c54"><img src="/assets/social/julio-cortazar-bestiario-scuro.png?v=f5e1ee5d7c54" alt="«Proprio fra il primo e il secondo piano ho sentito che stavo per vomitare un coniglietto.» — Julio Cortázar, Bestiario (1951). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · inizio del racconto «Lettera a una signorina a Parigi»</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>

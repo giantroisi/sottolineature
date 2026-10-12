@@ -24,6 +24,32 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="/assets/site.css?v=c844ae53">
 <link rel="stylesheet" href="/assets/quote-social.css?v=24648feea01f">
+<script data-quote-url-migration>
+(function () {
+  try {
+    var aliases = {"michela-murgia-accabadora": "michela-murgia-accabadora-fillus-de-anima"};
+    var underlined = JSON.parse(localStorage.getItem('sottolineature-underlined') || '[]');
+    var notes = JSON.parse(localStorage.getItem('sottolineature-notes') || '{}');
+    var noteChanged = false;
+    if (notes && typeof notes === 'object' && !Array.isArray(notes)) {
+      Object.keys(aliases).forEach(function (oldSlug) {
+        var newSlug = aliases[oldSlug];
+        if (Object.prototype.hasOwnProperty.call(notes, oldSlug) &&
+            !Object.prototype.hasOwnProperty.call(notes, newSlug)) {
+          notes[newSlug] = notes[oldSlug];
+          noteChanged = true;
+        }
+      });
+      if (noteChanged) localStorage.setItem('sottolineature-notes', JSON.stringify(notes));
+    }
+    if (Array.isArray(underlined) && underlined.some(function (slug) { return aliases[slug]; })) {
+      underlined = underlined.map(function (slug) { return aliases[slug] || slug; })
+        .filter(function (slug, index, list) { return list.indexOf(slug) === index; });
+      localStorage.setItem('sottolineature-underlined', JSON.stringify(underlined));
+    }
+  } catch (e) {}
+})();
+</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/#webpage", "url": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/", "name": "«Nessuna bestia ha mai uguagliato l'arte…» — Arundhati Roy", "breadcrumb": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/#breadcrumb"}, "about": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/#book"}, "mainEntity": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/#quotation"}, "publisher": {"@id": "https://sottolineature.it/#publisher"}, "inLanguage": "it"}, {"@type": "Organization", "@id": "https://sottolineature.it/#publisher", "name": "Sottolineature", "url": "https://sottolineature.it/", "sameAs": ["https://www.instagram.com/sottolineature.it/"]}, {"@type": "Quotation", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/#quotation", "text": "Nessuna bestia ha mai uguagliato l'arte immensa, straordinariamente fantasiosa dell'odio umano.", "creator": {"@id": "https://sottolineature.it/autori/arundhati-roy/#person"}, "isPartOf": {"@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/#book"}, "url": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/", "citation": "Arundhati Roy, «Nessuna bestia ha mai uguagliato l'arte immensa, straordinariamente fantasiosa dell'odio umano.», Il dio delle piccole cose, trad. di Chiara Gabutti, Guanda, 1997, capitolo 12, «Kochu Thomban». Testo: https://www.litcharts.com/lit/the-god-of-small-things/chapter-12-kochu-thomban", "sameAs": "https://www.litcharts.com/lit/the-god-of-small-things/chapter-12-kochu-thomban"}, {"@type": "Book", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/#book", "name": "Il dio delle piccole cose", "author": {"@id": "https://sottolineature.it/autori/arundhati-roy/#person"}, "datePublished": "1997", "translator": {"@type": "Person", "name": "Chiara Gabutti"}}, {"@type": "Person", "@id": "https://sottolineature.it/autori/arundhati-roy/#person", "name": "Arundhati Roy", "url": "https://sottolineature.it/autori/arundhati-roy/", "sameAs": ["https://it.wikipedia.org/wiki/Arundhati_Roy", "https://www.wikidata.org/wiki/Q212801"]}, {"@type": "BreadcrumbList", "@id": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Sottolineature", "item": "https://sottolineature.it/"}, {"@type": "ListItem", "position": 2, "name": "Arundhati Roy", "item": "https://sottolineature.it/autori/arundhati-roy/"}, {"@type": "ListItem", "position": 3, "name": "Nessuna bestia ha mai uguagliato l'arte…", "item": "https://sottolineature.it/citazioni/arundhati-roy-il-dio-delle-piccole-cose/"}]}]}</script>
 <script>
   try {
@@ -127,7 +153,7 @@
   </div>
   <section class="quote-social" aria-labelledby="quoteSocialHeading">
     <h2 class="sans" id="quoteSocialHeading">La citazione in immagine</h2>
-    <figure><a class="quote-social-chiaro" href="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-chiaro.png?v=7f00c4a41ea0"><img src="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-chiaro.png?v=7f00c4a41ea0" alt="«Nessuna bestia ha mai uguagliato l&#x27;arte immensa, straordinariamente fantasiosa dell&#x27;odio umano.» — Arundhati Roy, Il dio delle piccole cose (1997). Grafica Sottolineature, versione chiara." width="1080" height="1350" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-scuro.png?v=0e75f3b28876"><img src="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-scuro.png?v=0e75f3b28876" alt="«Nessuna bestia ha mai uguagliato l&#x27;arte immensa, straordinariamente fantasiosa dell&#x27;odio umano.» — Arundhati Roy, Il dio delle piccole cose (1997). Grafica Sottolineature, versione scura." width="1080" height="1350" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo 12, «Kochu Thomban»</figcaption></figure>
+    <figure><a class="quote-social-chiaro" href="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-chiaro.png?v=5fa9c82fbd6a"><img src="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-chiaro.png?v=5fa9c82fbd6a" alt="«Nessuna bestia ha mai uguagliato l&#x27;arte immensa, straordinariamente fantasiosa dell&#x27;odio umano.» — Arundhati Roy, Il dio delle piccole cose (1997). Grafica Sottolineature, versione chiara." width="1080" height="1920" loading="lazy" decoding="async"></a><a class="quote-social-scuro" href="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-scuro.png?v=6a290875cfc6"><img src="/assets/social/arundhati-roy-il-dio-delle-piccole-cose-scuro.png?v=6a290875cfc6" alt="«Nessuna bestia ha mai uguagliato l&#x27;arte immensa, straordinariamente fantasiosa dell&#x27;odio umano.» — Arundhati Roy, Il dio delle piccole cose (1997). Grafica Sottolineature, versione scura." width="1080" height="1920" loading="lazy" decoding="async"></a><figcaption class="sans">Grafica Sottolineature · capitolo 12, «Kochu Thomban»</figcaption></figure>
   </section>
   <div class="quote-note sans" id="quoteNote" hidden>
     <label class="visually-hidden" for="quoteNoteField">La tua nota su questa citazione</label>
