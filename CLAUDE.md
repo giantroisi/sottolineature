@@ -56,6 +56,31 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-12.
 
 ### Fatto
+- **Secondo lotto: altre 20 citazioni affiliate (2026-10-12).** Cinque nuove
+  edizioni italiane cartacee Prime verificate oggi su Amazon e con il
+  Controllo Link ufficiale: Orlando furioso (6 citazioni, ASIN 8817070513),
+  Il Profeta (5, 8807882701), Il vecchio e il mare (3, 8804734450), Il giovane
+  Holden (3, 8806218182), L'insostenibile leggerezza dell'essere (3, 8845906868).
+  Scelti testi completi, non selezioni, riassunti o adattamenti; per Ariosto
+  scartate due offerte non Prime. Prime e' una disponibilita' datata, non
+  una promessa futura. Crediti commerciali separati dalle fonti originali:
+  Brambilla, Pareschi e Colombo non sostituiscono i traduttori delle citazioni.
+  Per Kundera seguito il credito Giuseppe Dierna dell'editore Adelphi, senza
+  duplicare i nomi della byline Amazon. ISBN Ariosto/Gibran/Kundera riscontrati
+  sui cataloghi degli editori; omessi i conteggi pagine Ariosto/Kundera per
+  discordanza fra le schede. Prime 123 edizioni e Tracking ID invariati;
+  totali 128 edizioni, 316 citazioni affiliate (prima 296), 50 opere affiliate
+  e 842 pulsanti (prima 793). Rigenerati soltanto 30 HTML: 20 citazioni, tre
+  opere, cinque autori e schede acquisto raccolte Fiori/Pace determinate dal
+  selettore preesistente. Confronto integrale normalizzato: contenuti,
+  fonti, link editoriali, metadati, canonical/OG/JSON-LD e immagini invariati;
+  sitemap, script e redirect intatti. 55 test superati, due build complete
+  identiche (1.314 HTML/1.312 URL, zero errori strutturali/JSON-LD); nessuna
+  risorsa Amazon incorporata, prezzo, widget o nuovo script. Tutte le 30
+  pagine in anteprima a 390x844/1280x900 chiaro/scuro: 120 casi superati,
+  zero overflow/errori console, pulsanti almeno 44 px e footer invariato.
+  Pubblicazione selettiva e controlli live da completare; ramo locale con
+  29 citazioni/profili sospesi preservato e non incluso nel deploy.
 - **Affiliazioni su altre 20 citazioni (2026-10-12).** Verificate quattro
   edizioni italiane cartacee con Prime e relativi URL tramite Controllo Link
   ufficiale Amazon: Jane Eyre (6 citazioni, ASIN 8807900777), Il fu Mattia

@@ -25,7 +25,7 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 123)
+        self.assertEqual(len(editions), 128)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
         self.assertEqual([item['author'] for item in exceptions],
@@ -135,7 +135,7 @@ class AffiliateTests(unittest.TestCase):
                             for item in additions))
 
     def test_october_12_batch_adds_exactly_twenty_quote_pages(self):
-        additions = self.config['edizioni'][119:]
+        additions = self.config['edizioni'][119:123]
         expected = {
             ('Charlotte Brontë', 'Jane Eyre'): ('8807900777', 6),
             ('Luigi Pirandello', 'Il fu Mattia Pascal'): ('8807900386', 6),
@@ -171,6 +171,45 @@ class AffiliateTests(unittest.TestCase):
         self.assertIn('versione del 1892', edition['edition_note'])
         self.assertNotIn('8854168106', edition['amazon_url'])
         self.assertNotIn('8804671416', edition['amazon_url'])
+
+    def test_october_12_second_batch_adds_twenty_previously_unselected_quotes(self):
+        additions = self.config['edizioni'][123:]
+        expected = {
+            ('Ludovico Ariosto', 'Orlando furioso'): ('8817070513', 6),
+            ('Khalil Gibran', 'Il Profeta'): ('8807882701', 5),
+            ('Ernest Hemingway', 'Il vecchio e il mare'): ('8804734450', 3),
+            ('J.D. Salinger', 'Il giovane Holden'): ('8806218182', 3),
+            ('Milan Kundera', "L'insostenibile leggerezza dell'essere"): ('8845906868', 3),
+        }
+        self.assertEqual(len(additions), 5)
+        previous = dict(self.config, edizioni=self.config['edizioni'][:123])
+        added = []
+        for edition in additions:
+            key = (edition['author'], edition['title'])
+            self.assertIn(key, expected)
+            asin, count = expected[key]
+            self.assertEqual(edition['asin'], asin)
+            self.assertTrue(edition['amazon_edition_verified'])
+            self.assertTrue(edition['prime_verified'])
+            self.assertEqual(edition['format'], 'Copertina flessibile')
+            self.assertEqual(edition['verified_on'], '2026-10-12')
+            self.assertEqual(edition['link_checker_verified_on'], '2026-10-12')
+            quotes = [q for q in self.quotes if (q['author'], q['title']) == key]
+            self.assertEqual(len(quotes), count)
+            for quote in quotes:
+                self.assertEqual(affiliate.render_amazon_button(quote, previous), '')
+                self.assertIn(edition['amazon_url'], affiliate.render_amazon_button(quote, self.config))
+            added.extend(quotes)
+        self.assertEqual(len(added), 20)
+
+    def test_kundera_translator_credit_follows_publisher_without_duplicate_names(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Milan Kundera', 'title': "L'insostenibile leggerezza dell'essere"}, self.config)
+        self.assertEqual(edition['contributors'], [
+            {'name': 'Milan Kundera', 'role': 'Autore'},
+            {'name': 'Giuseppe Dierna', 'role': 'Traduttore'},
+        ])
+        self.assertEqual(edition['bibliographic_source_url'], 'https://www.adelphi.it/libro/9788845906862')
 
     def test_collection_never_recommends_a_work_absent_from_its_quotes(self):
         unrelated = {'author': 'Albert Camus', 'title': 'Lo straniero'}
