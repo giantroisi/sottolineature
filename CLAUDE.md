@@ -56,7 +56,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-12.
 
 ### Fatto
-- **Terzo lotto: altre 20 citazioni affiliate verificate (2026-10-12).**
+- **Terzo lotto: altre 20 citazioni affiliate pubblicate (2026-10-12).**
   Sei edizioni italiane cartacee Prime oggi: Marco Aurelio/Colloqui (4),
   Agostino/Confessioni (4), Boccaccio/Decameron (3), Seneca/Lettere (3),
   Baudelaire/Fiori del male (3), Miller/Circe (3). URL confermati dal
@@ -67,8 +67,12 @@ Aggiornata: 2026-10-12.
   metadati, link editoriali, immagini, script, redirect e sitemap invariati.
   57 test, doppia build idempotente, zero errori link/JSON-LD; 132 casi
   browser a 390x844/1280x900 chiaro/scuro, zero overflow/errori console.
-  Pubblicazione selettiva e verifica live da completare; nessun contenuto
-  sospeso incluso. Prime verificato alla data del controllo, non garantito.
+  Commit 92a8ce6b pubblicato, deploy dpl_A6X6FCXCXcxLmGEN3m3FpDjiVFi9
+  Ready (24 s), alias canonico assegnato. 33 HTML live byte-identici e altri
+  132 casi browser live superati; home conserva 883 schede anche al resize,
+  sette sitemap/quattro pagine di servizio intatte e www 308 conserva query.
+  Screenshot mobile salvato. Log runtime/drains non esaminati; 29 testi e
+  profili sospesi esclusi. Prime verificato oggi, non garantito per il futuro.
 - **Secondo lotto: altre 20 citazioni affiliate (2026-10-12).** Cinque nuove
   edizioni italiane cartacee Prime verificate oggi su Amazon e con il
   Controllo Link ufficiale: Orlando furioso (6 citazioni, ASIN 8817070513),
