@@ -75,8 +75,17 @@ Aggiornata: 2026-10-12.
   strutturali/JSON-LD e nessuna risorsa Amazon incorporata. Browser anteprima:
   tutte le 30 pagine a 390x844/1280x900 chiaro/scuro (120 casi), zero overflow
   ed errori console, pulsanti da almeno 44 px e dichiarazione nel footer.
-  Pubblicazione selettiva e verifica produzione da completare; ramo locale
-  con 29 citazioni e profili sospesi escluso, nessun nuovo contenuto editoriale.
+  Pubblicato selettivamente `9f63eb38` su main, deploy produzione
+  `dpl_6JkX7ZwTsVDPJ3sSUzQvXNLsWgYJ` Ready in 44 secondi, alias
+  sottolineature.it assegnato. Tutti i 30 HTML live byte-identici al checkout;
+  altre 120 aperture browser live nei due temi a 390x844/1280x900 superate,
+  zero overflow/errori console. Home conserva 883 schede e larghezza corretta
+  anche dopo desktop-mobile senza reload. Sette sitemap e quattro pagine
+  di servizio byte-identiche, 1.312 URL/883 citazioni/1.766 immagini social
+  delle citazioni. www home/percorso interno 308 conserva query. Screenshot
+  mobile live salvato; log runtime Vercel non esaminati, verifica diretta
+  completata. Ramo locale con 29 citazioni/profili sospesi escluso, nessun
+  nuovo contenuto editoriale o richiesta di indicizzazione.
 - **Griglia home mobile al ridimensionamento (2026-10-12).** Autorizzata la
   pubblicazione selettiva della regola `.grid .grid-col { width: 100%; }`
   soltanto sotto i 700 px. Impedisce che la colonna mantenga i 492 px desktop
