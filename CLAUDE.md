@@ -56,6 +56,19 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-12.
 
 ### Fatto
+- **Griglia home mobile al ridimensionamento (2026-10-12).** Autorizzata la
+  pubblicazione selettiva della regola `.grid .grid-col { width: 100%; }`
+  soltanto sotto i 700 px. Impedisce che la colonna mantenga i 492 px desktop
+  quando la finestra passa a 390 px senza ricaricare la pagina: ora misura
+  334 px e il documento resta largo 390 px anziche' 520. Nuovo test mirato;
+  51 test superati, build completa con 1.314 HTML/1.312 URL, zero problemi
+  link/JSON-LD. Anteprima nei due temi: 16 ridimensionamenti senza reload,
+  tutte le 883 schede, ricerca Leopardi (5 risultati), stato vuoto e reset
+  verificati, nessun overflow o errore console. Diff generato: solo 37 byte
+  aggiunti alla home; sitemap, contenuti, immagini, script e affiliazioni
+  invariati. Conservati i due commit dei redirect gia' pubblicati tramite
+  avanzamento lineare a `baded73b`; nessun merge del ramo locale sospeso.
+  Pubblicazione e verifica live da completare.
 - **Redirect Pessoa e guardie generali pubblicati e verificati
   (2026-10-12).** La sorgente storica
   `/citazioni/fernando-pessoa-il-libro-dell-inquietudine/` punta ora direttamente
