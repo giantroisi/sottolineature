@@ -56,6 +56,21 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-12.
 
 ### Fatto
+- **Redirect Pessoa e guardie generali preparati in locale, non pubblicati
+  (2026-10-12).** La sorgente storica
+  `/citazioni/fernando-pessoa-il-libro-dell-inquietudine/` punta ora direttamente
+  a `/autori/fernando-pessoa/`; il redirect intermedio da Tabacaria all'autore
+  resta, ma la catena a due salti e' eliminata. Prima di scrivere `vercel.json`,
+  il build controlla ora tutti i tipi di pagina pubblica, non soltanto gli slug
+  delle citazioni: fallisce se una sorgente di redirect coincide con un HTML
+  servito, se una sorgente e' duplicata o se la destinazione apre un'altra
+  catena, mostrando il percorso completo. Quattro nuovi test coprono URL puliti,
+  collisione, catena e caso valido; 50 test complessivi superati. Due build
+  complete consecutive hanno prodotto lo stesso diff e gli stessi artefatti:
+  1.314 HTML/1.312 URL, zero problemi link e JSON-LD. Il lotto e' circoscritto
+  a `tools/redirects.json`, `tools/build.py`, il nuovo validatore/test e il
+  `vercel.json` generato. Nessun contenuto, affiliazione, sitemap o immagine e'
+  cambiato; nessun push o deploy finche' il proprietario non approva.
 - **Accabadora e immagini Storia (2026-10-12).** Autorizzata la correzione:
   l'incipit Fillus de anima ha URL /citazioni/michela-murgia-accabadora-fillus-de-anima/;
   conservato il redirect storico /citazioni/michela-murgia-accabadora/ a Chiru'.
@@ -1184,6 +1199,10 @@ partire da una keyword senza il contenuto che la giustifica.
 - Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
+- **Pubblicazione guardie redirect, 2026-10-12:** dopo l'approvazione del
+  proprietario, committare e pubblicare il lotto locale descritto sopra; poi
+  verificare in produzione che il vecchio URL del Libro dell'inquietudine arrivi
+  all'autore Pessoa con un solo 308 e che Tabacaria continui a reindirizzare.
 - **Affiliazione Herbert, 2026-10-08:** Un barbaro nel giardino resta senza link.
   La ricerca Amazon per autore/titolo e per solo titolo non ha restituito
   l'opera italiana; il risultato Barbari nel giardino e' un altro libro.

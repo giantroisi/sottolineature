@@ -25,6 +25,7 @@ import generate_feed as feed  # noqa: E402
 import generate_404 as nf  # noqa: E402
 import affiliate  # noqa: E402
 import social_images
+import redirect_validation
 
 
 HOST_REDIRECTS = [
@@ -311,6 +312,10 @@ def main():
         f.write('</sitemapindex>\n')
 
     redirects = qp.load_redirects()
+    try:
+        redirect_validation.validate_redirects(redirects, qp.ROOT)
+    except ValueError as error:
+        raise SystemExit('ERRORE: ' + str(error)) from error
     vercel_path = write_vercel_json(redirects)
 
     og_generated, og_skipped, og_stray = og.generate(qp_entries)
