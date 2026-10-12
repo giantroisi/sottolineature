@@ -68,7 +68,16 @@ Aggiornata: 2026-10-12.
   aggiunti alla home; sitemap, contenuti, immagini, script e affiliazioni
   invariati. Conservati i due commit dei redirect gia' pubblicati tramite
   avanzamento lineare a `baded73b`; nessun merge del ramo locale sospeso.
-  Pubblicazione e verifica live da completare.
+  Pubblicato `606ab33d` su main: deploy `dpl_C1dyokr2Qx2Bvx25xQaxnbLroFZw`
+  Ready (49 secondi di build dopo l'attesa iniziale), alias canonico assegnato.
+  Browser live: tutti i 16 ridimensionamenti senza reload e ricerca/reset
+  superati, 883 schede e nessun overflow/errori console. Affiliazioni, Privacy,
+  Note legali e una citazione provate a 390x844/1280x900 nei due temi: altri
+  16 casi corretti, H1/landmark/canonical/JSON-LD validi. Clic reali sui tre
+  collegamenti del footer superati. Home, quattro pagine, script e sette
+  sitemap byte-identici al checkout; home 153.055 byte (prima 153.018).
+  www e dominio Vercel mantengono 308, percorso e query. Screenshot mobile
+  salvato; dettagli log Vercel non accessibili, verifica diretta completata.
 - **Redirect Pessoa e guardie generali pubblicati e verificati
   (2026-10-12).** La sorgente storica
   `/citazioni/fernando-pessoa-il-libro-dell-inquietudine/` punta ora direttamente
