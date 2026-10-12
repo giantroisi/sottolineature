@@ -25,7 +25,7 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 119)
+        self.assertEqual(len(editions), 123)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
         self.assertEqual([item['author'] for item in exceptions],
@@ -129,10 +129,48 @@ class AffiliateTests(unittest.TestCase):
         self.assertIn('Inferno', edition['amazon_title'])
 
     def test_new_editions_were_checked_with_official_amazon_tool(self):
-        additions = self.config['edizioni'][5:]
+        additions = self.config['edizioni'][5:119]
         self.assertEqual(len(additions), 114)
         self.assertTrue(all(item['link_checker_verified_on'] == '2026-10-08'
                             for item in additions))
+
+    def test_october_12_batch_adds_exactly_twenty_quote_pages(self):
+        additions = self.config['edizioni'][119:]
+        expected = {
+            ('Charlotte Brontë', 'Jane Eyre'): ('8807900777', 6),
+            ('Luigi Pirandello', 'Il fu Mattia Pascal'): ('8807900386', 6),
+            ('Anne Frank', 'Diario'): ('8806219286', 4),
+            ('Walt Whitman', "Foglie d'erba"): ('880623000X', 4),
+        }
+        self.assertEqual(len(additions), 4)
+        previous = dict(self.config, edizioni=self.config['edizioni'][:119])
+        added_pages = []
+        for edition in additions:
+            key = (edition['author'], edition['title'])
+            self.assertIn(key, expected)
+            asin, count = expected[key]
+            self.assertEqual(edition['asin'], asin)
+            self.assertTrue(edition['prime_verified'])
+            self.assertEqual(edition['format'], 'Copertina flessibile')
+            self.assertEqual(edition['verified_on'], '2026-10-12')
+            self.assertEqual(edition['link_checker_verified_on'], '2026-10-12')
+            quotes = [quote for quote in self.quotes
+                      if (quote['author'], quote['title']) == key]
+            self.assertEqual(len(quotes), count)
+            for quote in quotes:
+                self.assertEqual(affiliate.render_amazon_link(quote, previous), '')
+                self.assertIn(edition['amazon_url'],
+                              affiliate.render_amazon_link(quote, self.config))
+                added_pages.append(quote)
+        self.assertEqual(len(added_pages), 20)
+
+    def test_whitman_purchase_volume_includes_poems_after_1856(self):
+        edition = affiliate.edition_for_record(
+            {'author': 'Walt Whitman', 'title': "Foglie d'erba"}, self.config)
+        self.assertEqual(edition['asin'], '880623000X')
+        self.assertIn('versione del 1892', edition['edition_note'])
+        self.assertNotIn('8854168106', edition['amazon_url'])
+        self.assertNotIn('8804671416', edition['amazon_url'])
 
     def test_collection_never_recommends_a_work_absent_from_its_quotes(self):
         unrelated = {'author': 'Albert Camus', 'title': 'Lo straniero'}

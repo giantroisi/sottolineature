@@ -56,6 +56,27 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-12.
 
 ### Fatto
+- **Affiliazioni su altre 20 citazioni (2026-10-12).** Verificate quattro
+  edizioni italiane cartacee con Prime e relativi URL tramite Controllo Link
+  ufficiale Amazon: Jane Eyre (6 citazioni, ASIN 8807900777), Il fu Mattia
+  Pascal (6, 8807900386), Diario di Anne Frank (4, 8806219286), Foglie d'erba
+  (4, 880623000X). La disponibilita' Prime e' una verifica datata, non una
+  promessa permanente. Per Whitman scartate la selezione Mondadori e la
+  versione Newton 1856: non garantiscono i quattro componimenti, incluso
+  O Capitano! Mio Capitano!; scelta Einaudi nella versione 1892. Fonti delle
+  citazioni separate dalle edizioni commerciali e conservate integralmente.
+  Prime 119 edizioni e Tracking ID invariati; ora 123 opere, 296 pagine
+  citazione affiliate (prima 276) e 793 pulsanti (prima 745). Rigenerati solo
+  30 HTML: 20 citazioni, quattro opere, quattro autori e le due schede di
+  acquisto raccolte Morte/Natura determinate dal selettore gia' esistente.
+  Nessun testo, fonte, metadato, canonical, JSON-LD, link editoriale, immagine,
+  script o sitemap cambiato, confermato dal confronto normalizzato integrale.
+  53 test superati e due build idempotenti: 1.314 HTML/1.312 URL, zero errori
+  strutturali/JSON-LD e nessuna risorsa Amazon incorporata. Browser anteprima:
+  tutte le 30 pagine a 390x844/1280x900 chiaro/scuro (120 casi), zero overflow
+  ed errori console, pulsanti da almeno 44 px e dichiarazione nel footer.
+  Pubblicazione selettiva e verifica produzione da completare; ramo locale
+  con 29 citazioni e profili sospesi escluso, nessun nuovo contenuto editoriale.
 - **Griglia home mobile al ridimensionamento (2026-10-12).** Autorizzata la
   pubblicazione selettiva della regola `.grid .grid-col { width: 100%; }`
   soltanto sotto i 700 px. Impedisce che la colonna mantenga i 492 px desktop

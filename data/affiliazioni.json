@@ -2270,6 +2270,63 @@
       "edition_note": "Salani, 2020; italiano, 224 pagine; testo cartaceo illustrato da Ilon Wikland e tradotto da Fiorella Onesti, non Kindle o CD audio",
       "verified_on": "2026-10-08",
       "link_checker_verified_on": "2026-10-08"
+    },
+    {
+      "author": "Charlotte Brontë",
+      "title": "Jane Eyre",
+      "asin": "8807900777",
+      "amazon_title": "Jane Eyre",
+      "contributors": [{"name": "Charlotte Brontë", "role": "Autore"}, {"name": "Stella Sacchini", "role": "Traduttrice"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900777/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, ristampa indicata da Amazon del 2022; italiano, 608 pagine; ISBN 9788807900778, traduzione di Stella Sacchini verificata presso l'editore. Edizione proposta distinta dalla Fratelli Treves 1904 usata nelle fonti delle citazioni",
+      "bibliographic_source_url": "https://www.feltrinellieditore.it/opera/jane-eyre/",
+      "verified_on": "2026-10-12",
+      "link_checker_verified_on": "2026-10-12"
+    },
+    {
+      "author": "Luigi Pirandello",
+      "title": "Il fu Mattia Pascal",
+      "asin": "8807900386",
+      "amazon_title": "Il fu Mattia Pascal",
+      "contributors": [{"name": "Luigi Pirandello", "role": "Autore"}, {"name": "A. Gagliardi", "role": "Curatore"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8807900386/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Feltrinelli, 2013; italiano, 288 pagine; ISBN 9788807900389, romanzo a cura di A. Gagliardi, non riassunto o commento scolastico. Riferimenti alla fonte storica del 1919 conservati nelle citazioni",
+      "verified_on": "2026-10-12",
+      "link_checker_verified_on": "2026-10-12"
+    },
+    {
+      "author": "Anne Frank",
+      "title": "Diario",
+      "asin": "8806219286",
+      "amazon_title": "Diario",
+      "contributors": [{"name": "Anne Frank", "role": "Autore"}, {"name": "Otto Frank", "role": "Curatore"}, {"name": "Mirjam Pressler", "role": "Curatrice"}, {"name": "Frediano Sessi", "role": "Curatore"}, {"name": "Laura Pignatti", "role": "Traduttrice"}, {"name": "Natalia Ginzburg", "role": "Prefazione"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806219286/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2014; italiano, 388 pagine; ISBN 9788806219284, edizione integrale con traduzione di Laura Pignatti e prefazione di Natalia Ginzburg. Edizione proposta distinta dalla traduzione di Arrigo Vita, Mondadori 1966, indicata nelle fonti delle citazioni",
+      "verified_on": "2026-10-12",
+      "link_checker_verified_on": "2026-10-12"
+    },
+    {
+      "author": "Walt Whitman",
+      "title": "Foglie d'erba",
+      "asin": "880623000X",
+      "amazon_title": "Foglie d'erba",
+      "contributors": [{"name": "Walt Whitman", "role": "Autore"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/880623000X/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2016; italiano, 752 pagine; ISBN 9788806230005, raccolta nella versione del 1892, non una selezione e non la seconda versione del 1856, che esclude O Capitano! Mio Capitano! del 1865. Riportato soltanto il credito autore verificato nella scheda Amazon; i crediti della fonte delle citazioni restano separati e invariati",
+      "verified_on": "2026-10-12",
+      "link_checker_verified_on": "2026-10-12"
     }
   ]
 }
