@@ -79,8 +79,17 @@ Aggiornata: 2026-10-12.
   risorsa Amazon incorporata, prezzo, widget o nuovo script. Tutte le 30
   pagine in anteprima a 390x844/1280x900 chiaro/scuro: 120 casi superati,
   zero overflow/errori console, pulsanti almeno 44 px e footer invariato.
-  Pubblicazione selettiva e controlli live da completare; ramo locale con
-  29 citazioni/profili sospesi preservato e non incluso nel deploy.
+  Pubblicato selettivamente `bee5b4d9` su main, deploy produzione
+  `dpl_FQPZKk97Jm5wKTyooUxENSkMXoWf` Ready (69 secondi di build), alias
+  sottolineature.it assegnato. Tutti i 30 HTML live byte-identici; altre
+  120 aperture nei due temi a 390x844/1280x900 senza overflow/errori console.
+  Home 883 schede, anche dopo desktop-mobile senza reload. Sette sitemap,
+  home e quattro pagine di servizio byte-identiche, 1.312 URL e 1.766 immagini
+  social delle citazioni. www home/percorso interno 308 con query conservata.
+  Screenshot mobile live salvato; log Vercel e drains non esaminati, verifiche
+  HTTPS/browser dirette completate. Primo audit HTTPS bloccato dal DNS del
+  sandbox: ripetuto con accesso rete autorizzato e TLS intatto, tutto superato.
+  Ramo locale con 29 citazioni/profili sospesi preservato e fuori dal deploy.
 - **Affiliazioni su altre 20 citazioni (2026-10-12).** Verificate quattro
   edizioni italiane cartacee con Prime e relativi URL tramite Controllo Link
   ufficiale Amazon: Jane Eyre (6 citazioni, ASIN 8807900777), Il fu Mattia
