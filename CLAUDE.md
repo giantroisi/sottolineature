@@ -78,8 +78,15 @@ Aggiornata: 2026-10-12.
   (72 casi), zero overflow/errori console, home 883, immagini 1080x1920 caricate.
   Confronto integrale: solo grafica, migrazione note, URL Accabadora e finestra
   correlate della nuova pagina; dati editoriali, 745 pulsanti/119 edizioni Amazon,
-  Tracking ID, CSS/nav/share.js e tutti i redirect byte-invariati. Pubblicazione
-  e verifica live da completare. Correzione riportata anche nel ramo locale,
+  Tracking ID, CSS/nav/share.js e tutti i redirect byte-invariati. Pubblicato
+  il commit 2d87c066: deploy dpl_BDdG5YqTkRT74bT3Qa8yNrzUaGmx Ready (58s).
+  Verifica HTTPS di 1.068 pagine, 745 pulsanti e tutti i 1.766 PNG: corrispondenza
+  completa con il checkout, canonical/OG/JSON-LD e sitemap validi; nuovo URL
+  Accabadora raggiungibile dalla pagina autore, vecchio URL 308 a Chiru',
+  www 308 con percorso/query preservati. Browser live 72 casi sulle stesse
+  18 pagine e nei due temi: zero overflow/errori console, home con 883 citazioni;
+  nessun errore restituito dalla lettura limitata dei log Vercel.
+  Correzione riportata anche nel ramo locale,
   con build 1.363 HTML/1.361 URL e 18 test: pilota Dante in Storia soltanto,
   29 citazioni e profili Allende/D'Annunzio sospesi preservati e non pubblicati.
 - **Immagini social su tutte le citazioni pubblicate (2026-10-12).** Esteso il
@@ -1177,10 +1184,6 @@ partire da una keyword senza il contenuto che la giustifica.
 - Pagine autore per Sarah J. Maas / Leigh Bardugo: da considerare una volta aggiunte le loro citazioni
 
 ### Da fare
-- **Accabadora / Storia:** correzione autorizzata e testata, pubblicazione e
-  verifica live ancora da completare. URL nuovo distinto e redirect storico
-  preservato; guardia anti-collisione e riallineamento delle note implementati.
-
 - **Affiliazione Herbert, 2026-10-08:** Un barbaro nel giardino resta senza link.
   La ricerca Amazon per autore/titolo e per solo titolo non ha restituito
   l'opera italiana; il risultato Barbari nel giardino e' un altro libro.
