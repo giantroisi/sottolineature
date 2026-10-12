@@ -25,7 +25,7 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 128)
+        self.assertEqual(len(editions), 134)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
         self.assertEqual([item['author'] for item in exceptions],
@@ -173,7 +173,7 @@ class AffiliateTests(unittest.TestCase):
         self.assertNotIn('8804671416', edition['amazon_url'])
 
     def test_october_12_second_batch_adds_twenty_previously_unselected_quotes(self):
-        additions = self.config['edizioni'][123:]
+        additions = self.config['edizioni'][123:128]
         expected = {
             ('Ludovico Ariosto', 'Orlando furioso'): ('8817070513', 6),
             ('Khalil Gibran', 'Il Profeta'): ('8807882701', 5),
@@ -201,6 +201,45 @@ class AffiliateTests(unittest.TestCase):
                 self.assertIn(edition['amazon_url'], affiliate.render_amazon_button(quote, self.config))
             added.extend(quotes)
         self.assertEqual(len(added), 20)
+
+    def test_october_12_third_batch_adds_twenty_previously_unselected_quotes(self):
+        additions = self.config['edizioni'][128:134]
+        expected = {
+            ('Marco Aurelio', 'Colloqui con sé stesso'): ('8844072629', 4),
+            ("Sant'Agostino", 'Confessioni'): ('8806225650', 4),
+            ('Giovanni Boccaccio', 'Decameron'): ('8817063266', 3),
+            ('Seneca', 'Lettere a Lucilio'): ('886311532X', 3),
+            ('Charles Baudelaire', 'I fiori del male'): ('8806221906', 3),
+            ('Madeline Miller', 'Circe'): ('8829705322', 3),
+        }
+        self.assertEqual(len(additions), len(expected))
+        previous = dict(self.config, edizioni=self.config['edizioni'][:128])
+        added = []
+        for edition in additions:
+            key = (edition['author'], edition['title'])
+            self.assertIn(key, expected)
+            asin, count = expected[key]
+            self.assertEqual(edition['asin'], asin)
+            self.assertTrue(edition['amazon_edition_verified'])
+            self.assertTrue(edition['prime_verified'])
+            self.assertEqual(edition['format'], 'Copertina flessibile')
+            self.assertEqual(edition['verified_on'], '2026-10-12')
+            self.assertEqual(edition['link_checker_verified_on'], '2026-10-12')
+            quotes = [q for q in self.quotes if (q['author'], q['title']) == key]
+            self.assertEqual(len(quotes), count)
+            for quote in quotes:
+                self.assertEqual(affiliate.render_amazon_link(quote, previous), '')
+                self.assertIn(edition['amazon_url'], affiliate.render_amazon_link(quote, self.config))
+            added.extend(quotes)
+        self.assertEqual(len(added), 20)
+
+    def test_third_batch_purchase_translators_do_not_overwrite_quote_sources(self):
+        editions = affiliate.validated_editions(self.config)
+        self.assertIn('Luca Civitavecchia', str(editions[('Marco Aurelio', 'Colloqui con sé stesso')]['contributors']))
+        self.assertIn('Giovanni Raboni', str(editions[('Charles Baudelaire', 'I fiori del male')]['contributors']))
+        translators = {q.get('source_translator') for q in self.quotes
+                       if (q['author'], q['title']) == ('Charles Baudelaire', 'I fiori del male')}
+        self.assertEqual(translators, {'Attilio Bertolucci', 'Claudio Rendina'})
 
     def test_kundera_translator_credit_follows_publisher_without_duplicate_names(self):
         edition = affiliate.edition_for_record(
