@@ -56,7 +56,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-19.
 
 ### Fatto
-- **Lotto Alda Merini autorizzato e isolato per la pubblicazione (2026-10-19).**
+- **Lotto Alda Merini pubblicato e verificato (2026-10-19).**
   Riportata solo la biografia del commit locale 346e1cee: da 59 a 103 parole,
   dato sorgente e unico HTML autore (+274 byte), mantenendo il template pubblico.
   Ramo pubblico pulito e identico a origin/main 420dcee0 prima dell'intervento;
@@ -66,8 +66,19 @@ Aggiornata: 2026-10-19.
   URL, metadato, data, sitemap, immagine e affiliazione invariata. Build su
   copia temporanea: 1.314 HTML/1.312 URL, zero problemi link/JSON-LD, 57 test;
   quattro casi browser a 390x844/1280x900 chiaro/scuro, nessun overflow/errore.
-  Pubblicazione autorizzata dal proprietario nella chat di coordinamento;
-  esito produzione da registrare dopo deploy e verifiche pubbliche.
+  Pubblicato il solo commit 6130d52f, deploy produzione
+  dpl_6RT9LUo5BVC9Sh6dDGKLWpTh4UhL Ready (17 s di build), alias canonico;
+  metadati Vercel confermano progetto e SHA esatti. Pagina e 22 contenuti
+  protetti campione live byte-identici al commit: sette sitemap piu' indice,
+  home, quattro citazioni Merini, Sapienza, pagine di servizio, script e foto.
+  Altri quattro casi browser live nei due temi alle stesse dimensioni: zero
+  overflow/errori console, canonical/H1/landmark/JSON-LD corretti. Collegamento
+  autore-citazione funzionante, ricerca Merini 4, stato vuoto e reset 883;
+  www e Vercel 308 con percorso/query preservati. Screenshot mobile live
+  salvato; nessun Amazon attivato o modificato, nessun contenuto sospeso
+  incluso. Registrazione finale locale senza secondo push/deploy.
+  Lettura errori runtime 17:45:41–17:50:41 UTC: zero record restituiti;
+  finestra 1h non disponibile sul piano, drains non esaminati.
 - **Terzo lotto: altre 20 citazioni affiliate pubblicate (2026-10-12).**
   Sei edizioni italiane cartacee Prime oggi: Marco Aurelio/Colloqui (4),
   Agostino/Confessioni (4), Boccaccio/Decameron (3), Seneca/Lettere (3),
