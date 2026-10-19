@@ -53,9 +53,21 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-10-12.
+Aggiornata: 2026-10-19.
 
 ### Fatto
+- **Lotto Alda Merini autorizzato e isolato per la pubblicazione (2026-10-19).**
+  Riportata solo la biografia del commit locale 346e1cee: da 59 a 103 parole,
+  dato sorgente e unico HTML autore (+274 byte), mantenendo il template pubblico.
+  Ramo pubblico pulito e identico a origin/main 420dcee0 prima dell'intervento;
+  pagina live byte-identica alla baseline prima della modifica. Nessun merge
+  del ramo locale: Sapienza, lavori SEO e 29 citazioni/profili sospesi esclusi.
+  Confronto normalizzato e dati JSON confermano ogni altra informazione,
+  URL, metadato, data, sitemap, immagine e affiliazione invariata. Build su
+  copia temporanea: 1.314 HTML/1.312 URL, zero problemi link/JSON-LD, 57 test;
+  quattro casi browser a 390x844/1280x900 chiaro/scuro, nessun overflow/errore.
+  Pubblicazione autorizzata dal proprietario nella chat di coordinamento;
+  esito produzione da registrare dopo deploy e verifiche pubbliche.
 - **Terzo lotto: altre 20 citazioni affiliate pubblicate (2026-10-12).**
   Sei edizioni italiane cartacee Prime oggi: Marco Aurelio/Colloqui (4),
   Agostino/Confessioni (4), Boccaccio/Decameron (3), Seneca/Lettere (3),
