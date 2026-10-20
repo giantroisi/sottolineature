@@ -34,7 +34,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Convenzioni tecniche
 
-- **Sito statico puro**: file già pronti serviti da Vercel così come sono, nessun build step lato server. Deploy automatico su push a `main` via integrazione Git di Vercel — **se non parte da sola** (è già successo), fare `npx vercel --prod` a mano.
+- **Sito statico puro e rilascio via PR**: file gia' pronti serviti da Vercel. Ogni modifica passa da un ramo e da una pull request verso main; il controllo obbligatorio `SEO safety` deve passare prima del merge. Vercel produce preview sui rami e produzione dal solo main dopo il merge. Non usare push diretto a main, auto-merge o `vercel --prod` per aggirare la PR. Procedura e limiti in `PROTEZIONE-PR.md`; se le protezioni esterne non sono state effettivamente verificate, non dichiararle attive.
 - **`data/citazioni.json` è la fonte di verità per le citazioni** (dal 2026-08-28, Fase 2 SEO): un array che preserva l'ordine di visualizzazione in home, un oggetto per citazione con `quote`, `author`, `title`, `year`, `context`, `cover`, `category`, `genre` (stringa vuota se assente), `added` (data `YYYY-MM-DD` o `null` se non ricostruibile con certezza). **Si edita quel file, mai `index.html` a mano.** Dopo ogni modifica (aggiunta/rimozione citazione, contesto, copertina, categoria, genere) **lanciare `python3 tools/build.py`**, che rigenera in ordine `index.html`, `citazioni/`, `temi/`, `generi/`, `autori/`, `assets/og/` e `sitemap.xml`. `index.html` è un file generato come gli altri: modificarlo a mano viene perso al giro successivo.
 - **`templates/home_template.html`** è la parte fissa della home (header, filtri, script, footer) — qui si tocca markup/stile/comportamento che non dipende dalla singola citazione. Contiene i placeholder `{{CARDS}}`, `{{COUNT}}` e `{{COUNT_WORDS}}` (il numero in lettere nel paragrafo introduttivo, calcolato da `tools/generate_home.py::italian_number_words`), sostituiti a ogni build.
 - **Il contesto (`card-context`) è pubblicato solo su `/citazioni/<slug>/`**, mai in home: la home mostra citazione, autore, titolo, anno e copertina ma non il contesto, per non competere con la pagina citazione sullo stesso testo (altrimenti Google vede due pagine con lo stesso contenuto e non sa quale preferire). Il contesto resta comunque nella fonte di verità (`data/citazioni.json`), da lì lo leggono sia `generate_quote_pages.py` (lo pubblica) sia `generate_home.py` (non lo pubblica).
@@ -54,6 +54,25 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 ## Roadmap
 
 Aggiornata: 2026-10-20.
+
+### Protezione PR semplificata — in verifica (2026-10-20)
+
+Su autorizzazione umana verificata nella chat di coordinamento, turno
+01a159c1-5069-7d12-a274-b4d616125b32 (seguo il tuo consiglio, procedi).
+Ramo tecnico separato codex/seo-pr-safety dalla base pubblica 29010e3e,
+nessun merge del controller complesso locale 4df543a2 o dei lavori sospesi.
+Controllo PR con guard pubblicato nella base, impatto esatto e manifest per
+HTML/sitemap, soglie 25 file/cinque HTML, date iniziali/slug immutabili,
+due build temporanee e suite completa. Eccezione soltanto con commento
+esplicito del proprietario, SHA/digest/motivo esatti registrati nei log.
+Nessuna App aggiuntiva, chiave privata o auto-approvazione. IndexNow manuale
+e confermato, solo main dopo PR unita e produzione Vercel riuscita; mai preview.
+Nessun URL inviato durante preparazione/test. Main va protetto con PR e check
+SEO safety standard GitHub Actions, amministratori inclusi; niente push forzati.
+Accesso amministratore e CLI GitHub gia' configurata verificati; protezione
+ancora da applicare e provare, non dichiarata attiva in questa fase.
+Scope solo workflow/guard/test/dipendenza/documentazione: tutti i contenuti,
+date, URL, canonical, sitemap, robots, redirect e Amazon restano invariati.
 
 ### Ultimo rilascio Amazon — pubblicato e verificato (2026-10-20)
 

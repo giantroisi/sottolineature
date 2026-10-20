@@ -1,75 +1,38 @@
-# Notifica a IndexNow (Bing, Yandex, Seznam...) gli URL cambiati a ogni deploy.
-#
-# Perche' un workflow e non tools/build.py: il build gira in ambienti senza
-# accesso a internet, quindi un ping da li' fallirebbe in silenzio. Qui gira
-# sull'infrastruttura di GitHub, che la rete ce l'ha.
-#
-# Google non usa IndexNow: per Google contano sitemap.xml e Search Console.
-name: IndexNow
-
+# No push/deployment/preview trigger. Manual owner confirmation only.
+name: IndexNow production (manual)
 on:
-  push:
-    branches: [main]
-
+  workflow_dispatch:
+    inputs:
+      production_sha:
+        description: Exact current main SHA already deployed successfully in production
+        required: true
+        type: string
+      urls_json:
+        description: Explicit JSON array of canonical sitemap URLs
+        required: true
+        type: string
+      confirm_submission:
+        description: I explicitly authorize submitting only these URLs now
+        required: true
+        default: false
+        type: boolean
+permissions:
+  contents: read
+  deployments: read
+  pull-requests: read
 jobs:
   notify:
-    runs-on: ubuntu-latest
+    if: github.actor == 'giantroisi' && github.ref == 'refs/heads/main' && inputs.confirm_submission
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          fetch-depth: 0
-
-      - name: Attende il deploy su Vercel
-        run: sleep 120
-
-      - name: Raccoglie gli URL delle pagine cambiate e le notifica
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verify main, merged PR, successful Vercel Production and exact sitemap URLs
         env:
-          INDEXNOW_KEY: 471381759dae4f3fbe0a6d769882507a
-          SITE: https://sottolineature.it
-          BEFORE: ${{ github.event.before }}
-          AFTER: ${{ github.sha }}
-        run: |
-          set -euo pipefail
-
-          # Solo le pagine html aggiunte o modificate da questo push.
-          # Confronta l'intero push, non solo l'ultimo commit: un push di 14
-          # commit deve notificare tutte le pagine toccate, non le ultime.
-          RANGE="HEAD~1 HEAD"
-          if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then RANGE="$BEFORE $AFTER"; fi
-          git diff --name-only --diff-filter=AM $RANGE \
-            | grep -E '\.html$' \
-            | grep -vE '^(404|templates/)' > changed.txt || true
-
-          if [ ! -s changed.txt ]; then
-            echo "Nessuna pagina cambiata: niente da notificare."
-            exit 0
-          fi
-
-          # path del file -> URL pubblico (cleanUrls + trailingSlash)
-          python3 - <<'PY' > payload.json
-          import json, os
-          site = os.environ['SITE']
-          urls = []
-          for line in open('changed.txt'):
-              p = line.strip()
-              if not p:
-                  continue
-              if p == 'index.html':
-                  urls.append(site + '/')
-              elif p.endswith('/index.html'):
-                  urls.append(site + '/' + p[:-len('index.html')])
-              else:
-                  urls.append(site + '/' + p[:-len('.html')] + '/')
-          urls = sorted(set(urls))[:10000]
-          print(json.dumps({
-              'host': 'sottolineature.it',
-              'key': os.environ['INDEXNOW_KEY'],
-              'keyLocation': site + '/' + os.environ['INDEXNOW_KEY'] + '.txt',
-              'urlList': urls,
-          }))
-          print(f'{len(urls)} URL notificati', file=__import__('sys').stderr)
-          PY
-
-          curl -sS -X POST https://api.indexnow.org/indexnow \
-            -H 'Content-Type: application/json; charset=utf-8' \
-            --data @payload.json -w '\nHTTP %{http_code}\n'
+          GH_TOKEN: ${{ github.token }}
+          PRODUCTION_SHA: ${{ inputs.production_sha }}
+          URLS_JSON: ${{ inputs.urls_json }}
+        run: python3 -I tools/indexnow_production.py --root "$GITHUB_WORKSPACE" --production-sha "$PRODUCTION_SHA" --urls-json "$URLS_JSON" --confirm
