@@ -1,0 +1,57 @@
+name: SEO safety
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  safety:
+    name: SEO safety
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Read owner exception comments (no writes)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          gh api --paginate --slurp "repos/giantroisi/sottolineature/issues/$PR_NUMBER/comments?per_page=100" > "$RUNNER_TEMP/owner-comments.json"
+      - name: Load published guard and locked dependency
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if git cat-file -e "$BASE:tools/ci_safety.py" 2>/dev/null; then
+            git show "$BASE:tools/ci_safety.py" > "$RUNNER_TEMP/ci_safety.py"
+            git show "$BASE:tools/ci-requirements.txt" > "$RUNNER_TEMP/ci-requirements.txt"
+          else
+            test "$BASE" = 29010e3e2b7c68f1a4f13bd11a55e961bd3054dc
+            cp tools/ci_safety.py "$RUNNER_TEMP/ci_safety.py"
+            cp tools/ci-requirements.txt "$RUNNER_TEMP/ci-requirements.txt"
+          fi
+          python3.12 -m venv "$RUNNER_TEMP/seo-venv"
+          "$RUNNER_TEMP/seo-venv/bin/python" -m pip --isolated install --require-hashes --only-binary=:all: -r "$RUNNER_TEMP/ci-requirements.txt"
+      - name: Exact impact, two builds and test suite
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+          PYTHONDONTWRITEBYTECODE: '1'
+        run: |
+          "$RUNNER_TEMP/seo-venv/bin/python" -I "$RUNNER_TEMP/ci_safety.py" --root "$GITHUB_WORKSPACE" --base "$BASE" --head "$HEAD" --comments "$RUNNER_TEMP/owner-comments.json" --report "$RUNNER_TEMP/seo-report.json"
+      - name: Record exact impact and any owner override
+        if: always()
+        run: |
+          node - <<'NODE'
+          const fs = require('node:fs');
+          const p = process.env.RUNNER_TEMP + '/seo-report.json';
+          if (fs.existsSync(p)) {
+            const r = JSON.parse(fs.readFileSync(p));
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '```json\n' + JSON.stringify(r,null,2) + '\n```\n');
+          }
+          NODE
