@@ -55,7 +55,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 Aggiornata: 2026-10-20.
 
-### Lotto Amazon autorizzato — verificato, pronto al rilascio (2026-10-20)
+### Ultimo rilascio Amazon — pubblicato e verificato (2026-10-20)
 
 Solo Dorian Gray e Norwegian Wood: sostituita la scheda Garzanti con
 Mondadori 2019, ASIN 8804710217, curatela Nicholas Frankel e traduzione
@@ -74,7 +74,13 @@ errori console; CTA, rel, target e disclosure invariati. Confronto integrale:
 solo blocchi commerciali, altri dati/fonti/HTML/datePublished/dateModified/
 lastmod/metadati/immagini/sitemap e home/calendario byte-invariati.
 Totali: 135 edizioni, 337 citazioni affiliate, 56 opere, 898 pulsanti.
-Pubblicazione autorizzata; esito produzione da verificare e registrare.
+Pubblicato commit 34a394cc51269ce6b650988cab2c00334ca3fb2a su main,
+deploy dpl_5QSpzCrbZuvmVKczW97aH1N4VFaa Ready, build 19 s e alias canonico.
+44 casi browser live superati, 26 risorse HTTPS byte-identiche e quattro
+redirect www/Vercel 308 conservano percorso/query. Home 883, clic autore
+e ritorno riusciti. Zero record errore restituiti nei cinque minuti letti,
+drains non esaminati. Screenshot mobile live salvato. Registri conclusivi
+locali nei due checkout, nessun secondo deploy o push del ramo sospeso.
 
 ### Fatto
 - **Scheda Goliarda Sapienza pubblicata e verificata (2026-10-20).**
