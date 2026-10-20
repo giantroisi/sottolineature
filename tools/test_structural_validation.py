@@ -16,7 +16,7 @@ import check_links as checker
 
 class StructuralValidationTests(unittest.TestCase):
     def setUp(self):
-        temporary = tempfile.TemporaryDirectory(prefix='sottolineature-seo-test-', dir='/private/tmp')
+        temporary = tempfile.TemporaryDirectory(prefix='sottolineature-seo-test-')
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
         root_patch = patch.object(checker, 'ROOT', str(self.root))

@@ -23,6 +23,7 @@ BOOTSTRAP_FILES = {
     '.github/workflows/seo-safety.yml', '.github/workflows/indexnow.yml',
     'tools/ci_safety.py', 'tools/test_ci_safety.py', 'tools/ci-requirements.txt',
     'tools/indexnow_production.py', 'tools/test_indexnow_production.py',
+    'tools/test_structural_validation.py',
     'PROTEZIONE-PR.md', 'CLAUDE.md', 'LOG.md'}
 
 
