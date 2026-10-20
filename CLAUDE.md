@@ -53,9 +53,24 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-10-19.
+Aggiornata: 2026-10-20.
 
 ### Fatto
+- **Controlli SEO autorizzati e verificati prima del rilascio (2026-10-20).**
+  Trasferito soltanto il validatore strutturale/sitemap con i suoi test dal ramo
+  locale, adattato a un solo landmark principale (tag main o role="main"),
+  senza migrazione dei template. Contratto in VALIDAZIONE.md. Suite 57 -> 86
+  test, inclusi otto scenari image:loc e due casi main/role misti; fixture
+  immagine mancante accettata prima e rifiutata dopo. Controllati 1.314 HTML,
+  sette sitemap/1.312 URL/2.023 immagini: zero errori strutturali e JSON-LD;
+  38 avvisi traduttori e 12 loci condivisi storici invariati. Build completa
+  su copia temporanea, nessun output trasferito: solo la home della copia
+  ricalcola la finestra giornaliera. Browser anteprima otto pagine, 32 casi
+  a 390x844/1280x900 nei due temi, zero overflow/errori console; home 883,
+  ricerca Merini 4, stato vuoto e reset. HTML, dati, immagini, sitemap,
+  URL, date, redirect e Amazon pubblici intatti. Produzione da confermare
+  dopo il push autorizzato. Sapienza esclusa: trovato un ritratto illustrato
+  Commons, nessuna immagine sostituita o scheda autore pubblicata.
 - **Lotto Alda Merini pubblicato e verificato (2026-10-19).**
   Riportata solo la biografia del commit locale 346e1cee: da 59 a 103 parole,
   dato sorgente e unico HTML autore (+274 byte), mantenendo il template pubblico.
