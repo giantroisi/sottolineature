@@ -56,7 +56,7 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-20.
 
 ### Fatto
-- **Scheda Goliarda Sapienza pronta per il rilascio autorizzato (2026-10-20).**
+- **Scheda Goliarda Sapienza pubblicata e verificata (2026-10-20).**
   Biografia locale da 56 a 86 parole trasferita selettivamente; titolo
   Il filo di mezzogiorno corretto sulla scheda dell'editore La nave di Teseo
   (la precedente bozza seguiva il refuso del DBI). Ritratto illustrato
@@ -72,8 +72,15 @@ Aggiornata: 2026-10-20.
   cambiano; dati delle altre entita', metadati, URL, date e Amazon invariati.
   Quattro casi browser 390x844/1280x900 chiaro/scuro: ritratto e credito
   caricati, nessun overflow/errore; clic autore-citazione e ritorno riusciti.
-  Nessun merge del ramo locale con 29 testi/profili sospesi. Esito della
-  produzione da registrare dopo il push autorizzato.
+  Nessun merge del ramo locale con 29 testi/profili sospesi. Pubblicato commit
+  7f68603fdf0b9e1b260f12e3a9be4c0d255e10a5 su main, deploy
+  dpl_62emtsEQjKt6m63x2eWqg86Zm1MM Ready, build 22 s, alias canonico confermato.
+  Dopo Ready 29 risorse HTTPS byte-identiche, ritratto compreso; quattro
+  redirect www/Vercel 308 con percorso/query. Quattro casi browser live
+  superati, foto/credito/JSON-LD caricati, nessun overflow/errore console;
+  home 883 e ricerca Sapienza 5 risultati, clic alla citazione riuscito.
+  Log errore letti nei cinque minuti del rilascio: zero record restituiti,
+  drains non esaminati. Registri finali locali, nessun secondo deploy.
 - **Controlli SEO autorizzati e verificati prima del rilascio (2026-10-20).**
   Trasferito soltanto il validatore strutturale/sitemap con i suoi test dal ramo
   locale, adattato a un solo landmark principale (tag main o role="main"),
