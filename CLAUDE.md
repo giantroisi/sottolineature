@@ -56,6 +56,24 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 Aggiornata: 2026-10-20.
 
 ### Fatto
+- **Scheda Goliarda Sapienza pronta per il rilascio autorizzato (2026-10-20).**
+  Biografia locale da 56 a 86 parole trasferita selettivamente; titolo
+  Il filo di mezzogiorno corretto sulla scheda dell'editore La nave di Teseo
+  (la precedente bozza seguiva il refuso del DBI). Ritratto illustrato
+  File:G.sapienza.jpg di HerB104, CC BY-SA 4.0, approvato dall'utente:
+  raccolto da Commons con gli strumenti del progetto, restrizioni vuote,
+  originale 506x600/48.510 byte verificato SHA-256, copia 380x450/17.266 byte
+  ridimensionata senza ritagli; autore, fonte, licenza e modifica dichiarati.
+  Nome nuovo goliarda-sapienza-ritratto-herb104.jpg, vecchio asset conservato.
+  Opzioni didascalia/nota nei soli ritratti interessati e tre test aggiunti;
+  suite pubblica 89/89, link/JSON-LD/sitemap senza errori. Build completa
+  su copia isolata: 1.314 HTML/1.312 URL/2.023 immagini, immutati i conteggi.
+  Solo HTML Sapienza (+283 byte) e URL della sua immagine nella sitemap
+  cambiano; dati delle altre entita', metadati, URL, date e Amazon invariati.
+  Quattro casi browser 390x844/1280x900 chiaro/scuro: ritratto e credito
+  caricati, nessun overflow/errore; clic autore-citazione e ritorno riusciti.
+  Nessun merge del ramo locale con 29 testi/profili sospesi. Esito della
+  produzione da registrare dopo il push autorizzato.
 - **Controlli SEO autorizzati e verificati prima del rilascio (2026-10-20).**
   Trasferito soltanto il validatore strutturale/sitemap con i suoi test dal ramo
   locale, adattato a un solo landmark principale (tag main o role="main"),

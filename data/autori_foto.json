@@ -1140,16 +1140,18 @@
   "sha256_commons": "d4622a7f2c26f997d6a4616b49b1c2880d9a173283f39d3985471ec1cde23863"
  },
  "Goliarda Sapienza": {
-  "altezza": 338,
-  "file": "/assets/autori/goliarda-sapienza.jpg",
-  "file_commons": "File:Goliarda Sapienza (Seuil).jpg",
-  "fotografo": "ActuaLitté",
-  "larghezza": 450,
-  "licenza": "CC BY-SA 2.0",
-  "licenza_codice": "cc-by-sa-2.0",
-  "licenza_url": "https://creativecommons.org/licenses/by-sa/2.0",
-  "pagina_commons": "https://commons.wikimedia.org/wiki/File:Goliarda_Sapienza_(Seuil).jpg",
-  "sha256_commons": "c05e433e0a113ed03992953461518fff3a4e3f00b76cb5ba92fe1573612ddd00"
+  "altezza": 450,
+  "file": "/assets/autori/goliarda-sapienza-ritratto-herb104.jpg",
+  "file_commons": "File:G.sapienza.jpg",
+  "fotografo": "HerB104",
+  "larghezza": 380,
+  "licenza": "CC BY-SA 4.0",
+  "licenza_codice": "cc-by-sa-4.0",
+  "licenza_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "pagina_commons": "https://commons.wikimedia.org/wiki/File:G.sapienza.jpg",
+  "sha256_commons": "6daad24ff28450bd7fa98654cc39fdbf1bd81e7f79698888039b0505365eb81b",
+  "didascalia": "Ritratto illustrato di Goliarda Sapienza",
+  "nota_modifiche": "Ritratto illustrato, ridimensionato senza ritagli"
  },
  "Grazia Deledda": {
   "altezza": 450,

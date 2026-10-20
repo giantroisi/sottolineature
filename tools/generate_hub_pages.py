@@ -196,7 +196,7 @@ def immagine_jsonld(author, foto, canonical):
         '@id': canonical + '#ritratto',
         'contentUrl': SITE_URL + foto['file'],
         'url': SITE_URL + foto['file'],
-        'caption': 'Ritratto di ' + author,
+        'caption': foto.get('didascalia') or 'Ritratto di ' + author,
         'representativeOfPage': True,
     }
     if foto.get('larghezza') and foto.get('altezza'):
@@ -239,6 +239,8 @@ def ritratto_html(author, foto):
     # e' piu' esatta di due parole giuste a meta'.
     if fotografo:
         pezzi.append('Immagine: ' + html.escape(fotografo))
+    if foto.get('nota_modifiche'):
+        pezzi.append(html.escape(foto['nota_modifiche']))
     # Commons scrive il nome della licenza in inglese anche quando il resto
     # arriva in italiano: «Public domain» tradotto e' semplicemente piu'
     # leggibile per chi legge questo sito.
@@ -260,8 +262,9 @@ def ritratto_html(author, foto):
         dimensioni = ' width="' + str(foto['larghezza']) + '" height="' + str(foto['altezza']) + '"'
     return (
         '<figure class="ritratto">'
-        '<img src="' + html.escape(foto['file'], quote=True) + '" alt="Ritratto di ' +
-        html.escape(author) + '"' + dimensioni + ' decoding="async">'
+        '<img src="' + html.escape(foto['file'], quote=True) + '" alt="' +
+        html.escape(foto.get('didascalia') or 'Ritratto di ' + author, quote=True) +
+        '"' + dimensioni + ' decoding="async">'
         '<figcaption class="ritratto-credito sans">' + ' \u00b7 '.join(pezzi) + '</figcaption>'
         '</figure>'
     )
