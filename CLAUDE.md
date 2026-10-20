@@ -68,8 +68,14 @@ Aggiornata: 2026-10-20.
   ricalcola la finestra giornaliera. Browser anteprima otto pagine, 32 casi
   a 390x844/1280x900 nei due temi, zero overflow/errori console; home 883,
   ricerca Merini 4, stato vuoto e reset. HTML, dati, immagini, sitemap,
-  URL, date, redirect e Amazon pubblici intatti. Produzione da confermare
-  dopo il push autorizzato. Sapienza esclusa: trovato un ritratto illustrato
+  URL, date, redirect e Amazon pubblici intatti. Pubblicato commit 88526807:
+  deploy dpl_H6VGwThKmVdSigqNBkowPCmZ7pns Ready, build 20 s, SHA/main e alias
+  sottolineature.it confermati. Dopo Ready: 32 casi browser negli stessi
+  formati/temi, zero overflow/errori; home 883; 23 risorse HTTPS byte-identiche
+  al checkout e quattro redirect www/Vercel 308 con percorso/query preservati.
+  Log errore negli ultimi cinque minuti: zero record restituiti; drains non
+  esaminati. Registri finali locali soltanto, nessun secondo deploy.
+  Sapienza esclusa: trovato un ritratto illustrato
   Commons, nessuna immagine sostituita o scheda autore pubblicata.
 - **Lotto Alda Merini pubblicato e verificato (2026-10-19).**
   Riportata solo la biografia del commit locale 346e1cee: da 59 a 103 parole,
