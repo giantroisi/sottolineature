@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "id": "verifica-senza-modifiche",
+  "base": "ec9287e4c9038b53c93219168e77bcffbc4f215b",
+  "change_class": "none",
+  "sources": {},
+  "pages": {"new": {}, "modified": {}},
+  "derived": {},
+  "global_components": [],
+  "seo": {"canonical": {}, "robots": {}, "modified": {}, "lastmod": {}, "sitemap_images": {}, "sitemap_added": [], "sitemap_removed": []},
+  "asset_consumers": {}
+}
