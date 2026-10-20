@@ -25,7 +25,7 @@ class AffiliateTests(unittest.TestCase):
     def test_real_config_contains_only_approved_verified_prime_editions(self):
         editions = affiliate.validated_editions(self.config)
         self.assertEqual(affiliate.load_tracking_id(self.config), 'sottolineature-21')
-        self.assertEqual(len(editions), 134)
+        self.assertEqual(len(editions), 135)
         self.assertTrue(all(item['amazon_edition_verified'] is True for item in editions.values()))
         exceptions = [item for item in editions.values() if not item['prime_verified']]
         self.assertEqual([item['author'] for item in exceptions],
@@ -43,6 +43,28 @@ class AffiliateTests(unittest.TestCase):
                 self.assertEqual(rendered.count('class="affiliate-link"'), 1)
                 self.assertIn(editions[key]['amazon_url'], rendered)
         self.assertTrue(all(count > 0 for count in counts.values()))
+
+    def test_owner_selected_october_20_editions_and_all_their_quotes(self):
+        expected = {
+            ('Oscar Wilde', 'Il ritratto di Dorian Gray'): ('8804710217', 6),
+            ('Haruki Murakami', 'Norwegian Wood'): ('8806216465', 1),
+        }
+        editions = affiliate.validated_editions(self.config)
+        for key, (asin, count) in expected.items():
+            edition = editions[key]
+            self.assertEqual(edition['amazon_url'],
+                             f'https://www.amazon.it/dp/{asin}/?tag=sottolineature-21')
+            self.assertEqual(edition['link_checker_verified_on'], '2026-10-20')
+            quotes = [q for q in self.quotes if (q['author'], q['title']) == key]
+            self.assertEqual(len(quotes), count)
+            for quote in quotes:
+                self.assertIn(edition['amazon_url'], affiliate.render_amazon_link(quote, self.config))
+        wilde = editions[('Oscar Wilde', 'Il ritratto di Dorian Gray')]
+        self.assertEqual(wilde['contributors'], [
+            {'name': 'Oscar Wilde', 'role': 'Autore'},
+            {'name': 'Nicholas Frankel', 'role': 'Curatore'},
+            {'name': 'Michele Piumini', 'role': 'Traduttore'},
+        ])
 
     def test_blank_tracking_id_disables_every_link(self):
         config = {'amazon_it_tracking_id': '', 'edizioni': self.config['edizioni']}

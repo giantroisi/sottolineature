@@ -30,15 +30,17 @@
     {
       "author": "Oscar Wilde",
       "title": "Il ritratto di Dorian Gray",
-      "asin": "8811023246",
-      "amazon_title": "Il ritratto di Dorian Gray. Ediz. Integrale Garzanti",
-      "contributors": [{"name": "Oscar Wilde", "role": "Autore"}, {"name": "Marco Amante", "role": "Traduttore"}],
+      "asin": "8804710217",
+      "amazon_title": "Il ritratto di Dorian Gray",
+      "contributors": [{"name": "Oscar Wilde", "role": "Autore"}, {"name": "Nicholas Frankel", "role": "Curatore"}, {"name": "Michele Piumini", "role": "Traduttore"}],
       "format": "Copertina flessibile",
-      "amazon_url": "https://www.amazon.it/dp/8811023246/?tag=sottolineature-21",
+      "amazon_url": "https://www.amazon.it/dp/8804710217/?tag=sottolineature-21",
       "amazon_edition_verified": true,
       "prime_verified": true,
-      "edition_note": "Garzanti, 2026; traduzione di Marco Amante",
-      "verified_on": "2026-10-08"
+      "edition_note": "Mondadori, 2019; italiano; ISBN 9788804710219. A cura di Nicholas Frankel, traduzione di Michele Piumini. Testo del dattiloscritto originale del 1890, distinto dalla redazione del 1891 e dalle fonti delle citazioni, che restano invariate",
+      "bibliographic_source_url": "https://www.amazon.it/dp/8804710217/",
+      "verified_on": "2026-10-20",
+      "link_checker_verified_on": "2026-10-20"
     },
     {
       "author": "Henrik Ibsen",
@@ -2488,6 +2490,21 @@
       "edition_note": "Marsilio, 2021; italiano, 412 pagine; ISBN 9788829705320. Romanzo completo nella traduzione di Marinella Magri', non analisi o adattamento; testi e fonti delle citazioni conservati",
       "verified_on": "2026-10-12",
       "link_checker_verified_on": "2026-10-12"
+    },
+    {
+      "author": "Haruki Murakami",
+      "title": "Norwegian Wood",
+      "asin": "8806216465",
+      "amazon_title": "Norwegian wood. Tokyo blues",
+      "contributors": [{"name": "Haruki Murakami", "role": "Autore"}, {"name": "Giorgio Amitrano", "role": "Traduttore"}],
+      "format": "Copertina flessibile",
+      "amazon_url": "https://www.amazon.it/dp/8806216465/?tag=sottolineature-21",
+      "amazon_edition_verified": true,
+      "prime_verified": true,
+      "edition_note": "Einaudi, 2013; italiano; ISBN 9788806216467. Traduzione di Giorgio Amitrano. Edizione scelta dal proprietario; dati della scheda d'acquisto separati dalle fonti della citazione",
+      "bibliographic_source_url": "https://www.amazon.it/dp/8806216465/",
+      "verified_on": "2026-10-20",
+      "link_checker_verified_on": "2026-10-20"
     }
   ]
 }

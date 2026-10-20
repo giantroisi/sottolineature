@@ -55,6 +55,27 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 Aggiornata: 2026-10-20.
 
+### Lotto Amazon autorizzato — verificato, pronto al rilascio (2026-10-20)
+
+Solo Dorian Gray e Norwegian Wood: sostituita la scheda Garzanti con
+Mondadori 2019, ASIN 8804710217, curatela Nicholas Frankel e traduzione
+Michele Piumini; dattiloscritto 1890 distinto dalle fonti delle citazioni.
+Aggiunta mappatura Norwegian Wood, Einaudi 2013, ASIN 8806216465,
+traduzione Giorgio Amitrano. Entrambe italiane cartacee Prime al controllo
+odierno; due URL puliti verificati con Controllo Link ufficiale Amazon,
+Tracking ID sottolineature-21 intatto. Soglia selettiva 134 -> 135 edizioni.
+11 HTML generati: sette citazioni (sei Wilde, una Murakami), due autori,
+opera Dorian e raccolta Bellezza che gia' la proponeva. Nessun URL nuovo:
+Norwegian ha una citazione e nessuna pagina opera autonoma, per la regola
+editoriale citazione=opera. Nessun altro prodotto o contenuto modificato.
+Build su copia 1.314 HTML/1.312 URL, zero problemi link/JSON-LD e 90 test.
+44 casi browser locali a 390x844/1280x900 chiaro/scuro, zero overflow o
+errori console; CTA, rel, target e disclosure invariati. Confronto integrale:
+solo blocchi commerciali, altri dati/fonti/HTML/datePublished/dateModified/
+lastmod/metadati/immagini/sitemap e home/calendario byte-invariati.
+Totali: 135 edizioni, 337 citazioni affiliate, 56 opere, 898 pulsanti.
+Pubblicazione autorizzata; esito produzione da verificare e registrare.
+
 ### Fatto
 - **Scheda Goliarda Sapienza pubblicata e verificata (2026-10-20).**
   Biografia locale da 56 a 86 parole trasferita selettivamente; titolo
