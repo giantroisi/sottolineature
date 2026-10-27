@@ -53,26 +53,60 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-10-20.
+Aggiornata: 2026-10-27.
 
-### Protezione PR semplificata — in verifica (2026-10-20)
+### Protezione PR semplificata — integrata e pubblicata (2026-10-20; riverificata 2026-10-27)
 
-Su autorizzazione umana verificata nella chat di coordinamento, turno
-01a159c1-5069-7d12-a274-b4d616125b32 (seguo il tuo consiglio, procedi).
-Ramo tecnico separato codex/seo-pr-safety dalla base pubblica 29010e3e,
-nessun merge del controller complesso locale 4df543a2 o dei lavori sospesi.
-Controllo PR con guard pubblicato nella base, impatto esatto e manifest per
-HTML/sitemap, soglie 25 file/cinque HTML, date iniziali/slug immutabili,
-due build temporanee e suite completa. Eccezione soltanto con commento
-esplicito del proprietario, SHA/digest/motivo esatti registrati nei log.
-Nessuna App aggiuntiva, chiave privata o auto-approvazione. IndexNow manuale
-e confermato, solo main dopo PR unita e produzione Vercel riuscita; mai preview.
-Nessun URL inviato durante preparazione/test. Main va protetto con PR e check
-SEO safety standard GitHub Actions, amministratori inclusi; niente push forzati.
-Accesso amministratore e CLI GitHub gia' configurata verificati; protezione
-ancora da applicare e provare, non dichiarata attiva in questa fase.
-Scope solo workflow/guard/test/dipendenza/documentazione: tutti i contenuti,
-date, URL, canonical, sitemap, robots, redirect e Amazon restano invariati.
+La precedente dicitura «in verifica» descriveva la preparazione, non lo stato
+attuale. PR [#2](https://github.com/giantroisi/sottolineature/pull/2) unita il
+2026-10-20 alle 15:24:02 UTC nel commit pubblico
+`4a6640c26ee1d1bdcddd149d0047c6eacdbd1430`, con parent `29010e3e` e
+`10e7fa03bdda55f693ee02a0896fe28c579daff1`. Il tree
+`dafb269a55212401d511d2e5c22c32a9943f0c3c` coincide con quello della PR
+verificata: undici soli file tecnici/documentazione, nessun HTML, dato,
+immagine, configurazione SEO o affiliazione modificati rispetto alla base.
+
+Rilettura GitHub del 27 ottobre: main richiede PR aggiornata e check
+`SEO safety` dell'App standard GitHub Actions 15368, anche agli amministratori;
+force-push ed eliminazione disabilitati. Non sono richieste review aggiuntive
+di un secondo gestore (conteggio zero): il merge resta esplicitamente autorizzato.
+La [run positiva 39447002676](https://github.com/giantroisi/sottolineature/actions/runs/39447002676),
+terminata il 20 ottobre alle 15:19:09 UTC, riporta `verified=true`,
+due build e suite superate, zero errori/finding e nessun override.
+La prova negativa [PR #1](https://github.com/giantroisi/sottolineature/pull/1),
+run 39446099868, e' stata bloccata con `Invalid exact change manifest`
+e chiusa senza merge. Sono prove storiche rilette, non nuove esecuzioni.
+
+Vercel, riverificato in sola lettura: deployment Git
+`dpl_Ao3UnuBmUMUGNg853iTncoyvqotu`, progetto
+`prj_TWlTFfHb7FyDJVxHKMcJLAOWKOAe`, team
+`team_5wnLmRfxPsCd8aEmcZUsfRKG`, ambiente production, READY sullo stesso
+commit, alias `https://sottolineature.it`. Ready il 2026-10-20 alle
+15:24:23.481 UTC; conferma Production success del bot GitHub alle 15:24:26 UTC.
+Quest'ultimo orario e' la base prudenziale della pausa di 48 ore relativa
+a quel rilascio: termine il 2026-10-22 alle 15:24:26 UTC
+(17:24:26 Europe/Rome). Nessuna nuova pubblicazione in questo riallineamento;
+un eventuale rilascio successivo richiede un nuovo calcolo.
+
+Implementati e presenti nel commit: guard dalla base main, manifest esatto
+HTML/sitemap, soglie 25 file/cinque HTML, invarianti date iniziali/slug,
+doppia build isolata e suite; eccezione solo con commento proprietario
+legato a SHA/digest/motivo. IndexNow soltanto manuale confermato dopo PR unita
+e produzione riuscita, mai preview: nessun invio eseguito in questa verifica.
+Limite in `PROTEZIONE-PR.md`: protezione pratica contro errori, non
+certificazione crittografica indipendente; un amministratore puo' cambiare
+regole o workflow. La proposta complessa locale non fa parte del rilascio.
+
+Nessun passaggio tecnico di questo lotto risulta ancora da completare.
+La sorgente autorevole recuperata e' quella indicata dalle routine; all'inizio
+del riallineamento era pulita e identica a origin/main verificato via rete,
+entrambi al commit pubblico sopra. Nessuna copia o fusione dalle altre cartelle.
+**Prossimo passo:** approvazione del solo diff documentale CLAUDE.md/LOG.md
+preparato il 27 ottobre, prima di qualsiasi commit/pubblicazione.
+Finche' questo riallineamento e' aperto non iniziare altri lotti; lo stato
+«in verifica» non va piu' attribuito alla protezione gia' pubblicata.
+Nessun build rigenerante, modifica al sito, GSC, IndexNow, commit, push o deploy
+eseguito per il riallineamento; nessuna autorizzazione implicita a nuovi lavori.
 
 ### Ultimo rilascio Amazon — pubblicato e verificato (2026-10-20)
 
