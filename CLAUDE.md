@@ -53,7 +53,38 @@ Ogni scarto va motivato in `LOG.md`, non semplicemente omesso.
 
 ## Roadmap
 
-Aggiornata: 2026-10-27.
+Aggiornata: 2026-10-29.
+
+### Verifica delle fonti — esperimento su due citazioni (2026-10-29)
+
+Autorizzazione esplicita del proprietario nella chat di coordinamento, turno
+01a1876f-5d83-7c93-a6f1-e10a417cee7d: procedere subito, senza attendere le 20:16,
+con massimo due pagine e normale PR soltanto dopo tutti i gate. L'eccezione
+riguarda l'attesa, non la verifica o il perimetro. Selezionate soltanto le
+citazioni Una donna sul sacrificio materno e Le città invisibili su Zaira.
+Usato il blocco fonti esistente, nessun generatore/template/componente/CSS nuovo.
+Aleramo: trascrizione Gutenberg 47786, frontespizio Bemporad 1921, terza edizione,
+parte terza capitolo XX, p. 252 nella numerazione trascritta; nessun ISBN moderno
+attribuito al volume storico. Calvino: estratto digitale già registrato,
+Le città e la memoria.3/Zaira, riscontro Treccani; Einaudi 1972 non presentata
+come edizione consultata. Edizione e pagina possono variare, Amazon separato.
+
+Karamazov e Mann non inclusi: nei tre record mancano URL, edizione e traduttore
+della fonte. Recuperato il capitolo di Zosima, ma non la traduzione italiana;
+per Mann Wikiquote rinvia all'Enciclopedia delle citazioni di Elena Spagnol,
+Garzanti 2009, non alla traduzione Pocar dell'edizione commerciale. Nessun dato
+Amazon trasferito alla fonte. Nessuna citazione o pagina nuova, nessun testo,
+URL/title/meta/canonical/data/affiliazione/sitemap modificato.
+
+Prova integrale isolata e baseline byte-identica: soltanto due HTML e i loro
+riferimenti canonici cambiati, 1.314 HTML/1.312 URL invariati. Correlati di tutte
+le 883 citazioni identici, impatto due URL, nessun file pubblico fuori perimetro.
+Otto casi browser 390x844/1280x900, chiaro/scuro: zero errori console/overflow,
+fonti e riferimento copiabile leggibili, due link commerciali per pagina intatti.
+Stato: preparato e verificato localmente; PR, suite obbligatoria e pubblicazione
+ancora da completare. Dopo Ready registrare qui e in LOG l'orario confermato;
+48 ore di sola osservazione dal rilascio, pausa attiva se l'orario e' incerto.
+Nessuna richiesta GSC/IndexNow o modifica a servizi/configurazioni.
 
 ### Protezione PR semplificata — integrata e pubblicata (2026-10-20; riverificata 2026-10-27)
 
