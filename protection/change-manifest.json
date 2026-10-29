@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "base": "110bbc4187033b0dd9852ae2450880ba444c9714",
+  "reason": "Verifica documentata delle fonti di due citazioni, senza componenti condivisi o altri cambiamenti pubblici",
+  "files": {
+    "CLAUDE.md": {
+      "before": "49bc4463ee706012623d04908b53075229e4dd03d808f51fe3ace744c9d71297",
+      "after": "5e9a1c77b16a733aa5bc84032c3fae7998758657e5c097f133a482d47039ffa9",
+      "before_mode": "100644",
+      "after_mode": "100644"
+    },
+    "LOG.md": {
+      "before": "b1ff699fa51d8775f15bdb998d55f526e75cf1bb30a8ffffd0fba287cd87b54f",
+      "after": "fbab702bf73ec66b996ae8ca8afe4a9b8d6b9af29437a144d872eda2ddf15b5d",
+      "before_mode": "100644",
+      "after_mode": "100644"
+    },
+    "citazioni/italo-calvino-le-citta-invisibili-la-citta-non.html": {
+      "before": "18551a5332a654e0de62a35383f596acfb8ffeaaa637d38360f2304dde60874c",
+      "after": "170ee325d2eeb653cfca393f17e23cde558fbc16bc2c7f37c2090c36a92730ba",
+      "before_mode": "100644",
+      "after_mode": "100644"
+    },
+    "citazioni/sibilla-aleramo-una-donna-perche-nella-maternita.html": {
+      "before": "4666b9275c96e616ff4187cf38520500b15521ea053d9eb9504d8e48e64c88b4",
+      "after": "15553e39d04bf4c7d43964f23280ac698c16c7d20919d49661ec18e172c962d0",
+      "before_mode": "100644",
+      "after_mode": "100644"
+    },
+    "data/citazioni.json": {
+      "before": "a82e0622c618cd75ed335574a47332db2511fcb365dcf8faf34b8cec6210415a",
+      "after": "aa4458b90ea5a77ceebfcf4b2782b4c0d1deb2cd95c2ef31b9112fb1984d2fdd",
+      "before_mode": "100644",
+      "after_mode": "100644"
+    }
+  }
+}
