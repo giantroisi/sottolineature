@@ -1,35 +1,53 @@
 {
   "version": 1,
-  "base": "110bbc4187033b0dd9852ae2450880ba444c9714",
-  "reason": "Verifica documentata delle fonti di due citazioni, senza componenti condivisi o altri cambiamenti pubblici",
+  "base": "4d644aa516173f79a5922be42d94c4d2e4cff708",
+  "reason": "Supporto verificato a un solo collegamento editoriale contestuale per pagina, con validazione esatta nel generatore e nei gate",
   "files": {
-    "CLAUDE.md": {
-      "before": "49bc4463ee706012623d04908b53075229e4dd03d808f51fe3ace744c9d71297",
-      "after": "5e9a1c77b16a733aa5bc84032c3fae7998758657e5c097f133a482d47039ffa9",
+    "data/opere.json": {
+      "before": "97ea2dfb53cf345d85308d4bd678955f82de3d39c277eafc789028fe3067732c",
+      "after": "bae30acc91093e1081969b14c1d3497c05950278a7370ae9ddce6579aaed5576",
       "before_mode": "100644",
       "after_mode": "100644"
     },
-    "LOG.md": {
-      "before": "b1ff699fa51d8775f15bdb998d55f526e75cf1bb30a8ffffd0fba287cd87b54f",
-      "after": "fbab702bf73ec66b996ae8ca8afe4a9b8d6b9af29437a144d872eda2ddf15b5d",
+    "opere/j-k-rowling-harry-potter-e-la-pietra-filosofale.html": {
+      "before": "62bab0b02166bc154d965333addf34c4d17e8e53aec6526fa61049e0b954cafe",
+      "after": "c872dab845dd7ce304fdd539a4e060e0ac37abb3047c0c62aa02c27ed70da61b",
       "before_mode": "100644",
       "after_mode": "100644"
     },
-    "citazioni/italo-calvino-le-citta-invisibili-la-citta-non.html": {
-      "before": "18551a5332a654e0de62a35383f596acfb8ffeaaa637d38360f2304dde60874c",
-      "after": "170ee325d2eeb653cfca393f17e23cde558fbc16bc2c7f37c2090c36a92730ba",
+    "tools/ci_safety.py": {
+      "before": "6b17bc3afe85edbe5fc57eac771b7f494eb4b6eb3ec9c8bc01b7ddfe7532b4c8",
+      "after": "c3be31162528d78b6a66a55041d45076606f024c1a3ff5d382b962d0531b06d2",
       "before_mode": "100644",
       "after_mode": "100644"
     },
-    "citazioni/sibilla-aleramo-una-donna-perche-nella-maternita.html": {
-      "before": "4666b9275c96e616ff4187cf38520500b15521ea053d9eb9504d8e48e64c88b4",
-      "after": "15553e39d04bf4c7d43964f23280ac698c16c7d20919d49661ec18e172c962d0",
+    "tools/generate_opera_pages.py": {
+      "before": "976dfc839bdf95a9132493ae2fe0a929f95cadc5026483de310f28af02a1951b",
+      "after": "ba743c13ec80ee0795bdef2ddc077132c2eceb40bc886c9624692475aa6a4aca",
       "before_mode": "100644",
       "after_mode": "100644"
     },
-    "data/citazioni.json": {
-      "before": "a82e0622c618cd75ed335574a47332db2511fcb365dcf8faf34b8cec6210415a",
-      "after": "aa4458b90ea5a77ceebfcf4b2782b4c0d1deb2cd95c2ef31b9112fb1984d2fdd",
+    "tools/protection_gate.py": {
+      "before": "07401a5c4bf13b734131ee38b93cd08c7bc37dc086e20e7c6ef472d96049c7e0",
+      "after": "0015fc83a43fec9ec67504e6bdd2d2a0b04c52eb24308a1c8407febd1e4ae4f8",
+      "before_mode": "100644",
+      "after_mode": "100644"
+    },
+    "tools/test_ci_safety.py": {
+      "before": "cd6ef72c32960fe387ea0b241402a7aebe5ec4fb7bc19f413417ce036e539e51",
+      "after": "f1115a40abc93c72b94364e5d5a6feaf3cc5159d4a7c954ea162a2610ff62a43",
+      "before_mode": "100644",
+      "after_mode": "100644"
+    },
+    "tools/test_protection_gate.py": {
+      "before": "6935ba2208957bd0b1cf9a221400c108225a79b6b314a0bf16270c19fdbfe733",
+      "after": "65545712c2c517f09f2357ac9ea065cb7c3d69bc664697e43b1e526edcc35ccb",
+      "before_mode": "100644",
+      "after_mode": "100644"
+    },
+    "tools/test_structural_validation.py": {
+      "before": "7965045dac9a22852199e1bb2df82fa75788e133240e86b3ebab845733e96e43",
+      "after": "6cc3feb00237faff44bf4d861003ca247d9885842a476d271f451a09bf35b107",
       "before_mode": "100644",
       "after_mode": "100644"
     }

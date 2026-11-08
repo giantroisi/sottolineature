@@ -12,6 +12,7 @@ import html
 import json
 import os
 import sys
+from urllib.parse import urlsplit
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from generate_quote_pages import ROOT, SAMEAS, SITE_URL, data_pubblicazione, slugify  # noqa: E402
@@ -86,7 +87,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   <h1>{h1}</h1>
   <p class="count sans">{author}{year_html} · {count} citazion{count_suffix} in archivio</p>
   <p class="opera-scheda">{scheda}</p>
-{affiliate_html}
+{link_contestuale_html}{affiliate_html}
   {h2_lista}
   {cards_html}
   {altre_html}
@@ -151,6 +152,28 @@ def build_opera_map(entries, opere):
         for t in op['titles']:
             by_slug_lookup[(op['author'], t)] = info
     return by_slug_lookup
+
+
+def render_link_contestuale(op):
+    """Rende l'eventuale rinvio editoriale specifico dell'opera.
+
+    Il campo e' intenzionalmente limitato a URL e testo: niente target,
+    tracking o rel commerciali possono entrare nei dati e propagarsi alle
+    pagine generate. Il gate registra poi href, testo e rel effettivi.
+    """
+    link = op.get('link_contestuale')
+    if not link:
+        return ''
+    if not isinstance(link, dict) or set(link) != {'url', 'testo'}:
+        raise ValueError('link_contestuale richiede soltanto url e testo: ' + op.get('slug', '?'))
+    url = link['url'].strip() if isinstance(link['url'], str) else ''
+    testo = ' '.join(link['testo'].split()) if isinstance(link['testo'], str) else ''
+    parsed = urlsplit(url)
+    if (parsed.scheme != 'https' or not parsed.netloc or parsed.username or parsed.password or
+            parsed.query or parsed.fragment or not testo):
+        raise ValueError('link_contestuale non valido: ' + op.get('slug', '?'))
+    return ('  <p class="card-source sans contextual-reference"><a class="contextual-link" href="' +
+            html.escape(url, quote=True) + '">' + html.escape(testo) + '</a></p>\n')
 
 
 def render_opera(op, items, opere_autore=None):
@@ -284,6 +307,7 @@ def render_opera(op, items, opere_autore=None):
         count=count,
         count_suffix=count_suffix,
         scheda=html.escape(op['scheda']),
+        link_contestuale_html=render_link_contestuale(op),
         affiliate_html=render_amazon_link(op),
         h2_lista=h2_lista_html,
         altre_html=altre_html,
