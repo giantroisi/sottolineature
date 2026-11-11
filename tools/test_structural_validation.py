@@ -1,5 +1,6 @@
 """Regressioni SEO su un sito fittizio isolato, senza modificare l'archivio."""
 import contextlib
+import html
 import io
 import json
 from pathlib import Path
@@ -12,6 +13,7 @@ from xml.sax.saxutils import escape
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import check_links as checker
+import generate_opera_pages as opera_pages
 
 
 class StructuralValidationTests(unittest.TestCase):
@@ -80,6 +82,38 @@ class StructuralValidationTests(unittest.TestCase):
             r'\.grid\s+\.grid-col\s*\{([^}]*)\}', template)
         self.assertIsNotNone(responsive, 'manca la regola mobile per le colonne della griglia')
         self.assertRegex(responsive.group(1), r'\bwidth:\s*100%\s*;')
+
+    def test_contextual_link_renderer_is_deterministic_and_rejects_tracking(self):
+        opera = {'slug': 'opera-test', 'link_contestuale': {
+            'url': 'https://example.invalid/approfondimento',
+            'testo': '  Un approfondimento   editoriale.  ',
+        }}
+        expected = ('  <p class="card-source sans contextual-reference">'
+                    '<a class="contextual-link" href="https://example.invalid/approfondimento">'
+                    'Un approfondimento editoriale.</a></p>\n')
+        self.assertEqual(opera_pages.render_link_contestuale(opera), expected)
+        self.assertEqual(opera_pages.render_link_contestuale(opera), expected)
+        for url in ('http://example.invalid/percorso',
+                    'https://example.invalid/percorso?tag=tracking',
+                    'https://example.invalid/percorso#sezione',
+                    'https://utente:segreto@example.invalid/percorso'):
+            with self.subTest(url=url), self.assertRaisesRegex(ValueError, 'non valido'):
+                opera_pages.render_link_contestuale({
+                    'slug': 'opera-test',
+                    'link_contestuale': {'url': url, 'testo': 'Testo'},
+                })
+
+    def test_only_authorized_work_page_contains_the_contextual_link(self):
+        root = Path(__file__).resolve().parent.parent
+        target = root / 'opere/j-k-rowling-harry-potter-e-la-pietra-filosofale.html'
+        source = target.read_text()
+        visible_source = html.unescape(source)
+        self.assertEqual(source.count('class="contextual-link"'), 1)
+        self.assertIn('href="https://www.oratorna.it/film/harry-potter-e-la-pietra-filosofale"', source)
+        self.assertIn("Dal libro al film: OraTorna spiega il finale di Harry Potter e la pietra filosofale e la differenza decisiva nell'adattamento.", visible_source)
+        self.assertNotRegex(source, r'contextual-link[^>]+rel="[^"]*(?:nofollow|sponsored)')
+        self.assertEqual(sum(path.read_text().count('class="contextual-link"')
+                             for path in (root / 'opere').glob('*.html')), 1)
 
     def test_missing_and_duplicate_head_metadata_are_rejected(self):
         elements = [('<title>Citazione di prova</title>', 'title assente o multiplo'),

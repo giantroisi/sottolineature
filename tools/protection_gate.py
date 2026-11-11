@@ -13,6 +13,7 @@ import re
 import subprocess
 import tarfile
 import tempfile
+from urllib.parse import urlsplit
 import xml.etree.ElementTree as ET
 
 TRUSTED_STATE = 'ec9287e4c9038b53c93219168e77bcffbc4f215b'
@@ -187,8 +188,10 @@ class Page(HTMLParser):
     def __init__(self, source):
         super().__init__()
         self.canonical, self.robots, self.dates, self.text, self.resources = [], [], {}, [], []
+        self.contextual_links, self._contextual_link = [], None
         self.hidden = 0
         self.feed(source)
+        need(self._contextual_link is None, 'Link contestuale non chiuso')
         self.graphs = [json.loads(x) for x in re.findall(r'<script\b[^>]*type=["\']application/ld\+json["\'][^>]*>(.*?)</script>', source, re.S | re.I)]
         self.published = _walk_dates(self.graphs, 'datePublished') + self.dates.get('published', [])
         self.modified = _walk_dates(self.graphs, 'dateModified') + self.dates.get('modified', [])
@@ -215,18 +218,30 @@ class Page(HTMLParser):
                 self.resources.append({'src': a['content']})
         if tag in {'a', 'img'}:
             self.resources.append({k: a[k] for k in ('href', 'src', 'alt') if k in a})
+        if tag == 'a' and 'contextual-link' in a.get('class', '').split():
+            need(self._contextual_link is None, 'Link contestuali annidati')
+            self._contextual_link = {'href': a.get('href'),
+                                     'rel': sorted(a.get('rel', '').lower().split()),
+                                     'text': []}
 
     def handle_endtag(self, tag):
+        if tag == 'a' and self._contextual_link is not None:
+            self._contextual_link['text'] = ' '.join(self._contextual_link['text']).strip()
+            self.contextual_links.append(self._contextual_link)
+            self._contextual_link = None
         if tag in {'script', 'style'}:
             self.hidden = max(0, self.hidden - 1)
 
     def handle_data(self, text):
+        if self._contextual_link is not None and text.strip():
+            self._contextual_link['text'].append(' '.join(text.split()))
         if not self.hidden and text.strip():
             self.text.append(' '.join(text.split()))
 
     def metadata(self):
         return {'canonical': self.canonical, 'robots': self.robots,
-                'published': self.published, 'modified': self.modified, 'related': self.related}
+                'published': self.published, 'modified': self.modified, 'related': self.related,
+                'contextual_links': self.contextual_links}
 
     def content(self):
         return {'text': self.text, 'resources': self.resources}
@@ -262,7 +277,8 @@ def seo_check(before_root, after_root, manifest):
     a, sm_a, consumers_a = site_state(before_root)
     b, sm_b, consumers_b = site_state(after_root)
     spec = manifest['seo']
-    expected_fields = {'canonical', 'robots', 'modified', 'lastmod', 'sitemap_images', 'sitemap_added', 'sitemap_removed'}
+    expected_fields = {'canonical', 'robots', 'modified', 'contextual_links', 'lastmod',
+                       'sitemap_images', 'sitemap_added', 'sitemap_removed'}
     need(set(spec) == expected_fields, 'Schema SEO non valido')
     both = a.keys() & b.keys()
     for p in both:
@@ -270,6 +286,14 @@ def seo_check(before_root, after_root, manifest):
         need(a[p].related == b[p].related, 'Correlati collaterali: ' + p)
         if manifest['change_class'] != 'global-structural':
             need(a[p].affiliate == b[p].affiliate, 'Amazon richiede lotto globale: ' + p)
+    for p, page in b.items():
+        for link in page.contextual_links:
+            parsed = urlsplit(link['href'] or '')
+            need(parsed.scheme == 'https' and parsed.netloc and not parsed.username and
+                 not parsed.password and not parsed.query and not parsed.fragment and link['text'],
+                 'Link contestuale non valido: ' + p)
+            need(not {'nofollow', 'sponsored'} & set(link['rel']),
+                 'Link contestuale con attributi SEO impropri: ' + p)
     for field in ('canonical', 'robots', 'modified'):
         delta = {SITE + route(p): {'before': getattr(a[p], field), 'after': getattr(b[p], field)}
                  for p in both if getattr(a[p], field) != getattr(b[p], field)}
@@ -278,6 +302,11 @@ def seo_check(before_root, after_root, manifest):
             for p in both:
                 if a[p].modified != b[p].modified:
                     need(a[p].content() != b[p].content(), 'Sola dateModified senza contenuto: ' + p)
+    contextual_delta = {SITE + route(p): {'before': a[p].contextual_links,
+                                           'after': b[p].contextual_links}
+                        for p in both if a[p].contextual_links != b[p].contextual_links}
+    need(contextual_delta == spec['contextual_links'],
+         'Cambio SEO non dichiarato: contextual_links')
     touched = set(manifest['pages']['new']) | set(manifest['pages']['modified'])
     for p in touched:
         need(p in b and (p == '404.html' or b[p].canonical == [SITE + route(p)]), 'Canonical incoerente: ' + p)
@@ -447,8 +476,8 @@ class Gate:
 
 
 def empty_seo():
-    return {'canonical': {}, 'robots': {}, 'modified': {}, 'lastmod': {}, 'sitemap_images': {},
-            'sitemap_added': [], 'sitemap_removed': []}
+    return {'canonical': {}, 'robots': {}, 'modified': {}, 'contextual_links': {},
+            'lastmod': {}, 'sitemap_images': {}, 'sitemap_added': [], 'sitemap_removed': []}
 
 
 def empty_manifest(base):

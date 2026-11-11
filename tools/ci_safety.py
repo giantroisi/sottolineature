@@ -109,7 +109,7 @@ def evaluate(g, before, after, base, head, comments=()):
             hard.append('datePublished immutable: ' + path)
         if a[path].modified != b[path].modified and a[path].content() == b[path].content():
             hard.append('dateModified without real content change: ' + path)
-        for field in ('canonical', 'robots', 'affiliate', 'related'):
+        for field in ('canonical', 'robots', 'affiliate', 'related', 'contextual_links'):
             if getattr(a[path], field) != getattr(b[path], field):
                 findings.append(field + ' changed: ' + path)
     for path in pages:

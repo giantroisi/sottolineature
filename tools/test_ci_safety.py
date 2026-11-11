@@ -121,6 +121,17 @@ class CiSafetyTests(unittest.TestCase):
         self.f.write('tools/generate_quote_pages.py', b'# TEST changed shared code\n')
         self.assertFalse(self.evaluate()['allowed'])
 
+    def test_contextual_link_change_requires_exact_owner_exception(self):
+        link = (b'<a class="contextual-link" href="https://example.invalid/approfondimento">'
+                b'Approfondimento verificato</a>')
+        self.f.write('citazioni/uno.html', self.f.page('uno').replace(b'</main>', link + b'</main>'))
+        self.manifest()
+        result = self.evaluate()
+        self.assertFalse(result['allowed'])
+        self.assertIn('contextual_links changed: citazioni/uno.html', result['findings'])
+        approved = self.evaluate([self.comment(result['impact_sha256'])])
+        self.assertTrue(approved['allowed'], approved)
+
     def test_added_date_immutable(self):
         data = copy.deepcopy(self.f.quotes)
         data[0]['added'] = '2026-10-20'

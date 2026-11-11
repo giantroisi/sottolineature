@@ -278,6 +278,56 @@ class ProtectionGateTests(unittest.TestCase):
         body = self.page('uno', 'nuovo') + b'<div class="related sans"><h2>Altre citazioni di Autore</h2><ul><li><a href="/citazioni/due/">due</a></li></ul></div>'
         self.mutation_case(body, 'Correlati')
 
+    def test_contextual_link_requires_exact_per_page_contract(self):
+        m, contents = self.normal()
+        p = 'citazioni/uno.html'
+        link = (b'<p class="contextual-reference"><a class="contextual-link" '
+                b'href="https://example.invalid/approfondimento">Approfondimento verificato</a></p>')
+        contents[p] = contents[p].replace(b'</main>', link + b'</main>')
+        m['pages']['modified'][p].update(self.contract(p, contents[p]))
+        path = self.approve(m)
+        self.apply(contents)
+        with self.assertRaisesRegex(g.Rejected, 'contextual_links'):
+            self.checker().verify(self.base, path)
+
+    def test_declared_contextual_link_passes(self):
+        m, contents = self.normal()
+        p = 'citazioni/uno.html'
+        link = (b'<p class="contextual-reference"><a class="contextual-link" '
+                b'href="https://example.invalid/approfondimento">Approfondimento verificato</a></p>')
+        contents[p] = contents[p].replace(b'</main>', link + b'</main>')
+        m['pages']['modified'][p].update(self.contract(p, contents[p]))
+        before = g.Page(self.page('uno').decode()).contextual_links
+        after = g.Page(contents[p].decode()).contextual_links
+        m['seo']['contextual_links'][g.SITE + '/citazioni/uno/'] = {
+            'before': before, 'after': after}
+        path = self.approve(m)
+        self.apply(contents)
+        self.checker().verify(self.base, path)
+
+    def contextual_link_rejection(self, href, rel, message):
+        m, contents = self.normal()
+        p = 'citazioni/uno.html'
+        link = ('<a class="contextual-link" href="' + href + '" rel="' + rel +
+                '">Approfondimento</a>').encode()
+        contents[p] = contents[p].replace(b'</main>', link + b'</main>')
+        m['pages']['modified'][p].update(self.contract(p, contents[p]))
+        m['seo']['contextual_links'][g.SITE + '/citazioni/uno/'] = {
+            'before': g.Page(self.page('uno').decode()).contextual_links,
+            'after': g.Page(contents[p].decode()).contextual_links}
+        path = self.approve(m)
+        self.apply(contents)
+        with self.assertRaisesRegex(g.Rejected, message):
+            self.checker().verify(self.base, path)
+
+    def test_contextual_link_rejects_tracking(self):
+        self.contextual_link_rejection(
+            'https://example.invalid/percorso?tag=tracking', '', 'non valido')
+
+    def test_contextual_link_rejects_commercial_rel(self):
+        self.contextual_link_rejection(
+            'https://example.invalid/percorso', 'nofollow sponsored', 'attributi SEO impropri')
+
     def test_affiliate_html_cannot_change_in_editorial_batch(self):
         body = self.page('uno', 'nuovo').replace(b'8804710217', b'8806216465')
         self.mutation_case(body, 'Amazon richiede lotto globale')
