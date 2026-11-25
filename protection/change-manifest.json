@@ -1,23 +1,17 @@
 {
   "version": 1,
-  "base": "28ff07ad0a1d0061179586143ce99fc9fee3d9b2",
-  "reason": "Correzione del solo URL contestuale Harry Potter verso il canonical OraTorna senza passare dal redirect www",
+  "base": "f5ede73c6f65cf6586635b085a8cb44a1cc8fea5",
+  "reason": "Aggiornamento del contesto e del riferimento verificato per la citazione di Una donna; testo della citazione e URL invariati",
   "files": {
-    "data/opere.json": {
-      "before": "bae30acc91093e1081969b14c1d3497c05950278a7370ae9ddce6579aaed5576",
-      "after": "c31ebd9db03c42fff6d0d855791a610b4ab0960663c104e6960f9d93d32f74ec",
+    "citazioni/sibilla-aleramo-una-donna-perche-nella-maternita.html": {
+      "before": "15553e39d04bf4c7d43964f23280ac698c16c7d20919d49661ec18e172c962d0",
+      "after": "2f07f279779a1ce4eb70f52c0f51c96947d8caf87af92ae26a589ce11a473ec1",
       "before_mode": "100644",
       "after_mode": "100644"
     },
-    "opere/j-k-rowling-harry-potter-e-la-pietra-filosofale.html": {
-      "before": "c872dab845dd7ce304fdd539a4e060e0ac37abb3047c0c62aa02c27ed70da61b",
-      "after": "8ae977075233147ac4fa15a6e91ce5477f60a8958bb99fc442315f2f658ef914",
-      "before_mode": "100644",
-      "after_mode": "100644"
-    },
-    "tools/test_structural_validation.py": {
-      "before": "6cc3feb00237faff44bf4d861003ca247d9885842a476d271f451a09bf35b107",
-      "after": "24b6e2ecc1a5cae1924054795316ddd2c0278d451c881c4cd7386a6b9a50ec16",
+    "data/citazioni.json": {
+      "before": "aa4458b90ea5a77ceebfcf4b2782b4c0d1deb2cd95c2ef31b9112fb1984d2fdd",
+      "after": "281aced8a4cbe04973df87ab8a1f13b583efe2f59cac0a514e9dc5cdfb126f49",
       "before_mode": "100644",
       "after_mode": "100644"
     }
