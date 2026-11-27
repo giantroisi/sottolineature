@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "base": "f5ede73c6f65cf6586635b085a8cb44a1cc8fea5",
-  "reason": "Aggiornamento del contesto e del riferimento verificato per la citazione di Una donna; testo della citazione e URL invariati",
+  "base": "9fc1fd9cc582a7dd7b4f8068a48b298a2cb954d1",
+  "reason": "Completa il riferimento verificabile alla sola citazione dei Fratelli Karamazov pronunciata da Zosima.",
   "files": {
-    "citazioni/sibilla-aleramo-una-donna-perche-nella-maternita.html": {
-      "before": "15553e39d04bf4c7d43964f23280ac698c16c7d20919d49661ec18e172c962d0",
-      "after": "2f07f279779a1ce4eb70f52c0f51c96947d8caf87af92ae26a589ce11a473ec1",
+    "citazioni/fedor-dostoevskij-i-fratelli-karamazov-2.html": {
+      "before": "6e4918b74f761b91819ea080c0d4be6b2217b00862920a699a879d875cb9a7c7",
+      "after": "1521e6c8487893b3e8a132265bd2c8837fc299507e19c4fa2ff2141346ca8442",
       "before_mode": "100644",
       "after_mode": "100644"
     },
     "data/citazioni.json": {
-      "before": "aa4458b90ea5a77ceebfcf4b2782b4c0d1deb2cd95c2ef31b9112fb1984d2fdd",
-      "after": "281aced8a4cbe04973df87ab8a1f13b583efe2f59cac0a514e9dc5cdfb126f49",
+      "before": "281aced8a4cbe04973df87ab8a1f13b583efe2f59cac0a514e9dc5cdfb126f49",
+      "after": "6cf37bb553708b5d457cb4e3171eaa724bcf7a202fec1cee5ae14492553f0e3e",
       "before_mode": "100644",
       "after_mode": "100644"
     }
